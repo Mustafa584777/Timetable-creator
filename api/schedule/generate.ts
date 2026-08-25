@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { setCorsHeaders } from "../_cors.js";
+import { setCorsHeaders } from "../_cors";
 
 let aiClient: GoogleGenAI | null = null;
 function getAi(): GoogleGenAI {

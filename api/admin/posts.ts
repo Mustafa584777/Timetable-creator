@@ -1,4 +1,4 @@
-import { setCorsHeaders } from "../_cors.js";
+import { setCorsHeaders } from "../_cors";
 import fs from "fs";
 import path from "path";
 

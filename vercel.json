@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/api/(.*)",
@@ -58,7 +62,11 @@
       "destination": "/blog/:slug*"
     },
     {
-      "source": "/((?!api/|blog/|assets/|favicon|.*\\..*).*)",
+      "source": "/timetable-creator/:slug*/?",
+      "destination": "/timetable-creator/:slug*/index.html"
+    },
+    {
+      "source": "/((?!api/|blog/|assets/|favicon|timetable-creator/|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]

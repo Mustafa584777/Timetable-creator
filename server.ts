@@ -126,6 +126,28 @@ async function startServer() {
     res.sendFile(filePath);
   });
 
+  // Dynamic route for any custom timetable creator tool without timetable-creator/ folder in URL
+  anonymityApp.get("/:toolSlug", (req, res, next) => {
+    const toolSlug = req.params.toolSlug;
+    if (toolSlug.startsWith("api") || toolSlug.startsWith("blog") || toolSlug.includes(".")) {
+      return next();
+    }
+    const publicToolPath = path.join(process.cwd(), "public", "timetable-creator", toolSlug, "index.html");
+    const distToolPath = path.join(process.cwd(), "dist", "timetable-creator", toolSlug, "index.html");
+    const rootToolPath = path.join(process.cwd(), "timetable-creator", toolSlug, "index.html");
+
+    if (fs.existsSync(distToolPath) && process.env.NODE_ENV === "production") {
+      return res.sendFile(distToolPath);
+    }
+    if (fs.existsSync(publicToolPath)) {
+      return res.sendFile(publicToolPath);
+    }
+    if (fs.existsSync(rootToolPath)) {
+      return res.sendFile(rootToolPath);
+    }
+    next();
+  });
+
   // Admin Panel route
   anonymityApp.get(["/admin-panel", "/admin-panel/"], (req, res) => {
     const filePath = process.env.NODE_ENV === "production" 
