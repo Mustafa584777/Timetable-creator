@@ -42,15 +42,7 @@
   ],
   "rewrites": [
     {
-      "source": "/timetable-generator-online-for-students/?",
-      "destination": "/index.html"
-    },
-    {
       "source": "/timetable-generator-online-for-students",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/admin-panel/?",
       "destination": "/index.html"
     },
     {
@@ -62,7 +54,7 @@
       "destination": "/blog/:slug*"
     },
     {
-      "source": "/timetable-creator/:slug*/?",
+      "source": "/timetable-creator/:slug*",
       "destination": "/timetable-creator/:slug*/index.html"
     },
     {
