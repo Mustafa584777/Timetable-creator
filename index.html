@@ -2620,10 +2620,14 @@
         stroke: #10b981 !important;
       }
       #linkSwitchClassic.active {
-        background: #ffffff !important;
+        background: #10b981 !important;
         border-color: #10b981 !important;
-        color: #10b981 !important;
-        box-shadow: 0 3px 12px rgba(16, 185, 129, 0.25) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+      }
+      #linkSwitchClassic.active svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
       }
       #linkSwitchPro {
         border-color: #6366f1 !important;
@@ -2634,13 +2638,25 @@
         stroke: #6366f1 !important;
       }
       #linkSwitchPro.active {
-        background: #ffffff !important;
+        background: #6366f1 !important;
         border-color: #6366f1 !important;
-        color: #6366f1 !important;
-        box-shadow: 0 3px 12px rgba(99, 102, 241, 0.25) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35) !important;
+      }
+      #linkSwitchPro.active svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
       }
       [data-theme="dark"] .mode-toggle-pill {
-        background: #1e293b !important;
+        background: #1e293b;
+      }
+      [data-theme="dark"] #linkSwitchClassic.active {
+        background: #10b981 !important;
+        color: #ffffff !important;
+      }
+      [data-theme="dark"] #linkSwitchPro.active {
+        background: #6366f1 !important;
+        color: #ffffff !important;
       }
       .mode-switcher-info {
         display: flex;
@@ -3104,11 +3120,15 @@
         transform: scale(0.96);
       }
       .classic-day-pill-filter.active {
-        background: #ffffff !important;
-        color: #10b981 !important;
+        background: #10b981 !important;
+        color: #ffffff !important;
         border-color: #10b981 !important;
         font-weight: 700;
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25) !important;
+        box-shadow: 0 3px 12px rgba(16, 185, 129, 0.35) !important;
+      }
+      [data-theme="dark"] .classic-day-pill-filter.active {
+        background: #10b981 !important;
+        color: #ffffff !important;
       }
       [data-theme="dark"] .classic-day-pill-filter {
         background: #1e293b !important;
@@ -3301,9 +3321,9 @@
         height: 35px;
         width: 100%;
         padding: 0 8px;
-        background: var(--bg-panel);
-        border: 1px solid var(--border-color);
-        border-radius: 6px;
+        background: #ffffff !important;
+        border: 1.5px solid var(--border-color);
+        border-radius: 8px;
         color: var(--text-main);
         font-family: 'Poppins', sans-serif;
         font-size: 12px;
@@ -3311,10 +3331,206 @@
         outline: none;
         cursor: pointer;
         transition: all 0.15s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
       }
       .classic-select-ctrl:focus {
         border-color: #10b981;
-        background: var(--bg-card);
+        background: #ffffff;
+      }
+
+      /* ==========================================================================
+         CUSTOM BUTTON-STYLE DROPDOWNS (REPLACING NATIVE SELECT TAGS WITH JAVASCRIPT)
+         ========================================================================== */
+      .custom-dropdown-wrap {
+        position: relative;
+        display: block;
+        width: 100%;
+        user-select: none;
+      }
+      .custom-dropdown-trigger {
+        width: 100%;
+        height: 36px;
+        padding: 0 12px;
+        background: #ffffff !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border-color);
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12.5px;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        text-align: left;
+        outline: none;
+        box-sizing: border-box;
+      }
+      .custom-dropdown-trigger:hover {
+        background: #ffffff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .custom-dropdown-wrap.open .custom-dropdown-trigger {
+        border-color: #673de6;
+        box-shadow: 0 0 0 3px rgba(103, 61, 230, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .custom-dropdown-label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+        color: var(--text-main);
+        font-weight: 500;
+        font-size: 12.5px;
+      }
+      .custom-dropdown-chevron {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        color: var(--text-muted);
+        transition: transform 0.2s ease, color 0.2s ease;
+      }
+      .custom-dropdown-wrap.open .custom-dropdown-chevron {
+        transform: rotate(180deg);
+        color: #673de6;
+      }
+      .custom-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        width: 100%;
+        min-width: 160px;
+        max-height: 240px;
+        overflow-y: auto;
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        padding: 4px;
+        z-index: 1200;
+        display: none;
+        box-sizing: border-box;
+      }
+      .custom-dropdown-wrap.open .custom-dropdown-menu {
+        display: block;
+        animation: customDropdownSlide 0.15s ease forwards;
+      }
+      @keyframes customDropdownSlide {
+        from { opacity: 0; transform: translateY(-4px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .custom-dropdown-option {
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-main);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.12s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        white-space: nowrap;
+      }
+      .custom-dropdown-option:hover {
+        background: rgba(103, 61, 230, 0.08);
+        color: #673de6;
+      }
+      .custom-dropdown-option.selected {
+        background: rgba(103, 61, 230, 0.12);
+        color: #673de6;
+        font-weight: 600;
+      }
+      .custom-dropdown-option.selected::after {
+        content: "✓";
+        font-size: 12px;
+        font-weight: 700;
+        color: #673de6;
+      }
+
+      /* Dark mode custom dropdowns */
+      [data-theme="dark"] .custom-dropdown-trigger {
+        background: #1e293b !important;
+        border-color: #334155;
+        color: #f1f5f9 !important;
+      }
+      [data-theme="dark"] .custom-dropdown-label {
+        color: #f1f5f9;
+      }
+      [data-theme="dark"] .custom-dropdown-menu {
+        background: #1e293b;
+        border-color: #334155;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      }
+      [data-theme="dark"] .custom-dropdown-option {
+        color: #cbd5e1;
+      }
+      [data-theme="dark"] .custom-dropdown-option:hover {
+        background: rgba(99, 102, 241, 0.2);
+        color: #a5b4fc;
+      }
+      [data-theme="dark"] .custom-dropdown-option.selected {
+        background: rgba(99, 102, 241, 0.3);
+        color: #818cf8;
+      }
+      [data-theme="dark"] .custom-dropdown-option.selected::after {
+        color: #818cf8;
+      }
+
+      /* ==========================================================================
+         STUDENT TIMETABLE GENERATOR TOOL (PRO STUDIO) - BORDERLESS BUTTONS & SHADOWS
+         ========================================================================== */
+      #timetableApp button,
+      #timetableApp .btn-ctrl,
+      #timetableApp .action-btn,
+      #timetableApp .export-btn-item,
+      #timetableApp .btn-add-event,
+      #timetableApp .btn-sidebar-import,
+      #timetableApp .btn-sidebar-export,
+      #timetableApp .btn-sidebar-backup,
+      #timetableApp .btn-sidebar-reset,
+      #timetableApp .seo-btn-cta,
+      #timetableApp #btnAiMerge,
+      #timetableApp #btnAiOvertake,
+      #timetableApp .custom-dropdown-trigger {
+        border: none !important;
+        outline: none !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+
+      #timetableApp button:hover,
+      #timetableApp .btn-ctrl:hover,
+      #timetableApp .action-btn:hover,
+      #timetableApp .export-btn-item:hover,
+      #timetableApp .btn-add-event:hover,
+      #timetableApp .btn-sidebar-import:hover,
+      #timetableApp .btn-sidebar-export:hover,
+      #timetableApp .btn-sidebar-backup:hover,
+      #timetableApp .btn-sidebar-reset:hover,
+      #timetableApp .seo-btn-cta:hover,
+      #timetableApp #btnAiMerge:hover,
+      #timetableApp #btnAiOvertake:hover,
+      #timetableApp .custom-dropdown-trigger:hover {
+        background-color: #ffffff !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+      }
+
+      [data-theme="dark"] #timetableApp button,
+      [data-theme="dark"] #timetableApp .btn-ctrl,
+      [data-theme="dark"] #timetableApp .action-btn,
+      [data-theme="dark"] #timetableApp .export-btn-item,
+      [data-theme="dark"] #timetableApp .btn-add-event,
+      [data-theme="dark"] #timetableApp .custom-dropdown-trigger {
+        background-color: #1e293b !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
       }
 
       /* Mobile Kinetic Scroll Tip */
@@ -4183,27 +4399,8 @@
     <div class="classic-tt-app" id="timetableCreatorClassicApp">
       <div class="classic-container">
         
-        <!-- 1. Dedicated Top Brand & Schedule Header Bar -->
+        <!-- 1. Dedicated Top Schedule Header Bar (Cleaned of branding) -->
         <div class="classic-main-header">
-          <div class="classic-brand-badge-group">
-            <div class="classic-brand-logo-icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-                <rect x="3" y="4" width="18" height="18" rx="3" ry="3"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-                <line x1="10" y1="10" x2="10" y2="22"></line>
-              </svg>
-            </div>
-            <div class="classic-brand-text">
-              <div class="classic-brand-name">
-                <span>TimetableCreator<span class="classic-brand-dotcom">.com</span></span>
-                <span class="classic-brand-pill-status">Clone Edition</span>
-              </div>
-              <span class="classic-brand-tagline">Online Weekly Schedule Generator & Print Tool</span>
-            </div>
-          </div>
-
           <!-- Schedule Title & Subtitle Direct Editable Area -->
           <div class="classic-schedule-meta-box">
             <div class="classic-title-edit-wrap">
@@ -4221,16 +4418,23 @@
               <span>Add Activity</span>
             </button>
 
-            <!-- Template Preset Selector -->
+            <!-- Template Preset Selector Custom Dropdown -->
             <div class="classic-template-select-wrap">
-              <select id="classicPresetTemplates" class="classic-template-dropdown" onchange="app.handlers.applyClassicTemplate(this.value)" aria-label="Load Template">
-                <option value="">Load Template Schedule...</option>
-                <option value="university">University Student Schedule</option>
-                <option value="school">High School Routine</option>
-                <option value="work">Work & Shift Planner</option>
-                <option value="fitness">Workout & Gym Plan</option>
-                <option value="exam">Exam Revision Timetable</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_classicPresetTemplates" style="min-width: 220px;">
+                <input type="hidden" id="classicPresetTemplates" value="">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Load Template">
+                  <span class="custom-dropdown-label">Load Template Schedule...</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', '', 'Load Template Schedule...', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">Load Template Schedule...</div>
+                  <div class="custom-dropdown-option" data-value="university" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'university', 'University Student Schedule', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">🎓 University Student Schedule</div>
+                  <div class="custom-dropdown-option" data-value="school" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'school', 'High School Routine', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">🏫 High School Routine</div>
+                  <div class="custom-dropdown-option" data-value="work" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'work', 'Work & Shift Planner', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">💼 Work & Shift Planner</div>
+                  <div class="custom-dropdown-option" data-value="fitness" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'fitness', 'Workout & Gym Plan', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">💪 Workout & Gym Plan</div>
+                  <div class="custom-dropdown-option" data-value="exam" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'exam', 'Exam Revision Timetable', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">📚 Exam Revision Timetable</div>
+                </div>
+              </div>
             </div>
 
             <!-- Export & Utility Buttons -->
@@ -4250,9 +4454,9 @@
               <button class="classic-icon-btn classic-btn-theme" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
               </button>
-              <button class="classic-btn-switch-pro" onclick="app.handlers.switchViewMode('pro')" title="Switch to Pro Studio Edition" aria-label="Switch to Pro Edition">
+              <button class="classic-btn-switch-pro" onclick="app.handlers.switchViewMode('pro')" title="Switch to Student Timetable Generator" aria-label="Switch to Student Timetable Generator">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                <span>Pro Studio</span>
+                <span>Student Timetable Generator</span>
               </button>
             </div>
           </div>
@@ -4326,68 +4530,110 @@
             <!-- Days Preset -->
             <div class="classic-cfg-item">
               <span class="classic-cfg-label">Days:</span>
-              <select id="classicConfigDays" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
-                <option value="5">Mon - Fri (5 Days)</option>
-                <option value="6">Mon - Sat (6 Days)</option>
-                <option value="7" selected>Mon - Sun (7 Days)</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_classicConfigDays">
+                <input type="hidden" id="classicConfigDays" value="7">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigDays', event)" aria-label="Select Days">
+                  <span class="custom-dropdown-label">Mon - Sun (7 Days)</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', 'Mon - Fri (5 Days)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Mon - Fri (5 Days)</div>
+                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', 'Mon - Sat (6 Days)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Mon - Sat (6 Days)</div>
+                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', 'Mon - Sun (7 Days)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Mon - Sun (7 Days)</div>
+                </div>
+              </div>
             </div>
 
             <!-- Start Time -->
             <div class="classic-cfg-item">
               <span class="classic-cfg-label">Start Time:</span>
-              <select id="classicConfigStart" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
-                <option value="360">06:00 AM</option>
-                <option value="420">07:00 AM</option>
-                <option value="480" selected>08:00 AM</option>
-                <option value="540">09:00 AM</option>
-                <option value="600">10:00 AM</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_classicConfigStart">
+                <input type="hidden" id="classicConfigStart" value="480">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigStart', event)" aria-label="Select Start Time">
+                  <span class="custom-dropdown-label">08:00 AM</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option" data-value="360" onclick="app.handlers.onSelectCustomDropdown('classicConfigStart', '360', '06:00 AM', 'wrap_classicConfigStart', function(){ app.handlers.classicConfigChange(); })">06:00 AM</div>
+                  <div class="custom-dropdown-option" data-value="420" onclick="app.handlers.onSelectCustomDropdown('classicConfigStart', '420', '07:00 AM', 'wrap_classicConfigStart', function(){ app.handlers.classicConfigChange(); })">07:00 AM</div>
+                  <div class="custom-dropdown-option selected" data-value="480" onclick="app.handlers.onSelectCustomDropdown('classicConfigStart', '480', '08:00 AM', 'wrap_classicConfigStart', function(){ app.handlers.classicConfigChange(); })">08:00 AM</div>
+                  <div class="custom-dropdown-option" data-value="540" onclick="app.handlers.onSelectCustomDropdown('classicConfigStart', '540', '09:00 AM', 'wrap_classicConfigStart', function(){ app.handlers.classicConfigChange(); })">09:00 AM</div>
+                  <div class="custom-dropdown-option" data-value="600" onclick="app.handlers.onSelectCustomDropdown('classicConfigStart', '600', '10:00 AM', 'wrap_classicConfigStart', function(){ app.handlers.classicConfigChange(); })">10:00 AM</div>
+                </div>
+              </div>
             </div>
 
             <!-- End Time -->
             <div class="classic-cfg-item">
               <span class="classic-cfg-label">End Time:</span>
-              <select id="classicConfigEnd" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
-                <option value="1020">05:00 PM (17:00)</option>
-                <option value="1080">06:00 PM (18:00)</option>
-                <option value="1140" selected>07:00 PM (19:00)</option>
-                <option value="1200">08:00 PM (20:00)</option>
-                <option value="1260">09:00 PM (21:00)</option>
-                <option value="1320">10:00 PM (22:00)</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_classicConfigEnd">
+                <input type="hidden" id="classicConfigEnd" value="1140">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigEnd', event)" aria-label="Select End Time">
+                  <span class="custom-dropdown-label">07:00 PM (19:00)</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option" data-value="1020" onclick="app.handlers.onSelectCustomDropdown('classicConfigEnd', '1020', '05:00 PM (17:00)', 'wrap_classicConfigEnd', function(){ app.handlers.classicConfigChange(); })">05:00 PM (17:00)</div>
+                  <div class="custom-dropdown-option" data-value="1080" onclick="app.handlers.onSelectCustomDropdown('classicConfigEnd', '1080', '06:00 PM (18:00)', 'wrap_classicConfigEnd', function(){ app.handlers.classicConfigChange(); })">06:00 PM (18:00)</div>
+                  <div class="custom-dropdown-option selected" data-value="1140" onclick="app.handlers.onSelectCustomDropdown('classicConfigEnd', '1140', '07:00 PM (19:00)', 'wrap_classicConfigEnd', function(){ app.handlers.classicConfigChange(); })">07:00 PM (19:00)</div>
+                  <div class="custom-dropdown-option" data-value="1200" onclick="app.handlers.onSelectCustomDropdown('classicConfigEnd', '1200', '08:00 PM (20:00)', 'wrap_classicConfigEnd', function(){ app.handlers.classicConfigChange(); })">08:00 PM (20:00)</div>
+                  <div class="custom-dropdown-option" data-value="1260" onclick="app.handlers.onSelectCustomDropdown('classicConfigEnd', '1260', '09:00 PM (21:00)', 'wrap_classicConfigEnd', function(){ app.handlers.classicConfigChange(); })">09:00 PM (21:00)</div>
+                  <div class="custom-dropdown-option" data-value="1320" onclick="app.handlers.onSelectCustomDropdown('classicConfigEnd', '1320', '10:00 PM (22:00)', 'wrap_classicConfigEnd', function(){ app.handlers.classicConfigChange(); })">10:00 PM (22:00)</div>
+                </div>
+              </div>
             </div>
 
             <!-- Interval -->
             <div class="classic-cfg-item">
               <span class="classic-cfg-label">Interval Step:</span>
-              <select id="classicConfigInterval" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
-                <option value="15">15 Minutes</option>
-                <option value="30" selected>30 Minutes</option>
-                <option value="45">45 Minutes</option>
-                <option value="60">60 Minutes</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_classicConfigInterval">
+                <input type="hidden" id="classicConfigInterval" value="30">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigInterval', event)" aria-label="Select Interval">
+                  <span class="custom-dropdown-label">30 Minutes</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option" data-value="15" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '15', '15 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">15 Minutes</div>
+                  <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '30', '30 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">30 Minutes</div>
+                  <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '45', '45 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">45 Minutes</div>
+                  <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '60', '60 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">60 Minutes</div>
+                </div>
+              </div>
             </div>
 
             <!-- Time Format -->
             <div class="classic-cfg-item">
               <span class="classic-cfg-label">Time Format:</span>
-              <select id="classicConfigFormat" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
-                <option value="12">12-Hour (AM/PM)</option>
-                <option value="24" selected>24-Hour (Military)</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_classicConfigFormat">
+                <input type="hidden" id="classicConfigFormat" value="24">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigFormat', event)" aria-label="Select Time Format">
+                  <span class="custom-dropdown-label">24-Hour (Military)</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option" data-value="12" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '12', '12-Hour (AM/PM)', 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">12-Hour (AM/PM)</div>
+                  <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '24', '24-Hour (Military)', 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">24-Hour (Military)</div>
+                </div>
+              </div>
             </div>
 
             <!-- Color Palette -->
             <div class="classic-cfg-item">
               <span class="classic-cfg-label">Color Theme:</span>
-              <select id="classicConfigTheme" class="classic-select-ctrl" onchange="app.handlers.classicThemeChange(this.value)">
-                <option value="slate" selected>Vibrant Classic</option>
-                <option value="emerald">Mint Fresh</option>
-                <option value="indigo">Electric Ocean</option>
-                <option value="amber">Warm Amber</option>
-                <option value="cyberpunk">Neon Pastel</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_classicConfigTheme">
+                <input type="hidden" id="classicConfigTheme" value="slate">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigTheme', event)" aria-label="Select Color Theme">
+                  <span class="custom-dropdown-label">Vibrant Classic</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'slate', 'Vibrant Classic', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🎨 Vibrant Classic</div>
+                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'emerald', 'Mint Fresh', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🌿 Mint Fresh</div>
+                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'indigo', 'Electric Ocean', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🌊 Electric Ocean</div>
+                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'amber', 'Warm Amber', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🌅 Warm Amber</div>
+                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'cyberpunk', 'Neon Pastel', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">✨ Neon Pastel</div>
+                </div>
+              </div>
             </div>
 
             <!-- Action Backup & Clear -->
@@ -4477,51 +4723,86 @@
             </div>
             <div class="form-group">
               <label for="configDays">Days of Week</label>
-              <select id="configDays" class="select-ctrl" onchange="app.handlers.configChange()">
-                <option value="5">Weekdays (Mon - Fri)</option>
-                <option value="6">Mon - Sat</option>
-                <option value="7" selected>Full Week (Mon - Sun)</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_configDays">
+                <input type="hidden" id="configDays" value="7">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configDays', event)" aria-label="Days of Week">
+                  <span class="custom-dropdown-label">Full Week (Mon - Sun)</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('configDays', '5', 'Weekdays (Mon - Fri)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Weekdays (Mon - Fri)</div>
+                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('configDays', '6', 'Mon - Sat', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Sat</div>
+                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('configDays', '7', 'Full Week (Mon - Sun)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Full Week (Mon - Sun)</div>
+                </div>
+              </div>
             </div>
             <div class="flex-half">
               <div class="form-group">
                 <label for="configStart">Start Time</label>
-                <select id="configStart" class="select-ctrl" onchange="app.handlers.configChange()">
-                  <option value="360">06:00</option>
-                  <option value="420">07:00</option>
-                  <option value="480" selected>08:00</option>
-                  <option value="540">09:00</option>
-                  <option value="600">10:00</option>
-                </select>
+                <div class="custom-dropdown-wrap" id="wrap_configStart">
+                  <input type="hidden" id="configStart" value="480">
+                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configStart', event)" aria-label="Start Time">
+                    <span class="custom-dropdown-label">08:00</span>
+                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="custom-dropdown-menu">
+                    <div class="custom-dropdown-option" data-value="360" onclick="app.handlers.onSelectCustomDropdown('configStart', '360', '06:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">06:00</div>
+                    <div class="custom-dropdown-option" data-value="420" onclick="app.handlers.onSelectCustomDropdown('configStart', '420', '07:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">07:00</div>
+                    <div class="custom-dropdown-option selected" data-value="480" onclick="app.handlers.onSelectCustomDropdown('configStart', '480', '08:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">08:00</div>
+                    <div class="custom-dropdown-option" data-value="540" onclick="app.handlers.onSelectCustomDropdown('configStart', '540', '09:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">09:00</div>
+                    <div class="custom-dropdown-option" data-value="600" onclick="app.handlers.onSelectCustomDropdown('configStart', '600', '10:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">10:00</div>
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <label for="configEnd">End Time</label>
-                <select id="configEnd" class="select-ctrl" onchange="app.handlers.configChange()">
-                  <option value="1020">17:00</option>
-                  <option value="1080">18:00</option>
-                  <option value="1140" selected>19:00</option>
-                  <option value="1200">20:00</option>
-                  <option value="1260">21:00</option>
-                  <option value="1320">22:00</option>
-                </select>
+                <div class="custom-dropdown-wrap" id="wrap_configEnd">
+                  <input type="hidden" id="configEnd" value="1140">
+                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configEnd', event)" aria-label="End Time">
+                    <span class="custom-dropdown-label">19:00</span>
+                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="custom-dropdown-menu">
+                    <div class="custom-dropdown-option" data-value="1020" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1020', '17:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">17:00</div>
+                    <div class="custom-dropdown-option" data-value="1080" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1080', '18:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">18:00</div>
+                    <div class="custom-dropdown-option selected" data-value="1140" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1140', '19:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">19:00</div>
+                    <div class="custom-dropdown-option" data-value="1200" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1200', '20:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">20:00</div>
+                    <div class="custom-dropdown-option" data-value="1260" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1260', '21:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">21:00</div>
+                    <div class="custom-dropdown-option" data-value="1320" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1320', '22:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">22:00</div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="flex-half">
               <div class="form-group">
                 <label for="configInterval">Interval</label>
-                <select id="configInterval" class="select-ctrl" onchange="app.handlers.configChange()">
-                  <option value="15">15 Min</option>
-                  <option value="30" selected>30 Min</option>
-                  <option value="45">45 Min</option>
-                  <option value="60">60 Min</option>
-                </select>
+                <div class="custom-dropdown-wrap" id="wrap_configInterval">
+                  <input type="hidden" id="configInterval" value="30">
+                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configInterval', event)" aria-label="Interval">
+                    <span class="custom-dropdown-label">30 Min</span>
+                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="custom-dropdown-menu">
+                    <div class="custom-dropdown-option" data-value="15" onclick="app.handlers.onSelectCustomDropdown('configInterval', '15', '15 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">15 Min</div>
+                    <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('configInterval', '30', '30 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">30 Min</div>
+                    <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('configInterval', '45', '45 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">45 Min</div>
+                    <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('configInterval', '60', '60 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">60 Min</div>
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <label for="configFormat">Format</label>
-                <select id="configFormat" class="select-ctrl" onchange="app.handlers.configChange()">
-                  <option value="12">12-Hour</option>
-                  <option value="24" selected>24-Hour</option>
-                </select>
+                <div class="custom-dropdown-wrap" id="wrap_configFormat">
+                  <input type="hidden" id="configFormat" value="24">
+                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configFormat', event)" aria-label="Format">
+                    <span class="custom-dropdown-label">24-Hour</span>
+                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="custom-dropdown-menu">
+                    <div class="custom-dropdown-option" data-value="12" onclick="app.handlers.onSelectCustomDropdown('configFormat', '12', '12-Hour', 'wrap_configFormat', function(){ app.handlers.configChange(); })">12-Hour</div>
+                    <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('configFormat', '24', '24-Hour', 'wrap_configFormat', function(){ app.handlers.configChange(); })">24-Hour</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -4534,13 +4815,20 @@
             </div>
             <div class="form-group">
               <label for="configTheme">Theme Palette</label>
-              <select id="configTheme" class="select-ctrl" onchange="app.handlers.presetChange()">
-                <option value="slate">Royal Purple (Default)</option>
-                <option value="emerald">Mint Emerald</option>
-                <option value="indigo">Electric Indigo</option>
-                <option value="amber">Coral Sunset</option>
-                <option value="cyberpunk">Neon Fuchsia</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_configTheme">
+                <input type="hidden" id="configTheme" value="slate">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configTheme', event)" aria-label="Theme Palette">
+                  <span class="custom-dropdown-label">Royal Purple (Default)</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'slate', 'Royal Purple (Default)', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🔮 Royal Purple (Default)</div>
+                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'emerald', 'Mint Emerald', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌿 Mint Emerald</div>
+                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'indigo', 'Electric Indigo', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">⚡ Electric Indigo</div>
+                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'amber', 'Coral Sunset', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌅 Coral Sunset</div>
+                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'cyberpunk', 'Neon Fuchsia', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">✨ Neon Fuchsia</div>
+                </div>
+              </div>
             </div>
             <div class="tuning-sliders">
               <div class="form-group">
@@ -5146,15 +5434,22 @@
           <div class="flex-half">
             <div class="form-group">
               <label for="evtDay">Day</label>
-              <select id="evtDay" class="select-ctrl">
-                <option value="0">Monday</option>
-                <option value="1">Tuesday</option>
-                <option value="2">Wednesday</option>
-                <option value="3">Thursday</option>
-                <option value="4">Friday</option>
-                <option value="5">Saturday</option>
-                <option value="6">Sunday</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_evtDay">
+                <input type="hidden" id="evtDay" value="0">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_evtDay', event)" aria-label="Select Day">
+                  <span class="custom-dropdown-label">Monday</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option selected" data-value="0" onclick="app.handlers.onSelectCustomDropdown('evtDay', '0', 'Monday', 'wrap_evtDay')">Monday</div>
+                  <div class="custom-dropdown-option" data-value="1" onclick="app.handlers.onSelectCustomDropdown('evtDay', '1', 'Tuesday', 'wrap_evtDay')">Tuesday</div>
+                  <div class="custom-dropdown-option" data-value="2" onclick="app.handlers.onSelectCustomDropdown('evtDay', '2', 'Wednesday', 'wrap_evtDay')">Wednesday</div>
+                  <div class="custom-dropdown-option" data-value="3" onclick="app.handlers.onSelectCustomDropdown('evtDay', '3', 'Thursday', 'wrap_evtDay')">Thursday</div>
+                  <div class="custom-dropdown-option" data-value="4" onclick="app.handlers.onSelectCustomDropdown('evtDay', '4', 'Friday', 'wrap_evtDay')">Friday</div>
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('evtDay', '5', 'Saturday', 'wrap_evtDay')">Saturday</div>
+                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('evtDay', '6', 'Sunday', 'wrap_evtDay')">Sunday</div>
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <label for="evtCategory">Category</label>
@@ -5668,10 +5963,17 @@
             </div>
             <div>
               <label for="adminPostStatus" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Publish Status</label>
-              <select id="adminPostStatus" class="select-ctrl" style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px; cursor: pointer;">
-                <option value="Published">Published (Live to Public)</option>
-                <option value="Draft">Draft (Hidden)</option>
-              </select>
+              <div class="custom-dropdown-wrap" id="wrap_adminPostStatus">
+                <input type="hidden" id="adminPostStatus" value="Published">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_adminPostStatus', event)" aria-label="Publish Status">
+                  <span class="custom-dropdown-label">Published (Live to Public)</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option selected" data-value="Published" onclick="app.handlers.onSelectCustomDropdown('adminPostStatus', 'Published', 'Published (Live to Public)', 'wrap_adminPostStatus')">Published (Live to Public)</div>
+                  <div class="custom-dropdown-option" data-value="Draft" onclick="app.handlers.onSelectCustomDropdown('adminPostStatus', 'Draft', 'Draft (Hidden)', 'wrap_adminPostStatus')">Draft (Hidden)</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -6331,22 +6633,18 @@
 
         syncConfigInputs() {
           const c = this.state.config;
-          const configDays = document.getElementById('configDays');
-          const configStart = document.getElementById('configStart');
-          const configEnd = document.getElementById('configEnd');
-          const configInterval = document.getElementById('configInterval');
-          const configFormat = document.getElementById('configFormat');
-          const configTheme = document.getElementById('configTheme');
           const slideRadius = document.getElementById('slideRadius');
           const slideSize = document.getElementById('slideSize');
           const slideDensity = document.getElementById('slideDensity');
 
-          if (configDays) configDays.value = c.daysCount;
-          if (configStart) configStart.value = c.startTime;
-          if (configEnd) configEnd.value = c.endTime;
-          if (configInterval) configInterval.value = c.interval;
-          if (configFormat) configFormat.value = c.use24h ? "24" : "12";
-          if (configTheme) configTheme.value = c.theme;
+          if (this.handlers.setCustomDropdownValue) {
+            this.handlers.setCustomDropdownValue('configDays', c.daysCount, 'wrap_configDays');
+            this.handlers.setCustomDropdownValue('configStart', c.startTime, 'wrap_configStart');
+            this.handlers.setCustomDropdownValue('configEnd', c.endTime, 'wrap_configEnd');
+            this.handlers.setCustomDropdownValue('configInterval', c.interval, 'wrap_configInterval');
+            this.handlers.setCustomDropdownValue('configFormat', c.use24h ? "24" : "12", 'wrap_configFormat');
+            this.handlers.setCustomDropdownValue('configTheme', c.theme, 'wrap_configTheme');
+          }
           if (slideRadius) slideRadius.value = c.borderRadius;
           if (slideSize) slideSize.value = c.fontSize;
           if (slideDensity) {
@@ -6398,9 +6696,12 @@
             }
           });
 
-          // Clicking anywhere hides the custom context menu
-          document.addEventListener('click', () => {
+          // Clicking anywhere hides the custom context menu and closes open dropdowns
+          document.addEventListener('click', (e) => {
             document.getElementById('ctxMenu').style.display = 'none';
+            if (!e.target.closest('.custom-dropdown-wrap')) {
+              document.querySelectorAll('.custom-dropdown-wrap.open').forEach(el => el.classList.remove('open'));
+            }
           });
 
           // Global Hotkey hooks
@@ -6497,17 +6798,14 @@
             if (titleInput && this.state.classicTitle) titleInput.value = this.state.classicTitle;
             if (subtitleInput && this.state.classicSubtitle) subtitleInput.value = this.state.classicSubtitle;
 
-            const cfgDays = document.getElementById('classicConfigDays');
-            const cfgStart = document.getElementById('classicConfigStart');
-            const cfgEnd = document.getElementById('classicConfigEnd');
-            const cfgInterval = document.getElementById('classicConfigInterval');
-            const cfgFormat = document.getElementById('classicConfigFormat');
-
-            if (cfgDays) cfgDays.value = activeDaysCount;
-            if (cfgStart) cfgStart.value = startTime;
-            if (cfgEnd) cfgEnd.value = endTime;
-            if (cfgInterval) cfgInterval.value = mStep;
-            if (cfgFormat) cfgFormat.value = this.state.config.use24h ? "24" : "12";
+            if (this.handlers.setCustomDropdownValue) {
+              this.handlers.setCustomDropdownValue('classicConfigDays', activeDaysCount, 'wrap_classicConfigDays');
+              this.handlers.setCustomDropdownValue('classicConfigStart', startTime, 'wrap_classicConfigStart');
+              this.handlers.setCustomDropdownValue('classicConfigEnd', endTime, 'wrap_classicConfigEnd');
+              this.handlers.setCustomDropdownValue('classicConfigInterval', mStep, 'wrap_classicConfigInterval');
+              this.handlers.setCustomDropdownValue('classicConfigFormat', this.state.config.use24h ? "24" : "12", 'wrap_classicConfigFormat');
+              this.handlers.setCustomDropdownValue('classicConfigTheme', this.state.config.theme || 'slate', 'wrap_classicConfigTheme');
+            }
 
             // Update stats strip in classic ribbon
             const validEvents = this.state.events.filter(evt => evt.day < activeDaysCount);
@@ -7490,7 +7788,7 @@
                 if (titleInput) titleInput.value = post.title || '';
                 if (slugInput) slugInput.value = post.slug || '';
                 if (catInput) catInput.value = post.category || '';
-                if (statusInput) statusInput.value = post.status || 'Published';
+                this.setCustomDropdownValue('adminPostStatus', post.status || 'Published', 'wrap_adminPostStatus');
                 if (authorInput) authorInput.value = post.author || '';
                 if (readTimeInput) readTimeInput.value = post.readTime || '';
                 if (excerptInput) excerptInput.value = post.excerpt || '';
@@ -7502,7 +7800,7 @@
               if (titleInput) titleInput.value = '';
               if (slugInput) slugInput.value = '';
               if (catInput) catInput.value = 'Expert Guide';
-              if (statusInput) statusInput.value = 'Published';
+              this.setCustomDropdownValue('adminPostStatus', 'Published', 'wrap_adminPostStatus');
               if (authorInput) authorInput.value = 'Dr. Anand Verma';
               if (readTimeInput) readTimeInput.value = '8 Min Read';
               if (excerptInput) excerptInput.value = '';
@@ -7909,6 +8207,8 @@
             const classicContainer = document.getElementById('timetableCreatorClassicApp');
             const btnPro = document.getElementById('btnSwitchPro');
             const btnClassic = document.getElementById('btnSwitchClassic');
+            const linkClassic = document.getElementById('linkSwitchClassic');
+            const linkPro = document.getElementById('linkSwitchPro');
 
             app.state.viewMode = normalizedMode;
             localStorage.setItem('tt_view_mode', normalizedMode);
@@ -7924,6 +8224,14 @@
               if (btnPro) {
                 btnPro.classList.remove('active');
                 btnPro.setAttribute('aria-selected', 'false');
+              }
+              if (linkClassic) {
+                linkClassic.classList.add('active');
+                linkClassic.setAttribute('aria-selected', 'true');
+              }
+              if (linkPro) {
+                linkPro.classList.remove('active');
+                linkPro.setAttribute('aria-selected', 'false');
               }
 
               if (proContainer) proContainer.style.display = 'none';
@@ -7947,6 +8255,14 @@
               if (btnClassic) {
                 btnClassic.classList.remove('active');
                 btnClassic.setAttribute('aria-selected', 'false');
+              }
+              if (linkPro) {
+                linkPro.classList.add('active');
+                linkPro.setAttribute('aria-selected', 'true');
+              }
+              if (linkClassic) {
+                linkClassic.classList.remove('active');
+                linkClassic.setAttribute('aria-selected', 'false');
               }
 
               if (classicContainer) {
@@ -8510,7 +8826,7 @@
             document.getElementById('evtCategory').value = '';
             document.getElementById('evtNotes').value = '';
             
-            document.getElementById('evtDay').value = dayId;
+            this.setCustomDropdownValue('evtDay', dayId, 'wrap_evtDay');
             document.getElementById('evtStart').value = app.minutesToTimeString(startTime);
             document.getElementById('evtEnd').value = app.minutesToTimeString(startTime + 60);
 
@@ -8543,7 +8859,7 @@
             document.getElementById('evtCategory').value = evt.category || '';
             document.getElementById('evtNotes').value = evt.notes || '';
             
-            document.getElementById('evtDay').value = evt.day;
+            this.setCustomDropdownValue('evtDay', evt.day, 'wrap_evtDay');
             document.getElementById('evtStart').value = app.minutesToTimeString(evt.startTime);
             document.getElementById('evtEnd').value = app.minutesToTimeString(evt.endTime);
 
@@ -9534,6 +9850,75 @@
 
             if (headerCorner) {
               headerCorner.style.transform = `translateX(${scrollLeft}px)`;
+            }
+          },
+
+          toggleCustomDropdown(wrapId, event) {
+            if (event) {
+              event.stopPropagation();
+            }
+            const wrap = document.getElementById(wrapId);
+            if (!wrap) return;
+            const wasOpen = wrap.classList.contains('open');
+            // Close all other dropdowns
+            document.querySelectorAll('.custom-dropdown-wrap.open').forEach(el => {
+              if (el !== wrap) el.classList.remove('open');
+            });
+            if (wasOpen) {
+              wrap.classList.remove('open');
+            } else {
+              wrap.classList.add('open');
+            }
+          },
+
+          onSelectCustomDropdown(inputId, value, label, wrapId, callback) {
+            const hiddenInput = document.getElementById(inputId);
+            if (hiddenInput) {
+              hiddenInput.value = value;
+              hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+
+            const wrap = wrapId ? document.getElementById(wrapId) : (hiddenInput ? hiddenInput.closest('.custom-dropdown-wrap') : null);
+            if (wrap) {
+              const labelSpan = wrap.querySelector('.custom-dropdown-label');
+              if (labelSpan) labelSpan.textContent = label;
+
+              wrap.querySelectorAll('.custom-dropdown-option').forEach(opt => {
+                if (opt.getAttribute('data-value') === String(value)) {
+                  opt.classList.add('selected');
+                } else {
+                  opt.classList.remove('selected');
+                }
+              });
+
+              wrap.classList.remove('open');
+            }
+
+            if (typeof callback === 'function') {
+              callback(value);
+            }
+          },
+
+          setCustomDropdownValue(inputId, value, wrapId) {
+            const hiddenInput = document.getElementById(inputId);
+            if (hiddenInput) {
+              hiddenInput.value = value;
+            }
+            const wrap = wrapId ? document.getElementById(wrapId) : (hiddenInput ? hiddenInput.closest('.custom-dropdown-wrap') : null);
+            if (wrap) {
+              let matchedLabel = null;
+              wrap.querySelectorAll('.custom-dropdown-option').forEach(opt => {
+                if (opt.getAttribute('data-value') === String(value)) {
+                  opt.classList.add('selected');
+                  matchedLabel = opt.textContent.trim();
+                } else {
+                  opt.classList.remove('selected');
+                }
+              });
+              if (matchedLabel) {
+                const labelSpan = wrap.querySelector('.custom-dropdown-label');
+                if (labelSpan) labelSpan.textContent = matchedLabel;
+              }
             }
           }
         }
