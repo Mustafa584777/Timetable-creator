@@ -145,16 +145,18 @@ async function startServer() {
       }
     }
     const defaults = [
-      { id: '1', title: 'How to Make a Perfect School Timetable in 2026', slug: 'how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers', category: 'Timetable Guide', status: 'Published', updatedAt: '2026-02-15', content: 'Comprehensive guide for students and teachers on structuring weekly academic timetables.' },
-      { id: '2', title: 'Daily Routine for Class 10 Student at Home', slug: 'daily-routine-for-class-10-student-at-home', category: 'Student Routines', status: 'Published', updatedAt: '2026-02-14', content: 'Optimized daily schedule for class 10 board exam preparation.' },
-      { id: '3', title: 'Study Timetable for Class 10', slug: 'study-timetable-for-class-10', category: 'Study Plans', status: 'Published', updatedAt: '2026-02-10', content: 'Subject-wise study schedule and balanced revision timetable.' },
-      { id: '4', title: 'How Does an Automatic Timetable Creator Work', slug: 'how-does-an-automatic-timetable-creator-work', category: 'Technology', status: 'Published', updatedAt: '2026-01-20', content: 'Exploring algorithm-driven timetable scheduling tools.' },
-      { id: '5', title: 'About Us', slug: 'about-us', category: 'Pages', status: 'Published', updatedAt: '2026-01-01', content: 'Learn about TimetableCreator.online mission and tools.' },
-      { id: '6', title: 'Contact Us', slug: 'contact-us', category: 'Pages', status: 'Published', updatedAt: '2026-01-01', content: 'Get in touch with our support team.' },
-      { id: '7', title: 'Privacy Policy', slug: 'privacy-policy', category: 'Legal', status: 'Published', updatedAt: '2026-01-01', content: 'Privacy policy and data protection terms.' },
-      { id: '8', title: 'Terms and Conditions', slug: 'terms-and-conditions', category: 'Legal', status: 'Published', updatedAt: '2026-01-01', content: 'Terms of service for using TimetableCreator.online.' },
-      { id: '9', title: 'Disclaimer', slug: 'disclaimer', category: 'Legal', status: 'Published', updatedAt: '2026-01-01', content: 'Website disclaimer and educational use notices.' },
-      { id: '10', title: 'Refund Policy', slug: 'refund-policy', category: 'Legal', status: 'Published', updatedAt: '2026-01-01', content: 'Refund and cancellation policy details.' }
+      { id: '1', title: 'Best Study Timetable for Class 10: Expert Daily Routine', slug: 'study-timetable-for-class-10', category: 'Expert Guide', author: 'Dr. Anand Verma', readTime: '10 Min Read', status: 'Published', updatedAt: '2026-03-28', url: '/blog/study-timetable-for-class-10/', excerpt: 'Unlock a scientifically structured routine leveraging Active Recall and the Pomodoro method to master board preparations while preserving physical well-being.', content: 'Comprehensive guide for Class 10 board exam preparation...' },
+      { id: '2', title: 'How to Make a Perfect School Timetable in 2026: Students, Parents & Teachers', slug: 'how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers', category: 'Strategic Blueprint', author: 'Prof. Sarah Lin', readTime: '12 Min Read', status: 'Published', updatedAt: '2026-03-25', url: '/blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/', excerpt: 'Unlock the science-backed guide to class schedules, circadian peaks, extracurricular activities, and lesson sequencing tailored to the modern 2026 academic year.', content: 'Detailed blueprint for class schedules...' },
+      { id: '3', title: 'The Ultimate Daily Routine for a Class 10 Student Studying at Home', slug: 'daily-routine-for-class-10-student-at-home', category: 'Exam Prep', author: 'Prof. Sarah Lin', readTime: '10 Min Read', status: 'Published', updatedAt: '2026-03-20', url: '/blog/daily-routine-for-class-10-student-at-home/', excerpt: 'A comprehensive daily routine designed for studying Class 10 board exams from home. Balance active recall blocks, hydration, physical activities, and visual planning formats.', content: 'Step-by-step daily routine for home study...' },
+      { id: '4', title: 'How Does an Automatic Timetable Creator Work? Behind the Scenes', slug: 'how-does-an-automatic-timetable-creator-work', category: 'EdTech Science', author: 'Prof. Sarah Lin', readTime: '11 Min Read', status: 'Published', updatedAt: '2026-03-15', url: '/blog/how-does-an-automatic-timetable-creator-work/', excerpt: 'Step inside the computer science of modern timetable scheduling. Discover how Constraint Satisfaction Problems, backtracking, and genetic algorithms prevent overlapping blocks.', content: 'Algorithm details and scheduling math...' },
+      { id: '5', title: 'The Ultimate Timetable Guide: Frameworks for Academic & Personal Scheduling', slug: 'timetable-guides', category: 'Strategic Blueprint', author: 'Prof. Sarah Lin', readTime: '15 Min Read', status: 'Published', updatedAt: '2026-03-10', url: '/blog/timetable-guides/', excerpt: 'Master your daily schedule with scientific scheduling models. Learn how to sequence lessons, allocate rest, and run custom time-blocking rules for school and home.', content: 'Scheduling frameworks...' },
+      { id: '6', title: 'Student Timetable Generator Online', slug: 'timetable-generator-online-for-students', category: 'Interactive Tool', author: 'Timetable Creator Team', readTime: 'Tool Page', status: 'Published', updatedAt: '2026-03-29', url: '/timetable-generator-online-for-students/', excerpt: 'Interactive timetable maker tool with drag-and-drop course scheduler, customizable start/end times, PDF export, and shareable links.', content: 'Student Timetable Generator application page...' },
+      { id: '7', title: 'About Us', slug: 'about-us', category: 'Company Page', author: 'Editorial Team', readTime: '3 Min Read', status: 'Published', updatedAt: '2026-01-15', url: '/blog/about-us/', excerpt: 'Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.', content: 'About TimetableCreator.online mission and team...' },
+      { id: '8', title: 'Customer Support & Contact Us', slug: 'contact-us', category: 'Company Page', author: 'Support Team', readTime: '2 Min Read', status: 'Published', updatedAt: '2026-01-15', url: '/blog/contact-us/', excerpt: 'Get in touch with our customer support team for inquiries, bug reports, and timetable templates.', content: 'Contact information and support channels...' },
+      { id: '9', title: 'Privacy Policy', slug: 'privacy-policy', category: 'Legal', author: 'Legal Team', readTime: '5 Min Read', status: 'Published', updatedAt: '2026-01-10', url: '/blog/privacy-policy/', excerpt: 'Privacy policy and data protection terms for TimetableCreator.online users.', content: 'Full privacy policy terms...' },
+      { id: '10', title: 'Terms and Conditions', slug: 'terms-and-conditions', category: 'Legal', author: 'Legal Team', readTime: '5 Min Read', status: 'Published', updatedAt: '2026-01-10', url: '/blog/terms-and-conditions/', excerpt: 'Terms of service and acceptable usage guidelines for TimetableCreator.online.', content: 'Full terms of service...' },
+      { id: '11', title: 'Refund Policy', slug: 'refund-policy', category: 'Legal', author: 'Billing Team', readTime: '3 Min Read', status: 'Published', updatedAt: '2026-01-10', url: '/blog/refund-policy/', excerpt: 'Details on our free tier, subscriptions, and refund conditions.', content: 'Full refund policy...' },
+      { id: '12', title: 'Disclaimer Notice', slug: 'disclaimer', category: 'Legal', author: 'Legal Team', readTime: '3 Min Read', status: 'Published', updatedAt: '2026-01-10', url: '/blog/disclaimer/', excerpt: 'Educational disclaimer notice and liability limits.', content: 'Disclaimer terms...' }
     ];
     fs.writeFileSync(postsDbFile, JSON.stringify(defaults, null, 2));
     return defaults;
@@ -174,15 +176,19 @@ async function startServer() {
 
   anonymityApp.post("/api/admin/posts", (req, res) => {
     try {
-      const { title, slug, category, status, content } = req.body;
+      const { title, slug, category, author, readTime, status, excerpt, content } = req.body;
       const posts = readPostsDb();
       const newPost = {
         id: Date.now().toString(),
         title: title || 'Untitled Post',
         slug: slug || title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'untitled',
-        category: category || 'General',
+        category: category || 'Expert Guide',
+        author: author || 'Editorial Team',
+        readTime: readTime || '5 Min Read',
         status: status || 'Published',
         updatedAt: new Date().toISOString().split('T')[0],
+        url: `/blog/${slug || 'post'}/`,
+        excerpt: excerpt || '',
         content: content || ''
       };
       posts.unshift(newPost);
@@ -193,10 +199,10 @@ async function startServer() {
     }
   });
 
-  anonymityApp.put("/api/admin/posts/:id", (req, res) => {
+  anonymityApp.put(["/api/admin/posts/:id", "/api/admin/posts"], (req, res) => {
     try {
-      const { id } = req.params;
-      const { title, slug, category, status, content } = req.body;
+      const id = req.params.id || req.body?.id || req.query?.id;
+      const { title, slug, category, author, readTime, status, excerpt, content } = req.body;
       const posts = readPostsDb();
       const idx = posts.findIndex((p: any) => p.id === id);
       if (idx === -1) {
@@ -207,7 +213,10 @@ async function startServer() {
         title: title !== undefined ? title : posts[idx].title,
         slug: slug !== undefined ? slug : posts[idx].slug,
         category: category !== undefined ? category : posts[idx].category,
+        author: author !== undefined ? author : posts[idx].author,
+        readTime: readTime !== undefined ? readTime : posts[idx].readTime,
         status: status !== undefined ? status : posts[idx].status,
+        excerpt: excerpt !== undefined ? excerpt : posts[idx].excerpt,
         content: content !== undefined ? content : posts[idx].content,
         updatedAt: new Date().toISOString().split('T')[0]
       };
@@ -218,9 +227,9 @@ async function startServer() {
     }
   });
 
-  anonymityApp.delete("/api/admin/posts/:id", (req, res) => {
+  anonymityApp.delete(["/api/admin/posts/:id", "/api/admin/posts"], (req, res) => {
     try {
-      const { id } = req.params;
+      const id = req.params.id || req.query?.id || req.body?.id;
       let posts = readPostsDb();
       posts = posts.filter((p: any) => p.id !== id);
       writePostsDb(posts);

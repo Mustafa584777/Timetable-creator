@@ -397,30 +397,94 @@
       }
 
       .btn-ctrl {
-        background-color: var(--bg-card);
+        background-color: #ffffff !important;
         cursor: pointer;
         font-weight: 500;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
+        border: 1.5px solid var(--border-color) !important;
+        color: var(--text-main);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        transition: all 0.2s ease;
       }
 
       .btn-ctrl:hover {
-        background-color: var(--bg-panel);
-        border-color: var(--text-muted);
+        background-color: #ffffff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       }
 
-      .btn-primary {
-        background-color: var(--primary-color);
-        color: var(--text-inverse);
-        border-color: transparent;
+      .btn-ctrl:active {
+        transform: scale(0.98);
       }
 
-      .btn-primary:hover {
-        background-color: var(--primary-color);
-        filter: brightness(0.92);
-        border-color: transparent;
+      .btn-ctrl.btn-primary {
+        background-color: #ffffff !important;
+        color: #6366f1 !important;
+        border: 1.5px solid #6366f1 !important;
+        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15) !important;
+      }
+
+      .btn-ctrl.btn-primary svg {
+        color: #6366f1 !important;
+        stroke: #6366f1 !important;
+      }
+
+      .btn-ctrl.btn-primary:hover {
+        background-color: #ffffff !important;
+        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25) !important;
+      }
+
+      .btn-sidebar-import {
+        border-color: #10b981 !important;
+        color: #10b981 !important;
+      }
+      .btn-sidebar-import svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
+      }
+      .btn-sidebar-export {
+        border-color: #3b82f6 !important;
+        color: #3b82f6 !important;
+      }
+      .btn-sidebar-export svg {
+        color: #3b82f6 !important;
+        stroke: #3b82f6 !important;
+      }
+      .btn-sidebar-backup {
+        border-color: #6366f1 !important;
+        color: #6366f1 !important;
+      }
+      .btn-sidebar-backup svg {
+        color: #6366f1 !important;
+        stroke: #6366f1 !important;
+      }
+      .btn-sidebar-reset {
+        border-color: #ef4444 !important;
+        color: #ef4444 !important;
+      }
+      .btn-sidebar-reset svg {
+        color: #ef4444 !important;
+        stroke: #ef4444 !important;
+      }
+
+      .btn-ai-merge {
+        border-color: #8b5cf6 !important;
+        color: #8b5cf6 !important;
+      }
+      .btn-ai-merge svg {
+        color: #8b5cf6 !important;
+        stroke: #8b5cf6 !important;
+      }
+      .btn-ai-overtake {
+        border-color: #6366f1 !important;
+        color: #6366f1 !important;
+      }
+      .btn-ai-overtake svg {
+        color: #6366f1 !important;
+        stroke: #6366f1 !important;
       }
 
       .flex-half {
@@ -485,19 +549,60 @@
         justify-content: center;
         gap: 6px;
         white-space: nowrap;
-        background-color: var(--bg-card);
+        background-color: #ffffff !important;
         color: var(--text-main);
-        border: 1px solid var(--border-color);
+        border: 1.5px solid var(--border-color) !important;
         border-radius: calc(var(--border-radius) - 2px);
         cursor: pointer;
         transition: all 0.15s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      }
+
+      .export-btn-item.export-btn-print {
+        border-color: #8b5cf6 !important;
+        color: #8b5cf6 !important;
+      }
+      .export-btn-item.export-btn-print svg {
+        color: #8b5cf6 !important;
+        stroke: #8b5cf6 !important;
+      }
+      .export-btn-item.export-btn-pdf {
+        border-color: #ef4444 !important;
+        color: #ef4444 !important;
+      }
+      .export-btn-item.export-btn-pdf svg {
+        color: #ef4444 !important;
+        stroke: #ef4444 !important;
+      }
+      .export-btn-item.export-btn-json {
+        border-color: #0284c7 !important;
+        color: #0284c7 !important;
+      }
+      .export-btn-item.export-btn-json svg {
+        color: #0284c7 !important;
+        stroke: #0284c7 !important;
+      }
+      .export-btn-item.export-btn-png {
+        border-color: #10b981 !important;
+        color: #10b981 !important;
+      }
+      .export-btn-item.export-btn-png svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
+      }
+      .export-btn-item.export-btn-share {
+        border-color: #6366f1 !important;
+        color: #6366f1 !important;
+      }
+      .export-btn-item.export-btn-share svg {
+        color: #6366f1 !important;
+        stroke: #6366f1 !important;
       }
 
       .export-btn-item:hover {
-        background-color: var(--bg-panel);
-        border-color: var(--text-muted);
+        background-color: #ffffff !important;
         transform: translateY(-1px);
-        box-shadow: var(--shadow-sm);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
 
       .export-btn-item:active {
@@ -505,15 +610,19 @@
       }
 
       .export-btn-item.btn-primary {
-        background-color: var(--primary-color);
-        color: var(--text-inverse);
-        border-color: transparent;
+        background-color: #ffffff !important;
+        color: #6366f1 !important;
+        border-color: #6366f1 !important;
+        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15) !important;
       }
 
       .export-btn-item.btn-primary:hover {
-        background-color: var(--primary-color);
-        filter: brightness(0.92);
-        border-color: transparent;
+        background-color: #ffffff !important;
+        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25) !important;
+      }
+      [data-theme="dark"] .btn-ctrl,
+      [data-theme="dark"] .export-btn-item {
+        background-color: #1e293b !important;
       }
 
       @media (max-width: 900px) {
@@ -625,17 +734,45 @@
         align-items: center;
         justify-content: center;
         border-radius: var(--border-radius);
-        background-color: var(--bg-panel);
-        border: 1px solid var(--border-color);
-        color: var(--text-main);
+        background-color: #ffffff !important;
+        border: 1.5px solid #6366f1 !important;
+        color: #6366f1 !important;
         cursor: pointer;
         position: relative;
-        transition: all 0.2s;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 6px rgba(99, 102, 241, 0.1);
+      }
+
+      .action-btn.action-btn-zoom-in,
+      .action-btn.action-btn-zoom-out,
+      .action-btn[data-tooltip*="Zoom"] {
+        border-color: #3b82f6 !important;
+        color: #3b82f6 !important;
+        box-shadow: 0 2px 6px rgba(59, 130, 246, 0.1);
+      }
+      .action-btn.action-btn-zoom-in svg,
+      .action-btn.action-btn-zoom-out svg,
+      .action-btn[data-tooltip*="Zoom"] svg {
+        color: #3b82f6 !important;
+        stroke: #3b82f6 !important;
+      }
+
+      .action-btn#btnResetSchedule,
+      .action-btn.action-btn-reset {
+        border-color: #ef4444 !important;
+        color: #ef4444 !important;
+        box-shadow: 0 2px 6px rgba(239, 68, 68, 0.1);
+      }
+      .action-btn#btnResetSchedule svg,
+      .action-btn.action-btn-reset svg {
+        color: #ef4444 !important;
+        stroke: #ef4444 !important;
       }
 
       .action-btn:hover {
-        background-color: var(--border-color);
+        background-color: #ffffff !important;
         transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
 
       .action-btn:active {
@@ -645,6 +782,8 @@
       .action-btn svg {
         width: 18px;
         height: 18px;
+        color: inherit;
+        stroke: currentColor;
       }
 
       .btn-labeled {
@@ -658,38 +797,43 @@
       /* Prominent Add Event Button in Topbar */
       .btn-add-event {
         height: 40px !important;
-        padding: 0 28px !important;
+        padding: 0 24px !important;
         font-size: 14px !important;
         font-weight: 600 !important;
         letter-spacing: 0.01em;
         border-radius: var(--border-radius) !important;
-        background-color: var(--primary-color) !important;
-        color: var(--text-inverse) !important;
-        border: 1px solid transparent !important;
+        background-color: #ffffff !important;
+        color: #6366f1 !important;
+        border: 1.5px solid #6366f1 !important;
         cursor: pointer;
         display: inline-flex !important;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        box-shadow: 0 2px 8px var(--primary-glow) !important;
+        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.18) !important;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
         white-space: nowrap;
       }
       .btn-add-event:hover {
-        background-color: var(--primary-color) !important;
-        filter: brightness(1.08);
+        background-color: #ffffff !important;
         transform: translateY(-1px);
-        box-shadow: 0 4px 14px var(--primary-glow) !important;
+        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.28) !important;
       }
       .btn-add-event:active {
         transform: translateY(0);
-        box-shadow: 0 1px 3px var(--primary-glow) !important;
+        box-shadow: 0 1px 3px rgba(99, 102, 241, 0.2) !important;
       }
       .btn-add-event svg {
         width: 17px !important;
         height: 17px !important;
         stroke-width: 2.3 !important;
         flex-shrink: 0;
+        color: #6366f1 !important;
+        stroke: #6366f1 !important;
+      }
+      [data-theme="dark"] .action-btn,
+      [data-theme="dark"] .btn-add-event {
+        background-color: #1e293b !important;
       }
 
       /* Tooltip for micro interactions */
@@ -2436,61 +2580,67 @@
       .mode-toggle-pill-group {
         display: inline-flex;
         align-items: center;
-        background: var(--bg-panel);
+        background: transparent;
         padding: 4px;
         border-radius: 30px;
-        border: 1px solid var(--border-color);
-        gap: 4px;
+        gap: 8px;
       }
       .mode-toggle-pill {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 6px 16px;
-        border-radius: 24px;
-        border: none;
-        background: transparent;
-        color: var(--text-muted);
+        padding: 8px 18px;
+        border-radius: 10px;
+        background: #ffffff;
+        border: 1.5px solid var(--border-color);
+        color: var(--text-main);
         font-family: var(--font-sans);
-        font-size: 12.5px;
+        font-size: 13px;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         user-select: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        text-decoration: none;
+      }
+      .mode-toggle-pill svg {
+        transition: transform 0.2s ease;
       }
       .mode-toggle-pill:hover {
-        color: var(--text-main);
+        background: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       }
-      .mode-toggle-pill.active {
-        background: var(--primary-color);
-        color: #ffffff !important;
-        box-shadow: 0 2px 8px var(--accent-glow);
+      #linkSwitchClassic {
+        border-color: #10b981 !important;
+        color: #10b981 !important;
       }
-      .mode-toggle-pill.active .mode-pill-tag {
-        background: rgba(255, 255, 255, 0.22);
-        color: #ffffff;
-        border-color: rgba(255, 255, 255, 0.3);
+      #linkSwitchClassic svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
       }
-      .mode-pill-tag {
-        font-size: 10px;
-        font-weight: 700;
-        padding: 2px 7px;
-        border-radius: 12px;
-        background: rgba(103, 61, 230, 0.1);
-        color: var(--primary-color);
-        border: 1px solid rgba(103, 61, 230, 0.2);
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
+      #linkSwitchClassic.active {
+        background: #ffffff !important;
+        border-color: #10b981 !important;
+        color: #10b981 !important;
+        box-shadow: 0 3px 12px rgba(16, 185, 129, 0.25) !important;
       }
-      .mode-pill-tag.classic-tag {
-        background: rgba(16, 185, 129, 0.1);
-        color: #10b981;
-        border-color: rgba(16, 185, 129, 0.25);
+      #linkSwitchPro {
+        border-color: #6366f1 !important;
+        color: #6366f1 !important;
       }
-      .mode-toggle-pill.active .mode-pill-tag.classic-tag {
-        background: rgba(255, 255, 255, 0.25);
-        color: #ffffff;
-        border-color: rgba(255, 255, 255, 0.3);
+      #linkSwitchPro svg {
+        color: #6366f1 !important;
+        stroke: #6366f1 !important;
+      }
+      #linkSwitchPro.active {
+        background: #ffffff !important;
+        border-color: #6366f1 !important;
+        color: #6366f1 !important;
+        box-shadow: 0 3px 12px rgba(99, 102, 241, 0.25) !important;
+      }
+      [data-theme="dark"] .mode-toggle-pill {
+        background: #1e293b !important;
       }
       .mode-switcher-info {
         display: flex;
@@ -2711,28 +2861,32 @@
         margin-left: auto;
       }
       .classic-btn-add-primary {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        color: #ffffff;
+        background: #ffffff !important;
+        color: #10b981 !important;
+        border: 1.5px solid #10b981 !important;
         font-family: 'Poppins', sans-serif;
         font-size: 13px;
         font-weight: 600;
         padding: 8px 16px;
         border-radius: 8px;
-        border: none;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 7px;
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15);
         transition: all 0.2s ease;
         white-space: nowrap;
         user-select: none;
       }
+      .classic-btn-add-primary svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
+      }
       .classic-btn-add-primary:hover {
-        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        background: #ffffff !important;
         transform: translateY(-1px);
-        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.45);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
       }
       .classic-btn-add-primary:active {
         transform: scale(0.97);
@@ -2743,8 +2897,8 @@
       .classic-template-dropdown {
         height: 38px;
         padding: 0 12px;
-        background: var(--bg-panel);
-        border: 1px solid var(--border-color);
+        background: #ffffff !important;
+        border: 1.5px solid #10b981 !important;
         border-radius: 8px;
         color: var(--text-main);
         font-family: 'Poppins', sans-serif;
@@ -2754,9 +2908,11 @@
         cursor: pointer;
         transition: all 0.15s ease;
         min-width: 180px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
       }
       .classic-template-dropdown:hover, .classic-template-dropdown:focus {
         border-color: #10b981;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.18);
       }
       .classic-header-icon-btns {
         display: flex;
@@ -2765,9 +2921,9 @@
         flex-wrap: wrap;
       }
       .classic-icon-btn {
-        background: var(--bg-panel);
+        background: #ffffff !important;
         color: var(--text-main);
-        border: 1px solid var(--border-color);
+        border: 1.5px solid var(--border-color);
         border-radius: 8px;
         font-family: 'Poppins', sans-serif;
         font-size: 12px;
@@ -2782,21 +2938,52 @@
         transition: all 0.2s ease;
         white-space: nowrap;
         user-select: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      }
+      .classic-icon-btn.classic-btn-pdf {
+        border-color: #ef4444 !important;
+        color: #ef4444 !important;
+      }
+      .classic-icon-btn.classic-btn-pdf svg {
+        color: #ef4444 !important;
+        stroke: #ef4444 !important;
+      }
+      .classic-icon-btn.classic-btn-png {
+        border-color: #3b82f6 !important;
+        color: #3b82f6 !important;
+      }
+      .classic-icon-btn.classic-btn-png svg {
+        color: #3b82f6 !important;
+        stroke: #3b82f6 !important;
+      }
+      .classic-icon-btn.classic-btn-print {
+        border-color: #8b5cf6 !important;
+        color: #8b5cf6 !important;
+      }
+      .classic-icon-btn.classic-btn-print svg {
+        color: #8b5cf6 !important;
+        stroke: #8b5cf6 !important;
+      }
+      .classic-icon-btn.classic-btn-theme {
+        border-color: #10b981 !important;
+        color: #10b981 !important;
+      }
+      .classic-icon-btn.classic-btn-theme svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
       }
       .classic-icon-btn:hover {
-        background: var(--bg-card);
-        border-color: #10b981;
-        color: #10b981;
+        background: #ffffff !important;
         transform: translateY(-1px);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
       .classic-icon-btn:active {
         transform: scale(0.97);
       }
       .classic-btn-switch-pro {
-        background: transparent;
-        color: #6366f1;
-        border: none;
+        background: #ffffff !important;
+        color: #6366f1 !important;
+        border: 1.5px solid #6366f1 !important;
         border-radius: 8px;
         font-family: 'Poppins', sans-serif;
         font-size: 12px;
@@ -2811,20 +2998,25 @@
         transition: all 0.2s ease;
         white-space: nowrap;
         user-select: none;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 2px 6px rgba(99, 102, 241, 0.12);
+      }
+      .classic-btn-switch-pro svg {
+        color: #6366f1 !important;
+        stroke: #6366f1 !important;
       }
       .classic-btn-switch-pro:hover {
-        background: #6366f1;
-        color: #ffffff;
+        background: #ffffff !important;
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
       }
       .classic-btn-switch-pro:active {
         transform: scale(0.97);
       }
+      [data-theme="dark"] .classic-btn-add-primary,
+      [data-theme="dark"] .classic-template-dropdown,
+      [data-theme="dark"] .classic-icon-btn,
       [data-theme="dark"] .classic-btn-switch-pro {
-        background: rgba(99, 102, 241, 0.2);
-        color: #818cf8;
+        background: #1e293b !important;
       }
 
       /* 2. Interactive Navigation Ribbon: Stats, Day Filter, Zoom & Grid Settings */
@@ -2857,13 +3049,17 @@
         display: inline-flex;
         align-items: center;
         gap: 5px;
-        background: var(--bg-panel);
-        border: 1px solid var(--border-color);
+        background: #ffffff;
+        border: 1.5px solid var(--border-color);
         padding: 4px 10px;
         border-radius: 16px;
         font-size: 11.5px;
         color: var(--text-muted);
         white-space: nowrap;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      }
+      [data-theme="dark"] .classic-stat-pill {
+        background: #1e293b;
       }
       .classic-stat-pill strong {
         color: var(--text-main);
@@ -2884,32 +3080,40 @@
         display: none;
       }
       .classic-day-pill-filter {
-        background: var(--bg-panel);
-        border: 1px solid var(--border-color);
+        background: #ffffff !important;
+        border: 1.5px solid #cbd5e1 !important;
         border-radius: 16px;
         font-family: 'Poppins', sans-serif;
         font-size: 12px;
         font-weight: 600;
         padding: 5px 12px;
-        color: var(--text-muted);
+        color: #64748b !important;
         cursor: pointer;
         white-space: nowrap;
         transition: all 0.15s ease;
         user-select: none;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
       }
       .classic-day-pill-filter:hover {
-        background: var(--bg-card);
-        color: var(--text-main);
-        border-color: #10b981;
+        background: #ffffff !important;
+        color: #10b981 !important;
+        border-color: #10b981 !important;
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15);
       }
       .classic-day-pill-filter:active {
         transform: scale(0.96);
       }
       .classic-day-pill-filter.active {
-        background: #10b981;
-        color: #ffffff;
-        border-color: #10b981;
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+        background: #ffffff !important;
+        color: #10b981 !important;
+        border-color: #10b981 !important;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25) !important;
+      }
+      [data-theme="dark"] .classic-day-pill-filter {
+        background: #1e293b !important;
+        border-color: #334155 !important;
+        color: #94a3b8 !important;
       }
 
       /* Undo/Redo & Utility Controls */
@@ -2921,9 +3125,9 @@
         flex-wrap: wrap;
       }
       .classic-btn-mini {
-        background: var(--bg-panel);
-        color: var(--text-main);
-        border: 1px solid var(--border-color);
+        background: #ffffff !important;
+        color: #6366f1 !important;
+        border: 1.5px solid #6366f1 !important;
         border-radius: 6px;
         font-family: 'Poppins', sans-serif;
         font-size: 11.5px;
@@ -2938,11 +3142,16 @@
         transition: all 0.15s ease;
         white-space: nowrap;
         user-select: none;
+        box-shadow: 0 1px 4px rgba(99, 102, 241, 0.08);
+      }
+      .classic-btn-mini svg {
+        color: #6366f1 !important;
+        stroke: #6366f1 !important;
       }
       .classic-btn-mini:hover {
-        background: var(--bg-card);
-        border-color: #10b981;
-        color: #10b981;
+        background: #ffffff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 3px 8px rgba(99, 102, 241, 0.2);
       }
       .classic-btn-mini:active {
         transform: scale(0.96);
@@ -2950,31 +3159,45 @@
       .classic-btn-mini.icon-only {
         padding: 0 8px;
       }
-      .classic-btn-mini.active {
-        background: #10b981;
-        color: #ffffff;
-        border-color: #10b981;
+      #btnToggleClassicConfig {
+        border-color: #10b981 !important;
+        color: #10b981 !important;
+        box-shadow: 0 1px 4px rgba(16, 185, 129, 0.08);
+      }
+      #btnToggleClassicConfig svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
+      }
+      #btnToggleClassicConfig:hover {
+        box-shadow: 0 3px 8px rgba(16, 185, 129, 0.2);
       }
       .classic-zoom-group {
         display: inline-flex;
         align-items: center;
-        background: var(--bg-panel);
-        border: 1px solid var(--border-color);
+        background: #ffffff !important;
+        border: 1.5px solid #3b82f6 !important;
         border-radius: 6px;
         height: 30px;
         padding: 1px 4px;
         gap: 2px;
+        box-shadow: 0 1px 4px rgba(59, 130, 246, 0.08);
       }
       .classic-zoom-group .classic-btn-mini {
-        border: none;
-        background: transparent;
+        border: none !important;
+        background: transparent !important;
         padding: 0 6px;
         height: 26px;
+        color: #3b82f6 !important;
+        box-shadow: none !important;
+      }
+      .classic-zoom-group .classic-btn-mini svg {
+        color: #3b82f6 !important;
+        stroke: #3b82f6 !important;
       }
       .classic-zoom-val {
         font-size: 11px;
         font-weight: 600;
-        color: var(--text-main);
+        color: #3b82f6 !important;
         min-width: 38px;
         text-align: center;
         user-select: none;
@@ -3007,8 +3230,8 @@
         flex-wrap: wrap;
       }
       .classic-btn-cfg-action {
-        background: var(--bg-panel);
-        border: 1px solid var(--border-color);
+        background: #ffffff !important;
+        border: 1.5px solid var(--border-color);
         border-radius: 6px;
         color: var(--text-main);
         font-family: 'Poppins', sans-serif;
@@ -3023,22 +3246,48 @@
         gap: 5px;
         transition: all 0.15s ease;
         user-select: none;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      }
+      .classic-btn-cfg-action.classic-btn-cfg-export {
+        border-color: #3b82f6 !important;
+        color: #3b82f6 !important;
+      }
+      .classic-btn-cfg-action.classic-btn-cfg-export svg {
+        color: #3b82f6 !important;
+        stroke: #3b82f6 !important;
+      }
+      .classic-btn-cfg-action.classic-btn-cfg-import {
+        border-color: #10b981 !important;
+        color: #10b981 !important;
+      }
+      .classic-btn-cfg-action.classic-btn-cfg-import svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
       }
       .classic-btn-cfg-action:hover {
-        background: var(--bg-card);
-        border-color: #10b981;
-        color: #10b981;
+        background: #ffffff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
       }
       .classic-btn-cfg-action:active {
         transform: scale(0.96);
       }
-      .classic-btn-cfg-action.danger {
-        color: #ef4444;
-        border-color: rgba(239, 68, 68, 0.3);
+      .classic-btn-cfg-action.danger, .classic-btn-cfg-action.classic-btn-cfg-clear {
+        color: #ef4444 !important;
+        border-color: #ef4444 !important;
+      }
+      .classic-btn-cfg-action.danger svg, .classic-btn-cfg-action.classic-btn-cfg-clear svg {
+        color: #ef4444 !important;
+        stroke: #ef4444 !important;
       }
       .classic-btn-cfg-action.danger:hover {
-        background: rgba(239, 68, 68, 0.12);
-        border-color: #ef4444;
+        background: #ffffff !important;
+        box-shadow: 0 3px 8px rgba(239, 68, 68, 0.2);
+      }
+      [data-theme="dark"] .classic-btn-mini,
+      [data-theme="dark"] .classic-zoom-group,
+      [data-theme="dark"] .classic-btn-cfg-action {
+        background: #1e293b !important;
       }
       .classic-cfg-label {
         font-size: 11px;
@@ -3600,6 +3849,168 @@
           height: calc(40px * var(--classic-zoom, 1));
         }
       }
+
+      /* ==========================================================================
+         ADMIN PANEL CMS STYLES
+         ========================================================================== */
+      .admin-filter-pill {
+        background: #ffffff;
+        border: 1.5px solid var(--border-color);
+        color: var(--text-muted);
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        white-space: nowrap;
+      }
+      [data-theme="dark"] .admin-filter-pill {
+        background: var(--bg-card);
+      }
+      .admin-filter-pill:hover {
+        border-color: #673de6;
+        color: #673de6;
+        transform: translateY(-1px);
+      }
+      .admin-filter-pill.active {
+        background: #673de6 !important;
+        border-color: #673de6 !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(103, 61, 230, 0.35);
+      }
+      .admin-post-row {
+        border-bottom: 1px solid var(--border-color);
+        transition: background 0.15s ease;
+      }
+      .admin-post-row:hover {
+        background: var(--bg-panel);
+      }
+      .admin-post-title-link {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--text-main);
+        text-decoration: none;
+        transition: color 0.15s;
+        display: block;
+        margin-bottom: 3px;
+        line-height: 1.35;
+      }
+      .admin-post-title-link:hover {
+        color: #673de6;
+      }
+      .admin-post-slug-badge {
+        display: inline-block;
+        font-size: 11px;
+        color: var(--text-muted);
+        font-family: monospace;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        padding: 1px 6px;
+        border-radius: 4px;
+      }
+      .admin-cat-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 9px;
+        border-radius: 12px;
+        white-space: nowrap;
+      }
+      .admin-status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 14px;
+        cursor: pointer;
+        border: 1.5px solid transparent;
+        transition: all 0.15s ease;
+        user-select: none;
+      }
+      .admin-status-pill.published {
+        background: #ffffff;
+        border-color: #10b981;
+        color: #059669;
+        box-shadow: 0 1px 4px rgba(16, 185, 129, 0.1);
+      }
+      [data-theme="dark"] .admin-status-pill.published {
+        background: var(--bg-card);
+        color: #34d399;
+      }
+      .admin-status-pill.draft {
+        background: #ffffff;
+        border-color: #f59e0b;
+        color: #d97706;
+        box-shadow: 0 1px 4px rgba(245, 158, 11, 0.1);
+      }
+      [data-theme="dark"] .admin-status-pill.draft {
+        background: var(--bg-card);
+        color: #fbbf24;
+      }
+      .admin-status-pill:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      }
+      .admin-action-btn-sm {
+        background: #ffffff;
+        border: 1.5px solid var(--border-color);
+        border-radius: 6px;
+        padding: 4px 8px;
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--text-main);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: all 0.15s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        text-decoration: none;
+      }
+      [data-theme="dark"] .admin-action-btn-sm {
+        background: var(--bg-card);
+      }
+      .admin-action-btn-sm:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+      }
+      .admin-action-btn-sm.edit-btn {
+        border-color: #6366f1;
+        color: #6366f1;
+      }
+      .admin-action-btn-sm.edit-btn:hover {
+        background: #6366f1 !important;
+        color: #ffffff !important;
+      }
+      .admin-action-btn-sm.view-btn {
+        border-color: #0284c7;
+        color: #0284c7;
+      }
+      .admin-action-btn-sm.view-btn:hover {
+        background: #0284c7 !important;
+        color: #ffffff !important;
+      }
+      .admin-action-btn-sm.duplicate-btn {
+        border-color: #8b5cf6;
+        color: #8b5cf6;
+      }
+      .admin-action-btn-sm.duplicate-btn:hover {
+        background: #8b5cf6 !important;
+        color: #ffffff !important;
+      }
+      .admin-action-btn-sm.delete-btn {
+        border-color: #ef4444;
+        color: #ef4444;
+      }
+      .admin-action-btn-sm.delete-btn:hover {
+        background: #ef4444 !important;
+        color: #ffffff !important;
+      }
     </style>
   </head>
   <body>
@@ -3824,19 +4235,19 @@
 
             <!-- Export & Utility Buttons -->
             <div class="classic-header-icon-btns">
-              <button class="classic-icon-btn" onclick="app.handlers.savePdf()" title="Export PDF Document" aria-label="Export PDF">
+              <button class="classic-icon-btn classic-btn-pdf" onclick="app.handlers.savePdf()" title="Export PDF Document" aria-label="Export PDF">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                 <span class="classic-btn-label">PDF</span>
               </button>
-              <button class="classic-icon-btn" onclick="app.handlers.downloadImage()" title="Download High-Res Image" aria-label="Download Image">
+              <button class="classic-icon-btn classic-btn-png" onclick="app.handlers.downloadImage()" title="Download High-Res Image" aria-label="Download Image">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                 <span class="classic-btn-label">PNG</span>
               </button>
-              <button class="classic-icon-btn" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print">
+              <button class="classic-icon-btn classic-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                 <span class="classic-btn-label">Print</span>
               </button>
-              <button class="classic-icon-btn" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+              <button class="classic-icon-btn classic-btn-theme" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
               </button>
               <button class="classic-btn-switch-pro" onclick="app.handlers.switchViewMode('pro')" title="Switch to Pro Studio Edition" aria-label="Switch to Pro Edition">
@@ -3983,15 +4394,15 @@
             <div class="classic-cfg-item classic-cfg-item-actions">
               <span class="classic-cfg-label">Backup & Clear:</span>
               <div class="classic-cfg-action-buttons">
-                <button class="classic-btn-cfg-action" onclick="app.handlers.exportJson()" title="Export JSON File">
+                <button class="classic-btn-cfg-action classic-btn-cfg-export" onclick="app.handlers.exportJson()" title="Export JSON File">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"></path></svg>
                   <span>Export JSON</span>
                 </button>
-                <button class="classic-btn-cfg-action" onclick="app.handlers.triggerImport()" title="Import JSON File">
+                <button class="classic-btn-cfg-action classic-btn-cfg-import" onclick="app.handlers.triggerImport()" title="Import JSON File">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                   <span>Import JSON</span>
                 </button>
-                <button class="classic-btn-cfg-action danger" onclick="app.handlers.clearAll()" title="Reset All Entries">
+                <button class="classic-btn-cfg-action danger classic-btn-cfg-clear" onclick="app.handlers.clearAll()" title="Reset All Entries">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                   <span>Clear All</span>
                 </button>
@@ -4181,18 +4592,18 @@
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"></path></svg>
             </div>
             <div class="flex-half">
-              <button class="btn-ctrl" onclick="app.handlers.triggerImport()">
+              <button class="btn-ctrl btn-sidebar-import" onclick="app.handlers.triggerImport()">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                 Import
               </button>
-              <button class="btn-ctrl" onclick="app.handlers.exportJson()">
+              <button class="btn-ctrl btn-sidebar-export" onclick="app.handlers.exportJson()">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 Export
               </button>
             </div>
             <input type="file" id="fileImporter" class="hidden-input" accept=".json" onchange="app.handlers.handleImport(event)">
-            <button class="btn-ctrl btn-primary" onclick="app.handlers.manualSave()">Manual Backup</button>
-            <button class="btn-ctrl" style="color: #ef4444;" onclick="app.handlers.clearAll()">
+            <button class="btn-ctrl btn-sidebar-backup btn-primary" onclick="app.handlers.manualSave()">Manual Backup</button>
+            <button class="btn-ctrl btn-sidebar-reset" style="color: #ef4444;" onclick="app.handlers.clearAll()">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
               Standard Reset
             </button>
@@ -4318,23 +4729,23 @@
               <span>Export & Share Options</span>
             </div>
             <div class="export-options-actions">
-              <button class="export-btn-item" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print Timetable">
+              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print Timetable">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                 <span>Print</span>
               </button>
-              <button class="export-btn-item" onclick="app.handlers.savePdf()" title="Save as PDF document" aria-label="Save as PDF">
+              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" aria-label="Save as PDF">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
                 <span>Save PDF</span>
               </button>
-              <button class="export-btn-item" onclick="app.handlers.exportJson()" title="Export JSON" aria-label="Export JSON">
+              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" aria-label="Export JSON">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 <span>Save JSON</span>
               </button>
-              <button class="export-btn-item" onclick="app.handlers.downloadPng()" title="Download PNG" aria-label="Download PNG">
+              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" aria-label="Download PNG">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>PNG</span>
               </button>
-              <button class="export-btn-item btn-primary" onclick="app.handlers.shareSchedule()" id="btnShareSchedule" title="Share Timetable" aria-label="Share Timetable">
+              <button class="export-btn-item export-btn-share btn-primary" onclick="app.handlers.shareSchedule()" id="btnShareSchedule" title="Share Timetable" aria-label="Share Timetable">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M8.684 10.742L15.32 7.424M15.32 16.576l-6.637-3.318M21 12a3 3 0 11-6 0 3 3 0 016 0zm-11-6a3 3 0 11-6 0 3 3 0 016 0zm0 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 <span>Share</span>
               </button>
@@ -4872,14 +5283,14 @@
         </div>
 
         <div class="modal-footer" style="background: var(--bg-panel); border-top: 1px solid var(--border-color); padding: 14px 20px; display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
-          <button id="btnClassicDeleteEvt" class="btn-ctrl" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3); display: none; margin-right: auto;" onclick="app.handlers.deleteClassicEventFromModal()">
+          <button id="btnClassicDeleteEvt" class="btn-ctrl" style="color: #ef4444; border-color: #ef4444; display: none; margin-right: auto;" onclick="app.handlers.deleteClassicEventFromModal()">
             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
             Delete
           </button>
           <button class="btn-ctrl" onclick="app.handlers.closeClassicEventModal()">Cancel</button>
-          <button class="btn-ctrl btn-primary" style="background: #10b981; border-color: #10b981;" onclick="app.handlers.saveClassicEventFromModal()">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            Save Activity
+          <button class="btn-ctrl btn-primary" style="background-color: #ffffff !important; border: 1.5px solid #10b981 !important; color: #10b981 !important; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);" onclick="app.handlers.saveClassicEventFromModal()">
+            <svg fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Save Activity</span>
           </button>
         </div>
       </div>
@@ -5083,106 +5494,252 @@
     <!-- ==========================================================================
          ADMIN PANEL CONTAINER (/admin-panel)
          ========================================================================== -->
-    <div id="adminPanelApp" class="hidden" style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-family: 'Poppins', sans-serif;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <h1 style="font-size: 24px; font-weight: 700; color: var(--text-main); margin: 0 0 4px 0;">TimetableCreator.online Admin Panel</h1>
-          <p style="font-size: 14px; color: var(--text-muted); margin: 0;">Manage and edit existing blog posts and static pages seamlessly.</p>
+    <div id="adminPanelApp" class="hidden" style="max-width: 1240px; margin: 30px auto 60px auto; padding: 0 20px; font-family: 'Poppins', sans-serif;">
+      
+      <!-- Admin Header Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; background: var(--bg-card); padding: 20px 24px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 44px; height: 44px; border-radius: 12px; background: #673de6; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 12px rgba(103, 61, 230, 0.3);">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <h1 style="font-size: 20px; font-weight: 700; color: var(--text-main); margin: 0;">TimetableCreator.online Admin Portal</h1>
+              <span style="font-size: 11px; background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 12px; font-weight: 600;">Posts & Pages CMS</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin: 2px 0 0 0;">Manage, edit, publish, and create blog posts, guides, and static pages.</p>
+          </div>
         </div>
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <a href="/" class="classic-icon-btn" style="text-decoration: none; padding: 8px 16px;">
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span>Back to Homepage</span>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <a href="/" class="classic-icon-btn" style="text-decoration: none; padding: 8px 14px; font-size: 12.5px;">
+            <svg width="14" height="14" fill="none" stroke="#673de6" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Live Timetable</span>
           </a>
-          <button class="classic-btn-add-primary" onclick="app.handlers.openAdminEditModal()">
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
+          <a href="/blog/" target="_blank" class="classic-icon-btn" style="text-decoration: none; padding: 8px 14px; font-size: 12.5px;">
+            <svg width="14" height="14" fill="none" stroke="#0284c7" stroke-width="2" viewBox="0 0 24 24"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+            <span>Blog Archive</span>
+          </a>
+          <button class="classic-btn-add-primary" onclick="app.handlers.openAdminEditModal()" style="font-size: 12.5px; padding: 8px 16px;">
+            <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
             <span>Add New Post</span>
           </button>
         </div>
       </div>
 
       <!-- Stats Overview Cards -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px;">
-        <div style="background: var(--bg-card); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid var(--border-color);">
-          <div style="font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 6px;">Total Posts / Pages</div>
-          <div id="adminStatTotal" style="font-size: 28px; font-weight: 700; color: var(--text-main);">0</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-bottom: 24px;">
+        <div style="background: var(--bg-card); border-radius: 14px; padding: 18px 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.04); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Total Content</div>
+            <div id="adminStatTotal" style="font-size: 26px; font-weight: 700; color: var(--text-main); margin-top: 2px;">0</div>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(99, 102, 241, 0.1); color: #6366f1; display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          </div>
         </div>
-        <div style="background: var(--bg-card); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid var(--border-color);">
-          <div style="font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 6px;">Published Status</div>
-          <div id="adminStatPublished" style="font-size: 28px; font-weight: 700; color: #10b981;">0</div>
+        <div style="background: var(--bg-card); border-radius: 14px; padding: 18px 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.04); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Published Live</div>
+            <div id="adminStatPublished" style="font-size: 26px; font-weight: 700; color: #10b981; margin-top: 2px;">0</div>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(16, 185, 129, 0.1); color: #10b981; display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+          </div>
         </div>
-        <div style="background: var(--bg-card); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid var(--border-color);">
-          <div style="font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 6px;">Categories</div>
-          <div id="adminStatCategories" style="font-size: 28px; font-weight: 700; color: #6366f1;">0</div>
+        <div style="background: var(--bg-card); border-radius: 14px; padding: 18px 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.04); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Drafts / Hidden</div>
+            <div id="adminStatDrafts" style="font-size: 26px; font-weight: 700; color: #f59e0b; margin-top: 2px;">0</div>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+          </div>
+        </div>
+        <div style="background: var(--bg-card); border-radius: 14px; padding: 18px 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.04); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Categories</div>
+            <div id="adminStatCategories" style="font-size: 26px; font-weight: 700; color: #8b5cf6; margin-top: 2px;">0</div>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; display: flex; align-items: center; justify-content: center;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+          </div>
         </div>
       </div>
 
-      <!-- Posts Table Card -->
-      <div style="background: var(--bg-card); border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border: 1px solid var(--border-color); overflow: hidden;">
-        <div style="padding: 16px 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
-          <h3 style="font-size: 16px; font-weight: 600; color: var(--text-main); margin: 0;">Existing Posts & Pages</h3>
-          <input type="text" id="adminSearchInput" placeholder="Search posts by title or slug..." oninput="app.handlers.filterAdminPosts(this.value)" style="padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); font-size: 13px; width: 280px; outline: none;">
+      <!-- Main Management Panel -->
+      <div style="background: var(--bg-card); border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.06); border: 1px solid var(--border-color); overflow: hidden;">
+        
+        <!-- Filter & Search Toolbar -->
+        <div style="padding: 18px 22px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; background: var(--bg-panel);">
+          
+          <!-- Category Filter Pills -->
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="adminCategoryPills">
+            <button class="admin-filter-pill active" onclick="app.handlers.filterAdminCategory('all')" data-cat="all">All Posts</button>
+            <button class="admin-filter-pill" onclick="app.handlers.filterAdminCategory('Expert Guide')" data-cat="Expert Guide">Guides</button>
+            <button class="admin-filter-pill" onclick="app.handlers.filterAdminCategory('Exam Prep')" data-cat="Exam Prep">Exam Prep</button>
+            <button class="admin-filter-pill" onclick="app.handlers.filterAdminCategory('Strategic Blueprint')" data-cat="Strategic Blueprint">Blueprints</button>
+            <button class="admin-filter-pill" onclick="app.handlers.filterAdminCategory('Legal')" data-cat="Legal">Legal & Pages</button>
+          </div>
+
+          <!-- Search & Utility Actions -->
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <div style="position: relative;">
+              <input type="text" id="adminSearchInput" placeholder="Search by title, slug, or category..." oninput="app.handlers.filterAdminPosts(this.value)" style="padding: 8px 12px 8px 32px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-main); font-size: 13px; width: 260px; outline: none; transition: border-color 0.2s;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="position: absolute; left: 10px; top: 11px; color: var(--text-muted);"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+            </div>
+            
+            <button onclick="app.handlers.exportPostsJson()" class="classic-icon-btn" style="padding: 8px 12px; font-size: 12px;" title="Export backup JSON">
+              <svg width="13" height="13" fill="none" stroke="#673de6" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              <span>Export JSON</span>
+            </button>
+            
+            <button onclick="document.getElementById('adminImportFileInput').click()" class="classic-icon-btn" style="padding: 8px 12px; font-size: 12px;" title="Import posts JSON">
+              <svg width="13" height="13" fill="none" stroke="#0284c7" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+              <span>Import</span>
+            </button>
+            <input type="file" id="adminImportFileInput" accept=".json" style="display: none;" onchange="app.handlers.importPostsJson(event)">
+          </div>
+
         </div>
+
+        <!-- Posts Table -->
         <div style="overflow-x: auto;">
           <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px;">
             <thead>
-              <tr style="background: var(--bg-panel); color: var(--text-muted); border-bottom: 1px solid var(--border-color); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
-                <th style="padding: 12px 20px;">Title & Slug</th>
-                <th style="padding: 12px 16px;">Category</th>
-                <th style="padding: 12px 16px;">Status</th>
-                <th style="padding: 12px 16px;">Last Updated</th>
-                <th style="padding: 12px 20px; text-align: right;">Actions</th>
+              <tr style="background: var(--bg-card); color: var(--text-muted); border-bottom: 1px solid var(--border-color); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em;">
+                <th style="padding: 14px 22px; width: 45%;">Article / Page Title</th>
+                <th style="padding: 14px 16px;">Category</th>
+                <th style="padding: 14px 16px;">Author</th>
+                <th style="padding: 14px 16px;">Status</th>
+                <th style="padding: 14px 16px;">Last Updated</th>
+                <th style="padding: 14px 22px; text-align: right;">Actions</th>
               </tr>
             </thead>
             <tbody id="adminPostsTableBody">
-              <!-- Populated dynamically -->
+              <!-- Dynamically populated -->
             </tbody>
           </table>
         </div>
+
       </div>
     </div>
 
-    <!-- Admin Edit / Create Modal -->
+    <!-- Admin Edit / Create Post Modal -->
     <div id="adminPostModal" class="modal-backdrop hidden" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px;">
-      <div style="background: var(--bg-card); width: 100%; max-width: 650px; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); overflow: hidden; max-height: 90vh; display: flex; flex-direction: column;">
-        <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
-          <h3 id="adminModalTitle" style="font-size: 18px; font-weight: 600; color: var(--text-main); margin: 0;">Edit Post</h3>
-          <button onclick="app.handlers.closeAdminModal()" style="background: none; border: none; cursor: pointer; color: var(--text-muted); padding: 4px;">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+      <div style="background: var(--bg-card); width: 100%; max-width: 720px; border-radius: 16px; box-shadow: 0 14px 45px rgba(0,0,0,0.25); border: 1px solid var(--border-color); overflow: hidden; max-height: 90vh; display: flex; flex-direction: column;">
+        
+        <!-- Modal Header -->
+        <div style="padding: 18px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background: var(--bg-panel);">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></div>
+            <h3 id="adminModalTitle" style="font-size: 16.5px; font-weight: 700; color: var(--text-main); margin: 0;">Edit Post / Article</h3>
+          </div>
+          <button onclick="app.handlers.closeAdminModal()" style="background: none; border: none; cursor: pointer; color: var(--text-muted); padding: 4px; display: flex; align-items: center; justify-content: center;" aria-label="Close modal">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
-        <form id="adminPostForm" onsubmit="app.handlers.saveAdminPost(event)" style="padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px;">
+
+        <!-- Modal Form -->
+        <form id="adminPostForm" onsubmit="app.handlers.saveAdminPost(event)" style="padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px;">
           <input type="hidden" id="adminPostId">
+          
+          <!-- Title Input -->
           <div>
-            <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">Post Title</label>
-            <input type="text" id="adminPostTitle" required class="input-ctrl" placeholder="Enter post title..." style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px;">
+            <label for="adminPostTitle" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Post Title *</label>
+            <input type="text" id="adminPostTitle" required class="input-ctrl" placeholder="e.g. Best Study Timetable for Class 10: Expert Daily Routine" oninput="app.handlers.onAdminTitleInput(this.value)" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13.5px; font-weight: 500;">
           </div>
+
+          <!-- URL Slug Input -->
           <div>
-            <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">URL Slug</label>
-            <input type="text" id="adminPostSlug" required class="input-ctrl" placeholder="e.g. how-to-make-a-timetable" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px;">
+            <label for="adminPostSlug" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">
+              URL Slug (Permanent Link) *
+            </label>
+            <div style="display: flex; align-items: center; background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; padding-left: 12px;">
+              <span style="font-size: 12px; color: var(--text-muted); font-family: monospace;">timetablecreator.online/blog/</span>
+              <input type="text" id="adminPostSlug" required class="input-ctrl" placeholder="how-to-make-a-timetable" style="border: none; background: transparent; padding: 10px 12px; color: var(--text-main); width: 100%; font-size: 13px; font-family: monospace;">
+            </div>
           </div>
+
+          <!-- Row: Category & Status & Author & Read Time -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
             <div>
-              <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">Category</label>
-              <input type="text" id="adminPostCategory" class="input-ctrl" placeholder="e.g. Timetable Guide" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px;">
+              <label for="adminPostCategory" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Category</label>
+              <input type="text" id="adminPostCategory" class="input-ctrl" placeholder="e.g. Expert Guide, Exam Prep, Legal" style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px;">
             </div>
             <div>
-              <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">Status</label>
-              <select id="adminPostStatus" class="select-ctrl" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px;">
-                <option value="Published">Published</option>
-                <option value="Draft">Draft</option>
+              <label for="adminPostStatus" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Publish Status</label>
+              <select id="adminPostStatus" class="select-ctrl" style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px; cursor: pointer;">
+                <option value="Published">Published (Live to Public)</option>
+                <option value="Draft">Draft (Hidden)</option>
               </select>
             </div>
           </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <label for="adminPostAuthor" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Author / Advisor Name</label>
+              <input type="text" id="adminPostAuthor" class="input-ctrl" placeholder="e.g. Dr. Anand Verma, Prof. Sarah Lin" style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px;">
+            </div>
+            <div>
+              <label for="adminPostReadTime" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Estimated Read Time</label>
+              <input type="text" id="adminPostReadTime" class="input-ctrl" placeholder="e.g. 10 Min Read" style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px;">
+            </div>
+          </div>
+
+          <!-- Short Excerpt / Meta Description -->
           <div>
-            <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">Content / Excerpt / Description</label>
-            <textarea id="adminPostContent" rows="6" class="input-ctrl" placeholder="Write or edit post content..." style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px; resize: vertical;"></textarea>
+            <label for="adminPostExcerpt" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Excerpt / SEO Summary Description</label>
+            <textarea id="adminPostExcerpt" rows="2" class="input-ctrl" placeholder="Brief summary of the article for Google search snippets and blog cards..." style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px; resize: vertical;"></textarea>
           </div>
-          <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;">
-            <button type="button" onclick="app.handlers.closeAdminModal()" class="classic-icon-btn" style="padding: 10px 20px;">Cancel</button>
-            <button type="submit" class="classic-btn-add-primary" style="padding: 10px 24px;">Save Post</button>
+
+          <!-- Content Editor with Formatting Helpers -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <label for="adminPostContent" style="font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 0;">Full Article Content (Markdown / HTML)</label>
+              <div style="display: flex; gap: 4px;">
+                <button type="button" onclick="app.handlers.insertAdminFormatting('**', '**')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Bold"><strong>B</strong></button>
+                <button type="button" onclick="app.handlers.insertAdminFormatting('*', '*')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Italic"><em>I</em></button>
+                <button type="button" onclick="app.handlers.insertAdminFormatting('## ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Heading 2">H2</button>
+                <button type="button" onclick="app.handlers.insertAdminFormatting('- ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Bullet list">• List</button>
+                <button type="button" onclick="app.handlers.insertAdminFormatting('> ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Quote">Quote</button>
+              </div>
+            </div>
+            <textarea id="adminPostContent" rows="7" class="input-ctrl" placeholder="Write or edit full post content..." style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px; font-family: monospace; resize: vertical; line-height: 1.6;"></textarea>
           </div>
+
+          <!-- Modal Action Buttons -->
+          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--border-color);">
+            <button type="button" onclick="app.handlers.closeAdminModal()" class="classic-icon-btn" style="padding: 9px 18px; font-size: 13px;">Cancel</button>
+            <button type="submit" class="classic-btn-add-primary" style="padding: 9px 24px; font-size: 13px;">
+              <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Save & Publish</span>
+            </button>
+          </div>
+
         </form>
+      </div>
+    </div>
+
+    <!-- Admin Post Delete Confirmation Modal -->
+    <div id="adminDeleteModal" class="modal-backdrop hidden" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px;">
+      <div style="background: var(--bg-card); width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 12px 35px rgba(0,0,0,0.2); border: 1px solid var(--border-color); overflow: hidden; padding: 22px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(239, 68, 68, 0.1); color: #ef4444; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+          </div>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-main); margin: 0;">Delete Post Confirmation</h3>
+            <p style="font-size: 12px; color: var(--text-muted); margin: 2px 0 0 0;">This action cannot be undone.</p>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: var(--text-main); line-height: 1.5; margin-bottom: 18px;">
+          Are you sure you want to remove <strong id="adminDeletePostTitle" style="color: #ef4444;"></strong> from your website?
+        </p>
+        <input type="hidden" id="adminDeletePostId">
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" onclick="app.handlers.closeAdminDeleteModal()" class="classic-icon-btn" style="padding: 8px 16px; font-size: 12.5px;">Cancel</button>
+          <button type="button" onclick="app.handlers.confirmAdminDeletePost()" class="classic-icon-btn" style="padding: 8px 18px; font-size: 12.5px; border-color: #ef4444; color: #ef4444;" onmouseover="this.style.background='#ef4444'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#ef4444';">Delete Post</button>
+        </div>
       </div>
     </div>
 
@@ -6765,59 +7322,153 @@
          * Direct Handlers hooks for DOM buttons callbacks
          */
         handlers: {
+          allAdminPosts: [],
+          adminCurrentCategory: 'all',
+          adminSearchQuery: '',
+
           loadAdminPosts() {
             fetch('/api/admin/posts')
               .then(res => res.json())
               .then(data => {
-                if (data.success) {
+                if (data.success && Array.isArray(data.posts)) {
                   this.allAdminPosts = data.posts;
-                  this.renderAdminPosts(data.posts);
+                  this.applyAdminFiltersAndRender();
                 }
               })
-              .catch(err => console.error('Failed to load posts', err));
+              .catch(err => {
+                console.error('Failed to load posts', err);
+                app.showToast('Could not load posts from server', 'error');
+              });
           },
+
+          applyAdminFiltersAndRender() {
+            if (!this.allAdminPosts) return;
+            let list = [...this.allAdminPosts];
+            
+            if (this.adminCurrentCategory && this.adminCurrentCategory !== 'all') {
+              list = list.filter(p => (p.category || '').toLowerCase() === this.adminCurrentCategory.toLowerCase());
+            }
+
+            if (this.adminSearchQuery) {
+              const q = this.adminSearchQuery;
+              list = list.filter(p => 
+                (p.title && p.title.toLowerCase().includes(q)) ||
+                (p.slug && p.slug.toLowerCase().includes(q)) ||
+                (p.category && p.category.toLowerCase().includes(q)) ||
+                (p.author && p.author.toLowerCase().includes(q)) ||
+                (p.excerpt && p.excerpt.toLowerCase().includes(q)) ||
+                (p.content && p.content.toLowerCase().includes(q))
+              );
+            }
+
+            this.renderAdminPosts(list);
+          },
+
           renderAdminPosts(posts) {
             const tbody = document.getElementById('adminPostsTableBody');
             const statTotal = document.getElementById('adminStatTotal');
             const statPublished = document.getElementById('adminStatPublished');
+            const statDrafts = document.getElementById('adminStatDrafts');
             const statCategories = document.getElementById('adminStatCategories');
 
-            if (statTotal) statTotal.textContent = posts.length;
-            if (statPublished) statPublished.textContent = posts.filter(p => p.status === 'Published').length;
-            if (statCategories) statCategories.textContent = new Set(posts.map(p => p.category)).size;
+            const allPosts = this.allAdminPosts || [];
+            if (statTotal) statTotal.textContent = allPosts.length;
+            if (statPublished) statPublished.textContent = allPosts.filter(p => p.status === 'Published').length;
+            if (statDrafts) statDrafts.textContent = allPosts.filter(p => p.status === 'Draft').length;
+            if (statCategories) statCategories.textContent = new Set(allPosts.map(p => p.category || 'General')).size;
 
             if (!tbody) return;
-            if (posts.length === 0) {
-              tbody.innerHTML = `<tr><td colspan="5" style="padding: 30px; text-align: center; color: var(--text-muted);">No posts found.</td></tr>`;
+            if (!posts || posts.length === 0) {
+              tbody.innerHTML = `<tr><td colspan="6" style="padding: 40px 20px; text-align: center; color: var(--text-muted);"><div style="font-size: 15px; font-weight: 500; margin-bottom: 4px;">No posts match your filters</div><div style="font-size: 12.5px;">Click "Add New Post" or reset search to see content.</div></td></tr>`;
               return;
             }
 
             tbody.innerHTML = posts.map(p => `
               <tr style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;" onmouseover="this.style.background='var(--bg-panel)'" onmouseout="this.style.background='transparent'">
-                <td style="padding: 14px 20px;">
-                  <div style="font-weight: 600; color: var(--text-main); margin-bottom: 2px;">${p.title}</div>
-                  <div style="font-size: 12px; color: var(--text-muted);">/blog/${p.slug}/</div>
+                <td style="padding: 14px 22px;">
+                  <div style="font-weight: 600; color: var(--text-main); margin-bottom: 3px; font-size: 14px;">${app.escapeHtml(p.title)}</div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted);">
+                    <span style="font-family: monospace; color: #6366f1;">/blog/${app.escapeHtml(p.slug)}/</span>
+                    ${p.excerpt ? `<span style="color: var(--text-muted); opacity: 0.75;">• ${app.escapeHtml(p.excerpt.substring(0, 55))}${p.excerpt.length > 55 ? '...' : ''}</span>` : ''}
+                  </div>
                 </td>
                 <td style="padding: 14px 16px;">
-                  <span style="display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; background: rgba(99, 102, 241, 0.1); color: #6366f1;">${p.category || 'General'}</span>
+                  <span style="display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; background: rgba(99, 102, 241, 0.1); color: #6366f1;">${app.escapeHtml(p.category || 'General')}</span>
+                </td>
+                <td style="padding: 14px 16px; color: var(--text-main); font-size: 13px;">
+                  <div style="font-weight: 500;">${app.escapeHtml(p.author || 'Timetable Team')}</div>
+                  <div style="font-size: 11.5px; color: var(--text-muted);">${app.escapeHtml(p.readTime || '5 Min Read')}</div>
                 </td>
                 <td style="padding: 14px 16px;">
-                  <span style="display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; background: ${p.status === 'Published' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(245, 158, 11, 0.1)'}; color: ${p.status === 'Published' ? '#10b981' : '#f59e0b'};">${p.status}</span>
+                  <button onclick="app.handlers.toggleAdminPostStatus('${p.id}')" title="Click to toggle status" style="background: none; border: none; cursor: pointer; padding: 0;">
+                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; background: ${p.status === 'Published' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(245, 158, 11, 0.1)'}; color: ${p.status === 'Published' ? '#10b981' : '#f59e0b'};">
+                      <span style="width: 6px; height: 6px; border-radius: 50%; background: ${p.status === 'Published' ? '#10b981' : '#f59e0b'};"></span>
+                      ${p.status || 'Published'}
+                    </span>
+                  </button>
                 </td>
-                <td style="padding: 14px 16px; color: var(--text-muted); font-size: 12.5px;">${p.updatedAt}</td>
-                <td style="padding: 14px 20px; text-align: right; white-space: nowrap;">
-                  <button onclick="app.handlers.openAdminEditModal('${p.id}')" class="classic-icon-btn" style="padding: 6px 12px; margin-right: 6px;" title="Edit Post">Edit</button>
-                  <button onclick="app.handlers.deleteAdminPost('${p.id}')" class="classic-icon-btn" style="padding: 6px 12px; color: #ef4444; border-color: rgba(239, 68, 68, 0.3);" title="Delete Post">Delete</button>
+                <td style="padding: 14px 16px; color: var(--text-muted); font-size: 12px;">${app.escapeHtml(p.updatedAt || 'Recently')}</td>
+                <td style="padding: 14px 22px; text-align: right; white-space: nowrap;">
+                  <div style="display: inline-flex; gap: 6px; align-items: center;">
+                    <button onclick="app.handlers.openAdminEditModal('${p.id}')" class="classic-icon-btn" style="padding: 6px 12px; font-size: 12px;" title="Edit Post">
+                      <svg width="12" height="12" fill="none" stroke="#673de6" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                      <span>Edit</span>
+                    </button>
+                    <button onclick="app.handlers.duplicateAdminPost('${p.id}')" class="classic-icon-btn" style="padding: 6px 10px; font-size: 12px;" title="Duplicate as Draft">
+                      <svg width="12" height="12" fill="none" stroke="#0284c7" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+                    </button>
+                    <button onclick="app.handlers.openAdminDeleteModal('${p.id}')" class="classic-icon-btn" style="padding: 6px 10px; font-size: 12px; border-color: rgba(239, 68, 68, 0.4); color: #ef4444;" title="Delete Post">
+                      <svg width="12" height="12" fill="none" stroke="#ef4444" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    </button>
+                  </div>
                 </td>
               </tr>
             `).join('');
           },
-          filterAdminPosts(query) {
-            if (!this.allAdminPosts) return;
-            const q = query.toLowerCase();
-            const filtered = this.allAdminPosts.filter(p => p.title.toLowerCase().includes(q) || p.slug.toLowerCase().includes(q) || (p.category && p.category.toLowerCase().includes(q)));
-            this.renderAdminPosts(filtered);
+
+          filterAdminCategory(cat) {
+            this.adminCurrentCategory = cat;
+            const pills = document.querySelectorAll('#adminCategoryPills .admin-filter-pill');
+            pills.forEach(p => {
+              if (p.getAttribute('data-cat') === cat) {
+                p.classList.add('active');
+              } else {
+                p.classList.remove('active');
+              }
+            });
+            this.applyAdminFiltersAndRender();
           },
+
+          filterAdminPosts(query) {
+            this.adminSearchQuery = (query || '').toLowerCase().trim();
+            this.applyAdminFiltersAndRender();
+          },
+
+          onAdminTitleInput(title) {
+            const idEl = document.getElementById('adminPostId');
+            if (!idEl || !idEl.value) {
+              const slugEl = document.getElementById('adminPostSlug');
+              if (slugEl) {
+                slugEl.value = title.toLowerCase()
+                  .replace(/[^a-z0-9]+/g, '-')
+                  .replace(/^-+|-+$/g, '');
+              }
+            }
+          },
+
+          insertAdminFormatting(prefix, suffix = '') {
+            const textarea = document.getElementById('adminPostContent');
+            if (!textarea) return;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const text = textarea.value;
+            const selected = text.substring(start, end);
+            const replacement = prefix + (selected || 'text') + suffix;
+            textarea.value = text.substring(0, start) + replacement + text.substring(end);
+            textarea.focus();
+            textarea.setSelectionRange(start + prefix.length, start + prefix.length + (selected ? selected.length : 4));
+          },
+
           openAdminEditModal(postId = null) {
             const modal = document.getElementById('adminPostModal');
             const titleEl = document.getElementById('adminModalTitle');
@@ -6826,43 +7477,60 @@
             const slugInput = document.getElementById('adminPostSlug');
             const catInput = document.getElementById('adminPostCategory');
             const statusInput = document.getElementById('adminPostStatus');
+            const authorInput = document.getElementById('adminPostAuthor');
+            const readTimeInput = document.getElementById('adminPostReadTime');
+            const excerptInput = document.getElementById('adminPostExcerpt');
             const contentInput = document.getElementById('adminPostContent');
 
             if (postId && this.allAdminPosts) {
               const post = this.allAdminPosts.find(p => p.id === postId);
               if (post) {
-                if (titleEl) titleEl.textContent = 'Edit Post: ' + post.title;
+                if (titleEl) titleEl.textContent = 'Edit Article: ' + post.title;
                 if (idEl) idEl.value = post.id;
-                if (titleInput) titleInput.value = post.title;
-                if (slugInput) slugInput.value = post.slug;
+                if (titleInput) titleInput.value = post.title || '';
+                if (slugInput) slugInput.value = post.slug || '';
                 if (catInput) catInput.value = post.category || '';
                 if (statusInput) statusInput.value = post.status || 'Published';
+                if (authorInput) authorInput.value = post.author || '';
+                if (readTimeInput) readTimeInput.value = post.readTime || '';
+                if (excerptInput) excerptInput.value = post.excerpt || '';
                 if (contentInput) contentInput.value = post.content || '';
               }
             } else {
-              if (titleEl) titleEl.textContent = 'Add New Post';
+              if (titleEl) titleEl.textContent = 'Add New Article / Post';
               if (idEl) idEl.value = '';
               if (titleInput) titleInput.value = '';
               if (slugInput) slugInput.value = '';
-              if (catInput) catInput.value = 'Timetable Guide';
+              if (catInput) catInput.value = 'Expert Guide';
               if (statusInput) statusInput.value = 'Published';
+              if (authorInput) authorInput.value = 'Dr. Anand Verma';
+              if (readTimeInput) readTimeInput.value = '8 Min Read';
+              if (excerptInput) excerptInput.value = '';
               if (contentInput) contentInput.value = '';
             }
             if (modal) modal.classList.remove('hidden');
           },
+
           closeAdminModal() {
             const modal = document.getElementById('adminPostModal');
             if (modal) modal.classList.add('hidden');
           },
+
           saveAdminPost(e) {
             e.preventDefault();
             const id = document.getElementById('adminPostId').value;
+            const rawTitle = document.getElementById('adminPostTitle').value.trim();
+            const rawSlug = document.getElementById('adminPostSlug').value.trim() || rawTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
             const payload = {
-              title: document.getElementById('adminPostTitle').value,
-              slug: document.getElementById('adminPostSlug').value,
-              category: document.getElementById('adminPostCategory').value,
-              status: document.getElementById('adminPostStatus').value,
-              content: document.getElementById('adminPostContent').value
+              title: rawTitle,
+              slug: rawSlug,
+              category: document.getElementById('adminPostCategory').value.trim() || 'General',
+              status: document.getElementById('adminPostStatus').value || 'Published',
+              author: document.getElementById('adminPostAuthor').value.trim() || 'Timetable Creator Team',
+              readTime: document.getElementById('adminPostReadTime').value.trim() || '5 Min Read',
+              excerpt: document.getElementById('adminPostExcerpt').value.trim(),
+              content: document.getElementById('adminPostContent').value.trim()
             };
 
             const url = id ? `/api/admin/posts/${id}` : '/api/admin/posts';
@@ -6878,9 +7546,9 @@
                 if (data.success) {
                   this.closeAdminModal();
                   this.loadAdminPosts();
-                  app.showToast(id ? 'Post updated successfully!' : 'Post created successfully!', 'success');
+                  app.showToast(id ? 'Post updated successfully!' : 'Post published successfully!', 'success');
                 } else {
-                  app.showToast('Error saving post', 'error');
+                  app.showToast(data.message || 'Error saving post', 'error');
                 }
               })
               .catch(err => {
@@ -6888,22 +7556,176 @@
                 app.showToast('Network error saving post', 'error');
               });
           },
-          deleteAdminPost(id) {
-            if (!confirm('Are you sure you want to delete this post?')) return;
+
+          openAdminDeleteModal(id) {
+            if (!this.allAdminPosts) return;
+            const post = this.allAdminPosts.find(p => p.id === id);
+            if (!post) return;
+
+            const modal = document.getElementById('adminDeleteModal');
+            const titleEl = document.getElementById('adminDeletePostTitle');
+            const idInput = document.getElementById('adminDeletePostId');
+
+            if (titleEl) titleEl.textContent = `"${post.title}"`;
+            if (idInput) idInput.value = id;
+            if (modal) modal.classList.remove('hidden');
+          },
+
+          closeAdminDeleteModal() {
+            const modal = document.getElementById('adminDeleteModal');
+            if (modal) modal.classList.add('hidden');
+          },
+
+          confirmAdminDeletePost() {
+            const id = document.getElementById('adminDeletePostId').value;
+            if (!id) return;
+
             fetch(`/api/admin/posts/${id}`, { method: 'DELETE' })
               .then(res => res.json())
               .then(data => {
                 if (data.success) {
+                  this.closeAdminDeleteModal();
                   this.loadAdminPosts();
-                  app.showToast('Post deleted successfully', 'success');
+                  app.showToast('Post removed successfully', 'success');
                 } else {
-                  app.showToast('Error deleting post', 'error');
+                  app.showToast(data.message || 'Error deleting post', 'error');
                 }
               })
               .catch(err => {
                 console.error(err);
                 app.showToast('Network error deleting post', 'error');
               });
+          },
+
+          toggleAdminPostStatus(id) {
+            if (!this.allAdminPosts) return;
+            const post = this.allAdminPosts.find(p => p.id === id);
+            if (!post) return;
+
+            const newStatus = post.status === 'Published' ? 'Draft' : 'Published';
+            const payload = { ...post, status: newStatus };
+
+            fetch(`/api/admin/posts/${id}`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(data => {
+                if (data.success) {
+                  post.status = newStatus;
+                  this.applyAdminFiltersAndRender();
+                  app.showToast(`Post status changed to ${newStatus}`, 'success');
+                } else {
+                  app.showToast('Failed to update status', 'error');
+                }
+              })
+              .catch(err => {
+                console.error(err);
+                app.showToast('Network error updating status', 'error');
+              });
+          },
+
+          duplicateAdminPost(id) {
+            if (!this.allAdminPosts) return;
+            const original = this.allAdminPosts.find(p => p.id === id);
+            if (!original) return;
+
+            const payload = {
+              title: `${original.title} (Copy)`,
+              slug: `${original.slug}-copy-${Date.now().toString().slice(-4)}`,
+              category: original.category || 'General',
+              status: 'Draft',
+              author: original.author || 'Admin',
+              readTime: original.readTime || '5 Min Read',
+              excerpt: original.excerpt || '',
+              content: original.content || ''
+            };
+
+            fetch('/api/admin/posts', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(data => {
+                if (data.success) {
+                  this.loadAdminPosts();
+                  app.showToast('Post duplicated as draft!', 'success');
+                } else {
+                  app.showToast('Failed to duplicate post', 'error');
+                }
+              })
+              .catch(err => {
+                console.error(err);
+                app.showToast('Network error while duplicating', 'error');
+              });
+          },
+
+          exportPostsJson() {
+            if (!this.allAdminPosts || this.allAdminPosts.length === 0) {
+              app.showToast('No posts available to export', 'warning');
+              return;
+            }
+            const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.allAdminPosts, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute('href', dataStr);
+            downloadAnchor.setAttribute('download', `timetablecreator-posts-backup-${new Date().toISOString().slice(0, 10)}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            app.showToast('Backup JSON exported successfully!', 'success');
+          },
+
+          importPostsJson(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+              try {
+                const posts = JSON.parse(e.target.result);
+                if (!Array.isArray(posts)) {
+                  app.showToast('Invalid JSON format (expected array of posts)', 'error');
+                  return;
+                }
+
+                app.showToast(`Importing ${posts.length} posts...`, 'info');
+                let successCount = 0;
+
+                for (const p of posts) {
+                  try {
+                    const res = await fetch('/api/admin/posts', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        title: p.title || 'Untitled Post',
+                        slug: p.slug || 'imported-post-' + Date.now(),
+                        category: p.category || 'General',
+                        status: p.status || 'Published',
+                        author: p.author || 'Admin',
+                        readTime: p.readTime || '5 Min Read',
+                        excerpt: p.excerpt || '',
+                        content: p.content || ''
+                      })
+                    });
+                    const json = await res.json();
+                    if (json.success) successCount++;
+                  } catch (err) {
+                    console.error('Import error for item', p, err);
+                  }
+                }
+
+                this.loadAdminPosts();
+                app.showToast(`Successfully imported ${successCount} posts!`, 'success');
+              } catch (err) {
+                console.error(err);
+                app.showToast('Failed to parse JSON file', 'error');
+              } finally {
+                event.target.value = '';
+              }
+            };
+            reader.readAsText(file);
           },
           async aiGenerateSchedule(merge = true) {
             const promptEl = document.getElementById('aiPrompt');

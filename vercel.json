@@ -35,5 +35,31 @@
       "destination": "https://timetablecreator.online/:path*",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/timetable-generator-online-for-students/?",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/timetable-generator-online-for-students",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin-panel/?",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin-panel",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/blog/:slug*",
+      "destination": "/blog/:slug*"
+    },
+    {
+      "source": "/((?!api/|blog/|assets/|favicon|.*\\..*).*)",
+      "destination": "/index.html"
+    }
   ]
 }
