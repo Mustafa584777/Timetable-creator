@@ -119,6 +119,117 @@ async function startServer() {
     res.sendFile(filePath);
   });
 
+  anonymityApp.get(["/timetable-generator-online-for-students", "/timetable-generator-online-for-students/"], (req, res) => {
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "index.html")
+      : path.join(process.cwd(), "index.html");
+    res.sendFile(filePath);
+  });
+
+  // Admin Panel route
+  anonymityApp.get(["/admin-panel", "/admin-panel/"], (req, res) => {
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "index.html")
+      : path.join(process.cwd(), "index.html");
+    res.sendFile(filePath);
+  });
+
+  // Posts DB API for Admin Panel
+  const postsDbFile = path.join(process.cwd(), 'posts_db.json');
+  function readPostsDb() {
+    if (fs.existsSync(postsDbFile)) {
+      try {
+        return JSON.parse(fs.readFileSync(postsDbFile, 'utf8'));
+      } catch (e) {
+        // fallback
+      }
+    }
+    const defaults = [
+      { id: '1', title: 'How to Make a Perfect School Timetable in 2026', slug: 'how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers', category: 'Timetable Guide', status: 'Published', updatedAt: '2026-02-15', content: 'Comprehensive guide for students and teachers on structuring weekly academic timetables.' },
+      { id: '2', title: 'Daily Routine for Class 10 Student at Home', slug: 'daily-routine-for-class-10-student-at-home', category: 'Student Routines', status: 'Published', updatedAt: '2026-02-14', content: 'Optimized daily schedule for class 10 board exam preparation.' },
+      { id: '3', title: 'Study Timetable for Class 10', slug: 'study-timetable-for-class-10', category: 'Study Plans', status: 'Published', updatedAt: '2026-02-10', content: 'Subject-wise study schedule and balanced revision timetable.' },
+      { id: '4', title: 'How Does an Automatic Timetable Creator Work', slug: 'how-does-an-automatic-timetable-creator-work', category: 'Technology', status: 'Published', updatedAt: '2026-01-20', content: 'Exploring algorithm-driven timetable scheduling tools.' },
+      { id: '5', title: 'About Us', slug: 'about-us', category: 'Pages', status: 'Published', updatedAt: '2026-01-01', content: 'Learn about TimetableCreator.online mission and tools.' },
+      { id: '6', title: 'Contact Us', slug: 'contact-us', category: 'Pages', status: 'Published', updatedAt: '2026-01-01', content: 'Get in touch with our support team.' },
+      { id: '7', title: 'Privacy Policy', slug: 'privacy-policy', category: 'Legal', status: 'Published', updatedAt: '2026-01-01', content: 'Privacy policy and data protection terms.' },
+      { id: '8', title: 'Terms and Conditions', slug: 'terms-and-conditions', category: 'Legal', status: 'Published', updatedAt: '2026-01-01', content: 'Terms of service for using TimetableCreator.online.' },
+      { id: '9', title: 'Disclaimer', slug: 'disclaimer', category: 'Legal', status: 'Published', updatedAt: '2026-01-01', content: 'Website disclaimer and educational use notices.' },
+      { id: '10', title: 'Refund Policy', slug: 'refund-policy', category: 'Legal', status: 'Published', updatedAt: '2026-01-01', content: 'Refund and cancellation policy details.' }
+    ];
+    fs.writeFileSync(postsDbFile, JSON.stringify(defaults, null, 2));
+    return defaults;
+  }
+  function writePostsDb(posts: any[]) {
+    fs.writeFileSync(postsDbFile, JSON.stringify(posts, null, 2));
+  }
+
+  anonymityApp.get("/api/admin/posts", (req, res) => {
+    try {
+      const posts = readPostsDb();
+      res.json({ success: true, posts });
+    } catch (e: any) {
+      res.status(500).json({ success: false, error: e.message });
+    }
+  });
+
+  anonymityApp.post("/api/admin/posts", (req, res) => {
+    try {
+      const { title, slug, category, status, content } = req.body;
+      const posts = readPostsDb();
+      const newPost = {
+        id: Date.now().toString(),
+        title: title || 'Untitled Post',
+        slug: slug || title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'untitled',
+        category: category || 'General',
+        status: status || 'Published',
+        updatedAt: new Date().toISOString().split('T')[0],
+        content: content || ''
+      };
+      posts.unshift(newPost);
+      writePostsDb(posts);
+      res.json({ success: true, post: newPost });
+    } catch (e: any) {
+      res.status(500).json({ success: false, error: e.message });
+    }
+  });
+
+  anonymityApp.put("/api/admin/posts/:id", (req, res) => {
+    try {
+      const { id } = req.params;
+      const { title, slug, category, status, content } = req.body;
+      const posts = readPostsDb();
+      const idx = posts.findIndex((p: any) => p.id === id);
+      if (idx === -1) {
+        return res.status(404).json({ success: false, error: 'Post not found' });
+      }
+      posts[idx] = {
+        ...posts[idx],
+        title: title !== undefined ? title : posts[idx].title,
+        slug: slug !== undefined ? slug : posts[idx].slug,
+        category: category !== undefined ? category : posts[idx].category,
+        status: status !== undefined ? status : posts[idx].status,
+        content: content !== undefined ? content : posts[idx].content,
+        updatedAt: new Date().toISOString().split('T')[0]
+      };
+      writePostsDb(posts);
+      res.json({ success: true, post: posts[idx] });
+    } catch (e: any) {
+      res.status(500).json({ success: false, error: e.message });
+    }
+  });
+
+  anonymityApp.delete("/api/admin/posts/:id", (req, res) => {
+    try {
+      const { id } = req.params;
+      let posts = readPostsDb();
+      posts = posts.filter((p: any) => p.id !== id);
+      writePostsDb(posts);
+      res.json({ success: true });
+    } catch (e: any) {
+      res.status(500).json({ success: false, error: e.message });
+    }
+  });
+
   // Handle api.php for saving/loading shared timetables
   anonymityApp.all("/api.php", (req, res) => {
     if (req.method === 'POST') {

@@ -33,12 +33,12 @@
           extend: {
             colors: {
               violet: {
-                50: '#f5f3ff',
-                100: '#ede9fe',
-                200: '#ddd6fe',
-                500: '#8b5cf6',
-                600: '#7c3aed',
-                700: '#6d28d9',
+                50: '#f8f7fd',
+                100: '#f4f0fd',
+                200: '#ebe8fa',
+                500: '#8c68fc',
+                600: '#673de6',
+                700: '#5025d1',
               }
             }
           }
@@ -52,46 +52,49 @@
       h1, h2, h3, h4 {
         font-family: 'Poppins', sans-serif;
       }
-      /* Dark Theme styling mimics main app */
+      /* Dark Theme styling */
       [data-theme="dark"] {
-        background-color: #000000 !important;
-        color: #ffffff !important;
+        background-color: #0e0d1e !important;
+        color: #f5f4fc !important;
       }
       [data-theme="dark"] .bg-white {
-        background-color: #000000 !important;
-        border-color: #2e1065 !important;
+        background-color: #19172f !important;
+        border-color: #2f2b54 !important;
       }
       [data-theme="dark"] .text-slate-900 {
-        color: #ffffff !important;
+        color: #f5f4fc !important;
+      }
+      [data-theme="dark"] .text-slate-800 {
+        color: #f5f4fc !important;
       }
       [data-theme="dark"] .text-slate-600 {
-        color: #9ca3af !important;
+        color: #a3a0c2 !important;
       }
       [data-theme="dark"] .text-slate-500 {
-        color: #9ca3af !important;
+        color: #a3a0c2 !important;
       }
       [data-theme="dark"] .bg-slate-50 {
-        background-color: #0b0b0f !important;
+        background-color: #131226 !important;
       }
       [data-theme="dark"] .border-slate-100 {
-        border-color: #2e1065 !important;
+        border-color: #2f2b54 !important;
       }
       [data-theme="dark"] .border-slate-200 {
-        border-color: #2e1065 !important;
+        border-color: #2f2b54 !important;
       }
       [data-theme="dark"] .bg-[#fafafa] {
-        background-color: #000000 !important;
+        background-color: #0e0d1e !important;
       }
       [data-theme="dark"] header, [data-theme="dark"] footer {
-        background-color: #000000 !important;
-        border-color: #2e1065 !important;
+        background-color: #19172f !important;
+        border-color: #2f2b54 !important;
       }
       [data-theme="dark"] .nav-link-header {
-        color: #9ca3af;
+        color: #a3a0c2;
       }
       [data-theme="dark"] .nav-link-header:hover {
-        color: #a78bfa;
-        background-color: rgba(167, 139, 250, 0.1);
+        color: #8c68fc;
+        background-color: rgba(140, 104, 252, 0.1);
       }
       /* Google Translate Custom Styles */
       .lang-dropdown-container {
@@ -104,17 +107,17 @@
         right: 0;
         top: calc(100% + 8px);
         background: #ffffff;
-        border: 1px solid #ede9fe;
+        border: 1px solid #ebe8fa;
         border-radius: 12px;
-        box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 25px -5px rgba(103, 61, 230, 0.1);
         min-width: 130px;
         z-index: 1100;
         overflow: hidden;
         padding: 4px;
       }
       [data-theme="dark"] .lang-dropdown-menu {
-        background: #000000;
-        border-color: #2e1065;
+        background: #19172f;
+        border-color: #2f2b54;
       }
       .lang-dropdown-menu.show {
         display: block;
@@ -125,7 +128,7 @@
         padding: 8px 12px;
         font-size: 13px;
         font-weight: 500;
-        color: #1f2937;
+        color: #1d1e2c;
         border-radius: 8px;
         background: transparent;
         border: none;
@@ -134,15 +137,15 @@
         transition: all 0.15s ease;
       }
       [data-theme="dark"] .lang-dropdown-item {
-        color: #ffffff;
+        color: #f5f4fc;
       }
       .lang-dropdown-item:hover {
-        background: #ede9fe;
-        color: #7c3aed;
+        background: #f4f0fd;
+        color: #673de6;
       }
       [data-theme="dark"] .lang-dropdown-item:hover {
-        background: #0b0b0f;
-        color: #a78bfa;
+        background: #232140;
+        color: #8c68fc;
       }
       .goog-te-banner-frame, .goog-te-banner, .skiptranslate, #google_translate_element, .goog-tooltip {
         display: none !important;

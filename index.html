@@ -31,8 +31,8 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Timetable Creator - Premium Class Schedule Generator</title>
-    <meta name="description" content="Create school routines, study planners, and class schedules easily with our free online timetable generator. High-speed, offline-ready, and AI-powered with custom PDF & PNG exports." />
+    <title>Timetable Creator Pro - Free Online Class Schedule Generator</title>
+    <meta name="description" content="Create school routines, study planners, and class schedules easily with the free online timetable maker. AI-powered, cloud-synchronized, with instant PDF & PNG exports." />
     
     <!-- High Performance Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,15 +45,15 @@
 
     <!-- Open Graph / social previews -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Online Timetable Creator - Premium Class Schedule Generator" />
-    <meta property="og:description" content="Create school routines, study planners, and class schedules easily with our free online timetable generator. High-speed, offline-ready, and AI-powered." />
+    <meta property="og:title" content="Timetable Creator Pro - Free Online Class Schedule Generator" />
+    <meta property="og:description" content="Create school routines, study planners, and class schedules easily with the free online timetable maker. AI-powered, cloud-synchronized." />
     <meta property="og:image" content="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=1200" />
-    <meta property="og:site_name" content="Online Timetable Creator" />
+    <meta property="og:site_name" content="Timetable Creator" />
 
     <!-- Twitter cards -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Online Timetable Creator - Premium Class Schedule Generator" />
-    <meta property="twitter:description" content="Create school routines, study planners, and class schedules easily with our free online timetable generator. High-speed, offline-ready, and AI-powered." />
+    <meta property="twitter:title" content="Timetable Creator Pro - Free Online Class Schedule Generator" />
+    <meta property="twitter:description" content="Create school routines, study planners, and class schedules easily with the free online timetable maker. AI-powered, cloud-synchronized." />
     <link rel="canonical" href="https://timetablecreator.online" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en" href="https://timetablecreator.online/" />
@@ -143,58 +143,58 @@
       :root {
         /* General Layout Controls */
         --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        --font-mono: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-mono: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
         
         --row-height-base: 44px;
         --grid-density-coef: 1; /* Comfortable = 1, Compact = 0.7 */
         --row-height: calc(var(--row-height-base) * var(--grid-density-coef) * var(--zoom-level, 1));
         --col-width: 140px;
         --sidebar-width: 320px;
-        --border-radius: 12px;
+        --border-radius: 10px;
         --font-size: 14px;
 
-        /* Just Violet, White and Black Theme Palette */
-        --primary-color: #7c3aed; /* Premium Violet */
-        --primary-glow: rgba(124, 58, 237, 0.15);
-        --bg-app: #ffffff; /* Crisp white background */
-        --bg-card: #ffffff; /* Crisp white cards */
-        --bg-panel: #faf5ff; /* Softest violet-tinted white panel background */
-        --text-main: #000000; /* Rich pure black for supreme contrast */
-        --text-muted: #6b7280; /* Neutral grey (mix of white and black) */
+        /* Primary Brand Design System Palette */
+        --primary-color: #673de6; /* Signature Royal Purple */
+        --primary-glow: rgba(103, 61, 230, 0.16);
+        --bg-app: #f8f7fd; /* Soft Lilac-Slate App Surface */
+        --bg-card: #ffffff; /* Pure White Card & Grid Surface */
+        --bg-panel: #f4f0fd; /* Signature Soft Violet-Tinted Panel */
+        --text-main: #1d1e2c; /* Deep Navy Charcoal */
+        --text-muted: #6e6d7a; /* Muted Slate Text */
         --text-inverse: #ffffff; /* White */
-        --border-color: #ddd6fe; /* Soft violet border */
-        --grid-line-color: rgba(221, 214, 254, 0.4);
-        --shadow-sm: 0 1px 3px 0 rgba(124, 58, 237, 0.04);
-        --shadow-md: 0 8px 16px -4px rgba(124, 58, 237, 0.08), 0 4px 6px -2px rgba(124, 58, 237, 0.03);
-        --shadow-lg: 0 20px 25px -5px rgba(124, 58, 237, 0.08), 0 10px 10px -5px rgba(124, 58, 237, 0.03);
-        --accent-glow: rgba(124, 58, 237, 0.25);
+        --border-color: #ebe8fa; /* Crisp Hairline Border */
+        --grid-line-color: rgba(235, 232, 250, 0.9);
+        --shadow-sm: 0 1px 3px 0 rgba(103, 61, 230, 0.04), 0 1px 2px -1px rgba(29, 30, 44, 0.03);
+        --shadow-md: 0 4px 12px -2px rgba(103, 61, 230, 0.08), 0 2px 6px -2px rgba(29, 30, 44, 0.04);
+        --shadow-lg: 0 12px 24px -4px rgba(103, 61, 230, 0.12), 0 4px 8px -4px rgba(29, 30, 44, 0.04);
+        --accent-glow: rgba(103, 61, 230, 0.25);
 
-        /* Soft event color palette restricted to Violet, White and Black shades/tints */
-        --evt-color-1: #7c3aed; /* Violet Primary */
-        --evt-color-2: #4c1d95; /* Deep Midnight Violet */
-        --evt-color-3: #a78bfa; /* Light Lavender-Violet */
-        --evt-color-4: #000000; /* Pure Black */
-        --evt-color-5: #6d28d9; /* Deep Violet */
-        --evt-color-6: #c084fc; /* Medium Light Lavender */
-        --evt-color-7: #1e1b4b; /* Deep Dark Violet-Black */
-        --evt-color-8: #ddd6fe; /* Very Soft Lavender-Violet */
+        /* High-Vibrancy Event Color Palette */
+        --evt-color-1: #673de6; /* Royal Purple */
+        --evt-color-2: #00b090; /* Mint Green */
+        --evt-color-3: #ea580c; /* Coral Orange */
+        --evt-color-4: #2563eb; /* Electric Blue */
+        --evt-color-5: #d946ef; /* Fuchsia */
+        --evt-color-6: #06b6d4; /* Cyan */
+        --evt-color-7: #f59e0b; /* Amber */
+        --evt-color-8: #8c52ff; /* Bright Lavender */
       }
 
-      /* Dark Theme Palettes */
+      /* Dark Theme Palette */
       [data-theme="dark"] {
-        --primary-color: #a78bfa; /* Lighter violet for dark mode contrast */
-        --primary-glow: rgba(167, 139, 250, 0.15);
-        --bg-app: #000000; /* Pure Black Background */
-        --bg-card: #000000; /* Pure Black Cards */
-        --bg-panel: #0b0b0f; /* Extremely dark black/violet panel */
-        --text-main: #ffffff; /* Crisp pure white text */
-        --text-muted: #9ca3af; /* Soft grey text */
-        --text-inverse: #000000; /* Black for inverse */
-        --border-color: #2e1065; /* Dark violet border */
-        --grid-line-color: rgba(46, 16, 101, 0.4);
-        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
-        --shadow-md: 0 8px 16px -4px rgba(0, 0, 0, 0.9);
-        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.95);
+        --primary-color: #8c68fc; /* Luminous Violet for Dark Mode */
+        --primary-glow: rgba(140, 104, 252, 0.2);
+        --bg-app: #0e0d1e; /* Midnight Violet Obsidian Canvas */
+        --bg-card: #19172f; /* Dark Violet Card */
+        --bg-panel: #232140; /* Dark Slate-Violet Panel */
+        --text-main: #f5f4fc; /* Crisp White Text */
+        --text-muted: #a3a0c2; /* Soft Lavender Slate */
+        --text-inverse: #0e0d1e; /* Dark Inverse */
+        --border-color: #2f2b54; /* Dark Border */
+        --grid-line-color: rgba(47, 43, 84, 0.6);
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+        --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.5);
+        --shadow-lg: 0 14px 28px rgba(0, 0, 0, 0.6);
       }
 
       /* Google Translate Custom Styles */
@@ -245,11 +245,11 @@
       }
 
       /* Preset Themes Updates */
-      [data-preset="slate"] { --primary-color: #7c3aed; --primary-glow: rgba(124, 58, 237, 0.15); }
-      [data-preset="emerald"] { --primary-color: #6d28d9; --primary-glow: rgba(109, 40, 217, 0.15); }
-      [data-preset="indigo"] { --primary-color: #4c1d95; --primary-glow: rgba(76, 29, 149, 0.15); }
-      [data-preset="amber"] { --primary-color: #000000; --primary-glow: rgba(0, 0, 0, 0.15); }
-      [data-preset="cyberpunk"] { --primary-color: #a78bfa; --primary-glow: rgba(167, 139, 250, 0.15); }
+      [data-preset="slate"] { --primary-color: #673de6; --primary-glow: rgba(103, 61, 230, 0.16); }
+      [data-preset="emerald"] { --primary-color: #00b090; --primary-glow: rgba(0, 176, 144, 0.16); }
+      [data-preset="indigo"] { --primary-color: #2563eb; --primary-glow: rgba(37, 99, 235, 0.16); }
+      [data-preset="amber"] { --primary-color: #ea580c; --primary-glow: rgba(234, 88, 12, 0.16); }
+      [data-preset="cyberpunk"] { --primary-color: #d946ef; --primary-glow: rgba(217, 70, 239, 0.16); }
 
       /* Reset & Global elements */
       * {
@@ -657,9 +657,9 @@
 
       /* Prominent Add Event Button in Topbar */
       .btn-add-event {
-        height: 38px !important;
-        padding: 0 24px !important;
-        font-size: 13.5px !important;
+        height: 40px !important;
+        padding: 0 28px !important;
+        font-size: 14px !important;
         font-weight: 600 !important;
         letter-spacing: 0.01em;
         border-radius: var(--border-radius) !important;
@@ -686,9 +686,9 @@
         box-shadow: 0 1px 3px var(--primary-glow) !important;
       }
       .btn-add-event svg {
-        width: 16px !important;
-        height: 16px !important;
-        stroke-width: 2.2 !important;
+        width: 17px !important;
+        height: 17px !important;
+        stroke-width: 2.3 !important;
         flex-shrink: 0;
       }
 
@@ -1540,9 +1540,9 @@
         text-align: center;
         padding: 40px 20px;
         margin-bottom: 40px;
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+        background: linear-gradient(135deg, rgba(103, 61, 230, 0.06) 0%, rgba(140, 82, 255, 0.04) 100%);
         border-radius: var(--border-radius);
-        border: 1px solid rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(103, 61, 230, 0.15);
       }
       .seo-hero h1 {
         font-size: 32px;
@@ -1617,7 +1617,7 @@
       .seo-card-icon {
         width: 44px;
         height: 44px;
-        background-color: rgba(59, 130, 246, 0.1);
+        background-color: rgba(103, 61, 230, 0.1);
         color: var(--primary-color);
         border-radius: 10px;
         display: flex;
@@ -1873,16 +1873,48 @@
         text-decoration: none;
         cursor: pointer;
       }
-      .header-logo {
-        width: 38px;
-        height: 38px;
-        object-fit: contain;
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
+      .app-brand-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .app-brand-logo {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        filter: drop-shadow(0 2px 6px rgba(103, 61, 230, 0.35));
+        transition: transform 0.2s ease;
+      }
+      .header-brand:hover .app-brand-logo {
+        transform: scale(1.05);
       }
       .header-title-group {
         display: flex;
         flex-direction: column;
+      }
+      .header-brand-line {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .app-brand-name {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 17px !important;
+        font-weight: 800 !important;
+        color: var(--text-main) !important;
+        letter-spacing: -0.01em !important;
+        line-height: 1.1;
+      }
+      .app-tools-tag {
+        background: rgba(103, 61, 230, 0.1);
+        color: var(--primary-color);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        padding: 1px 6px;
+        border-radius: 4px;
+        border: 1px solid rgba(103, 61, 230, 0.25);
+        text-transform: uppercase;
       }
       .header-title {
         font-family: 'Poppins', sans-serif !important;
@@ -1899,12 +1931,118 @@
         margin: 0 !important;
         font-weight: 500 !important;
       }
+
+      /* Hero Tool Banner */
+      .app-tool-banner {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 20px 24px;
+        margin-bottom: 16px;
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        position: relative;
+        overflow: hidden;
+      }
+      .app-tool-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #673de6 0%, #8c68fc 50%, #00b090 100%);
+      }
+      .app-banner-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .app-tag-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(103, 61, 230, 0.08);
+        color: var(--primary-color);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        padding: 3px 10px;
+        border-radius: 20px;
+        border: 1px solid rgba(103, 61, 230, 0.2);
+        text-transform: uppercase;
+      }
+      .pulse-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #00b090;
+        box-shadow: 0 0 0 0 rgba(0, 176, 144, 0.7);
+        animation: pulseGreen 2s infinite;
+      }
+      @keyframes pulseGreen {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 176, 144, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 176, 144, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 176, 144, 0); }
+      }
+      .app-verified-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #00b090;
+      }
+      .app-banner-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-main);
+        line-height: 1.3;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+      .app-banner-desc {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0;
+        max-width: 900px;
+      }
+      .app-trust-chips {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        padding-top: 10px;
+        border-top: 1px dashed var(--border-color);
+      }
+      .trust-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-muted);
+        background: var(--bg-panel);
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+      }
+      .trust-chip svg {
+        color: var(--primary-color);
+      }
       .header-center-desktop {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 14px;
-        flex: 1;
+        gap: 12px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
       .header-nav-desktop {
         display: flex;
@@ -2233,6 +2371,8 @@
 
       @media (max-width: 1024px) {
         .header-center-desktop {
+          position: static;
+          transform: none;
           justify-content: flex-end;
           margin-right: 6px;
         }
@@ -2248,6 +2388,1216 @@
       @media (min-width: 1025px) {
         .toolbar-theme-toggle {
           display: none !important;
+        }
+      }
+
+      /* ==========================================================================
+         HOMEPAGE WORKSPACE EDITION MODE SWITCHER BAR
+         ========================================================================== */
+      .edition-mode-switcher-bar {
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        padding: 10px 16px;
+        position: sticky;
+        top: 56px;
+        z-index: 95;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        transition: all 0.2s ease;
+      }
+      .mode-switcher-container {
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .mode-switcher-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .mode-switcher-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        background: var(--bg-panel);
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+      }
+      .mode-toggle-pill-group {
+        display: inline-flex;
+        align-items: center;
+        background: var(--bg-panel);
+        padding: 4px;
+        border-radius: 30px;
+        border: 1px solid var(--border-color);
+        gap: 4px;
+      }
+      .mode-toggle-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 24px;
+        border: none;
+        background: transparent;
+        color: var(--text-muted);
+        font-family: var(--font-sans);
+        font-size: 12.5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        user-select: none;
+      }
+      .mode-toggle-pill:hover {
+        color: var(--text-main);
+      }
+      .mode-toggle-pill.active {
+        background: var(--primary-color);
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px var(--accent-glow);
+      }
+      .mode-toggle-pill.active .mode-pill-tag {
+        background: rgba(255, 255, 255, 0.22);
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+      .mode-pill-tag {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 12px;
+        background: rgba(103, 61, 230, 0.1);
+        color: var(--primary-color);
+        border: 1px solid rgba(103, 61, 230, 0.2);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .mode-pill-tag.classic-tag {
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+        border-color: rgba(16, 185, 129, 0.25);
+      }
+      .mode-toggle-pill.active .mode-pill-tag.classic-tag {
+        background: rgba(255, 255, 255, 0.25);
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+      .mode-switcher-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .mode-status-text {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+      .mode-status-text strong {
+        color: var(--text-main);
+      }
+      .quick-switch-hint {
+        font-size: 11px;
+        color: #00b090;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      /* ==========================================================================
+         TIMETABLECREATOR.COM CLASSIC CLONE LAYOUT & STYLING
+         ========================================================================== */
+      :root {
+        --classic-zoom: 1;
+        --classic-cell-h: 48px;
+      }
+
+      /* When in Classic mode, allow body to scroll smoothly downwards */
+      body.classic-mode-active {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        width: 100% !important;
+        display: block !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      body.classic-mode-active .global-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      body.classic-mode-active .edition-mode-switcher-bar {
+        position: sticky;
+        top: 60px;
+        z-index: 95;
+      }
+
+      .classic-tt-app {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        background: var(--bg-app);
+        padding: 16px 20px 100px 20px;
+        box-sizing: border-box;
+      }
+      .classic-tt-app.active-view {
+        display: flex !important;
+      }
+      .classic-container {
+        max-width: 1440px;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      /* 1. Dedicated Top Brand Header Bar */
+      .classic-main-header {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 16px 20px;
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .classic-brand-badge-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+      .classic-brand-logo-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+        flex-shrink: 0;
+      }
+      .classic-brand-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .classic-brand-name {
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+      .classic-brand-dotcom {
+        color: #10b981;
+        font-weight: 800;
+      }
+      .classic-brand-pill-status {
+        font-size: 10.5px;
+        background: rgba(16, 185, 129, 0.12);
+        color: #059669;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        padding: 2px 7px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      [data-theme="dark"] .classic-brand-pill-status {
+        background: rgba(16, 185, 129, 0.2);
+        color: #34d399;
+      }
+      .classic-brand-tagline {
+        font-size: 11.5px;
+        color: var(--text-muted);
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      /* Schedule Title & Subtitle Edit Area in Header */
+      .classic-schedule-meta-box {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        flex: 1;
+        min-width: 240px;
+        max-width: 480px;
+      }
+      .classic-title-edit-wrap {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        position: relative;
+      }
+      .classic-title-input {
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-main);
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        padding: 3px 6px;
+        margin-left: -6px;
+        outline: none;
+        transition: all 0.15s ease;
+        letter-spacing: -0.01em;
+        width: 100%;
+      }
+      .classic-title-input:hover {
+        border-color: var(--border-color);
+        background: var(--bg-panel);
+      }
+      .classic-title-input:focus {
+        border-color: #10b981;
+        background: var(--bg-card);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+      }
+      .classic-edit-icon {
+        color: var(--text-muted);
+        opacity: 0.6;
+        pointer-events: none;
+        flex-shrink: 0;
+      }
+      .classic-subtitle-input {
+        font-size: 12px;
+        color: var(--text-muted);
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        padding: 2px 6px;
+        margin-left: -6px;
+        outline: none;
+        width: 100%;
+        transition: all 0.15s ease;
+      }
+      .classic-subtitle-input:hover {
+        border-color: var(--border-color);
+        background: var(--bg-panel);
+      }
+      .classic-subtitle-input:focus {
+        border-color: #10b981;
+        background: var(--bg-card);
+      }
+
+      /* Header Quick Actions */
+      .classic-header-quick-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-left: auto;
+      }
+      .classic-btn-add-primary {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .classic-btn-add-primary:hover {
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.45);
+      }
+      .classic-btn-add-primary:active {
+        transform: scale(0.97);
+      }
+      .classic-template-select-wrap {
+        position: relative;
+      }
+      .classic-template-dropdown {
+        height: 38px;
+        padding: 0 12px;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-main);
+        font-family: 'Poppins', sans-serif;
+        font-size: 12.5px;
+        font-weight: 500;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        min-width: 180px;
+      }
+      .classic-template-dropdown:hover, .classic-template-dropdown:focus {
+        border-color: #10b981;
+      }
+      .classic-header-icon-btns {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .classic-icon-btn {
+        background: var(--bg-panel);
+        color: var(--text-main);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        height: 38px;
+        padding: 0 12px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .classic-icon-btn:hover {
+        background: var(--bg-card);
+        border-color: #10b981;
+        color: #10b981;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      }
+      .classic-icon-btn:active {
+        transform: scale(0.97);
+      }
+      .classic-btn-switch-pro {
+        background: transparent;
+        color: #6366f1;
+        border: none;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        height: 38px;
+        padding: 0 14px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        user-select: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .classic-btn-switch-pro:hover {
+        background: #6366f1;
+        color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      }
+      .classic-btn-switch-pro:active {
+        transform: scale(0.97);
+      }
+      [data-theme="dark"] .classic-btn-switch-pro {
+        background: rgba(99, 102, 241, 0.2);
+        color: #818cf8;
+      }
+
+      /* 2. Interactive Navigation Ribbon: Stats, Day Filter, Zoom & Grid Settings */
+      .classic-toolbar-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 14px 18px;
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .classic-ribbon-top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* Live Stats Strip */
+      .classic-stats-strip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .classic-stat-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        padding: 4px 10px;
+        border-radius: 16px;
+        font-size: 11.5px;
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+      .classic-stat-pill strong {
+        color: var(--text-main);
+        font-weight: 700;
+      }
+
+      /* Responsive Day Filter Pills (Scrolls or Highlights Day on Mobile/Tablet) */
+      .classic-day-pills-bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        padding: 2px 0;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .classic-day-pills-bar::-webkit-scrollbar {
+        display: none;
+      }
+      .classic-day-pill-filter {
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 5px 12px;
+        color: var(--text-muted);
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.15s ease;
+        user-select: none;
+      }
+      .classic-day-pill-filter:hover {
+        background: var(--bg-card);
+        color: var(--text-main);
+        border-color: #10b981;
+      }
+      .classic-day-pill-filter:active {
+        transform: scale(0.96);
+      }
+      .classic-day-pill-filter.active {
+        background: #10b981;
+        color: #ffffff;
+        border-color: #10b981;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+      }
+
+      /* Undo/Redo & Utility Controls */
+      .classic-utility-controls {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: auto;
+        flex-wrap: wrap;
+      }
+      .classic-btn-mini {
+        background: var(--bg-panel);
+        color: var(--text-main);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 11.5px;
+        font-weight: 500;
+        height: 30px;
+        padding: 0 10px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .classic-btn-mini:hover {
+        background: var(--bg-card);
+        border-color: #10b981;
+        color: #10b981;
+      }
+      .classic-btn-mini:active {
+        transform: scale(0.96);
+      }
+      .classic-btn-mini.icon-only {
+        padding: 0 8px;
+      }
+      .classic-btn-mini.active {
+        background: #10b981;
+        color: #ffffff;
+        border-color: #10b981;
+      }
+      .classic-zoom-group {
+        display: inline-flex;
+        align-items: center;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        height: 30px;
+        padding: 1px 4px;
+        gap: 2px;
+      }
+      .classic-zoom-group .classic-btn-mini {
+        border: none;
+        background: transparent;
+        padding: 0 6px;
+        height: 26px;
+      }
+      .classic-zoom-val {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-main);
+        min-width: 38px;
+        text-align: center;
+        user-select: none;
+      }
+
+      /* Collapsible Grid Configuration Bar */
+      .classic-config-bar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border-color);
+        transition: all 0.25s ease;
+      }
+      .classic-config-bar.collapsed {
+        display: none;
+      }
+      .classic-cfg-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .classic-cfg-item-actions {
+        grid-column: span 2;
+      }
+      .classic-cfg-action-buttons {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .classic-btn-cfg-action {
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        color: var(--text-main);
+        font-family: 'Poppins', sans-serif;
+        font-size: 11.5px;
+        font-weight: 500;
+        height: 35px;
+        padding: 0 12px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        transition: all 0.15s ease;
+        user-select: none;
+      }
+      .classic-btn-cfg-action:hover {
+        background: var(--bg-card);
+        border-color: #10b981;
+        color: #10b981;
+      }
+      .classic-btn-cfg-action:active {
+        transform: scale(0.96);
+      }
+      .classic-btn-cfg-action.danger {
+        color: #ef4444;
+        border-color: rgba(239, 68, 68, 0.3);
+      }
+      .classic-btn-cfg-action.danger:hover {
+        background: rgba(239, 68, 68, 0.12);
+        border-color: #ef4444;
+      }
+      .classic-cfg-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+      .classic-select-ctrl {
+        height: 35px;
+        width: 100%;
+        padding: 0 8px;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        color: var(--text-main);
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+      .classic-select-ctrl:focus {
+        border-color: #10b981;
+        background: var(--bg-card);
+      }
+
+      /* Mobile Kinetic Scroll Tip */
+      .classic-mobile-scroll-hint {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        background: rgba(16, 185, 129, 0.08);
+        border: 1px dashed rgba(16, 185, 129, 0.3);
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 11.5px;
+        color: #059669;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+      [data-theme="dark"] .classic-mobile-scroll-hint {
+        color: #34d399;
+      }
+
+      /* 3. Classic Interactive Grid Canvas (Sticky Headers & Smooth Scrolling) */
+      .classic-grid-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+      }
+      .classic-grid-scroll-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: auto;
+        max-height: 72vh;
+        min-height: 480px;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        position: relative;
+        background: var(--bg-card);
+        scrollbar-width: thin;
+        scrollbar-color: #10b981 var(--bg-panel);
+        border-radius: 12px;
+        overscroll-behavior: contain;
+      }
+      .classic-grid-scroll-wrapper::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      .classic-grid-scroll-wrapper::-webkit-scrollbar-track {
+        background: var(--bg-panel);
+        border-radius: 4px;
+      }
+      .classic-grid-scroll-wrapper::-webkit-scrollbar-thumb {
+        background: #10b981;
+        border-radius: 4px;
+      }
+      .classic-table-grid {
+        width: 100%;
+        min-width: 900px;
+        border-collapse: separate;
+        border-spacing: 0;
+        table-layout: fixed;
+      }
+      .classic-th-corner {
+        width: 85px;
+        min-width: 85px;
+        background: var(--bg-panel);
+        border-bottom: 2px solid var(--border-color);
+        border-right: 2px solid var(--border-color);
+        padding: 12px 6px;
+        text-align: center;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 60;
+        box-shadow: 2px 2px 0 var(--border-color);
+      }
+      .classic-th-day {
+        background: var(--bg-panel);
+        border-bottom: 2px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+        padding: 12px 10px;
+        text-align: center;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--text-main);
+        letter-spacing: -0.01em;
+        position: sticky;
+        top: 0;
+        z-index: 45;
+        min-width: 130px;
+        box-shadow: 0 2px 0 var(--border-color);
+        transition: background-color 0.2s ease;
+      }
+      .classic-th-day.highlighted-day {
+        background-color: rgba(16, 185, 129, 0.15);
+        color: #059669;
+      }
+      .classic-th-day:last-child {
+        border-right: none;
+      }
+      .classic-td-time {
+        background: var(--bg-panel);
+        border-bottom: 1px solid var(--border-color);
+        border-right: 2px solid var(--border-color);
+        padding: 6px 6px;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-muted);
+        position: sticky;
+        left: 0;
+        z-index: 35;
+        white-space: nowrap;
+        width: 85px;
+        min-width: 85px;
+        box-shadow: 2px 0 0 var(--border-color);
+      }
+      .classic-td-cell {
+        border-bottom: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+        padding: 2px;
+        vertical-align: top;
+        position: relative;
+        background: var(--bg-card);
+        height: calc(var(--classic-cell-h) * var(--classic-zoom, 1));
+        min-width: 130px;
+        transition: background-color 0.15s ease;
+        cursor: pointer;
+        overflow: visible;
+      }
+      .classic-td-cell:hover {
+        background-color: rgba(16, 185, 129, 0.06);
+      }
+      .classic-td-cell:last-child {
+        border-right: none;
+      }
+      .classic-cell-add-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #10b981;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+        pointer-events: none;
+      }
+      .classic-td-cell:hover .classic-cell-add-icon {
+        opacity: 0.6;
+      }
+
+      /* Classic Event Card Component */
+      .classic-event-item {
+        position: absolute;
+        left: 3px;
+        right: 3px;
+        border-radius: 6px;
+        padding: 6px 8px;
+        color: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+        cursor: pointer;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        z-index: 15;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        user-select: none;
+      }
+      .classic-event-item:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32);
+        z-index: 25;
+      }
+      .classic-event-title-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4px;
+      }
+      .classic-event-title {
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+      }
+      .classic-event-tools {
+        display: none;
+        align-items: center;
+        gap: 2px;
+      }
+      .classic-event-item:hover .classic-event-tools {
+        display: flex;
+      }
+      .classic-evt-btn {
+        background: rgba(0, 0, 0, 0.35);
+        border: none;
+        border-radius: 4px;
+        color: #ffffff;
+        padding: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s, transform 0.15s;
+      }
+      .classic-evt-btn:hover {
+        background: rgba(0, 0, 0, 0.7);
+        transform: scale(1.1);
+      }
+      .classic-evt-btn:active {
+        transform: scale(0.9);
+      }
+      .classic-event-details {
+        font-size: 10.5px;
+        opacity: 0.95;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        line-height: 1.2;
+      }
+      .classic-event-badge-time {
+        font-size: 10px;
+        opacity: 0.92;
+        font-weight: 600;
+      }
+
+      /* Multi-Day Selection Chips in Modal */
+      .classic-days-checkboxes {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        background: var(--bg-panel);
+        padding: 8px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+      }
+      .classic-day-chip {
+        flex: 1 1 calc(14.28% - 6px);
+        min-width: 44px;
+        height: 38px;
+        border-radius: 8px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-muted);
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s ease;
+        user-select: none;
+      }
+      .classic-day-chip:hover {
+        border-color: #10b981;
+        color: #10b981;
+        background: var(--bg-card);
+      }
+      .classic-day-chip:active {
+        transform: scale(0.95);
+      }
+      .classic-day-chip.active {
+        background: #10b981;
+        color: #ffffff;
+        border-color: #10b981;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+      }
+
+      /* Quick Duration Preset Buttons in Modal */
+      .classic-duration-presets {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 4px;
+      }
+      .classic-duration-btn {
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        color: var(--text-main);
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        padding: 4px 9px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        user-select: none;
+      }
+      .classic-duration-btn:hover {
+        background: var(--bg-card);
+        border-color: #10b981;
+        color: #10b981;
+      }
+      .classic-duration-btn:active {
+        transform: scale(0.95);
+      }
+
+      /* 4. Floating Mobile Add Activity Button (FAB) */
+      .classic-mobile-fab {
+        display: none;
+        position: fixed;
+        bottom: 24px;
+        right: 20px;
+        z-index: 999;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: #ffffff;
+        border-radius: 30px;
+        padding: 13px 22px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13.5px;
+        font-weight: 700;
+        box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
+        border: none;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        user-select: none;
+      }
+      .classic-mobile-fab:hover {
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 10px 28px rgba(16, 185, 129, 0.6);
+      }
+      .classic-mobile-fab:active {
+        transform: scale(0.96);
+      }
+
+      /* Responsive Breakpoints & Mobile Optimization */
+      @media (max-width: 1024px) {
+        .classic-main-header {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 14px;
+        }
+        .classic-header-quick-actions {
+          margin-left: 0;
+          justify-content: flex-start;
+          width: 100%;
+        }
+        .classic-schedule-meta-box {
+          max-width: 100%;
+        }
+        .classic-ribbon-top-row {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 12px;
+        }
+        .classic-utility-controls {
+          margin-left: 0;
+          justify-content: space-between;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .classic-tt-app {
+          padding: 10px 10px 110px 10px;
+        }
+        .edition-mode-switcher-bar {
+          top: 50px;
+          padding: 8px 10px;
+        }
+        .mode-toggle-pill {
+          padding: 6px 12px;
+          font-size: 11.5px;
+        }
+        .mode-switcher-info {
+          display: none;
+        }
+        .classic-main-header {
+          padding: 12px 14px;
+          border-radius: 10px;
+          gap: 12px;
+        }
+        .classic-brand-logo-icon {
+          width: 36px;
+          height: 36px;
+        }
+        .classic-brand-name {
+          font-size: 16px;
+        }
+        .classic-title-input {
+          font-size: 16px;
+        }
+        .classic-toolbar-card {
+          padding: 10px 12px;
+          border-radius: 10px;
+        }
+        .classic-btn-label {
+          display: none;
+        }
+        .classic-btn-add-primary {
+          padding: 8px 14px;
+          font-size: 12.5px;
+          height: 36px;
+        }
+        .classic-template-dropdown {
+          min-width: 140px;
+          font-size: 12px;
+          height: 36px;
+        }
+        .classic-icon-btn {
+          height: 36px;
+          padding: 0 10px;
+          font-size: 11.5px;
+        }
+        .classic-btn-switch-pro {
+          height: 36px;
+          padding: 0 10px;
+          font-size: 11.5px;
+        }
+        .classic-config-bar {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .classic-cfg-item-actions {
+          grid-column: span 2;
+        }
+        .classic-mobile-scroll-hint {
+          display: flex;
+        }
+        .classic-mobile-fab {
+          display: inline-flex;
+        }
+        .classic-grid-scroll-wrapper {
+          max-height: 65vh;
+          min-height: 380px;
+        }
+        .classic-table-grid {
+          min-width: 720px;
+        }
+        .classic-th-corner {
+          width: 72px;
+          min-width: 72px;
+          font-size: 10.5px;
+          padding: 8px 4px;
+        }
+        .classic-th-day {
+          min-width: 105px;
+          font-size: 12px;
+          padding: 8px 4px;
+        }
+        .classic-td-time {
+          width: 72px;
+          min-width: 72px;
+          font-size: 10px;
+          padding: 6px 4px;
+        }
+        .classic-td-cell {
+          min-width: 105px;
+          height: calc(44px * var(--classic-zoom, 1));
+        }
+        .classic-day-chip {
+          flex: 1 1 calc(14.28% - 4px);
+          min-width: 40px;
+          height: 36px;
+          font-size: 11.5px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .classic-brand-tagline {
+          display: none;
+        }
+        .classic-brand-pill-status {
+          display: none;
+        }
+        .classic-header-quick-actions {
+          gap: 6px;
+        }
+        .classic-btn-add-primary {
+          padding: 7px 12px;
+          font-size: 12px;
+          width: 100%;
+        }
+        .classic-template-select-wrap {
+          width: 100%;
+        }
+        .classic-template-dropdown {
+          width: 100%;
+          min-width: 100%;
+        }
+        .classic-header-icon-btns {
+          width: 100%;
+          justify-content: space-between;
+        }
+        .classic-header-icon-btns .classic-icon-btn {
+          flex: 1;
+        }
+        .classic-config-bar {
+          grid-template-columns: 1fr;
+        }
+        .classic-cfg-item-actions {
+          grid-column: span 1;
+        }
+        .classic-grid-scroll-wrapper {
+          max-height: 60vh;
+          min-height: 340px;
+        }
+        .classic-table-grid {
+          min-width: 620px;
+        }
+        .classic-th-corner {
+          width: 60px;
+          min-width: 60px;
+          font-size: 9.5px;
+        }
+        .classic-th-day {
+          min-width: 88px;
+          font-size: 11px;
+          padding: 6px 2px;
+        }
+        .classic-td-time {
+          width: 60px;
+          min-width: 60px;
+          font-size: 9px;
+        }
+        .classic-td-cell {
+          min-width: 88px;
+          height: calc(40px * var(--classic-zoom, 1));
         }
       }
     </style>
@@ -2286,11 +3636,20 @@
       <div class="header-container">
         <!-- Left Section: Logo & Brand -->
         <div class="header-left-desktop">
-          <a href="/" class="header-brand">
-            <img src="/logo.png" alt="Timetable Creator Logo" class="header-logo" width="38" height="38" fetchpriority="high" decoding="async" referrerPolicy="no-referrer">
-            <div class="header-title-group">
-              <h1 class="header-title">Timetable Creator</h1>
-              <p class="header-subtitle">Online Class Scheduler</p>
+          <a href="/" class="header-brand" aria-label="Timetable Creator">
+            <div class="app-brand-wrapper">
+              <svg class="app-brand-logo" viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" rx="8" fill="#673de6"/>
+                <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="23" cy="21" r="3" fill="#00b090"/>
+              </svg>
+              <div class="header-title-group">
+                <div class="header-brand-line">
+                  <span class="app-brand-name">TIMETABLE</span>
+                  <span class="app-tools-tag">CREATOR</span>
+                </div>
+                <p class="header-subtitle">Online Schedule Generator</p>
+              </div>
             </div>
           </a>
         </div>
@@ -2316,9 +3675,10 @@
           <!-- Nav links (Desktop) -->
           <nav class="header-nav-desktop">
             <a href="/" class="nav-link-header active">Workspace</a>
+            <a href="#about" class="nav-link-header">Features</a>
+            <a href="/blog/" class="nav-link-header">Blog</a>
             <a href="/blog/about-us/" class="nav-link-header">About Us</a>
-            <a href="/blog/contact-us/" class="nav-link-header">Contact Us</a>
-            <a href="/blog/privacy-policy/" class="nav-link-header">Privacy Policy</a>
+            <a href="/blog/contact-us/" class="nav-link-header">Support</a>
           </nav>
         </div>
 
@@ -2369,9 +3729,10 @@
       <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
         <nav class="mobile-nav-links">
           <a href="/" class="mobile-nav-link active" onclick="app.handlers.toggleMobileMenu()">Workspace</a>
+          <a href="#about" class="mobile-nav-link" onclick="app.handlers.toggleMobileMenu()">Features</a>
+          <a href="/blog/" class="mobile-nav-link" onclick="app.handlers.toggleMobileMenu()">Blog</a>
           <a href="/blog/about-us/" class="mobile-nav-link" onclick="app.handlers.toggleMobileMenu()">About Us</a>
-          <a href="/blog/contact-us/" class="mobile-nav-link" onclick="app.handlers.toggleMobileMenu()">Contact Us</a>
-          <a href="/blog/privacy-policy/" class="mobile-nav-link" onclick="app.handlers.toggleMobileMenu()">Privacy Policy</a>
+          <a href="/blog/contact-us/" class="mobile-nav-link" onclick="app.handlers.toggleMobileMenu()">Support</a>
         </nav>
         <div class="mobile-menu-divider"></div>
         <div class="mobile-menu-actions">
@@ -2382,25 +3743,288 @@
             </svg>
             Theme Mode Toggle
           </button>
-
-          <!-- Auth section inside mobile menu -->
-          <div id="unauthGroupMobile" class="mobile-auth-container">
-            <button class="btn-signin-mobile" onclick="app.handlers.openAuthModal(); app.handlers.toggleMobileMenu();">Sign In</button>
-            <button class="btn-signup-mobile" onclick="app.handlers.openAuthSignUp(); app.handlers.toggleMobileMenu();">Sign Up</button>
-          </div>
-          <div id="authGroupMobile" class="mobile-auth-container hidden">
-            <div class="mobile-user-info">
-              <div id="userAvatarMobile" class="user-avatar-bubble">?</div>
-              <span id="userEmailLabelMobile" class="mobile-email-label">...</span>
-            </div>
-            <button class="mobile-action-btn" onclick="app.handlers.syncWithCloud(); app.handlers.toggleMobileMenu();" style="justify-content: center; margin-top: 4px;">Save to Cloud</button>
-            <button class="mobile-action-btn danger" onclick="app.handlers.signOutUser(); app.handlers.toggleMobileMenu();" style="justify-content: center; margin-top: 4px;">Sign Out</button>
-          </div>
         </div>
       </div>
     </header>
 
-    <!-- MAIN APP WRAPPER -->
+    <!-- ==========================================================================
+         HOMEPAGE WORKSPACE EDITION MODE SWITCHER BAR
+         ========================================================================== -->
+    <div class="edition-mode-switcher-bar" id="editionModeSwitcherBar">
+      <div class="mode-switcher-container" style="justify-content: center;">
+        <div class="mode-toggle-pill-group" role="tablist" aria-label="Timetable Navigation" style="margin: 0 auto;">
+          <a href="/" id="linkSwitchClassic" class="mode-toggle-pill" role="tab">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Homepage</span>
+          </a>
+
+          <a href="/timetable-generator-online-for-students/" id="linkSwitchPro" class="mode-toggle-pill" role="tab">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>Student Timetable Generator</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         TIMETABLECREATOR.COM CLASSIC CLONE WORKSPACE
+         ========================================================================== -->
+    <div class="classic-tt-app" id="timetableCreatorClassicApp">
+      <div class="classic-container">
+        
+        <!-- 1. Dedicated Top Brand & Schedule Header Bar -->
+        <div class="classic-main-header">
+          <div class="classic-brand-badge-group">
+            <div class="classic-brand-logo-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                <rect x="3" y="4" width="18" height="18" rx="3" ry="3"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <line x1="10" y1="10" x2="10" y2="22"></line>
+              </svg>
+            </div>
+            <div class="classic-brand-text">
+              <div class="classic-brand-name">
+                <span>TimetableCreator<span class="classic-brand-dotcom">.com</span></span>
+                <span class="classic-brand-pill-status">Clone Edition</span>
+              </div>
+              <span class="classic-brand-tagline">Online Weekly Schedule Generator & Print Tool</span>
+            </div>
+          </div>
+
+          <!-- Schedule Title & Subtitle Direct Editable Area -->
+          <div class="classic-schedule-meta-box">
+            <div class="classic-title-edit-wrap">
+              <input type="text" id="classicTtTitle" class="classic-title-input" value="My Weekly Timetable" placeholder="Timetable Title..." onchange="app.handlers.updateClassicTitle(this.value)" aria-label="Timetable Title">
+              <svg class="classic-edit-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </div>
+            <input type="text" id="classicTtSubtitle" class="classic-subtitle-input" value="Class & Activity Schedule" placeholder="Optional Subtitle or Semester..." onchange="app.handlers.updateClassicSubtitle(this.value)" aria-label="Timetable Subtitle">
+          </div>
+
+          <!-- Header Quick Actions -->
+          <div class="classic-header-quick-actions">
+            <!-- Add Activity Primary Button -->
+            <button class="classic-btn-add-primary" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="15" height="15"><path d="M12 4v16m8-8H4"></path></svg>
+              <span>Add Activity</span>
+            </button>
+
+            <!-- Template Preset Selector -->
+            <div class="classic-template-select-wrap">
+              <select id="classicPresetTemplates" class="classic-template-dropdown" onchange="app.handlers.applyClassicTemplate(this.value)" aria-label="Load Template">
+                <option value="">Load Template Schedule...</option>
+                <option value="university">University Student Schedule</option>
+                <option value="school">High School Routine</option>
+                <option value="work">Work & Shift Planner</option>
+                <option value="fitness">Workout & Gym Plan</option>
+                <option value="exam">Exam Revision Timetable</option>
+              </select>
+            </div>
+
+            <!-- Export & Utility Buttons -->
+            <div class="classic-header-icon-btns">
+              <button class="classic-icon-btn" onclick="app.handlers.savePdf()" title="Export PDF Document" aria-label="Export PDF">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span class="classic-btn-label">PDF</span>
+              </button>
+              <button class="classic-icon-btn" onclick="app.handlers.downloadImage()" title="Download High-Res Image" aria-label="Download Image">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                <span class="classic-btn-label">PNG</span>
+              </button>
+              <button class="classic-icon-btn" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                <span class="classic-btn-label">Print</span>
+              </button>
+              <button class="classic-icon-btn" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+              </button>
+              <button class="classic-btn-switch-pro" onclick="app.handlers.switchViewMode('pro')" title="Switch to Pro Studio Edition" aria-label="Switch to Pro Edition">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>Pro Studio</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Interactive Navigation Ribbon: Stats, Day Filter, Zoom & Grid Settings -->
+        <div class="classic-toolbar-card">
+          <div class="classic-ribbon-top-row">
+            <!-- Dynamic Stats Strip -->
+            <div class="classic-stats-strip">
+              <span class="classic-stat-pill" title="Total Scheduled Activities">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <strong id="classicStatClasses">0</strong> Activities
+              </span>
+              <span class="classic-stat-pill" title="Total Weekly Duration">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <strong id="classicStatHours">0h</strong> / wk
+              </span>
+              <span class="classic-stat-pill" title="Active Days">
+                <strong id="classicStatDays">7 Days</strong>
+              </span>
+              <span class="classic-stat-pill" title="Active Hours Range">
+                <strong id="classicStatSpan">08:00 - 19:00</strong>
+              </span>
+            </div>
+
+            <!-- Responsive Day Filter Pills (Scrolls to Day on Mobile/Tablet) -->
+            <div class="classic-day-pills-bar" id="classicDayPillsBar">
+              <button class="classic-day-pill-filter active" onclick="app.handlers.focusClassicDay('all')">All Days</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(0)">Mon</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(1)">Tue</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(2)">Wed</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(3)">Thu</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(4)">Fri</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(5)">Sat</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(6)">Sun</button>
+            </div>
+
+            <!-- Utility Controls: Undo, Redo, Zoom & Settings Toggle -->
+            <div class="classic-utility-controls">
+              <button class="classic-btn-mini" onclick="app.handlers.undo()" title="Undo (Ctrl+Z)" aria-label="Undo">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+                <span>Undo</span>
+              </button>
+              <button class="classic-btn-mini" onclick="app.handlers.redo()" title="Redo (Ctrl+Y)" aria-label="Redo">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
+                <span>Redo</span>
+              </button>
+
+              <!-- Zoom Controls -->
+              <div class="classic-zoom-group">
+                <button class="classic-btn-mini icon-only" onclick="app.handlers.adjustClassicZoom(-0.1)" title="Zoom Out Grid" aria-label="Zoom Out">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <span class="classic-zoom-val" id="classicZoomValLabel">100%</span>
+                <button class="classic-btn-mini icon-only" onclick="app.handlers.adjustClassicZoom(0.1)" title="Zoom In Grid" aria-label="Zoom In">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+              </div>
+
+              <!-- Collapsible Options Toggle -->
+              <button class="classic-btn-mini" id="btnToggleClassicConfig" onclick="app.handlers.toggleClassicConfig()" title="Toggle Grid Settings" aria-label="Toggle Settings">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>Grid Setup</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Collapsible Grid Configuration Controls -->
+          <div class="classic-config-bar" id="classicConfigBar">
+            <!-- Days Preset -->
+            <div class="classic-cfg-item">
+              <span class="classic-cfg-label">Days:</span>
+              <select id="classicConfigDays" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
+                <option value="5">Mon - Fri (5 Days)</option>
+                <option value="6">Mon - Sat (6 Days)</option>
+                <option value="7" selected>Mon - Sun (7 Days)</option>
+              </select>
+            </div>
+
+            <!-- Start Time -->
+            <div class="classic-cfg-item">
+              <span class="classic-cfg-label">Start Time:</span>
+              <select id="classicConfigStart" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
+                <option value="360">06:00 AM</option>
+                <option value="420">07:00 AM</option>
+                <option value="480" selected>08:00 AM</option>
+                <option value="540">09:00 AM</option>
+                <option value="600">10:00 AM</option>
+              </select>
+            </div>
+
+            <!-- End Time -->
+            <div class="classic-cfg-item">
+              <span class="classic-cfg-label">End Time:</span>
+              <select id="classicConfigEnd" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
+                <option value="1020">05:00 PM (17:00)</option>
+                <option value="1080">06:00 PM (18:00)</option>
+                <option value="1140" selected>07:00 PM (19:00)</option>
+                <option value="1200">08:00 PM (20:00)</option>
+                <option value="1260">09:00 PM (21:00)</option>
+                <option value="1320">10:00 PM (22:00)</option>
+              </select>
+            </div>
+
+            <!-- Interval -->
+            <div class="classic-cfg-item">
+              <span class="classic-cfg-label">Interval Step:</span>
+              <select id="classicConfigInterval" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
+                <option value="15">15 Minutes</option>
+                <option value="30" selected>30 Minutes</option>
+                <option value="45">45 Minutes</option>
+                <option value="60">60 Minutes</option>
+              </select>
+            </div>
+
+            <!-- Time Format -->
+            <div class="classic-cfg-item">
+              <span class="classic-cfg-label">Time Format:</span>
+              <select id="classicConfigFormat" class="classic-select-ctrl" onchange="app.handlers.classicConfigChange()">
+                <option value="12">12-Hour (AM/PM)</option>
+                <option value="24" selected>24-Hour (Military)</option>
+              </select>
+            </div>
+
+            <!-- Color Palette -->
+            <div class="classic-cfg-item">
+              <span class="classic-cfg-label">Color Theme:</span>
+              <select id="classicConfigTheme" class="classic-select-ctrl" onchange="app.handlers.classicThemeChange(this.value)">
+                <option value="slate" selected>Vibrant Classic</option>
+                <option value="emerald">Mint Fresh</option>
+                <option value="indigo">Electric Ocean</option>
+                <option value="amber">Warm Amber</option>
+                <option value="cyberpunk">Neon Pastel</option>
+              </select>
+            </div>
+
+            <!-- Action Backup & Clear -->
+            <div class="classic-cfg-item classic-cfg-item-actions">
+              <span class="classic-cfg-label">Backup & Clear:</span>
+              <div class="classic-cfg-action-buttons">
+                <button class="classic-btn-cfg-action" onclick="app.handlers.exportJson()" title="Export JSON File">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"></path></svg>
+                  <span>Export JSON</span>
+                </button>
+                <button class="classic-btn-cfg-action" onclick="app.handlers.triggerImport()" title="Import JSON File">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                  <span>Import JSON</span>
+                </button>
+                <button class="classic-btn-cfg-action danger" onclick="app.handlers.clearAll()" title="Reset All Entries">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                  <span>Clear All</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Scroll Tip -->
+          <div class="classic-mobile-scroll-hint">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+            <span>Tip: Swipe horizontally to scroll weekdays. Tap any day pill above to jump directly. Tap any slot to add an activity!</span>
+          </div>
+        </div>
+
+        <!-- 3. Classic Timetable Interactive Grid Canvas (Fully Responsive & Scrollable) -->
+        <div class="classic-grid-card">
+          <div class="classic-grid-scroll-wrapper" id="classicGridScrollWrapper" tabindex="0" role="region" aria-label="Interactive Timetable Grid">
+            <table class="classic-table-grid" id="classicTableGrid">
+              <!-- Dynamically populated table structure -->
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
+      <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v16m8-8H4"></path></svg>
+        <span>Add Activity</span>
+      </button>
+    </div>
+
+    <!-- MAIN APP WRAPPER (PRO STUDIO) -->
     <div class="app-container" id="timetableApp">
       
       <!-- Mobile Sidebar backdrop overlay drawer -->
@@ -2500,11 +4124,11 @@
             <div class="form-group">
               <label for="configTheme">Theme Palette</label>
               <select id="configTheme" class="select-ctrl" onchange="app.handlers.presetChange()">
-                <option value="slate">Royal Violet (Default)</option>
-                <option value="emerald">Deep Amethyst</option>
-                <option value="indigo">Midnight Violet</option>
-                <option value="amber">Obsidian Black</option>
-                <option value="cyberpunk">Ethereal Lavender</option>
+                <option value="slate">Royal Purple (Default)</option>
+                <option value="emerald">Mint Emerald</option>
+                <option value="indigo">Electric Indigo</option>
+                <option value="amber">Coral Sunset</option>
+                <option value="cyberpunk">Neon Fuchsia</option>
               </select>
             </div>
             <div class="tuning-sliders">
@@ -2616,19 +4240,44 @@
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
               <span class="btn-label-text" style="color: #ef4444;">Reset</span>
             </button>
-            <button class="action-btn toolbar-theme-toggle" onclick="app.handlers.toggleDark()" data-tooltip="Theme Mode Toggle" aria-label="Toggle Dark Theme">
-              <svg id="themeToggleIcon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-            </button>
           </div>
         </header>
 
         <!-- GRID SYSTEM WORKSPACE -->
         <div class="workspace" id="gridWorkspace" onscroll="app.handlers.handleScroll()">
           
-
+          <!-- Hero Tool Banner -->
+          <div class="app-tool-banner">
+            <div class="app-banner-top">
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <span class="app-tag-pill">
+                  <span class="pulse-dot"></span>
+                  FREE PLANNING TOOLS SUITE
+                </span>
+                <span class="app-verified-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  100% Free Forever
+                </span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Encrypted Cloud Sync Included</span>
+              </div>
+            </div>
+            <div class="app-banner-content">
+              <h1 class="app-banner-title">Online Timetable & Class Schedule Generator</h1>
+              <p class="app-banner-desc">Plan, organize, and export high-resolution weekly routines and academic schedules with our free planning tool. Powered by Smart AI Assistant with instant PDF and PNG downloads.</p>
+            </div>
+            <div class="app-trust-chips">
+              <div class="trust-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> AI Schedule Engine</div>
+              <div class="trust-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg> Mobile & Tablet Ready</div>
+              <div class="trust-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> PDF & High-Res PNG Exports</div>
+              <div class="trust-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="#ffb800" stroke="#ffb800" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Rated 4.8/5 (50,000+ Users)</div>
+            </div>
+          </div>
 
           <!-- AI Schedule Generator -->
-          <div class="section-card" id="aiGeneratorSection" style="margin-bottom: 16px; border: 1px solid rgba(59, 130, 246, 0.3); background: linear-gradient(180deg, var(--bg-card) 0%, rgba(59, 130, 246, 0.02) 100%); max-width: 100%; box-shadow: var(--shadow-sm); padding: 16px;">
+          <div class="section-card" id="aiGeneratorSection" style="margin-bottom: 16px; border: 1px solid rgba(103, 61, 230, 0.28); background: linear-gradient(180deg, var(--bg-card) 0%, rgba(103, 61, 230, 0.03) 100%); max-width: 100%; box-shadow: var(--shadow-sm); padding: 16px; border-radius: var(--border-radius);">
             <div class="ai-generator-inner" style="display: flex; gap: 16px; align-items: center; width: 100%; flex-wrap: wrap;">
               
               <!-- Left side description -->
@@ -2636,17 +4285,17 @@
                 <div class="section-title" style="margin-bottom: 0px; text-transform: uppercase;">
                   <span style="display: flex; align-items: center; gap: 6px; color: var(--primary-color); font-weight: 700;">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14" style="color: var(--primary-color);"><path d="M9.813 15.904L9 21l-.813-5.096L3.091 15 8.187 14.1 9 9l.813 5.1 5.096.9-5.096.904zM19.006 5.005l-.5.001-.13.3-.37 1-.37-1-.13-.3-.5-.001.5-.001.13-.3.37-1 .37 1 .13.3.5.001z"></path></svg>
-                    AI Intelligent Scheduler
+                    Smart AI Assistant
                   </span>
                 </div>
                 <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin: 0;">
-                  Describe your classes, study hours, or lunch times. The AI will auto-schedule them into open spots.
+                  Describe your routine or syllabus in plain words. AI automatically schedules courses into open calendar slots.
                 </p>
               </div>
 
               <!-- Input text area -->
               <div class="ai-generator-input" style="flex: 2; min-width: 320px; display: flex; align-items: center;">
-                <textarea id="aiPrompt" class="input-ctrl" rows="2" style="resize: none; font-size: 12px; margin-bottom: 0; width: 100%; height: 48px; min-height: 48px;" placeholder="e.g., Generate a freshman biology semester schedule with morning lectures, afternoon labs on Wed, and daily lunch breaks at noon."></textarea>
+                <textarea id="aiPrompt" class="input-ctrl" rows="2" style="resize: none; font-size: 12px; margin-bottom: 0; width: 100%; height: 48px; min-height: 48px;" placeholder="e.g., Build a computer science freshman schedule with morning lectures, afternoon labs on Wed/Fri, and lunch breaks at 1:00 PM."></textarea>
               </div>
 
               <!-- Control buttons -->
@@ -2810,15 +4459,15 @@
                 <p>Everything you need for an optimized academic and professional work/life balance.</p>
               </div>
               <div class="seo-grid-benefits">
-                <div class="seo-benefit-card" style="background-color: transparent; border-color: rgba(59, 130, 246, 0.15);">
+                <div class="seo-benefit-card" style="background-color: transparent; border-color: rgba(103, 61, 230, 0.18);">
                   <h3>Instant Undo & Redo</h3>
                   <p>Accidentally moved a course? Easily reverse adjustments using standard toolbar actions or quick keyboard shortcuts (Ctrl+Z / Ctrl+Y).</p>
                 </div>
-                <div class="seo-benefit-card" style="background-color: transparent; border-color: rgba(59, 130, 246, 0.15);">
+                <div class="seo-benefit-card" style="background-color: transparent; border-color: rgba(103, 61, 230, 0.18);">
                   <h3>Real-Time Search Filters</h3>
                   <p>Type keywords to instantly highlight specific classes, subjects, or rooms. Perfect for complex university lectures and busy schools.</p>
                 </div>
-                <div class="seo-benefit-card" style="background-color: transparent; border-color: rgba(59, 130, 246, 0.15);">
+                <div class="seo-benefit-card" style="background-color: transparent; border-color: rgba(103, 61, 230, 0.18);">
                   <h3>Dynamic Live Tracker</h3>
                   <p>A visual marker moves as the day progresses, showing you exactly what lecture you are currently in and which class lies ahead.</p>
                 </div>
@@ -2961,19 +4610,54 @@
               <div class="footer-container">
                 <div class="footer-grid">
                   
-                  <!-- Column 1: Company -->
-                  <div class="footer-col">
-                    <h3 class="footer-col-title">Company</h3>
-                    <div class="footer-links-list">
-                      <a href="/blog/about-us/" class="footer-link-item">About Us</a>
-                      <a href="/blog/contact-us/" class="footer-link-item">Contact Us</a>
-                      <a href="/blog/" class="footer-link-item font-semibold" style="font-weight: 600; color: var(--primary-color);">Blog (Articles Archive)</a>
+                  <!-- Column 1: Brand & Description -->
+                  <div class="footer-col" style="max-width: 320px;">
+                    <div class="app-brand-wrapper" style="margin-bottom: 12px;">
+                      <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#673de6"/>
+                        <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="23" cy="21" r="3" fill="#00b090"/>
+                      </svg>
+                      <div class="header-brand-line">
+                        <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
+                        <span class="app-tools-tag">CREATOR</span>
+                      </div>
+                    </div>
+                    <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
+                      Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
+                    </p>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <span style="font-size: 11px; color: #00b090; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                        <span class="pulse-dot"></span>
+                        99.9% Uptime SLA
+                      </span>
                     </div>
                   </div>
 
-                  <!-- Column 2: Legal Terms -->
+                  <!-- Column 2: Free Tools -->
                   <div class="footer-col">
-                    <h3 class="footer-col-title">Legal Terms</h3>
+                    <h3 class="footer-col-title">Product Tools</h3>
+                    <div class="footer-links-list">
+                      <a href="/" class="footer-link-item active" style="color: var(--primary-color); font-weight: 600;">Timetable Creator</a>
+                      <a href="#aiGeneratorSection" class="footer-link-item">AI Schedule Generator</a>
+                      <a href="#about" class="footer-link-item">Weekly Routine Planner</a>
+                      <a href="#exportOptionsBar" class="footer-link-item">PDF & PNG Exporter</a>
+                    </div>
+                  </div>
+
+                  <!-- Column 3: Company -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Company & Resources</h3>
+                    <div class="footer-links-list">
+                      <a href="/blog/about-us/" class="footer-link-item">About Us</a>
+                      <a href="/blog/contact-us/" class="footer-link-item">Customer Support</a>
+                      <a href="/blog/" class="footer-link-item font-semibold" style="font-weight: 600; color: var(--primary-color);">Product Blog & Tutorials</a>
+                    </div>
+                  </div>
+
+                  <!-- Column 4: Legal Terms -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Legal & Security</h3>
                     <div class="footer-links-list">
                       <a href="/blog/privacy-policy/" class="footer-link-item">Privacy Policy</a>
                       <a href="/blog/terms-and-conditions/" class="footer-link-item">Terms of Service</a>
@@ -2985,10 +4669,14 @@
                 </div>
 
                 <!-- Bottom Copyright Row -->
-                <div class="footer-copyright-row">
-                  <p class="footer-copyright-text">
-                    &copy; 2026 Online Timetable Creator. All rights reserved. Built for professional academic planning.
+                <div class="footer-copyright-row" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
+                  <p class="footer-copyright-text" style="margin: 0;">
+                    &copy; 2026 Timetable Creator. All rights reserved. Powered by High-Speed Cloud Infrastructure.
                   </p>
+                  <div style="display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);">
+                    <span>SSL 256-Bit Secured</span>
+                    <span>GDPR Compliant</span>
+                  </div>
                 </div>
               </div>
             </footer>
@@ -3090,6 +4778,109 @@
         <div class="modal-footer">
           <button class="btn-ctrl" onclick="app.handlers.closeEventModal()">Cancel</button>
           <button class="btn-ctrl btn-primary" onclick="app.handlers.saveEventFromModal()">Save Event</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMETABLECREATOR.COM CLASSIC EVENT DIALOG EDITOR -->
+    <div class="modal-backdrop" id="classicEventModal">
+      <div class="modal-panel" style="max-width: 520px;">
+        <div class="modal-header" style="background: var(--bg-panel); border-bottom: 1px solid var(--border-color);">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></div>
+            <h2 class="modal-title" id="classicModalTitle" style="font-size: 15px; font-weight: 700;">Add Activity to Timetable</h2>
+          </div>
+          <button class="modal-close" onclick="app.handlers.closeClassicEventModal()" aria-label="Close modal">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+        
+        <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <input type="hidden" id="classicEvtId">
+
+          <!-- Activity Title Input -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="classicEvtTitle" style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; display: block;">Activity / Class Name *</label>
+            <input type="text" id="classicEvtTitle" class="input-ctrl" placeholder="e.g. Mathematics, Biology Lab, Team Sync" required style="font-size: 13.5px; font-weight: 500;">
+          </div>
+
+          <!-- Days Selection (Supports multi-day creation like Mon + Wed + Fri) -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; display: block;">Select Day(s) *</label>
+            <div class="classic-days-checkboxes" id="classicModalDaysGroup" style="display: flex; gap: 4px; flex-wrap: wrap; background: var(--bg-panel); padding: 6px; border-radius: 8px;">
+              <button type="button" class="classic-day-chip active" data-day="0" onclick="app.handlers.toggleClassicModalDay(0)">Mon</button>
+              <button type="button" class="classic-day-chip" data-day="1" onclick="app.handlers.toggleClassicModalDay(1)">Tue</button>
+              <button type="button" class="classic-day-chip" data-day="2" onclick="app.handlers.toggleClassicModalDay(2)">Wed</button>
+              <button type="button" class="classic-day-chip" data-day="3" onclick="app.handlers.toggleClassicModalDay(3)">Thu</button>
+              <button type="button" class="classic-day-chip" data-day="4" onclick="app.handlers.toggleClassicModalDay(4)">Fri</button>
+              <button type="button" class="classic-day-chip" data-day="5" onclick="app.handlers.toggleClassicModalDay(5)">Sat</button>
+              <button type="button" class="classic-day-chip" data-day="6" onclick="app.handlers.toggleClassicModalDay(6)">Sun</button>
+            </div>
+          </div>
+
+          <!-- Time Range Selection with Quick Duration Presets -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="flex-half" style="margin-bottom: 6px;">
+              <div style="flex: 1;">
+                <label for="classicEvtStart" style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; display: block;">Start Time *</label>
+                <input type="time" id="classicEvtStart" class="input-ctrl" value="08:00" onchange="app.handlers.onClassicStartTimeChange()">
+              </div>
+              <div style="flex: 1;">
+                <label for="classicEvtEnd" style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; display: block;">End Time *</label>
+                <input type="time" id="classicEvtEnd" class="input-ctrl" value="09:00">
+              </div>
+            </div>
+            <div class="classic-duration-presets" style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+              <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;">Quick Duration:</span>
+              <button type="button" class="classic-duration-btn" onclick="app.handlers.setClassicDuration(30)">+30m</button>
+              <button type="button" class="classic-duration-btn" onclick="app.handlers.setClassicDuration(45)">+45m</button>
+              <button type="button" class="classic-duration-btn" onclick="app.handlers.setClassicDuration(60)">+1h</button>
+              <button type="button" class="classic-duration-btn" onclick="app.handlers.setClassicDuration(90)">+1.5h</button>
+              <button type="button" class="classic-duration-btn" onclick="app.handlers.setClassicDuration(120)">+2h</button>
+            </div>
+          </div>
+
+          <!-- Location & Teacher Details -->
+          <div class="flex-half" style="margin-bottom: 0;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="classicEvtRoom" style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; display: block;">Room / Location</label>
+              <input type="text" id="classicEvtRoom" class="input-ctrl" placeholder="e.g. Room 204, Lab C">
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="classicEvtTeacher" style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; display: block;">Teacher / Instructor</label>
+              <input type="text" id="classicEvtTeacher" class="input-ctrl" placeholder="e.g. Prof. Smith">
+            </div>
+          </div>
+
+          <!-- Notes Textarea -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="classicEvtNotes" style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 4px; display: block;">Extra Notes / URL</label>
+            <textarea id="classicEvtNotes" class="input-ctrl" rows="2" style="resize: none;" placeholder="Optional notes, materials, classroom link..."></textarea>
+          </div>
+
+          <!-- Color Assignment Palette -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
+              <span>Activity Color Swatch</span>
+              <span id="classicColorHexLabel" style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">#10b981</span>
+            </label>
+            <div class="color-grid" id="classicColorGrid" style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px;">
+              <!-- Populated live with signature colors -->
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer" style="background: var(--bg-panel); border-top: 1px solid var(--border-color); padding: 14px 20px; display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
+          <button id="btnClassicDeleteEvt" class="btn-ctrl" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3); display: none; margin-right: auto;" onclick="app.handlers.deleteClassicEventFromModal()">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            Delete
+          </button>
+          <button class="btn-ctrl" onclick="app.handlers.closeClassicEventModal()">Cancel</button>
+          <button class="btn-ctrl btn-primary" style="background: #10b981; border-color: #10b981;" onclick="app.handlers.saveClassicEventFromModal()">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Save Activity
+          </button>
         </div>
       </div>
     </div>
@@ -3289,6 +5080,112 @@
       </div>
     </div>
 
+    <!-- ==========================================================================
+         ADMIN PANEL CONTAINER (/admin-panel)
+         ========================================================================== -->
+    <div id="adminPanelApp" class="hidden" style="max-width: 1200px; margin: 40px auto; padding: 0 20px; font-family: 'Poppins', sans-serif;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h1 style="font-size: 24px; font-weight: 700; color: var(--text-main); margin: 0 0 4px 0;">TimetableCreator.online Admin Panel</h1>
+          <p style="font-size: 14px; color: var(--text-muted); margin: 0;">Manage and edit existing blog posts and static pages seamlessly.</p>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <a href="/" class="classic-icon-btn" style="text-decoration: none; padding: 8px 16px;">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Back to Homepage</span>
+          </a>
+          <button class="classic-btn-add-primary" onclick="app.handlers.openAdminEditModal()">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
+            <span>Add New Post</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Overview Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px;">
+        <div style="background: var(--bg-card); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid var(--border-color);">
+          <div style="font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 6px;">Total Posts / Pages</div>
+          <div id="adminStatTotal" style="font-size: 28px; font-weight: 700; color: var(--text-main);">0</div>
+        </div>
+        <div style="background: var(--bg-card); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid var(--border-color);">
+          <div style="font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 6px;">Published Status</div>
+          <div id="adminStatPublished" style="font-size: 28px; font-weight: 700; color: #10b981;">0</div>
+        </div>
+        <div style="background: var(--bg-card); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid var(--border-color);">
+          <div style="font-size: 13px; color: var(--text-muted); font-weight: 500; margin-bottom: 6px;">Categories</div>
+          <div id="adminStatCategories" style="font-size: 28px; font-weight: 700; color: #6366f1;">0</div>
+        </div>
+      </div>
+
+      <!-- Posts Table Card -->
+      <div style="background: var(--bg-card); border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border: 1px solid var(--border-color); overflow: hidden;">
+        <div style="padding: 16px 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <h3 style="font-size: 16px; font-weight: 600; color: var(--text-main); margin: 0;">Existing Posts & Pages</h3>
+          <input type="text" id="adminSearchInput" placeholder="Search posts by title or slug..." oninput="app.handlers.filterAdminPosts(this.value)" style="padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); font-size: 13px; width: 280px; outline: none;">
+        </div>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px;">
+            <thead>
+              <tr style="background: var(--bg-panel); color: var(--text-muted); border-bottom: 1px solid var(--border-color); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
+                <th style="padding: 12px 20px;">Title & Slug</th>
+                <th style="padding: 12px 16px;">Category</th>
+                <th style="padding: 12px 16px;">Status</th>
+                <th style="padding: 12px 16px;">Last Updated</th>
+                <th style="padding: 12px 20px; text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminPostsTableBody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Edit / Create Modal -->
+    <div id="adminPostModal" class="modal-backdrop hidden" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px;">
+      <div style="background: var(--bg-card); width: 100%; max-width: 650px; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); overflow: hidden; max-height: 90vh; display: flex; flex-direction: column;">
+        <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+          <h3 id="adminModalTitle" style="font-size: 18px; font-weight: 600; color: var(--text-main); margin: 0;">Edit Post</h3>
+          <button onclick="app.handlers.closeAdminModal()" style="background: none; border: none; cursor: pointer; color: var(--text-muted); padding: 4px;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+        <form id="adminPostForm" onsubmit="app.handlers.saveAdminPost(event)" style="padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px;">
+          <input type="hidden" id="adminPostId">
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">Post Title</label>
+            <input type="text" id="adminPostTitle" required class="input-ctrl" placeholder="Enter post title..." style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px;">
+          </div>
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">URL Slug</label>
+            <input type="text" id="adminPostSlug" required class="input-ctrl" placeholder="e.g. how-to-make-a-timetable" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px;">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">Category</label>
+              <input type="text" id="adminPostCategory" class="input-ctrl" placeholder="e.g. Timetable Guide" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px;">
+            </div>
+            <div>
+              <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">Status</label>
+              <select id="adminPostStatus" class="select-ctrl" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px;">
+                <option value="Published">Published</option>
+                <option value="Draft">Draft</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px;">Content / Excerpt / Description</label>
+            <textarea id="adminPostContent" rows="6" class="input-ctrl" placeholder="Write or edit post content..." style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 14px; resize: vertical;"></textarea>
+          </div>
+          <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px;">
+            <button type="button" onclick="app.handlers.closeAdminModal()" class="classic-icon-btn" style="padding: 10px 20px;">Cancel</button>
+            <button type="submit" class="classic-btn-add-primary" style="padding: 10px 24px;">Save Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->
     <div id="google_translate_element" style="display: none !important;"></div>
     <script>
@@ -3412,6 +5309,11 @@
         state: {
           events: [], // Holds array of event elements
           aiCredits: null, // Tracks remaining AI credits for the user
+          viewMode: window.location.pathname.includes('timetable-generator-online-for-students') ? 'pro' : 'classic',
+          classicTitle: localStorage.getItem('tt_classic_title') || 'My Weekly Timetable',
+          classicSubtitle: localStorage.getItem('tt_classic_subtitle') || 'Class & Activity Schedule',
+          classicSelectedDays: [0],
+          classicSelectedColor: '#10b981',
           config: {
             daysCount: 7,
             startTime: 480, // minutes from midnight (8:00 AM)
@@ -3441,9 +5343,22 @@
          * System Core Initialization routine (Instant First Paint & Offline Ready)
          */
         init() {
+          if (window.location.pathname.startsWith('/admin-panel')) {
+            const adminApp = document.getElementById('adminPanelApp');
+            const classicApp = document.getElementById('timetableCreatorClassicApp');
+            const proApp = document.getElementById('timetableApp');
+            const switcher = document.getElementById('editionModeSwitcherBar');
+            if (adminApp) adminApp.classList.remove('hidden');
+            if (classicApp) classicApp.classList.add('hidden');
+            if (proApp) proApp.classList.add('hidden');
+            if (switcher) switcher.classList.add('hidden');
+            this.handlers.loadAdminPosts();
+            return;
+          }
           this.loadState();
           this.setupGlobalListeners();
           this.applyGeneralStyles();
+          this.handlers.switchViewMode(this.state.viewMode, false);
           this.render();
 
           // Check if opening a shared link query ?share=ID or ?data=BASE64
@@ -3988,7 +5903,155 @@
         render() {
           this.renderGridStructure();
           this.renderEventsOnly();
+          this.renderClassicGrid();
           this.updateCurrentTimeIndicator();
+        },
+
+        escapeHtml(str) {
+          if (!str) return '';
+          return String(str).replace(/[&<>"']/g, function(m) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+          });
+        },
+
+        renderClassicGrid() {
+          try {
+            const table = document.getElementById('classicTableGrid');
+            if (!table) return;
+
+            const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            const activeDaysCount = parseInt(this.state.config.daysCount) || 7;
+            const mStep = parseInt(this.state.config.interval) || 30;
+            const startTime = parseInt(this.state.config.startTime) !== undefined ? parseInt(this.state.config.startTime) : 480;
+            const endTime = parseInt(this.state.config.endTime) !== undefined ? parseInt(this.state.config.endTime) : 1140;
+            const totalSlots = Math.max(1, Math.floor((endTime - startTime) / mStep));
+
+            // Synchronize zoom state
+            if (!this.state.classicZoom) this.state.classicZoom = 1.0;
+            const zoomValLabel = document.getElementById('classicZoomValLabel');
+            if (zoomValLabel) {
+              zoomValLabel.textContent = `${Math.round(this.state.classicZoom * 100)}%`;
+            }
+            document.documentElement.style.setProperty('--classic-zoom', this.state.classicZoom);
+
+            // Synchronize inputs in classic toolbar
+            const titleInput = document.getElementById('classicTtTitle');
+            const subtitleInput = document.getElementById('classicTtSubtitle');
+            if (titleInput && this.state.classicTitle) titleInput.value = this.state.classicTitle;
+            if (subtitleInput && this.state.classicSubtitle) subtitleInput.value = this.state.classicSubtitle;
+
+            const cfgDays = document.getElementById('classicConfigDays');
+            const cfgStart = document.getElementById('classicConfigStart');
+            const cfgEnd = document.getElementById('classicConfigEnd');
+            const cfgInterval = document.getElementById('classicConfigInterval');
+            const cfgFormat = document.getElementById('classicConfigFormat');
+
+            if (cfgDays) cfgDays.value = activeDaysCount;
+            if (cfgStart) cfgStart.value = startTime;
+            if (cfgEnd) cfgEnd.value = endTime;
+            if (cfgInterval) cfgInterval.value = mStep;
+            if (cfgFormat) cfgFormat.value = this.state.config.use24h ? "24" : "12";
+
+            // Update stats strip in classic ribbon
+            const validEvents = this.state.events.filter(evt => evt.day < activeDaysCount);
+            const totalMinutes = validEvents.reduce((acc, evt) => {
+              const dur = Math.max(0, (evt.endTime || 0) - (evt.startTime || 0));
+              return acc + dur;
+            }, 0);
+            const totalHours = (totalMinutes / 60).toFixed(1).replace(/\.0$/, '');
+
+            const statClasses = document.getElementById('classicStatClasses');
+            const statHours = document.getElementById('classicStatHours');
+            const statDays = document.getElementById('classicStatDays');
+            const statSpan = document.getElementById('classicStatSpan');
+
+            if (statClasses) statClasses.textContent = validEvents.length;
+            if (statHours) statHours.textContent = `${totalHours}h`;
+            if (statDays) statDays.textContent = `${activeDaysCount} Days`;
+            if (statSpan) statSpan.textContent = `${this.formatMinute(startTime)} - ${this.formatMinute(endTime)}`;
+
+            // Build the Table HTML
+            let html = '<thead><tr><th class="classic-th-corner">Time</th>';
+            for (let d = 0; d < activeDaysCount; d++) {
+              html += `<th class="classic-th-day" id="classic-th-day-${d}" data-day="${d}">
+                <span>${dayNames[d]}</span>
+              </th>`;
+            }
+            html += '</tr></thead><tbody>';
+
+            for (let s = 0; s < totalSlots; s++) {
+              const slotMin = startTime + (s * mStep);
+              const timeLabel = this.formatMinute(slotMin);
+              html += `<tr><td class="classic-td-time">${timeLabel}</td>`;
+              for (let d = 0; d < activeDaysCount; d++) {
+                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
+                  <svg class="classic-cell-add-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"></path></svg>
+                </td>`;
+              }
+              html += '</tr>';
+            }
+            html += '</tbody>';
+            table.innerHTML = html;
+
+            // Render events on top of the classic grid
+            const cellHeight = 48; // Base table cell height in px
+            const pxPerMin = cellHeight / mStep;
+
+            validEvents.forEach(evt => {
+              if (evt.startTime >= endTime || evt.endTime <= startTime) return;
+
+              const visibleStart = Math.max(evt.startTime, startTime);
+              const visibleEnd = Math.min(evt.endTime, endTime);
+              const duration = visibleEnd - visibleStart;
+
+              // Find the first matching cell for this day
+              const firstCell = table.querySelector(`.classic-td-cell[data-day="${evt.day}"][data-time="${startTime}"]`);
+              if (!firstCell) return;
+
+              const topOffset = (visibleStart - startTime) * pxPerMin + 2;
+              const height = Math.max(34, (duration * pxPerMin) - 4);
+
+              const eventCard = document.createElement('div');
+              eventCard.className = 'classic-event-item';
+              eventCard.id = `classic-evt-${evt.id}`;
+              eventCard.style.top = `${topOffset}px`;
+              eventCard.style.height = `${height}px`;
+              eventCard.style.backgroundColor = evt.color || '#10b981';
+
+              eventCard.onclick = (e) => {
+                e.stopPropagation();
+                app.handlers.openClassicEditModal(evt);
+              };
+
+              const timeBadge = `${this.formatMinute(evt.startTime)} - ${this.formatMinute(evt.endTime)}`;
+
+              eventCard.innerHTML = `
+                <div class="classic-event-title-line">
+                  <span class="classic-event-title" title="${this.escapeHtml(evt.title)}">${this.escapeHtml(evt.title)}</span>
+                  <div class="classic-event-tools">
+                    <button class="classic-evt-btn" title="Edit" onclick="event.stopPropagation(); app.handlers.openClassicEditModal(app.state.events.find(x => x.id === '${evt.id}'))">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </button>
+                    <button class="classic-evt-btn" title="Duplicate" onclick="event.stopPropagation(); app.duplicateEvent('${evt.id}')">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                    <button class="classic-evt-btn" title="Delete" onclick="event.stopPropagation(); app.deleteEvent('${evt.id}')">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="classic-event-details">
+                  ${evt.teacher ? `<span>👨‍🏫 ${this.escapeHtml(evt.teacher)}</span>` : ''}
+                  ${evt.room ? `<span>📍 ${this.escapeHtml(evt.room)}</span>` : ''}
+                  <span class="classic-event-badge-time">⏰ ${timeBadge}</span>
+                </div>
+              `;
+
+              firstCell.appendChild(eventCard);
+            });
+          } catch(err) {
+            console.error('Error rendering Classic Timetable grid:', err);
+          }
         },
 
         renderGridStructure() {
@@ -4291,14 +6354,21 @@
          * Color assignments arrays helpers
          */
         colorsList: [
-          '#7c3aed', // Royal Violet
-          '#8b5cf6', // Medium Violet
-          '#a78bfa', // Soft Violet-Lavender
-          '#c084fc', // Light Violet-Purple
-          '#4c1d95', // Deep Midnight Violet
-          '#6d28d9', // Rich Amethyst Violet
-          '#000000', // Pure Black
-          '#1e1b4b'  // Obsidian Violet-Black
+          '#673de6', // Royal Purple
+          '#00b090', // Mint Green
+          '#ea580c', // Coral Orange
+          '#2563eb', // Electric Blue
+          '#d946ef', // Vibrant Fuchsia
+          '#06b6d4', // Teal Cyan
+          '#f59e0b', // Radiant Amber
+          '#8c52ff'  // Bright Lavender
+        ],
+
+        colorsListClassic: [
+          '#10b981', '#06b6d4', '#3b82f6', '#6366f1',
+          '#8b5cf6', '#d946ef', '#ec4899', '#f43f5e',
+          '#f97316', '#eab308', '#84cc16', '#475569',
+          '#14b8a6', '#0284c7', '#7c3aed', '#db2777'
         ],
 
         /**
@@ -4695,6 +6765,146 @@
          * Direct Handlers hooks for DOM buttons callbacks
          */
         handlers: {
+          loadAdminPosts() {
+            fetch('/api/admin/posts')
+              .then(res => res.json())
+              .then(data => {
+                if (data.success) {
+                  this.allAdminPosts = data.posts;
+                  this.renderAdminPosts(data.posts);
+                }
+              })
+              .catch(err => console.error('Failed to load posts', err));
+          },
+          renderAdminPosts(posts) {
+            const tbody = document.getElementById('adminPostsTableBody');
+            const statTotal = document.getElementById('adminStatTotal');
+            const statPublished = document.getElementById('adminStatPublished');
+            const statCategories = document.getElementById('adminStatCategories');
+
+            if (statTotal) statTotal.textContent = posts.length;
+            if (statPublished) statPublished.textContent = posts.filter(p => p.status === 'Published').length;
+            if (statCategories) statCategories.textContent = new Set(posts.map(p => p.category)).size;
+
+            if (!tbody) return;
+            if (posts.length === 0) {
+              tbody.innerHTML = `<tr><td colspan="5" style="padding: 30px; text-align: center; color: var(--text-muted);">No posts found.</td></tr>`;
+              return;
+            }
+
+            tbody.innerHTML = posts.map(p => `
+              <tr style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;" onmouseover="this.style.background='var(--bg-panel)'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 14px 20px;">
+                  <div style="font-weight: 600; color: var(--text-main); margin-bottom: 2px;">${p.title}</div>
+                  <div style="font-size: 12px; color: var(--text-muted);">/blog/${p.slug}/</div>
+                </td>
+                <td style="padding: 14px 16px;">
+                  <span style="display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; background: rgba(99, 102, 241, 0.1); color: #6366f1;">${p.category || 'General'}</span>
+                </td>
+                <td style="padding: 14px 16px;">
+                  <span style="display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; background: ${p.status === 'Published' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(245, 158, 11, 0.1)'}; color: ${p.status === 'Published' ? '#10b981' : '#f59e0b'};">${p.status}</span>
+                </td>
+                <td style="padding: 14px 16px; color: var(--text-muted); font-size: 12.5px;">${p.updatedAt}</td>
+                <td style="padding: 14px 20px; text-align: right; white-space: nowrap;">
+                  <button onclick="app.handlers.openAdminEditModal('${p.id}')" class="classic-icon-btn" style="padding: 6px 12px; margin-right: 6px;" title="Edit Post">Edit</button>
+                  <button onclick="app.handlers.deleteAdminPost('${p.id}')" class="classic-icon-btn" style="padding: 6px 12px; color: #ef4444; border-color: rgba(239, 68, 68, 0.3);" title="Delete Post">Delete</button>
+                </td>
+              </tr>
+            `).join('');
+          },
+          filterAdminPosts(query) {
+            if (!this.allAdminPosts) return;
+            const q = query.toLowerCase();
+            const filtered = this.allAdminPosts.filter(p => p.title.toLowerCase().includes(q) || p.slug.toLowerCase().includes(q) || (p.category && p.category.toLowerCase().includes(q)));
+            this.renderAdminPosts(filtered);
+          },
+          openAdminEditModal(postId = null) {
+            const modal = document.getElementById('adminPostModal');
+            const titleEl = document.getElementById('adminModalTitle');
+            const idEl = document.getElementById('adminPostId');
+            const titleInput = document.getElementById('adminPostTitle');
+            const slugInput = document.getElementById('adminPostSlug');
+            const catInput = document.getElementById('adminPostCategory');
+            const statusInput = document.getElementById('adminPostStatus');
+            const contentInput = document.getElementById('adminPostContent');
+
+            if (postId && this.allAdminPosts) {
+              const post = this.allAdminPosts.find(p => p.id === postId);
+              if (post) {
+                if (titleEl) titleEl.textContent = 'Edit Post: ' + post.title;
+                if (idEl) idEl.value = post.id;
+                if (titleInput) titleInput.value = post.title;
+                if (slugInput) slugInput.value = post.slug;
+                if (catInput) catInput.value = post.category || '';
+                if (statusInput) statusInput.value = post.status || 'Published';
+                if (contentInput) contentInput.value = post.content || '';
+              }
+            } else {
+              if (titleEl) titleEl.textContent = 'Add New Post';
+              if (idEl) idEl.value = '';
+              if (titleInput) titleInput.value = '';
+              if (slugInput) slugInput.value = '';
+              if (catInput) catInput.value = 'Timetable Guide';
+              if (statusInput) statusInput.value = 'Published';
+              if (contentInput) contentInput.value = '';
+            }
+            if (modal) modal.classList.remove('hidden');
+          },
+          closeAdminModal() {
+            const modal = document.getElementById('adminPostModal');
+            if (modal) modal.classList.add('hidden');
+          },
+          saveAdminPost(e) {
+            e.preventDefault();
+            const id = document.getElementById('adminPostId').value;
+            const payload = {
+              title: document.getElementById('adminPostTitle').value,
+              slug: document.getElementById('adminPostSlug').value,
+              category: document.getElementById('adminPostCategory').value,
+              status: document.getElementById('adminPostStatus').value,
+              content: document.getElementById('adminPostContent').value
+            };
+
+            const url = id ? `/api/admin/posts/${id}` : '/api/admin/posts';
+            const method = id ? 'PUT' : 'POST';
+
+            fetch(url, {
+              method,
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(data => {
+                if (data.success) {
+                  this.closeAdminModal();
+                  this.loadAdminPosts();
+                  app.showToast(id ? 'Post updated successfully!' : 'Post created successfully!', 'success');
+                } else {
+                  app.showToast('Error saving post', 'error');
+                }
+              })
+              .catch(err => {
+                console.error(err);
+                app.showToast('Network error saving post', 'error');
+              });
+          },
+          deleteAdminPost(id) {
+            if (!confirm('Are you sure you want to delete this post?')) return;
+            fetch(`/api/admin/posts/${id}`, { method: 'DELETE' })
+              .then(res => res.json())
+              .then(data => {
+                if (data.success) {
+                  this.loadAdminPosts();
+                  app.showToast('Post deleted successfully', 'success');
+                } else {
+                  app.showToast('Error deleting post', 'error');
+                }
+              })
+              .catch(err => {
+                console.error(err);
+                app.showToast('Network error deleting post', 'error');
+              });
+          },
           async aiGenerateSchedule(merge = true) {
             const promptEl = document.getElementById('aiPrompt');
             const prompt = promptEl.value.trim();
@@ -4866,6 +7076,498 @@
                 overlay.classList.toggle('active');
               }
             }
+          },
+
+          // ==========================================
+          // WORKSPACE EDITION VIEW SWITCHER HANDLERS
+          // ==========================================
+          switchViewMode(mode, showNotification = true) {
+            const normalizedMode = (mode === 'classic' ? 'classic' : 'pro');
+            const proContainer = document.getElementById('timetableApp');
+            const classicContainer = document.getElementById('timetableCreatorClassicApp');
+            const btnPro = document.getElementById('btnSwitchPro');
+            const btnClassic = document.getElementById('btnSwitchClassic');
+
+            app.state.viewMode = normalizedMode;
+            localStorage.setItem('tt_view_mode', normalizedMode);
+
+            if (normalizedMode === 'classic') {
+              document.body.classList.add('classic-mode-active');
+              document.body.classList.remove('pro-mode-active');
+
+              if (btnClassic) {
+                btnClassic.classList.add('active');
+                btnClassic.setAttribute('aria-selected', 'true');
+              }
+              if (btnPro) {
+                btnPro.classList.remove('active');
+                btnPro.setAttribute('aria-selected', 'false');
+              }
+
+              if (proContainer) proContainer.style.display = 'none';
+              if (classicContainer) {
+                classicContainer.style.display = 'flex';
+                classicContainer.classList.add('active-view');
+              }
+
+              if (showNotification) {
+                app.showToast('Switched to TimetableCreator.com Classic Clone', 'info');
+              }
+            } else {
+              // Pro Studio Edition
+              document.body.classList.add('pro-mode-active');
+              document.body.classList.remove('classic-mode-active');
+
+              if (btnPro) {
+                btnPro.classList.add('active');
+                btnPro.setAttribute('aria-selected', 'true');
+              }
+              if (btnClassic) {
+                btnClassic.classList.remove('active');
+                btnClassic.setAttribute('aria-selected', 'false');
+              }
+
+              if (classicContainer) {
+                classicContainer.style.display = 'none';
+                classicContainer.classList.remove('active-view');
+              }
+              if (proContainer) proContainer.style.display = 'flex';
+
+              if (showNotification) {
+                app.showToast('Switched to Pro Studio Edition', 'info');
+              }
+            }
+
+            app.render();
+          },
+
+          updateClassicTitle(val) {
+            app.state.classicTitle = val;
+            localStorage.setItem('tt_classic_title', val);
+          },
+
+          updateClassicSubtitle(val) {
+            app.state.classicSubtitle = val;
+            localStorage.setItem('tt_classic_subtitle', val);
+          },
+
+          classicConfigChange() {
+            const daysEl = document.getElementById('classicConfigDays');
+            const startEl = document.getElementById('classicConfigStart');
+            const endEl = document.getElementById('classicConfigEnd');
+            const intervalEl = document.getElementById('classicConfigInterval');
+            const formatEl = document.getElementById('classicConfigFormat');
+
+            if (daysEl) app.state.config.daysCount = parseInt(daysEl.value);
+            if (startEl) app.state.config.startTime = parseInt(startEl.value);
+            if (endEl) app.state.config.endTime = parseInt(endEl.value);
+            if (intervalEl) app.state.config.interval = parseInt(intervalEl.value);
+            if (formatEl) app.state.config.use24h = formatEl.value === "24";
+
+            // Sync with sidebar inputs
+            app.syncConfigInputs();
+
+            if (app.state.config.autoSave) app.saveState();
+            app.render();
+            app.showToast('Grid configuration updated', 'info');
+          },
+
+          classicThemeChange(val) {
+            app.state.config.theme = val;
+            document.documentElement.setAttribute('data-preset', val);
+            const proThemeSelect = document.getElementById('configTheme');
+            if (proThemeSelect) proThemeSelect.value = val;
+            if (app.state.config.autoSave) app.saveState();
+            app.render();
+          },
+
+          applyClassicTemplate(templateKey) {
+            if (!templateKey) return;
+            app.pushHistory();
+
+            const presets = {
+              university: [
+                { title: 'Calculus III', teacher: 'Prof. Gauss', room: 'Hall A', day: 0, startTime: 480, endTime: 570, color: '#3b82f6' },
+                { title: 'Data Structures', teacher: 'Dr. Turing', room: 'CS Lab 2', day: 0, startTime: 600, endTime: 690, color: '#10b981' },
+                { title: 'Physics II Lab', teacher: 'Prof. Newton', room: 'Science C', day: 1, startTime: 540, endTime: 660, color: '#8b5cf6' },
+                { title: 'Linear Algebra', teacher: 'Dr. Euler', room: 'Hall B', day: 2, startTime: 480, endTime: 570, color: '#3b82f6' },
+                { title: 'Web Development', teacher: 'Prof. Berners', room: 'Lab 4', day: 2, startTime: 600, endTime: 690, color: '#f59e0b' },
+                { title: 'AI & Machine Learning', teacher: 'Dr. Hinton', room: 'Seminar 1', day: 3, startTime: 540, endTime: 660, color: '#ec4899' },
+                { title: 'Software Engineering', teacher: 'Prof. Hopper', room: 'Hall A', day: 4, startTime: 480, endTime: 570, color: '#06b6d4' },
+                { title: 'Gym & Fitness', teacher: 'Coach Alex', room: 'Sports Complex', day: 4, startTime: 630, endTime: 720, color: '#f43f5e' }
+              ],
+              school: [
+                { title: 'Mathematics', teacher: 'Mr. Davis', room: 'Room 101', day: 0, startTime: 510, endTime: 570, color: '#3b82f6' },
+                { title: 'English Literature', teacher: 'Ms. Austen', room: 'Room 204', day: 0, startTime: 585, endTime: 645, color: '#8b5cf6' },
+                { title: 'Biology Lab', teacher: 'Dr. Mendel', room: 'Bio Lab', day: 0, startTime: 675, endTime: 735, color: '#10b981' },
+                { title: 'World History', teacher: 'Mr. Smith', room: 'Room 105', day: 1, startTime: 510, endTime: 570, color: '#f59e0b' },
+                { title: 'Chemistry', teacher: 'Mrs. Curie', room: 'Chem Lab', day: 1, startTime: 585, endTime: 645, color: '#06b6d4' },
+                { title: 'Physical Education', teacher: 'Coach Mike', room: 'Gymnasium', day: 1, startTime: 675, endTime: 735, color: '#f43f5e' },
+                { title: 'Art & Design', teacher: 'Ms. Monet', room: 'Studio 3', day: 2, startTime: 510, endTime: 600, color: '#ec4899' },
+                { title: 'Music & Choir', teacher: 'Mr. Mozart', room: 'Auditorium', day: 3, startTime: 510, endTime: 570, color: '#d946ef' },
+                { title: 'Computer Science', teacher: 'Mr. Gates', room: 'IT Lab', day: 4, startTime: 510, endTime: 600, color: '#00b090' }
+              ],
+              work: [
+                { title: 'Daily Standup Sync', teacher: 'Core Team', room: 'Zoom #1', day: 0, startTime: 540, endTime: 570, color: '#6366f1' },
+                { title: 'Deep Focus Coding', teacher: 'Solo', room: 'Desk', day: 0, startTime: 570, endTime: 720, color: '#3b82f6' },
+                { title: 'Sprint Planning', teacher: 'Product Lead', room: 'Conf Room A', day: 1, startTime: 600, endTime: 690, color: '#f59e0b' },
+                { title: 'Client Architecture Review', teacher: 'External Stakeholders', room: 'Boardroom', day: 2, startTime: 630, endTime: 720, color: '#10b981' },
+                { title: '1-on-1 Mentorship', teacher: 'Engineering Mgr', room: 'Office 4B', day: 3, startTime: 660, endTime: 705, color: '#8b5cf6' },
+                { title: 'Team Demo & Retro', teacher: 'All Hands', room: 'Main Lounge', day: 4, startTime: 900, endTime: 960, color: '#ec4899' }
+              ],
+              fitness: [
+                { title: 'Morning 5K Run', teacher: 'Outdoor', room: 'Park Route', day: 0, startTime: 420, endTime: 465, color: '#f97316' },
+                { title: 'Upper Body Hypertrophy', teacher: 'Chest & Back', room: 'Power Gym', day: 0, startTime: 1050, endTime: 1110, color: '#3b82f6' },
+                { title: 'HIIT & Core Conditioning', teacher: 'Cardio Studio', room: 'Zone B', day: 1, startTime: 1050, endTime: 1110, color: '#f43f5e' },
+                { title: 'Leg Day Heavy Squats', teacher: 'Quads & Hamstrings', room: 'Free Weights', day: 2, startTime: 1050, endTime: 1125, color: '#8b5cf6' },
+                { title: 'Yoga & Mobility Flow', teacher: 'Recovery', room: 'Studio 1', day: 3, startTime: 420, endTime: 480, color: '#10b981' },
+                { title: 'Shoulders & Arms Blast', teacher: 'Hypertrophy', room: 'Power Gym', day: 4, startTime: 1050, endTime: 1110, color: '#06b6d4' },
+                { title: 'Weekend Lap Swimming', teacher: 'Endurance', room: 'Aquatic Center', day: 5, startTime: 540, endTime: 600, color: '#0284c7' }
+              ],
+              exam: [
+                { title: 'Calculus Theorems Revision', teacher: 'Formulas & Proofs', room: 'Library Quiet Zone', day: 0, startTime: 540, endTime: 660, color: '#3b82f6' },
+                { title: 'Organic Chemistry Flashcards', teacher: 'Reactions Set', room: 'Study Hall', day: 0, startTime: 780, endTime: 870, color: '#10b981' },
+                { title: 'Physics Problem Sets', teacher: 'Thermodynamics', room: 'Desk 12', day: 1, startTime: 540, endTime: 660, color: '#8b5cf6' },
+                { title: 'Computer Architecture Review', teacher: 'Pipelines & Cache', room: 'Study Hall', day: 2, startTime: 540, endTime: 660, color: '#f59e0b' },
+                { title: 'Full 3-Hour Mock Exam', teacher: 'Timed Simulation', room: 'Exam Center Hall', day: 3, startTime: 540, endTime: 720, color: '#f43f5e' },
+                { title: 'Error Analysis & Weak Points', teacher: 'Score Correction', room: 'Study Hall', day: 4, startTime: 540, endTime: 660, color: '#ec4899' }
+              ]
+            };
+
+            const selectedList = presets[templateKey] || [];
+            if (selectedList.length > 0) {
+              app.state.events = selectedList.map((item, idx) => ({
+                id: 'evt_preset_' + Date.now() + '_' + idx,
+                ...item,
+                location: item.room || '',
+                category: 'General',
+                notes: ''
+              }));
+
+              if (app.state.config.autoSave) app.saveState();
+              app.render();
+              app.showToast(`Applied "${templateKey.toUpperCase()}" template schedule!`, 'success');
+            }
+
+            // Reset select element back to default
+            const selectEl = document.getElementById('classicPresetTemplates');
+            if (selectEl) selectEl.value = '';
+          },
+
+          downloadImage() {
+            this.downloadPng();
+          },
+
+          // ==========================================
+          // CLASSIC EVENT MODAL HANDLERS
+          // ==========================================
+          openClassicAddModal(day = 0, startTime = null) {
+            const modal = document.getElementById('classicEventModal');
+            if (!modal) return;
+
+            document.getElementById('classicEvtId').value = '';
+            document.getElementById('classicEvtTitle').value = '';
+            document.getElementById('classicEvtRoom').value = '';
+            document.getElementById('classicEvtTeacher').value = '';
+            document.getElementById('classicEvtNotes').value = '';
+
+            const btnDel = document.getElementById('btnClassicDeleteEvt');
+            if (btnDel) btnDel.style.display = 'none';
+
+            const startM = (startTime !== null && startTime !== undefined) ? startTime : app.state.config.startTime;
+            const endM = Math.min(startM + 60, app.state.config.endTime);
+
+            document.getElementById('classicEvtStart').value = app.minutesToTimeString(startM);
+            document.getElementById('classicEvtEnd').value = app.minutesToTimeString(endM);
+
+            // Set single active day chip
+            app.state.classicSelectedDays = [day];
+            const dayChips = document.querySelectorAll('#classicModalDaysGroup .classic-day-chip');
+            dayChips.forEach(chip => {
+              const d = parseInt(chip.getAttribute('data-day'));
+              if (d === day) {
+                chip.classList.add('active');
+              } else {
+                chip.classList.remove('active');
+              }
+            });
+
+            // Populate classic colors grid
+            const colorGrid = document.getElementById('classicColorGrid');
+            if (colorGrid) {
+              colorGrid.innerHTML = '';
+              const defaultColor = app.colorsListClassic[0];
+              app.state.classicSelectedColor = defaultColor;
+              document.getElementById('classicColorHexLabel').textContent = defaultColor;
+
+              app.colorsListClassic.forEach((hex, idx) => {
+                const swatch = document.createElement('div');
+                swatch.className = `color-swatch ${idx === 0 ? 'active' : ''}`;
+                swatch.style.backgroundColor = hex;
+                swatch.setAttribute('data-color', hex);
+                swatch.onclick = () => app.handlers.selectClassicModalColor(hex);
+                colorGrid.appendChild(swatch);
+              });
+            }
+
+            document.getElementById('classicModalTitle').textContent = 'Add Timetable Activity';
+            modal.classList.add('active');
+          },
+
+          openClassicEditModal(evt) {
+            if (!evt) return;
+            const modal = document.getElementById('classicEventModal');
+            if (!modal) return;
+
+            document.getElementById('classicEvtId').value = evt.id;
+            document.getElementById('classicEvtTitle').value = evt.title || '';
+            document.getElementById('classicEvtRoom').value = evt.room || evt.location || '';
+            document.getElementById('classicEvtTeacher').value = evt.teacher || '';
+            document.getElementById('classicEvtNotes').value = evt.notes || '';
+
+            const btnDel = document.getElementById('btnClassicDeleteEvt');
+            if (btnDel) btnDel.style.display = 'inline-flex';
+
+            document.getElementById('classicEvtStart').value = app.minutesToTimeString(evt.startTime);
+            document.getElementById('classicEvtEnd').value = app.minutesToTimeString(evt.endTime);
+
+            // Set single active day
+            app.state.classicSelectedDays = [evt.day];
+            const dayChips = document.querySelectorAll('#classicModalDaysGroup .classic-day-chip');
+            dayChips.forEach(chip => {
+              const d = parseInt(chip.getAttribute('data-day'));
+              if (d === evt.day) {
+                chip.classList.add('active');
+              } else {
+                chip.classList.remove('active');
+              }
+            });
+
+            // Populate color grid with this event's color active
+            const colorGrid = document.getElementById('classicColorGrid');
+            if (colorGrid) {
+              colorGrid.innerHTML = '';
+              const currentColor = evt.color || app.colorsListClassic[0];
+              app.state.classicSelectedColor = currentColor;
+              document.getElementById('classicColorHexLabel').textContent = currentColor;
+
+              app.colorsListClassic.forEach(hex => {
+                const swatch = document.createElement('div');
+                const isActive = hex.toLowerCase() === currentColor.toLowerCase();
+                swatch.className = `color-swatch ${isActive ? 'active' : ''}`;
+                swatch.style.backgroundColor = hex;
+                swatch.setAttribute('data-color', hex);
+                swatch.onclick = () => app.handlers.selectClassicModalColor(hex);
+                colorGrid.appendChild(swatch);
+              });
+            }
+
+            document.getElementById('classicModalTitle').textContent = 'Edit Timetable Activity';
+            modal.classList.add('active');
+          },
+
+          deleteClassicEventFromModal() {
+            const id = document.getElementById('classicEvtId').value;
+            if (!id) return;
+            app.deleteEvent(id);
+            this.closeClassicEventModal();
+            app.showToast('Activity removed from timetable', 'info');
+          },
+
+          focusClassicDay(dayIdx) {
+            const pills = document.querySelectorAll('#classicDayPillsBar .classic-day-pill-filter');
+            pills.forEach((p, idx) => {
+              if (dayIdx === 'all') {
+                if (idx === 0) p.classList.add('active');
+                else p.classList.remove('active');
+              } else {
+                if (idx === (dayIdx + 1)) p.classList.add('active');
+                else p.classList.remove('active');
+              }
+            });
+
+            const scrollWrapper = document.getElementById('classicGridScrollWrapper');
+            if (!scrollWrapper) return;
+
+            if (dayIdx === 'all') {
+              scrollWrapper.scrollTo({ left: 0, behavior: 'smooth' });
+              return;
+            }
+
+            const targetTh = document.getElementById(`classic-th-day-${dayIdx}`);
+            if (targetTh) {
+              const leftPos = targetTh.offsetLeft - 80;
+              scrollWrapper.scrollTo({ left: Math.max(0, leftPos), behavior: 'smooth' });
+            }
+          },
+
+          adjustClassicZoom(delta) {
+            const current = app.state.classicZoom || 1.0;
+            let next = Math.round((current + delta) * 10) / 10;
+            next = Math.min(1.5, Math.max(0.7, next));
+            app.state.classicZoom = next;
+
+            const zoomValLabel = document.getElementById('classicZoomValLabel');
+            if (zoomValLabel) {
+              zoomValLabel.textContent = `${Math.round(next * 100)}%`;
+            }
+            document.documentElement.style.setProperty('--classic-zoom', next);
+            app.showToast(`Zoom: ${Math.round(next * 100)}%`, 'info');
+          },
+
+          toggleClassicConfig() {
+            const bar = document.getElementById('classicConfigBar');
+            const btn = document.getElementById('btnToggleClassicConfig');
+            if (!bar) return;
+            const isHidden = bar.style.display === 'none' || window.getComputedStyle(bar).display === 'none';
+            if (isHidden) {
+              bar.style.display = 'flex';
+              if (btn) btn.classList.add('active');
+            } else {
+              bar.style.display = 'none';
+              if (btn) btn.classList.remove('active');
+            }
+          },
+
+          closeClassicEventModal() {
+            const modal = document.getElementById('classicEventModal');
+            if (modal) modal.classList.remove('active');
+          },
+
+          toggleClassicModalDay(dayIdx) {
+            const chip = document.querySelector(`#classicModalDaysGroup .classic-day-chip[data-day="${dayIdx}"]`);
+            if (!chip) return;
+
+            const isEditing = !!document.getElementById('classicEvtId').value;
+            if (isEditing) {
+              // When editing single event, only 1 day allowed
+              document.querySelectorAll('#classicModalDaysGroup .classic-day-chip').forEach(c => c.classList.remove('active'));
+              chip.classList.add('active');
+              app.state.classicSelectedDays = [dayIdx];
+            } else {
+              // When creating new activity, support multi-day (e.g. Mon + Wed + Fri)
+              chip.classList.toggle('active');
+              const activeDays = [];
+              document.querySelectorAll('#classicModalDaysGroup .classic-day-chip.active').forEach(c => {
+                activeDays.push(parseInt(c.getAttribute('data-day')));
+              });
+              // Ensure at least one day selected
+              if (activeDays.length === 0) {
+                chip.classList.add('active');
+                activeDays.push(dayIdx);
+              }
+              app.state.classicSelectedDays = activeDays;
+            }
+          },
+
+          selectClassicModalColor(hex) {
+            app.state.classicSelectedColor = hex;
+            document.getElementById('classicColorHexLabel').textContent = hex;
+            const swatches = document.querySelectorAll('#classicColorGrid .color-swatch');
+            swatches.forEach(sw => {
+              if (sw.getAttribute('data-color').toLowerCase() === hex.toLowerCase()) {
+                sw.classList.add('active');
+              } else {
+                sw.classList.remove('active');
+              }
+            });
+          },
+
+          setClassicDuration(durationMinutes) {
+            const startInput = document.getElementById('classicEvtStart');
+            const endInput = document.getElementById('classicEvtEnd');
+            if (!startInput || !endInput) return;
+            const startVal = startInput.value || '08:00';
+            const startMinutes = app.timeStringToMinutes(startVal);
+            const endMinutes = Math.min(24 * 60, startMinutes + durationMinutes);
+            endInput.value = app.minutesToTimeString(endMinutes);
+          },
+
+          onClassicStartTimeChange() {
+            const startInput = document.getElementById('classicEvtStart');
+            const endInput = document.getElementById('classicEvtEnd');
+            if (!startInput || !endInput) return;
+            const startMinutes = app.timeStringToMinutes(startInput.value || '08:00');
+            const endMinutes = app.timeStringToMinutes(endInput.value || '09:00');
+            if (startMinutes >= endMinutes) {
+              const newEnd = Math.min(24 * 60, startMinutes + 60);
+              endInput.value = app.minutesToTimeString(newEnd);
+            }
+          },
+
+          saveClassicEventFromModal() {
+            const id = document.getElementById('classicEvtId').value;
+            const title = document.getElementById('classicEvtTitle').value.trim();
+            const room = document.getElementById('classicEvtRoom').value.trim();
+            const teacher = document.getElementById('classicEvtTeacher').value.trim();
+            const notes = document.getElementById('classicEvtNotes').value.trim();
+
+            const startTimeStr = document.getElementById('classicEvtStart').value;
+            const endTimeStr = document.getElementById('classicEvtEnd').value;
+
+            if (!title) {
+              app.showToast('Please enter an activity name!', 'error');
+              return;
+            }
+
+            const startTime = app.timeStringToMinutes(startTimeStr);
+            const endTime = app.timeStringToMinutes(endTimeStr);
+
+            if (startTime >= endTime) {
+              app.showToast('End time must be after start time!', 'error');
+              return;
+            }
+
+            const color = app.state.classicSelectedColor || app.colorsListClassic[0];
+            const selectedDays = app.state.classicSelectedDays && app.state.classicSelectedDays.length > 0 ? app.state.classicSelectedDays : [0];
+
+            app.pushHistory();
+
+            if (id) {
+              // Modify existing single event
+              app.state.events = app.state.events.map(evt => {
+                if (evt.id === id) {
+                  return {
+                    ...evt,
+                    title,
+                    room,
+                    location: room,
+                    teacher,
+                    notes,
+                    day: selectedDays[0],
+                    startTime,
+                    endTime,
+                    color
+                  };
+                }
+                return evt;
+              });
+              app.showToast('Activity updated successfully!', 'success');
+            } else {
+              // Create new activity (for each selected day!)
+              selectedDays.forEach(day => {
+                const newEvt = {
+                  id: 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+                  title,
+                  subject: title,
+                  teacher,
+                  room,
+                  location: room,
+                  category: 'General',
+                  notes,
+                  day,
+                  startTime,
+                  endTime,
+                  color
+                };
+                app.state.events.push(newEvt);
+              });
+              app.showToast(`Created ${selectedDays.length} activity session${selectedDays.length > 1 ? 's' : ''}!`, 'success');
+            }
+
+            if (app.state.config.autoSave) app.saveState();
+            this.closeClassicEventModal();
+            app.render();
           },
 
           configChange() {
@@ -5237,13 +7939,13 @@
             ctx.textBaseline = 'middle';
 
             // Draw Corner
-            ctx.fillStyle = '#f8fafc';
+            ctx.fillStyle = '#f8f7fd';
             ctx.fillRect(0, 0, cornerWidth, headerHeight);
-            ctx.strokeStyle = '#e2e8f0';
+            ctx.strokeStyle = '#ebe8fa';
             ctx.lineWidth = 1;
             ctx.strokeRect(0, 0, cornerWidth, headerHeight);
 
-            ctx.fillStyle = '#475569';
+            ctx.fillStyle = '#6e6d7a';
             ctx.font = 'bold 14px "Poppins", sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText('Time', cornerWidth / 2, headerHeight / 2);
@@ -5252,11 +7954,11 @@
             const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
             for (let i = 0; i < activeDaysCount; i++) {
               const x = cornerWidth + (i * colWidth);
-              ctx.fillStyle = '#f8fafc';
+              ctx.fillStyle = '#f8f7fd';
               ctx.fillRect(x, 0, colWidth, headerHeight);
               ctx.strokeRect(x, 0, colWidth, headerHeight);
 
-              ctx.fillStyle = '#0f172a';
+              ctx.fillStyle = '#1d1e2c';
               ctx.font = 'bold 14px "Poppins", sans-serif';
               ctx.fillText(dayNames[i], x + (colWidth / 2), headerHeight / 2);
             }
@@ -5267,11 +7969,11 @@
               const minutes = startM + (r * mStep);
 
               // Time label block
-              ctx.fillStyle = '#f8fafc';
+              ctx.fillStyle = '#f8f7fd';
               ctx.fillRect(0, y, cornerWidth, rowHeight);
               ctx.strokeRect(0, y, cornerWidth, rowHeight);
 
-              ctx.fillStyle = '#64748b';
+              ctx.fillStyle = '#6e6d7a';
               ctx.font = 'bold 12px "Poppins", sans-serif';
               ctx.textAlign = 'center';
               ctx.fillText(app.formatMinute(minutes), cornerWidth / 2, y + (rowHeight / 2));
@@ -5300,7 +8002,7 @@
               const h = Math.max(24, ((visibleDuration / mStep) * rowHeight) - 12);
 
               // Rounded rectangle drawer helper code block
-              ctx.fillStyle = evt.color || '#3b82f6';
+              ctx.fillStyle = evt.color || '#673de6';
               ctx.beginPath();
               ctx.roundRect(x, y, w, h, 8);
               ctx.fill();

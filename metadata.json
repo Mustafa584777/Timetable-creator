@@ -1,6 +1,6 @@
 {
-  "name": "Timetable Creator",
-  "description": "A high-fidelity, production-grade Timetable Creator with drag-and-drop, customizations, and export capabilities, structured in a fully offline self-contained design.",
+  "name": "Timetable Creator Pro",
+  "description": "An authentic online timetable and class schedule generator featuring a switchable TimetableCreator.com classic clone mode, AI assistant, and cloud synchronization.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
