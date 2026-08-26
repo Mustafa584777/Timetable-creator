@@ -4472,7 +4472,24 @@
         color: #ffffff !important;
       }
     </style>
-  </head>
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Timetable Creator Pro",
+      "operatingSystem": "All",
+      "applicationCategory": "EducationalApplication",
+      "browser": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online AI timetable creator and class schedule generator for students, teachers, and schools."
+    }
+    </script>
+</head>
   <body>
     <!-- Floating Context Menu -->
     <div id="ctxMenu" class="context-menu">
@@ -7840,14 +7857,37 @@
             fetch('/api/admin/posts')
               .then(res => res.json())
               .then(data => {
-                if (data.success && Array.isArray(data.posts)) {
+                if (data.success && Array.isArray(data.posts) && data.posts.length > 0) {
                   this.allAdminPosts = data.posts;
                   this.applyAdminFiltersAndRender();
+                } else {
+                  // Fallback: trigger sync
+                  fetch('/api/admin/sync', { method: 'POST' })
+                    .then(r => r.json())
+                    .then(syncData => {
+                      if (syncData.success && Array.isArray(syncData.posts)) {
+                        this.allAdminPosts = syncData.posts;
+                        this.applyAdminFiltersAndRender();
+                      }
+                    });
                 }
               })
               .catch(err => {
                 console.error('Failed to load posts', err);
-                app.showToast('Could not load posts from server', 'error');
+                // Fallback sync attempt
+                fetch('/api/admin/sync', { method: 'POST' })
+                  .then(r => r.json())
+                  .then(syncData => {
+                    if (syncData.success && Array.isArray(syncData.posts)) {
+                      this.allAdminPosts = syncData.posts;
+                      this.applyAdminFiltersAndRender();
+                    } else {
+                      app.showToast('Could not load posts from server', 'error');
+                    }
+                  })
+                  .catch(() => {
+                    app.showToast('Could not load posts from server', 'error');
+                  });
               });
           },
 

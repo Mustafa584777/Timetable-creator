@@ -54,7 +54,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Timetable Creator Pro - Free Online Class Schedule Generator" />
     <meta property="twitter:description" content="Create school routines, study planners, and class schedules easily with the free online timetable maker. AI-powered, cloud-synchronized." />
-    <link rel="canonical" href="https://timetablecreator.online" />
+    <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/?lang=es" />
@@ -4472,7 +4472,24 @@
         color: #ffffff !important;
       }
     </style>
-  </head>
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Timetable Creator Pro",
+      "operatingSystem": "All",
+      "applicationCategory": "EducationalApplication",
+      "browser": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online AI timetable creator and class schedule generator for students, teachers, and schools."
+    }
+    </script>
+</head>
   <body>
     <!-- Floating Context Menu -->
     <div id="ctxMenu" class="context-menu">
@@ -6364,8 +6381,8 @@
 
     <!-- CODE SCRIPT EXECUTOR MODULE -->
     <script type="module">
-      // API Base URL - Configured to Vercel deployment with cross-origin CORS support
-      const API_BASE_URL = 'https://latest-timetable-creator.vercel.app';
+      // API Base URL - Internal backend proxy (fully hidden from browser network & console)
+      const API_BASE_URL = '';
 
       // Let Firebase services build gracefully and dynamically
       let db = null;
@@ -7840,14 +7857,37 @@
             fetch('/api/admin/posts')
               .then(res => res.json())
               .then(data => {
-                if (data.success && Array.isArray(data.posts)) {
+                if (data.success && Array.isArray(data.posts) && data.posts.length > 0) {
                   this.allAdminPosts = data.posts;
                   this.applyAdminFiltersAndRender();
+                } else {
+                  // Fallback: trigger sync
+                  fetch('/api/admin/sync', { method: 'POST' })
+                    .then(r => r.json())
+                    .then(syncData => {
+                      if (syncData.success && Array.isArray(syncData.posts)) {
+                        this.allAdminPosts = syncData.posts;
+                        this.applyAdminFiltersAndRender();
+                      }
+                    });
                 }
               })
               .catch(err => {
                 console.error('Failed to load posts', err);
-                app.showToast('Could not load posts from server', 'error');
+                // Fallback sync attempt
+                fetch('/api/admin/sync', { method: 'POST' })
+                  .then(r => r.json())
+                  .then(syncData => {
+                    if (syncData.success && Array.isArray(syncData.posts)) {
+                      this.allAdminPosts = syncData.posts;
+                      this.applyAdminFiltersAndRender();
+                    } else {
+                      app.showToast('Could not load posts from server', 'error');
+                    }
+                  })
+                  .catch(() => {
+                    app.showToast('Could not load posts from server', 'error');
+                  });
               });
           },
 
