@@ -499,10 +499,10 @@
       .export-options-bar {
         margin-bottom: 20px;
         padding: 12px 18px;
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
+        background: #ffffff !important;
+        border: 1px solid var(--border-color) !important;
         border-radius: var(--border-radius);
-        box-shadow: var(--shadow-sm);
+        box-shadow: var(--shadow-sm) !important;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -3551,27 +3551,34 @@
       #classicEventModal .classic-duration-btn,
       #classicEventModal .modal-close {
         background-color: #ffffff !important;
-        border: 1.5px solid #8b5cf6 !important;
-        color: #7c3aed !important;
+        border: none !important;
+        color: #1d1e2c !important;
         border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(139, 92, 246, 0.12), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04) !important;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
         cursor: pointer;
       }
 
-      /* Violet color for all icons in Student Timetable Generator tool and modals */
+      /* Vibrant colored icons in Student Timetable Generator tool and Classic tool */
+      .export-btn-print svg { color: #3b82f6 !important; stroke: #3b82f6 !important; }
+      .export-btn-pdf svg { color: #e11d48 !important; stroke: #e11d48 !important; }
+      .export-btn-json svg { color: #f59e0b !important; stroke: #f59e0b !important; }
+      .export-btn-png svg { color: #10b981 !important; stroke: #10b981 !important; }
+      .export-btn-share svg { color: #6366f1 !important; stroke: #6366f1 !important; }
+      
+      #timetableApp .btn-add-event svg,
+      #timetableApp #btnCreateNowCta svg { color: #7c3aed !important; stroke: #7c3aed !important; }
+      
       #timetableApp svg,
       #timetableApp button svg,
       #timetableApp .btn-ctrl svg,
       #timetableApp .action-btn svg,
       #timetableApp .export-btn-item svg,
-      #timetableApp .btn-add-event svg,
       #timetableApp .btn-sidebar-import svg,
       #timetableApp .btn-sidebar-export svg,
       #timetableApp .btn-sidebar-backup svg,
       #timetableApp .btn-sidebar-reset svg,
       #timetableApp .seo-btn-cta svg,
-      #timetableApp #btnCreateNowCta svg,
       #timetableApp #btnAiGenerate svg,
       #timetableApp #btnAiClear svg,
       #timetableApp .ai-prompt-chip svg,
@@ -3584,8 +3591,8 @@
       #classicEventModal button svg,
       #classicEventModal .btn-ctrl svg,
       #classicEventModal .modal-close svg {
-        color: #7c3aed !important;
-        stroke: #7c3aed !important;
+        color: #0284c7 !important;
+        stroke: #0284c7 !important;
       }
 
       /* Hover States */
@@ -3615,7 +3622,7 @@
         border-color: #6d28d9 !important;
         color: #6d28d9 !important;
         transform: translateY(-1px) !important;
-        box-shadow: 0 4px 14px rgba(124, 58, 237, 0.22) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
       }
 
       /* Active / Selected States (e.g. mobile day filter, active action buttons) */
@@ -5120,7 +5127,7 @@
           
 
           <!-- AI Schedule Generator -->
-          <div class="section-card" id="aiGeneratorSection" style="margin-bottom: 16px; border: 1px solid rgba(103, 61, 230, 0.28); background: linear-gradient(180deg, var(--bg-card) 0%, rgba(103, 61, 230, 0.03) 100%); max-width: 100%; box-shadow: var(--shadow-sm); padding: 16px; border-radius: var(--border-radius);">
+          <div class="section-card" id="aiGeneratorSection" style="margin-bottom: 16px; border: none; background: transparent; max-width: 100%; box-shadow: none; padding: 16px; border-radius: var(--border-radius);">
             <div class="ai-generator-inner" style="display: flex; gap: 16px; align-items: center; width: 100%; flex-wrap: wrap;">
               
               <!-- Left side description -->
