@@ -83,51 +83,55 @@ async function startServer() {
     res.sendFile(filePath);
   });
 
-  // Explicitly serve blog page subfolders
-  anonymityApp.get(["/blog/terms-and-conditions", "/blog/terms-and-conditions/"], (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "blog", "terms-and-conditions", "index.html")
-      : path.join(process.cwd(), "public", "blog", "terms-and-conditions", "index.html");
-    res.sendFile(filePath);
-  });
+  // Serve all static files in public folder
+  anonymityApp.use(express.static(path.join(process.cwd(), "public")));
 
-  anonymityApp.get(["/blog/about-us", "/blog/about-us/"], (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "blog", "about-us", "index.html")
-      : path.join(process.cwd(), "public", "blog", "about-us", "index.html");
-    res.sendFile(filePath);
-  });
+  // Universal Blog route handler for all blog posts and blog index
+  anonymityApp.get(["/blog", "/blog/", "/blog/:slug", "/blog/:slug/"], (req, res, next) => {
+    const slug = req.params.slug;
+    const blogRelativePath = slug ? path.join(slug, "index.html") : "index.html";
+    const devBlogPath = path.join(process.cwd(), "public", "blog", blogRelativePath);
+    const prodBlogPath = path.join(process.cwd(), "dist", "blog", blogRelativePath);
 
-  anonymityApp.get(["/blog/disclaimer", "/blog/disclaimer/"], (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "blog", "disclaimer", "index.html")
-      : path.join(process.cwd(), "public", "blog", "disclaimer", "index.html");
-    res.sendFile(filePath);
-  });
-
-  anonymityApp.get(["/blog/privacy-policy", "/blog/privacy-policy/"], (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "blog", "privacy-policy", "index.html")
-      : path.join(process.cwd(), "public", "blog", "privacy-policy", "index.html");
-    res.sendFile(filePath);
-  });
-
-  anonymityApp.get(["/blog/contact-us", "/blog/contact-us/"], (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "blog", "contact-us", "index.html")
-      : path.join(process.cwd(), "public", "blog", "contact-us", "index.html");
-    res.sendFile(filePath);
+    if (process.env.NODE_ENV === "production" && fs.existsSync(prodBlogPath)) {
+      return res.sendFile(prodBlogPath);
+    }
+    if (fs.existsSync(devBlogPath)) {
+      return res.sendFile(devBlogPath);
+    }
+    next();
   });
 
   anonymityApp.get(["/timetable-generator-online-for-students", "/timetable-generator-online-for-students/"], (req, res) => {
     const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "timetable-creator", "timetable-generator-online-for-students", "index.html")
-      : path.join(process.cwd(), "public", "timetable-creator", "timetable-generator-online-for-students", "index.html");
+      ? path.join(process.cwd(), "dist", "timetable-generator-online-for-students", "index.html")
+      : path.join(process.cwd(), "public", "timetable-generator-online-for-students", "index.html");
     if (fs.existsSync(filePath)) {
-      res.sendFile(filePath);
-    } else {
-      res.sendFile(process.env.NODE_ENV === "production" ? path.join(process.cwd(), "dist", "index.html") : path.join(process.cwd(), "index.html"));
+      return res.sendFile(filePath);
     }
+    const rootIndex = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "index.html")
+      : path.join(process.cwd(), "index.html");
+    if (fs.existsSync(rootIndex)) {
+      return res.sendFile(rootIndex);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
+  });
+
+  anonymityApp.get(["/timetable-generator", "/timetable-generator/"], (req, res) => {
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "timetable-generator", "index.html")
+      : path.join(process.cwd(), "public", "timetable-generator", "index.html");
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const rootIndex = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "index.html")
+      : path.join(process.cwd(), "index.html");
+    if (fs.existsSync(rootIndex)) {
+      return res.sendFile(rootIndex);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
   // Admin Panel route
@@ -136,10 +140,15 @@ async function startServer() {
       ? path.join(process.cwd(), "dist", "admin-panel", "index.html")
       : path.join(process.cwd(), "public", "admin-panel", "index.html");
     if (fs.existsSync(filePath)) {
-      res.sendFile(filePath);
-    } else {
-      res.sendFile(process.env.NODE_ENV === "production" ? path.join(process.cwd(), "dist", "index.html") : path.join(process.cwd(), "index.html"));
+      return res.sendFile(filePath);
     }
+    const rootIndex = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "index.html")
+      : path.join(process.cwd(), "index.html");
+    if (fs.existsSync(rootIndex)) {
+      return res.sendFile(rootIndex);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
   // Dynamic route for any custom timetable creator tool without timetable-creator/ folder in URL
@@ -148,7 +157,8 @@ async function startServer() {
     if (toolSlug.startsWith("api") || toolSlug.startsWith("blog") || toolSlug === "admin-panel" || toolSlug.includes(".")) {
       return next();
     }
-    const publicToolPath = path.join(process.cwd(), "public", "timetable-creator", toolSlug, "index.html");
+    const publicToolPath = path.join(process.cwd(), "public", toolSlug, "index.html");
+    const publicSubToolPath = path.join(process.cwd(), "public", "timetable-creator", toolSlug, "index.html");
     const distToolPath = path.join(process.cwd(), "dist", "timetable-creator", toolSlug, "index.html");
     const rootToolPath = path.join(process.cwd(), "timetable-creator", toolSlug, "index.html");
 
@@ -158,10 +168,17 @@ async function startServer() {
     if (fs.existsSync(publicToolPath)) {
       return res.sendFile(publicToolPath);
     }
+    if (fs.existsSync(publicSubToolPath)) {
+      return res.sendFile(publicSubToolPath);
+    }
     if (fs.existsSync(rootToolPath)) {
       return res.sendFile(rootToolPath);
     }
-    next();
+    // Fall back to main SPA index.html so it never 404s
+    const rootIndex = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "index.html")
+      : path.join(process.cwd(), "index.html");
+    return res.sendFile(rootIndex);
   });
 
   // Posts DB API for Admin Panel
@@ -199,6 +216,146 @@ async function startServer() {
     try {
       const posts = readPostsDb();
       res.json({ success: true, posts });
+    } catch (e: any) {
+      res.status(500).json({ success: false, error: e.message });
+    }
+  });
+
+  // Sync existing blog articles from /public/blog directories
+  anonymityApp.post(["/api/admin/sync-articles", "/api/admin/sync"], (req, res) => {
+    try {
+      const blogDir = path.join(process.cwd(), "public", "blog");
+      if (!fs.existsSync(blogDir)) {
+        return res.status(404).json({ success: false, error: "Blog directory not found" });
+      }
+
+      let posts = readPostsDb();
+      const entries = fs.readdirSync(blogDir);
+      let syncCount = 0;
+      let newCount = 0;
+
+      entries.forEach(entry => {
+        const full = path.join(blogDir, entry);
+        if (fs.statSync(full).isDirectory()) {
+          const indexPath = path.join(full, "index.html");
+          if (fs.existsSync(indexPath)) {
+            const html = fs.readFileSync(indexPath, "utf8");
+            
+            // Extract title
+            const titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+            let title = titleMatch ? titleMatch[1].replace(/\s*-\s*Online Timetable Creator.*$/i, '').trim() : entry.replace(/-/g, ' ');
+            
+            // Extract meta description / excerpt
+            const descMatch = html.match(/<meta\s+name=["\x27]description["\x27]\s+content=["\x27]([^"\x27]+)["\x27]/i) ||
+                              html.match(/<meta\s+content=["\x27]([^"\x27]+)["\x27]\s+name=["\x27]description["\x27]/i);
+            const excerpt = descMatch ? descMatch[1].trim() : '';
+
+            // Extract main article content or h1
+            const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+            const h1Text = h1Match ? h1Match[1].replace(/<[^>]+>/g, '').trim() : '';
+            if (h1Text && !title) title = h1Text;
+
+            // Determine category
+            let category = 'Expert Guide';
+            if (entry.includes('policy') || entry.includes('terms') || entry.includes('disclaimer') || entry.includes('refund')) {
+              category = 'Legal';
+            } else if (entry.includes('about') || entry.includes('contact')) {
+              category = 'Company Page';
+            } else if (entry.includes('class-10')) {
+              category = 'Exam Prep';
+            } else if (entry.includes('automatic')) {
+              category = 'EdTech Science';
+            } else if (entry.includes('blueprint') || entry.includes('guides')) {
+              category = 'Strategic Blueprint';
+            }
+
+            const existingIdx = posts.findIndex((p: any) => p.slug === entry || p.id === entry);
+            if (existingIdx >= 0) {
+              posts[existingIdx] = {
+                ...posts[existingIdx],
+                title: posts[existingIdx].title || title,
+                slug: entry,
+                category: posts[existingIdx].category || category,
+                excerpt: posts[existingIdx].excerpt || excerpt,
+                content: posts[existingIdx].content && posts[existingIdx].content.length > 50 ? posts[existingIdx].content : excerpt,
+                url: `/blog/${entry}/`,
+                updatedAt: posts[existingIdx].updatedAt || new Date().toISOString().split('T')[0]
+              };
+              syncCount++;
+            } else {
+              posts.push({
+                id: (Date.now() + Math.floor(Math.random() * 1000)).toString(),
+                title: title,
+                slug: entry,
+                category: category,
+                author: 'Timetable Creator Team',
+                readTime: '8 Min Read',
+                status: 'Published',
+                updatedAt: new Date().toISOString().split('T')[0],
+                url: `/blog/${entry}/`,
+                excerpt: excerpt,
+                content: excerpt
+              });
+              newCount++;
+            }
+          }
+        }
+      });
+
+      writePostsDb(posts);
+      res.json({ success: true, count: syncCount + newCount, synced: syncCount, added: newCount, posts });
+    } catch (e: any) {
+      console.error("Sync error:", e);
+      res.status(500).json({ success: false, error: e.message });
+    }
+  });
+
+  // White / Clear single post content (turn into clean blank canvas)
+  anonymityApp.post("/api/admin/posts/:id/white", (req, res) => {
+    try {
+      const id = req.params.id;
+      const posts = readPostsDb();
+      const idx = posts.findIndex((p: any) => p.id === id);
+      if (idx === -1) {
+        return res.status(404).json({ success: false, error: "Post not found" });
+      }
+      posts[idx] = {
+        ...posts[idx],
+        excerpt: "",
+        content: "",
+        status: "Draft",
+        updatedAt: new Date().toISOString().split('T')[0]
+      };
+      writePostsDb(posts);
+      res.json({ success: true, post: posts[idx] });
+    } catch (e: any) {
+      res.status(500).json({ success: false, error: e.message });
+    }
+  });
+
+  // White / Clear ALL posts content or reset all to blank drafts
+  anonymityApp.post("/api/admin/white-all", (req, res) => {
+    try {
+      let posts = readPostsDb();
+      posts = posts.map((p: any) => ({
+        ...p,
+        excerpt: "",
+        content: "",
+        status: "Draft",
+        updatedAt: new Date().toISOString().split('T')[0]
+      }));
+      writePostsDb(posts);
+      res.json({ success: true, count: posts.length, posts });
+    } catch (e: any) {
+      res.status(500).json({ success: false, error: e.message });
+    }
+  });
+
+  // Reset / Clear entire posts database to empty array
+  anonymityApp.delete("/api/admin/posts/all/clear", (req, res) => {
+    try {
+      writePostsDb([]);
+      res.json({ success: true, count: 0, posts: [] });
     } catch (e: any) {
       res.status(500).json({ success: false, error: e.message });
     }
