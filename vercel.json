@@ -51,11 +51,11 @@
     },
     {
       "source": "/admin-panel",
-      "destination": "/index.html"
+      "destination": "/admin-panel/index.html"
     },
     {
       "source": "/admin-panel/",
-      "destination": "/index.html"
+      "destination": "/admin-panel/index.html"
     },
     {
       "source": "/blog/:slug*",

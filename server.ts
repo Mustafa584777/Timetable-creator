@@ -133,9 +133,13 @@ async function startServer() {
   // Admin Panel route
   anonymityApp.get(["/admin-panel", "/admin-panel/"], (req, res) => {
     const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "index.html")
-      : path.join(process.cwd(), "index.html");
-    res.sendFile(filePath);
+      ? path.join(process.cwd(), "dist", "admin-panel", "index.html")
+      : path.join(process.cwd(), "public", "admin-panel", "index.html");
+    if (fs.existsSync(filePath)) {
+      res.sendFile(filePath);
+    } else {
+      res.sendFile(process.env.NODE_ENV === "production" ? path.join(process.cwd(), "dist", "index.html") : path.join(process.cwd(), "index.html"));
+    }
   });
 
   // Dynamic route for any custom timetable creator tool without timetable-creator/ folder in URL
