@@ -296,7 +296,7 @@ async function startServer() {
   });
 
   // Handle feature-request.php
-  anonymityApp.post("/feature-request.php", upload.none(), (req, res) => {
+  anonymityApp.post("/feature-request.php", upload.none() as any, (req, res) => {
     // Just mock success
     console.log('Feature request received:', req.body);
     res.json({ success: true });
