@@ -121,13 +121,17 @@ async function startServer() {
 
   anonymityApp.get(["/timetable-generator-online-for-students", "/timetable-generator-online-for-students/"], (req, res) => {
     const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "index.html")
-      : path.join(process.cwd(), "index.html");
-    res.sendFile(filePath);
+      ? path.join(process.cwd(), "dist", "timetable-creator", "timetable-generator-online-for-students", "index.html")
+      : path.join(process.cwd(), "public", "timetable-creator", "timetable-generator-online-for-students", "index.html");
+    if (fs.existsSync(filePath)) {
+      res.sendFile(filePath);
+    } else {
+      res.sendFile(process.env.NODE_ENV === "production" ? path.join(process.cwd(), "dist", "index.html") : path.join(process.cwd(), "index.html"));
+    }
   });
 
   // Dynamic route for any custom timetable creator tool without timetable-creator/ folder in URL
-  anonymityApp.get("/:toolSlug", (req, res, next) => {
+  anonymityApp.get(["/:toolSlug", "/:toolSlug/"], (req, res, next) => {
     const toolSlug = req.params.toolSlug;
     if (toolSlug.startsWith("api") || toolSlug.startsWith("blog") || toolSlug.includes(".")) {
       return next();

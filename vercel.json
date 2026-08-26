@@ -43,10 +43,18 @@
   "rewrites": [
     {
       "source": "/timetable-generator-online-for-students",
-      "destination": "/index.html"
+      "destination": "/timetable-creator/timetable-generator-online-for-students/index.html"
+    },
+    {
+      "source": "/timetable-generator-online-for-students/",
+      "destination": "/timetable-creator/timetable-generator-online-for-students/index.html"
     },
     {
       "source": "/admin-panel",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin-panel/",
       "destination": "/index.html"
     },
     {
@@ -54,8 +62,12 @@
       "destination": "/blog/:slug*"
     },
     {
-      "source": "/timetable-creator/:slug*",
-      "destination": "/timetable-creator/:slug*/index.html"
+      "source": "/:toolSlug",
+      "destination": "/timetable-creator/:toolSlug/index.html"
+    },
+    {
+      "source": "/:toolSlug/",
+      "destination": "/timetable-creator/:toolSlug/index.html"
     },
     {
       "source": "/((?!api/|blog/|assets/|favicon|timetable-creator/|.*\\..*).*)",
