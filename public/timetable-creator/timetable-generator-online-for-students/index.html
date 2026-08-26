@@ -156,9 +156,9 @@
         /* Primary Brand Design System Palette */
         --primary-color: #673de6; /* Signature Royal Purple */
         --primary-glow: rgba(103, 61, 230, 0.16);
-        --bg-app: #f8f7fd; /* Soft Lilac-Slate App Surface */
+        --bg-app: #ffffff; /* Pure White App Surface */
         --bg-card: #ffffff; /* Pure White Card & Grid Surface */
-        --bg-panel: #f4f0fd; /* Signature Soft Violet-Tinted Panel */
+        --bg-panel: #ffffff; /* Pure White Panel */
         --text-main: #1d1e2c; /* Deep Navy Charcoal */
         --text-muted: #6e6d7a; /* Muted Slate Text */
         --text-inverse: #ffffff; /* White */
@@ -4630,10 +4630,6 @@
               <button class="classic-icon-btn classic-btn-theme" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
               </button>
-              <button class="classic-btn-switch-pro" onclick="app.handlers.switchViewMode('pro')" title="Switch to Student Timetable Generator" aria-label="Switch to Student Timetable Generator">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                <span>Student Timetable Generator</span>
-              </button>
             </div>
           </div>
         </div>
@@ -6316,7 +6312,7 @@
         state: {
           events: [], // Holds array of event elements
           aiCredits: null, // Tracks remaining AI credits for the user
-          viewMode: 'pro',
+          viewMode: window.location.pathname.includes('timetable-generator-online-for-students') ? 'pro' : 'classic',
           classicTitle: localStorage.getItem('tt_classic_title') || 'My Weekly Timetable',
           classicSubtitle: localStorage.getItem('tt_classic_subtitle') || 'Class & Activity Schedule',
           classicSelectedDays: [0],

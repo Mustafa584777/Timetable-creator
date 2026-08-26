@@ -130,10 +130,18 @@ async function startServer() {
     }
   });
 
+  // Admin Panel route
+  anonymityApp.get(["/admin-panel", "/admin-panel/"], (req, res) => {
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "index.html")
+      : path.join(process.cwd(), "index.html");
+    res.sendFile(filePath);
+  });
+
   // Dynamic route for any custom timetable creator tool without timetable-creator/ folder in URL
   anonymityApp.get(["/:toolSlug", "/:toolSlug/"], (req, res, next) => {
     const toolSlug = req.params.toolSlug;
-    if (toolSlug.startsWith("api") || toolSlug.startsWith("blog") || toolSlug.includes(".")) {
+    if (toolSlug.startsWith("api") || toolSlug.startsWith("blog") || toolSlug === "admin-panel" || toolSlug.includes(".")) {
       return next();
     }
     const publicToolPath = path.join(process.cwd(), "public", "timetable-creator", toolSlug, "index.html");
@@ -150,14 +158,6 @@ async function startServer() {
       return res.sendFile(rootToolPath);
     }
     next();
-  });
-
-  // Admin Panel route
-  anonymityApp.get(["/admin-panel", "/admin-panel/"], (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "index.html")
-      : path.join(process.cwd(), "index.html");
-    res.sendFile(filePath);
   });
 
   // Posts DB API for Admin Panel
