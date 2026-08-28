@@ -50,6 +50,14 @@
       "destination": "/timetable-creator/timetable-generator-online-for-students/index.html"
     },
     {
+      "source": "/admin-panel",
+      "destination": "/admin-panel/index.html"
+    },
+    {
+      "source": "/admin-panel/",
+      "destination": "/admin-panel/index.html"
+    },
+    {
       "source": "/blog/:slug*",
       "destination": "/blog/:slug*"
     },
