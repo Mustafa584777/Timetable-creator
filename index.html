@@ -4298,57 +4298,30 @@
 </head>
   <body>
     <!-- Floating Context Menu -->
-    <div id="ctxMenu" class="context-menu" style="display:none; position:fixed; z-index:99999;">
-      <div id="ctxEventActions">
-        <div class="context-menu-item" onclick="app.handlers.contextEdit()">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-          <span>Edit Activity</span>
-        </div>
-        <div class="context-menu-item" onclick="app.handlers.contextAddAfter()">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M12 4v16m8-8H4"></path></svg>
-          <span>Add Activity After</span>
-        </div>
-        <div class="context-menu-item" onclick="app.handlers.contextCopy()">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          <span>Copy Activity (Ctrl+C)</span>
-        </div>
-        <div class="context-menu-item" onclick="app.handlers.contextDuplicate()">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14"></path></svg>
-          <span>Duplicate Activity</span>
-        </div>
-        <div class="context-menu-item" id="ctxPasteItem" onclick="app.handlers.contextPaste()">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-          <span>Paste Activity (Ctrl+V)</span>
-        </div>
-        <div class="context-menu-divider"></div>
-        <div style="padding: 6px 12px; display: flex; gap: 6px; align-items: center;">
-          <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;">Color:</span>
-          <div style="display: flex; gap: 4px;">
-            <span class="ctx-color-dot" style="background:#3b82f6; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#3b82f6')"></span>
-            <span class="ctx-color-dot" style="background:#10b981; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#10b981')"></span>
-            <span class="ctx-color-dot" style="background:#8b5cf6; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#8b5cf6')"></span>
-            <span class="ctx-color-dot" style="background:#f59e0b; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#f59e0b')"></span>
-            <span class="ctx-color-dot" style="background:#ef4444; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#ef4444')"></span>
-            <span class="ctx-color-dot" style="background:#ec4899; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#ec4899')"></span>
-          </div>
-        </div>
-        <div class="context-menu-divider"></div>
-        <div class="context-menu-item danger" onclick="app.handlers.contextDelete()">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-          <span>Delete Activity</span>
-        </div>
+    <div id="ctxMenu" class="context-menu">
+      <div class="context-menu-item" onclick="app.handlers.contextEdit()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+        Edit Event
       </div>
-      <div id="ctxCellActions" style="display:none;">
-        <div class="context-menu-item" onclick="app.handlers.contextAddHere()">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M12 4v16m8-8H4"></path></svg>
-          <span>Add Activity Here</span>
-        </div>
-        <div class="context-menu-item" id="ctxCellPasteItem" onclick="app.handlers.contextPasteHere()">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-          <span>Paste Activity Here</span>
-        </div>
+      <div class="context-menu-item" onclick="app.handlers.contextCopy()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+        Copy
+      </div>
+      <div class="context-menu-item" onclick="app.handlers.contextPaste()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+        Paste
+      </div>
+      <div class="context-menu-item" onclick="app.handlers.contextDuplicate()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 5v14M5 12h14"></path></svg>
+        Duplicate
+      </div>
+      <div class="context-menu-divider"></div>
+      <div class="context-menu-item danger" onclick="app.handlers.contextDelete()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+        Delete
       </div>
     </div>
+
     <!-- Active Toast Notifications -->
     <div id="toastContainer" class="toast-container"></div>
 
@@ -4518,46 +4491,16 @@
               <div class="custom-dropdown-wrap" id="wrap_classicPresetTemplates" style="min-width: 220px;">
                 <input type="hidden" id="classicPresetTemplates" value="">
                 <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Load Template">
-                  <span class="custom-dropdown-label"><span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span><span>Load Template Schedule...</span></span>
+                  <span class="custom-dropdown-label">Load Template Schedule...</span>
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', '', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span>
-                      <span>Load Template Schedule...</span>
-                    </div>
-                  </div>
-                  <div class="custom-dropdown-option" data-value="university" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'university', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"></path></svg></span>
-                      <span>University Student Schedule</span>
-                    </div>
-                  </div>
-                  <div class="custom-dropdown-option" data-value="school" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'school', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 7v14M21 7v14M12 3l9 4H3l9-4zM9 10h6v4H9z"></path></svg></span>
-                      <span>High School Routine</span>
-                    </div>
-                  </div>
-                  <div class="custom-dropdown-option" data-value="work" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'work', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
-                      <span>Work & Shift Planner</span>
-                    </div>
-                  </div>
-                  <div class="custom-dropdown-option" data-value="fitness" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'fitness', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#f43f5e;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v8H2zM6 8v8M12 8v8"></path></svg></span>
-                      <span>Workout & Gym Plan</span>
-                    </div>
-                  </div>
-                  <div class="custom-dropdown-option" data-value="exam" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'exam', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
-                      <span>Exam Revision Timetable</span>
-                    </div>
-                  </div>
+                  <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', '', 'Load Template Schedule...', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">Load Template Schedule...</div>
+                  <div class="custom-dropdown-option" data-value="university" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'university', 'University Student Schedule', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">🎓 University Student Schedule</div>
+                  <div class="custom-dropdown-option" data-value="school" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'school', 'High School Routine', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">🏫 High School Routine</div>
+                  <div class="custom-dropdown-option" data-value="work" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'work', 'Work & Shift Planner', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">💼 Work & Shift Planner</div>
+                  <div class="custom-dropdown-option" data-value="fitness" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'fitness', 'Workout & Gym Plan', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">💪 Workout & Gym Plan</div>
+                  <div class="custom-dropdown-option" data-value="exam" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'exam', 'Exam Revision Timetable', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">📚 Exam Revision Timetable</div>
                 </div>
               </div>
             </div>
@@ -4658,24 +4601,9 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Fri (5 Days)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Sat (6 Days)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Sun (7 Days)</span>
-                      </div>
-                    </div>
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', 'Mon - Fri (5 Days)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Mon - Fri (5 Days)</div>
+                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', 'Mon - Sat (6 Days)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Mon - Sat (6 Days)</div>
+                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', 'Mon - Sun (7 Days)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Mon - Sun (7 Days)</div>
                 </div>
               </div>
             </div>
@@ -4729,30 +4657,10 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="15" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '15', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#06b6d4;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></span>
-                        <span>15 Minutes</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '30', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
-                        <span>30 Minutes</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '45', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 17 12"></polyline></svg></span>
-                        <span>45 Minutes</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '60', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 12 18"></polyline></svg></span>
-                        <span>60 Minutes</span>
-                      </div>
-                    </div>
+                  <div class="custom-dropdown-option" data-value="15" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '15', '15 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">15 Minutes</div>
+                  <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '30', '30 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">30 Minutes</div>
+                  <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '45', '45 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">45 Minutes</div>
+                  <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '60', '60 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">60 Minutes</div>
                 </div>
               </div>
             </div>
@@ -4767,18 +4675,8 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="12" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '12', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42"></path></svg></span>
-                        <span>12-Hour (AM/PM)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '24', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#6366f1;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
-                        <span>24-Hour (Military)</span>
-                      </div>
-                    </div>
+                  <div class="custom-dropdown-option" data-value="12" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '12', '12-Hour (AM/PM)', 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">12-Hour (AM/PM)</div>
+                  <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '24', '24-Hour (Military)', 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">24-Hour (Military)</div>
                 </div>
               </div>
             </div>
@@ -4793,36 +4691,11 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'slate', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg></span>
-                        <span>Vibrant Classic</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'emerald', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#14b8a6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path></svg></span>
-                        <span>Mint Fresh</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'indigo', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12h20M2 6h20M2 18h20"></path></svg></span>
-                        <span>Electric Ocean</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'amber', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"></path></svg></span>
-                        <span>Warm Amber</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'cyberpunk', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#a855f7;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"></path></svg></span>
-                        <span>Neon Pastel</span>
-                      </div>
-                    </div>
+                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'slate', 'Vibrant Classic', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🎨 Vibrant Classic</div>
+                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'emerald', 'Mint Fresh', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🌿 Mint Fresh</div>
+                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'indigo', 'Electric Ocean', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🌊 Electric Ocean</div>
+                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'amber', 'Warm Amber', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🌅 Warm Amber</div>
+                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'cyberpunk', 'Neon Pastel', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">✨ Neon Pastel</div>
                 </div>
               </div>
             </div>
@@ -4909,7 +4782,7 @@
               <p>
                 Take the hassle out of scheduling. Build, organize, and customize professional school, class, and work rosters in minutes with our high-fidelity, interactive <strong>free timetable maker</strong> and AI generator.
               </p>
-              <button class="seo-btn-cta" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+              <button class="seo-btn-cta" onclick="document.getElementById('gridWorkspace').scrollTo({top: 0, behavior: 'smooth'});">
                 <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display:inline-block; margin-right: 6px; vertical-align: middle;"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
                 Start Building for Free
               </button>
@@ -5645,120 +5518,6 @@
        * Core Application Architecture State Management
        */
       const app = {
-        defaultStarterEvents: [
-          {
-            id: "evt_starter_1",
-            title: "Mathematics & Calculus",
-            subject: "Mathematics",
-            teacher: "Prof. Anderson",
-            room: "Room 101",
-            location: "Room 101",
-            category: "Academic",
-            notes: "Scientific calculator & workbook",
-            day: 0,
-            startTime: 510,
-            endTime: 600,
-            color: "#3b82f6"
-          },
-          {
-            id: "evt_starter_2",
-            title: "Computer Science Lab",
-            subject: "Computer Science",
-            teacher: "Dr. Evans",
-            room: "Lab 3B",
-            location: "Lab 3B",
-            category: "Practical",
-            notes: "Data structures & algorithm exercises",
-            day: 0,
-            startTime: 630,
-            endTime: 750,
-            color: "#10b981"
-          },
-          {
-            id: "evt_starter_3",
-            title: "Physics Mechanics",
-            subject: "Physics",
-            teacher: "Dr. Miller",
-            room: "Hall A",
-            location: "Hall A",
-            category: "Academic",
-            notes: "Chapters 4 & 5 problem review",
-            day: 1,
-            startTime: 540,
-            endTime: 630,
-            color: "#8b5cf6"
-          },
-          {
-            id: "evt_starter_4",
-            title: "English Literature",
-            subject: "English",
-            teacher: "Prof. Davies",
-            room: "Room 204",
-            location: "Room 204",
-            category: "Humanities",
-            notes: "Reading assignment & essay workshop",
-            day: 1,
-            startTime: 660,
-            endTime: 750,
-            color: "#f59e0b"
-          },
-          {
-            id: "evt_starter_5",
-            title: "Chemistry Laboratory",
-            subject: "Chemistry",
-            teacher: "Dr. Watson",
-            room: "Chem Lab 2",
-            location: "Chem Lab 2",
-            category: "Practical",
-            notes: "Safety goggles required for titration experiment",
-            day: 2,
-            startTime: 540,
-            endTime: 690,
-            color: "#06b6d4"
-          },
-          {
-            id: "evt_starter_6",
-            title: "History & World Affairs",
-            subject: "History",
-            teacher: "Prof. Clark",
-            room: "Room 302",
-            location: "Room 302",
-            category: "Humanities",
-            notes: "Midterm revision notes sharing",
-            day: 3,
-            startTime: 600,
-            endTime: 690,
-            color: "#ec4899"
-          },
-          {
-            id: "evt_starter_7",
-            title: "Physical Education & Fitness",
-            subject: "Sports",
-            teacher: "Coach Taylor",
-            room: "Main Gym",
-            location: "Main Gym",
-            category: "Fitness",
-            notes: "Cardio conditioning & team games",
-            day: 4,
-            startTime: 540,
-            endTime: 630,
-            color: "#10b981"
-          },
-          {
-            id: "evt_starter_8",
-            title: "Study Group & Project Work",
-            subject: "Self Study",
-            teacher: "Study Circle",
-            room: "Library 4",
-            location: "Library 4",
-            category: "Study",
-            notes: "Group assignment finalization",
-            day: 4,
-            startTime: 660,
-            endTime: 780,
-            color: "#6366f1"
-          }
-        ],
         state: {
           events: [], // Holds array of event elements
           aiCredits: null, // Tracks remaining AI credits for the user
@@ -5804,11 +5563,6 @@
             }
           }
           this.loadState();
-          if (!this.state.events || !Array.isArray(this.state.events) || this.state.events.length === 0) {
-            this.state.events = (this.defaultStarterEvents && Array.isArray(this.defaultStarterEvents))
-              ? JSON.parse(JSON.stringify(this.defaultStarterEvents))
-              : [];
-          }
           this.setupGlobalListeners();
           this.applyGeneralStyles();
           this.handlers.switchViewMode(this.state.viewMode, false);
@@ -6392,7 +6146,7 @@
             if (titleInput && this.state.classicTitle) titleInput.value = this.state.classicTitle;
             if (subtitleInput && this.state.classicSubtitle) subtitleInput.value = this.state.classicSubtitle;
 
-            if (this.handlers && this.handlers.setCustomDropdownValue) {
+            if (this.handlers.setCustomDropdownValue) {
               this.handlers.setCustomDropdownValue('classicConfigDays', activeDaysCount, 'wrap_classicConfigDays');
               this.handlers.setCustomDropdownValue('classicConfigStart', startTime, 'wrap_classicConfigStart');
               this.handlers.setCustomDropdownValue('classicConfigEnd', endTime, 'wrap_classicConfigEnd');
@@ -6402,7 +6156,7 @@
             }
 
             // Update stats strip in classic ribbon
-            const validEvents = (this.state.events || []).filter(evt => evt.day < activeDaysCount);
+            const validEvents = this.state.events.filter(evt => evt.day < activeDaysCount);
             const totalMinutes = validEvents.reduce((acc, evt) => {
               const dur = Math.max(0, (evt.endTime || 0) - (evt.startTime || 0));
               return acc + dur;
@@ -6433,7 +6187,7 @@
               const timeLabel = this.formatMinute(slotMin);
               html += `<tr><td class="classic-td-time">${timeLabel}</td>`;
               for (let d = 0; d < activeDaysCount; d++) {
-                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" oncontextmenu="app.handlers.showEmptyCellContext(event, ${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
+                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
                   <svg class="classic-cell-add-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"></path></svg>
                 </td>`;
               }
@@ -6472,34 +6226,19 @@
                 app.handlers.openClassicEditModal(evt);
               };
 
-              eventCard.oncontextmenu = (e) => {
-                app.handlers.showEventContext(e, evt);
-              };
-
               const timeBadge = `${this.formatMinute(evt.startTime)} - ${this.formatMinute(evt.endTime)}`;
 
               eventCard.innerHTML = `
                 <div class="classic-event-title-line">
                   <span class="classic-event-title" title="${this.escapeHtml(evt.title)}">${this.escapeHtml(evt.title)}</span>
                   <div class="classic-event-tools">
-                    <button class="classic-evt-btn" title="Add activity next" onclick="event.stopPropagation(); app.handlers.openClassicAddModal(${evt.day}, ${evt.endTime})">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"></path></svg>
-                    </button>
-                    <button class="classic-evt-btn" title="Edit activity" onclick="event.stopPropagation(); app.handlers.openClassicEditModal(app.state.events.find(x => x.id === '${evt.id}'))">
+                    <button class="classic-evt-btn" title="Edit" onclick="event.stopPropagation(); app.handlers.openClassicEditModal(app.state.events.find(x => x.id === '${evt.id}'))">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     </button>
-                    <button class="classic-evt-btn" title="Copy (Ctrl+C)" onclick="event.stopPropagation(); app.copyEvent('${evt.id}')">
+                    <button class="classic-evt-btn" title="Duplicate" onclick="event.stopPropagation(); app.duplicateEvent('${evt.id}')">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
-                    <button class="classic-evt-btn" title="Duplicate activity" onclick="event.stopPropagation(); app.duplicateEvent('${evt.id}')">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"></path></svg>
-                    </button>
-                    ${this.state.clipboard ? `
-                    <button class="classic-evt-btn" title="Paste activity after this" onclick="event.stopPropagation(); app.pasteEvent(${evt.day}, ${evt.endTime})">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                    </button>
-                    ` : ''}
-                    <button class="classic-evt-btn" title="Delete activity" onclick="event.stopPropagation(); app.deleteEvent('${evt.id}')">
+                    <button class="classic-evt-btn" title="Delete" onclick="event.stopPropagation(); app.deleteEvent('${evt.id}')">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                     </button>
                   </div>
@@ -6517,6 +6256,7 @@
             console.error('Error rendering Classic Timetable grid:', err);
           }
         },
+
         renderGridStructure() {
           try {
             const daysRow = document.getElementById('gridHeaderRow');
@@ -8113,159 +7853,27 @@
             app.render();
           },
 
-          
-          showEventContext(e, evt) {
-            if (!evt) return;
-            e.preventDefault();
-            e.stopPropagation();
-            app.state.ctxSelectedEventId = evt.id;
-            app.state.ctxSelectedDay = evt.day;
-            app.state.ctxSelectedTime = evt.endTime;
-            const menu = document.getElementById('ctxMenu');
-            if (!menu) return;
-
-            const eventActions = document.getElementById('ctxEventActions');
-            const cellActions = document.getElementById('ctxCellActions');
-            if (eventActions) eventActions.style.display = 'block';
-            if (cellActions) cellActions.style.display = 'none';
-
-            const pasteItem = document.getElementById('ctxPasteItem');
-            if (pasteItem) {
-              pasteItem.style.opacity = app.state.clipboard ? '1' : '0.5';
-              pasteItem.style.pointerEvents = app.state.clipboard ? 'auto' : 'none';
-            }
-
-            menu.style.display = 'block';
-            const menuWidth = 190;
-            const menuHeight = 260;
-            const x = (e.clientX + menuWidth > window.innerWidth) ? (window.innerWidth - menuWidth - 12) : e.clientX;
-            const y = (e.clientY + menuHeight > window.innerHeight) ? (window.innerHeight - menuHeight - 12) : e.clientY;
-            menu.style.left = `${Math.max(10, x)}px`;
-            menu.style.top = `${Math.max(10, y)}px`;
-          },
-
-          showEmptyCellContext(e, day, slotMin) {
-            e.preventDefault();
-            e.stopPropagation();
-            app.state.ctxSelectedEventId = null;
-            app.state.ctxSelectedDay = day;
-            app.state.ctxSelectedTime = slotMin;
-            const menu = document.getElementById('ctxMenu');
-            if (!menu) return;
-
-            const eventActions = document.getElementById('ctxEventActions');
-            const cellActions = document.getElementById('ctxCellActions');
-            if (eventActions) eventActions.style.display = 'none';
-            if (cellActions) cellActions.style.display = 'block';
-
-            const cellPasteItem = document.getElementById('ctxCellPasteItem');
-            if (cellPasteItem) {
-              cellPasteItem.style.opacity = app.state.clipboard ? '1' : '0.5';
-              cellPasteItem.style.pointerEvents = app.state.clipboard ? 'auto' : 'none';
-            }
-
-            menu.style.display = 'block';
-            const menuWidth = 190;
-            const menuHeight = 110;
-            const x = (e.clientX + menuWidth > window.innerWidth) ? (window.innerWidth - menuWidth - 12) : e.clientX;
-            const y = (e.clientY + menuHeight > window.innerHeight) ? (window.innerHeight - menuHeight - 12) : e.clientY;
-            menu.style.left = `${Math.max(10, x)}px`;
-            menu.style.top = `${Math.max(10, y)}px`;
-          },
-
           contextEdit() {
             const id = app.state.ctxSelectedEventId;
             const item = app.state.events.find(evt => evt.id === id);
-            if (item) app.handlers.openClassicEditModal(item);
-            const menu = document.getElementById('ctxMenu');
-            if (menu) menu.style.display = 'none';
-          },
-
-          contextAddAfter() {
-            if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
-              app.handlers.openClassicAddModal(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
-            }
-            const menu = document.getElementById('ctxMenu');
-            if (menu) menu.style.display = 'none';
+            if (item) app.handlers.openEditEventModal(item);
           },
 
           contextCopy() {
-            if (app.state.ctxSelectedEventId) {
-              app.copyEvent(app.state.ctxSelectedEventId);
-            }
-            const menu = document.getElementById('ctxMenu');
-            if (menu) menu.style.display = 'none';
-          },
-
-          contextDuplicate() {
-            if (app.state.ctxSelectedEventId) {
-              app.duplicateEvent(app.state.ctxSelectedEventId);
-            }
-            const menu = document.getElementById('ctxMenu');
-            if (menu) menu.style.display = 'none';
+            if (app.state.ctxSelectedEventId) app.copyEvent(app.state.ctxSelectedEventId);
           },
 
           contextPaste() {
-            if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
-              app.pasteEvent(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
-            } else {
-              app.pasteEvent();
-            }
-            const menu = document.getElementById('ctxMenu');
-            if (menu) menu.style.display = 'none';
+            app.pasteEvent();
           },
 
-          contextChangeColor(colorHex) {
-            if (app.state.ctxSelectedEventId) {
-              app.pushHistory();
-              app.state.events = app.state.events.map(evt => {
-                if (evt.id === app.state.ctxSelectedEventId) {
-                  return { ...evt, color: colorHex };
-                }
-                return evt;
-              });
-              if (app.state.config.autoSave) app.saveState();
-              app.render();
-              app.showToast('Color updated', 'success');
-            }
-            const menu = document.getElementById('ctxMenu');
-            if (menu) menu.style.display = 'none';
+          contextDuplicate() {
+            if (app.state.ctxSelectedEventId) app.duplicateEvent(app.state.ctxSelectedEventId);
           },
 
           contextDelete() {
-            if (app.state.ctxSelectedEventId) {
-              app.deleteEvent(app.state.ctxSelectedEventId);
-            }
-            const menu = document.getElementById('ctxMenu');
-            if (menu) menu.style.display = 'none';
+            if (app.state.ctxSelectedEventId) app.deleteEvent(app.state.ctxSelectedEventId);
           },
-
-          contextAddHere() {
-            if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
-              app.handlers.openClassicAddModal(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
-            }
-            const menu = document.getElementById('ctxMenu');
-            if (menu) menu.style.display = 'none';
-          },
-
-          contextPasteHere() {
-            if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
-              app.pasteEvent(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
-            }
-            const menu = document.getElementById('ctxMenu');
-            if (menu) menu.style.display = 'none';
-          },
-
-          resetSchedule() {
-            if (confirm("Are you sure you want to clear all activities and reset your timetable?")) {
-              app.pushHistory();
-              app.state.events = [];
-              if (app.state.config.autoSave) app.saveState();
-              app.render();
-              app.showToast("Timetable reset successfully", "info");
-            }
-          },
-
 
           triggerImport() {
             document.getElementById('fileImporter').click();
@@ -8762,7 +8370,6 @@
           decodeScheduleData(encodedStr) {
             try {
               const jsonStr = decodeURIComponent(escape(atob(decodeURIComponent(encodedStr))));
-              if (!jsonStr || jsonStr === 'undefined' || jsonStr === 'null') return null;
               const minified = JSON.parse(jsonStr);
               if (!minified) return null;
               const config = {};
