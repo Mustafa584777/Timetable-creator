@@ -3486,6 +3486,9 @@
         color: var(--text-main);
         font-weight: 500;
         font-size: 12.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
       }
       .custom-dropdown-chevron {
         width: 14px;
@@ -3860,6 +3863,9 @@
         box-shadow: 2px 2px 0 var(--border-color);
       }
       .classic-th-day {
+        resize: horizontal;
+        overflow: hidden;
+        position: relative;
         background: var(--bg-panel);
         border-bottom: 2px solid var(--border-color);
         border-right: 1px solid var(--border-color);
@@ -3875,7 +3881,11 @@
         min-width: 130px;
         box-shadow: 0 2px 0 var(--border-color);
         transition: background-color 0.2s ease;
-      }
+        resize: horizontal;
+          overflow: hidden;
+          resize: horizontal;
+          overflow: hidden;
+        }
       .classic-th-day.highlighted-day {
         background-color: rgba(16, 185, 129, 0.15);
         color: #059669;
@@ -3884,6 +3894,9 @@
         border-right: none;
       }
       .classic-td-time {
+        resize: vertical;
+        overflow: hidden;
+        position: relative;
         background: var(--bg-panel);
         border-bottom: 1px solid var(--border-color);
         border-right: 2px solid var(--border-color);
@@ -3901,6 +3914,7 @@
         box-shadow: 2px 0 0 var(--border-color);
       }
       .classic-td-cell {
+        overflow: hidden;
         border-bottom: 1px solid var(--border-color);
         border-right: 1px solid var(--border-color);
         padding: 2px;
@@ -4479,12 +4493,48 @@
         line-height: 1;
       }
       .custom-drop-item-content svg {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
         display: block;
       }
       .custom-dropdown-label .custom-drop-item-content {
         gap: 3px;
+      }
+
+    
+      #globalLoadingOverlay {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background: var(--bg-body);
+        z-index: 999999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+      #globalLoadingOverlay.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .loader-skeleton {
+        width: 250px;
+        height: 24px;
+        background: linear-gradient(90deg, var(--bg-panel) 25%, var(--border-color) 50%, var(--bg-panel) 75%);
+        background-size: 200% 100%;
+        animation: skeleton-load 1.5s infinite;
+        border-radius: 6px;
+        margin-bottom: 20px;
+      }
+      .loader-skeleton.small {
+        width: 150px;
+        height: 16px;
+      }
+      @keyframes skeleton-load {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
       }
 
     </style>
@@ -4507,6 +4557,13 @@
     </script>
 </head>
   <body>
+
+    <div id="globalLoadingOverlay">
+      <div class="loader-skeleton"></div>
+      <div class="loader-skeleton small"></div>
+      <div class="loader-skeleton small" style="width: 200px"></div>
+    </div>
+
     <!-- Floating Context Menu -->
     <div id="ctxMenu" class="context-menu" style="display:none; position:fixed; z-index:99999;">
       <div id="ctxEventActions">
@@ -4709,7 +4766,7 @@
           <div class="classic-schedule-meta-box">
             <div class="classic-title-edit-wrap">
               <input type="text" id="classicTtTitle" class="classic-title-input" value="My Weekly Timetable" placeholder="Timetable Title..." onchange="app.handlers.updateClassicTitle(this.value)" aria-label="Timetable Title">
-              <svg class="classic-edit-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+              <svg class="classic-edit-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
             </div>
             <input type="text" id="classicTtSubtitle" class="classic-subtitle-input" value="Class & Activity Schedule" placeholder="Optional Subtitle or Semester..." onchange="app.handlers.updateClassicSubtitle(this.value)" aria-label="Timetable Subtitle">
           </div>
@@ -10621,6 +10678,21 @@
       // Set application on global scope for inline HTML handlers
       window.app = app;
 
+      
+      // Loading overlay logic for tab switches
+      document.addEventListener('click', function(e) {
+        const link = e.target.closest('a.mode-toggle-pill');
+        if (link && link.href) {
+          if (link.href !== window.location.href) {
+             e.preventDefault();
+             document.getElementById('globalLoadingOverlay').classList.add('active');
+             setTimeout(() => {
+               window.location.href = link.href;
+             }, 50); 
+          }
+        }
+      });
+
       // Auto start on systems readiness (handles any DOM ready states robustly)
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
@@ -10630,5 +10702,49 @@
         app.init();
       }
     </script>
-  </body>
+  
+    <style>
+      .seo-content-section {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 30px;
+        background: var(--bg-card);
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-color);
+      }
+      .seo-content-section h1, .seo-content-section h2 {
+        color: var(--text-main);
+        font-family: 'Poppins', sans-serif;
+        margin-bottom: 16px;
+      }
+      .seo-content-section p {
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+      .seo-content-section ul {
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 16px;
+        padding-left: 20px;
+      }
+      .seo-content-section li {
+        margin-bottom: 8px;
+      }
+    </style>
+
+    <div class="seo-content-section">
+      <h1>Free Online Timetable Creator</h1>
+      <p>Welcome to the most versatile <strong>Timetable Creator Online</strong>. Whether you're planning your weekly routines, mapping out your work shifts, organizing workout schedules, or preparing meal plans, our simple grid-based planner gives you complete control over your time.</p>
+      <h2>Why use our Schedule Maker?</h2>
+      <ul>
+        <li><strong>Easy to Use:</strong> Intuitive drag, drop, and click interactions.</li>
+        <li><strong>Fully Customizable:</strong> Add custom colors, adjust time intervals, and select beautiful themes.</li>
+        <li><strong>Export Anywhere:</strong> Download your timetable as a high-quality PDF, PNG, or JSON to share with others.</li>
+        <li><strong>No Login Required:</strong> Start building your schedule instantly without any complicated signups.</li>
+      </ul>
+      <p>Take charge of your productivity today by creating a clear, visually appealing schedule that keeps you on track. Our general purpose planner is perfect for freelancers, parents, fitness enthusiasts, and professionals.</p>
+    </div>
+</body>
 </html>
