@@ -4471,6 +4471,22 @@
         background: #ef4444 !important;
         color: #ffffff !important;
       }
+    
+      .custom-drop-item-content {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        line-height: 1;
+      }
+      .custom-drop-item-content svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+      }
+      .custom-dropdown-label .custom-drop-item-content {
+        gap: 3px;
+      }
+
     </style>
   
     <script type="application/ld+json">
@@ -6638,7 +6654,7 @@
         state: {
           events: [], // Holds array of event elements
           aiCredits: null, // Tracks remaining AI credits for the user
-          viewMode: window.location.pathname.includes('timetable-generator-online-for-students') ? 'pro' : 'classic',
+          viewMode: 'classic',
           classicTitle: localStorage.getItem('tt_classic_title') || 'My Weekly Timetable',
           classicSubtitle: localStorage.getItem('tt_classic_subtitle') || 'Class & Activity Schedule',
           classicSelectedDays: [0],
@@ -10558,7 +10574,7 @@
             const wrap = wrapId ? document.getElementById(wrapId) : (hiddenInput ? hiddenInput.closest('.custom-dropdown-wrap') : null);
             if (wrap) {
               const labelSpan = wrap.querySelector('.custom-dropdown-label');
-              if (labelSpan) labelSpan.textContent = label;
+              if (labelSpan) labelSpan.innerHTML = label;
 
               wrap.querySelectorAll('.custom-dropdown-option').forEach(opt => {
                 if (opt.getAttribute('data-value') === String(value)) {
@@ -10587,14 +10603,15 @@
               wrap.querySelectorAll('.custom-dropdown-option').forEach(opt => {
                 if (opt.getAttribute('data-value') === String(value)) {
                   opt.classList.add('selected');
-                  matchedLabel = opt.textContent.trim();
+                  const inner = opt.querySelector('.custom-drop-item-content');
+                  matchedLabel = inner ? inner.innerHTML : opt.innerHTML;
                 } else {
                   opt.classList.remove('selected');
                 }
               });
               if (matchedLabel) {
                 const labelSpan = wrap.querySelector('.custom-dropdown-label');
-                if (labelSpan) labelSpan.textContent = matchedLabel;
+                if (labelSpan) labelSpan.innerHTML = matchedLabel;
               }
             }
           }
