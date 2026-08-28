@@ -2770,7 +2770,7 @@
       }
 
       .classic-tt-app {
-        display: none;
+        display: flex;
         flex-direction: column;
         width: 100%;
         min-height: 100vh;
@@ -3583,200 +3583,6 @@
         color: #a78bfa;
       }
 
-      /* ==========================================================================
-         STUDENT TIMETABLE GENERATOR TOOL (#timetableApp) & MODALS - VIOLET BORDERS & ICONS
-         ========================================================================== */
-      #timetableApp button,
-      #timetableApp .btn-ctrl,
-      #timetableApp .action-btn,
-      #timetableApp .export-btn-item,
-      #timetableApp .btn-add-event,
-      #timetableApp .btn-sidebar-import,
-      #timetableApp .btn-sidebar-export,
-      #timetableApp .btn-sidebar-backup,
-      #timetableApp .btn-sidebar-reset,
-      #timetableApp .seo-btn-cta,
-      #timetableApp #btnCreateNowCta,
-      #timetableApp #btnAiGenerate,
-      #timetableApp #btnAiClear,
-      #timetableApp .ai-prompt-chip,
-      #timetableApp .mobile-day-btn,
-      #timetableApp .sidebar-close-btn,
-      #eventModal button,
-      #eventModal .btn-ctrl,
-      #eventModal #btnAiSuggest,
-      #eventModal .modal-close,
-      #classicEventModal button,
-      #classicEventModal .btn-ctrl,
-      #classicEventModal .classic-day-chip,
-      #classicEventModal .classic-duration-btn,
-      #classicEventModal .modal-close {
-        background-color: #ffffff !important;
-        border: none !important;
-        color: #1d1e2c !important;
-        border-radius: 8px;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04) !important;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        cursor: pointer;
-      }
-
-      /* Vibrant colored icons in Student Timetable Generator tool and Classic tool */
-      .export-btn-print svg { color: #3b82f6 !important; stroke: #3b82f6 !important; }
-      .export-btn-pdf svg { color: #e11d48 !important; stroke: #e11d48 !important; }
-      .export-btn-json svg { color: #f59e0b !important; stroke: #f59e0b !important; }
-      .export-btn-png svg { color: #10b981 !important; stroke: #10b981 !important; }
-      .export-btn-share svg { color: #6366f1 !important; stroke: #6366f1 !important; }
-      
-      #timetableApp .btn-add-event svg,
-      #timetableApp #btnCreateNowCta svg { color: #7c3aed !important; stroke: #7c3aed !important; }
-      
-      #timetableApp svg,
-      #timetableApp button svg,
-      #timetableApp .btn-ctrl svg,
-      #timetableApp .action-btn svg,
-      #timetableApp .export-btn-item svg,
-      #timetableApp .btn-sidebar-import svg,
-      #timetableApp .btn-sidebar-export svg,
-      #timetableApp .btn-sidebar-backup svg,
-      #timetableApp .btn-sidebar-reset svg,
-      #timetableApp .seo-btn-cta svg,
-      #timetableApp #btnAiGenerate svg,
-      #timetableApp #btnAiClear svg,
-      #timetableApp .ai-prompt-chip svg,
-      #eventModal svg,
-      #eventModal button svg,
-      #eventModal .btn-ctrl svg,
-      #eventModal #btnAiSuggest svg,
-      #eventModal .modal-close svg,
-      #classicEventModal svg,
-      #classicEventModal button svg,
-      #classicEventModal .btn-ctrl svg,
-      #classicEventModal .modal-close svg {
-        color: #0284c7 !important;
-        stroke: #0284c7 !important;
-      }
-
-      /* Hover States */
-      #timetableApp button:hover,
-      #timetableApp .btn-ctrl:hover,
-      #timetableApp .action-btn:hover,
-      #timetableApp .export-btn-item:hover,
-      #timetableApp .btn-add-event:hover,
-      #timetableApp .btn-sidebar-import:hover,
-      #timetableApp .btn-sidebar-export:hover,
-      #timetableApp .btn-sidebar-backup:hover,
-      #timetableApp .btn-sidebar-reset:hover,
-      #timetableApp .seo-btn-cta:hover,
-      #timetableApp #btnCreateNowCta:hover,
-      #timetableApp #btnAiGenerate:hover,
-      #timetableApp #btnAiClear:hover,
-      #timetableApp .ai-prompt-chip:hover,
-      #timetableApp .mobile-day-btn:hover,
-      #eventModal button:hover,
-      #eventModal .btn-ctrl:hover,
-      #eventModal #btnAiSuggest:hover,
-      #classicEventModal button:hover,
-      #classicEventModal .btn-ctrl:hover,
-      #classicEventModal .classic-day-chip:hover,
-      #classicEventModal .classic-duration-btn:hover {
-        background-color: #ffffff !important;
-        border-color: #6d28d9 !important;
-        color: #6d28d9 !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
-      }
-
-      /* Active / Selected States (e.g. mobile day filter, active action buttons) */
-      #timetableApp .mobile-day-btn.active,
-      #timetableApp .btn-ctrl.active,
-      #timetableApp .action-btn.active,
-      #eventModal .btn-primary,
-      #classicEventModal .classic-day-chip.active,
-      #classicEventModal .btn-primary {
-        background-color: #7c3aed !important;
-        border-color: #7c3aed !important;
-        color: #ffffff !important;
-        box-shadow: 0 3px 10px rgba(124, 58, 237, 0.35) !important;
-      }
-      #timetableApp .mobile-day-btn.active svg,
-      #timetableApp .btn-ctrl.active svg,
-      #timetableApp .action-btn.active svg,
-      #eventModal .btn-primary svg,
-      #classicEventModal .classic-day-chip.active svg,
-      #classicEventModal .btn-primary svg {
-        color: #ffffff !important;
-        stroke: #ffffff !important;
-      }
-
-      /* Danger / Reset / Delete Buttons */
-      #timetableApp #btnResetSchedule,
-      #timetableApp .btn-sidebar-reset,
-      #btnClassicDeleteEvt {
-        border-color: #ef4444 !important;
-        color: #ef4444 !important;
-      }
-      #timetableApp #btnResetSchedule svg,
-      #timetableApp .btn-sidebar-reset svg,
-      #btnClassicDeleteEvt svg {
-        color: #ef4444 !important;
-        stroke: #ef4444 !important;
-      }
-      #timetableApp #btnResetSchedule:hover,
-      #timetableApp .btn-sidebar-reset:hover,
-      #btnClassicDeleteEvt:hover {
-        border-color: #dc2626 !important;
-        color: #dc2626 !important;
-        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2) !important;
-      }
-
-      /* Student Timetable Generator Content Buttons & FAQ Items */
-      #timetableApp .seo-faq-item {
-        background-color: #ffffff !important;
-        border: 1.5px solid #8b5cf6 !important;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.08) !important;
-        overflow: hidden;
-        transition: all 0.2s ease;
-      }
-      #timetableApp .seo-faq-item:hover {
-        box-shadow: 0 4px 14px rgba(139, 92, 246, 0.16) !important;
-      }
-      #timetableApp .seo-faq-question {
-        color: #7c3aed !important;
-        font-weight: 600;
-      }
-      #timetableApp .seo-faq-question::after {
-        color: #7c3aed !important;
-      }
-      #timetableApp .seo-btn-cta,
-      #timetableApp .seo-author-info h3 {
-        color: #7c3aed !important;
-      }
-
-      /* Dark Mode Adjustments */
-      [data-theme="dark"] #timetableApp button,
-      [data-theme="dark"] #timetableApp .btn-ctrl,
-      [data-theme="dark"] #timetableApp .action-btn,
-      [data-theme="dark"] #timetableApp .export-btn-item,
-      [data-theme="dark"] #timetableApp .btn-add-event,
-      [data-theme="dark"] #timetableApp .seo-btn-cta,
-      [data-theme="dark"] #timetableApp .seo-faq-item,
-      [data-theme="dark"] #eventModal button,
-      [data-theme="dark"] #eventModal .btn-ctrl,
-      [data-theme="dark"] #classicEventModal button,
-      [data-theme="dark"] #classicEventModal .btn-ctrl {
-        background-color: #1e293b !important;
-        border-color: #8b5cf6 !important;
-        color: #a78bfa !important;
-        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2) !important;
-      }
-      [data-theme="dark"] #timetableApp svg,
-      [data-theme="dark"] #eventModal svg,
-      [data-theme="dark"] #classicEventModal svg {
-        color: #a78bfa !important;
-        stroke: #a78bfa !important;
-      }
-
       /* Mobile Kinetic Scroll Tip */
       .classic-mobile-scroll-hint {
         display: none;
@@ -4492,30 +4298,57 @@
 </head>
   <body>
     <!-- Floating Context Menu -->
-    <div id="ctxMenu" class="context-menu">
-      <div class="context-menu-item" onclick="app.handlers.contextEdit()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-        Edit Event
+    <div id="ctxMenu" class="context-menu" style="display:none; position:fixed; z-index:99999;">
+      <div id="ctxEventActions">
+        <div class="context-menu-item" onclick="app.handlers.contextEdit()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+          <span>Edit Activity</span>
+        </div>
+        <div class="context-menu-item" onclick="app.handlers.contextAddAfter()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M12 4v16m8-8H4"></path></svg>
+          <span>Add Activity After</span>
+        </div>
+        <div class="context-menu-item" onclick="app.handlers.contextCopy()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy Activity (Ctrl+C)</span>
+        </div>
+        <div class="context-menu-item" onclick="app.handlers.contextDuplicate()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14"></path></svg>
+          <span>Duplicate Activity</span>
+        </div>
+        <div class="context-menu-item" id="ctxPasteItem" onclick="app.handlers.contextPaste()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+          <span>Paste Activity (Ctrl+V)</span>
+        </div>
+        <div class="context-menu-divider"></div>
+        <div style="padding: 6px 12px; display: flex; gap: 6px; align-items: center;">
+          <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;">Color:</span>
+          <div style="display: flex; gap: 4px;">
+            <span class="ctx-color-dot" style="background:#3b82f6; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#3b82f6')"></span>
+            <span class="ctx-color-dot" style="background:#10b981; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#10b981')"></span>
+            <span class="ctx-color-dot" style="background:#8b5cf6; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#8b5cf6')"></span>
+            <span class="ctx-color-dot" style="background:#f59e0b; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#f59e0b')"></span>
+            <span class="ctx-color-dot" style="background:#ef4444; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#ef4444')"></span>
+            <span class="ctx-color-dot" style="background:#ec4899; width:16px; height:16px; border-radius:50%; cursor:pointer; display:inline-block;" onclick="app.handlers.contextChangeColor('#ec4899')"></span>
+          </div>
+        </div>
+        <div class="context-menu-divider"></div>
+        <div class="context-menu-item danger" onclick="app.handlers.contextDelete()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          <span>Delete Activity</span>
+        </div>
       </div>
-      <div class="context-menu-item" onclick="app.handlers.contextCopy()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
-        Copy
-      </div>
-      <div class="context-menu-item" onclick="app.handlers.contextPaste()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-        Paste
-      </div>
-      <div class="context-menu-item" onclick="app.handlers.contextDuplicate()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 5v14M5 12h14"></path></svg>
-        Duplicate
-      </div>
-      <div class="context-menu-divider"></div>
-      <div class="context-menu-item danger" onclick="app.handlers.contextDelete()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-        Delete
+      <div id="ctxCellActions" style="display:none;">
+        <div class="context-menu-item" onclick="app.handlers.contextAddHere()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M12 4v16m8-8H4"></path></svg>
+          <span>Add Activity Here</span>
+        </div>
+        <div class="context-menu-item" id="ctxCellPasteItem" onclick="app.handlers.contextPasteHere()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+          <span>Paste Activity Here</span>
+        </div>
       </div>
     </div>
-
     <!-- Active Toast Notifications -->
     <div id="toastContainer" class="toast-container"></div>
 
@@ -4657,7 +4490,8 @@
     <!-- ==========================================================================
          TIMETABLECREATOR.COM CLASSIC CLONE WORKSPACE
          ========================================================================== -->
-    <div class="classic-tt-app" id="timetableCreatorClassicApp">
+    
+<div class="classic-tt-app" id="timetableCreatorClassicApp">
       <div class="classic-container">
         
         <!-- 1. Dedicated Top Schedule Header Bar (Cleaned of branding) -->
@@ -4684,16 +4518,46 @@
               <div class="custom-dropdown-wrap" id="wrap_classicPresetTemplates" style="min-width: 220px;">
                 <input type="hidden" id="classicPresetTemplates" value="">
                 <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Load Template">
-                  <span class="custom-dropdown-label">Load Template Schedule...</span>
+                  <span class="custom-dropdown-label"><span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span><span>Load Template Schedule...</span></span>
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', '', 'Load Template Schedule...', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">Load Template Schedule...</div>
-                  <div class="custom-dropdown-option" data-value="university" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'university', 'University Student Schedule', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">🎓 University Student Schedule</div>
-                  <div class="custom-dropdown-option" data-value="school" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'school', 'High School Routine', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">🏫 High School Routine</div>
-                  <div class="custom-dropdown-option" data-value="work" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'work', 'Work & Shift Planner', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">💼 Work & Shift Planner</div>
-                  <div class="custom-dropdown-option" data-value="fitness" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'fitness', 'Workout & Gym Plan', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">💪 Workout & Gym Plan</div>
-                  <div class="custom-dropdown-option" data-value="exam" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'exam', 'Exam Revision Timetable', 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">📚 Exam Revision Timetable</div>
+                  <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', '', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span>
+                      <span>Load Template Schedule...</span>
+                    </div>
+                  </div>
+                  <div class="custom-dropdown-option" data-value="university" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'university', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"></path></svg></span>
+                      <span>University Student Schedule</span>
+                    </div>
+                  </div>
+                  <div class="custom-dropdown-option" data-value="school" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'school', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 7v14M21 7v14M12 3l9 4H3l9-4zM9 10h6v4H9z"></path></svg></span>
+                      <span>High School Routine</span>
+                    </div>
+                  </div>
+                  <div class="custom-dropdown-option" data-value="work" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'work', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
+                      <span>Work & Shift Planner</span>
+                    </div>
+                  </div>
+                  <div class="custom-dropdown-option" data-value="fitness" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'fitness', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#f43f5e;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v8H2zM6 8v8M12 8v8"></path></svg></span>
+                      <span>Workout & Gym Plan</span>
+                    </div>
+                  </div>
+                  <div class="custom-dropdown-option" data-value="exam" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'exam', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+                      <span>Exam Revision Timetable</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -4794,9 +4658,24 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', 'Mon - Fri (5 Days)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Mon - Fri (5 Days)</div>
-                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', 'Mon - Sat (6 Days)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Mon - Sat (6 Days)</div>
-                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', 'Mon - Sun (7 Days)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Mon - Sun (7 Days)</div>
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Mon - Fri (5 Days)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Mon - Sat (6 Days)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Mon - Sun (7 Days)</span>
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -4850,10 +4729,30 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="15" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '15', '15 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">15 Minutes</div>
-                  <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '30', '30 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">30 Minutes</div>
-                  <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '45', '45 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">45 Minutes</div>
-                  <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '60', '60 Minutes', 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">60 Minutes</div>
+                  <div class="custom-dropdown-option" data-value="15" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '15', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#06b6d4;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></span>
+                        <span>15 Minutes</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '30', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+                        <span>30 Minutes</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '45', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 17 12"></polyline></svg></span>
+                        <span>45 Minutes</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '60', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 12 18"></polyline></svg></span>
+                        <span>60 Minutes</span>
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -4868,8 +4767,18 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="12" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '12', '12-Hour (AM/PM)', 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">12-Hour (AM/PM)</div>
-                  <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '24', '24-Hour (Military)', 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">24-Hour (Military)</div>
+                  <div class="custom-dropdown-option" data-value="12" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '12', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42"></path></svg></span>
+                        <span>12-Hour (AM/PM)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '24', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#6366f1;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
+                        <span>24-Hour (Military)</span>
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -4884,11 +4793,36 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'slate', 'Vibrant Classic', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🎨 Vibrant Classic</div>
-                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'emerald', 'Mint Fresh', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🌿 Mint Fresh</div>
-                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'indigo', 'Electric Ocean', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🌊 Electric Ocean</div>
-                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'amber', 'Warm Amber', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">🌅 Warm Amber</div>
-                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'cyberpunk', 'Neon Pastel', 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">✨ Neon Pastel</div>
+                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'slate', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg></span>
+                        <span>Vibrant Classic</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'emerald', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#14b8a6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path></svg></span>
+                        <span>Mint Fresh</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'indigo', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12h20M2 6h20M2 18h20"></path></svg></span>
+                        <span>Electric Ocean</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'amber', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"></path></svg></span>
+                        <span>Warm Amber</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'cyberpunk', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#a855f7;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"></path></svg></span>
+                        <span>Neon Pastel</span>
+                      </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -4927,372 +4861,46 @@
               <!-- Dynamically populated table structure -->
             </table>
           </div>
-        </div>
-
-      </div>
-
-      <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
-      <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
-        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v16m8-8H4"></path></svg>
-        <span>Add Activity</span>
-      </button>
-    </div>
-
-    <!-- MAIN APP WRAPPER (PRO STUDIO) -->
-    <div class="app-container" id="timetableApp">
-      
-      <!-- Mobile Sidebar backdrop overlay drawer -->
-      <div id="sidebarOverlay" class="sidebar-overlay" onclick="app.handlers.toggleSidebar()"></div>
-      
-      <!-- LEFT SIDEBAR -->
-      <aside class="sidebar">
-        <div class="sidebar-header">
-          <!-- Mobile sidebar close button drawer -->
-          <button class="action-btn sidebar-close-btn" onclick="app.handlers.toggleSidebar()" style="margin-left: auto;" aria-label="Close Sidebar">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
-          </button>
-        </div>
-
-        <div class="sidebar-scrollable">
-          
-          <!-- Section 1: Filters -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Filter & Search</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
-            </div>
-            <div class="form-group">
-              <input type="text" id="filterSearch" class="input-ctrl" placeholder="Search title or teacher...">
-            </div>
-            <div class="form-group">
-              <input type="text" id="filterSubject" class="input-ctrl" placeholder="Filter by subject...">
-            </div>
-            <div class="form-group">
-              <input type="text" id="filterRoom" class="input-ctrl" placeholder="Filter by room...">
-            </div>
-          </div>
-
-          <!-- Section 2: Timetable Configuration -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Grid Structure</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"></path></svg>
-            </div>
-            <div class="form-group">
-              <label for="configDays">Days of Week</label>
-              <div class="custom-dropdown-wrap" id="wrap_configDays">
-                <input type="hidden" id="configDays" value="7">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configDays', event)" aria-label="Days of Week">
-                  <span class="custom-dropdown-label">Full Week (Mon - Sun)</span>
-                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('configDays', '5', 'Weekdays (Mon - Fri)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Weekdays (Mon - Fri)</div>
-                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('configDays', '6', 'Mon - Sat', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Sat</div>
-                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('configDays', '7', 'Full Week (Mon - Sun)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Full Week (Mon - Sun)</div>
-                </div>
-              </div>
-            </div>
-            <div class="flex-half">
-              <div class="form-group">
-                <label for="configStart">Start Time</label>
-                <div class="custom-dropdown-wrap" id="wrap_configStart">
-                  <input type="hidden" id="configStart" value="480">
-                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configStart', event)" aria-label="Start Time">
-                    <span class="custom-dropdown-label">08:00</span>
-                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="custom-dropdown-menu">
-                    <div class="custom-dropdown-option" data-value="360" onclick="app.handlers.onSelectCustomDropdown('configStart', '360', '06:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">06:00</div>
-                    <div class="custom-dropdown-option" data-value="420" onclick="app.handlers.onSelectCustomDropdown('configStart', '420', '07:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">07:00</div>
-                    <div class="custom-dropdown-option selected" data-value="480" onclick="app.handlers.onSelectCustomDropdown('configStart', '480', '08:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">08:00</div>
-                    <div class="custom-dropdown-option" data-value="540" onclick="app.handlers.onSelectCustomDropdown('configStart', '540', '09:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">09:00</div>
-                    <div class="custom-dropdown-option" data-value="600" onclick="app.handlers.onSelectCustomDropdown('configStart', '600', '10:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">10:00</div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="configEnd">End Time</label>
-                <div class="custom-dropdown-wrap" id="wrap_configEnd">
-                  <input type="hidden" id="configEnd" value="1140">
-                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configEnd', event)" aria-label="End Time">
-                    <span class="custom-dropdown-label">19:00</span>
-                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="custom-dropdown-menu">
-                    <div class="custom-dropdown-option" data-value="1020" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1020', '17:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">17:00</div>
-                    <div class="custom-dropdown-option" data-value="1080" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1080', '18:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">18:00</div>
-                    <div class="custom-dropdown-option selected" data-value="1140" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1140', '19:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">19:00</div>
-                    <div class="custom-dropdown-option" data-value="1200" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1200', '20:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">20:00</div>
-                    <div class="custom-dropdown-option" data-value="1260" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1260', '21:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">21:00</div>
-                    <div class="custom-dropdown-option" data-value="1320" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1320', '22:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">22:00</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex-half">
-              <div class="form-group">
-                <label for="configInterval">Interval</label>
-                <div class="custom-dropdown-wrap" id="wrap_configInterval">
-                  <input type="hidden" id="configInterval" value="30">
-                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configInterval', event)" aria-label="Interval">
-                    <span class="custom-dropdown-label">30 Min</span>
-                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="custom-dropdown-menu">
-                    <div class="custom-dropdown-option" data-value="15" onclick="app.handlers.onSelectCustomDropdown('configInterval', '15', '15 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">15 Min</div>
-                    <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('configInterval', '30', '30 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">30 Min</div>
-                    <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('configInterval', '45', '45 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">45 Min</div>
-                    <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('configInterval', '60', '60 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">60 Min</div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="configFormat">Format</label>
-                <div class="custom-dropdown-wrap" id="wrap_configFormat">
-                  <input type="hidden" id="configFormat" value="24">
-                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configFormat', event)" aria-label="Format">
-                    <span class="custom-dropdown-label">24-Hour</span>
-                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="custom-dropdown-menu">
-                    <div class="custom-dropdown-option" data-value="12" onclick="app.handlers.onSelectCustomDropdown('configFormat', '12', '12-Hour', 'wrap_configFormat', function(){ app.handlers.configChange(); })">12-Hour</div>
-                    <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('configFormat', '24', '24-Hour', 'wrap_configFormat', function(){ app.handlers.configChange(); })">24-Hour</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 3: Fine Customization -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Personalization</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 2a10 10 0 00-10 10c0 5.523 4.477 10 10 10a10 10 0 0010-10C22 6.477 17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16z"></path></svg>
-            </div>
-            <div class="form-group">
-              <label for="configTheme">Theme Palette</label>
-              <div class="custom-dropdown-wrap" id="wrap_configTheme">
-                <input type="hidden" id="configTheme" value="slate">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configTheme', event)" aria-label="Theme Palette">
-                  <span class="custom-dropdown-label">Royal Purple (Default)</span>
-                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'slate', 'Royal Purple (Default)', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🔮 Royal Purple (Default)</div>
-                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'emerald', 'Mint Emerald', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌿 Mint Emerald</div>
-                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'indigo', 'Electric Indigo', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">⚡ Electric Indigo</div>
-                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'amber', 'Coral Sunset', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌅 Coral Sunset</div>
-                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'cyberpunk', 'Neon Fuchsia', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">✨ Neon Fuchsia</div>
-                </div>
-              </div>
-            </div>
-            <div class="tuning-sliders">
-              <div class="form-group">
-                <div class="slider-label">
-                  <label for="slideRadius">Border Radius</label>
-                  <span id="radiusVal" class="stat-lbl">10px</span>
-                </div>
-                <input type="range" id="slideRadius" class="slider-input" min="0" max="24" value="10" oninput="app.handlers.adjustStyle('radius', this.value)">
-              </div>
-              <div class="form-group">
-                <div class="slider-label">
-                  <label for="slideSize">Font Size</label>
-                  <span id="fontSizeVal" class="stat-lbl">14px</span>
-                </div>
-                <input type="range" id="slideSize" class="slider-input" min="11" max="18" value="14" oninput="app.handlers.adjustStyle('fontSize', this.value)">
-              </div>
-              <div class="form-group">
-                <div class="slider-label">
-                  <label for="slideDensity">Row Density</label>
-                  <span id="densityVal" class="stat-lbl">Comfortable</span>
-                </div>
-                <input id="slideDensity" type="range" class="slider-input" min="1" max="3" value="2" oninput="app.handlers.adjustDensity(this.value)">
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 4: Metrics -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Statistics</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 20V10m-6 10V4m12 16v-8"></path></svg>
-            </div>
-            <div class="stats-grid">
-              <div class="stat-item">
-                <div id="statTotalClasses" class="stat-val">0</div>
-                <div class="stat-lbl">Classes</div>
-              </div>
-              <div class="stat-item">
-                <div id="statTotalHours" class="stat-val">0h</div>
-                <div class="stat-lbl">Total Time</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 5: Disk Operations -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Timetable Data</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"></path></svg>
-            </div>
-            <div class="flex-half">
-              <button class="btn-ctrl btn-sidebar-import" onclick="app.handlers.triggerImport()">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-                Import
-              </button>
-              <button class="btn-ctrl btn-sidebar-export" onclick="app.handlers.exportJson()">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                Export
-              </button>
-            </div>
-            <input type="file" id="fileImporter" class="hidden-input" accept=".json" onchange="app.handlers.handleImport(event)">
-            <button class="btn-ctrl btn-sidebar-backup btn-primary" onclick="app.handlers.manualSave()">Manual Backup</button>
-            <button class="btn-ctrl btn-sidebar-reset" style="color: #ef4444;" onclick="app.handlers.clearAll()">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-              Standard Reset
-            </button>
-          </div>
-
-        </div>
-      </aside>
-
-      <!-- MAIN AREA CONTENTS -->
-      <main class="main-content">
         
-        <!-- TOP TOOLBAR -->
-        <header class="top-bar">
-          <!-- Left side widgets -->
-          <div class="toolbar-group">
-            <button class="action-btn menu-toggle-btn" onclick="app.handlers.toggleSidebar()" id="btnToggleSidebar" data-tooltip="Toggle Sidebar" aria-label="Toggle Sidebar">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-            <button class="action-btn" onclick="app.handlers.undo()" id="btnUndo" data-tooltip="Undo Action (Ctrl+Z)" aria-label="Undo Action">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
-            </button>
-            <button class="action-btn" onclick="app.handlers.redo()" id="btnRedo" data-tooltip="Redo Action (Ctrl+Y)" aria-label="Redo Action">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
-            </button>
-            <div style="width: 1px; height: 24px; background-color: var(--border-color)"></div>
-            <button class="action-btn" onclick="app.handlers.zoomIn()" data-tooltip="Zoom In" aria-label="Zoom In">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m-3-3h6"></path></svg>
-            </button>
-            <button class="action-btn" onclick="app.handlers.zoomOut()" data-tooltip="Zoom Out" aria-label="Zoom Out">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM7 10h6"></path></svg>
-            </button>
-          </div>
 
-          <!-- Middle indicator information: Add Event Action -->
-          <div class="toolbar-group" style="justify-content: center;">
-            <button class="btn-ctrl btn-primary btn-add-event" onclick="app.handlers.openNewEventModal()" id="btnAddEvent" aria-label="Add Event">
-              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
-              <span>Add Event</span>
-            </button>
-          </div>
 
-          <!-- Right side tools -->
-          <div class="toolbar-group">
-            <button class="action-btn btn-labeled" onclick="app.handlers.resetSchedule()" id="btnResetSchedule" style="color: #ef4444;" data-tooltip="Reset Timetable" aria-label="Reset Timetable">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-              <span class="btn-label-text" style="color: #ef4444;">Reset</span>
-            </button>
-          </div>
-        </header>
-
-        <!-- GRID SYSTEM WORKSPACE -->
-        <div class="workspace" id="gridWorkspace" onscroll="app.handlers.handleScroll()">
-          
-          
-
-          <!-- AI Schedule Generator -->
-          <div class="section-card" id="aiGeneratorSection" style="margin-bottom: 16px; border: none; background: transparent; max-width: 100%; box-shadow: none; padding: 16px; border-radius: var(--border-radius);">
-            <div class="ai-generator-inner" style="display: flex; gap: 16px; align-items: center; width: 100%; flex-wrap: wrap;">
-              
-              <!-- Left side description -->
-              <div class="ai-generator-text" style="flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: 4px;">
-                <div class="section-title" style="margin-bottom: 0px; text-transform: uppercase;">
-                  <span style="display: flex; align-items: center; gap: 6px; color: var(--primary-color); font-weight: 700;">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14" style="color: var(--primary-color);"><path d="M9.813 15.904L9 21l-.813-5.096L3.091 15 8.187 14.1 9 9l.813 5.1 5.096.9-5.096.904zM19.006 5.005l-.5.001-.13.3-.37 1-.37-1-.13-.3-.5-.001.5-.001.13-.3.37-1 .37 1 .13.3.5.001z"></path></svg>
-                    Smart AI Assistant
-                  </span>
-                </div>
-                <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin: 0;">
-                  Describe your routine or syllabus in plain words. AI automatically schedules courses into open calendar slots.
-                </p>
+        <!-- AI Schedule Generator -->
+        <div class="section-card" id="aiGeneratorSection" style="margin-top: 16px; margin-bottom: 16px; border: 1px solid var(--border-color); background: var(--bg-card); max-width: 100%; box-shadow: var(--shadow-sm); padding: 20px; border-radius: var(--border-radius);">
+          <div class="ai-generator-inner" style="display: flex; gap: 16px; align-items: center; width: 100%; flex-wrap: wrap;">
+            
+            <!-- Left side description -->
+            <div class="ai-generator-text" style="flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: 4px;">
+              <div class="section-title" style="margin-bottom: 0px; text-transform: uppercase;">
+                <span style="display: flex; align-items: center; gap: 6px; color: var(--primary-color); font-weight: 700;">
+                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16" style="color: var(--primary-color);"><path d="M9.813 15.904L9 21l-.813-5.096L3.091 15 8.187 14.1 9 9l.813 5.1 5.096.9-5.096.904zM19.006 5.005l-.5.001-.13.3-.37 1-.37-1-.13-.3-.5-.001.5-.001.13-.3.37-1 .37 1 .13.3.5.001z"></path></svg>
+                  Smart AI Assistant
+                </span>
               </div>
-
-              <!-- Input text area -->
-              <div class="ai-generator-input" style="flex: 2; min-width: 320px; display: flex; align-items: center;">
-                <textarea id="aiPrompt" class="input-ctrl" rows="2" style="resize: none; font-size: 12px; margin-bottom: 0; width: 100%; height: 48px; min-height: 48px;" placeholder="e.g., Build a computer science freshman schedule with morning lectures, afternoon labs on Wed/Fri, and lunch breaks at 1:00 PM."></textarea>
-              </div>
-
-              <!-- Control buttons -->
-              <div class="ai-generator-actions" style="display: flex; gap: 8px; align-items: center; min-width: 200px; flex-shrink: 0;">
-                <button id="btnAiMerge" class="btn-ctrl" onclick="app.handlers.aiGenerateSchedule(true)" style="font-size: 11px; padding: 0 16px; margin: 0; height: 38px; display: flex; align-items: center; justify-content: center; flex: 1; white-space: nowrap;">
-                  Merge AI
-                </button>
-                <button id="btnAiOvertake" class="btn-ctrl btn-primary" onclick="app.handlers.aiGenerateSchedule(false)" style="font-size: 11px; padding: 0 16px; margin: 0; height: 38px; display: flex; align-items: center; justify-content: center; flex: 1; white-space: nowrap;">
-                  Overtake AI
-                </button>
-              </div>
-
+              <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4; margin: 0;">
+                Describe your routine or syllabus in plain words. AI automatically schedules courses into open calendar slots.
+              </p>
             </div>
-          </div>
 
-          <!-- Export, Print & Share Options Bar (Horizontal) -->
-          <div class="export-options-bar" id="exportOptionsBar">
-            <div class="export-options-title">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16" style="color: var(--primary-color);"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-              <span>Export & Share Options</span>
+            <!-- Input text area -->
+            <div class="ai-generator-input" style="flex: 2; min-width: 320px; display: flex; align-items: center;">
+              <textarea id="aiPrompt" class="input-ctrl" rows="2" style="resize: none; font-size: 13px; margin-bottom: 0; width: 100%; height: 52px; min-height: 52px;" placeholder="e.g., Build a computer science freshman schedule with morning lectures, afternoon labs on Wed/Fri, and lunch breaks at 1:00 PM."></textarea>
             </div>
-            <div class="export-options-actions">
-              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print Timetable">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                <span>Print</span>
+
+            <!-- Control buttons -->
+            <div class="ai-generator-actions" style="display: flex; gap: 8px; align-items: center; min-width: 220px; flex-shrink: 0;">
+              <button id="btnAiMerge" class="btn-ctrl" onclick="app.handlers.aiGenerateSchedule(true)" style="font-size: 12px; padding: 0 16px; margin: 0; height: 42px; display: flex; align-items: center; justify-content: center; flex: 1; white-space: nowrap;">
+                Merge AI
               </button>
-              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" aria-label="Save as PDF">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
-                <span>Save PDF</span>
-              </button>
-              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" aria-label="Export JSON">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span>Save JSON</span>
-              </button>
-              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" aria-label="Download PNG">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <span>PNG</span>
-              </button>
-              <button class="export-btn-item export-btn-share btn-primary" onclick="app.handlers.shareSchedule()" id="btnShareSchedule" title="Share Timetable" aria-label="Share Timetable">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M8.684 10.742L15.32 7.424M15.32 16.576l-6.637-3.318M21 12a3 3 0 11-6 0 3 3 0 016 0zm-11-6a3 3 0 11-6 0 3 3 0 016 0zm0 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                <span>Share</span>
+              <button id="btnAiOvertake" class="btn-ctrl btn-primary" onclick="app.handlers.aiGenerateSchedule(false)" style="font-size: 12px; padding: 0 16px; margin: 0; height: 42px; display: flex; align-items: center; justify-content: center; flex: 1; white-space: nowrap;">
+                Overtake AI
               </button>
             </div>
+
           </div>
+        </div>
 
-          <div class="timetable-scroll-container">
-            <div class="timetable-wrapper" id="printTarget">
-              
-              <!-- STICKY HEADER -->
-              <div class="grid-header-row" id="gridHeaderRow">
-                <div class="grid-corner">Time</div>
-                <!-- Day headers injected live by javascript -->
-              </div>
 
-              <!-- GRID BODY -->
-              <div class="grid-body">
-                <!-- Sticky Left Time Column -->
-                <div class="time-column" id="gridTimeColumn"></div>
-
-                <!-- Day Column Overlays -->
-                <div class="grid-columns-container" id="gridColumnsContainer">
-                  <!-- Visual absolute event cards elements injected here -->
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- === SEO LANDING SECTION === -->
+<!-- === SEO LANDING SECTION === -->
           <div class="seo-landing-container" id="about">
             
             <!-- HERO SECTION with strong CTA -->
@@ -5301,7 +4909,7 @@
               <p>
                 Take the hassle out of scheduling. Build, organize, and customize professional school, class, and work rosters in minutes with our high-fidelity, interactive <strong>free timetable maker</strong> and AI generator.
               </p>
-              <button class="seo-btn-cta" onclick="document.getElementById('gridWorkspace').scrollTo({top: 0, behavior: 'smooth'});">
+              <button class="seo-btn-cta" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
                 <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display:inline-block; margin-right: 6px; vertical-align: middle;"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
                 Start Building for Free
               </button>
@@ -5608,116 +5216,18 @@
                 </div>
               </div>
             </footer>
-
           </div>
-        </div>
-
-      </main>
-    </div>
-
-    <!-- MAIN EVENT DIALOG EDITOR -->
-    <div class="modal-backdrop" id="eventModal">
-      <div class="modal-panel">
-        <div class="modal-header">
-          <h2 class="modal-title" id="modalTitle">Create Timetable Event</h2>
-          <button class="modal-close" onclick="app.handlers.closeEventModal()" aria-label="Close modal">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-          </button>
-        </div>
-        <div class="modal-body">
-          <input type="hidden" id="evtId">
-
-          <div class="form-group">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-              <label for="evtTitle" style="margin-bottom: 0;">Event Title *</label>
-              <button id="btnAiSuggest" class="btn-ctrl" onclick="app.handlers.aiSuggestModalDetails()" style="width: auto; padding: 2px 8px; font-size: 11px; height: 24px; gap: 4px; border-color: rgba(59, 130, 246, 0.4); color: var(--primary-color); display: flex; align-items: center;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="12" height="12"><path d="M9.813 15.904L9 21l-.813-5.096L3.091 15 8.187 14.1 9 9l.813 5.1 5.096.9-5.096.904z"></path></svg>
-                AI Auto-Fill Details
-              </button>
-            </div>
-            <input type="text" id="evtTitle" class="input-ctrl" placeholder="e.g. Advanced Calculus, Marketing 101">
-          </div>
-
-          <div class="flex-half">
-            <div class="form-group">
-              <label for="evtSubject">Subject</label>
-              <input type="text" id="evtSubject" class="input-ctrl" placeholder="e.g. Mathematics">
-            </div>
-            <div class="form-group">
-              <label for="evtTeacher">Professor / Instructor</label>
-              <input type="text" id="evtTeacher" class="input-ctrl" placeholder="e.g. Dr. Jane Doe">
-            </div>
-          </div>
-
-          <div class="flex-half">
-            <div class="form-group">
-              <label for="evtRoom">Room No.</label>
-              <input type="text" id="evtRoom" class="input-ctrl" placeholder="e.g., Room 302, Lab B">
-            </div>
-            <div class="form-group">
-              <label for="evtLocation">Location / URL</label>
-              <input type="text" id="evtLocation" class="input-ctrl" placeholder="e.g. Engineering Hall (or Teams link)">
-            </div>
-          </div>
-
-          <div class="flex-half">
-            <div class="form-group">
-              <label for="evtDay">Day</label>
-              <div class="custom-dropdown-wrap" id="wrap_evtDay">
-                <input type="hidden" id="evtDay" value="0">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_evtDay', event)" aria-label="Select Day">
-                  <span class="custom-dropdown-label">Monday</span>
-                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="0" onclick="app.handlers.onSelectCustomDropdown('evtDay', '0', 'Monday', 'wrap_evtDay')">Monday</div>
-                  <div class="custom-dropdown-option" data-value="1" onclick="app.handlers.onSelectCustomDropdown('evtDay', '1', 'Tuesday', 'wrap_evtDay')">Tuesday</div>
-                  <div class="custom-dropdown-option" data-value="2" onclick="app.handlers.onSelectCustomDropdown('evtDay', '2', 'Wednesday', 'wrap_evtDay')">Wednesday</div>
-                  <div class="custom-dropdown-option" data-value="3" onclick="app.handlers.onSelectCustomDropdown('evtDay', '3', 'Thursday', 'wrap_evtDay')">Thursday</div>
-                  <div class="custom-dropdown-option" data-value="4" onclick="app.handlers.onSelectCustomDropdown('evtDay', '4', 'Friday', 'wrap_evtDay')">Friday</div>
-                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('evtDay', '5', 'Saturday', 'wrap_evtDay')">Saturday</div>
-                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('evtDay', '6', 'Sunday', 'wrap_evtDay')">Sunday</div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="evtCategory">Category</label>
-              <input type="text" id="evtCategory" class="input-ctrl" placeholder="e.g. Lecture, Practice, Personal">
-            </div>
-          </div>
-
-          <div class="flex-half">
-            <div class="form-group">
-              <label for="evtStart">Start Time</label>
-              <input type="time" id="evtStart" class="input-ctrl">
-            </div>
-            <div class="form-group">
-              <label for="evtEnd">End Time</label>
-              <input type="time" id="evtEnd" class="input-ctrl">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="evtNotes">Extra Notes</label>
-            <textarea id="evtNotes" class="input-ctrl" rows="2" style="resize: none;" placeholder="Syllabus references, requirements, materials..."></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Color Assignment</label>
-            <div class="color-grid" id="colorGrid">
-              <!-- Colors injected live -->
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button class="btn-ctrl" onclick="app.handlers.closeEventModal()">Cancel</button>
-          <button class="btn-ctrl btn-primary" onclick="app.handlers.saveEventFromModal()">Save Event</button>
-        </div>
       </div>
+
+      <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
+      <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v16m8-8H4"></path></svg>
+        <span>Add Activity</span>
+      </button>
     </div>
 
-    <!-- TIMETABLECREATOR.COM CLASSIC EVENT DIALOG EDITOR -->
+
+<!-- TIMETABLECREATOR.COM CLASSIC EVENT DIALOG EDITOR -->
     <div class="modal-backdrop" id="classicEventModal">
       <div class="modal-panel" style="max-width: 520px;">
         <div class="modal-header" style="background: var(--bg-panel); border-bottom: 1px solid var(--border-color);">
@@ -6015,266 +5525,7 @@
       </div>
     </div>
 
-    <!-- ==========================================================================
-         ADMIN PANEL CONTAINER (/admin-panel)
-         ========================================================================== -->
-    <div id="adminPanelApp" class="hidden" style="max-width: 1240px; margin: 30px auto 60px auto; padding: 0 20px; font-family: 'Poppins', sans-serif;">
-      
-      <!-- Admin Header Bar -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; background: var(--bg-card); padding: 20px 24px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
-        <div style="display: flex; align-items: center; gap: 14px;">
-          <div style="width: 44px; height: 44px; border-radius: 12px; background: #673de6; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 12px rgba(103, 61, 230, 0.3);">
-            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-          </div>
-          <div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <h1 style="font-size: 20px; font-weight: 700; color: var(--text-main); margin: 0;">TimetableCreator.online Admin Portal</h1>
-              <span style="font-size: 11px; background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 12px; font-weight: 600;">Posts & Pages CMS</span>
-            </div>
-            <p style="font-size: 13px; color: var(--text-muted); margin: 2px 0 0 0;">Manage, edit, publish, and create blog posts, guides, and static pages.</p>
-          </div>
-        </div>
-        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-          <a href="/" class="classic-icon-btn" style="text-decoration: none; padding: 8px 14px; font-size: 12.5px;">
-            <svg width="14" height="14" fill="none" stroke="#673de6" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span>Live Timetable</span>
-          </a>
-          <a href="/blog/" target="_blank" class="classic-icon-btn" style="text-decoration: none; padding: 8px 14px; font-size: 12.5px;">
-            <svg width="14" height="14" fill="none" stroke="#0284c7" stroke-width="2" viewBox="0 0 24 24"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
-            <span>Blog Archive</span>
-          </a>
-          <button class="classic-btn-add-primary" onclick="app.handlers.openAdminEditModal()" style="font-size: 12.5px; padding: 8px 16px;">
-            <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
-            <span>Add New Post</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Stats Overview Cards -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-bottom: 24px;">
-        <div style="background: var(--bg-card); border-radius: 14px; padding: 18px 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.04); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
-          <div>
-            <div style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Total Content</div>
-            <div id="adminStatTotal" style="font-size: 26px; font-weight: 700; color: var(--text-main); margin-top: 2px;">0</div>
-          </div>
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(99, 102, 241, 0.1); color: #6366f1; display: flex; align-items: center; justify-content: center;">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-          </div>
-        </div>
-        <div style="background: var(--bg-card); border-radius: 14px; padding: 18px 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.04); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
-          <div>
-            <div style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Published Live</div>
-            <div id="adminStatPublished" style="font-size: 26px; font-weight: 700; color: #10b981; margin-top: 2px;">0</div>
-          </div>
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(16, 185, 129, 0.1); color: #10b981; display: flex; align-items: center; justify-content: center;">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-          </div>
-        </div>
-        <div style="background: var(--bg-card); border-radius: 14px; padding: 18px 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.04); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
-          <div>
-            <div style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Drafts / Hidden</div>
-            <div id="adminStatDrafts" style="font-size: 26px; font-weight: 700; color: #f59e0b; margin-top: 2px;">0</div>
-          </div>
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; display: flex; align-items: center; justify-content: center;">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-          </div>
-        </div>
-        <div style="background: var(--bg-card); border-radius: 14px; padding: 18px 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.04); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
-          <div>
-            <div style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Categories</div>
-            <div id="adminStatCategories" style="font-size: 26px; font-weight: 700; color: #8b5cf6; margin-top: 2px;">0</div>
-          </div>
-          <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; display: flex; align-items: center; justify-content: center;">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Management Panel -->
-      <div style="background: var(--bg-card); border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.06); border: 1px solid var(--border-color); overflow: hidden;">
-        
-        <!-- Filter & Search Toolbar -->
-        <div style="padding: 18px 22px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; background: var(--bg-panel);">
-          
-          <!-- Category Filter Pills -->
-          <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="adminCategoryPills">
-            <button class="admin-filter-pill active" onclick="app.handlers.filterAdminCategory('all')" data-cat="all">All Posts</button>
-            <button class="admin-filter-pill" onclick="app.handlers.filterAdminCategory('Expert Guide')" data-cat="Expert Guide">Guides</button>
-            <button class="admin-filter-pill" onclick="app.handlers.filterAdminCategory('Exam Prep')" data-cat="Exam Prep">Exam Prep</button>
-            <button class="admin-filter-pill" onclick="app.handlers.filterAdminCategory('Strategic Blueprint')" data-cat="Strategic Blueprint">Blueprints</button>
-            <button class="admin-filter-pill" onclick="app.handlers.filterAdminCategory('Legal')" data-cat="Legal">Legal & Pages</button>
-          </div>
-
-          <!-- Search & Utility Actions -->
-          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-            <div style="position: relative;">
-              <input type="text" id="adminSearchInput" placeholder="Search by title, slug, or category..." oninput="app.handlers.filterAdminPosts(this.value)" style="padding: 8px 12px 8px 32px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-main); font-size: 13px; width: 260px; outline: none; transition: border-color 0.2s;">
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="position: absolute; left: 10px; top: 11px; color: var(--text-muted);"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
-            </div>
-            
-            <button onclick="app.handlers.exportPostsJson()" class="classic-icon-btn" style="padding: 8px 12px; font-size: 12px;" title="Export backup JSON">
-              <svg width="13" height="13" fill="none" stroke="#673de6" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-              <span>Export JSON</span>
-            </button>
-            
-            <button onclick="document.getElementById('adminImportFileInput').click()" class="classic-icon-btn" style="padding: 8px 12px; font-size: 12px;" title="Import posts JSON">
-              <svg width="13" height="13" fill="none" stroke="#0284c7" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-              <span>Import</span>
-            </button>
-            <input type="file" id="adminImportFileInput" accept=".json" style="display: none;" onchange="app.handlers.importPostsJson(event)">
-          </div>
-
-        </div>
-
-        <!-- Posts Table -->
-        <div style="overflow-x: auto;">
-          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px;">
-            <thead>
-              <tr style="background: var(--bg-card); color: var(--text-muted); border-bottom: 1px solid var(--border-color); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em;">
-                <th style="padding: 14px 22px; width: 45%;">Article / Page Title</th>
-                <th style="padding: 14px 16px;">Category</th>
-                <th style="padding: 14px 16px;">Author</th>
-                <th style="padding: 14px 16px;">Status</th>
-                <th style="padding: 14px 16px;">Last Updated</th>
-                <th style="padding: 14px 22px; text-align: right;">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="adminPostsTableBody">
-              <!-- Dynamically populated -->
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Admin Edit / Create Post Modal -->
-    <div id="adminPostModal" class="modal-backdrop hidden" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px;">
-      <div style="background: var(--bg-card); width: 100%; max-width: 720px; border-radius: 16px; box-shadow: 0 14px 45px rgba(0,0,0,0.25); border: 1px solid var(--border-color); overflow: hidden; max-height: 90vh; display: flex; flex-direction: column;">
-        
-        <!-- Modal Header -->
-        <div style="padding: 18px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background: var(--bg-panel);">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></div>
-            <h3 id="adminModalTitle" style="font-size: 16.5px; font-weight: 700; color: var(--text-main); margin: 0;">Edit Post / Article</h3>
-          </div>
-          <button onclick="app.handlers.closeAdminModal()" style="background: none; border: none; cursor: pointer; color: var(--text-muted); padding: 4px; display: flex; align-items: center; justify-content: center;" aria-label="Close modal">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-          </button>
-        </div>
-
-        <!-- Modal Form -->
-        <form id="adminPostForm" onsubmit="app.handlers.saveAdminPost(event)" style="padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px;">
-          <input type="hidden" id="adminPostId">
-          
-          <!-- Title Input -->
-          <div>
-            <label for="adminPostTitle" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Post Title *</label>
-            <input type="text" id="adminPostTitle" required class="input-ctrl" placeholder="e.g. Best Study Timetable for Class 10: Expert Daily Routine" oninput="app.handlers.onAdminTitleInput(this.value)" style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13.5px; font-weight: 500;">
-          </div>
-
-          <!-- URL Slug Input -->
-          <div>
-            <label for="adminPostSlug" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">
-              URL Slug (Permanent Link) *
-            </label>
-            <div style="display: flex; align-items: center; background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; padding-left: 12px;">
-              <span style="font-size: 12px; color: var(--text-muted); font-family: monospace;">timetablecreator.online/blog/</span>
-              <input type="text" id="adminPostSlug" required class="input-ctrl" placeholder="how-to-make-a-timetable" style="border: none; background: transparent; padding: 10px 12px; color: var(--text-main); width: 100%; font-size: 13px; font-family: monospace;">
-            </div>
-          </div>
-
-          <!-- Row: Category & Status & Author & Read Time -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <div>
-              <label for="adminPostCategory" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Category</label>
-              <input type="text" id="adminPostCategory" class="input-ctrl" placeholder="e.g. Expert Guide, Exam Prep, Legal" style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px;">
-            </div>
-            <div>
-              <label for="adminPostStatus" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Publish Status</label>
-              <div class="custom-dropdown-wrap" id="wrap_adminPostStatus">
-                <input type="hidden" id="adminPostStatus" value="Published">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_adminPostStatus', event)" aria-label="Publish Status">
-                  <span class="custom-dropdown-label">Published (Live to Public)</span>
-                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="Published" onclick="app.handlers.onSelectCustomDropdown('adminPostStatus', 'Published', 'Published (Live to Public)', 'wrap_adminPostStatus')">Published (Live to Public)</div>
-                  <div class="custom-dropdown-option" data-value="Draft" onclick="app.handlers.onSelectCustomDropdown('adminPostStatus', 'Draft', 'Draft (Hidden)', 'wrap_adminPostStatus')">Draft (Hidden)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <div>
-              <label for="adminPostAuthor" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Author / Advisor Name</label>
-              <input type="text" id="adminPostAuthor" class="input-ctrl" placeholder="e.g. Dr. Anand Verma, Prof. Sarah Lin" style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px;">
-            </div>
-            <div>
-              <label for="adminPostReadTime" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Estimated Read Time</label>
-              <input type="text" id="adminPostReadTime" class="input-ctrl" placeholder="e.g. 10 Min Read" style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px;">
-            </div>
-          </div>
-
-          <!-- Short Excerpt / Meta Description -->
-          <div>
-            <label for="adminPostExcerpt" style="display: block; font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 6px;">Excerpt / SEO Summary Description</label>
-            <textarea id="adminPostExcerpt" rows="2" class="input-ctrl" placeholder="Brief summary of the article for Google search snippets and blog cards..." style="padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px; resize: vertical;"></textarea>
-          </div>
-
-          <!-- Content Editor with Formatting Helpers -->
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-              <label for="adminPostContent" style="font-size: 12.5px; font-weight: 600; color: var(--text-main); margin-bottom: 0;">Full Article Content (Markdown / HTML)</label>
-              <div style="display: flex; gap: 4px;">
-                <button type="button" onclick="app.handlers.insertAdminFormatting('**', '**')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Bold"><strong>B</strong></button>
-                <button type="button" onclick="app.handlers.insertAdminFormatting('*', '*')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Italic"><em>I</em></button>
-                <button type="button" onclick="app.handlers.insertAdminFormatting('## ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Heading 2">H2</button>
-                <button type="button" onclick="app.handlers.insertAdminFormatting('- ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Bullet list">• List</button>
-                <button type="button" onclick="app.handlers.insertAdminFormatting('> ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Quote">Quote</button>
-              </div>
-            </div>
-            <textarea id="adminPostContent" rows="7" class="input-ctrl" placeholder="Write or edit full post content..." style="padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); width: 100%; font-size: 13px; font-family: monospace; resize: vertical; line-height: 1.6;"></textarea>
-          </div>
-
-          <!-- Modal Action Buttons -->
-          <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--border-color);">
-            <button type="button" onclick="app.handlers.closeAdminModal()" class="classic-icon-btn" style="padding: 9px 18px; font-size: 13px;">Cancel</button>
-            <button type="submit" class="classic-btn-add-primary" style="padding: 9px 24px; font-size: 13px;">
-              <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Save & Publish</span>
-            </button>
-          </div>
-
-        </form>
-      </div>
-    </div>
-
-    <!-- Admin Post Delete Confirmation Modal -->
-    <div id="adminDeleteModal" class="modal-backdrop hidden" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px;">
-      <div style="background: var(--bg-card); width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 12px 35px rgba(0,0,0,0.2); border: 1px solid var(--border-color); overflow: hidden; padding: 22px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-          <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(239, 68, 68, 0.1); color: #ef4444; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-          </div>
-          <div>
-            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-main); margin: 0;">Delete Post Confirmation</h3>
-            <p style="font-size: 12px; color: var(--text-muted); margin: 2px 0 0 0;">This action cannot be undone.</p>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--text-main); line-height: 1.5; margin-bottom: 18px;">
-          Are you sure you want to remove <strong id="adminDeletePostTitle" style="color: #ef4444;"></strong> from your website?
-        </p>
-        <input type="hidden" id="adminDeletePostId">
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-          <button type="button" onclick="app.handlers.closeAdminDeleteModal()" class="classic-icon-btn" style="padding: 8px 16px; font-size: 12.5px;">Cancel</button>
-          <button type="button" onclick="app.handlers.confirmAdminDeletePost()" class="classic-icon-btn" style="padding: 8px 18px; font-size: 12.5px; border-color: #ef4444; color: #ef4444;" onmouseover="this.style.background='#ef4444'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#ef4444';">Delete Post</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->
+<!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->
     <div id="google_translate_element" style="display: none !important;"></div>
     <script>
       function googleTranslateElementInit() {
@@ -6394,6 +5645,120 @@
        * Core Application Architecture State Management
        */
       const app = {
+        defaultStarterEvents: [
+          {
+            id: "evt_starter_1",
+            title: "Mathematics & Calculus",
+            subject: "Mathematics",
+            teacher: "Prof. Anderson",
+            room: "Room 101",
+            location: "Room 101",
+            category: "Academic",
+            notes: "Scientific calculator & workbook",
+            day: 0,
+            startTime: 510,
+            endTime: 600,
+            color: "#3b82f6"
+          },
+          {
+            id: "evt_starter_2",
+            title: "Computer Science Lab",
+            subject: "Computer Science",
+            teacher: "Dr. Evans",
+            room: "Lab 3B",
+            location: "Lab 3B",
+            category: "Practical",
+            notes: "Data structures & algorithm exercises",
+            day: 0,
+            startTime: 630,
+            endTime: 750,
+            color: "#10b981"
+          },
+          {
+            id: "evt_starter_3",
+            title: "Physics Mechanics",
+            subject: "Physics",
+            teacher: "Dr. Miller",
+            room: "Hall A",
+            location: "Hall A",
+            category: "Academic",
+            notes: "Chapters 4 & 5 problem review",
+            day: 1,
+            startTime: 540,
+            endTime: 630,
+            color: "#8b5cf6"
+          },
+          {
+            id: "evt_starter_4",
+            title: "English Literature",
+            subject: "English",
+            teacher: "Prof. Davies",
+            room: "Room 204",
+            location: "Room 204",
+            category: "Humanities",
+            notes: "Reading assignment & essay workshop",
+            day: 1,
+            startTime: 660,
+            endTime: 750,
+            color: "#f59e0b"
+          },
+          {
+            id: "evt_starter_5",
+            title: "Chemistry Laboratory",
+            subject: "Chemistry",
+            teacher: "Dr. Watson",
+            room: "Chem Lab 2",
+            location: "Chem Lab 2",
+            category: "Practical",
+            notes: "Safety goggles required for titration experiment",
+            day: 2,
+            startTime: 540,
+            endTime: 690,
+            color: "#06b6d4"
+          },
+          {
+            id: "evt_starter_6",
+            title: "History & World Affairs",
+            subject: "History",
+            teacher: "Prof. Clark",
+            room: "Room 302",
+            location: "Room 302",
+            category: "Humanities",
+            notes: "Midterm revision notes sharing",
+            day: 3,
+            startTime: 600,
+            endTime: 690,
+            color: "#ec4899"
+          },
+          {
+            id: "evt_starter_7",
+            title: "Physical Education & Fitness",
+            subject: "Sports",
+            teacher: "Coach Taylor",
+            room: "Main Gym",
+            location: "Main Gym",
+            category: "Fitness",
+            notes: "Cardio conditioning & team games",
+            day: 4,
+            startTime: 540,
+            endTime: 630,
+            color: "#10b981"
+          },
+          {
+            id: "evt_starter_8",
+            title: "Study Group & Project Work",
+            subject: "Self Study",
+            teacher: "Study Circle",
+            room: "Library 4",
+            location: "Library 4",
+            category: "Study",
+            notes: "Group assignment finalization",
+            day: 4,
+            startTime: 660,
+            endTime: 780,
+            color: "#6366f1"
+          }
+        ],
         state: {
           events: [], // Holds array of event elements
           aiCredits: null, // Tracks remaining AI credits for the user
@@ -6431,19 +5796,19 @@
          * System Core Initialization routine (Instant First Paint & Offline Ready)
          */
         init() {
-          if (window.location.pathname.startsWith('/admin-panel')) {
-            const adminApp = document.getElementById('adminPanelApp');
-            const classicApp = document.getElementById('timetableCreatorClassicApp');
-            const proApp = document.getElementById('timetableApp');
-            const switcher = document.getElementById('editionModeSwitcherBar');
-            if (adminApp) adminApp.classList.remove('hidden');
-            if (classicApp) classicApp.classList.add('hidden');
-            if (proApp) proApp.classList.add('hidden');
-            if (switcher) switcher.classList.add('hidden');
-            this.handlers.loadAdminPosts();
-            return;
+          const isStudentTool = window.location.pathname.includes('timetable-generator-online-for-students') || window.location.pathname.includes('timetable-generator');
+          if (isStudentTool) {
+            if (!localStorage.getItem('tt_classic_title')) {
+              this.state.classicTitle = 'Student Timetable Generator';
+              this.state.classicSubtitle = 'Class Schedule & Study Routine';
+            }
           }
           this.loadState();
+          if (!this.state.events || !Array.isArray(this.state.events) || this.state.events.length === 0) {
+            this.state.events = (this.defaultStarterEvents && Array.isArray(this.defaultStarterEvents))
+              ? JSON.parse(JSON.stringify(this.defaultStarterEvents))
+              : [];
+          }
           this.setupGlobalListeners();
           this.applyGeneralStyles();
           this.handlers.switchViewMode(this.state.viewMode, false);
@@ -7027,7 +6392,7 @@
             if (titleInput && this.state.classicTitle) titleInput.value = this.state.classicTitle;
             if (subtitleInput && this.state.classicSubtitle) subtitleInput.value = this.state.classicSubtitle;
 
-            if (this.handlers.setCustomDropdownValue) {
+            if (this.handlers && this.handlers.setCustomDropdownValue) {
               this.handlers.setCustomDropdownValue('classicConfigDays', activeDaysCount, 'wrap_classicConfigDays');
               this.handlers.setCustomDropdownValue('classicConfigStart', startTime, 'wrap_classicConfigStart');
               this.handlers.setCustomDropdownValue('classicConfigEnd', endTime, 'wrap_classicConfigEnd');
@@ -7037,7 +6402,7 @@
             }
 
             // Update stats strip in classic ribbon
-            const validEvents = this.state.events.filter(evt => evt.day < activeDaysCount);
+            const validEvents = (this.state.events || []).filter(evt => evt.day < activeDaysCount);
             const totalMinutes = validEvents.reduce((acc, evt) => {
               const dur = Math.max(0, (evt.endTime || 0) - (evt.startTime || 0));
               return acc + dur;
@@ -7068,7 +6433,7 @@
               const timeLabel = this.formatMinute(slotMin);
               html += `<tr><td class="classic-td-time">${timeLabel}</td>`;
               for (let d = 0; d < activeDaysCount; d++) {
-                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
+                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" oncontextmenu="app.handlers.showEmptyCellContext(event, ${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
                   <svg class="classic-cell-add-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"></path></svg>
                 </td>`;
               }
@@ -7107,19 +6472,34 @@
                 app.handlers.openClassicEditModal(evt);
               };
 
+              eventCard.oncontextmenu = (e) => {
+                app.handlers.showEventContext(e, evt);
+              };
+
               const timeBadge = `${this.formatMinute(evt.startTime)} - ${this.formatMinute(evt.endTime)}`;
 
               eventCard.innerHTML = `
                 <div class="classic-event-title-line">
                   <span class="classic-event-title" title="${this.escapeHtml(evt.title)}">${this.escapeHtml(evt.title)}</span>
                   <div class="classic-event-tools">
-                    <button class="classic-evt-btn" title="Edit" onclick="event.stopPropagation(); app.handlers.openClassicEditModal(app.state.events.find(x => x.id === '${evt.id}'))">
+                    <button class="classic-evt-btn" title="Add activity next" onclick="event.stopPropagation(); app.handlers.openClassicAddModal(${evt.day}, ${evt.endTime})">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <button class="classic-evt-btn" title="Edit activity" onclick="event.stopPropagation(); app.handlers.openClassicEditModal(app.state.events.find(x => x.id === '${evt.id}'))">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     </button>
-                    <button class="classic-evt-btn" title="Duplicate" onclick="event.stopPropagation(); app.duplicateEvent('${evt.id}')">
+                    <button class="classic-evt-btn" title="Copy (Ctrl+C)" onclick="event.stopPropagation(); app.copyEvent('${evt.id}')">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
-                    <button class="classic-evt-btn" title="Delete" onclick="event.stopPropagation(); app.deleteEvent('${evt.id}')">
+                    <button class="classic-evt-btn" title="Duplicate activity" onclick="event.stopPropagation(); app.duplicateEvent('${evt.id}')">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"></path></svg>
+                    </button>
+                    ${this.state.clipboard ? `
+                    <button class="classic-evt-btn" title="Paste activity after this" onclick="event.stopPropagation(); app.pasteEvent(${evt.day}, ${evt.endTime})">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                    </button>
+                    ` : ''}
+                    <button class="classic-evt-btn" title="Delete activity" onclick="event.stopPropagation(); app.deleteEvent('${evt.id}')">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                     </button>
                   </div>
@@ -7137,7 +6517,6 @@
             console.error('Error rendering Classic Timetable grid:', err);
           }
         },
-
         renderGridStructure() {
           try {
             const daysRow = document.getElementById('gridHeaderRow');
@@ -7849,434 +7228,6 @@
          * Direct Handlers hooks for DOM buttons callbacks
          */
         handlers: {
-          allAdminPosts: [],
-          adminCurrentCategory: 'all',
-          adminSearchQuery: '',
-
-          loadAdminPosts() {
-            fetch('/api/admin/posts')
-              .then(res => res.json())
-              .then(data => {
-                if (data.success && Array.isArray(data.posts) && data.posts.length > 0) {
-                  this.allAdminPosts = data.posts;
-                  this.applyAdminFiltersAndRender();
-                } else {
-                  // Fallback: trigger sync
-                  fetch('/api/admin/sync', { method: 'POST' })
-                    .then(r => r.json())
-                    .then(syncData => {
-                      if (syncData.success && Array.isArray(syncData.posts)) {
-                        this.allAdminPosts = syncData.posts;
-                        this.applyAdminFiltersAndRender();
-                      }
-                    });
-                }
-              })
-              .catch(err => {
-                console.error('Failed to load posts', err);
-                // Fallback sync attempt
-                fetch('/api/admin/sync', { method: 'POST' })
-                  .then(r => r.json())
-                  .then(syncData => {
-                    if (syncData.success && Array.isArray(syncData.posts)) {
-                      this.allAdminPosts = syncData.posts;
-                      this.applyAdminFiltersAndRender();
-                    } else {
-                      app.showToast('Could not load posts from server', 'error');
-                    }
-                  })
-                  .catch(() => {
-                    app.showToast('Could not load posts from server', 'error');
-                  });
-              });
-          },
-
-          applyAdminFiltersAndRender() {
-            if (!this.allAdminPosts) return;
-            let list = [...this.allAdminPosts];
-            
-            if (this.adminCurrentCategory && this.adminCurrentCategory !== 'all') {
-              list = list.filter(p => (p.category || '').toLowerCase() === this.adminCurrentCategory.toLowerCase());
-            }
-
-            if (this.adminSearchQuery) {
-              const q = this.adminSearchQuery;
-              list = list.filter(p => 
-                (p.title && p.title.toLowerCase().includes(q)) ||
-                (p.slug && p.slug.toLowerCase().includes(q)) ||
-                (p.category && p.category.toLowerCase().includes(q)) ||
-                (p.author && p.author.toLowerCase().includes(q)) ||
-                (p.excerpt && p.excerpt.toLowerCase().includes(q)) ||
-                (p.content && p.content.toLowerCase().includes(q))
-              );
-            }
-
-            this.renderAdminPosts(list);
-          },
-
-          renderAdminPosts(posts) {
-            const tbody = document.getElementById('adminPostsTableBody');
-            const statTotal = document.getElementById('adminStatTotal');
-            const statPublished = document.getElementById('adminStatPublished');
-            const statDrafts = document.getElementById('adminStatDrafts');
-            const statCategories = document.getElementById('adminStatCategories');
-
-            const allPosts = this.allAdminPosts || [];
-            if (statTotal) statTotal.textContent = allPosts.length;
-            if (statPublished) statPublished.textContent = allPosts.filter(p => p.status === 'Published').length;
-            if (statDrafts) statDrafts.textContent = allPosts.filter(p => p.status === 'Draft').length;
-            if (statCategories) statCategories.textContent = new Set(allPosts.map(p => p.category || 'General')).size;
-
-            if (!tbody) return;
-            if (!posts || posts.length === 0) {
-              tbody.innerHTML = `<tr><td colspan="6" style="padding: 40px 20px; text-align: center; color: var(--text-muted);"><div style="font-size: 15px; font-weight: 500; margin-bottom: 4px;">No posts match your filters</div><div style="font-size: 12.5px;">Click "Add New Post" or reset search to see content.</div></td></tr>`;
-              return;
-            }
-
-            tbody.innerHTML = posts.map(p => `
-              <tr style="border-bottom: 1px solid var(--border-color); transition: background 0.15s ease;" onmouseover="this.style.background='var(--bg-panel)'" onmouseout="this.style.background='transparent'">
-                <td style="padding: 14px 22px;">
-                  <div style="font-weight: 600; color: var(--text-main); margin-bottom: 3px; font-size: 14px;">${app.escapeHtml(p.title)}</div>
-                  <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted);">
-                    <span style="font-family: monospace; color: #6366f1;">/blog/${app.escapeHtml(p.slug)}/</span>
-                    ${p.excerpt ? `<span style="color: var(--text-muted); opacity: 0.75;">• ${app.escapeHtml(p.excerpt.substring(0, 55))}${p.excerpt.length > 55 ? '...' : ''}</span>` : ''}
-                  </div>
-                </td>
-                <td style="padding: 14px 16px;">
-                  <span style="display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; background: rgba(99, 102, 241, 0.1); color: #6366f1;">${app.escapeHtml(p.category || 'General')}</span>
-                </td>
-                <td style="padding: 14px 16px; color: var(--text-main); font-size: 13px;">
-                  <div style="font-weight: 500;">${app.escapeHtml(p.author || 'Timetable Team')}</div>
-                  <div style="font-size: 11.5px; color: var(--text-muted);">${app.escapeHtml(p.readTime || '5 Min Read')}</div>
-                </td>
-                <td style="padding: 14px 16px;">
-                  <button onclick="app.handlers.toggleAdminPostStatus('${p.id}')" title="Click to toggle status" style="background: none; border: none; cursor: pointer; padding: 0;">
-                    <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; background: ${p.status === 'Published' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(245, 158, 11, 0.1)'}; color: ${p.status === 'Published' ? '#10b981' : '#f59e0b'};">
-                      <span style="width: 6px; height: 6px; border-radius: 50%; background: ${p.status === 'Published' ? '#10b981' : '#f59e0b'};"></span>
-                      ${p.status || 'Published'}
-                    </span>
-                  </button>
-                </td>
-                <td style="padding: 14px 16px; color: var(--text-muted); font-size: 12px;">${app.escapeHtml(p.updatedAt || 'Recently')}</td>
-                <td style="padding: 14px 22px; text-align: right; white-space: nowrap;">
-                  <div style="display: inline-flex; gap: 6px; align-items: center;">
-                    <button onclick="app.handlers.openAdminEditModal('${p.id}')" class="classic-icon-btn" style="padding: 6px 12px; font-size: 12px;" title="Edit Post">
-                      <svg width="12" height="12" fill="none" stroke="#673de6" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                      <span>Edit</span>
-                    </button>
-                    <button onclick="app.handlers.duplicateAdminPost('${p.id}')" class="classic-icon-btn" style="padding: 6px 10px; font-size: 12px;" title="Duplicate as Draft">
-                      <svg width="12" height="12" fill="none" stroke="#0284c7" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
-                    </button>
-                    <button onclick="app.handlers.openAdminDeleteModal('${p.id}')" class="classic-icon-btn" style="padding: 6px 10px; font-size: 12px; border-color: rgba(239, 68, 68, 0.4); color: #ef4444;" title="Delete Post">
-                      <svg width="12" height="12" fill="none" stroke="#ef4444" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            `).join('');
-          },
-
-          filterAdminCategory(cat) {
-            this.adminCurrentCategory = cat;
-            const pills = document.querySelectorAll('#adminCategoryPills .admin-filter-pill');
-            pills.forEach(p => {
-              if (p.getAttribute('data-cat') === cat) {
-                p.classList.add('active');
-              } else {
-                p.classList.remove('active');
-              }
-            });
-            this.applyAdminFiltersAndRender();
-          },
-
-          filterAdminPosts(query) {
-            this.adminSearchQuery = (query || '').toLowerCase().trim();
-            this.applyAdminFiltersAndRender();
-          },
-
-          onAdminTitleInput(title) {
-            const idEl = document.getElementById('adminPostId');
-            if (!idEl || !idEl.value) {
-              const slugEl = document.getElementById('adminPostSlug');
-              if (slugEl) {
-                slugEl.value = title.toLowerCase()
-                  .replace(/[^a-z0-9]+/g, '-')
-                  .replace(/^-+|-+$/g, '');
-              }
-            }
-          },
-
-          insertAdminFormatting(prefix, suffix = '') {
-            const textarea = document.getElementById('adminPostContent');
-            if (!textarea) return;
-            const start = textarea.selectionStart;
-            const end = textarea.selectionEnd;
-            const text = textarea.value;
-            const selected = text.substring(start, end);
-            const replacement = prefix + (selected || 'text') + suffix;
-            textarea.value = text.substring(0, start) + replacement + text.substring(end);
-            textarea.focus();
-            textarea.setSelectionRange(start + prefix.length, start + prefix.length + (selected ? selected.length : 4));
-          },
-
-          openAdminEditModal(postId = null) {
-            const modal = document.getElementById('adminPostModal');
-            const titleEl = document.getElementById('adminModalTitle');
-            const idEl = document.getElementById('adminPostId');
-            const titleInput = document.getElementById('adminPostTitle');
-            const slugInput = document.getElementById('adminPostSlug');
-            const catInput = document.getElementById('adminPostCategory');
-            const statusInput = document.getElementById('adminPostStatus');
-            const authorInput = document.getElementById('adminPostAuthor');
-            const readTimeInput = document.getElementById('adminPostReadTime');
-            const excerptInput = document.getElementById('adminPostExcerpt');
-            const contentInput = document.getElementById('adminPostContent');
-
-            if (postId && this.allAdminPosts) {
-              const post = this.allAdminPosts.find(p => p.id === postId);
-              if (post) {
-                if (titleEl) titleEl.textContent = 'Edit Article: ' + post.title;
-                if (idEl) idEl.value = post.id;
-                if (titleInput) titleInput.value = post.title || '';
-                if (slugInput) slugInput.value = post.slug || '';
-                if (catInput) catInput.value = post.category || '';
-                this.setCustomDropdownValue('adminPostStatus', post.status || 'Published', 'wrap_adminPostStatus');
-                if (authorInput) authorInput.value = post.author || '';
-                if (readTimeInput) readTimeInput.value = post.readTime || '';
-                if (excerptInput) excerptInput.value = post.excerpt || '';
-                if (contentInput) contentInput.value = post.content || '';
-              }
-            } else {
-              if (titleEl) titleEl.textContent = 'Add New Article / Post';
-              if (idEl) idEl.value = '';
-              if (titleInput) titleInput.value = '';
-              if (slugInput) slugInput.value = '';
-              if (catInput) catInput.value = 'Expert Guide';
-              this.setCustomDropdownValue('adminPostStatus', 'Published', 'wrap_adminPostStatus');
-              if (authorInput) authorInput.value = 'Dr. Anand Verma';
-              if (readTimeInput) readTimeInput.value = '8 Min Read';
-              if (excerptInput) excerptInput.value = '';
-              if (contentInput) contentInput.value = '';
-            }
-            if (modal) modal.classList.remove('hidden');
-          },
-
-          closeAdminModal() {
-            const modal = document.getElementById('adminPostModal');
-            if (modal) modal.classList.add('hidden');
-          },
-
-          saveAdminPost(e) {
-            e.preventDefault();
-            const id = document.getElementById('adminPostId').value;
-            const rawTitle = document.getElementById('adminPostTitle').value.trim();
-            const rawSlug = document.getElementById('adminPostSlug').value.trim() || rawTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-
-            const payload = {
-              title: rawTitle,
-              slug: rawSlug,
-              category: document.getElementById('adminPostCategory').value.trim() || 'General',
-              status: document.getElementById('adminPostStatus').value || 'Published',
-              author: document.getElementById('adminPostAuthor').value.trim() || 'Timetable Creator Team',
-              readTime: document.getElementById('adminPostReadTime').value.trim() || '5 Min Read',
-              excerpt: document.getElementById('adminPostExcerpt').value.trim(),
-              content: document.getElementById('adminPostContent').value.trim()
-            };
-
-            const url = id ? `/api/admin/posts/${id}` : '/api/admin/posts';
-            const method = id ? 'PUT' : 'POST';
-
-            fetch(url, {
-              method,
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload)
-            })
-              .then(res => res.json())
-              .then(data => {
-                if (data.success) {
-                  this.closeAdminModal();
-                  this.loadAdminPosts();
-                  app.showToast(id ? 'Post updated successfully!' : 'Post published successfully!', 'success');
-                } else {
-                  app.showToast(data.message || 'Error saving post', 'error');
-                }
-              })
-              .catch(err => {
-                console.error(err);
-                app.showToast('Network error saving post', 'error');
-              });
-          },
-
-          openAdminDeleteModal(id) {
-            if (!this.allAdminPosts) return;
-            const post = this.allAdminPosts.find(p => p.id === id);
-            if (!post) return;
-
-            const modal = document.getElementById('adminDeleteModal');
-            const titleEl = document.getElementById('adminDeletePostTitle');
-            const idInput = document.getElementById('adminDeletePostId');
-
-            if (titleEl) titleEl.textContent = `"${post.title}"`;
-            if (idInput) idInput.value = id;
-            if (modal) modal.classList.remove('hidden');
-          },
-
-          closeAdminDeleteModal() {
-            const modal = document.getElementById('adminDeleteModal');
-            if (modal) modal.classList.add('hidden');
-          },
-
-          confirmAdminDeletePost() {
-            const id = document.getElementById('adminDeletePostId').value;
-            if (!id) return;
-
-            fetch(`/api/admin/posts/${id}`, { method: 'DELETE' })
-              .then(res => res.json())
-              .then(data => {
-                if (data.success) {
-                  this.closeAdminDeleteModal();
-                  this.loadAdminPosts();
-                  app.showToast('Post removed successfully', 'success');
-                } else {
-                  app.showToast(data.message || 'Error deleting post', 'error');
-                }
-              })
-              .catch(err => {
-                console.error(err);
-                app.showToast('Network error deleting post', 'error');
-              });
-          },
-
-          toggleAdminPostStatus(id) {
-            if (!this.allAdminPosts) return;
-            const post = this.allAdminPosts.find(p => p.id === id);
-            if (!post) return;
-
-            const newStatus = post.status === 'Published' ? 'Draft' : 'Published';
-            const payload = { ...post, status: newStatus };
-
-            fetch(`/api/admin/posts/${id}`, {
-              method: 'PUT',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload)
-            })
-              .then(res => res.json())
-              .then(data => {
-                if (data.success) {
-                  post.status = newStatus;
-                  this.applyAdminFiltersAndRender();
-                  app.showToast(`Post status changed to ${newStatus}`, 'success');
-                } else {
-                  app.showToast('Failed to update status', 'error');
-                }
-              })
-              .catch(err => {
-                console.error(err);
-                app.showToast('Network error updating status', 'error');
-              });
-          },
-
-          duplicateAdminPost(id) {
-            if (!this.allAdminPosts) return;
-            const original = this.allAdminPosts.find(p => p.id === id);
-            if (!original) return;
-
-            const payload = {
-              title: `${original.title} (Copy)`,
-              slug: `${original.slug}-copy-${Date.now().toString().slice(-4)}`,
-              category: original.category || 'General',
-              status: 'Draft',
-              author: original.author || 'Admin',
-              readTime: original.readTime || '5 Min Read',
-              excerpt: original.excerpt || '',
-              content: original.content || ''
-            };
-
-            fetch('/api/admin/posts', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload)
-            })
-              .then(res => res.json())
-              .then(data => {
-                if (data.success) {
-                  this.loadAdminPosts();
-                  app.showToast('Post duplicated as draft!', 'success');
-                } else {
-                  app.showToast('Failed to duplicate post', 'error');
-                }
-              })
-              .catch(err => {
-                console.error(err);
-                app.showToast('Network error while duplicating', 'error');
-              });
-          },
-
-          exportPostsJson() {
-            if (!this.allAdminPosts || this.allAdminPosts.length === 0) {
-              app.showToast('No posts available to export', 'warning');
-              return;
-            }
-            const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.allAdminPosts, null, 2));
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.setAttribute('href', dataStr);
-            downloadAnchor.setAttribute('download', `timetablecreator-posts-backup-${new Date().toISOString().slice(0, 10)}.json`);
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            downloadAnchor.remove();
-            app.showToast('Backup JSON exported successfully!', 'success');
-          },
-
-          importPostsJson(event) {
-            const file = event.target.files && event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = async (e) => {
-              try {
-                const posts = JSON.parse(e.target.result);
-                if (!Array.isArray(posts)) {
-                  app.showToast('Invalid JSON format (expected array of posts)', 'error');
-                  return;
-                }
-
-                app.showToast(`Importing ${posts.length} posts...`, 'info');
-                let successCount = 0;
-
-                for (const p of posts) {
-                  try {
-                    const res = await fetch('/api/admin/posts', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({
-                        title: p.title || 'Untitled Post',
-                        slug: p.slug || 'imported-post-' + Date.now(),
-                        category: p.category || 'General',
-                        status: p.status || 'Published',
-                        author: p.author || 'Admin',
-                        readTime: p.readTime || '5 Min Read',
-                        excerpt: p.excerpt || '',
-                        content: p.content || ''
-                      })
-                    });
-                    const json = await res.json();
-                    if (json.success) successCount++;
-                  } catch (err) {
-                    console.error('Import error for item', p, err);
-                  }
-                }
-
-                this.loadAdminPosts();
-                app.showToast(`Successfully imported ${successCount} posts!`, 'success');
-              } catch (err) {
-                console.error(err);
-                app.showToast('Failed to parse JSON file', 'error');
-              } finally {
-                event.target.value = '';
-              }
-            };
-            reader.readAsText(file);
-          },
           async aiGenerateSchedule(merge = true) {
             const promptEl = document.getElementById('aiPrompt');
             const prompt = promptEl.value.trim();
@@ -8453,79 +7404,40 @@
           // ==========================================
           // WORKSPACE EDITION VIEW SWITCHER HANDLERS
           // ==========================================
-          switchViewMode(mode, showNotification = true) {
-            const normalizedMode = (mode === 'classic' ? 'classic' : 'pro');
-            const proContainer = document.getElementById('timetableApp');
+          switchViewMode(mode, showNotification = false) {
             const classicContainer = document.getElementById('timetableCreatorClassicApp');
-            const btnPro = document.getElementById('btnSwitchPro');
-            const btnClassic = document.getElementById('btnSwitchClassic');
             const linkClassic = document.getElementById('linkSwitchClassic');
             const linkPro = document.getElementById('linkSwitchPro');
 
-            app.state.viewMode = normalizedMode;
-            localStorage.setItem('tt_view_mode', normalizedMode);
+            app.state.viewMode = 'classic';
+            localStorage.setItem('tt_view_mode', 'classic');
+            document.body.classList.add('classic-mode-active');
+            document.body.classList.remove('pro-mode-active');
 
-            if (normalizedMode === 'classic') {
-              document.body.classList.add('classic-mode-active');
-              document.body.classList.remove('pro-mode-active');
+            const isStudent = window.location.pathname.includes('timetable-generator-online-for-students') || window.location.pathname.includes('timetable-generator');
 
-              if (btnClassic) {
-                btnClassic.classList.add('active');
-                btnClassic.setAttribute('aria-selected', 'true');
-              }
-              if (btnPro) {
-                btnPro.classList.remove('active');
-                btnPro.setAttribute('aria-selected', 'false');
-              }
-              if (linkClassic) {
+            if (linkClassic) {
+              if (!isStudent) {
                 linkClassic.classList.add('active');
                 linkClassic.setAttribute('aria-selected', 'true');
-              }
-              if (linkPro) {
-                linkPro.classList.remove('active');
-                linkPro.setAttribute('aria-selected', 'false');
-              }
-
-              if (proContainer) proContainer.style.display = 'none';
-              if (classicContainer) {
-                classicContainer.style.display = 'flex';
-                classicContainer.classList.add('active-view');
-              }
-
-              if (showNotification) {
-                app.showToast('Switched to TimetableCreator.com Classic Clone', 'info');
-              }
-            } else {
-              // Pro Studio Edition
-              document.body.classList.add('pro-mode-active');
-              document.body.classList.remove('classic-mode-active');
-
-              if (btnPro) {
-                btnPro.classList.add('active');
-                btnPro.setAttribute('aria-selected', 'true');
-              }
-              if (btnClassic) {
-                btnClassic.classList.remove('active');
-                btnClassic.setAttribute('aria-selected', 'false');
-              }
-              if (linkPro) {
-                linkPro.classList.add('active');
-                linkPro.setAttribute('aria-selected', 'true');
-              }
-              if (linkClassic) {
+              } else {
                 linkClassic.classList.remove('active');
                 linkClassic.setAttribute('aria-selected', 'false');
               }
-
-              if (classicContainer) {
-                classicContainer.style.display = 'none';
-                classicContainer.classList.remove('active-view');
+            }
+            if (linkPro) {
+              if (isStudent) {
+                linkPro.classList.add('active');
+                linkPro.setAttribute('aria-selected', 'true');
+              } else {
+                linkPro.classList.remove('active');
+                linkPro.setAttribute('aria-selected', 'false');
               }
-              if (proContainer) proContainer.style.display = 'flex';
+            }
 
-              if (showNotification) {
-                app.showToast('Switched to Pro Studio Edition', 'info');
-              }
+            if (classicContainer) {
+              classicContainer.style.display = 'flex';
+              classicContainer.classList.add('active-view');
             }
 
             app.render();
@@ -9201,27 +8113,159 @@
             app.render();
           },
 
+          
+          showEventContext(e, evt) {
+            if (!evt) return;
+            e.preventDefault();
+            e.stopPropagation();
+            app.state.ctxSelectedEventId = evt.id;
+            app.state.ctxSelectedDay = evt.day;
+            app.state.ctxSelectedTime = evt.endTime;
+            const menu = document.getElementById('ctxMenu');
+            if (!menu) return;
+
+            const eventActions = document.getElementById('ctxEventActions');
+            const cellActions = document.getElementById('ctxCellActions');
+            if (eventActions) eventActions.style.display = 'block';
+            if (cellActions) cellActions.style.display = 'none';
+
+            const pasteItem = document.getElementById('ctxPasteItem');
+            if (pasteItem) {
+              pasteItem.style.opacity = app.state.clipboard ? '1' : '0.5';
+              pasteItem.style.pointerEvents = app.state.clipboard ? 'auto' : 'none';
+            }
+
+            menu.style.display = 'block';
+            const menuWidth = 190;
+            const menuHeight = 260;
+            const x = (e.clientX + menuWidth > window.innerWidth) ? (window.innerWidth - menuWidth - 12) : e.clientX;
+            const y = (e.clientY + menuHeight > window.innerHeight) ? (window.innerHeight - menuHeight - 12) : e.clientY;
+            menu.style.left = `${Math.max(10, x)}px`;
+            menu.style.top = `${Math.max(10, y)}px`;
+          },
+
+          showEmptyCellContext(e, day, slotMin) {
+            e.preventDefault();
+            e.stopPropagation();
+            app.state.ctxSelectedEventId = null;
+            app.state.ctxSelectedDay = day;
+            app.state.ctxSelectedTime = slotMin;
+            const menu = document.getElementById('ctxMenu');
+            if (!menu) return;
+
+            const eventActions = document.getElementById('ctxEventActions');
+            const cellActions = document.getElementById('ctxCellActions');
+            if (eventActions) eventActions.style.display = 'none';
+            if (cellActions) cellActions.style.display = 'block';
+
+            const cellPasteItem = document.getElementById('ctxCellPasteItem');
+            if (cellPasteItem) {
+              cellPasteItem.style.opacity = app.state.clipboard ? '1' : '0.5';
+              cellPasteItem.style.pointerEvents = app.state.clipboard ? 'auto' : 'none';
+            }
+
+            menu.style.display = 'block';
+            const menuWidth = 190;
+            const menuHeight = 110;
+            const x = (e.clientX + menuWidth > window.innerWidth) ? (window.innerWidth - menuWidth - 12) : e.clientX;
+            const y = (e.clientY + menuHeight > window.innerHeight) ? (window.innerHeight - menuHeight - 12) : e.clientY;
+            menu.style.left = `${Math.max(10, x)}px`;
+            menu.style.top = `${Math.max(10, y)}px`;
+          },
+
           contextEdit() {
             const id = app.state.ctxSelectedEventId;
             const item = app.state.events.find(evt => evt.id === id);
-            if (item) app.handlers.openEditEventModal(item);
+            if (item) app.handlers.openClassicEditModal(item);
+            const menu = document.getElementById('ctxMenu');
+            if (menu) menu.style.display = 'none';
+          },
+
+          contextAddAfter() {
+            if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
+              app.handlers.openClassicAddModal(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
+            }
+            const menu = document.getElementById('ctxMenu');
+            if (menu) menu.style.display = 'none';
           },
 
           contextCopy() {
-            if (app.state.ctxSelectedEventId) app.copyEvent(app.state.ctxSelectedEventId);
-          },
-
-          contextPaste() {
-            app.pasteEvent();
+            if (app.state.ctxSelectedEventId) {
+              app.copyEvent(app.state.ctxSelectedEventId);
+            }
+            const menu = document.getElementById('ctxMenu');
+            if (menu) menu.style.display = 'none';
           },
 
           contextDuplicate() {
-            if (app.state.ctxSelectedEventId) app.duplicateEvent(app.state.ctxSelectedEventId);
+            if (app.state.ctxSelectedEventId) {
+              app.duplicateEvent(app.state.ctxSelectedEventId);
+            }
+            const menu = document.getElementById('ctxMenu');
+            if (menu) menu.style.display = 'none';
+          },
+
+          contextPaste() {
+            if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
+              app.pasteEvent(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
+            } else {
+              app.pasteEvent();
+            }
+            const menu = document.getElementById('ctxMenu');
+            if (menu) menu.style.display = 'none';
+          },
+
+          contextChangeColor(colorHex) {
+            if (app.state.ctxSelectedEventId) {
+              app.pushHistory();
+              app.state.events = app.state.events.map(evt => {
+                if (evt.id === app.state.ctxSelectedEventId) {
+                  return { ...evt, color: colorHex };
+                }
+                return evt;
+              });
+              if (app.state.config.autoSave) app.saveState();
+              app.render();
+              app.showToast('Color updated', 'success');
+            }
+            const menu = document.getElementById('ctxMenu');
+            if (menu) menu.style.display = 'none';
           },
 
           contextDelete() {
-            if (app.state.ctxSelectedEventId) app.deleteEvent(app.state.ctxSelectedEventId);
+            if (app.state.ctxSelectedEventId) {
+              app.deleteEvent(app.state.ctxSelectedEventId);
+            }
+            const menu = document.getElementById('ctxMenu');
+            if (menu) menu.style.display = 'none';
           },
+
+          contextAddHere() {
+            if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
+              app.handlers.openClassicAddModal(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
+            }
+            const menu = document.getElementById('ctxMenu');
+            if (menu) menu.style.display = 'none';
+          },
+
+          contextPasteHere() {
+            if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
+              app.pasteEvent(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
+            }
+            const menu = document.getElementById('ctxMenu');
+            if (menu) menu.style.display = 'none';
+          },
+
+          resetSchedule() {
+            if (confirm("Are you sure you want to clear all activities and reset your timetable?")) {
+              app.pushHistory();
+              app.state.events = [];
+              if (app.state.config.autoSave) app.saveState();
+              app.render();
+              app.showToast("Timetable reset successfully", "info");
+            }
+          },
+
 
           triggerImport() {
             document.getElementById('fileImporter').click();
@@ -9718,6 +8762,7 @@
           decodeScheduleData(encodedStr) {
             try {
               const jsonStr = decodeURIComponent(escape(atob(decodeURIComponent(encodedStr))));
+              if (!jsonStr || jsonStr === 'undefined' || jsonStr === 'null') return null;
               const minified = JSON.parse(jsonStr);
               if (!minified) return null;
               const config = {};
