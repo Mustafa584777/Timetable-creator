@@ -88,17 +88,6 @@ async function startServer() {
     res.sendFile(filePath);
   });
 
-  anonymityApp.get("/ads.txt", (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "ads.txt")
-      : path.join(process.cwd(), "public", "ads.txt");
-    if (fs.existsSync(filePath)) {
-      res.type("text/plain").sendFile(filePath);
-    } else {
-      res.type("text/plain").send("google.com, pub-6096089814528631, DIRECT, f08c47fec0942fa0\n");
-    }
-  });
-
   // Serve all static files in public folder
   anonymityApp.use(express.static(path.join(process.cwd(), "public")));
 

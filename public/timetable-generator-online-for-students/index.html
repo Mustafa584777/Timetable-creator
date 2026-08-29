@@ -31,8 +31,8 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Timetable Generator Online - Free Class & Study Timetable Maker</title>
-    <meta name="description" content="Create student schedules, university lecture routines, revision planners, and class timetables easily with the free online student timetable maker. Instant PDF & PNG export." />
+    <title>Timetable Creator Pro - Free Online Class Schedule Generator</title>
+    <meta name="description" content="Create school routines, study planners, and class schedules easily with the free online timetable maker. AI-powered, cloud-synchronized, with instant PDF & PNG exports." />
     
     <!-- High Performance Optimized Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,17 +54,15 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Timetable Creator Pro - Free Online Class Schedule Generator" />
     <meta property="twitter:description" content="Create school routines, study planners, and class schedules easily with the free online timetable maker. AI-powered, cloud-synchronized." />
-    <link rel="canonical" href="https://timetablecreator.online/timetable-generator-online-for-students/" />
-    <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/timetable-generator-online-for-students/" />
-    <link rel="alternate" hreflang="en" href="https://timetablecreator.online/timetable-generator-online-for-students/" />
-    <link rel="alternate" hreflang="es" href="https://timetablecreator.online/timetable-generator-online-for-students/?lang=es" />
-    <link rel="alternate" hreflang="fr" href="https://timetablecreator.online/timetable-generator-online-for-students/?lang=fr" />
-    <link rel="alternate" hreflang="de" href="https://timetablecreator.online/timetable-generator-online-for-students/?lang=de" />
-    <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/timetable-generator-online-for-students/?lang=ru" />
-    <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/timetable-generator-online-for-students/?lang=ar" />
-    <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/timetable-generator-online-for-students/?lang=hi" />
-    <link rel="alternate" hreflang="zh" href="https://timetablecreator.online/timetable-generator-online-for-students/?lang=zh-CN" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://timetablecreator.online/timetable-generator-online-for-students/?lang=zh-CN" />
+    <link rel="canonical" href="https://timetablecreator.online/" />
+    <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
+    <link rel="alternate" hreflang="en" href="https://timetablecreator.online/" />
+    <link rel="alternate" hreflang="es" href="https://timetablecreator.online/?lang=es" />
+    <link rel="alternate" hreflang="fr" href="https://timetablecreator.online/?lang=fr" />
+    <link rel="alternate" hreflang="de" href="https://timetablecreator.online/?lang=de" />
+    <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/?lang=ru" />
+    <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/?lang=ar" />
+    <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/?lang=hi" />
 
     <!-- FAQPage Schema Markup for SEO -->
     <script type="application/ld+json">
@@ -4159,16 +4157,8 @@
       }
 
       @media (max-width: 768px) {
-        :root {
-          --classic-zoom: 0.67;
-          --zoom-level: 0.67;
-        }
         .classic-tt-app {
-          zoom: 0.67;
           padding: 10px 10px 110px 10px;
-        }
-        .app-container {
-          zoom: 0.67;
         }
         .edition-mode-switcher-bar {
           top: 50px;
@@ -4667,7 +4657,6 @@
               <button class="lang-dropdown-item" onclick="changeLanguage('ru')">Русский</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('ar')">العربية</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('zh-CN')">中文 (Mandarin)</button>
             </div>
           </div>
 
@@ -4776,10 +4765,10 @@
           <!-- Schedule Title & Subtitle Direct Editable Area -->
           <div class="classic-schedule-meta-box">
             <div class="classic-title-edit-wrap">
-              <input type="text" id="classicTtTitle" class="classic-title-input" value="Student Timetable Generator" placeholder="Timetable Title..." onchange="app.handlers.updateClassicTitle(this.value)" aria-label="Timetable Title">
+              <input type="text" id="classicTtTitle" class="classic-title-input" value="My Weekly Timetable" placeholder="Timetable Title..." onchange="app.handlers.updateClassicTitle(this.value)" aria-label="Timetable Title">
               <svg class="classic-edit-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
             </div>
-            <input type="text" id="classicTtSubtitle" class="classic-subtitle-input" value="Class Schedule & Study Routine" placeholder="Optional Subtitle or Semester..." onchange="app.handlers.updateClassicSubtitle(this.value)" aria-label="Timetable Subtitle">
+            <input type="text" id="classicTtSubtitle" class="classic-subtitle-input" value="Class & Activity Schedule" placeholder="Optional Subtitle or Semester..." onchange="app.handlers.updateClassicSubtitle(this.value)" aria-label="Timetable Subtitle">
           </div>
 
           <!-- Header Quick Actions -->
@@ -5504,569 +5493,6 @@
           </div>
 
           <!-- === SEO LANDING SECTION === -->
-          <!-- === STUDENT TIMETABLE GENERATOR SEO LANDING SECTION === -->
-          <div class="seo-landing-container" id="about">
-            <!-- HERO SECTION -->
-            <section class="seo-hero">
-              <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(16,185,129,0.12); color:#059669; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:600; margin-bottom:12px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"></path></svg>
-                <span>Free Student Schedule & Study Planner Maker</span>
-              </div>
-              <h1 class="seo-h1">Student Timetable Generator Online – Free Class & Study Routine Maker</h1>
-              <p>
-                Effortlessly build, customize, and print color-coded class schedules, university lecture routines, homework blocks, and exam revision planners. Designed for college students, high schools, teachers, and study circles.
-              </p>
-              <button class="seo-btn-cta" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path></svg>
-                Start Creating Your Student Timetable
-              </button>
-            </section>
-
-            <!-- KEY BENEFITS SECTION -->
-            <section class="seo-benefits">
-              <div class="seo-section-title">
-                <h2>Why Students & Schools Love Our Timetable Creator</h2>
-                <p>Engineered to solve academic scheduling complexities, avoid overlapping classes, and maximize study productivity.</p>
-              </div>
-              <div class="seo-grid-benefits">
-                <div class="seo-benefit-card">
-                  <div class="seo-card-icon" style="color: #3b82f6;">
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"></path></svg>
-                  </div>
-                  <h3>Color-Coded Subject Visuals</h3>
-                  <p>Assign dedicated colors to Calculus, Chemistry Lab, Literature, and Seminars so you can instantly recognize your day's sequence at a glance.</p>
-                </div>
-                <div class="seo-benefit-card">
-                  <div class="seo-card-icon" style="color: #10b981;">
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                  </div>
-                  <h3>Smart AI Syllabus Scheduler</h3>
-                  <p>Paste your semester course syllabus or class hours. Our AI copilot automatically structures and fills your weekly timetable in seconds.</p>
-                </div>
-                <div class="seo-benefit-card">
-                  <div class="seo-card-icon" style="color: #8b5cf6;">
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                  </div>
-                  <h3>Vector PDF & Lockscreen PNG</h3>
-                  <p>Export crisp, print-ready PDF documents for study binders or download high-resolution images tailored for your smartphone lock screen.</p>
-                </div>
-                <div class="seo-benefit-card">
-                  <div class="seo-card-icon" style="color: #f59e0b;">
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  </div>
-                  <h3>Custom Period Intervals</h3>
-                  <p>Select time intervals from 15 to 60 minutes. Perfect for standard 45-minute high school periods or 90-minute college lectures.</p>
-                </div>
-                <div class="seo-benefit-card">
-                  <div class="seo-card-icon" style="color: #06b6d4;">
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                  </div>
-                  <h3>Flexible 5, 6, or 7-Day Grids</h3>
-                  <p>Easily toggle between standard 5-day school weeks, 6-day coaching timetables, or full 7-day college and revision schedules.</p>
-                </div>
-                <div class="seo-benefit-card">
-                  <div class="seo-card-icon" style="color: #ec4899;">
-                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                  </div>
-                  <h3>Study Group Sharing & Sync</h3>
-                  <p>Generate shareable links or QR codes so study group partners, roommates, and classmates can coordinate lecture and study times.</p>
-                </div>
-              </div>
-            </section>
-
-            <div class="seo-divider"></div>
-
-            <!-- HOW IT WORKS SECTION -->
-            <section class="seo-how-it-works">
-              <div class="seo-section-title">
-                <h2>How to Create Your Student Timetable in 4 Steps</h2>
-                <p>Build your academic semester plan quickly and efficiently.</p>
-              </div>
-              <div class="seo-steps-container">
-                <div class="seo-step-item">
-                  <div class="seo-step-num">1</div>
-                  <div class="seo-step-content">
-                    <h3>Configure Days & Daily Hours</h3>
-                    <p>Select your active schedule days (5, 6, or 7 days) and choose start and end times that match your school or university hours.</p>
-                  </div>
-                </div>
-                <div class="seo-step-item">
-                  <div class="seo-step-num">2</div>
-                  <div class="seo-step-content">
-                    <h3>Add Classes, Labs & Instructors</h3>
-                    <p>Click on any open slot or tap the "+ Add Activity" button. Enter the course title, classroom or lab number, instructor name, and pick a custom color.</p>
-                  </div>
-                </div>
-                <div class="seo-step-item">
-                  <div class="seo-step-num">3</div>
-                  <div class="seo-step-content">
-                    <h3>Schedule Study Blocks & Homework</h3>
-                    <p>Block out dedicated study hours, library sessions, group project discussions, gym workouts, and meal breaks for a balanced lifestyle.</p>
-                  </div>
-                </div>
-                <div class="seo-step-item">
-                  <div class="seo-step-num">4</div>
-                  <div class="seo-step-content">
-                    <h3>Print PDF, Download Image or Save</h3>
-                    <p>Export a crystal-clear PDF for your desk, download a PNG image for your phone lockscreen, or save your cloud link.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <div class="seo-divider"></div>
-
-            <!-- TEMPLATES & USE CASES -->
-            <section class="seo-features">
-              <div class="seo-section-title">
-                <h2>Academic Timetable Templates</h2>
-                <p>Choose from popular pre-made templates or build your custom layout from scratch.</p>
-              </div>
-              <div class="seo-grid-benefits">
-                <div class="seo-benefit-card" style="background: var(--bg-panel); border-color: var(--border-color);">
-                  <h3>🎓 University & College Lectures</h3>
-                  <p>Ideal for semester credit hours, rotating lectures, lab practicals, professor office hours, and independent study sessions.</p>
-                </div>
-                <div class="seo-benefit-card" style="background: var(--bg-panel); border-color: var(--border-color);">
-                  <h3>🏫 High School & Secondary Routine</h3>
-                  <p>5-day standard layout featuring 45-minute subject periods, homeroom, morning assemblies, lunch breaks, and extracurricular sports.</p>
-                </div>
-                <div class="seo-benefit-card" style="background: var(--bg-panel); border-color: var(--border-color);">
-                  <h3>📚 Exam Revision & Test Prep</h3>
-                  <p>Spaced repetition study blocks, mock tests, chapter reviews, and memory reinforcement intervals for competitive exams and finals.</p>
-                </div>
-              </div>
-            </section>
-
-            <div class="seo-divider"></div>
-
-            <!-- FAQ SECTION -->
-            <section class="faq-section">
-              <div class="seo-section-title">
-                <h2>Frequently Asked Questions by Students</h2>
-                <p>Everything you need to know about generating and exporting your timetable.</p>
-              </div>
-              <div class="faq-accordion">
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                    <span>Is this Student Timetable Generator 100% free?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Yes, TimetableCreator is completely free for students, teachers, and schools. You can create unlimited timetables, use AI generation, and export vector PDFs or PNG images with zero watermarks.</p>
-                  </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                    <span>Can I export a printable PDF formatted for A4 paper?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Yes! Click the Red "PDF" button in the toolbar to instantly generate a print-ready vector PDF formatted in landscape mode for standard A4 and Letter paper.</p>
-                  </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                    <span>How do I add room numbers, professors, and subject notes?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>When you click on any grid cell or tap "+ Add Activity", the modal provides fields for Subject Title, Room / Location, Instructor / Teacher Name, Color Swatch, and Extra Notes or meeting links.</p>
-                  </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                    <span>Can I create a 5-day school week timetable?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Yes. Select "Mon - Fri (5 Days)" from the Active Days dropdown in the toolbar to automatically switch the grid to a Monday through Friday layout.</p>
-                  </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                    <span>How can I copy, duplicate, or delete activities quickly?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Hover over any activity block to reveal the quick action toolbar with Add (+), Edit (✏️), Copy (📋), Duplicate (📑), and Delete (🗑️) buttons. On desktop, you can also right-click any activity or empty slot for the context menu.</p>
-                  </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-                    <span>Does this tool work on mobile devices and tablets?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Yes, the tool is fully responsive with touch gesture support, smooth weekday scrolling, quick day-filter pills, and a floating action button on mobile.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-      </div>
-      <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
-      <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
-        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v16m8-8H4"></path></svg>
-        <span>Add Activity</span>
-      </button>
-    </div>
-
-    <!-- MAIN APP WRAPPER (PRO STUDIO) -->
-    <div class="app-container" id="timetableApp">
-      
-      <!-- Mobile Sidebar backdrop overlay drawer -->
-      <div id="sidebarOverlay" class="sidebar-overlay" onclick="app.handlers.toggleSidebar()"></div>
-      
-      <!-- LEFT SIDEBAR -->
-      <aside class="sidebar">
-        <div class="sidebar-header">
-          <!-- Mobile sidebar close button drawer -->
-          <button class="action-btn sidebar-close-btn" onclick="app.handlers.toggleSidebar()" style="margin-left: auto;" aria-label="Close Sidebar">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
-          </button>
-        </div>
-
-        <div class="sidebar-scrollable">
-          
-          <!-- Section 1: Filters -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Filter & Search</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
-            </div>
-            <div class="form-group">
-              <input type="text" id="filterSearch" class="input-ctrl" placeholder="Search title or teacher...">
-            </div>
-            <div class="form-group">
-              <input type="text" id="filterSubject" class="input-ctrl" placeholder="Filter by subject...">
-            </div>
-            <div class="form-group">
-              <input type="text" id="filterRoom" class="input-ctrl" placeholder="Filter by room...">
-            </div>
-          </div>
-
-          <!-- Section 2: Timetable Configuration -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Grid Structure</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"></path></svg>
-            </div>
-            <div class="form-group">
-              <label for="configDays">Days of Week</label>
-              <div class="custom-dropdown-wrap" id="wrap_configDays">
-                <input type="hidden" id="configDays" value="7">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configDays', event)" aria-label="Days of Week">
-                  <span class="custom-dropdown-label">Full Week (Mon - Sun)</span>
-                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('configDays', '5', 'Weekdays (Mon - Fri)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Weekdays (Mon - Fri)</div>
-                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('configDays', '6', 'Mon - Sat', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Sat</div>
-                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('configDays', '7', 'Full Week (Mon - Sun)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Full Week (Mon - Sun)</div>
-                </div>
-              </div>
-            </div>
-            <div class="flex-half">
-              <div class="form-group">
-                <label for="configStart">Start Time</label>
-                <div class="custom-dropdown-wrap" id="wrap_configStart">
-                  <input type="hidden" id="configStart" value="480">
-                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configStart', event)" aria-label="Start Time">
-                    <span class="custom-dropdown-label">08:00</span>
-                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="custom-dropdown-menu">
-                    <div class="custom-dropdown-option" data-value="360" onclick="app.handlers.onSelectCustomDropdown('configStart', '360', '06:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">06:00</div>
-                    <div class="custom-dropdown-option" data-value="420" onclick="app.handlers.onSelectCustomDropdown('configStart', '420', '07:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">07:00</div>
-                    <div class="custom-dropdown-option selected" data-value="480" onclick="app.handlers.onSelectCustomDropdown('configStart', '480', '08:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">08:00</div>
-                    <div class="custom-dropdown-option" data-value="540" onclick="app.handlers.onSelectCustomDropdown('configStart', '540', '09:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">09:00</div>
-                    <div class="custom-dropdown-option" data-value="600" onclick="app.handlers.onSelectCustomDropdown('configStart', '600', '10:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">10:00</div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="configEnd">End Time</label>
-                <div class="custom-dropdown-wrap" id="wrap_configEnd">
-                  <input type="hidden" id="configEnd" value="1140">
-                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configEnd', event)" aria-label="End Time">
-                    <span class="custom-dropdown-label">19:00</span>
-                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="custom-dropdown-menu">
-                    <div class="custom-dropdown-option" data-value="1020" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1020', '17:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">17:00</div>
-                    <div class="custom-dropdown-option" data-value="1080" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1080', '18:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">18:00</div>
-                    <div class="custom-dropdown-option selected" data-value="1140" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1140', '19:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">19:00</div>
-                    <div class="custom-dropdown-option" data-value="1200" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1200', '20:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">20:00</div>
-                    <div class="custom-dropdown-option" data-value="1260" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1260', '21:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">21:00</div>
-                    <div class="custom-dropdown-option" data-value="1320" onclick="app.handlers.onSelectCustomDropdown('configEnd', '1320', '22:00', 'wrap_configEnd', function(){ app.handlers.configChange(); })">22:00</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex-half">
-              <div class="form-group">
-                <label for="configInterval">Interval</label>
-                <div class="custom-dropdown-wrap" id="wrap_configInterval">
-                  <input type="hidden" id="configInterval" value="30">
-                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configInterval', event)" aria-label="Interval">
-                    <span class="custom-dropdown-label">30 Min</span>
-                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="custom-dropdown-menu">
-                    <div class="custom-dropdown-option" data-value="15" onclick="app.handlers.onSelectCustomDropdown('configInterval', '15', '15 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">15 Min</div>
-                    <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('configInterval', '30', '30 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">30 Min</div>
-                    <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('configInterval', '45', '45 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">45 Min</div>
-                    <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('configInterval', '60', '60 Min', 'wrap_configInterval', function(){ app.handlers.configChange(); })">60 Min</div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="configFormat">Format</label>
-                <div class="custom-dropdown-wrap" id="wrap_configFormat">
-                  <input type="hidden" id="configFormat" value="24">
-                  <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configFormat', event)" aria-label="Format">
-                    <span class="custom-dropdown-label">24-Hour</span>
-                    <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="custom-dropdown-menu">
-                    <div class="custom-dropdown-option" data-value="12" onclick="app.handlers.onSelectCustomDropdown('configFormat', '12', '12-Hour', 'wrap_configFormat', function(){ app.handlers.configChange(); })">12-Hour</div>
-                    <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('configFormat', '24', '24-Hour', 'wrap_configFormat', function(){ app.handlers.configChange(); })">24-Hour</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 3: Fine Customization -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Personalization</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 2a10 10 0 00-10 10c0 5.523 4.477 10 10 10a10 10 0 0010-10C22 6.477 17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16z"></path></svg>
-            </div>
-            <div class="form-group">
-              <label for="configTheme">Theme Palette</label>
-              <div class="custom-dropdown-wrap" id="wrap_configTheme">
-                <input type="hidden" id="configTheme" value="slate">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configTheme', event)" aria-label="Theme Palette">
-                  <span class="custom-dropdown-label">Royal Purple (Default)</span>
-                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'slate', 'Royal Purple (Default)', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🔮 Royal Purple (Default)</div>
-                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'emerald', 'Mint Emerald', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌿 Mint Emerald</div>
-                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'indigo', 'Electric Indigo', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">⚡ Electric Indigo</div>
-                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'amber', 'Coral Sunset', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌅 Coral Sunset</div>
-                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'cyberpunk', 'Neon Fuchsia', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">✨ Neon Fuchsia</div>
-                </div>
-              </div>
-            </div>
-            <div class="tuning-sliders">
-              <div class="form-group">
-                <div class="slider-label">
-                  <label for="slideRadius">Border Radius</label>
-                  <span id="radiusVal" class="stat-lbl">10px</span>
-                </div>
-                <input type="range" id="slideRadius" class="slider-input" min="0" max="24" value="10" oninput="app.handlers.adjustStyle('radius', this.value)">
-              </div>
-              <div class="form-group">
-                <div class="slider-label">
-                  <label for="slideSize">Font Size</label>
-                  <span id="fontSizeVal" class="stat-lbl">14px</span>
-                </div>
-                <input type="range" id="slideSize" class="slider-input" min="11" max="18" value="14" oninput="app.handlers.adjustStyle('fontSize', this.value)">
-              </div>
-              <div class="form-group">
-                <div class="slider-label">
-                  <label for="slideDensity">Row Density</label>
-                  <span id="densityVal" class="stat-lbl">Comfortable</span>
-                </div>
-                <input id="slideDensity" type="range" class="slider-input" min="1" max="3" value="2" oninput="app.handlers.adjustDensity(this.value)">
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 4: Metrics -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Statistics</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 20V10m-6 10V4m12 16v-8"></path></svg>
-            </div>
-            <div class="stats-grid">
-              <div class="stat-item">
-                <div id="statTotalClasses" class="stat-val">0</div>
-                <div class="stat-lbl">Classes</div>
-              </div>
-              <div class="stat-item">
-                <div id="statTotalHours" class="stat-val">0h</div>
-                <div class="stat-lbl">Total Time</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 5: Disk Operations -->
-          <div class="section-card">
-            <div class="section-title">
-              <span>Timetable Data</span>
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"></path></svg>
-            </div>
-            <div class="flex-half">
-              <button class="btn-ctrl btn-sidebar-import" onclick="app.handlers.triggerImport()">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-                Import
-              </button>
-              <button class="btn-ctrl btn-sidebar-export" onclick="app.handlers.exportJson()">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                Export
-              </button>
-            </div>
-            <input type="file" id="fileImporter" class="hidden-input" accept=".json" onchange="app.handlers.handleImport(event)">
-            <button class="btn-ctrl btn-sidebar-backup btn-primary" onclick="app.handlers.manualSave()">Manual Backup</button>
-            <button class="btn-ctrl btn-sidebar-reset" style="color: #ef4444;" onclick="app.handlers.clearAll()">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-              Standard Reset
-            </button>
-          </div>
-
-        </div>
-      </aside>
-
-      <!-- MAIN AREA CONTENTS -->
-      <main class="main-content">
-        
-        <!-- TOP TOOLBAR -->
-        <header class="top-bar">
-          <!-- Left side widgets -->
-          <div class="toolbar-group">
-            <button class="action-btn menu-toggle-btn" onclick="app.handlers.toggleSidebar()" id="btnToggleSidebar" data-tooltip="Toggle Sidebar" aria-label="Toggle Sidebar">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-            <button class="action-btn" onclick="app.handlers.undo()" id="btnUndo" data-tooltip="Undo Action (Ctrl+Z)" aria-label="Undo Action">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
-            </button>
-            <button class="action-btn" onclick="app.handlers.redo()" id="btnRedo" data-tooltip="Redo Action (Ctrl+Y)" aria-label="Redo Action">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
-            </button>
-            <div style="width: 1px; height: 24px; background-color: var(--border-color)"></div>
-            <button class="action-btn" onclick="app.handlers.zoomIn()" data-tooltip="Zoom In" aria-label="Zoom In">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m-3-3h6"></path></svg>
-            </button>
-            <button class="action-btn" onclick="app.handlers.zoomOut()" data-tooltip="Zoom Out" aria-label="Zoom Out">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM7 10h6"></path></svg>
-            </button>
-          </div>
-
-          <!-- Middle indicator information: Add Event Action -->
-          <div class="toolbar-group" style="justify-content: center;">
-            <button class="btn-ctrl btn-primary btn-add-event" onclick="app.handlers.openNewEventModal()" id="btnAddEvent" aria-label="Add Event">
-              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
-              <span>Add Event</span>
-            </button>
-          </div>
-
-          <!-- Right side tools -->
-          <div class="toolbar-group">
-            <button class="action-btn btn-labeled" onclick="app.handlers.resetSchedule()" id="btnResetSchedule" style="color: #ef4444;" data-tooltip="Reset Timetable" aria-label="Reset Timetable">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-              <span class="btn-label-text" style="color: #ef4444;">Reset</span>
-            </button>
-          </div>
-        </header>
-
-        <!-- GRID SYSTEM WORKSPACE -->
-        <div class="workspace" id="gridWorkspace" onscroll="app.handlers.handleScroll()">
-          
-          
-
-          <!-- AI Schedule Generator -->
-          <div class="section-card" id="aiGeneratorSection" style="margin-bottom: 16px; border: none; background: transparent; max-width: 100%; box-shadow: none; padding: 16px; border-radius: var(--border-radius);">
-            <div class="ai-generator-inner" style="display: flex; gap: 16px; align-items: center; width: 100%; flex-wrap: wrap;">
-              
-              <!-- Left side description -->
-              <div class="ai-generator-text" style="flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: 4px;">
-                <div class="section-title" style="margin-bottom: 0px; text-transform: uppercase;">
-                  <span style="display: flex; align-items: center; gap: 6px; color: var(--primary-color); font-weight: 700;">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14" style="color: var(--primary-color);"><path d="M9.813 15.904L9 21l-.813-5.096L3.091 15 8.187 14.1 9 9l.813 5.1 5.096.9-5.096.904zM19.006 5.005l-.5.001-.13.3-.37 1-.37-1-.13-.3-.5-.001.5-.001.13-.3.37-1 .37 1 .13.3.5.001z"></path></svg>
-                    Smart AI Assistant
-                  </span>
-                </div>
-                <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin: 0;">
-                  Describe your routine or syllabus in plain words. AI automatically schedules courses into open calendar slots.
-                </p>
-              </div>
-
-              <!-- Input text area -->
-              <div class="ai-generator-input" style="flex: 2; min-width: 320px; display: flex; align-items: center;">
-                <textarea id="aiPrompt" class="input-ctrl" rows="2" style="resize: none; font-size: 12px; margin-bottom: 0; width: 100%; height: 48px; min-height: 48px;" placeholder="e.g., Build a computer science freshman schedule with morning lectures, afternoon labs on Wed/Fri, and lunch breaks at 1:00 PM."></textarea>
-              </div>
-
-              <!-- Control buttons -->
-              <div class="ai-generator-actions" style="display: flex; gap: 8px; align-items: center; min-width: 200px; flex-shrink: 0;">
-                <button id="btnAiMerge" class="btn-ctrl" onclick="app.handlers.aiGenerateSchedule(true)" style="font-size: 11px; padding: 0 16px; margin: 0; height: 38px; display: flex; align-items: center; justify-content: center; flex: 1; white-space: nowrap;">
-                  Merge AI
-                </button>
-                <button id="btnAiOvertake" class="btn-ctrl btn-primary" onclick="app.handlers.aiGenerateSchedule(false)" style="font-size: 11px; padding: 0 16px; margin: 0; height: 38px; display: flex; align-items: center; justify-content: center; flex: 1; white-space: nowrap;">
-                  Overtake AI
-                </button>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Export, Print & Share Options Bar (Horizontal) -->
-          <div class="export-options-bar" id="exportOptionsBar">
-            <div class="export-options-title">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16" style="color: var(--primary-color);"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-              <span>Export & Share Options</span>
-            </div>
-            <div class="export-options-actions">
-              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print Timetable">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                <span>Print</span>
-              </button>
-              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" aria-label="Save as PDF">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
-                <span>Save PDF</span>
-              </button>
-              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" aria-label="Export JSON">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span>Save JSON</span>
-              </button>
-              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" aria-label="Download PNG">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <span>PNG</span>
-              </button>
-              <button class="export-btn-item export-btn-share btn-primary" onclick="app.handlers.shareSchedule()" id="btnShareSchedule" title="Share Timetable" aria-label="Share Timetable">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M8.684 10.742L15.32 7.424M15.32 16.576l-6.637-3.318M21 12a3 3 0 11-6 0 3 3 0 016 0zm-11-6a3 3 0 11-6 0 3 3 0 016 0zm0 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                <span>Share</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="timetable-scroll-container">
-            <div class="timetable-wrapper" id="printTarget">
-              
-              <!-- STICKY HEADER -->
-              <div class="grid-header-row" id="gridHeaderRow">
-                <div class="grid-corner">Time</div>
-                <!-- Day headers injected live by javascript -->
-              </div>
-
-              <!-- GRID BODY -->
-              <div class="grid-body">
-                <!-- Sticky Left Time Column -->
-                <div class="time-column" id="gridTimeColumn"></div>
-
-                <!-- Day Column Overlays -->
-                <div class="grid-columns-container" id="gridColumnsContainer">
-                  <!-- Visual absolute event cards elements injected here -->
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- === SEO LANDING SECTION === -->
           <div class="seo-landing-container" id="about">
             
             <!-- HERO SECTION with strong CTA -->
@@ -6306,6 +5732,82 @@
 
               </div>
             </section>
+
+            <!-- FOOTER WITH INTERNAL LINKS & LEGAL/COPYRIGHT -->
+            <footer class="seo-footer">
+              <div class="footer-container">
+                <div class="footer-grid">
+                  
+                  <!-- Column 1: Brand & Description -->
+                  <div class="footer-col" style="max-width: 320px;">
+                    <div class="app-brand-wrapper" style="margin-bottom: 12px;">
+                      <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#673de6"/>
+                        <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="23" cy="21" r="3" fill="#00b090"/>
+                      </svg>
+                      <div class="header-brand-line">
+                        <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
+                        <span class="app-tools-tag">CREATOR</span>
+                      </div>
+                    </div>
+                    <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
+                      Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
+                    </p>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <span style="font-size: 11px; color: #00b090; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                        <span class="pulse-dot"></span>
+                        99.9% Uptime SLA
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Column 2: Free Tools -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Product Tools</h3>
+                    <div class="footer-links-list">
+                      <a href="/" class="footer-link-item active" style="color: var(--primary-color); font-weight: 600;">Timetable Creator</a>
+                      <a href="#aiGeneratorSection" class="footer-link-item">AI Schedule Generator</a>
+                      <a href="#about" class="footer-link-item">Weekly Routine Planner</a>
+                      <a href="#exportOptionsBar" class="footer-link-item">PDF & PNG Exporter</a>
+                    </div>
+                  </div>
+
+                  <!-- Column 3: Company -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Company & Resources</h3>
+                    <div class="footer-links-list">
+                      <a href="/blog/about-us/" class="footer-link-item">About Us</a>
+                      <a href="/blog/contact-us/" class="footer-link-item">Customer Support</a>
+                      <a href="/blog/" class="footer-link-item font-semibold" style="font-weight: 600; color: var(--primary-color);">Product Blog & Tutorials</a>
+                    </div>
+                  </div>
+
+                  <!-- Column 4: Legal Terms -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Legal & Security</h3>
+                    <div class="footer-links-list">
+                      <a href="/blog/privacy-policy/" class="footer-link-item">Privacy Policy</a>
+                      <a href="/blog/terms-and-conditions/" class="footer-link-item">Terms of Service</a>
+                      <a href="/blog/refund-policy/" class="footer-link-item">Refund Policy</a>
+                      <a href="/blog/disclaimer/" class="footer-link-item">Disclaimer Notice</a>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Bottom Copyright Row -->
+                <div class="footer-copyright-row" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
+                  <p class="footer-copyright-text" style="margin: 0;">
+                    &copy; 2026 Timetable Creator. All rights reserved. Powered by High-Speed Cloud Infrastructure.
+                  </p>
+                  <div style="display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);">
+                    <span>SSL 256-Bit Secured</span>
+                    <span>GDPR Compliant</span>
+                  </div>
+                </div>
+              </div>
+            </footer>
 
           </div>
         </div>
@@ -6978,7 +6480,7 @@
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
           pageLanguage: 'en',
-          includedLanguages: 'en,es,fr,de,ru,ar,hi,zh-CN',
+          includedLanguages: 'en,es,fr,de,ru,ar,hi',
           layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
           autoDisplay: false
         }, 'google_translate_element');
@@ -7828,9 +7330,8 @@
             const endTime = parseInt(this.state.config.endTime) !== undefined ? parseInt(this.state.config.endTime) : 1140;
             const totalSlots = Math.max(1, Math.floor((endTime - startTime) / mStep));
 
-            // Synchronize zoom state (default 67% on mobile, 100% on desktop)
-            const isMobile = window.innerWidth <= 768;
-            if (!this.state.classicZoom) this.state.classicZoom = isMobile ? 0.67 : 1.0;
+            // Synchronize zoom state
+            if (!this.state.classicZoom) this.state.classicZoom = 1.0;
             const zoomValLabel = document.getElementById('classicZoomValLabel');
             if (zoomValLabel) {
               zoomValLabel.textContent = `${Math.round(this.state.classicZoom * 100)}%`;
@@ -9654,10 +9155,9 @@
           },
 
           adjustClassicZoom(delta) {
-            const isMobile = window.innerWidth <= 768;
-            const current = app.state.classicZoom || (isMobile ? 0.67 : 1.0);
-            let next = Math.round((current + delta) * 100) / 100;
-            next = Math.min(1.5, Math.max(0.4, next));
+            const current = app.state.classicZoom || 1.0;
+            let next = Math.round((current + delta) * 10) / 10;
+            next = Math.min(1.5, Math.max(0.7, next));
             app.state.classicZoom = next;
 
             const zoomValLabel = document.getElementById('classicZoomValLabel');
@@ -9665,10 +9165,6 @@
               zoomValLabel.textContent = `${Math.round(next * 100)}%`;
             }
             document.documentElement.style.setProperty('--classic-zoom', next);
-            const classicApp = document.getElementById('timetableCreatorClassicApp');
-            if (classicApp && isMobile) {
-              classicApp.style.zoom = next;
-            }
             app.showToast(`Zoom: ${Math.round(next * 100)}%`, 'info');
           },
 
@@ -11239,93 +10735,16 @@
     </style>
 
     <div class="seo-content-section">
-      <h1>Free Online Timetable Creator</h1>
-      <p>Welcome to the most versatile <strong>Timetable Creator Online</strong>. Whether you're planning your weekly routines, mapping out your work shifts, organizing workout schedules, or preparing meal plans, our simple grid-based planner gives you complete control over your time.</p>
-      <h2>Why use our Schedule Maker?</h2>
+      <h1>Student Timetable Generator Online</h1>
+      <p>Welcome to the ultimate <strong>Student Timetable Generator</strong>. Designed specifically for university students, high schoolers, and college attendees, this tool helps you organize your lectures, labs, and study sessions effortlessly.</p>
+      <h2>Perfect for Academic Success</h2>
       <ul>
-        <li><strong>Easy to Use:</strong> Intuitive drag, drop, and click interactions.</li>
-        <li><strong>Fully Customizable:</strong> Add custom colors, adjust time intervals, and select beautiful themes.</li>
-        <li><strong>Export Anywhere:</strong> Download your timetable as a high-quality PDF, PNG, or JSON to share with others.</li>
-        <li><strong>No Login Required:</strong> Start building your schedule instantly without any complicated signups.</li>
+        <li><strong>Smart Course Planning:</strong> Keep track of different subjects, professors, and classroom locations in one view.</li>
+        <li><strong>Exam Revision:</strong> Map out a structured revision timetable to ensure you cover all topics before finals.</li>
+        <li><strong>Export & Print:</strong> Easily print your schedule or save it as a PDF to keep in your binder or on your digital devices.</li>
+        <li><strong>Student Templates:</strong> Start quickly with pre-built templates for high school, college, and exam prep.</li>
       </ul>
-      <p>Take charge of your productivity today by creating a clear, visually appealing schedule that keeps you on track. Our general purpose planner is perfect for freelancers, parents, fitness enthusiasts, and professionals.</p>
+      <p>Balance your academic life, extracurriculars, and personal time. A well-organized student planner is the first step towards better grades and a stress-free semester.</p>
     </div>
-
-    <!-- UNIVERSAL FOOTER -->
-    <footer class="seo-footer" id="universalFooter">
-      <div class="footer-container">
-        <div class="footer-grid">
-          
-          <!-- Column 1: Brand & Description -->
-          <div class="footer-col" style="max-width: 320px;">
-            <div class="app-brand-wrapper" style="margin-bottom: 12px;">
-              <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" rx="8" fill="#673de6"/>
-                <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="23" cy="21" r="3" fill="#00b090"/>
-              </svg>
-              <div class="header-brand-line">
-                <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
-                <span class="app-tools-tag">CREATOR</span>
-              </div>
-            </div>
-            <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
-              Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
-            </p>
-            <div style="display: flex; gap: 8px; align-items: center;">
-              <span style="font-size: 11px; color: #00b090; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
-                <span class="pulse-dot"></span>
-                99.9% Uptime SLA
-              </span>
-            </div>
-          </div>
-
-          <!-- Column 2: Free Tools -->
-          <div class="footer-col">
-            <h3 class="footer-col-title">Product Tools</h3>
-            <div class="footer-links-list">
-              <a href="/" class="footer-link-item active" style="color: var(--primary-color); font-weight: 600;">Timetable Creator</a>
-              <a href="/timetable-generator-online-for-students/" class="footer-link-item">Student Timetable Generator</a>
-              <a href="/#aiGeneratorSection" class="footer-link-item">AI Schedule Generator</a>
-              <a href="/#about" class="footer-link-item">Weekly Routine Planner</a>
-              <a href="/#exportOptionsBar" class="footer-link-item">PDF & PNG Exporter</a>
-            </div>
-          </div>
-
-          <!-- Column 3: Company -->
-          <div class="footer-col">
-            <h3 class="footer-col-title">Company & Resources</h3>
-            <div class="footer-links-list">
-              <a href="/blog/about-us/" class="footer-link-item">About Us</a>
-              <a href="/blog/contact-us/" class="footer-link-item">Customer Support</a>
-              <a href="/blog/" class="footer-link-item font-semibold" style="font-weight: 600; color: var(--primary-color);">Product Blog & Tutorials</a>
-            </div>
-          </div>
-
-          <!-- Column 4: Legal Terms -->
-          <div class="footer-col">
-            <h3 class="footer-col-title">Legal & Security</h3>
-            <div class="footer-links-list">
-              <a href="/blog/privacy-policy/" class="footer-link-item">Privacy Policy</a>
-              <a href="/blog/terms-and-conditions/" class="footer-link-item">Terms of Service</a>
-              <a href="/blog/refund-policy/" class="footer-link-item">Refund Policy</a>
-              <a href="/blog/disclaimer/" class="footer-link-item">Disclaimer Notice</a>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Bottom Copyright Row -->
-        <div class="footer-copyright-row" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
-          <p class="footer-copyright-text" style="margin: 0;">
-            &copy; 2026 Timetable Creator. All rights reserved. Powered by High-Speed Cloud Infrastructure.
-          </p>
-          <div style="display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);">
-            <span>SSL 256-Bit Secured</span>
-            <span>GDPR Compliant</span>
-          </div>
-        </div>
-      </div>
-    </footer>
 </body>
 </html>

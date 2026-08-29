@@ -23,8 +23,6 @@
     <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/blog/about-us/?lang=ru" />
     <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/blog/about-us/?lang=ar" />
     <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/blog/about-us/?lang=hi" />
-    <link rel="alternate" hreflang="zh" href="https://timetablecreator.online/blog/about-us/?lang=zh-CN" />
-    <link rel="alternate" hreflang="zh-Hans" href="https://timetablecreator.online/blog/about-us/?lang=zh-CN" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -207,7 +205,6 @@
               <button class="lang-dropdown-item" onclick="changeLanguage('ru')">Русский</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('ar')">العربية</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('zh-CN')">中文 (Mandarin)</button>
             </div>
           </div>
         </div>
@@ -433,7 +430,7 @@
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
           pageLanguage: 'en',
-          includedLanguages: 'en,es,fr,de,ru,ar,hi,zh-CN',
+          includedLanguages: 'en,es,fr,de,ru,ar,hi',
           layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
           autoDisplay: false
         }, 'google_translate_element');
