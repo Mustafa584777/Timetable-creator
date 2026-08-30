@@ -245,42 +245,11 @@
       }
 
       /* Preset Themes Updates */
-      :root, [data-preset="slate"] { 
-        --primary-color: #673de6; --primary-glow: rgba(103, 61, 230, 0.16); --primary-hover: #5329cc;
-        --theme-accent: #673de6; --theme-header-bg: #f8f7fd; --theme-badge-bg: #673de6;
-        --evt-color-1: #673de6; --evt-color-2: #00b090; --evt-color-3: #ea580c; --evt-color-4: #2563eb; 
-        --evt-color-5: #d946ef; --evt-color-6: #06b6d4; --evt-color-7: #f59e0b; --evt-color-8: #8c52ff;
-      }
-      [data-preset="emerald"] { 
-        --primary-color: #00b090; --primary-glow: rgba(0, 176, 144, 0.16); --primary-hover: #00967b;
-        --theme-accent: #00b090; --theme-header-bg: #f0fdf9; --theme-badge-bg: #00b090;
-        --evt-color-1: #00b090; --evt-color-2: #14b8a6; --evt-color-3: #10b981; --evt-color-4: #059669; 
-        --evt-color-5: #34d399; --evt-color-6: #0d9488; --evt-color-7: #4ade80; --evt-color-8: #65a30d;
-      }
-      [data-preset="indigo"] { 
-        --primary-color: #2563eb; --primary-glow: rgba(37, 99, 235, 0.16); --primary-hover: #1d4ed8;
-        --theme-accent: #2563eb; --theme-header-bg: #eff6ff; --theme-badge-bg: #2563eb;
-        --evt-color-1: #2563eb; --evt-color-2: #3b82f6; --evt-color-3: #60a5fa; --evt-color-4: #1d4ed8; 
-        --evt-color-5: #38bdf8; --evt-color-6: #0ea5e9; --evt-color-7: #0284c7; --evt-color-8: #0369a1;
-      }
-      [data-preset="amber"] { 
-        --primary-color: #ea580c; --primary-glow: rgba(234, 88, 12, 0.16); --primary-hover: #c2410c;
-        --theme-accent: #ea580c; --theme-header-bg: #fff7ed; --theme-badge-bg: #ea580c;
-        --evt-color-1: #ea580c; --evt-color-2: #f59e0b; --evt-color-3: #fbbf24; --evt-color-4: #d97706; 
-        --evt-color-5: #f97316; --evt-color-6: #c2410c; --evt-color-7: #fcd34d; --evt-color-8: #fb923c;
-      }
-      [data-preset="cyberpunk"] { 
-        --primary-color: #d946ef; --primary-glow: rgba(217, 70, 239, 0.16); --primary-hover: #c026d3;
-        --theme-accent: #d946ef; --theme-header-bg: #fdf4ff; --theme-badge-bg: #d946ef;
-        --evt-color-1: #d946ef; --evt-color-2: #a855f7; --evt-color-3: #c026d3; --evt-color-4: #e879f9; 
-        --evt-color-5: #f472b6; --evt-color-6: #ec4899; --evt-color-7: #db2777; --evt-color-8: #8b5cf6;
-      }
-
-      .disable-resizing .excel-col-resizer,
-      .disable-resizing .excel-row-resizer {
-        display: none !important;
-        pointer-events: none !important;
-      }
+      [data-preset="slate"] { --primary-color: #673de6; --primary-glow: rgba(103, 61, 230, 0.16); }
+      [data-preset="emerald"] { --primary-color: #00b090; --primary-glow: rgba(0, 176, 144, 0.16); }
+      [data-preset="indigo"] { --primary-color: #2563eb; --primary-glow: rgba(37, 99, 235, 0.16); }
+      [data-preset="amber"] { --primary-color: #ea580c; --primary-glow: rgba(234, 88, 12, 0.16); }
+      [data-preset="cyberpunk"] { --primary-color: #d946ef; --primary-glow: rgba(217, 70, 239, 0.16); }
 
       /* Reset & Global elements */
       * {
@@ -4954,89 +4923,13 @@
                   <span class="custom-dropdown-label">Mon - Sun (7 Days)</span>
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
-<div class="custom-dropdown-menu">
-                    <!-- Standard Ranges -->
-                    <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Sun (7 Days)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Sat (6 Days)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
                       <div class="custom-drop-item-content">
                         <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                         <span>Mon - Fri (5 Days)</span>
                       </div>
                     </div>
-                    <div class="custom-dropdown-option" data-value="4" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '4', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#84cc16;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Thu (4 Days)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="3" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '3', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#eab308;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Wed (3 Days)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="2" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '2', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#f97316;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Tue (2 Days)</span>
-                      </div>
-                    </div>
-                    <!-- Individual Days -->
-                    <div class="custom-dropdown-option" data-value="day-0" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-0', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#6366f1;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Monday (1 Day)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="day-1" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-1', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Tuesday (1 Day)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="day-2" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-2', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#06b6d4;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Wednesday (1 Day)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="day-3" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-3', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Thursday (1 Day)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="day-4" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-4', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Friday (1 Day)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="day-5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#ea580c;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Saturday (1 Day)</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="day-6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#ef4444;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Sunday (1 Day)</span>
-                      </div>
-                    </div>
-                  </div>
-              </div>
                     <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
                       <div class="custom-drop-item-content">
                         <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
@@ -5221,26 +5114,9 @@
           </div>
 
           <!-- Mobile Scroll Tip -->
-          <!-- Mobile Scroll Tip -->
           <div class="classic-mobile-scroll-hint">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
             <span>Tip: Swipe horizontally to scroll weekdays. Tap any day pill above to jump directly. Tap any slot to add an activity!</span>
-          </div>
-
-          <!-- Stretch / Expand & Reset Controls Bar -->
-          <div class="resize-controls-bar" style="display: flex; gap: 8px; margin-top: 12px; margin-bottom: 12px; flex-wrap: wrap; align-items: center;">
-            <button id="toggleResizeBtn" class="classic-btn-cfg-action" onclick="app.handlers.toggleStretchMode()" title="Toggle ability to stretch and resize columns and rows" style="background: var(--primary-glow); color: var(--primary-color); border: 1px solid var(--primary-color); height: 32px; padding: 0 14px; font-size: 12.5px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 600; transition: all 0.2s;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-              <span>Stretch: Enabled</span>
-            </button>
-            <button class="classic-btn-cfg-action" onclick="app.handlers.resetGridWidth()" title="Reset column widths to default" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); height: 32px; padding: 0 14px; font-size: 12.5px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 500; transition: all 0.2s;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12H3m18 0l-4-4m4 4l-4 4M3 12l4-4m-4 4l4 4"/></svg>
-              <span>Reset Width</span>
-            </button>
-            <button class="classic-btn-cfg-action" onclick="app.handlers.resetGridHeight()" title="Reset row heights to default" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); height: 32px; padding: 0 14px; font-size: 12.5px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 500; transition: all 0.2s;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v18m0-18l-4 4m4-4l4 4m-4 14l-4-4m4 4l4-4"/></svg>
-              <span>Reset Height</span>
-            </button>
           </div>
         </div>
 
@@ -5253,88 +5129,7 @@
           </div>
         </div>
 
-        <!-- SEO Productivity Description Section -->
-        <div class="classic-productivity-text-wrap" style="max-width: 960px; margin: 36px auto 20px auto; padding: 24px 28px; background: var(--bg-card); border-radius: var(--border-radius); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); text-align: center;">
-          <p style="font-size: 15px; color: var(--text-main); line-height: 1.75; margin: 0; font-weight: 500;">
-            Take charge of your productivity today by creating a clear, visually appealing schedule that keeps you on track. Our general purpose planner is perfect for freelancers, parents, fitness enthusiasts, and professionals.
-          </p>
-        </div>
-
-        <!-- FOOTER WITH INTERNAL LINKS & LEGAL/COPYRIGHT -->
-        <footer class="seo-footer">
-              <div class="footer-container">
-                <div class="footer-grid">
-                  
-                  <!-- Column 1: Brand & Description -->
-                  <div class="footer-col" style="max-width: 320px;">
-                    <div class="app-brand-wrapper" style="margin-bottom: 12px;">
-                      <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="32" height="32" rx="8" fill="#673de6"/>
-                        <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-                        <circle cx="23" cy="21" r="3" fill="#00b090"/>
-                      </svg>
-                      <div class="header-brand-line">
-                        <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
-                        <span class="app-tools-tag">CREATOR</span>
-                      </div>
-                    </div>
-                    <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
-                      Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
-                    </p>
-                    <div style="display: flex; gap: 8px; align-items: center;">
-                      <span style="font-size: 11px; color: #00b090; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
-                        <span class="pulse-dot"></span>
-                        99.9% Uptime SLA
-                      </span>
-                    </div>
-                  </div>
-
-                  <!-- Column 2: Free Tools -->
-                  <div class="footer-col">
-                    <h3 class="footer-col-title">Product Tools</h3>
-                    <div class="footer-links-list">
-                      <a href="/" class="footer-link-item active" style="color: var(--primary-color); font-weight: 600;">Timetable Creator</a>
-                      <a href="#aiGeneratorSection" class="footer-link-item">AI Schedule Generator</a>
-                      <a href="#about" class="footer-link-item">Weekly Routine Planner</a>
-                      <a href="#exportOptionsBar" class="footer-link-item">PDF & PNG Exporter</a>
-                    </div>
-                  </div>
-
-                  <!-- Column 3: Company -->
-                  <div class="footer-col">
-                    <h3 class="footer-col-title">Company & Resources</h3>
-                    <div class="footer-links-list">
-                      <a href="/blog/about-us/" class="footer-link-item">About Us</a>
-                      <a href="/blog/contact-us/" class="footer-link-item">Customer Support</a>
-                      <a href="/blog/" class="footer-link-item font-semibold" style="font-weight: 600; color: var(--primary-color);">Product Blog & Tutorials</a>
-                    </div>
-                  </div>
-
-                  <!-- Column 4: Legal Terms -->
-                  <div class="footer-col">
-                    <h3 class="footer-col-title">Legal & Security</h3>
-                    <div class="footer-links-list">
-                      <a href="/blog/privacy-policy/" class="footer-link-item">Privacy Policy</a>
-                      <a href="/blog/terms-and-conditions/" class="footer-link-item">Terms of Service</a>
-                      <a href="/blog/refund-policy/" class="footer-link-item">Refund Policy</a>
-                      <a href="/blog/disclaimer/" class="footer-link-item">Disclaimer Notice</a>
-                    </div>
-                  </div>
-
-                </div>
-
-                <!-- Bottom Copyright Row -->
-                <div class="footer-copyright-row" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
-                  <p class="footer-copyright-text" style="margin: 0;">
-                    &copy; 2026 Timetable Creator. All rights reserved. Powered by High-Speed Cloud Infrastructure.
-                  </p>
-                  <div style="display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);">
-                    <span>SSL 256-Bit Secured</span>
-                    <span>GDPR Compliant</span>
-                  </div>
-                </div>
-              </div>
-            </footer></div>
+      </div>
 
       <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
       <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
@@ -5388,25 +5183,14 @@
               <div class="custom-dropdown-wrap" id="wrap_configDays">
                 <input type="hidden" id="configDays" value="7">
                 <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configDays', event)" aria-label="Days of Week">
-                  <span class="custom-dropdown-label">Mon - Sun (7 Days)</span>
+                  <span class="custom-dropdown-label">Full Week (Mon - Sun)</span>
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('configDays', '7', 'Mon - Sun (7 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Sun (7 Days)</div>
-                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('configDays', '6', 'Mon - Sat (6 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Sat (6 Days)</div>
-                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('configDays', '5', 'Mon - Fri (5 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Fri (5 Days)</div>
-                  <div class="custom-dropdown-option" data-value="4" onclick="app.handlers.onSelectCustomDropdown('configDays', '4', 'Mon - Thu (4 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Thu (4 Days)</div>
-                  <div class="custom-dropdown-option" data-value="3" onclick="app.handlers.onSelectCustomDropdown('configDays', '3', 'Mon - Wed (3 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Wed (3 Days)</div>
-                  <div class="custom-dropdown-option" data-value="2" onclick="app.handlers.onSelectCustomDropdown('configDays', '2', 'Mon - Tue (2 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Tue (2 Days)</div>
-                  <div class="custom-dropdown-option" data-value="day-0" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-0', 'Monday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Monday (1 Day)</div>
-                  <div class="custom-dropdown-option" data-value="day-1" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-1', 'Tuesday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Tuesday (1 Day)</div>
-                  <div class="custom-dropdown-option" data-value="day-2" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-2', 'Wednesday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Wednesday (1 Day)</div>
-                  <div class="custom-dropdown-option" data-value="day-3" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-3', 'Thursday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Thursday (1 Day)</div>
-                  <div class="custom-dropdown-option" data-value="day-4" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-4', 'Friday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Friday (1 Day)</div>
-                  <div class="custom-dropdown-option" data-value="day-5" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-5', 'Saturday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Saturday (1 Day)</div>
-                  <div class="custom-dropdown-option" data-value="day-6" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-6', 'Sunday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Sunday (1 Day)</div>
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('configDays', '5', 'Weekdays (Mon - Fri)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Weekdays (Mon - Fri)</div>
+                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('configDays', '6', 'Mon - Sat', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Sat</div>
+                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('configDays', '7', 'Full Week (Mon - Sun)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Full Week (Mon - Sun)</div>
                 </div>
-              </div>
               </div>
             </div>
             <div class="flex-half">
@@ -7353,16 +7137,6 @@
           }
         },
 
-        
-        getActiveDays() {
-          const dc = this.state.config.daysCount;
-          if (typeof dc === 'string' && dc.startsWith('day-')) {
-            const d = parseInt(dc.replace('day-', ''));
-            if (!isNaN(d) && d >= 0 && d <= 6) return [d];
-          }
-          const count = Math.max(1, Math.min(7, parseInt(dc) || 7));
-          return Array.from({ length: count }, (_, i) => i);
-        },
         sanitizeConfig() {
           const c = this.state.config;
           if (!c) {
@@ -7381,14 +7155,7 @@
             };
             return;
           }
-          if (typeof c.daysCount === 'string' && c.daysCount.startsWith('day-')) {
-            const dIdx = parseInt(c.daysCount.replace('day-', ''));
-            if (isNaN(dIdx) || dIdx < 0 || dIdx > 6) {
-              c.daysCount = 7;
-            }
-          } else {
-            c.daysCount = Math.max(1, Math.min(7, parseInt(c.daysCount) || 7));
-          }
+          c.daysCount = Math.max(1, Math.min(7, parseInt(c.daysCount) || 7));
           c.startTime = Math.max(0, Math.min(1439, parseInt(c.startTime) || 480));
           c.endTime = Math.max(0, Math.min(1440, parseInt(c.endTime) || 1140));
           if (c.endTime <= c.startTime) {
