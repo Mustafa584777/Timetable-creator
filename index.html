@@ -865,6 +865,8 @@
       .workspace {
         flex: 1;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         padding: 24px;
@@ -880,7 +882,7 @@
         background-color: var(--bg-card);
         border: 1px solid var(--border-color);
         display: table;
-        border-collapse: separate;
+        border-collapse: collapse !important;
         table-layout: fixed;
         min-width: max-content;
         position: relative;
@@ -1593,7 +1595,8 @@
         .workspace {
           padding: 12px 8px;
           padding-bottom: 90px !important;
-          display: block;
+          display: flex;
+          flex-direction: column;
           overflow-x: hidden;
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
@@ -1733,6 +1736,9 @@
         max-width: 1000px;
         margin: 60px auto 40px auto;
         padding: 40px 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
         border-radius: var(--border-radius);
         background-color: var(--bg-card);
         border: 1px solid var(--border-color);
@@ -1983,7 +1989,7 @@
       /* --- UNIVERSAL FOOTER RE-DESIGN --- */
       .seo-footer {
         padding: 48px 24px 32px 24px;
-        margin-top: auto;
+        margin-top: auto !important;
         border-top: 1px solid var(--border-color);
         background-color: var(--bg-card);
         text-align: left;
@@ -2792,6 +2798,7 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+        flex-grow: 1;
       }
 
       /* 1. Dedicated Top Brand Header Bar */
@@ -3918,7 +3925,7 @@
       .classic-table-grid {
         width: 100%;
         min-width: 900px;
-        border-collapse: separate;
+        border-collapse: collapse !important;
         border-spacing: 0;
         table-layout: fixed;
       }
@@ -4131,7 +4138,7 @@
         color: #ffffff;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
         cursor: pointer;
-        overflow: hidden;
+        /* overflow: hidden; */
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -4160,8 +4167,17 @@
       }
       .classic-event-tools {
         display: none;
+        position: absolute;
+        top: -30px;
+        right: 0px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 4px;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        gap: 4px;
+        z-index: 100;
         align-items: center;
-        gap: 2px;
       }
       .classic-event-item:hover .classic-event-tools {
         display: flex;
@@ -4741,6 +4757,59 @@
       .footer-link:hover {
         color: var(--primary-color);
       }
+    
+      .classic-undo-redo-group {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: auto !important;
+        padding: 0 !important;
+      }
+      .classic-undo-redo-group .classic-btn-mini {
+        border: 1.5px solid #cbd5e1 !important;
+        background: #ffffff !important;
+        padding: 0 8px !important;
+        height: 26px !important;
+        font-size: 11.5px !important;
+        gap: 3px !important;
+        color: #475569 !important;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.03) !important;
+        border-radius: 6px !important;
+      }
+      .classic-undo-redo-group .classic-btn-mini:hover {
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border-color: #94a3b8 !important;
+      }
+      .undo-redo-compact-group {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        height: auto !important;
+      }
+      .undo-redo-compact-group .action-btn {
+        width: 32px !important;
+        height: 32px !important;
+        border: 1px solid var(--border-color) !important;
+        background: var(--bg-card) !important;
+        border-radius: var(--border-radius) !important;
+        color: var(--text-muted) !important;
+      }
+      .undo-redo-compact-group .action-btn:hover {
+        background: var(--hover-bg) !important;
+        color: var(--text-main) !important;
+      }
+      /* Remove border from header items */
+      .action-btn-header, .lang-dropdown-container button, .header-auth-group button, .btn-signin-header, .btn-pro-header, .mobile-menu-btn {
+        border: none !important;
+      }
+  
     </style>
   
     <script type="application/ld+json">
@@ -4934,13 +5003,7 @@
         </nav>
         <div class="mobile-menu-divider"></div>
         <div class="mobile-menu-actions">
-          <!-- Theme mode toggle in mobile menu -->
-          <button class="mobile-action-btn" onclick="app.handlers.toggleDark(); app.handlers.toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18">
-              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
-            Theme Mode Toggle
-          </button>
+          
         </div>
       </div>
     </header>
@@ -8036,7 +8099,7 @@
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
                     <button class="classic-evt-btn" title="Duplicate activity" onclick="event.stopPropagation(); app.duplicateEvent('${evt.id}')">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"></path></svg>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 7v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2z"></path><path d="M4 17a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2"></path></svg>
                     </button>
                     ${this.state.clipboard ? `
                     <button class="classic-evt-btn" title="Paste activity after this" onclick="event.stopPropagation(); app.pasteEvent(${evt.day}, ${evt.endTime})">
