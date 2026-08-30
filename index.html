@@ -30,7 +30,7 @@
       })();
     </script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.67, maximum-scale=5.0" />
     <title>Timetable Creator Pro - Free Online Class Schedule Generator</title>
     <meta name="description" content="Create school routines, study planners, and class schedules easily with the free online timetable maker. AI-powered, cloud-synchronized, with instant PDF & PNG exports." />
     
@@ -63,6 +63,7 @@
     <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/?lang=ru" />
     <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/?lang=ar" />
     <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/?lang=hi" />
+    <link rel="alternate" hreflang="zh" href="https://timetablecreator.online/?lang=zh" />
 
     <!-- FAQPage Schema Markup for SEO -->
     <script type="application/ld+json">
@@ -145,7 +146,7 @@
         --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         --font-mono: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
         
-        --row-height-base: 44px;
+        --row-height-base: 58px;
         --grid-density-coef: 1; /* Comfortable = 1, Compact = 0.7 */
         --row-height: calc(var(--row-height-base) * var(--grid-density-coef) * var(--zoom-level, 1));
         --col-width: 140px;
@@ -245,11 +246,42 @@
       }
 
       /* Preset Themes Updates */
-      [data-preset="slate"] { --primary-color: #673de6; --primary-glow: rgba(103, 61, 230, 0.16); }
-      [data-preset="emerald"] { --primary-color: #00b090; --primary-glow: rgba(0, 176, 144, 0.16); }
-      [data-preset="indigo"] { --primary-color: #2563eb; --primary-glow: rgba(37, 99, 235, 0.16); }
-      [data-preset="amber"] { --primary-color: #ea580c; --primary-glow: rgba(234, 88, 12, 0.16); }
-      [data-preset="cyberpunk"] { --primary-color: #d946ef; --primary-glow: rgba(217, 70, 239, 0.16); }
+      :root, [data-preset="slate"] { 
+        --primary-color: #673de6; --primary-glow: rgba(103, 61, 230, 0.16); --primary-hover: #5329cc;
+        --theme-accent: #673de6; --theme-header-bg: #f8f7fd; --theme-badge-bg: #673de6;
+        --evt-color-1: #673de6; --evt-color-2: #00b090; --evt-color-3: #ea580c; --evt-color-4: #2563eb; 
+        --evt-color-5: #d946ef; --evt-color-6: #06b6d4; --evt-color-7: #f59e0b; --evt-color-8: #8c52ff;
+      }
+      [data-preset="emerald"] { 
+        --primary-color: #00b090; --primary-glow: rgba(0, 176, 144, 0.16); --primary-hover: #00967b;
+        --theme-accent: #00b090; --theme-header-bg: #f0fdf9; --theme-badge-bg: #00b090;
+        --evt-color-1: #00b090; --evt-color-2: #14b8a6; --evt-color-3: #10b981; --evt-color-4: #059669; 
+        --evt-color-5: #34d399; --evt-color-6: #0d9488; --evt-color-7: #4ade80; --evt-color-8: #65a30d;
+      }
+      [data-preset="indigo"] { 
+        --primary-color: #2563eb; --primary-glow: rgba(37, 99, 235, 0.16); --primary-hover: #1d4ed8;
+        --theme-accent: #2563eb; --theme-header-bg: #eff6ff; --theme-badge-bg: #2563eb;
+        --evt-color-1: #2563eb; --evt-color-2: #3b82f6; --evt-color-3: #60a5fa; --evt-color-4: #1d4ed8; 
+        --evt-color-5: #38bdf8; --evt-color-6: #0ea5e9; --evt-color-7: #0284c7; --evt-color-8: #0369a1;
+      }
+      [data-preset="amber"] { 
+        --primary-color: #ea580c; --primary-glow: rgba(234, 88, 12, 0.16); --primary-hover: #c2410c;
+        --theme-accent: #ea580c; --theme-header-bg: #fff7ed; --theme-badge-bg: #ea580c;
+        --evt-color-1: #ea580c; --evt-color-2: #f59e0b; --evt-color-3: #fbbf24; --evt-color-4: #d97706; 
+        --evt-color-5: #f97316; --evt-color-6: #c2410c; --evt-color-7: #fcd34d; --evt-color-8: #fb923c;
+      }
+      [data-preset="cyberpunk"] { 
+        --primary-color: #d946ef; --primary-glow: rgba(217, 70, 239, 0.16); --primary-hover: #c026d3;
+        --theme-accent: #d946ef; --theme-header-bg: #fdf4ff; --theme-badge-bg: #d946ef;
+        --evt-color-1: #d946ef; --evt-color-2: #a855f7; --evt-color-3: #c026d3; --evt-color-4: #e879f9; 
+        --evt-color-5: #f472b6; --evt-color-6: #ec4899; --evt-color-7: #db2777; --evt-color-8: #8b5cf6;
+      }
+
+      .disable-resizing .excel-col-resizer,
+      .disable-resizing .excel-row-resizer {
+        display: none !important;
+        pointer-events: none !important;
+      }
 
       /* Reset & Global elements */
       * {
@@ -864,6 +896,8 @@
       .workspace {
         flex: 1;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         padding: 24px;
@@ -879,7 +913,7 @@
         background-color: var(--bg-card);
         border: 1px solid var(--border-color);
         display: table;
-        border-collapse: separate;
+        border-collapse: collapse !important;
         table-layout: fixed;
         min-width: max-content;
         position: relative;
@@ -928,7 +962,6 @@
         border-right: 1px solid var(--border-color);
         background-color: var(--bg-panel);
         position: relative;
-        user-select: none;
       }
 
       .day-column-header.weekend {
@@ -952,7 +985,6 @@
       }
 
       .time-cell {
-        position: relative;
         height: var(--row-height);
         display: flex;
         align-items: center;
@@ -963,7 +995,7 @@
         border-bottom: 1px solid var(--border-color);
         background-color: var(--bg-panel);
         font-weight: 600;
-        user-select: none;
+        position: relative;
       }
 
       /* The Grid cells overlay area */
@@ -1594,7 +1626,8 @@
         .workspace {
           padding: 12px 8px;
           padding-bottom: 90px !important;
-          display: block;
+          display: flex;
+          flex-direction: column;
           overflow-x: hidden;
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
@@ -1734,6 +1767,9 @@
         max-width: 1000px;
         margin: 60px auto 40px auto;
         padding: 40px 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
         border-radius: var(--border-radius);
         background-color: var(--bg-card);
         border: 1px solid var(--border-color);
@@ -1967,13 +2003,13 @@
         display: none; /* remove safari arrow */
       }
       .seo-faq-question::after {
-        content: 'Ôºã';
+        content: '√Ø¬º ';
         font-size: 14px;
         color: var(--primary-color);
         font-weight: bold;
       }
       .seo-faq-item[open] .seo-faq-question::after {
-        content: 'Ôºç';
+        content: '‚àí';
       }
       .seo-faq-answer {
         padding: 0 18px 14px 18px;
@@ -1984,11 +2020,13 @@
       /* --- UNIVERSAL FOOTER RE-DESIGN --- */
       .seo-footer {
         padding: 48px 24px 32px 24px;
-        margin-top: 48px;
+        margin-top: auto !important;
         border-top: 1px solid var(--border-color);
         background-color: var(--bg-card);
         text-align: left;
         transition: background-color 0.3s, border-color 0.3s;
+        width: 100%;
+        box-sizing: border-box;
       }
       .footer-container {
         max-width: 1150px;
@@ -2791,6 +2829,7 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+        flex-grow: 1;
       }
 
       /* 1. Dedicated Top Brand Header Bar */
@@ -3204,53 +3243,83 @@
       .classic-utility-controls {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 4px;
         margin-left: auto;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
       }
-      /* Ultra-compact joined Undo/Redo Group */
-      .classic-undo-redo-compact-group {
+      .classic-undo-redo-group {
         display: inline-flex;
         align-items: center;
-        background: #ffffff;
-        border: 1.5px solid #6366f1;
+        gap: 1px;
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
         border-radius: 6px;
-        overflow: hidden;
-        box-shadow: 0 1px 3px rgba(99, 102, 241, 0.08);
+        height: 24px;
+        padding: 1px 2px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
       }
-      [data-theme="dark"] .classic-undo-redo-compact-group {
-        background: #1e293b;
-        border-color: #6366f1;
-      }
-      .classic-btn-compact {
-        background: transparent !important;
+      .classic-undo-redo-group .classic-btn-mini {
         border: none !important;
-        color: #6366f1 !important;
-        font-family: 'Poppins', sans-serif;
-        font-size: 11px;
-        font-weight: 600;
-        height: 26px;
-        padding: 0 7px;
-        cursor: pointer;
+        background: transparent !important;
+        padding: 0 4px;
+        height: 20px;
+        font-size: 10px;
+        gap: 2px;
+        color: #475569 !important;
+        box-shadow: none !important;
+        border-radius: 4px;
+      }
+      .classic-undo-redo-group .classic-btn-mini:hover {
+        background: rgba(16, 185, 129, 0.1) !important;
+        color: #10b981 !important;
+      }
+      .undo-redo-compact-group {
         display: inline-flex;
         align-items: center;
+        gap: 1px;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        padding: 1px;
+        border-radius: 6px;
+        height: 26px;
+      }
+      .undo-redo-compact-group .action-btn {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        border-radius: 4px;
+      }
+      .classic-btn-mini {
+        border: none !important;
+        background: transparent !important;
+        padding: 0 6px;
+        height: 24px;
+        font-size: 11px;
         gap: 3px;
-        transition: background 0.15s ease, opacity 0.15s ease;
-        white-space: nowrap;
-        user-select: none;
-      }
-      .classic-btn-compact svg {
         color: #6366f1 !important;
-        stroke: #6366f1 !important;
+        box-shadow: none !important;
+        border-radius: 4px;
       }
-      .classic-btn-compact:first-child {
-        border-right: 1px solid rgba(99, 102, 241, 0.25) !important;
-      }
-      .classic-btn-compact:hover {
+      .classic-undo-redo-group .classic-btn-mini:hover {
         background: rgba(99, 102, 241, 0.1) !important;
       }
-      .classic-btn-compact:active {
-        transform: scale(0.96);
+      .undo-redo-compact-group {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        padding: 1px;
+        border-radius: var(--border-radius);
+      }
+      .undo-redo-compact-group .action-btn {
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        border: none;
+        background: transparent;
       }
       .classic-btn-mini {
         background: #ffffff !important;
@@ -3260,7 +3329,7 @@
         font-family: 'Poppins', sans-serif;
         font-size: 11.5px;
         font-weight: 500;
-        height: 26px;
+        height: 28px;
         padding: 0 8px;
         cursor: pointer;
         display: inline-flex;
@@ -3270,7 +3339,7 @@
         transition: all 0.15s ease;
         white-space: nowrap;
         user-select: none;
-        box-shadow: 0 1px 3px rgba(99, 102, 241, 0.08);
+        box-shadow: 0 1px 4px rgba(99, 102, 241, 0.08);
       }
       .classic-btn-mini svg {
         color: #6366f1 !important;
@@ -3285,7 +3354,7 @@
         transform: scale(0.96);
       }
       .classic-btn-mini.icon-only {
-        padding: 0 6px;
+        padding: 0 8px;
       }
       #btnToggleClassicConfig {
         border-color: #10b981 !important;
@@ -3599,7 +3668,7 @@
         font-weight: 600;
       }
       .custom-dropdown-option.selected::after {
-        content: "‚úì";
+        content: "√¢  ";
         font-size: 12px;
         font-weight: 700;
         color: #7c3aed;
@@ -3886,14 +3955,14 @@
       }
       .classic-table-grid {
         width: 100%;
-        min-width: 800px;
-        border-collapse: separate;
+        min-width: 900px;
+        border-collapse: collapse !important;
         border-spacing: 0;
         table-layout: fixed;
       }
       .classic-th-corner {
         width: 85px;
-        min-width: 60px;
+        min-width: 85px;
         background: var(--bg-panel);
         border-bottom: 2px solid var(--border-color);
         border-right: 2px solid var(--border-color);
@@ -3923,7 +3992,7 @@
         position: sticky;
         top: 0;
         z-index: 45;
-        min-width: 80px;
+        min-width: 130px;
         box-shadow: 0 2px 0 var(--border-color);
         transition: background-color 0.2s ease;
         user-select: none;
@@ -3950,9 +4019,111 @@
         z-index: 35;
         white-space: nowrap;
         width: 85px;
-        min-width: 60px;
+        min-width: 85px;
         box-shadow: 2px 0 0 var(--border-color);
         user-select: none;
+      }
+
+      /* Excel-style Column & Row Border Resizers */
+      .excel-col-resizer {
+        position: absolute;
+        top: 0;
+        right: -4px;
+        width: 9px;
+        bottom: 0;
+        cursor: col-resize;
+        user-select: none;
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: none;
+      }
+      .excel-col-resizer::after {
+        content: '';
+        width: 2.5px;
+        height: 100%;
+        background-color: transparent;
+        border-radius: 1px;
+        transition: background-color 0.15s ease;
+      }
+      .excel-col-resizer:hover::after,
+      .excel-col-resizer.resizing::after {
+        background-color: #10b981;
+        box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+      }
+
+      .excel-row-resizer {
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 9px;
+        cursor: row-resize;
+        user-select: none;
+        z-index: 55;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: none;
+      }
+      .excel-row-resizer::after {
+        content: '';
+        width: 100%;
+        height: 2.5px;
+        background-color: transparent;
+        border-radius: 1px;
+        transition: background-color 0.15s ease;
+      }
+      .excel-row-resizer:hover::after,
+      .excel-row-resizer.resizing::after {
+        background-color: #10b981;
+        box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+      }
+
+      .pro-mode-active .excel-col-resizer:hover::after,
+      .pro-mode-active .excel-col-resizer.resizing::after,
+      .pro-mode-active .excel-row-resizer:hover::after,
+      .pro-mode-active .excel-row-resizer.resizing::after {
+        background-color: #6366f1;
+        box-shadow: 0 0 6px rgba(99, 102, 241, 0.8);
+      }
+
+      .excel-resize-guide-v {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: #10b981;
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.85);
+        z-index: 99999;
+        pointer-events: none;
+        display: none;
+      }
+      .excel-resize-guide-h {
+        position: fixed;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #10b981;
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.85);
+        z-index: 99999;
+        pointer-events: none;
+        display: none;
+      }
+      .pro-mode-active .excel-resize-guide-v,
+      .pro-mode-active .excel-resize-guide-h {
+        background-color: #6366f1;
+        box-shadow: 0 0 8px rgba(99, 102, 241, 0.85);
+      }
+
+      body.excel-resizing-col {
+        cursor: col-resize !important;
+        user-select: none !important;
+      }
+      body.excel-resizing-row {
+        cursor: row-resize !important;
+        user-select: none !important;
       }
       .classic-td-cell {
         overflow: hidden;
@@ -3962,8 +4133,8 @@
         vertical-align: top;
         position: relative;
         background: var(--bg-card);
-        height: calc(var(--classic-cell-h, 48px) * var(--classic-zoom, 1));
-        min-width: 80px;
+        height: calc(var(--classic-cell-h) * var(--classic-zoom, 1));
+        min-width: 130px;
         transition: background-color 0.15s ease;
         cursor: pointer;
         overflow: visible;
@@ -3973,110 +4144,6 @@
       }
       .classic-td-cell:last-child {
         border-right: none;
-      }
-
-      /* ========================================================
-         EXCEL-LIKE COLUMN & ROW LINE RESIZERS (Full Line Grabbing)
-         ======================================================== */
-      .excel-col-resizer {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: -4px;
-        width: 8px;
-        cursor: col-resize !important;
-        z-index: 55;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        touch-action: none;
-        user-select: none;
-        -webkit-user-select: none;
-      }
-      .excel-col-resizer::after {
-        content: '';
-        display: block;
-        width: 2px;
-        height: 100%;
-        background-color: transparent;
-        transition: background-color 0.15s ease;
-        pointer-events: none;
-      }
-      .excel-col-resizer:hover::after,
-      .excel-col-resizer.is-resizing::after {
-        background-color: #10b981;
-        box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
-      }
-      [data-theme="dark"] .excel-col-resizer:hover::after,
-      [data-theme="dark"] .excel-col-resizer.is-resizing::after {
-        background-color: #34d399;
-      }
-
-      .excel-row-resizer {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -4px;
-        height: 8px;
-        cursor: row-resize !important;
-        z-index: 55;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        touch-action: none;
-        user-select: none;
-        -webkit-user-select: none;
-      }
-      .excel-row-resizer::after {
-        content: '';
-        display: block;
-        height: 2px;
-        width: 100%;
-        background-color: transparent;
-        transition: background-color 0.15s ease;
-        pointer-events: none;
-      }
-      .excel-row-resizer:hover::after,
-      .excel-row-resizer.is-resizing::after {
-        background-color: #10b981;
-        box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
-      }
-      [data-theme="dark"] .excel-row-resizer:hover::after,
-      [data-theme="dark"] .excel-row-resizer.is-resizing::after {
-        background-color: #34d399;
-      }
-
-      /* Global Visual Guide Lines during Active Drag */
-      .excel-guide-line-v {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: #10b981;
-        z-index: 999999;
-        pointer-events: none;
-        box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
-      }
-      .excel-guide-line-h {
-        position: fixed;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: #10b981;
-        z-index: 999999;
-        pointer-events: none;
-        box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
-      }
-
-      body.excel-resizing-col {
-        cursor: col-resize !important;
-        user-select: none !important;
-        -webkit-user-select: none !important;
-      }
-      body.excel-resizing-row {
-        cursor: row-resize !important;
-        user-select: none !important;
-        -webkit-user-select: none !important;
       }
       .classic-cell-add-icon {
         position: absolute;
@@ -4102,7 +4169,7 @@
         color: #ffffff;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
         cursor: pointer;
-        overflow: hidden;
+        /* overflow: hidden; */
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -4131,8 +4198,17 @@
       }
       .classic-event-tools {
         display: none;
+        position: absolute;
+        top: -30px;
+        right: 0px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 4px;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        gap: 4px;
+        z-index: 100;
         align-items: center;
-        gap: 2px;
       }
       .classic-event-item:hover .classic-event-tools {
         display: flex;
@@ -4682,6 +4758,143 @@
         100% { background-position: -200% 0; }
       }
 
+    
+      .classic-table-grid th, .classic-table-grid td {
+        border: 1px solid var(--grid-line-color) !important;
+        font-weight: normal !important;
+      }
+      .classic-th-corner, .classic-th-day, .classic-td-time {
+        font-weight: normal !important;
+      }
+      .timetable-grid th, .timetable-grid td {
+        border: 1px solid var(--grid-line-color) !important;
+        font-weight: normal !important;
+      }
+      .time-header, .day-header {
+        font-weight: normal !important;
+      }
+      /* Pro Grid overrides */
+      .grid-header-row th {
+        border: 1px solid var(--grid-line-color) !important;
+      }
+
+    
+      .footer-link {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        text-decoration: none !important;
+        transition: color 0.2s ease;
+      }
+      .footer-link:hover {
+        color: var(--primary-color);
+      }
+    
+      .classic-undo-redo-group {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        height: auto !important;
+        padding: 0 !important;
+      }
+      .classic-undo-redo-group .classic-btn-mini {
+        border: 1.5px solid #cbd5e1 !important;
+        background: #ffffff !important;
+        padding: 0 8px !important;
+        height: 26px !important;
+        font-size: 11.5px !important;
+        gap: 3px !important;
+        color: #475569 !important;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.03) !important;
+        border-radius: 6px !important;
+      }
+      .classic-undo-redo-group .classic-btn-mini:hover {
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border-color: #94a3b8 !important;
+      }
+      .undo-redo-compact-group {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        height: auto !important;
+      }
+      .undo-redo-compact-group .action-btn {
+        width: 32px !important;
+        height: 32px !important;
+        border: 1px solid var(--border-color) !important;
+        background: var(--bg-card) !important;
+        border-radius: var(--border-radius) !important;
+        color: var(--text-muted) !important;
+      }
+      .undo-redo-compact-group .action-btn:hover {
+        background: var(--hover-bg) !important;
+        color: var(--text-main) !important;
+      }
+      /* Remove border from header items */
+      .action-btn-header, .lang-dropdown-container button, .header-auth-group button, .btn-signin-header, .btn-pro-header, .mobile-menu-btn {
+        border: none !important;
+      }
+  
+    
+      .classic-grid-card {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .classic-grid-scroll-wrapper {
+        flex-grow: 1;
+      }
+      .workspace {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+  
+    
+      .classic-event-item.edge-top .classic-event-tools {
+        top: 0px !important;
+        left: calc(100% + 4px) !important;
+        right: auto !important;
+      }
+      .classic-event-item.edge-top.edge-right .classic-event-tools {
+        top: 0px !important;
+        left: auto !important;
+        right: calc(100% + 4px) !important;
+      }
+      
+      .classic-event-tools {
+        background: #8b5cf6 !important; /* Violet */
+        border: 1px solid #7c3aed !important;
+      }
+      .classic-event-tools .classic-evt-btn {
+        color: #ffffff !important;
+      }
+      .classic-event-tools .classic-evt-btn:hover {
+        background: rgba(255, 255, 255, 0.25) !important;
+      }
+  
+    
+      .classic-btn-mini, .classic-undo-redo-group .classic-btn-mini {
+        height: 30px !important;
+        box-sizing: border-box !important;
+      }
+  
+    
+      .timetable-scroll-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .timetable-wrapper {
+        flex-grow: 1;
+      }
+  
     </style>
   
     <script type="application/ld+json">
@@ -4702,6 +4915,10 @@
     </script>
 </head>
   <body>
+
+    <!-- Excel-style Full-Line Drag Guides -->
+    <div id="excelResizeGuideV" class="excel-resize-guide-v"></div>
+    <div id="excelResizeGuideH" class="excel-resize-guide-h"></div>
 
     <div id="globalLoadingOverlay">
       <div class="loader-skeleton"></div>
@@ -4789,6 +5006,12 @@
 
         <!-- Center Section: Translate Selector & Menu Links (Desktop Center Aligned) -->
         <div class="header-center-desktop">
+          <!-- Light/Dark Mode Toggle in Header -->
+          <button class="action-btn-header" onclick="app.handlers.toggleDark()" data-tooltip="Toggle theme mode">
+            <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
+              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
           <!-- Google Translate Dropdown Selector -->
           <div class="lang-dropdown-container">
             <button class="action-btn-header" onclick="toggleLangDropdown()" id="btnLangDropdown" data-tooltip="Change Language" aria-label="Change Language">
@@ -4796,12 +5019,13 @@
             </button>
             <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; left: 50%; transform: translateX(-50%);">
               <button class="lang-dropdown-item" onclick="changeLanguage('en')">English</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('es')">Espa√±ol</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Fran√ßais</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('es')">Espa√É¬±ol</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Fran√É¬ßais</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('ru')">–†—É—Å—Å–∫–∏–π</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('ar')">ÿßŸÑÿπÿ±ÿ®Ÿäÿ©</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('hi')">‡§π‡§ø‡§®‡•ç‡§¶‡•Ä (Hindi)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ru')">√ê¬†√ë √ë √ë √ê¬∫√ê¬∏√ê¬π</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ar')">√ò¬ß√ô √ò¬π√ò¬±√ò¬®√ô √ò¬©</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('hi')">√†¬§¬π√†¬§¬ø√†¬§¬®√†¬• √†¬§¬¶√†¬•  (Hindi)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('zh')">√§¬∏¬≠√¶   (Mandarin)</button>
             </div>
           </div>
 
@@ -4817,12 +5041,7 @@
 
         <!-- Right Section: Actions & Auth (Desktop) -->
         <div class="header-actions-desktop">
-          <!-- Light/Dark Mode Toggle in Header -->
-          <button class="action-btn-header" onclick="app.handlers.toggleDark()" data-tooltip="Toggle theme mode">
-            <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
-              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
-          </button>
+
 
           <!-- Auth Buttons -->
           <div id="unauthGroupHeader" class="header-auth-group">
@@ -4869,13 +5088,7 @@
         </nav>
         <div class="mobile-menu-divider"></div>
         <div class="mobile-menu-actions">
-          <!-- Theme mode toggle in mobile menu -->
-          <button class="mobile-action-btn" onclick="app.handlers.toggleDark(); app.handlers.toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18">
-              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
-            Theme Mode Toggle
-          </button>
+          
         </div>
       </div>
     </header>
@@ -4987,9 +5200,7 @@
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                 <span class="classic-btn-label">Print</span>
               </button>
-              <button class="classic-icon-btn classic-btn-theme" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-              </button>
+              
             </div>
           </div>
         </div>
@@ -5027,15 +5238,15 @@
               <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(6)">Sun</button>
             </div>
 
-            <!-- Utility Controls: Compact Undo, Redo, Zoom & Settings Toggle -->
+            <!-- Utility Controls: Undo, Redo, Zoom & Settings Toggle -->
             <div class="classic-utility-controls">
-              <div class="classic-undo-redo-compact-group" role="group" aria-label="Undo and Redo">
-                <button class="classic-btn-compact" onclick="app.handlers.undo()" id="classicBtnUndo" title="Undo (Ctrl+Z)" aria-label="Undo">
-                  <svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" width="12" height="12"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+              <div class="classic-undo-redo-group">
+                <button class="classic-btn-mini" onclick="app.handlers.undo()" id="btnClassicUndo" title="Undo (Ctrl+Z)" aria-label="Undo">
+                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
                   <span>Undo</span>
                 </button>
-                <button class="classic-btn-compact" onclick="app.handlers.redo()" id="classicBtnRedo" title="Redo (Ctrl+Y)" aria-label="Redo">
-                  <svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" width="12" height="12"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
+                <button class="classic-btn-mini" onclick="app.handlers.redo()" id="btnClassicRedo" title="Redo (Ctrl+Y)" aria-label="Redo">
+                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
                   <span>Redo</span>
                 </button>
               </div>
@@ -5070,13 +5281,89 @@
                   <span class="custom-dropdown-label">Mon - Sun (7 Days)</span>
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+<div class="custom-dropdown-menu">
+                    <!-- Standard Ranges -->
+                    <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Mon - Sun (7 Days)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Mon - Sat (6 Days)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
                       <div class="custom-drop-item-content">
                         <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
                         <span>Mon - Fri (5 Days)</span>
                       </div>
                     </div>
+                    <div class="custom-dropdown-option" data-value="4" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '4', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#84cc16;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Mon - Thu (4 Days)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="3" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '3', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#eab308;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Mon - Wed (3 Days)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="2" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '2', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#f97316;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Mon - Tue (2 Days)</span>
+                      </div>
+                    </div>
+                    <!-- Individual Days -->
+                    <div class="custom-dropdown-option" data-value="day-0" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-0', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#6366f1;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Monday (1 Day)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="day-1" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-1', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Tuesday (1 Day)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="day-2" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-2', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#06b6d4;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Wednesday (1 Day)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="day-3" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-3', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Thursday (1 Day)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="day-4" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-4', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Friday (1 Day)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="day-5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#ea580c;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Saturday (1 Day)</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="day-6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', 'day-6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#ef4444;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                        <span>Sunday (1 Day)</span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
                     <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
                       <div class="custom-drop-item-content">
                         <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
@@ -5261,9 +5548,26 @@
           </div>
 
           <!-- Mobile Scroll Tip -->
+          <!-- Mobile Scroll Tip -->
           <div class="classic-mobile-scroll-hint">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
             <span>Tip: Swipe horizontally to scroll weekdays. Tap any day pill above to jump directly. Tap any slot to add an activity!</span>
+          </div>
+
+          <!-- Stretch / Expand & Reset Controls Bar -->
+          <div class="resize-controls-bar" style="display: flex; gap: 8px; margin-top: 12px; margin-bottom: 12px; flex-wrap: wrap; align-items: center;">
+            <button id="toggleResizeBtn" class="classic-btn-cfg-action" onclick="app.handlers.toggleStretchMode()" title="Toggle ability to stretch and resize columns and rows" style="background: var(--primary-glow); color: var(--primary-color); border: 1px solid var(--primary-color); height: 32px; padding: 0 14px; font-size: 12.5px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 600; transition: all 0.2s;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              <span>Stretch: Enabled</span>
+            </button>
+            <button class="classic-btn-cfg-action" onclick="app.handlers.resetGridWidth()" title="Reset column widths to default" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); height: 32px; padding: 0 14px; font-size: 12.5px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 500; transition: all 0.2s;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12H3m18 0l-4-4m4 4l-4 4M3 12l4-4m-4 4l4 4"/></svg>
+              <span>Reset Width</span>
+            </button>
+            <button class="classic-btn-cfg-action" onclick="app.handlers.resetGridHeight()" title="Reset row heights to default" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); height: 32px; padding: 0 14px; font-size: 12.5px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-weight: 500; transition: all 0.2s;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v18m0-18l-4 4m4-4l4 4m-4 14l-4-4m4 4l4-4"/></svg>
+              <span>Reset Height</span>
+            </button>
           </div>
         </div>
 
@@ -5276,8 +5580,86 @@
           </div>
         </div>
 
-      </div>
+        <!-- SEO Productivity Description Section -->
+        <div class="classic-productivity-text-wrap" style="max-width: 960px; margin: 36px auto 20px auto; padding: 24px 28px; background: var(--bg-card); border-radius: var(--border-radius); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); text-align: center;">
+          <p style="font-size: 15px; color: var(--text-main); line-height: 1.75; margin: 0; font-weight: 500;">
+            Take charge of your productivity today by creating a clear, visually appealing schedule that keeps you on track. Our general purpose planner is perfect for freelancers, parents, fitness enthusiasts, and professionals.
+          </p>
+        </div>
 
+        <!-- FOOTER WITH INTERNAL LINKS & LEGAL/COPYRIGHT -->
+        <footer class="seo-footer">
+              <div class="footer-container">
+                <div class="footer-grid">
+                  
+                  <!-- Column 1: Brand & Description -->
+                  <div class="footer-col" style="max-width: 320px;">
+                    <div class="app-brand-wrapper" style="margin-bottom: 12px;">
+                      <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#673de6"/>
+                        <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="23" cy="21" r="3" fill="#00b090"/>
+                      </svg>
+                      <div class="header-brand-line">
+                        <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
+                        <span class="app-tools-tag">CREATOR</span>
+                      </div>
+                    </div>
+                    <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
+                      Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
+                    </p>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <span style="font-size: 11px; color: #00b090; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                        <span class="pulse-dot"></span>
+                        99.9% Uptime SLA
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Column 2: Free Tools -->
+                  <div class="footer-col">
+                    <h4 class="footer-title">Free Tools</h4>
+                    <a href="https://timetablecreator.online/" class="footer-link">Pro Studio Edition</a>
+                    <a href="https://timetablecreator.online/?tool=classic" class="footer-link">Classic Grid Maker</a>
+                    <a href="https://timetablecreator.online/?mode=ai" class="footer-link">AI Prompt Generator</a>
+                    <a href="#" class="footer-link" onclick="app.handlers.openModal('exportModal')">Export to PDF / PNG</a>
+                    <a href="#" class="footer-link" onclick="app.handlers.openModal('importExportModal')">JSON Backup System</a>
+                  </div>
+
+                  <!-- Column 3: Resources -->
+                  <div class="footer-col">
+                    <h4 class="footer-title">Resources</h4>
+                    <a href="#how-to" class="footer-link">How to Use</a>
+                    <a href="#faq" class="footer-link">Frequently Asked Questions</a>
+                    <a href="#templates" class="footer-link">Pre-built Templates</a>
+                    <a href="mailto:support@timetablecreator.online" class="footer-link">Contact Support</a>
+                    <a href="#" class="footer-link">Documentation (Coming Soon)</a>
+                  </div>
+
+                  <!-- Column 4: Legal & Policies -->
+                  <div class="footer-col">
+                    <h4 class="footer-title">Legal & Privacy</h4>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Cookie Policy</a>
+                    <a href="#" class="footer-link">Data Security</a>
+                  </div>
+                </div>
+
+                <div class="footer-bottom">
+                  <div class="footer-bottom-left">
+                    &copy; 2026 Timetable Creator. All rights reserved. Built for students & professionals.
+                  </div>
+                  <div class="footer-bottom-right">
+                    <a href="#" aria-label="Follow us on Twitter"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></a>
+                    <a href="#" aria-label="Star on GitHub"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg></a>
+                  </div>
+                </div>
+              </div>
+            </footer>
+
+
+      </div>
       <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
       <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
         <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v16m8-8H4"></path></svg>
@@ -5330,14 +5712,25 @@
               <div class="custom-dropdown-wrap" id="wrap_configDays">
                 <input type="hidden" id="configDays" value="7">
                 <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configDays', event)" aria-label="Days of Week">
-                  <span class="custom-dropdown-label">Full Week (Mon - Sun)</span>
+                  <span class="custom-dropdown-label">Mon - Sun (7 Days)</span>
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('configDays', '5', 'Weekdays (Mon - Fri)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Weekdays (Mon - Fri)</div>
-                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('configDays', '6', 'Mon - Sat', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Sat</div>
-                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('configDays', '7', 'Full Week (Mon - Sun)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Full Week (Mon - Sun)</div>
+                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('configDays', '7', 'Mon - Sun (7 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Sun (7 Days)</div>
+                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('configDays', '6', 'Mon - Sat (6 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Sat (6 Days)</div>
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('configDays', '5', 'Mon - Fri (5 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Fri (5 Days)</div>
+                  <div class="custom-dropdown-option" data-value="4" onclick="app.handlers.onSelectCustomDropdown('configDays', '4', 'Mon - Thu (4 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Thu (4 Days)</div>
+                  <div class="custom-dropdown-option" data-value="3" onclick="app.handlers.onSelectCustomDropdown('configDays', '3', 'Mon - Wed (3 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Wed (3 Days)</div>
+                  <div class="custom-dropdown-option" data-value="2" onclick="app.handlers.onSelectCustomDropdown('configDays', '2', 'Mon - Tue (2 Days)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Mon - Tue (2 Days)</div>
+                  <div class="custom-dropdown-option" data-value="day-0" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-0', 'Monday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Monday (1 Day)</div>
+                  <div class="custom-dropdown-option" data-value="day-1" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-1', 'Tuesday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Tuesday (1 Day)</div>
+                  <div class="custom-dropdown-option" data-value="day-2" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-2', 'Wednesday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Wednesday (1 Day)</div>
+                  <div class="custom-dropdown-option" data-value="day-3" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-3', 'Thursday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Thursday (1 Day)</div>
+                  <div class="custom-dropdown-option" data-value="day-4" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-4', 'Friday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Friday (1 Day)</div>
+                  <div class="custom-dropdown-option" data-value="day-5" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-5', 'Saturday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Saturday (1 Day)</div>
+                  <div class="custom-dropdown-option" data-value="day-6" onclick="app.handlers.onSelectCustomDropdown('configDays', 'day-6', 'Sunday (1 Day)', 'wrap_configDays', function(){ app.handlers.configChange(); })">Sunday (1 Day)</div>
                 </div>
+              </div>
               </div>
             </div>
             <div class="flex-half">
@@ -5426,11 +5819,11 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'slate', 'Royal Purple (Default)', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">üîÆ Royal Purple (Default)</div>
-                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'emerald', 'Mint Emerald', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">üåø Mint Emerald</div>
-                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'indigo', 'Electric Indigo', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">‚ö° Electric Indigo</div>
-                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'amber', 'Coral Sunset', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">üåÖ Coral Sunset</div>
-                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'cyberpunk', 'Neon Fuchsia', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">‚ú® Neon Fuchsia</div>
+                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'slate', 'Royal Purple (Default)', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">√∞  ¬Æ Royal Purple (Default)</div>
+                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'emerald', 'Mint Emerald', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">√∞  ¬ø Mint Emerald</div>
+                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'indigo', 'Electric Indigo', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">√¢ ¬° Electric Indigo</div>
+                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'amber', 'Coral Sunset', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">√∞    Coral Sunset</div>
+                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'cyberpunk', 'Neon Fuchsia', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">√¢ ¬® Neon Fuchsia</div>
                 </div>
               </div>
             </div>
@@ -5510,82 +5903,83 @@
         <!-- TOP TOOLBAR -->
         <header class="top-bar">
           <!-- Left side widgets -->
-          <div class="toolbar-group" style="gap: 4px;">
+          <div class="toolbar-group">
             <button class="action-btn menu-toggle-btn" onclick="app.handlers.toggleSidebar()" id="btnToggleSidebar" data-tooltip="Toggle Sidebar" aria-label="Toggle Sidebar">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <div class="pro-undo-redo-compact-group" style="display:inline-flex; align-items:center; gap:2px;">
-              <button class="action-btn" onclick="app.handlers.undo()" id="btnUndo" data-tooltip="Undo Action (Ctrl+Z)" aria-label="Undo Action" style="width:28px; height:28px; padding:0;">
-                <svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" width="14" height="14"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+            <div class="undo-redo-compact-group">
+              <button class="action-btn" onclick="app.handlers.undo()" id="btnUndo" data-tooltip="Undo Action (Ctrl+Z)" aria-label="Undo Action">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
               </button>
-              <button class="action-btn" onclick="app.handlers.redo()" id="btnRedo" data-tooltip="Redo Action (Ctrl+Y)" aria-label="Redo Action" style="width:28px; height:28px; padding:0;">
-                <svg fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" width="14" height="14"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
+              <button class="action-btn" onclick="app.handlers.redo()" id="btnRedo" data-tooltip="Redo Action (Ctrl+Y)" aria-label="Redo Action">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
               </button>
             </div>
             <div style="width: 1px; height: 20px; background-color: var(--border-color); margin: 0 2px;"></div>
-            <button class="action-btn" onclick="app.handlers.zoomIn()" data-tooltip="Zoom In" aria-label="Zoom In" style="width:28px; height:28px; padding:0;">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m-3-3h6"></path></svg>
-            </button>
-            <button class="action-btn" onclick="app.handlers.zoomOut()" data-tooltip="Zoom Out" aria-label="Zoom Out" style="width:28px; height:28px; padding:0;">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM7 10h6"></path></svg>
-            </button>
-          </div>
-
-          <!-- Middle indicator information: Add Event Action & Pro Templates Preset Dropdown -->
-          <div class="toolbar-group" style="justify-content: center; gap: 8px;">
-            <button class="btn-ctrl btn-primary btn-add-event" onclick="app.handlers.openNewEventModal()" id="btnAddEvent" aria-label="Add Event">
-              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
-              <span>Add Event</span>
-            </button>
-
-            <!-- Pro Studio Template Preset Selector Custom Dropdown -->
-            <div class="pro-template-select-wrap">
-              <div class="custom-dropdown-wrap" id="wrap_proPresetTemplates" style="min-width: 210px;">
-                <input type="hidden" id="proPresetTemplates" value="">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_proPresetTemplates', event)" aria-label="Load Pro Template" style="height: 38px; padding: 0 12px; font-size: 12px; border-radius: 8px;">
-                  <span class="custom-dropdown-label"><span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span><span>Pro Templates...</span></span>
-                  <svg class="custom-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('proPresetTemplates', '', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_proPresetTemplates', function(val){ app.handlers.applyProTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span>
-                      <span>Pro Templates...</span>
-                    </div>
+            <!-- Pro Templates Selector -->
+            <div class="custom-dropdown-wrap" id="wrap_proPresetTemplates" style="min-width: 175px;">
+              <input type="hidden" id="proPresetTemplates" value="">
+              <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_proPresetTemplates', event)" aria-label="Pro Templates" style="height: 30px; font-size: 11.5px; padding: 0 10px;">
+                <span class="custom-dropdown-label" style="display:flex;align-items:center;gap:5px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                  <span>Pro Templates</span>
+                </span>
+                <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="custom-dropdown-menu">
+                <div class="custom-dropdown-option" data-value="cs_freshman" onclick="app.handlers.applyProTemplate('cs_freshman')">
+                  <div class="custom-drop-item-content">
+                    <span class="custom-drop-icon" style="color:#3b82f6;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span>
+                    <span>√∞  ¬ª CS Freshman</span>
                   </div>
-                  <div class="custom-dropdown-option" data-value="engineering" onclick="app.handlers.onSelectCustomDropdown('proPresetTemplates', 'engineering', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_proPresetTemplates', function(val){ app.handlers.applyProTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></span>
-                      <span>Software Engineering Sprint</span>
-                    </div>
+                </div>
+                <div class="custom-dropdown-option" data-value="premed" onclick="app.handlers.applyProTemplate('premed')">
+                  <div class="custom-drop-item-content">
+                    <span class="custom-drop-icon" style="color:#10b981;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></span>
+                    <span>√∞ ¬©¬∫ Pre-Med & Biology</span>
                   </div>
-                  <div class="custom-dropdown-option" data-value="medical" onclick="app.handlers.onSelectCustomDropdown('proPresetTemplates', 'medical', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_proPresetTemplates', function(val){ app.handlers.applyProTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#ef4444;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></span>
-                      <span>Medical & Clinical Residency</span>
-                    </div>
+                </div>
+                <div class="custom-dropdown-option" data-value="highschool_honors" onclick="app.handlers.applyProTemplate('highschool_honors')">
+                  <div class="custom-drop-item-content">
+                    <span class="custom-drop-icon" style="color:#8b5cf6;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></span>
+                    <span>√∞    High School Honours</span>
                   </div>
-                  <div class="custom-dropdown-option" data-value="university_pro" onclick="app.handlers.onSelectCustomDropdown('proPresetTemplates', 'university_pro', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_proPresetTemplates', function(val){ app.handlers.applyProTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"></path></svg></span>
-                      <span>University Semester (Pro)</span>
-                    </div>
+                </div>
+                <div class="custom-dropdown-option" data-value="startup_routine" onclick="app.handlers.applyProTemplate('startup_routine')">
+                  <div class="custom-drop-item-content">
+                    <span class="custom-drop-icon" style="color:#f59e0b;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
+                    <span>√∞    Founder Routine</span>
                   </div>
-                  <div class="custom-dropdown-option" data-value="highschool_stem" onclick="app.handlers.onSelectCustomDropdown('proPresetTemplates', 'highschool_stem', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_proPresetTemplates', function(val){ app.handlers.applyProTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15"><path d="M3 21h18M3 7v14M21 7v14M12 3l9 4H3l9-4zM9 10h6v4H9z"></path></svg></span>
-                      <span>AP STEM High School Track</span>
-                    </div>
+                </div>
+                <div class="custom-dropdown-option" data-value="fitness_athlete" onclick="app.handlers.applyProTemplate('fitness_athlete')">
+                  <div class="custom-drop-item-content">
+                    <span class="custom-drop-icon" style="color:#f43f5e;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></span>
+                    <span>√¢ ¬° Student Athlete</span>
                   </div>
-                  <div class="custom-dropdown-option" data-value="productivity_fitness" onclick="app.handlers.onSelectCustomDropdown('proPresetTemplates', 'productivity_fitness', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_proPresetTemplates', function(val){ app.handlers.applyProTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15" height="15"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></span>
-                      <span>Productivity & Fitness Routine</span>
-                    </div>
+                </div>
+                <div class="custom-dropdown-option" data-value="exam_cram" onclick="app.handlers.applyProTemplate('exam_cram')">
+                  <div class="custom-drop-item-content">
+                    <span class="custom-drop-icon" style="color:#ec4899;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span>
+                    <span>√∞    Exam Revision</span>
                   </div>
                 </div>
               </div>
             </div>
+            <div style="width: 1px; height: 20px; background-color: var(--border-color); margin: 0 2px;"></div>
+            <button class="action-btn" onclick="app.handlers.zoomIn()" data-tooltip="Zoom In" aria-label="Zoom In">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m-3-3h6"></path></svg>
+            </button>
+            <button class="action-btn" onclick="app.handlers.zoomOut()" data-tooltip="Zoom Out" aria-label="Zoom Out">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM7 10h6"></path></svg>
+            </button>
+          </div>
+
+          <!-- Middle indicator information: Add Event Action -->
+          <div class="toolbar-group" style="justify-content: center;">
+            <button class="btn-ctrl btn-primary btn-add-event" onclick="app.handlers.openNewEventModal()" id="btnAddEvent" aria-label="Add Event">
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
+              <span>Add Event</span>
+            </button>
           </div>
 
           <!-- Right side tools -->
@@ -5931,7 +6325,10 @@
               </div>
             </section>
 
-            <!-- FOOTER WITH INTERNAL LINKS & LEGAL/COPYRIGHT -->
+            
+
+          
+<!-- FOOTER WITH INTERNAL LINKS & LEGAL/COPYRIGHT -->
             <footer class="seo-footer">
               <div class="footer-container">
                 <div class="footer-grid">
@@ -5962,46 +6359,41 @@
 
                   <!-- Column 2: Free Tools -->
                   <div class="footer-col">
-                    <h3 class="footer-col-title">Product Tools</h3>
-                    <div class="footer-links-list">
-                      <a href="/" class="footer-link-item active" style="color: var(--primary-color); font-weight: 600;">Timetable Creator</a>
-                      <a href="#aiGeneratorSection" class="footer-link-item">AI Schedule Generator</a>
-                      <a href="#about" class="footer-link-item">Weekly Routine Planner</a>
-                      <a href="#exportOptionsBar" class="footer-link-item">PDF & PNG Exporter</a>
-                    </div>
+                    <h4 class="footer-title">Free Tools</h4>
+                    <a href="https://timetablecreator.online/" class="footer-link">Pro Studio Edition</a>
+                    <a href="https://timetablecreator.online/?tool=classic" class="footer-link">Classic Grid Maker</a>
+                    <a href="https://timetablecreator.online/?mode=ai" class="footer-link">AI Prompt Generator</a>
+                    <a href="#" class="footer-link" onclick="app.handlers.openModal('exportModal')">Export to PDF / PNG</a>
+                    <a href="#" class="footer-link" onclick="app.handlers.openModal('importExportModal')">JSON Backup System</a>
                   </div>
 
-                  <!-- Column 3: Company -->
+                  <!-- Column 3: Resources -->
                   <div class="footer-col">
-                    <h3 class="footer-col-title">Company & Resources</h3>
-                    <div class="footer-links-list">
-                      <a href="/blog/about-us/" class="footer-link-item">About Us</a>
-                      <a href="/blog/contact-us/" class="footer-link-item">Customer Support</a>
-                      <a href="/blog/" class="footer-link-item font-semibold" style="font-weight: 600; color: var(--primary-color);">Product Blog & Tutorials</a>
-                    </div>
+                    <h4 class="footer-title">Resources</h4>
+                    <a href="#how-to" class="footer-link">How to Use</a>
+                    <a href="#faq" class="footer-link">Frequently Asked Questions</a>
+                    <a href="#templates" class="footer-link">Pre-built Templates</a>
+                    <a href="mailto:support@timetablecreator.online" class="footer-link">Contact Support</a>
+                    <a href="#" class="footer-link">Documentation (Coming Soon)</a>
                   </div>
 
-                  <!-- Column 4: Legal Terms -->
+                  <!-- Column 4: Legal & Policies -->
                   <div class="footer-col">
-                    <h3 class="footer-col-title">Legal & Security</h3>
-                    <div class="footer-links-list">
-                      <a href="/blog/privacy-policy/" class="footer-link-item">Privacy Policy</a>
-                      <a href="/blog/terms-and-conditions/" class="footer-link-item">Terms of Service</a>
-                      <a href="/blog/refund-policy/" class="footer-link-item">Refund Policy</a>
-                      <a href="/blog/disclaimer/" class="footer-link-item">Disclaimer Notice</a>
-                    </div>
+                    <h4 class="footer-title">Legal & Privacy</h4>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Cookie Policy</a>
+                    <a href="#" class="footer-link">Data Security</a>
                   </div>
-
                 </div>
 
-                <!-- Bottom Copyright Row -->
-                <div class="footer-copyright-row" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
-                  <p class="footer-copyright-text" style="margin: 0;">
-                    &copy; 2026 Timetable Creator. All rights reserved. Powered by High-Speed Cloud Infrastructure.
-                  </p>
-                  <div style="display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);">
-                    <span>SSL 256-Bit Secured</span>
-                    <span>GDPR Compliant</span>
+                <div class="footer-bottom">
+                  <div class="footer-bottom-left">
+                    &copy; 2026 Timetable Creator. All rights reserved. Built for students & professionals.
+                  </div>
+                  <div class="footer-bottom-right">
+                    <a href="#" aria-label="Follow us on Twitter"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></a>
+                    <a href="#" aria-label="Star on GitHub"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg></a>
                   </div>
                 </div>
               </div>
@@ -6009,10 +6401,8 @@
 
           </div>
         </div>
-
       </main>
     </div>
-
     <!-- MAIN EVENT DIALOG EDITOR -->
     <div class="modal-backdrop" id="eventModal">
       <div class="modal-panel">
@@ -6629,7 +7019,7 @@
                 <button type="button" onclick="app.handlers.insertAdminFormatting('**', '**')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Bold"><strong>B</strong></button>
                 <button type="button" onclick="app.handlers.insertAdminFormatting('*', '*')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Italic"><em>I</em></button>
                 <button type="button" onclick="app.handlers.insertAdminFormatting('## ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Heading 2">H2</button>
-                <button type="button" onclick="app.handlers.insertAdminFormatting('- ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Bullet list">‚Ä¢ List</button>
+                <button type="button" onclick="app.handlers.insertAdminFormatting('- ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Bullet list">√¢ ¬¢ List</button>
                 <button type="button" onclick="app.handlers.insertAdminFormatting('> ', '')" class="classic-icon-btn" style="padding: 2px 8px; font-size: 11px; height: 24px;" title="Quote">Quote</button>
               </div>
             </div>
@@ -6678,7 +7068,7 @@
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
           pageLanguage: 'en',
-          includedLanguages: 'en,es,fr,de,ru,ar,hi',
+          includedLanguages: 'en,es,fr,de,ru,ar,hi,zh-CN,zh-TW',
           layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
           autoDisplay: false
         }, 'google_translate_element');
@@ -6792,212 +7182,6 @@
        * Core Application Architecture State Management
        */
       const app = {
-        defaultClassicStarterEvents: [
-          {
-            id: "evt_classic_1",
-            title: "Calculus & Algebra",
-            teacher: "Prof. Anderson",
-            room: "Room 101",
-            location: "Room 101",
-            category: "General",
-            notes: "",
-            day: 0,
-            startTime: 510,
-            endTime: 600,
-            color: "#3b82f6"
-          },
-          {
-            id: "evt_classic_2",
-            title: "Computer Science Lab",
-            teacher: "Dr. Evans",
-            room: "Lab 3B",
-            location: "Lab 3B",
-            category: "General",
-            notes: "",
-            day: 0,
-            startTime: 630,
-            endTime: 750,
-            color: "#10b981"
-          },
-          {
-            id: "evt_classic_3",
-            title: "Physics Mechanics",
-            teacher: "Dr. Miller",
-            room: "Hall A",
-            location: "Hall A",
-            category: "General",
-            notes: "",
-            day: 1,
-            startTime: 540,
-            endTime: 630,
-            color: "#8b5cf6"
-          },
-          {
-            id: "evt_classic_4",
-            title: "English Literature",
-            teacher: "Prof. Davies",
-            room: "Room 204",
-            location: "Room 204",
-            category: "General",
-            notes: "",
-            day: 1,
-            startTime: 660,
-            endTime: 750,
-            color: "#f59e0b"
-          },
-          {
-            id: "evt_classic_5",
-            title: "Chemistry Laboratory",
-            teacher: "Dr. Watson",
-            room: "Chem Lab 2",
-            location: "Chem Lab 2",
-            category: "General",
-            notes: "",
-            day: 2,
-            startTime: 540,
-            endTime: 690,
-            color: "#06b6d4"
-          },
-          {
-            id: "evt_classic_6",
-            title: "World History",
-            teacher: "Prof. Clark",
-            room: "Room 302",
-            location: "Room 302",
-            category: "General",
-            notes: "",
-            day: 3,
-            startTime: 600,
-            endTime: 690,
-            color: "#ec4899"
-          },
-          {
-            id: "evt_classic_7",
-            title: "Physical Education",
-            teacher: "Coach Taylor",
-            room: "Main Gym",
-            location: "Main Gym",
-            category: "General",
-            notes: "",
-            day: 4,
-            startTime: 540,
-            endTime: 630,
-            color: "#10b981"
-          },
-          {
-            id: "evt_classic_8",
-            title: "Self Study & Library",
-            teacher: "Study Circle",
-            room: "Library 4",
-            location: "Library 4",
-            category: "General",
-            notes: "",
-            day: 4,
-            startTime: 660,
-            endTime: 780,
-            color: "#6366f1"
-          }
-        ],
-        defaultProStarterEvents: [
-          {
-            id: "evt_pro_1",
-            title: "Advanced Data Structures & Algorithms",
-            subject: "CS 301",
-            teacher: "Dr. Alan Turing",
-            room: "Innovation Hub 4B",
-            location: "Innovation Hub 4B",
-            category: "Academic",
-            notes: "Dynamic Programming & Graph Traversal",
-            day: 0,
-            startTime: 540,
-            endTime: 660,
-            color: "#3b82f6"
-          },
-          {
-            id: "evt_pro_2",
-            title: "Cross-Functional Agile Standup",
-            subject: "Engineering",
-            teacher: "Tech Lead",
-            room: "Conf Room A",
-            location: "Conf Room A",
-            category: "General",
-            notes: "Sprint review and blocker triage",
-            day: 0,
-            startTime: 690,
-            endTime: 750,
-            color: "#10b981"
-          },
-          {
-            id: "evt_pro_3",
-            title: "Quantum Physics & Thermodynamics",
-            subject: "PHY 402",
-            teacher: "Prof. Richard Feynman",
-            room: "Physics Lab West",
-            location: "Physics Lab West",
-            category: "Academic",
-            notes: "Wavefunction calculations & problem set 4",
-            day: 1,
-            startTime: 540,
-            endTime: 660,
-            color: "#8b5cf6"
-          },
-          {
-            id: "evt_pro_4",
-            title: "Microservices & Cloud Architecture",
-            subject: "Cloud Computing",
-            teacher: "Dr. Jeff Dean",
-            room: "Lab 208",
-            location: "Lab 208",
-            category: "Practical",
-            notes: "Kubernetes cluster orchestration",
-            day: 2,
-            startTime: 570,
-            endTime: 690,
-            color: "#06b6d4"
-          },
-          {
-            id: "evt_pro_5",
-            title: "Applied Machine Learning & Transformers",
-            subject: "AI 501",
-            teacher: "Dr. Geoffrey Hinton",
-            room: "Seminar Room 1",
-            location: "Seminar Room 1",
-            category: "Academic",
-            notes: "Attention mechanisms & fine-tuning LLMs",
-            day: 3,
-            startTime: 540,
-            endTime: 660,
-            color: "#ec4899"
-          },
-          {
-            id: "evt_pro_6",
-            title: "UI/UX Design Systems Workshop",
-            subject: "Design",
-            teacher: "Lead Designer",
-            room: "Creative Studio 3",
-            location: "Creative Studio 3",
-            category: "Practical",
-            notes: "Design tokens, accessibility & typography",
-            day: 4,
-            startTime: 540,
-            endTime: 660,
-            color: "#f59e0b"
-          },
-          {
-            id: "evt_pro_7",
-            title: "Weekly Code Review & Demo Showcase",
-            subject: "All Hands",
-            teacher: "Engineering Team",
-            room: "Main Auditorium",
-            location: "Main Auditorium",
-            category: "Study",
-            notes: "Feature walkthroughs and architecture retro",
-            day: 4,
-            startTime: 720,
-            endTime: 840,
-            color: "#6366f1"
-          }
-        ],
         defaultStarterEvents: [
           {
             id: "evt_starter_1",
@@ -7113,19 +7297,18 @@
           }
         ],
         state: {
-          events: [], // Holds active events array
-          classicEvents: null, // Isolated Classic events
-          proEvents: null, // Isolated Pro Studio events
-          classicCellH: 48, // Classic row height in px
-          proCellH: 44, // Pro row height in px
-          classicColWidths: {}, // Classic column index -> width px
-          proColWidths: {}, // Pro column index -> width px
+          events: [], // Holds array of event elements
           aiCredits: null, // Tracks remaining AI credits for the user
-          viewMode: localStorage.getItem('tt_view_mode') || 'classic',
+          viewMode: 'classic',
           classicTitle: localStorage.getItem('tt_classic_title') || 'My Weekly Timetable',
           classicSubtitle: localStorage.getItem('tt_classic_subtitle') || 'Class & Activity Schedule',
           classicSelectedDays: [0],
           classicSelectedColor: '#10b981',
+          classicColWidths: {},
+          proColWidths: {},
+          classicCellH: 48,
+          classicEvents: null,
+          proEvents: null,
           config: {
             daysCount: 7,
             startTime: 480, // minutes from midnight (8:00 AM)
@@ -7168,20 +7351,9 @@
             return;
           }
           this.loadState();
-          
-          if (!this.state.classicEvents || !Array.isArray(this.state.classicEvents) || this.state.classicEvents.length === 0) {
-            this.state.classicEvents = JSON.parse(JSON.stringify(this.defaultClassicStarterEvents || this.defaultStarterEvents));
+          if (!this.state.events || !Array.isArray(this.state.events) || this.state.events.length === 0) {
+            this.state.events = JSON.parse(JSON.stringify(this.defaultStarterEvents));
           }
-          if (!this.state.proEvents || !Array.isArray(this.state.proEvents) || this.state.proEvents.length === 0) {
-            this.state.proEvents = JSON.parse(JSON.stringify(this.defaultProStarterEvents || this.defaultStarterEvents));
-          }
-
-          if (this.state.viewMode === 'classic') {
-            this.state.events = this.state.classicEvents;
-          } else {
-            this.state.events = this.state.proEvents;
-          }
-
           this.setupGlobalListeners();
           this.applyGeneralStyles();
           this.handlers.switchViewMode(this.state.viewMode, false);
@@ -7474,7 +7646,7 @@
               <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.2); padding: 8px 12px; border-radius: var(--border-radius); font-size: 11px; color: var(--text-main);">
                 <div style="display: flex; align-items: center; gap: 6px;">
                   <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: ${dotColor};"></span>
-                  <span>AI Assistant ‚Ä¢ <span style="font-family: var(--font-mono);">${currentUser.email}</span></span>
+                  <span>AI Assistant √¢ ¬¢ <span style="font-family: var(--font-mono);">${currentUser.email}</span></span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
                   <span>Remaining Limit:</span>
@@ -7526,19 +7698,13 @@
          */
         saveState() {
           try {
-            if (this.state.viewMode === 'classic') {
-              this.state.classicEvents = this.state.events;
-            } else {
-              this.state.proEvents = this.state.events;
-            }
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify({
               events: this.state.events,
               classicEvents: this.state.classicEvents,
               proEvents: this.state.proEvents,
-              classicCellH: this.state.classicCellH,
-              proCellH: this.state.proCellH,
               classicColWidths: this.state.classicColWidths,
               proColWidths: this.state.proColWidths,
+              classicCellH: this.state.classicCellH,
               config: this.state.config
             }));
           } catch(e) {
@@ -7547,7 +7713,7 @@
         },
 
         getRowHeight() {
-          const base = this.state.proCellH || 44;
+          const base = 58;
           const density = this.state.config.density || 1.0;
           const zoom = this.state.config.zoom || 1.0;
           return base * density * zoom;
@@ -7558,19 +7724,12 @@
             const raw = localStorage.getItem(this.STORAGE_KEY);
             if (raw) {
               const parsed = JSON.parse(raw);
+              if (parsed.events) this.state.events = parsed.events;
               if (parsed.classicEvents) this.state.classicEvents = parsed.classicEvents;
               if (parsed.proEvents) this.state.proEvents = parsed.proEvents;
-              if (parsed.classicCellH) this.state.classicCellH = parsed.classicCellH;
-              if (parsed.proCellH) this.state.proCellH = parsed.proCellH;
               if (parsed.classicColWidths) this.state.classicColWidths = parsed.classicColWidths;
               if (parsed.proColWidths) this.state.proColWidths = parsed.proColWidths;
-
-              if (this.state.viewMode === 'classic') {
-                this.state.events = this.state.classicEvents || parsed.events || [];
-              } else {
-                this.state.events = this.state.proEvents || parsed.events || [];
-              }
-
+              if (parsed.classicCellH) this.state.classicCellH = parsed.classicCellH;
               if (parsed.config) this.state.config = { ...this.state.config, ...parsed.config };
               
               this.sanitizeConfig();
@@ -7581,6 +7740,16 @@
           }
         },
 
+        
+        getActiveDays() {
+          const dc = this.state.config.daysCount;
+          if (typeof dc === 'string' && dc.startsWith('day-')) {
+            const d = parseInt(dc.replace('day-', ''));
+            if (!isNaN(d) && d >= 0 && d <= 6) return [d];
+          }
+          const count = Math.max(1, Math.min(7, parseInt(dc) || 7));
+          return Array.from({ length: count }, (_, i) => i);
+        },
         sanitizeConfig() {
           const c = this.state.config;
           if (!c) {
@@ -7599,7 +7768,14 @@
             };
             return;
           }
-          c.daysCount = Math.max(1, Math.min(7, parseInt(c.daysCount) || 7));
+          if (typeof c.daysCount === 'string' && c.daysCount.startsWith('day-')) {
+            const dIdx = parseInt(c.daysCount.replace('day-', ''));
+            if (isNaN(dIdx) || dIdx < 0 || dIdx > 6) {
+              c.daysCount = 7;
+            }
+          } else {
+            c.daysCount = Math.max(1, Math.min(7, parseInt(c.daysCount) || 7));
+          }
           c.startTime = Math.max(0, Math.min(1439, parseInt(c.startTime) || 480));
           c.endTime = Math.max(0, Math.min(1440, parseInt(c.endTime) || 1140));
           if (c.endTime <= c.startTime) {
@@ -7647,21 +7823,252 @@
          * Tracking State Change Actions & Multi-Stage History Stack (Undo/Redo)
          */
         pushHistory() {
-          const snapshot = JSON.stringify(this.state.events);
-          // Limit undo elements to prevent runaway memory heap allocation
-          if (this.state.history.undoStack.length > 25) {
+          const snapshot = JSON.stringify({
+            events: this.state.events,
+            classicEvents: this.state.classicEvents,
+            proEvents: this.state.proEvents,
+            classicColWidths: this.state.classicColWidths,
+            proColWidths: this.state.proColWidths,
+            classicCellH: this.state.classicCellH,
+            config: this.state.config
+          });
+          if (this.state.history.undoStack.length > 30) {
             this.state.history.undoStack.shift();
           }
           this.state.history.undoStack.push(snapshot);
-          this.state.history.redoStack = []; // Clean next-ahead steps path
+          this.state.history.redoStack = [];
           this.updateUndoRedoButtons();
         },
 
         updateUndoRedoButtons() {
           const undoBtn = document.getElementById('btnUndo');
           const redoBtn = document.getElementById('btnRedo');
-          if (undoBtn) undoBtn.style.opacity = this.state.history.undoStack.length > 0 ? "1" : "0.4";
-          if (redoBtn) redoBtn.style.opacity = this.state.history.redoStack.length > 0 ? "1" : "0.4";
+          const classicUndoBtn = document.getElementById('btnClassicUndo');
+          const classicRedoBtn = document.getElementById('btnClassicRedo');
+          const canUndo = this.state.history.undoStack.length > 0;
+          const canRedo = this.state.history.redoStack.length > 0;
+
+          if (undoBtn) {
+            undoBtn.style.opacity = canUndo ? "1" : "0.4";
+            undoBtn.disabled = !canUndo;
+          }
+          if (redoBtn) {
+            redoBtn.style.opacity = canRedo ? "1" : "0.4";
+            redoBtn.disabled = !canRedo;
+          }
+          if (classicUndoBtn) {
+            classicUndoBtn.style.opacity = canUndo ? "1" : "0.4";
+            classicUndoBtn.disabled = !canUndo;
+          }
+          if (classicRedoBtn) {
+            classicRedoBtn.style.opacity = canRedo ? "1" : "0.4";
+            classicRedoBtn.disabled = !canRedo;
+          }
+        },
+
+        startExcelColResize(e, dayIndex, mode = 'pro') {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const startX = e.clientX;
+          let targetEl = null;
+          let startWidth = 140;
+
+          if (mode === 'classic') {
+            targetEl = document.getElementById(`classic-th-day-${dayIndex}`);
+            if (targetEl) startWidth = targetEl.getBoundingClientRect().width;
+          } else {
+            targetEl = document.getElementById(`hdr-day-${dayIndex}`);
+            if (targetEl) startWidth = targetEl.getBoundingClientRect().width;
+          }
+
+          const guideV = document.getElementById('excelResizeGuideV');
+          if (guideV) {
+            guideV.style.left = `${e.clientX}px`;
+            guideV.style.display = 'block';
+          }
+
+          document.body.classList.add('excel-resizing-col');
+
+          const onMove = (moveEvt) => {
+            const deltaX = moveEvt.clientX - startX;
+            const newWidth = Math.max(65, Math.min(480, startWidth + deltaX));
+
+            if (guideV) {
+              guideV.style.left = `${moveEvt.clientX}px`;
+            }
+
+            if (mode === 'classic') {
+              if (targetEl) {
+                targetEl.style.width = `${newWidth}px`;
+                targetEl.style.minWidth = `${newWidth}px`;
+              }
+              const table = document.getElementById('classicTableGrid');
+              if (table) {
+                table.querySelectorAll(`.classic-td-cell[data-day="${dayIndex}"]`).forEach(cell => {
+                  cell.style.width = `${newWidth}px`;
+                  cell.style.minWidth = `${newWidth}px`;
+                });
+              }
+              if (!this.state.classicColWidths) this.state.classicColWidths = {};
+              this.state.classicColWidths[dayIndex] = newWidth;
+            } else {
+              if (targetEl) {
+                targetEl.style.width = `${newWidth}px`;
+                targetEl.style.minWidth = `${newWidth}px`;
+              }
+              const colEl = document.getElementById(`col-day-${dayIndex}`);
+              if (colEl) {
+                colEl.style.width = `${newWidth}px`;
+                colEl.style.minWidth = `${newWidth}px`;
+              }
+              if (!this.state.proColWidths) this.state.proColWidths = {};
+              this.state.proColWidths[dayIndex] = newWidth;
+            }
+          };
+
+          const onUp = () => {
+            window.removeEventListener('pointermove', onMove);
+            window.removeEventListener('pointerup', onUp);
+            window.removeEventListener('pointercancel', onUp);
+
+            if (guideV) guideV.style.display = 'none';
+            document.body.classList.remove('excel-resizing-col');
+
+            this.pushHistory();
+            if (this.state.config.autoSave) this.saveState();
+          };
+
+          window.addEventListener('pointermove', onMove);
+          window.addEventListener('pointerup', onUp);
+          window.addEventListener('pointercancel', onUp);
+        },
+
+        startExcelRowResize(e, slotIndex, mode = 'pro') {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const startY = e.clientY;
+          const guideH = document.getElementById('excelResizeGuideH');
+          if (guideH) {
+            guideH.style.top = `${e.clientY}px`;
+            guideH.style.display = 'block';
+          }
+
+          document.body.classList.add('excel-resizing-row');
+
+          if (mode === 'classic') {
+            const startCellH = this.state.classicCellH || 48;
+            const mStep = parseInt(this.state.config.interval) || 30;
+            const startTime = parseInt(this.state.config.startTime) !== undefined ? parseInt(this.state.config.startTime) : 480;
+            const endTime = parseInt(this.state.config.endTime) !== undefined ? parseInt(this.state.config.endTime) : 1140;
+
+            const onMove = (moveEvt) => {
+              const deltaY = moveEvt.clientY - startY;
+              const newCellH = Math.max(26, Math.min(160, startCellH + deltaY));
+
+              if (guideH) guideH.style.top = `${moveEvt.clientY}px`;
+
+              this.state.classicCellH = newCellH;
+              document.documentElement.style.setProperty('--classic-cell-h', `${newCellH}px`);
+
+              const table = document.getElementById('classicTableGrid');
+              if (table) {
+                table.querySelectorAll('.classic-td-cell, .classic-td-time').forEach(c => {
+                  c.style.height = `${newCellH}px`;
+                });
+              }
+
+              // Real-time stretch/shrink of all event boxes in Classic
+              const pxPerMin = newCellH / mStep;
+              const events = this.state.classicEvents || this.state.events || [];
+              events.forEach(evt => {
+                const el = document.getElementById(`classic-evt-${evt.id}`);
+                if (el) {
+                  const visibleStart = Math.max(evt.startTime, startTime);
+                  const visibleEnd = Math.min(evt.endTime, endTime);
+                  const duration = visibleEnd - visibleStart;
+                  const topOffset = (visibleStart - startTime) * pxPerMin + 2;
+                  const height = Math.max(24, (duration * pxPerMin) - 4);
+                  el.style.top = `${topOffset}px`;
+                  el.style.height = `${height}px`;
+                }
+              });
+            };
+
+            const onUp = () => {
+              window.removeEventListener('pointermove', onMove);
+              window.removeEventListener('pointerup', onUp);
+              window.removeEventListener('pointercancel', onUp);
+
+              if (guideH) guideH.style.display = 'none';
+              document.body.classList.remove('excel-resizing-row');
+
+              this.pushHistory();
+              if (this.state.config.autoSave) this.saveState();
+            };
+
+            window.addEventListener('pointermove', onMove);
+            window.addEventListener('pointerup', onUp);
+            window.addEventListener('pointercancel', onUp);
+          } else {
+            // Pro Studio Mode
+            const startRowH = this.getRowHeight();
+            const zoom = this.state.config.zoom || 1.0;
+            const interval = parseInt(this.state.config.interval) || 30;
+            const startTime = parseInt(this.state.config.startTime) || 480;
+            const endTime = parseInt(this.state.config.endTime) || 1140;
+
+            const onMove = (moveEvt) => {
+              const deltaY = moveEvt.clientY - startY;
+              const newRowH = Math.max(24, Math.min(160, startRowH + deltaY));
+
+              if (guideH) guideH.style.top = `${moveEvt.clientY}px`;
+
+              const newDensity = newRowH / (44 * zoom);
+              this.state.config.density = newDensity;
+              document.documentElement.style.setProperty('--grid-density-coef', newDensity);
+
+              document.querySelectorAll('.time-cell, .grid-cell').forEach(el => {
+                el.style.height = `${newRowH}px`;
+              });
+
+              // Real-time stretch/shrink of all event cards in Pro Studio
+              const pxPerMin = newRowH / interval;
+              const events = this.state.proEvents || this.state.events || [];
+              events.forEach(evt => {
+                const card = document.getElementById(`evt-card-${evt.id}`);
+                if (card) {
+                  const visibleStart = Math.max(evt.startTime, startTime);
+                  const visibleEnd = Math.min(evt.endTime, endTime);
+                  const duration = visibleEnd - visibleStart;
+                  const topOffset = (visibleStart - startTime) * pxPerMin;
+                  const cardHeight = Math.max(16, (duration * pxPerMin) - 8);
+                  card.style.top = `${topOffset}px`;
+                  card.style.height = `${cardHeight}px`;
+                }
+              });
+
+              this.updateCurrentTimeIndicator();
+            };
+
+            const onUp = () => {
+              window.removeEventListener('pointermove', onMove);
+              window.removeEventListener('pointerup', onUp);
+              window.removeEventListener('pointercancel', onUp);
+
+              if (guideH) guideH.style.display = 'none';
+              document.body.classList.remove('excel-resizing-row');
+
+              this.syncConfigInputs();
+              this.pushHistory();
+              if (this.state.config.autoSave) this.saveState();
+            };
+
+            window.addEventListener('pointermove', onMove);
+            window.addEventListener('pointerup', onUp);
+            window.addEventListener('pointercancel', onUp);
+          }
         },
 
         /**
@@ -7743,146 +8150,6 @@
 
           // Real-time minute tracker loop
           setInterval(() => this.updateCurrentTimeIndicator(), 60000);
-
-          // Setup Excel line drag resizers for column and row lines
-          this.setupExcelResizers();
-        },
-
-        setupExcelResizers() {
-          let activeResize = null;
-          let guideV = document.getElementById('excelGuideLineV');
-          if (!guideV) {
-            guideV = document.createElement('div');
-            guideV.id = 'excelGuideLineV';
-            guideV.className = 'excel-guide-line-v';
-            guideV.style.display = 'none';
-            document.body.appendChild(guideV);
-          }
-          let guideH = document.getElementById('excelGuideLineH');
-          if (!guideH) {
-            guideH = document.createElement('div');
-            guideH.id = 'excelGuideLineH';
-            guideH.className = 'excel-guide-line-h';
-            guideH.style.display = 'none';
-            document.body.appendChild(guideH);
-          }
-
-          document.addEventListener('pointerdown', (e) => {
-            const colHandle = e.target.closest('.excel-col-resizer');
-            if (colHandle) {
-              e.preventDefault();
-              e.stopPropagation();
-              const mode = colHandle.dataset.mode || 'classic';
-              const colIdx = parseInt(colHandle.dataset.col, 10);
-              let targetEl = null;
-              if (mode === 'classic') {
-                targetEl = document.getElementById(`classic-th-day-${colIdx}`);
-              } else {
-                targetEl = document.getElementById(`hdr-day-${colIdx}`);
-              }
-              const initialWidth = targetEl ? targetEl.getBoundingClientRect().width : 160;
-              activeResize = {
-                type: 'col',
-                mode,
-                colIdx,
-                startX: e.clientX,
-                initialWidth,
-                targetHandle: colHandle
-              };
-              colHandle.classList.add('is-resizing');
-              guideV.style.left = `${e.clientX}px`;
-              guideV.style.display = 'block';
-              document.body.classList.add('excel-resizing-col');
-              return;
-            }
-
-            const rowHandle = e.target.closest('.excel-row-resizer');
-            if (rowHandle) {
-              e.preventDefault();
-              e.stopPropagation();
-              const mode = rowHandle.dataset.mode || 'classic';
-              const rowIdx = parseInt(rowHandle.dataset.row, 10);
-              const initialHeight = mode === 'classic' 
-                ? (app.state.classicCellH || 48) 
-                : (app.state.proCellH || 44);
-              activeResize = {
-                type: 'row',
-                mode,
-                rowIdx,
-                startY: e.clientY,
-                initialHeight,
-                targetHandle: rowHandle
-              };
-              rowHandle.classList.add('is-resizing');
-              guideH.style.top = `${e.clientY}px`;
-              guideH.style.display = 'block';
-              document.body.classList.add('excel-resizing-row');
-              return;
-            }
-          });
-
-          window.addEventListener('pointermove', (e) => {
-            if (!activeResize) return;
-            e.preventDefault();
-
-            if (activeResize.type === 'col') {
-              const deltaX = e.clientX - activeResize.startX;
-              const newWidth = Math.max(70, Math.min(600, Math.round(activeResize.initialWidth + deltaX)));
-              guideV.style.left = `${e.clientX}px`;
-
-              if (activeResize.mode === 'classic') {
-                if (!app.state.classicColWidths) app.state.classicColWidths = {};
-                app.state.classicColWidths[activeResize.colIdx] = newWidth;
-                const th = document.getElementById(`classic-th-day-${activeResize.colIdx}`);
-                if (th) {
-                  th.style.width = `${newWidth}px`;
-                  th.style.minWidth = `${newWidth}px`;
-                  th.style.maxWidth = `${newWidth}px`;
-                }
-              } else {
-                if (!app.state.proColWidths) app.state.proColWidths = {};
-                app.state.proColWidths[activeResize.colIdx] = newWidth;
-                const hdr = document.getElementById(`hdr-day-${activeResize.colIdx}`);
-                const col = document.getElementById(`col-day-${activeResize.colIdx}`);
-                if (hdr) {
-                  hdr.style.width = `${newWidth}px`;
-                  hdr.style.minWidth = `${newWidth}px`;
-                  hdr.style.maxWidth = `${newWidth}px`;
-                }
-                if (col) {
-                  col.style.width = `${newWidth}px`;
-                  col.style.minWidth = `${newWidth}px`;
-                  col.style.maxWidth = `${newWidth}px`;
-                }
-              }
-            } else if (activeResize.type === 'row') {
-              const deltaY = e.clientY - activeResize.startY;
-              const newHeight = Math.max(28, Math.min(160, Math.round(activeResize.initialHeight + deltaY)));
-              guideH.style.top = `${e.clientY}px`;
-
-              if (activeResize.mode === 'classic') {
-                app.state.classicCellH = newHeight;
-                app.renderClassicGrid();
-              } else {
-                app.state.proCellH = newHeight;
-                document.documentElement.style.setProperty('--row-height', `${app.getRowHeight()}px`);
-                app.renderEventsOnly();
-              }
-            }
-          });
-
-          window.addEventListener('pointerup', () => {
-            if (!activeResize) return;
-            if (activeResize.targetHandle) {
-              activeResize.targetHandle.classList.remove('is-resizing');
-            }
-            guideV.style.display = 'none';
-            guideH.style.display = 'none';
-            document.body.classList.remove('excel-resizing-col');
-            document.body.classList.remove('excel-resizing-row');
-            activeResize = null;
-            if (app.state.config.autoSave) app.saveState();
-          });
         },
 
         /**
@@ -7921,6 +8188,9 @@
               zoomValLabel.textContent = `${Math.round(this.state.classicZoom * 100)}%`;
             }
             document.documentElement.style.setProperty('--classic-zoom', this.state.classicZoom);
+            if (this.state.classicCellH) {
+              document.documentElement.style.setProperty('--classic-cell-h', `${this.state.classicCellH}px`);
+            }
 
             // Synchronize inputs in classic toolbar
             const titleInput = document.getElementById('classicTtTitle');
@@ -7938,7 +8208,8 @@
             }
 
             // Update stats strip in classic ribbon
-            const validEvents = (this.state.events || []).filter(evt => evt.day < activeDaysCount);
+            const classicEventsList = this.state.classicEvents || this.state.events || [];
+            const validEvents = classicEventsList.filter(evt => evt.day < activeDaysCount);
             const totalMinutes = validEvents.reduce((acc, evt) => {
               const dur = Math.max(0, (evt.endTime || 0) - (evt.startTime || 0));
               return acc + dur;
@@ -7955,29 +8226,34 @@
             if (statDays) statDays.textContent = `${activeDaysCount} Days`;
             if (statSpan) statSpan.textContent = `${this.formatMinute(startTime)} - ${this.formatMinute(endTime)}`;
 
-            // Build the Table HTML
+            // Build the Table HTML with Excel line-based resizers
             let html = '<thead><tr><th class="classic-th-corner">Time</th>';
             for (let d = 0; d < activeDaysCount; d++) {
-              const colWidth = (this.state.classicColWidths && this.state.classicColWidths[d]) ? `${this.state.classicColWidths[d]}px` : '';
-              const styleAttr = colWidth ? `style="width: ${colWidth}; min-width: ${colWidth}; max-width: ${colWidth};"` : '';
-              html += `<th class="classic-th-day" id="classic-th-day-${d}" data-day="${d}" ${styleAttr}>
+              let widthStyle = '';
+              if (this.state.classicColWidths && this.state.classicColWidths[d]) {
+                widthStyle = `style="width:${this.state.classicColWidths[d]}px;min-width:${this.state.classicColWidths[d]}px;"`;
+              }
+              html += `<th class="classic-th-day" id="classic-th-day-${d}" data-day="${d}" ${widthStyle}>
                 <span>${dayNames[d]}</span>
-                <div class="excel-col-resizer" data-col="${d}" data-mode="classic" title="Drag line to resize column"></div>
+                <div class="excel-col-resizer" onpointerdown="app.startExcelColResize(event, ${d}, 'classic')" title="Hold & drag column line to resize"></div>
               </th>`;
             }
             html += '</tr></thead><tbody>';
 
-            const cellHeight = this.state.classicCellH || 48; // Base table cell height in px
             for (let s = 0; s < totalSlots; s++) {
               const slotMin = startTime + (s * mStep);
               const timeLabel = this.formatMinute(slotMin);
-              html += `<tr><td class="classic-td-time" style="height: ${cellHeight}px; min-height: ${cellHeight}px;">
-                <span>${timeLabel}</span>
-                <div class="excel-row-resizer" data-row="${s}" data-mode="classic" title="Drag line to resize rows"></div>
+              html += `<tr><td class="classic-td-time">${timeLabel}
+                <div class="excel-row-resizer" onpointerdown="app.startExcelRowResize(event, ${s}, 'classic')" title="Hold & drag row line to resize"></div>
               </td>`;
               for (let d = 0; d < activeDaysCount; d++) {
-                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" style="height: ${cellHeight}px; min-height: ${cellHeight}px;" onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" oncontextmenu="app.handlers.showEmptyCellContext(event, ${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
+                let cellWidthStyle = '';
+                if (this.state.classicColWidths && this.state.classicColWidths[d]) {
+                  cellWidthStyle = `style="width:${this.state.classicColWidths[d]}px;min-width:${this.state.classicColWidths[d]}px;"`;
+                }
+                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" ${cellWidthStyle} onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" oncontextmenu="app.handlers.showEmptyCellContext(event, ${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
                   <svg class="classic-cell-add-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"></path></svg>
+                  <div class="excel-col-resizer" onpointerdown="app.startExcelColResize(event, ${d}, 'classic')" title="Hold & drag column line to resize"></div>
                 </td>`;
               }
               html += '</tr>';
@@ -7986,6 +8262,7 @@
             table.innerHTML = html;
 
             // Render events on top of the classic grid
+            const cellHeight = this.state.classicCellH || 48;
             const pxPerMin = cellHeight / mStep;
 
             validEvents.forEach(evt => {
@@ -7995,15 +8272,20 @@
               const visibleEnd = Math.min(evt.endTime, endTime);
               const duration = visibleEnd - visibleStart;
 
-              // Find the first matching cell for this day
               const firstCell = table.querySelector(`.classic-td-cell[data-day="${evt.day}"][data-time="${startTime}"]`);
               if (!firstCell) return;
 
               const topOffset = (visibleStart - startTime) * pxPerMin + 2;
-              const height = Math.max(34, (duration * pxPerMin) - 4);
+              const height = Math.max(28, (duration * pxPerMin) - 4);
 
               const eventCard = document.createElement('div');
-              eventCard.className = 'classic-event-item';
+              
+              let edgeClass = '';
+              if (topOffset < 60) edgeClass += ' edge-top';
+              if (evt.day == document.getElementById('classicConfigDays').value) edgeClass += ' edge-right';
+              if (evt.day == 1) edgeClass += ' edge-left';
+              eventCard.className = 'classic-event-item' + edgeClass;
+  
               eventCard.id = `classic-evt-${evt.id}`;
               eventCard.style.top = `${topOffset}px`;
               eventCard.style.height = `${height}px`;
@@ -8034,7 +8316,7 @@
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
                     <button class="classic-evt-btn" title="Duplicate activity" onclick="event.stopPropagation(); app.duplicateEvent('${evt.id}')">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"></path></svg>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 7v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2z"></path><path d="M4 17a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2"></path></svg>
                     </button>
                     ${this.state.clipboard ? `
                     <button class="classic-evt-btn" title="Paste activity after this" onclick="event.stopPropagation(); app.pasteEvent(${evt.day}, ${evt.endTime})">
@@ -8059,6 +8341,7 @@
             console.error('Error rendering Classic Timetable grid:', err);
           }
         },
+
         renderGridStructure() {
           try {
             const daysRow = document.getElementById('gridHeaderRow');
@@ -8070,15 +8353,12 @@
               return;
             }
 
-            // Clean up old configurations
             daysRow.innerHTML = '<div class="grid-corner">Time</div>';
             timeCol.innerHTML = '';
             colsContainer.innerHTML = '';
 
-            // Ensure configuration properties are valid and sanitized
             this.sanitizeConfig();
 
-            // 1. Render Days depending on Days Limit selection
             const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
             const activeDaysCount = parseInt(this.state.config.daysCount) || 7;
 
@@ -8088,35 +8368,31 @@
               header.className = `day-column-header ${isWeekend ? 'weekend' : ''}`;
               header.id = `hdr-day-${i}`;
               header.textContent = dayNames[i] || `Day ${i + 1}`;
-
+              if (this.state.proColWidths && this.state.proColWidths[i]) {
+                header.style.width = `${this.state.proColWidths[i]}px`;
+                header.style.minWidth = `${this.state.proColWidths[i]}px`;
+              }
               const colResizer = document.createElement('div');
               colResizer.className = 'excel-col-resizer';
-              colResizer.setAttribute('data-col', i);
-              colResizer.setAttribute('data-mode', 'pro');
-              colResizer.title = 'Drag line to resize column';
+              colResizer.title = 'Hold & drag column line to resize';
+              colResizer.addEventListener('pointerdown', (e) => this.startExcelColResize(e, i, 'pro'));
               header.appendChild(colResizer);
-
-              if (this.state.proColWidths && this.state.proColWidths[i]) {
-                const w = `${this.state.proColWidths[i]}px`;
-                header.style.width = w;
-                header.style.minWidth = w;
-                header.style.maxWidth = w;
-              }
               daysRow.appendChild(header);
 
-              // Columns containers
               const column = document.createElement('div');
               column.className = 'grid-day-column';
               column.id = `col-day-${i}`;
               column.setAttribute('data-day', i);
               if (this.state.proColWidths && this.state.proColWidths[i]) {
-                const w = `${this.state.proColWidths[i]}px`;
-                column.style.width = w;
-                column.style.minWidth = w;
-                column.style.maxWidth = w;
+                column.style.width = `${this.state.proColWidths[i]}px`;
+                column.style.minWidth = `${this.state.proColWidths[i]}px`;
               }
-              
-              // Subdivide cell blocks internally for clicks
+              const colLineResizer = document.createElement('div');
+              colLineResizer.className = 'excel-col-resizer';
+              colLineResizer.title = 'Hold & drag column line to resize';
+              colLineResizer.addEventListener('pointerdown', (e) => this.startExcelColResize(e, i, 'pro'));
+              column.appendChild(colLineResizer);
+
               const mStep = parseInt(this.state.config.interval) || 30;
               const startTime = parseInt(this.state.config.startTime) || 480;
               const endTime = parseInt(this.state.config.endTime) || 1140;
@@ -8129,11 +8405,8 @@
                 gridCell.className = 'grid-cell';
                 gridCell.setAttribute('data-time', cellMinutes);
                 
-                // Double click or simple click to create a new event instantly at the localized spot
-                gridCell.addEventListener('click', (e) => {
-                  const dayId = i;
-                  const timeStart = cellMinutes;
-                  app.handlers.openNewEventModal(dayId, timeStart);
+                gridCell.addEventListener('click', () => {
+                  app.handlers.openNewEventModal(i, cellMinutes);
                 });
 
                 column.appendChild(gridCell);
@@ -8142,7 +8415,6 @@
               colsContainer.appendChild(column);
             }
 
-            // 2. Render Time Indicator Rows inside Left column
             const mStep = parseInt(this.state.config.interval) || 30;
             const startTime = parseInt(this.state.config.startTime) || 480;
             const endTime = parseInt(this.state.config.endTime) || 1140;
@@ -8154,14 +8426,11 @@
               const timeCell = document.createElement('div');
               timeCell.className = 'time-cell';
               timeCell.textContent = this.formatMinute(cellMinutes);
-
               const rowResizer = document.createElement('div');
               rowResizer.className = 'excel-row-resizer';
-              rowResizer.setAttribute('data-row', i);
-              rowResizer.setAttribute('data-mode', 'pro');
-              rowResizer.title = 'Drag line to resize rows';
+              rowResizer.title = 'Hold & drag row line to resize';
+              rowResizer.addEventListener('pointerdown', (e) => this.startExcelRowResize(e, i, 'pro'));
               timeCell.appendChild(rowResizer);
-
               timeCol.appendChild(timeCell);
             }
           } catch(err) {
@@ -8182,7 +8451,8 @@
           // Calculate conflicts and assign warning indicators dynamically
           const conflicts = this.detectConflicts();
 
-          const filteredEvents = this.state.events.filter(evt => {
+          const proEventsList = this.state.proEvents || this.state.events || [];
+          const filteredEvents = proEventsList.filter(evt => {
             const matchSearch = !searchVal || 
                                evt.title.toLowerCase().includes(searchVal) || 
                                (evt.teacher && evt.teacher.toLowerCase().includes(searchVal)) ||
@@ -8920,7 +9190,7 @@
                   <div style="font-weight: 600; color: var(--text-main); margin-bottom: 3px; font-size: 14px;">${app.escapeHtml(p.title)}</div>
                   <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted);">
                     <span style="font-family: monospace; color: #6366f1;">/blog/${app.escapeHtml(p.slug)}/</span>
-                    ${p.excerpt ? `<span style="color: var(--text-muted); opacity: 0.75;">‚Ä¢ ${app.escapeHtml(p.excerpt.substring(0, 55))}${p.excerpt.length > 55 ? '...' : ''}</span>` : ''}
+                    ${p.excerpt ? `<span style="color: var(--text-muted); opacity: 0.75;">√¢ ¬¢ ${app.escapeHtml(p.excerpt.substring(0, 55))}${p.excerpt.length > 55 ? '...' : ''}</span>` : ''}
                   </div>
                 </td>
                 <td style="padding: 14px 16px;">
@@ -9447,6 +9717,10 @@
             localStorage.setItem('tt_view_mode', normalizedMode);
 
             if (normalizedMode === 'classic') {
+              if (app.state.classicEvents) {
+                app.state.events = app.state.classicEvents;
+              }
+
               document.body.classList.add('classic-mode-active');
               document.body.classList.remove('pro-mode-active');
 
@@ -9477,7 +9751,10 @@
                 app.showToast('Switched to TimetableCreator.com Classic Clone', 'info');
               }
             } else {
-              // Pro Studio Edition
+              if (app.state.proEvents) {
+                app.state.events = app.state.proEvents;
+              }
+
               document.body.classList.add('pro-mode-active');
               document.body.classList.remove('classic-mode-active');
 
@@ -9607,22 +9884,103 @@
 
             const selectedList = presets[templateKey] || [];
             if (selectedList.length > 0) {
-              app.state.events = selectedList.map((item, idx) => ({
-                id: 'evt_preset_' + Date.now() + '_' + idx,
+              const processed = selectedList.map((item, idx) => ({
+                id: 'classic_preset_' + Date.now() + '_' + idx,
                 ...item,
                 location: item.room || '',
                 category: 'General',
                 notes: ''
               }));
+              app.state.classicEvents = processed;
+              if (app.state.viewMode === 'classic') {
+                app.state.events = processed;
+              }
 
               if (app.state.config.autoSave) app.saveState();
               app.render();
-              app.showToast(`Applied "${templateKey.toUpperCase()}" template schedule!`, 'success');
+              app.showToast(`Applied "${templateKey.toUpperCase()}" template to Classic Timetable!`, 'success');
             }
 
-            // Reset select element back to default
             const selectEl = document.getElementById('classicPresetTemplates');
             if (selectEl) selectEl.value = '';
+          },
+
+          applyProTemplate(templateKey) {
+            if (!templateKey) return;
+            app.pushHistory();
+
+            const presets = {
+              cs_freshman: [
+                { title: 'Data Structures & Algorithms', subject: 'Computer Science', teacher: 'Dr. Turing', room: 'Turing Hall 101', category: 'Lecture', day: 0, startTime: 540, endTime: 630, color: '#3b82f6' },
+                { title: 'Discrete Mathematics', subject: 'Mathematics', teacher: 'Prof. Gauss', room: 'Math 204', category: 'Lecture', day: 0, startTime: 660, endTime: 750, color: '#6366f1' },
+                { title: 'Algorithms Coding Lab', subject: 'Lab Work', teacher: 'TA Alex', room: 'Unix Lab 3', category: 'Lab', day: 1, startTime: 600, endTime: 720, color: '#10b981' },
+                { title: 'Computer Systems & C++', subject: 'Computer Science', teacher: 'Dr. Ritchie', room: 'Hall B', category: 'Lecture', day: 2, startTime: 540, endTime: 630, color: '#06b6d4' },
+                { title: 'Linear Algebra for CS', subject: 'Mathematics', teacher: 'Dr. Euler', room: 'Math 101', category: 'Lecture', day: 2, startTime: 660, endTime: 750, color: '#6366f1' },
+                { title: 'Web App Dev Workshop', subject: 'Full Stack', teacher: 'Prof. Berners', room: 'Lab 4', category: 'Workshop', day: 3, startTime: 600, endTime: 720, color: '#f59e0b' },
+                { title: 'Open Source Hackathon & Sync', subject: 'Projects', teacher: 'Self-Organized', room: 'Student Hub', category: 'Project', day: 4, startTime: 540, endTime: 690, color: '#8b5cf6' }
+              ],
+              premed: [
+                { title: 'Human Gross Anatomy', subject: 'Medicine', teacher: 'Dr. Gray', room: 'Anatomy Lab A', category: 'Lab', day: 0, startTime: 510, endTime: 630, color: '#e11d48' },
+                { title: 'Medical Biochemistry', subject: 'Biochemistry', teacher: 'Dr. Mendel', room: 'Bio Amphitheater', category: 'Lecture', day: 0, startTime: 660, endTime: 750, color: '#10b981' },
+                { title: 'Physiology Seminar', subject: 'Physiology', teacher: 'Prof. Bernard', room: 'Hall 3', category: 'Seminar', day: 1, startTime: 540, endTime: 660, color: '#3b82f6' },
+                { title: 'Organic Chemistry Lab', subject: 'Chemistry', teacher: 'Dr. Curie', room: 'Chem Lab 2', category: 'Lab', day: 2, startTime: 510, endTime: 660, color: '#06b6d4' },
+                { title: 'Clinical Diagnostics Prep', subject: 'Clinical', teacher: 'Dr. House', room: 'Hospital Wing B', category: 'Clinical', day: 3, startTime: 540, endTime: 690, color: '#8b5cf6' },
+                { title: 'Medical Ethics & Policy', subject: 'Ethics', teacher: 'Prof. Singer', room: 'Lecture Hall 1', category: 'Lecture', day: 4, startTime: 540, endTime: 630, color: '#f59e0b' }
+              ],
+              highschool_honors: [
+                { title: 'AP Calculus BC', subject: 'Mathematics', teacher: 'Mr. Davis', room: 'Room 201', category: 'Lecture', day: 0, startTime: 480, endTime: 540, color: '#3b82f6' },
+                { title: 'AP English Literature', subject: 'Literature', teacher: 'Ms. Austen', room: 'Room 105', category: 'Lecture', day: 0, startTime: 555, endTime: 615, color: '#8b5cf6' },
+                { title: 'AP Chemistry & Lab', subject: 'Science', teacher: 'Dr. Curie', room: 'Chem Lab', category: 'Lab', day: 0, startTime: 630, endTime: 720, color: '#10b981' },
+                { title: 'AP US History', subject: 'History', teacher: 'Mr. Smith', room: 'Room 304', category: 'Lecture', day: 1, startTime: 480, endTime: 540, color: '#f59e0b' },
+                { title: 'AP Physics C: Mechanics', subject: 'Physics', teacher: 'Prof. Newton', room: 'Physics Lab', category: 'Lecture', day: 1, startTime: 555, endTime: 645, color: '#06b6d4' },
+                { title: 'Varsity Athletics & Track', subject: 'Sports', teacher: 'Coach Mike', room: 'Stadium', category: 'Sports', day: 2, startTime: 930, endTime: 1020, color: '#f43f5e' },
+                { title: 'Robotics Team Build', subject: 'Extracurricular', teacher: 'Mr. Gates', room: 'Makerspace', category: 'Workshop', day: 3, startTime: 900, endTime: 1020, color: '#6366f1' },
+                { title: 'Mock Trial Team Prep', subject: 'Speech & Debate', teacher: 'Ms. Marshall', room: 'Courtroom 2', category: 'Seminar', day: 4, startTime: 870, endTime: 960, color: '#ec4899' }
+              ],
+              startup_routine: [
+                { title: 'Morning Standup & Roadmap', subject: 'Operations', teacher: 'Core Team', room: 'Zoom / War Room', category: 'Sync', day: 0, startTime: 540, endTime: 570, color: '#6366f1' },
+                { title: 'Deep Work: Core Architecture', subject: 'Engineering', teacher: 'Solo', room: 'Quiet Desk', category: 'Deep Work', day: 0, startTime: 570, endTime: 750, color: '#3b82f6' },
+                { title: 'Product UI/UX Review', subject: 'Design', teacher: 'Design Lead', room: 'Figma Lab', category: 'Review', day: 1, startTime: 600, endTime: 690, color: '#ec4899' },
+                { title: 'Investor & Partner Calls', subject: 'Fundraising', teacher: 'Founders', room: 'Conf Room A', day: 2, startTime: 660, endTime: 780, color: '#f59e0b' },
+                { title: 'Customer Feedback & Interviews', subject: 'Growth', teacher: 'Product Mgr', room: 'Call Booth 1', day: 3, startTime: 600, endTime: 720, color: '#10b981' },
+                { title: 'Sprint Demo & Retrospective', subject: 'Engineering', teacher: 'All Hands', room: 'Main Lounge', day: 4, startTime: 900, endTime: 990, color: '#8b5cf6' }
+              ],
+              fitness_athlete: [
+                { title: 'Fasted Cardio & Core', subject: 'Endurance', teacher: 'Trainer', room: 'Track / Zone A', category: 'Fitness', day: 0, startTime: 420, endTime: 480, color: '#f97316' },
+                { title: 'Upper Body Heavy Bench', subject: 'Strength', teacher: 'Strength Coach', room: 'Weight Room', category: 'Workout', day: 0, startTime: 1020, endTime: 1110, color: '#3b82f6' },
+                { title: 'Speed & Agility Drills', subject: 'Cardio', teacher: 'Head Coach', room: 'Field 1', category: 'Sports', day: 1, startTime: 960, endTime: 1050, color: '#f43f5e' },
+                { title: 'Lower Body Heavy Squats', subject: 'Hypertrophy', teacher: 'Strength Coach', room: 'Squat Racks', category: 'Workout', day: 2, startTime: 1020, endTime: 1110, color: '#8b5cf6' },
+                { title: 'Active Recovery & Yoga', subject: 'Mobility', teacher: 'Yoga Master', room: 'Studio 2', category: 'Recovery', day: 3, startTime: 450, endTime: 510, color: '#10b981' },
+                { title: 'Full Body Power Circuit', subject: 'Conditioning', teacher: 'Coach Alex', room: 'CrossFit Zone', category: 'Workout', day: 4, startTime: 1020, endTime: 1110, color: '#06b6d4' }
+              ],
+              exam_cram: [
+                { title: 'High-Yield Theorems Revision', subject: 'Calculus', teacher: 'Self Study', room: 'Library Pod 4', category: 'Study', day: 0, startTime: 510, endTime: 660, color: '#3b82f6' },
+                { title: 'Formulas Active Recall & Cards', subject: 'Physics', teacher: 'Anki Deck', room: 'Study Hall', category: 'Review', day: 0, startTime: 780, endTime: 870, color: '#10b981' },
+                { title: 'Past Papers Timed Drill #1', subject: 'Chemistry', teacher: 'Exam Simulation', room: 'Silent Room', category: 'Exam', day: 1, startTime: 540, endTime: 720, color: '#f43f5e' },
+                { title: 'Weakness Identification & Fix', subject: 'Review', teacher: 'Notes', room: 'Study Hall', category: 'Analysis', day: 2, startTime: 540, endTime: 690, color: '#f59e0b' },
+                { title: 'Past Papers Timed Drill #2', subject: 'Math', teacher: 'Exam Simulation', room: 'Silent Room', category: 'Exam', day: 3, startTime: 540, endTime: 720, color: '#8b5cf6' },
+                { title: 'Final Summary Cheat Sheet Prep', subject: 'Synthesis', teacher: 'Notes', room: 'Library Desk', category: 'Summary', day: 4, startTime: 540, endTime: 660, color: '#ec4899' }
+              ]
+            };
+
+            const selectedList = presets[templateKey] || [];
+            if (selectedList.length > 0) {
+              const processed = selectedList.map((item, idx) => ({
+                id: 'pro_preset_' + Date.now() + '_' + idx,
+                ...item,
+                notes: item.notes || ''
+              }));
+              app.state.proEvents = processed;
+              if (app.state.viewMode === 'pro') {
+                app.state.events = processed;
+              }
+              if (app.state.config.autoSave) app.saveState();
+              app.render();
+              app.showToast(`Applied "${templateKey.replace(/_/g, ' ').toUpperCase()}" template to Pro Timetable!`, 'success');
+            }
+
+            const wrap = document.getElementById('wrap_proPresetTemplates');
+            if (wrap) wrap.classList.remove('open');
           },
 
           downloadImage() {
@@ -9898,7 +10256,7 @@
 
             if (id) {
               // Modify existing single event
-              app.state.events = app.state.events.map(evt => {
+              const updatedEvents = app.state.events.map(evt => {
                 if (evt.id === id) {
                   return {
                     ...evt,
@@ -9915,6 +10273,8 @@
                 }
                 return evt;
               });
+              app.state.events = updatedEvents;
+              app.state.classicEvents = [...updatedEvents];
               app.showToast('Activity updated successfully!', 'success');
             } else {
               // Create new activity (for each selected day!)
@@ -9935,6 +10295,7 @@
                 };
                 app.state.events.push(newEvt);
               });
+              app.state.classicEvents = [...app.state.events];
               app.showToast(`Created ${selectedDays.length} activity session${selectedDays.length > 1 ? 's' : ''}!`, 'success');
             }
 
@@ -9988,11 +10349,25 @@
               app.showToast('Nothing to undo', 'error');
               return;
             }
-            const current = JSON.stringify(app.state.events);
+            const current = JSON.stringify({
+              events: app.state.events,
+              classicEvents: app.state.classicEvents,
+              proEvents: app.state.proEvents,
+              classicColWidths: app.state.classicColWidths,
+              proColWidths: app.state.proColWidths,
+              classicCellH: app.state.classicCellH,
+              config: app.state.config
+            });
             app.state.history.redoStack.push(current);
 
-            const prev = app.state.history.undoStack.pop();
-            app.state.events = JSON.parse(prev);
+            const prev = JSON.parse(app.state.history.undoStack.pop());
+            if (prev.events) app.state.events = prev.events;
+            if (prev.classicEvents) app.state.classicEvents = prev.classicEvents;
+            if (prev.proEvents) app.state.proEvents = prev.proEvents;
+            if (prev.classicColWidths) app.state.classicColWidths = prev.classicColWidths;
+            if (prev.proColWidths) app.state.proColWidths = prev.proColWidths;
+            if (prev.classicCellH) app.state.classicCellH = prev.classicCellH;
+            if (prev.config) app.state.config = prev.config;
 
             if (app.state.config.autoSave) app.saveState();
             app.render();
@@ -10005,11 +10380,25 @@
               app.showToast('Nothing to redo', 'error');
               return;
             }
-            const current = JSON.stringify(app.state.events);
+            const current = JSON.stringify({
+              events: app.state.events,
+              classicEvents: app.state.classicEvents,
+              proEvents: app.state.proEvents,
+              classicColWidths: app.state.classicColWidths,
+              proColWidths: app.state.proColWidths,
+              classicCellH: app.state.classicCellH,
+              config: app.state.config
+            });
             app.state.history.undoStack.push(current);
 
-            const next = app.state.history.redoStack.pop();
-            app.state.events = JSON.parse(next);
+            const next = JSON.parse(app.state.history.redoStack.pop());
+            if (next.events) app.state.events = next.events;
+            if (next.classicEvents) app.state.classicEvents = next.classicEvents;
+            if (next.proEvents) app.state.proEvents = next.proEvents;
+            if (next.classicColWidths) app.state.classicColWidths = next.classicColWidths;
+            if (next.proColWidths) app.state.proColWidths = next.proColWidths;
+            if (next.classicCellH) app.state.classicCellH = next.classicCellH;
+            if (next.config) app.state.config = next.config;
 
             if (app.state.config.autoSave) app.saveState();
             app.render();
@@ -10939,430 +11328,21 @@
             if (btn) {
               const originalHtml = btn.innerHTML;
               btn.innerHTML = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M5 13l4 4L19 7"></path></svg> Copied!`;
-              setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
-            }
-            app.showToast('Share link copied to clipboard!', 'success');
-          },
-
-          async triggerNativeShare() {
-            const input = document.getElementById('shareLinkInput');
-            const url = input ? input.value : window.location.href;
-            if (navigator.share) {
-              try {
-                await navigator.share({
-                  title: 'My Weekly Timetable Schedule',
-                  text: 'Check out my timetable schedule on Timetable Creator:',
-                  url: url
-                });
-                app.showToast('Shared successfully!', 'success');
-              } catch (err) {
-                if (err.name !== 'AbortError') {
-                  this.copyShareLink();
-                }
-              }
-            } else {
-              this.copyShareLink();
-            }
-          },
-
-          shareToWhatsApp() {
-            const input = document.getElementById('shareLinkInput');
-            const url = input ? input.value : window.location.href;
-            const text = encodeURIComponent('Check out my weekly timetable schedule: ' + url);
-            window.open('https://api.whatsapp.com/send?text=' + text, '_blank', 'noopener,noreferrer');
-          },
-
-          shareToTelegram() {
-            const input = document.getElementById('shareLinkInput');
-            const url = encodeURIComponent(input ? input.value : window.location.href);
-            const text = encodeURIComponent('Check out my weekly timetable schedule on Timetable Creator');
-            window.open('https://t.me/share/url?url=' + url + '&text=' + text, '_blank', 'noopener,noreferrer');
-          },
-
-          shareToTwitter() {
-            const input = document.getElementById('shareLinkInput');
-            const url = encodeURIComponent(input ? input.value : window.location.href);
-            const text = encodeURIComponent('Check out my weekly timetable schedule on Timetable Creator:');
-            window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + url, '_blank', 'noopener,noreferrer');
-          },
-
-          shareViaEmail() {
-            const input = document.getElementById('shareLinkInput');
-            const url = input ? input.value : window.location.href;
-            const subject = encodeURIComponent('My Weekly Timetable Schedule');
-            const body = encodeURIComponent('Hi,\n\nHere is my weekly timetable schedule created with Timetable Creator:\n' + url + '\n\nYou can view and save it in your browser.');
-            window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
-          },
-
-          switchShareTab(tab) {
-            const tabQr = document.getElementById('shareTabQr');
-            const tabEmbed = document.getElementById('shareTabEmbed');
-            const btnQr = document.getElementById('tabBtnQr');
-            const btnEmbed = document.getElementById('tabBtnEmbed');
-
-            if (tab === 'qr') {
-              if (tabQr) tabQr.style.display = 'flex';
-              if (tabEmbed) tabEmbed.style.display = 'none';
-              if (btnQr) {
-                btnQr.style.background = 'var(--primary-color)';
-                btnQr.style.color = 'white';
-                btnQr.style.borderColor = 'var(--primary-color)';
-              }
-              if (btnEmbed) {
-                btnEmbed.style.background = 'var(--bg-panel)';
-                btnEmbed.style.color = 'var(--text-main)';
-                btnEmbed.style.borderColor = 'var(--border-color)';
-              }
-            } else if (tab === 'embed') {
-              if (tabQr) tabQr.style.display = 'none';
-              if (tabEmbed) tabEmbed.style.display = 'flex';
-              if (btnEmbed) {
-                btnEmbed.style.background = 'var(--primary-color)';
-                btnEmbed.style.color = 'white';
-                btnEmbed.style.borderColor = 'var(--primary-color)';
-              }
-              if (btnQr) {
-                btnQr.style.background = 'var(--bg-panel)';
-                btnQr.style.color = 'var(--text-main)';
-                btnQr.style.borderColor = 'var(--border-color)';
-              }
-            }
-          },
-
-          copyEmbedCode() {
-            const textarea = document.getElementById('shareEmbedCode');
-            if (!textarea || !textarea.value) return;
-            textarea.select();
-            textarea.setSelectionRange(0, 99999);
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(textarea.value);
-            } else {
-              document.execCommand('copy');
-            }
-            app.showToast('Embed iframe code copied to clipboard!', 'success');
-          },
-
-          async downloadQrCode() {
-            const qrImg = document.getElementById('qrCodeImage');
-            if (!qrImg || !qrImg.src) return;
-            try {
-              app.showToast('Downloading QR Code image...', 'info');
-              const res = await fetch(qrImg.src);
-              const blob = await res.blob();
-              const blobUrl = URL.createObjectURL(blob);
-              const link = document.createElement('a');
-              link.href = blobUrl;
-              link.download = 'timetable-schedule-qr.png';
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-              URL.revokeObjectURL(blobUrl);
-              app.showToast('QR Code downloaded!', 'success');
-            } catch (e) {
-              window.open(qrImg.src, '_blank');
-            }
-          },
-
-          loadSharedScheduleFromData(dataStr) {
-            const decoded = this.decodeScheduleData(dataStr);
-            if (!decoded) {
-              app.showToast('Could not decode shared timetable data.', 'error');
-              return;
-            }
-            if (decoded.events) app.state.events = decoded.events;
-            if (decoded.config) app.state.config = { ...app.state.config, ...decoded.config };
-            
-            app.sanitizeConfig();
-            app.render();
-            app.syncConfigInputs();
-
-            this.showSharedScheduleBanner('shared link');
-            app.showToast('Shared schedule loaded!', 'success');
-          },
-
-          showSharedScheduleBanner(ownerLabel) {
-            let previewBanner = document.getElementById('sharedPreviewBanner');
-            if (!previewBanner) {
-              previewBanner = document.createElement('div');
-              previewBanner.id = 'sharedPreviewBanner';
-              previewBanner.style.cssText = 'background: linear-gradient(90deg, #8b5cf6, #ec4899); color: white; padding: 12px 16px; border-radius: var(--border-radius); display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; box-shadow: var(--shadow-md); font-size: 13px; font-weight: 500; font-family: var(--font-sans); flex-wrap: wrap;';
-              
-              const bannerText = document.createElement('div');
-              bannerText.style.display = 'flex';
-              bannerText.style.alignItems = 'center';
-              bannerText.style.gap = '8px';
-              bannerText.innerHTML = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg> <span>Previewing shared schedule (${ownerLabel}). Click Import to save this into your workspace.</span>`;
-              previewBanner.appendChild(bannerText);
-
-              const bannerBtns = document.createElement('div');
-              bannerBtns.style.display = 'flex';
-              bannerBtns.style.gap = '8px';
-              bannerBtns.style.alignItems = 'center';
-
-              const importBtn = document.createElement('button');
-              importBtn.className = 'btn-ctrl btn-primary';
-              importBtn.style.cssText = 'height: 30px; background: white; color: #8b5cf6; border: none; font-size: 11px; font-weight: 700; padding: 0 14px; margin: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer;';
-              importBtn.textContent = 'Import to My Schedule';
-              importBtn.onclick = () => {
-                app.saveState();
-                previewBanner.remove();
-                app.showToast('Timetable imported into your workspace!', 'success');
-                window.history.replaceState({}, document.title, window.location.pathname);
-              };
-              bannerBtns.appendChild(importBtn);
-
-              const closeBtn = document.createElement('button');
-              closeBtn.style.cssText = 'background: none; border: none; color: white; cursor: pointer; padding: 4px; display: flex; align-items: center; justify-content: center;';
-              closeBtn.setAttribute('aria-label', 'Dismiss banner');
-              closeBtn.innerHTML = '<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="16" height="16"><path d="M6 18L18 6M6 6l12 12"></path></svg>';
-              closeBtn.onclick = () => previewBanner.remove();
-              bannerBtns.appendChild(closeBtn);
-
-              previewBanner.appendChild(bannerBtns);
-
-              const workspace = document.getElementById('gridWorkspace');
-              if (workspace) {
-                workspace.insertBefore(previewBanner, workspace.firstChild);
-              }
-            }
-          },
-
-          async loadSharedSchedule(shareId) {
-            await app.ensureFirebase();
-            if (!db) {
-              app.showToast('Could not load shared schedule: Cloud database is unavailable.', 'error');
-              return;
-            }
-            app.showToast('Fetching shared schedule...', 'info');
-            try {
-              const docRef = doc(db, 'schedules', shareId);
-              const snapshot = await getDoc(docRef);
-
-              if (snapshot.exists()) {
-                const data = snapshot.data();
-                if (data.events) app.state.events = data.events;
-                if (data.config) app.state.config = { ...app.state.config, ...data.config };
-                
-                app.sanitizeConfig();
-                app.render();
-                app.syncConfigInputs();
-
-                this.showSharedScheduleBanner(data.ownerEmail || 'Shared Schedule');
-                app.showToast('Shared schedule loaded successfully!', 'success');
-              } else {
-                app.showToast('Shared timetable link not found or expired.', 'error');
-              }
-            } catch (error) {
-              console.error('Load Share Error:', error);
-              app.showToast('Error loading shared schedule.', 'error');
-            }
-          },
-
-          // Reset Timetable confirmations
-          resetSchedule() {
-            document.getElementById('resetConfirmModal').classList.add('active');
-          },
-
-          closeResetConfirmModal() {
-            document.getElementById('resetConfirmModal').classList.remove('active');
-          },
-
-          confirmResetSchedule() {
-            app.pushHistory();
-            app.state.events = [];
-            
-            app.state.config = {
-              daysCount: 7,
-              startTime: 480,
-              endTime: 1140,
-              interval: 30,
-              use24h: true,
-              theme: 'slate',
-              autoSave: true,
-              zoom: 1.0,
-              density: 1.0,
-              borderRadius: 10,
-              fontSize: 14
-            };
-
-            const configDays = document.getElementById('configDays');
-            const configStart = document.getElementById('configStart');
-            const configEnd = document.getElementById('configEnd');
-            const configInterval = document.getElementById('configInterval');
-            const configFormat = document.getElementById('configFormat');
-            const slideRadius = document.getElementById('slideRadius');
-            const slideSize = document.getElementById('slideSize');
-            const slideDensity = document.getElementById('slideDensity');
-
-            if (configDays) configDays.value = 7;
-            if (configStart) configStart.value = "08:00";
-            if (configEnd) configEnd.value = "19:00";
-            if (configInterval) configInterval.value = 30;
-            if (configFormat) configFormat.value = "24";
-            if (slideRadius) slideRadius.value = 10;
-            if (slideSize) slideSize.value = 14;
-            if (slideDensity) slideDensity.value = 2;
-
-            if (app.state.config.autoSave) app.saveState();
-            
-            app.render();
-            this.closeResetConfirmModal();
-            app.showToast('Schedule reset to clean slate!', 'success');
-          },
-
-          handleScroll() {
-            // Keep column headers and corners perfectly synced on scrolls
-            const scrollLeft = document.getElementById('gridWorkspace').scrollLeft;
-            const headerCorner = document.querySelector('.grid-corner');
-            const timeColumn = document.getElementById('gridTimeColumn');
-
-            if (headerCorner) {
-              headerCorner.style.transform = `translateX(${scrollLeft}px)`;
-            }
-          },
-
-          toggleCustomDropdown(wrapId, event) {
-            if (event) {
-              event.stopPropagation();
-            }
-            const wrap = document.getElementById(wrapId);
-            if (!wrap) return;
-            const wasOpen = wrap.classList.contains('open');
-            // Close all other dropdowns
-            document.querySelectorAll('.custom-dropdown-wrap.open').forEach(el => {
-              if (el !== wrap) el.classList.remove('open');
-            });
-            if (wasOpen) {
-              wrap.classList.remove('open');
-            } else {
-              wrap.classList.add('open');
-            }
-          },
-
-          onSelectCustomDropdown(inputId, value, label, wrapId, callback) {
-            const hiddenInput = document.getElementById(inputId);
-            if (hiddenInput) {
-              hiddenInput.value = value;
-              hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
-            }
-
-            const wrap = wrapId ? document.getElementById(wrapId) : (hiddenInput ? hiddenInput.closest('.custom-dropdown-wrap') : null);
-            if (wrap) {
-              const labelSpan = wrap.querySelector('.custom-dropdown-label');
-              if (labelSpan) labelSpan.innerHTML = label;
-
-              wrap.querySelectorAll('.custom-dropdown-option').forEach(opt => {
-                if (opt.getAttribute('data-value') === String(value)) {
-                  opt.classList.add('selected');
-                } else {
-                  opt.classList.remove('selected');
-                }
-              });
-
-              wrap.classList.remove('open');
-            }
-
-            if (typeof callback === 'function') {
-              callback(value);
-            }
-          },
-
-          setCustomDropdownValue(inputId, value, wrapId) {
-            const hiddenInput = document.getElementById(inputId);
-            if (hiddenInput) {
-              hiddenInput.value = value;
-            }
-            const wrap = wrapId ? document.getElementById(wrapId) : (hiddenInput ? hiddenInput.closest('.custom-dropdown-wrap') : null);
-            if (wrap) {
-              let matchedLabel = null;
-              wrap.querySelectorAll('.custom-dropdown-option').forEach(opt => {
-                if (opt.getAttribute('data-value') === String(value)) {
-                  opt.classList.add('selected');
-                  const inner = opt.querySelector('.custom-drop-item-content');
-                  matchedLabel = inner ? inner.innerHTML : opt.innerHTML;
-                } else {
-                  opt.classList.remove('selected');
-                }
-              });
-              if (matchedLabel) {
-                const labelSpan = wrap.querySelector('.custom-dropdown-label');
-                if (labelSpan) labelSpan.innerHTML = matchedLabel;
-              }
-            }
-          }
-        }
-      };
-
-      // Set application on global scope for inline HTML handlers
-      window.app = app;
-
-      
-      // Loading overlay logic for tab switches
-      document.addEventListener('click', function(e) {
-        const link = e.target.closest('a.mode-toggle-pill');
-        if (link && link.href) {
-          if (link.href !== window.location.href) {
-             e.preventDefault();
-             document.getElementById('globalLoadingOverlay').classList.add('active');
-             setTimeout(() => {
-               window.location.href = link.href;
-             }, 50); 
-          }
-        }
-      });
-
-      // Auto start on systems readiness (handles any DOM ready states robustly)
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-          app.init();
-        });
-      } else {
-        app.init();
-      }
-    </script>
-  
-    <style>
-      .seo-content-section {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 30px;
-        background: var(--bg-card);
-        border-radius: 12px;
-        box-shadow: var(--shadow-sm);
-        border: 1px solid var(--border-color);
-      }
-      .seo-content-section h1, .seo-content-section h2 {
-        color: var(--text-main);
-        font-family: 'Poppins', sans-serif;
-        margin-bottom: 16px;
-      }
-      .seo-content-section p {
-        color: var(--text-muted);
-        line-height: 1.6;
-        margin-bottom: 16px;
-      }
-      .seo-content-section ul {
-        color: var(--text-muted);
-        line-height: 1.6;
-        margin-bottom: 16px;
-        padding-left: 20px;
-      }
-      .seo-content-section li {
-        margin-bottom: 8px;
-      }
-    </style>
-
-    <div class="seo-content-section">
-      <h1>Free Online Timetable Creator</h1>
-      <p>Welcome to the most versatile <strong>Timetable Creator Online</strong>. Whether you're planning your weekly routines, mapping out your work shifts, organizing workout schedules, or preparing meal plans, our simple grid-based planner gives you complete control over your time.</p>
-      <h2>Why use our Schedule Maker?</h2>
-      <ul>
-        <li><strong>Easy to Use:</strong> Intuitive drag, drop, and click interactions.</li>
-        <li><strong>Fully Customizable:</strong> Add custom colors, adjust time intervals, and select beautiful themes.</li>
-        <li><strong>Export Anywhere:</strong> Download your timetable as a high-quality PDF, PNG, or JSON to share with others.</li>
-        <li><strong>No Login Required:</strong> Start building your schedule instantly without any complicated signups.</li>
-      </ul>
-      <p>Take charge of your productivity today by creating a clear, visually appealing schedule that keeps you on track. Our general purpose planner is perfect for freelancers, parents, fitness enthusiasts, and professionals.</p>
-    </div>
-</body>
-</html>
+              setTimeout(xúÏ;ks€8íﬂÛ+0æ≠H™≥h…Ô»èTb'◊%ìLÏôÏ÷Õ’DB÷¡ †mM÷ˇ˝∫æ	RJ2[7uuŸK"–çFø–›hˆ‰Ïú|!Sy<äò|sÛÓ-9#BÚ9èh¯F/√Ú∏MvG£—‡‰	)˝{¨¸¢qÏ©Ö∏øTÈ~ÔzA%#!ènâ/bŒ¢ÒCOï¡Ωm“SâÔ3•z¥è€OJø®ZE>—@Ãú…©ÊwÃ Ó»ó Íæàî&<ä‘¬Oñ,“ﬁúÈW!√Ø/WWAøß¯-uÖ3{µY$âÖEı‹~zw4Lôê{‚ﬁÖ¥à»[H6´‚‡3“èËüS-§g÷´”J`C´∆3ÿÏ=Âö‘Ä˚Õy œu»&§˜nE>1vÆ»_2Mß!#◊˛ÇI»z€.@ˆ†Ób¡¸["`ÉÀ À@U
+JDTBx!í3q"fMOcË±∆[≥Aáä$UÉYÜ´vΩ08	∞›_ê>ì≤…TÀ{Ú"∫d‰á≥3“{1RøíR»û ≤‡ ]]gö—w˛X'§jÑÖä5Öºıc´ﬁ—ﬂàO™’ã8˛Û™ª≈ÅjHX‰ãÄ˝¸ÒÍB,c˝™™›[emjË$˘w$•FbJÄàY‘Ô-¥é’dgá∆‹ªGŒ†>˘bπ£X<GŒ~-˙ÔiH£[‘ßH <ì€ë ˙AAòÏÚ9)ÔoX»Êí.ˇıºw∞msq8Ò~∑<ú†æßp¥∑d;fÔ;∞ªÁﬂY*Z¯€{˙áKÈûkÕ‰ˇ©p”I…≤ÕXè4,
+è”U+2+IªÂıßØñîáv¶íÈ?òﬂ&ùŒS◊I”T´do¯ˆØ—Ø——W›ÚˆQƒpbÇ…ˇï,ë˛]$pbF‰é≥{B#8jÈ¨Çå&+ëH2ï‚^Å¥ËLÖO@eß≈‰y £ØPWpüÊ!~È–ÿÄø0«‚ùˆan}ÄÅü‰Z}∏¡YnæÇWÀ)plfbã¯t‘M¨ÛÁ¥ÇØ•¬b»ihÑî0NŒ0¢˘Ïäd“?ATd><•W!ÛÆ‚ê¢Êıf!{Ë’õÃ¨:»ô’é@Wù¿Ü1Æ¿ §à¶‘øùKëD»Äﬁï˝·0ñ|IÂjËãP»AwÅôÑ∞˜ÆõÑ‘V2`Ú"Ÿhπzxón-ÂãsweNπ68ùc±∞eoepøJ+:ﬁ!Z¥®s≥ˆ·f{MC◊äÜ1´Ñﬂ†d≠z≤âíµjËwJbUsä£C€÷ ‡€Ó€liç™5Õh3=Î∂®ØR≤÷É ≥#√À8[Ç§<4]Î√sDu/å‹˝!GÛœí¸áD2ù»®
+ïœQê¯∫ûªïÜıµôÂGÕY¥Mû·?ErüóB»”ßƒÒÿªó†~7∞JS':ß˜kõ;q|cŒYˆ¿|àNñ-Ù{(û:3;ã>ˆò„3â	8∆:ﬂ_˚Å8$
+~í:ÚY^-Á]
+ÚŸ@_-È‹≠™Ü˘Ê)È∑hÖ£rSc¬eJ1èÊ‰ßè&Wˆ<∑Œ£ôh÷6ÏF$S∞[ö1í˙=nài(¶9Ä{¯†Y√(&ˇl‚„ü?æıl8˘ﬁÑoªè£-Ä¶éW‚ØMY‹Ô—Ê~"ã”eùS2˘¢k…CﬁaÚ?K/éÊìÇÅ¶`Qp±‡a–G§nb@}GußäJ≤•∏c®êqí›â€„~n‘.äë)C∂e÷a
+ÂbW”îs∫\AäÏl„2Ra´pY˛ÚZäÂ%’¥¿ük›8ê¨:çefä\ˆgÜ¢Ó∞µ∏π´ª.D$Ÿr6ÖJâ.bLäŸ
+_ùˇ.~lî“„±;–5∞dhPÔÙ	Í}eJsOŸ8pg∆Áeˆ	†¯B¿¸Îœ∑Òaò<V—7›-ç∏Êø≥3ΩÆœ8CÇ1`I§9Ç’¬ôZıÎ©Ü' †™/)^§Ál`Ã©ŒÌñ⁄nñ∫Æ”˜z±†Ö∞&ﬂ“)D;5ı	ô&1&§∫vÓ⁄x!¯PûÓ<*õ
+€∫^Õ=¸Æ©ú`èË¢´.Ìî∫±’§^!NPNå ·\¬aÑÑ<tÓﬂéß˛Ïæ0ˇ„b‚∏	1!Ô	âiÄß◊Ñåw„2>åNH!™DMH%
+¥MŒOÛ'‰â“|ÜQ∞)1Màä©œÜSÜµ¶ËÑ–êœ£!,πå>Ã`ÚÑÃil>!Bœy´h-ñ≤;≤Ñ<ÅO‡ˇ2*ÏØ·2 
+f∞‘PÅy é=ún‹3>_¿˙£Q˙dFó<\e,çpH˙^"¯˜§! ˜…jƒë
+·´Ù†Ä‹0'j 6^!∆Úq=ß«ù+îÔ;Uws2„ax∂Ö©ﬁQZ¬Ax∂Â'úé69BˆtxœΩ8€⁄›2ıßó‚·lkDFdw˛øE“—Ò·YÈòÔÁß1’úmΩÄ–=≤0„Ò>Ïè—æˇSwpn	b◊€?8†ã=Ôhoóyœˆ˜‡Ô¡ÓA\‰¿ﬂ˜ˆèé≈±∑{xLvÕÑgﬁ¡>LéΩ›£}≤ÔçéÜﬁËpûecwDFC74pvlxT"dÿsNNA…£Û‘Ü1T5WÿˇÀó¬ç=<rÅÅ	πZ∆BjåîMï=1·¸4ï∫{!oçıx∞.[∑_(áDÖ8ÎÓæ™Ω/u§æM{Ú´¥∑∞VKs[4›π'n¯	¿[ö&‡Y¢ÊÆrX©R?b:ÉæUGC_C¸å_“øY≤»aæyë∫°=Î»Jû:uº©NtÊt'≠≠Í€∆ﬂvÑæ-˜‹`3˚ÖÖﬂU«	fûf9üR»XÕˇº1âTHD,∏q»ƒLÛ¬˙v‹^°¡ÔVEAº\D&$–æÌBhî!lºs«Æ1fr]ÃVïﬁÔÆyµË§®ù[j0imöZ˜etÖÉ°B*é©(æü“˙Âqª–:s]ø›®™£◊¿´ÍÊ=wá!î;geõ]˚°PÏ€L Ìé0¨bV’¥K‘’©PQ£üµà¡4¬àt†°ZÕLø–ZrÿÉÏTr:—€¢@/πZr•Rûvlº|ÙıæÌËÛæÒ;$„„∑„crﬂC8ª∆ªµs¶}Ûu≥⁄ÃFZT,√⁄‘∞uÁ¢j”À‹ƒ∫ÇÙπ‰¡ßl¢√GCÄû„q’Mã#ìGäÅù∞ôê¨_°{ª4k∆•“fMÉ‹0ü∂%´fV›71¿U#ÁµUtN,RâdØπdS™‚±ys„ñ¨#e6%ïZ‰1ÅHC$ÅIõqºoL"zGyàæ˚2È%Ø±xÂà~:j`Æ“ZZn˛GSHÇ/˝`ä^9Eß Y∆[wÂJE4∫t^#5ªD4gSAë’å«¿∑CñÏRØî4‡%†Œ!∑Î 2U,WtUäÒﬂVc( õßK#•Ÿ§–êÕrrÎ
+¯ØªË`H7≥i¿"mV]hªtœW_Wè¯™ﬁ3g·ºm°¢HeJßhí3sm#$a1ÿy–eoı[∫¢ÔM8Í®älÀ˜{o—ˆmˇ•i}õ¿BrMÅ“Ã&YÌ∫nπ≠‰∂˚√ùÚë¡a\jV0J(ó&R•©ÁÂ˛≤æ«÷C¬Ä]XúÔD@√ﬁ¿∆Ïo¡r=5‡¯˜±m¥´‹dπèuLÈâª	≈«NV†Ã‚D-ﬁÿ∞”YÊ´˙ïˇ¸Øu%≈ö©W»ÈJ¡…Çë◊QΩ@•FÈB<w<™èÇo∞c„Ò~c–ƒÉw4ƒ|®>ñ(∂ªøò¿ôê∞˙ò^0DŸS!P›hJ•â◊ê2∏aXH{ç8Äπ^9«lx˚1≠|ç„òÜ]€¥løj5góÂÜœó¿‘ÆËßòÂn*±„◊»˛ıhÃ¥.<Ø¢ŒÓî|Ré´TûÎe3ª∞ΩË$÷„≤Û‹òT»fÂ÷Y.¶u‡A	Ø≈Çì:p\Z-[ã&ùÁÏ*cPR•¥≈Ìå5#«í zì√lçé'£—V$»}PËI5~÷ï	yPSè~o‘je:®hB±,$PM¿íeπÁ`c«jπ»ÖàÄ˝ÄT8ÉäHs∞]á»Í>÷Àú‘†ª¬±·Õém4o9√∫oi≤p»ú`ˆñû—à◊∫ÈeÕÇFA»Æ})¬Êô	¿0cQ YFêÌBÿ%ïiFÙÖå{Ã‰å˘:\å!‚@Ä¡¶\vdFﬁ≤Yßo®Âé^Â≤MK’Ö°ßåıs¬‰ 6w`\Â!÷°%ª•ﬂªª”5ƒ›‰3ùF^¶®ÔïG”˙åñ4Rêﬂ.±No~†ˇ÷ˇÀóbÎèÒ√‡∑MC7-ÊÛê]$d,/•àÒ“∫è"WDìZ‘È2o_∏àùîä¯†¢s˝uΩë
+§©∑±““„Jñqƒ›¡ë"¶Í}ÃPL8≥≠aëâÚHı{xª^3®Û°aHD"í)s™ Í÷°`!=œ7LfÄÊ≤…≥´y ¬W‘_ÙYË™àáÊ’ªA:M·ı◊qLıƒÚ¿—^PeI'^wZT√`‚p'x´˛â»2≠¶Å¶üU–¯€mb z€$SL‰ÇıIw€¬ÇÁ]≠È2Oóp0¨Ô0 b0?Ãg=È*OƒÚ'¶vØ–@˙ª'ˆ[œ_`+x‡/döL!qR6†A6Xÿn7ñ-‰˘:"ì Ê †L§9Z∏pjn°#H†]fî‘]‘1íªéinÉuo[_ÃVpùu¿◊†@[©ﬂößç“CsY∑Åä˝U…:·Å˚¬âÅAds© ç%å°—`ˆÿ^√P4Ô€=˜ãià•f@∂±Ÿ§n¥†≠<Q«îs'≤z5¢Yµ˘·Ëf_≈LÃrkµ}«≥$Ú-üõìNÏ;[[}C˜ÒÇ7|HfVó—q0˛9{qñË÷X`.πÅPÑØ+⁄ˇ!Û+ﬁ`≤!$Çw¯3s√ï›gπÒ’¯g?∑ü%◊61KÂøˇCSe“€+Áîˇﬂ(ı◊;OÍﬂäöƒÇ◊Ã‹ﬁÑ‹ﬁËbÊ2≈îÜê¶Ä+$†∞ 1l√"Üõ*…,TL/ÑﬁNƒqé∫X·mZå—Hl´≈ú˚/æØa_§bæ‹	Äæö8ÀLÁûπÑp"s≤’Æ“Jì/$TÇnÅzK∞°M	Ü1+b0ÏG–ßOãÆﬂ™‹≥)∂!ÿÑØÆ∑$Î∫¬<º¨É}\≤M¬F~Gäe§ê2ÔΩÂ›fïabéLœD¢˚-ç	-Ô«Â[¨!|‹&£¡	ÈV¨AY≥^$ÿd™{òØîizë7˘8xs£JòIØ»Â˚wfhELïÊâ)O∏<)¯üÛ Ã4ı{Ó¶ı˛ ±€°I∞X⁄ÛÒ÷‹°ÄR5πÑuÒäƒ
+g—IÕÈñ+ß;êΩÚXü?Im‚‘dªÁÈ$O1ëy—°≤Ø`î∞.ÈÉΩâ«~¬ˆ‹îÜl[Ã><5%„b(ÔOÿ´@îªÚ˜n|*Àá~≠G“41ñ[˙’≤Å`Å.%B«˚6U&µa1ﬁnÿ≠Xæi÷®øTTÈñÏ}q…1ﬁ∫“HJ…guÆÊ˝ö¶qtR„nÇ‡/s›È0k•{áﬂø~˛Î	»k≤ôNõY7!.‰ïÆ,p\«cƒ˛
+¯1>ÔlÀÅz+≥£”≈¯¸µdåº∑gU„’‚”òëMéœ?±–KÜıBΩ`d)‡ ´¿Ã)6¡DÛÛñ=“h&x‰”Çô J$=…H“(¬”ŒˆaŸ˜†¡Ê4˙ºmÿ<*ﬂ‹ºüwjµ‡3£BŒiƒ«	¯'Â]8ä+1≈¿è,ú–∏ ≈ó1êi {ÿXJÄ∞9ú
+µ¿9⁄\`˘°9ë-XıÛNw‚ÇùªÁü+ºƒ2ËÛ*Î;zÀ‰s`Ên>5	œs·ûÜ¸<cﬁ+™¿ØK:'O	f/‰Ø@‹$gDt	S¿†t„Ã@ê0]ë @Á∏W$é®PË¥ËjÇ*À&s¥‚À9˛≠˙au')¶µixa^¯xÅ'&◊ú©-/î‚Û[π@PæEFif/ÍÏ≤w|*i§≠q)ShÜÛg.$“ùæA¬–T›¬Bƒí√(Æ‘A⁄;
+¯0Ω*zıÄ›p%∫≤± ◊ô/ÜíÅ?MåI}¯ÒØˆç,X÷â¨ñ~∏|m≈Ùﬂ\⁄¢t÷òæ+oπà}4tΩŸGúh‰ŒÓÀ¸∫X,!Œ§XíÉ!lõ⁄è#¸ &h”ÂAzäOrE∂Ø˛èwá$	&ÓÓ€ØFÃ3√¬ºB€ÈN°e`Ω7†Öƒ_`åG 	7õã•+[‹q™D¶U5Öö{	3W@p˚Ωhh⁄2Ì÷¬-c±5‡≥ñphz‰=,0«‡≠.ë1n>30û◊ˇMP;/#>8≈Œ:¯2„⁄=kë(NïŒïDÃ` dJCUò‡ÈpÔ¸…Èæ“ÖüΩœˇ  ˇˇ %+ÀÏ
