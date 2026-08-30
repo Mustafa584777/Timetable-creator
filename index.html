@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-preset="amber">
   <head>
     <!-- Google Tag Manager (Non-blocking deferred loader for 100 PageSpeed Performance) -->
     <script>
@@ -5088,17 +5088,9 @@
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                 <span class="classic-btn-label">PDF</span>
               </button>
-              <button class="classic-icon-btn classic-btn-png" onclick="app.handlers.downloadImage()" title="Download High-Res Image" aria-label="Download Image">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                <span class="classic-btn-label">PNG</span>
-              </button>
-              <button class="classic-icon-btn classic-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-                <span class="classic-btn-label">Print</span>
-              </button>
-              <button class="classic-icon-btn classic-btn-theme" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-              </button>
+              
+              
+              
             </div>
           </div>
         </div>
@@ -5309,58 +5301,11 @@
               </div>
             </div>
 
-            <!-- Color Palette -->
-            <div class="classic-cfg-item">
-              <span class="classic-cfg-label">Color Theme:</span>
-              <div class="custom-dropdown-wrap" id="wrap_classicConfigTheme">
-                <input type="hidden" id="classicConfigTheme" value="slate">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigTheme', event)" aria-label="Select Color Theme">
-                  <span class="custom-dropdown-label">Vibrant Classic</span>
-                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'slate', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg></span>
-                        <span>Vibrant Classic</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'emerald', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#14b8a6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path></svg></span>
-                        <span>Mint Fresh</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'indigo', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M2 12h20M2 6h20M2 18h20"></path></svg></span>
-                        <span>Electric Ocean</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'amber', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"></path></svg></span>
-                        <span>Warm Amber</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'cyberpunk', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#a855f7;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"></path></svg></span>
-                        <span>Neon Pastel</span>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-
             <!-- Action Backup & Clear -->
             <div class="classic-cfg-item classic-cfg-item-actions">
               <span class="classic-cfg-label">Backup & Clear:</span>
               <div class="classic-cfg-action-buttons">
-                <button class="classic-btn-cfg-action classic-btn-cfg-export" onclick="app.handlers.exportJson()" title="Export JSON File">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"></path></svg>
-                  <span>Export JSON</span>
-                </button>
+                
                 <button class="classic-btn-cfg-action classic-btn-cfg-import" onclick="app.handlers.triggerImport()" title="Import JSON File">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                   <span>Import JSON</span>
@@ -5378,9 +5323,35 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
             <span>Tip: Swipe horizontally to scroll weekdays. Tap any day pill above to jump directly. Tap any slot to add an activity!</span>
           </div>
-          <div style="display: flex; gap: 8px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: flex-end; flex-wrap: wrap;">
-            <button id="toggleResizersBtn" class="btn-ctrl" onclick="app.handlers.toggleResizers()" style="font-size: 11px; height: 32px; margin: 0;">Disable Grid Resizing</button>
-            <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" style="font-size: 11px; height: 32px; margin: 0;">Reset Grid Size</button>
+                    <div class="unified-controls-container" style="display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--bg-card); padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border-color);">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button id="toggleResizersBtn" class="btn-ctrl" onclick="app.handlers.toggleResizers()" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                <span class="btn-label-text">Disable Grid Resizing</span>
+              </button>
+              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                <span>Reset Grid Size</span>
+              </button>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                <span>Print</span>
+              </button>
+              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
+                <span>Save PDF</span>
+              </button>
+              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span>PNG</span>
+              </button>
+              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <span>JSON</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -5559,23 +5530,6 @@
             <div class="section-title">
               <span>Personalization</span>
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 2a10 10 0 00-10 10c0 5.523 4.477 10 10 10a10 10 0 0010-10C22 6.477 17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16z"></path></svg>
-            </div>
-            <div class="form-group">
-              <label for="configTheme">Theme Palette</label>
-              <div class="custom-dropdown-wrap" id="wrap_configTheme">
-                <input type="hidden" id="configTheme" value="slate">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configTheme', event)" aria-label="Theme Palette">
-                  <span class="custom-dropdown-label">Royal Purple (Default)</span>
-                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'slate', 'Royal Purple (Default)', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🔮 Royal Purple (Default)</div>
-                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'emerald', 'Mint Emerald', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌿 Mint Emerald</div>
-                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'indigo', 'Electric Indigo', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">⚡ Electric Indigo</div>
-                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'amber', 'Coral Sunset', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌅 Coral Sunset</div>
-                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'cyberpunk', 'Neon Fuchsia', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">✨ Neon Fuchsia</div>
-                </div>
-              </div>
             </div>
             <div class="tuning-sliders">
               <div class="form-group">
@@ -5781,39 +5735,37 @@
             </div>
           </div>
 
-          <!-- Export, Print & Share Options Bar (Horizontal) -->
-          <div class="export-options-bar" id="exportOptionsBar">
-            <div class="export-options-title">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16" style="color: var(--primary-color);"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-              <span>Export & Share Options</span>
+          
+
+                              <div class="unified-controls-container" style="display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--bg-card); padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border-color);">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button id="toggleResizersBtnPro" class="btn-ctrl" onclick="app.handlers.toggleResizers()" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                <span class="btn-label-text">Disable Grid Resizing</span>
+              </button>
+              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                <span>Reset Grid Size</span>
+              </button>
             </div>
-            <div class="export-options-actions">
-              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print Timetable">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                 <span>Print</span>
               </button>
-              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" aria-label="Save as PDF">
+              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
                 <span>Save PDF</span>
               </button>
-              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" aria-label="Export JSON">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span>Save JSON</span>
-              </button>
-              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" aria-label="Download PNG">
+              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>PNG</span>
               </button>
-              <button class="export-btn-item export-btn-share btn-primary" onclick="app.handlers.shareSchedule()" id="btnShareSchedule" title="Share Timetable" aria-label="Share Timetable">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M8.684 10.742L15.32 7.424M15.32 16.576l-6.637-3.318M21 12a3 3 0 11-6 0 3 3 0 016 0zm-11-6a3 3 0 11-6 0 3 3 0 016 0zm0 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                <span>Share</span>
+              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <span>JSON</span>
               </button>
             </div>
-          </div>
-
-                    <div style="display: flex; gap: 8px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: flex-end; flex-wrap: wrap;">
-            <button id="toggleResizersBtnPro" class="btn-ctrl" onclick="app.handlers.toggleResizers()" style="font-size: 11px; height: 32px; margin: 0;">Disable Grid Resizing</button>
-            <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" style="font-size: 11px; height: 32px; margin: 0;">Reset Grid Size</button>
           </div>
 <div class="timetable-scroll-container">
             <div class="timetable-wrapper" id="printTarget">
@@ -7000,7 +6952,7 @@
             endTime: 1140,  // minutes from midnight (7:00 PM)
             interval: 30,   // intervals in minutes
             use24h: true,
-            theme: 'slate',
+            theme: 'amber',
             autoSave: true,
             zoom: 1.0,
             density: 1.0,
@@ -7434,7 +7386,7 @@
               endTime: 1140,
               interval: 30,
               use24h: true,
-              theme: 'slate',
+              theme: 'amber',
               autoSave: true,
               zoom: 1.0,
               density: 1.0,
@@ -7453,7 +7405,7 @@
           c.interval = parseInt(c.interval) || 30;
           if (![15, 30, 45, 60].includes(c.interval)) c.interval = 30;
           c.use24h = c.use24h !== false;
-          c.theme = c.theme || 'slate';
+          c.theme = c.theme || 'amber';
           c.autoSave = c.autoSave !== false;
           c.zoom = parseFloat(c.zoom) || 1.0;
           if (isNaN(c.zoom) || c.zoom < 0.5 || c.zoom > 2) c.zoom = 1.0;
@@ -8765,14 +8717,24 @@
         handlers: {
           toggleResizers() {
             app.state.resizersDisabled = !app.state.resizersDisabled;
+            
+            const btn1 = document.getElementById('toggleResizersBtn');
+            const btn2 = document.getElementById('toggleResizersBtnPro');
+            const textContent = app.state.resizersDisabled ? 'Enable Grid Resizing' : 'Disable Grid Resizing';
+            
             if (app.state.resizersDisabled) {
               document.body.classList.add('resizers-disabled');
-              if (document.getElementById('toggleResizersBtn')) document.getElementById('toggleResizersBtn').textContent = 'Enable Grid Resizing';
-              if (document.getElementById('toggleResizersBtnPro')) document.getElementById('toggleResizersBtnPro').textContent = 'Enable Grid Resizing';
             } else {
               document.body.classList.remove('resizers-disabled');
-              if (document.getElementById('toggleResizersBtn')) document.getElementById('toggleResizersBtn').textContent = 'Disable Grid Resizing';
-              if (document.getElementById('toggleResizersBtnPro')) document.getElementById('toggleResizersBtnPro').textContent = 'Disable Grid Resizing';
+            }
+            
+            if (btn1) {
+              const span = btn1.querySelector('.btn-label-text') || btn1.querySelector('span');
+              if (span) span.textContent = textContent;
+            }
+            if (btn2) {
+              const span = btn2.querySelector('.btn-label-text') || btn2.querySelector('span');
+              if (span) span.textContent = textContent;
             }
           },
           resetGridSize() {
@@ -11251,7 +11213,7 @@
               endTime: 1140,
               interval: 30,
               use24h: true,
-              theme: 'slate',
+              theme: 'amber',
               autoSave: true,
               zoom: 1.0,
               density: 1.0,
