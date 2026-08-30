@@ -63,7 +63,6 @@
     <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/?lang=ru" />
     <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/?lang=ar" />
     <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/?lang=hi" />
-    <link rel="alternate" hreflang="zh-CN" href="https://timetablecreator.online/?lang=zh-CN" />
 
     <!-- FAQPage Schema Markup for SEO -->
     <script type="application/ld+json">
@@ -259,12 +258,6 @@
         padding: 0;
         user-select: none;
         -webkit-user-select: none;
-      }
-
-      @media screen and (max-width: 768px) {
-        html, body {
-          zoom: 0.67;
-        }
       }
 
       body {
@@ -871,8 +864,6 @@
       .workspace {
         flex: 1;
         overflow-y: auto;
-        display: flex;
-        flex-direction: column;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         padding: 24px;
@@ -888,7 +879,7 @@
         background-color: var(--bg-card);
         border: 1px solid var(--border-color);
         display: table;
-        border-collapse: collapse !important;
+        border-collapse: separate;
         table-layout: fixed;
         min-width: max-content;
         position: relative;
@@ -1600,8 +1591,7 @@
         .workspace {
           padding: 12px 8px;
           padding-bottom: 90px !important;
-          display: flex;
-          flex-direction: column;
+          display: block;
           overflow-x: hidden;
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
@@ -1741,9 +1731,6 @@
         max-width: 1000px;
         margin: 60px auto 40px auto;
         padding: 40px 24px;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
         border-radius: var(--border-radius);
         background-color: var(--bg-card);
         border: 1px solid var(--border-color);
@@ -2801,7 +2788,6 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
-        flex-grow: 1;
       }
 
       /* 1. Dedicated Top Brand Header Bar */
@@ -3854,7 +3840,7 @@
       .classic-table-grid {
         width: 100%;
         min-width: 900px;
-        border-collapse: collapse !important;
+        border-collapse: separate;
         border-spacing: 0;
         table-layout: fixed;
       }
@@ -4551,113 +4537,6 @@
         100% { background-position: -200% 0; }
       }
 
-    
-      .classic-undo-redo-group {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        height: auto !important;
-        padding: 0 !important;
-      }
-      .classic-undo-redo-group .classic-btn-mini {
-        border: 1.5px solid #cbd5e1 !important;
-        background: #ffffff !important;
-        padding: 0 8px !important;
-        height: 26px !important;
-        font-size: 11.5px !important;
-        gap: 3px !important;
-        color: #475569 !important;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.03) !important;
-        border-radius: 6px !important;
-      }
-      .classic-undo-redo-group .classic-btn-mini:hover {
-        background: #f8fafc !important;
-        color: #0f172a !important;
-        border-color: #94a3b8 !important;
-      }
-      .undo-redo-compact-group {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px !important;
-        background: transparent !important;
-        border: none !important;
-        padding: 0 !important;
-        height: auto !important;
-      }
-      .undo-redo-compact-group .action-btn {
-        width: 32px !important;
-        height: 32px !important;
-        border: 1px solid var(--border-color) !important;
-        background: var(--bg-card) !important;
-        border-radius: var(--border-radius) !important;
-        color: var(--text-muted) !important;
-      }
-      .undo-redo-compact-group .action-btn:hover {
-        background: var(--hover-bg) !important;
-        color: var(--text-main) !important;
-      }
-      /* Remove border from header items */
-      .action-btn-header, .lang-dropdown-container button, .header-auth-group button, .btn-signin-header, .btn-pro-header, .mobile-menu-btn {
-        border: none !important;
-      }
-  
-    
-      .classic-grid-card {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .classic-grid-scroll-wrapper {
-        flex-grow: 1;
-      }
-      .workspace {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-      }
-  
-    
-      .classic-event-item.edge-top .classic-event-tools {
-        top: 0px !important;
-        left: calc(100% + 4px) !important;
-        right: auto !important;
-      }
-      .classic-event-item.edge-top.edge-right .classic-event-tools {
-        top: 0px !important;
-        left: auto !important;
-        right: calc(100% + 4px) !important;
-      }
-      
-      .classic-event-tools {
-        background: #8b5cf6 !important; /* Violet */
-        border: 1px solid #7c3aed !important;
-      }
-      .classic-event-tools .classic-evt-btn {
-        color: #ffffff !important;
-      }
-      .classic-event-tools .classic-evt-btn:hover {
-        background: rgba(255, 255, 255, 0.25) !important;
-      }
-  
-    
-      .classic-btn-mini, .classic-undo-redo-group .classic-btn-mini {
-        height: 30px !important;
-        box-sizing: border-box !important;
-      }
-  
-    
-      .timetable-scroll-container {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .timetable-wrapper {
-        flex-grow: 1;
-      }
-  
     </style>
   
     <script type="application/ld+json">
@@ -4778,7 +4657,6 @@
               <button class="lang-dropdown-item" onclick="changeLanguage('ru')">Русский</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('ar')">العربية</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('zh-CN')">中文 (Mandarin)</button>
             </div>
           </div>
 
@@ -4846,7 +4724,13 @@
         </nav>
         <div class="mobile-menu-divider"></div>
         <div class="mobile-menu-actions">
-          
+          <!-- Theme mode toggle in mobile menu -->
+          <button class="mobile-action-btn" onclick="app.handlers.toggleDark(); app.handlers.toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18">
+              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            Theme Mode Toggle
+          </button>
         </div>
       </div>
     </header>
@@ -4958,7 +4842,9 @@
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                 <span class="classic-btn-label">Print</span>
               </button>
-              
+              <button class="classic-icon-btn classic-btn-theme" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+              </button>
             </div>
           </div>
         </div>
@@ -7527,13 +7413,7 @@
               const height = Math.max(34, (duration * pxPerMin) - 4);
 
               const eventCard = document.createElement('div');
-              
-              let edgeClass = '';
-              if (topOffset < 60) edgeClass += ' edge-top';
-              if (evt.day == document.getElementById('classicConfigDays').value) edgeClass += ' edge-right';
-              if (evt.day == 1) edgeClass += ' edge-left';
-              eventCard.className = 'classic-event-item' + edgeClass;
-  
+              eventCard.className = 'classic-event-item';
               eventCard.id = `classic-evt-${evt.id}`;
               eventCard.style.top = `${topOffset}px`;
               eventCard.style.height = `${height}px`;
