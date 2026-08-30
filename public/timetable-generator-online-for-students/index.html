@@ -4604,6 +4604,60 @@
         border: none !important;
       }
   
+    
+      .classic-grid-card {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .classic-grid-scroll-wrapper {
+        flex-grow: 1;
+      }
+      .workspace {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+  
+    
+      .classic-event-item.edge-top .classic-event-tools {
+        top: 0px !important;
+        left: calc(100% + 4px) !important;
+        right: auto !important;
+      }
+      .classic-event-item.edge-top.edge-right .classic-event-tools {
+        top: 0px !important;
+        left: auto !important;
+        right: calc(100% + 4px) !important;
+      }
+      
+      .classic-event-tools {
+        background: #8b5cf6 !important; /* Violet */
+        border: 1px solid #7c3aed !important;
+      }
+      .classic-event-tools .classic-evt-btn {
+        color: #ffffff !important;
+      }
+      .classic-event-tools .classic-evt-btn:hover {
+        background: rgba(255, 255, 255, 0.25) !important;
+      }
+  
+    
+      .classic-btn-mini, .classic-undo-redo-group .classic-btn-mini {
+        height: 30px !important;
+        box-sizing: border-box !important;
+      }
+  
+    
+      .timetable-scroll-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .timetable-wrapper {
+        flex-grow: 1;
+      }
+  
     </style>
   
     <script type="application/ld+json">
@@ -4904,9 +4958,7 @@
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                 <span class="classic-btn-label">Print</span>
               </button>
-              <button class="classic-icon-btn classic-btn-theme" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-              </button>
+              
             </div>
           </div>
         </div>
@@ -7475,7 +7527,13 @@
               const height = Math.max(34, (duration * pxPerMin) - 4);
 
               const eventCard = document.createElement('div');
-              eventCard.className = 'classic-event-item';
+              
+              let edgeClass = '';
+              if (topOffset < 60) edgeClass += ' edge-top';
+              if (evt.day == document.getElementById('classicConfigDays').value) edgeClass += ' edge-right';
+              if (evt.day == 1) edgeClass += ' edge-left';
+              eventCard.className = 'classic-event-item' + edgeClass;
+  
               eventCard.id = `classic-evt-${evt.id}`;
               eventCard.style.top = `${topOffset}px`;
               eventCard.style.height = `${height}px`;

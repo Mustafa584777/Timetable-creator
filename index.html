@@ -4810,6 +4810,60 @@
         border: none !important;
       }
   
+    
+      .classic-grid-card {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .classic-grid-scroll-wrapper {
+        flex-grow: 1;
+      }
+      .workspace {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+  
+    
+      .classic-event-item.edge-top .classic-event-tools {
+        top: 0px !important;
+        left: calc(100% + 4px) !important;
+        right: auto !important;
+      }
+      .classic-event-item.edge-top.edge-right .classic-event-tools {
+        top: 0px !important;
+        left: auto !important;
+        right: calc(100% + 4px) !important;
+      }
+      
+      .classic-event-tools {
+        background: #8b5cf6 !important; /* Violet */
+        border: 1px solid #7c3aed !important;
+      }
+      .classic-event-tools .classic-evt-btn {
+        color: #ffffff !important;
+      }
+      .classic-event-tools .classic-evt-btn:hover {
+        background: rgba(255, 255, 255, 0.25) !important;
+      }
+  
+    
+      .classic-btn-mini, .classic-undo-redo-group .classic-btn-mini {
+        height: 30px !important;
+        box-sizing: border-box !important;
+      }
+  
+    
+      .timetable-scroll-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .timetable-wrapper {
+        flex-grow: 1;
+      }
+  
     </style>
   
     <script type="application/ld+json">
@@ -5115,9 +5169,7 @@
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                 <span class="classic-btn-label">Print</span>
               </button>
-              <button class="classic-icon-btn classic-btn-theme" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-              </button>
+              
             </div>
           </div>
         </div>
@@ -8068,7 +8120,13 @@
               const height = Math.max(28, (duration * pxPerMin) - 4);
 
               const eventCard = document.createElement('div');
-              eventCard.className = 'classic-event-item';
+              
+              let edgeClass = '';
+              if (topOffset < 60) edgeClass += ' edge-top';
+              if (evt.day == document.getElementById('classicConfigDays').value) edgeClass += ' edge-right';
+              if (evt.day == 1) edgeClass += ' edge-left';
+              eventCard.className = 'classic-event-item' + edgeClass;
+  
               eventCard.id = `classic-evt-${evt.id}`;
               eventCard.style.top = `${topOffset}px`;
               eventCard.style.height = `${height}px`;
@@ -11527,14 +11585,6 @@
     <div class="seo-content-section">
       <h1>Free Online Timetable Creator</h1>
       <p>Welcome to the most versatile <strong>Timetable Creator Online</strong>. Whether you're planning your weekly routines, mapping out your work shifts, organizing workout schedules, or preparing meal plans, our simple grid-based planner gives you complete control over your time.</p>
-      <h2>Why use our Schedule Maker?</h2>
-      <ul>
-        <li><strong>Easy to Use:</strong> Intuitive drag, drop, and click interactions.</li>
-        <li><strong>Fully Customizable:</strong> Add custom colors, adjust time intervals, and select beautiful themes.</li>
-        <li><strong>Export Anywhere:</strong> Download your timetable as a high-quality PDF, PNG, or JSON to share with others.</li>
-        <li><strong>No Login Required:</strong> Start building your schedule instantly without any complicated signups.</li>
-      </ul>
-      <p>Take charge of your productivity today by creating a clear, visually appealing schedule that keeps you on track. Our general purpose planner is perfect for freelancers, parents, fitness enthusiasts, and professionals.</p>
-    </div>
-</body>
-</html>
+      <h2>Why use our Schedule Maker?xœ|’ÑnÛ0Eßûü ¯ö8Šµ6i±nÀX´ÅEU‰Jæ}ı¨¸Û2`¨lYx.ïåĞû·›+8?C¿öx3ÍçÍ–Tà[¡wCÿr	£VV>¸ŒsgoI`t0÷ÀQ)ã¨,±\½õûoóûÂïkQ9ğOÜ…KÆ³nçŒ$¸ïvÊZGeå
+4*ì«òT¨§½¿û‘$+ÜÄåä)_’oåƒ ƒEj>Ó´i,€àyöo+Öoï;xÜ~è@2|zzØ6«ŠÇLpbõ ¦"¿&b+ğYfğ…+gr2Mß®rpçUL=¹ÚøE1ªÙ×@RÕ\XÌ¨C² PÉá9Öô/|èÿæ<¤ÍWÜŒ&w&i%¤,®ZrÇ6ŸŠÃvÖ8jS–0aîàÈÅL0>¦Dæ†ÕşˆS
+{¢TZOjÛ°¿†Ìm7¤š“‚0ÚpDyj)Nææ”‰¬2R>™£Qí0±F*ìÏ×ÂXô%“=YÁÎVÂfNë˜Cïø¸¹ú¸¥}½Ì_   ÿÿ EÈ
