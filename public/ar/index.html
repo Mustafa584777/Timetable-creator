@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-preset="amber" data-theme="dark">
+<html lang="ar" dir="rtl">
   <head>
     <!-- Google Tag Manager (Non-blocking deferred loader for 100 PageSpeed Performance) -->
     <script>
@@ -54,7 +54,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-    <link rel="canonical" href="https://timetablecreator.online/" />
+    <link rel="canonical" href="https://timetablecreator.online/ar" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en" href="https://timetablecreator.online/en" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
@@ -4822,7 +4822,31 @@
       "description": "Free online AI timetable creator and class schedule generator for students, teachers, and schools."
     }
     </script>
-</head>
+
+    <!-- Multi-language Auto-Translate for العربية (ar) -->
+    <script>
+      (function() {
+        var langCode = "ar";
+        var gtCode = "ar";
+        if (langCode && langCode !== 'en' && langCode !== 'en-GB') {
+          document.cookie = "googtrans=/en/" + gtCode + "; path=/; SameSite=None; Secure";
+          var domain = window.location.hostname;
+          if (domain) {
+            document.cookie = "googtrans=/en/" + gtCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + gtCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+          if (!window.location.hash.includes('googtrans')) {
+            window.location.hash = "#googtrans(en|" + gtCode + ")";
+          }
+        } else {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+      })();
+    </script>
+  </head>
   <body>
 
     <!-- Excel-style Full-Line Drag Guides -->

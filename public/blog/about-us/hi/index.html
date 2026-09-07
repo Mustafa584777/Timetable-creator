@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="hi">
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWSV97NM4Z"></script>
@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Online Timetable Creator</title>
     <meta name="description" content="Discover the team, mission, and technology behind the Online Timetable Creator." />
-    <link rel="canonical" href="https://timetablecreator.online/blog/about-us/" />
+    <link rel="canonical" href="https://timetablecreator.online/blog/about-us/hi" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/blog/about-us/" />
     <link rel="alternate" hreflang="en" href="https://timetablecreator.online/blog/about-us/en" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/blog/about-us/en-GB" />
@@ -181,7 +181,31 @@
       }
     }
     </script>
-</head>
+
+    <!-- Multi-language Auto-Translate for हिन्दी (hi) -->
+    <script>
+      (function() {
+        var langCode = "hi";
+        var gtCode = "hi";
+        if (langCode && langCode !== 'en' && langCode !== 'en-GB') {
+          document.cookie = "googtrans=/en/" + gtCode + "; path=/; SameSite=None; Secure";
+          var domain = window.location.hostname;
+          if (domain) {
+            document.cookie = "googtrans=/en/" + gtCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + gtCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+          if (!window.location.hash.includes('googtrans')) {
+            window.location.hash = "#googtrans(en|" + gtCode + ")";
+          }
+        } else {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+      })();
+    </script>
+  </head>
   <body class="bg-[#fafafa] text-[#1f2937] leading-relaxed antialiased selection:bg-violet-100 selection:text-violet-900 min-h-screen flex flex-col justify-between transition-colors duration-200">
     
     <!-- UNIVERSAL TOP HEADER -->
