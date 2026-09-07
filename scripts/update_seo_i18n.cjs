@@ -60,9 +60,8 @@ const coreAppFooter = `
       <!-- Column 2: All Timetable Generators -->
       <div class="footer-col">
         <h4 class="footer-title">All Timetable Generators</h4>
-        <a href="/timetable-generator-online-for-students/" class="footer-link">Student Timetable Generator</a>
         <a href="/" class="footer-link">Free Online Timetable Maker</a>
-        <a href="/timetable-generator/" class="footer-link">Timetable Generator Tool</a>
+        <a href="/timetable-generator-online-for-students/" class="footer-link">Student Timetable Generator</a>
       </div>
 
       <!-- Column 3: Resources -->
@@ -476,7 +475,6 @@ function runAllUpdates() {
   // Core apps
   updateCoreAppFile('index.html', 'https://timetablecreator.online/');
   updateCoreAppFile('public/timetable-generator-online-for-students/index.html', 'https://timetablecreator.online/timetable-generator-online-for-students/');
-  updateCoreAppFile('public/timetable-generator/index.html', 'https://timetablecreator.online/timetable-generator/');
   
   // HTML Sitemap and all its language subpages
   updateHtmlSitemap('public/html-sitemap/index.html');

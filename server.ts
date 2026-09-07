@@ -150,26 +150,14 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
-  // Timetable Generator (base and language editions)
+  // Timetable Generator: 301 redirect legacy /timetable-generator to /
   anonymityApp.get([
     "/timetable-generator",
     "/timetable-generator/",
     "/timetable-generator/:lang",
     "/timetable-generator/:lang/"
   ], (req, res) => {
-    const lang = req.params.lang;
-    const subFile = lang ? path.join(lang, "index.html") : "index.html";
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "timetable-generator", subFile)
-      : path.join(process.cwd(), "public", "timetable-generator", subFile);
-    if (fs.existsSync(filePath)) {
-      return res.sendFile(filePath);
-    }
-    const defaultToolPath = path.join(process.cwd(), "public", "timetable-generator", "index.html");
-    if (fs.existsSync(defaultToolPath)) {
-      return res.sendFile(defaultToolPath);
-    }
-    res.sendFile(path.join(process.cwd(), "index.html"));
+    return res.redirect(301, "/");
   });
 
   // Sitemap Language editions
@@ -213,13 +201,48 @@ async function startServer() {
     res.sendFile(sitemapPath);
   });
 
-  // Explicit sitemap.xsl with text/xsl mime type
-  anonymityApp.get("/sitemap.xsl", (req, res) => {
-    const xslPath = process.env.NODE_ENV === "production"
-      ? (fs.existsSync(path.join(process.cwd(), "dist", "sitemap.xsl")) ? path.join(process.cwd(), "dist", "sitemap.xsl") : path.join(process.cwd(), "public", "sitemap.xsl"))
-      : path.join(process.cwd(), "public", "sitemap.xsl");
-    res.type("text/xsl; charset=utf-8");
-    res.sendFile(xslPath);
+  // How to Use (base and language editions)
+  anonymityApp.get([
+    "/how-to-use",
+    "/how-to-use/",
+    "/how-to-use/:lang",
+    "/how-to-use/:lang/"
+  ], (req, res, next) => {
+    const lang = req.params.lang;
+    const subFile = lang ? path.join(lang, "index.html") : "index.html";
+    const filePath = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "how-to-use", subFile)
+      : path.join(process.cwd(), "public", "how-to-use", subFile);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const defaultPath = path.join(process.cwd(), "public", "how-to-use", "index.html");
+    if (fs.existsSync(defaultPath)) {
+      return res.sendFile(defaultPath);
+    }
+    next();
+  });
+
+  // FAQs (base and language editions)
+  anonymityApp.get([
+    "/faqs",
+    "/faqs/",
+    "/faqs/:lang",
+    "/faqs/:lang/"
+  ], (req, res, next) => {
+    const lang = req.params.lang;
+    const subFile = lang ? path.join(lang, "index.html") : "index.html";
+    const filePath = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "faqs", subFile)
+      : path.join(process.cwd(), "public", "faqs", subFile);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const defaultPath = path.join(process.cwd(), "public", "faqs", "index.html");
+    if (fs.existsSync(defaultPath)) {
+      return res.sendFile(defaultPath);
+    }
+    next();
   });
 
   // FAQ redirect alias (/faq -> /faqs/)
