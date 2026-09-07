@@ -27,7 +27,7 @@ function getAi(): GoogleGenAI {
 
 async function startServer() {
   const anonymityApp = express();
-  const PORT = 3000;
+  const PORT = process.env.PORT || 3000;
 
   anonymityApp.use(express.json());
   const upload = multer();
@@ -142,7 +142,7 @@ async function startServer() {
   // Dynamic route for any custom timetable creator tool without timetable-creator/ folder in URL
   anonymityApp.get(["/:toolSlug", "/:toolSlug/"], (req, res, next) => {
     const toolSlug = req.params.toolSlug;
-    if (toolSlug.startsWith("api") || toolSlug.startsWith("blog") || toolSlug.includes(".")) {
+    if (toolSlug.startsWith("api") || toolSlug.startsWith("blog") || toolSlug.startsWith("@") || toolSlug.includes(".")) {
       return next();
     }
     const publicToolPath = path.join(process.cwd(), "public", toolSlug, "index.html");
@@ -337,7 +337,7 @@ Assign a professional color from these options:
   }
 
   anonymityApp.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running successfully on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
   });
 }
 

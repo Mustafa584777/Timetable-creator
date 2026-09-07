@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-preset="amber" data-theme="dark">
+<html lang="en">
   <head>
     <!-- Google Tag Manager (Non-blocking deferred loader for 100 PageSpeed Performance) -->
     <script>
@@ -30,7 +30,7 @@
       })();
     </script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.67, maximum-scale=5.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timetable Creator Pro - Free Online Class Schedule Generator</title>
     <meta name="description" content="Create school routines, study planners, and class schedules easily with the free online timetable maker. AI-powered, cloud-synchronized, with instant PDF & PNG exports." />
     
@@ -63,7 +63,6 @@
     <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/?lang=ru" />
     <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/?lang=ar" />
     <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/?lang=hi" />
-    <link rel="alternate" hreflang="zh" href="https://timetablecreator.online/?lang=zh" />
 
     <!-- FAQPage Schema Markup for SEO -->
     <script type="application/ld+json">
@@ -146,7 +145,7 @@
         --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         --font-mono: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
         
-        --row-height-base: 58px;
+        --row-height-base: 44px;
         --grid-density-coef: 1; /* Comfortable = 1, Compact = 0.7 */
         --row-height: calc(var(--row-height-base) * var(--grid-density-coef) * var(--zoom-level, 1));
         --col-width: 140px;
@@ -962,7 +961,6 @@
         border-bottom: 1px solid var(--border-color);
         background-color: var(--bg-panel);
         font-weight: 600;
-        position: relative;
       }
 
       /* The Grid cells overlay area */
@@ -1058,51 +1056,42 @@
       }
 
       /* Hover quick actions box */
-      .event-card:hover {
-        overflow: visible !important;
-        z-index: 100 !important;
-      }
       .event-actions {
         position: absolute;
-        top: -14px;
-        right: -8px;
+        top: 4px;
+        right: 4px;
         display: flex;
-        flex-wrap: nowrap;
         gap: 2px;
         opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s, transform 0.2s;
-        background-color: var(--bg-panel);
-        border: 1px solid var(--border-color);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        padding: 4px;
-        border-radius: 6px;
-        z-index: 101;
-        transform: translateY(4px);
+        transition: opacity 0.2s;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 2px;
+        border-radius: 4px;
       }
+
       .event-card:hover .event-actions {
         opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
       }
+
       .evt-act {
         border: none;
         background: transparent;
-        color: var(--text-main);
+        color: var(--text-inverse);
         cursor: pointer;
-        padding: 4px;
-        border-radius: 4px;
+        padding: 2px;
+        border-radius: 2px;
         display: flex;
         align-items: center;
         justify-content: center;
       }
+
       .evt-act:hover {
-        background-color: var(--primary-glow);
-        color: var(--primary-color);
+        background-color: rgba(255, 255, 255, 0.2);
       }
+
       .evt-act svg {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
       }
 
       /* Resize handles on Event Cards */
@@ -1992,13 +1981,11 @@
       /* --- UNIVERSAL FOOTER RE-DESIGN --- */
       .seo-footer {
         padding: 48px 24px 32px 24px;
-        margin-top: auto;
+        margin-top: 48px;
         border-top: 1px solid var(--border-color);
         background-color: var(--bg-card);
         text-align: left;
         transition: background-color 0.3s, border-color 0.3s;
-        width: 100%;
-        box-sizing: border-box;
       }
       .footer-container {
         max-width: 1150px;
@@ -2295,7 +2282,7 @@
       }
       .action-btn-header {
         background: none;
-        border: none;
+        border: 1px solid var(--border-color);
         border-radius: 10px;
         width: 36px;
         height: 36px;
@@ -2318,7 +2305,7 @@
       }
       .btn-signin-header {
         background: none;
-        border: none;
+        border: 1px solid var(--border-color);
         border-radius: 10px;
         font-size: 13px;
         font-weight: 600;
@@ -2334,7 +2321,7 @@
       }
       .btn-signup-header {
         background-color: var(--primary-color);
-        border: none;
+        border: 1px solid var(--primary-color);
         border-radius: 10px;
         font-size: 13px;
         font-weight: 600;
@@ -2454,7 +2441,7 @@
       .header-mobile-toggle {
         display: none;
         background: none;
-        border: none;
+        border: 1px solid var(--border-color);
         border-radius: 10px;
         width: 38px;
         height: 38px;
@@ -2555,7 +2542,7 @@
       }
       .btn-signup-mobile {
         background-color: var(--primary-color);
-        border: none;
+        border: 1px solid var(--primary-color);
         border-radius: 10px;
         font-size: 13.5px;
         font-weight: 600;
@@ -2649,7 +2636,7 @@
         background: var(--bg-panel);
         padding: 4px 10px;
         border-radius: 6px;
-        border: none;
+        border: 1px solid var(--border-color);
       }
       .mode-toggle-pill-group {
         display: inline-flex;
@@ -3214,81 +3201,9 @@
       .classic-utility-controls {
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
         margin-left: auto;
-        flex-wrap: nowrap;
-      }
-      .classic-undo-redo-group {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0;
-      }
-      .classic-undo-redo-group .classic-btn-mini {
-        border: 1px solid var(--border-color) !important;
-        background: var(--bg-card) !important;
-        padding: 0 6px;
-        height: 24px;
-        font-size: 11px;
-        gap: 4px;
-        color: var(--text-main) !important;
-        box-shadow: var(--shadow-sm) !important;
-        border-radius: 6px;
-      }
-      .classic-undo-redo-group .classic-btn-mini:hover {
-        background: rgba(16, 185, 129, 0.1) !important;
-        color: #10b981 !important;
-      }
-      .undo-redo-compact-group {
-        display: inline-flex;
-        align-items: center;
-        gap: 1px;
-        background: var(--bg-panel);
-        border: 1px solid var(--border-color);
-        padding: 1px;
-        border-radius: 6px;
-        height: 26px;
-      }
-      .undo-redo-compact-group .action-btn {
-        width: 24px;
-        height: 24px;
-        padding: 0;
-        border: none;
-        background: transparent;
-        border-radius: 4px;
-      }
-      .classic-btn-mini {
-        border: none !important;
-        background: transparent !important;
-        padding: 0 6px;
-        height: 24px;
-        font-size: 11px;
-        gap: 3px;
-        color: #6366f1 !important;
-        box-shadow: none !important;
-        border-radius: 4px;
-      }
-      .classic-undo-redo-group .classic-btn-mini:hover {
-        background: rgba(99, 102, 241, 0.1) !important;
-      }
-      .undo-redo-compact-group {
-        display: inline-flex;
-        align-items: center;
-        gap: 2px;
-        background: var(--bg-panel);
-        border: 1px solid var(--border-color);
-        padding: 1px;
-        border-radius: var(--border-radius);
-      }
-      .undo-redo-compact-group .action-btn {
-        width: 28px;
-        height: 28px;
-        padding: 0;
-        border: none;
-        background: transparent;
+        flex-wrap: wrap;
       }
       .classic-btn-mini {
         background: #ffffff !important;
@@ -3298,8 +3213,8 @@
         font-family: 'Poppins', sans-serif;
         font-size: 11.5px;
         font-weight: 500;
-        height: 28px;
-        padding: 0 8px;
+        height: 30px;
+        padding: 0 10px;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
@@ -3948,6 +3863,8 @@
         box-shadow: 2px 2px 0 var(--border-color);
       }
       .classic-th-day {
+        resize: horizontal;
+        overflow: hidden;
         position: relative;
         background: var(--bg-panel);
         border-bottom: 2px solid var(--border-color);
@@ -3964,8 +3881,11 @@
         min-width: 130px;
         box-shadow: 0 2px 0 var(--border-color);
         transition: background-color 0.2s ease;
-        user-select: none;
-      }
+        resize: horizontal;
+          overflow: hidden;
+          resize: horizontal;
+          overflow: hidden;
+        }
       .classic-th-day.highlighted-day {
         background-color: rgba(16, 185, 129, 0.15);
         color: #059669;
@@ -3974,6 +3894,8 @@
         border-right: none;
       }
       .classic-td-time {
+        resize: vertical;
+        overflow: hidden;
         position: relative;
         background: var(--bg-panel);
         border-bottom: 1px solid var(--border-color);
@@ -3990,109 +3912,6 @@
         width: 85px;
         min-width: 85px;
         box-shadow: 2px 0 0 var(--border-color);
-        user-select: none;
-      }
-
-      /* Excel-style Column & Row Border Resizers */
-      .excel-col-resizer {
-        position: absolute;
-        top: 0;
-        right: -4px;
-        width: 9px;
-        bottom: 0;
-        cursor: col-resize;
-        user-select: none;
-        z-index: 60;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        touch-action: none;
-      }
-      .excel-col-resizer::after {
-        content: '';
-        width: 2.5px;
-        height: 100%;
-        background-color: transparent;
-        border-radius: 1px;
-        transition: background-color 0.15s ease;
-      }
-      .excel-col-resizer:hover::after,
-      .excel-col-resizer.resizing::after {
-        background-color: #10b981;
-        box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
-      }
-
-      .excel-row-resizer {
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        right: 0;
-        height: 9px;
-        cursor: row-resize;
-        user-select: none;
-        z-index: 55;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        touch-action: none;
-      }
-      .excel-row-resizer::after {
-        content: '';
-        width: 100%;
-        height: 2.5px;
-        background-color: transparent;
-        border-radius: 1px;
-        transition: background-color 0.15s ease;
-      }
-      .excel-row-resizer:hover::after,
-      .excel-row-resizer.resizing::after {
-        background-color: #10b981;
-        box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
-      }
-
-      .pro-mode-active .excel-col-resizer:hover::after,
-      .pro-mode-active .excel-col-resizer.resizing::after,
-      .pro-mode-active .excel-row-resizer:hover::after,
-      .pro-mode-active .excel-row-resizer.resizing::after {
-        background-color: #6366f1;
-        box-shadow: 0 0 6px rgba(99, 102, 241, 0.8);
-      }
-
-      .excel-resize-guide-v {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background-color: #10b981;
-        box-shadow: 0 0 8px rgba(16, 185, 129, 0.85);
-        z-index: 99999;
-        pointer-events: none;
-        display: none;
-      }
-      .excel-resize-guide-h {
-        position: fixed;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background-color: #10b981;
-        box-shadow: 0 0 8px rgba(16, 185, 129, 0.85);
-        z-index: 99999;
-        pointer-events: none;
-        display: none;
-      }
-      .pro-mode-active .excel-resize-guide-v,
-      .pro-mode-active .excel-resize-guide-h {
-        background-color: #6366f1;
-        box-shadow: 0 0 8px rgba(99, 102, 241, 0.85);
-      }
-
-      body.excel-resizing-col {
-        cursor: col-resize !important;
-        user-select: none !important;
-      }
-      body.excel-resizing-row {
-        cursor: row-resize !important;
-        user-select: none !important;
       }
       .classic-td-cell {
         overflow: hidden;
@@ -4150,7 +3969,6 @@
         transform: translateY(-1px);
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32);
         z-index: 25;
-        overflow: visible !important;
       }
       .classic-event-title-line {
         display: flex;
@@ -4719,80 +4537,7 @@
         100% { background-position: -200% 0; }
       }
 
-    
-      .classic-table-grid th, .classic-table-grid td {
-        border: 1px solid var(--grid-line-color) !important;
-        font-weight: normal !important;
-      }
-      .classic-th-corner, .classic-th-day, .classic-td-time {
-        font-weight: normal !important;
-      }
-      .timetable-grid th, .timetable-grid td {
-        border: 1px solid var(--grid-line-color) !important;
-        font-weight: normal !important;
-      }
-      .time-header, .day-header {
-        font-weight: normal !important;
-      }
-      /* Pro Grid overrides */
-      .grid-header-row th {
-        border: 1px solid var(--grid-line-color) !important;
-      }
-
-    
-      .footer-link {
-        font-size: 13.5px;
-        color: var(--text-muted);
-        text-decoration: none !important;
-        transition: color 0.2s ease;
-      }
-      .footer-link:hover {
-        color: var(--primary-color);
-      }
-    
-      html, body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-      .classic-tt-app, .app-container {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .classic-container {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .workspace {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .workspace-wrapper {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .classic-table-grid {
-        border-collapse: collapse !important;
-        border-spacing: 0 !important;
-      }
-
-    
-      table {
-        border-collapse: collapse !important;
-        border-spacing: 0 !important;
-      }
-
-    
-      body.resizers-disabled .excel-col-resizer,
-      body.resizers-disabled .excel-row-resizer {
-        display: none !important;
-      }
-</style>
+    </style>
   
     <script type="application/ld+json">
     {
@@ -4812,10 +4557,6 @@
     </script>
 </head>
   <body>
-
-    <!-- Excel-style Full-Line Drag Guides -->
-    <div id="excelResizeGuideV" class="excel-resize-guide-v"></div>
-    <div id="excelResizeGuideH" class="excel-resize-guide-h"></div>
 
     <div id="globalLoadingOverlay">
       <div class="loader-skeleton"></div>
@@ -4839,7 +4580,7 @@
           <span>Copy Activity (Ctrl+C)</span>
         </div>
         <div class="context-menu-item" onclick="app.handlers.contextDuplicate()">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><line x1="15" y1="12" x2="15" y2="18"></line><line x1="12" y1="15" x2="18" y2="15"></line><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14"></path></svg>
           <span>Duplicate Activity</span>
         </div>
         <div class="context-menu-item" id="ctxPasteItem" onclick="app.handlers.contextPaste()">
@@ -4903,12 +4644,6 @@
 
         <!-- Center Section: Translate Selector & Menu Links (Desktop Center Aligned) -->
         <div class="header-center-desktop">
-          <!-- Light/Dark Mode Toggle in Header -->
-          <button class="action-btn-header" onclick="app.handlers.toggleDark()" data-tooltip="Toggle theme mode">
-            <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
-              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
-          </button>
           <!-- Google Translate Dropdown Selector -->
           <div class="lang-dropdown-container">
             <button class="action-btn-header" onclick="toggleLangDropdown()" id="btnLangDropdown" data-tooltip="Change Language" aria-label="Change Language">
@@ -4922,7 +4657,6 @@
               <button class="lang-dropdown-item" onclick="changeLanguage('ru')">Русский</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('ar')">العربية</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('zh')">中文 (Mandarin)</button>
             </div>
           </div>
 
@@ -4938,7 +4672,12 @@
 
         <!-- Right Section: Actions & Auth (Desktop) -->
         <div class="header-actions-desktop">
-
+          <!-- Light/Dark Mode Toggle in Header -->
+          <button class="action-btn-header" onclick="app.handlers.toggleDark()" data-tooltip="Toggle theme mode">
+            <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
+              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
 
           <!-- Auth Buttons -->
           <div id="unauthGroupHeader" class="header-auth-group">
@@ -4985,7 +4724,13 @@
         </nav>
         <div class="mobile-menu-divider"></div>
         <div class="mobile-menu-actions">
-          
+          <!-- Theme mode toggle in mobile menu -->
+          <button class="mobile-action-btn" onclick="app.handlers.toggleDark(); app.handlers.toggleMobileMenu();" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18">
+              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            Theme Mode Toggle
+          </button>
         </div>
       </div>
     </header>
@@ -5082,6 +4827,25 @@
                 </div>
               </div>
             </div>
+
+            <!-- Export & Utility Buttons -->
+            <div class="classic-header-icon-btns">
+              <button class="classic-icon-btn classic-btn-pdf" onclick="app.handlers.savePdf()" title="Export PDF Document" aria-label="Export PDF">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span class="classic-btn-label">PDF</span>
+              </button>
+              <button class="classic-icon-btn classic-btn-png" onclick="app.handlers.downloadImage()" title="Download High-Res Image" aria-label="Download Image">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                <span class="classic-btn-label">PNG</span>
+              </button>
+              <button class="classic-icon-btn classic-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                <span class="classic-btn-label">Print</span>
+              </button>
+              <button class="classic-icon-btn classic-btn-theme" onclick="app.handlers.toggleDark()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -5120,16 +4884,14 @@
 
             <!-- Utility Controls: Undo, Redo, Zoom & Settings Toggle -->
             <div class="classic-utility-controls">
-              <div class="classic-undo-redo-group">
-                <button class="classic-btn-mini" onclick="app.handlers.undo()" id="btnClassicUndo" title="Undo (Ctrl+Z)" aria-label="Undo">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
-                  <span>Undo</span>
-                </button>
-                <button class="classic-btn-mini" onclick="app.handlers.redo()" id="btnClassicRedo" title="Redo (Ctrl+Y)" aria-label="Redo">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
-                  <span>Redo</span>
-                </button>
-              </div>
+              <button class="classic-btn-mini" onclick="app.handlers.undo()" title="Undo (Ctrl+Z)" aria-label="Undo">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+                <span>Undo</span>
+              </button>
+              <button class="classic-btn-mini" onclick="app.handlers.redo()" title="Redo (Ctrl+Y)" aria-label="Redo">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
+                <span>Redo</span>
+              </button>
 
               <!-- Zoom Controls -->
               <div class="classic-zoom-group">
@@ -5162,10 +4924,6 @@
                   <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option" data-value="1" onclick="app.handlers.onSelectCustomDropdown('configDays', '1', '1 Day', 'wrap_configDays', function(){ app.handlers.configChange(); })">1 Day</div>
-                  <div class="custom-dropdown-option" data-value="2" onclick="app.handlers.onSelectCustomDropdown('configDays', '2', '2 Days', 'wrap_configDays', function(){ app.handlers.configChange(); })">2 Days</div>
-                  <div class="custom-dropdown-option" data-value="3" onclick="app.handlers.onSelectCustomDropdown('configDays', '3', '3 Days', 'wrap_configDays', function(){ app.handlers.configChange(); })">3 Days</div>
-                  <div class="custom-dropdown-option" data-value="4" onclick="app.handlers.onSelectCustomDropdown('configDays', '4', '4 Days', 'wrap_configDays', function(){ app.handlers.configChange(); })">4 Days</div>
                   <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
                       <div class="custom-drop-item-content">
                         <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
@@ -5291,11 +5049,58 @@
               </div>
             </div>
 
+            <!-- Color Palette -->
+            <div class="classic-cfg-item">
+              <span class="classic-cfg-label">Color Theme:</span>
+              <div class="custom-dropdown-wrap" id="wrap_classicConfigTheme">
+                <input type="hidden" id="classicConfigTheme" value="slate">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigTheme', event)" aria-label="Select Color Theme">
+                  <span class="custom-dropdown-label">Vibrant Classic</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'slate', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg></span>
+                        <span>Vibrant Classic</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'emerald', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#14b8a6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path></svg></span>
+                        <span>Mint Fresh</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'indigo', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M2 12h20M2 6h20M2 18h20"></path></svg></span>
+                        <span>Electric Ocean</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'amber', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"></path></svg></span>
+                        <span>Warm Amber</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('classicConfigTheme', 'cyberpunk', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigTheme', function(val){ app.handlers.classicThemeChange(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#a855f7;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"></path></svg></span>
+                        <span>Neon Pastel</span>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
             <!-- Action Backup & Clear -->
             <div class="classic-cfg-item classic-cfg-item-actions">
               <span class="classic-cfg-label">Backup & Clear:</span>
               <div class="classic-cfg-action-buttons">
-                
+                <button class="classic-btn-cfg-action classic-btn-cfg-export" onclick="app.handlers.exportJson()" title="Export JSON File">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"></path></svg>
+                  <span>Export JSON</span>
+                </button>
                 <button class="classic-btn-cfg-action classic-btn-cfg-import" onclick="app.handlers.triggerImport()" title="Import JSON File">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                   <span>Import JSON</span>
@@ -5313,36 +5118,6 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
             <span>Tip: Swipe horizontally to scroll weekdays. Tap any day pill above to jump directly. Tap any slot to add an activity!</span>
           </div>
-                    <div class="unified-controls-container" style="display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--bg-card); padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border-color);">
-            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                <span>Print</span>
-              </button>
-              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
-                <span>Save PDF</span>
-              </button>
-              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <span>PNG</span>
-              </button>
-              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span>JSON</span>
-              </button>
-            </div>
-            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
-              <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--text-main); cursor: pointer; user-select: none;">
-                <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)" style="width: 14px; height: 14px; accent-color: var(--primary-color); cursor: pointer;">
-                Enable Grid Resizing
-              </label>
-              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-                <span>Reset Grid Size</span>
-              </button>
-            </div>
-          </div>
         </div>
 
         <!-- 3. Classic Timetable Interactive Grid Canvas (Fully Responsive & Scrollable) -->
@@ -5354,10 +5129,8 @@
           </div>
         </div>
 
-
-
-
       </div>
+
       <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
       <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
         <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v16m8-8H4"></path></svg>
@@ -5430,30 +5203,6 @@
                     <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                   </button>
                   <div class="custom-dropdown-menu">
-                    <div class="custom-dropdown-option" data-value="1" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '1', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#64748b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>1 Day</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="2" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '2', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#64748b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>2 Days</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="3" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '3', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#64748b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>3 Days</span>
-                      </div>
-                    </div>
-                    <div class="custom-dropdown-option" data-value="4" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '4', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#64748b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>4 Days</span>
-                      </div>
-                    </div>
                     <div class="custom-dropdown-option" data-value="360" onclick="app.handlers.onSelectCustomDropdown('configStart', '360', '06:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">06:00</div>
                     <div class="custom-dropdown-option" data-value="420" onclick="app.handlers.onSelectCustomDropdown('configStart', '420', '07:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">07:00</div>
                     <div class="custom-dropdown-option selected" data-value="480" onclick="app.handlers.onSelectCustomDropdown('configStart', '480', '08:00', 'wrap_configStart', function(){ app.handlers.configChange(); })">08:00</div>
@@ -5520,6 +5269,23 @@
             <div class="section-title">
               <span>Personalization</span>
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M12 2a10 10 0 00-10 10c0 5.523 4.477 10 10 10a10 10 0 0010-10C22 6.477 17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16z"></path></svg>
+            </div>
+            <div class="form-group">
+              <label for="configTheme">Theme Palette</label>
+              <div class="custom-dropdown-wrap" id="wrap_configTheme">
+                <input type="hidden" id="configTheme" value="slate">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_configTheme', event)" aria-label="Theme Palette">
+                  <span class="custom-dropdown-label">Royal Purple (Default)</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option selected" data-value="slate" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'slate', 'Royal Purple (Default)', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🔮 Royal Purple (Default)</div>
+                  <div class="custom-dropdown-option" data-value="emerald" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'emerald', 'Mint Emerald', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌿 Mint Emerald</div>
+                  <div class="custom-dropdown-option" data-value="indigo" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'indigo', 'Electric Indigo', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">⚡ Electric Indigo</div>
+                  <div class="custom-dropdown-option" data-value="amber" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'amber', 'Coral Sunset', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">🌅 Coral Sunset</div>
+                  <div class="custom-dropdown-option" data-value="cyberpunk" onclick="app.handlers.onSelectCustomDropdown('configTheme', 'cyberpunk', 'Neon Fuchsia', 'wrap_configTheme', function(){ app.handlers.presetChange(); })">✨ Neon Fuchsia</div>
+                </div>
+              </div>
             </div>
             <div class="tuning-sliders">
               <div class="form-group">
@@ -5601,65 +5367,13 @@
             <button class="action-btn menu-toggle-btn" onclick="app.handlers.toggleSidebar()" id="btnToggleSidebar" data-tooltip="Toggle Sidebar" aria-label="Toggle Sidebar">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <div class="undo-redo-compact-group">
-              <button class="action-btn" onclick="app.handlers.undo()" id="btnUndo" data-tooltip="Undo Action (Ctrl+Z)" aria-label="Undo Action">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
-              </button>
-              <button class="action-btn" onclick="app.handlers.redo()" id="btnRedo" data-tooltip="Redo Action (Ctrl+Y)" aria-label="Redo Action">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
-              </button>
-            </div>
-            <div style="width: 1px; height: 20px; background-color: var(--border-color); margin: 0 2px;"></div>
-            <!-- Pro Templates Selector -->
-            <div class="custom-dropdown-wrap" id="wrap_proPresetTemplates" style="min-width: 175px;">
-              <input type="hidden" id="proPresetTemplates" value="">
-              <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_proPresetTemplates', event)" aria-label="Pro Templates" style="height: 30px; font-size: 11.5px; padding: 0 10px;">
-                <span class="custom-dropdown-label" style="display:flex;align-items:center;gap:5px;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                  <span>Pro Templates</span>
-                </span>
-                <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </button>
-              <div class="custom-dropdown-menu">
-                <div class="custom-dropdown-option" data-value="cs_freshman" onclick="app.handlers.applyProTemplate('cs_freshman')">
-                  <div class="custom-drop-item-content">
-                    <span class="custom-drop-icon" style="color:#3b82f6;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></span>
-                    <span>💻 CS Freshman</span>
-                  </div>
-                </div>
-                <div class="custom-dropdown-option" data-value="premed" onclick="app.handlers.applyProTemplate('premed')">
-                  <div class="custom-drop-item-content">
-                    <span class="custom-drop-icon" style="color:#10b981;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></span>
-                    <span>🩺 Pre-Med & Biology</span>
-                  </div>
-                </div>
-                <div class="custom-dropdown-option" data-value="highschool_honors" onclick="app.handlers.applyProTemplate('highschool_honors')">
-                  <div class="custom-drop-item-content">
-                    <span class="custom-drop-icon" style="color:#8b5cf6;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></span>
-                    <span>🎓 High School Honours</span>
-                  </div>
-                </div>
-                <div class="custom-dropdown-option" data-value="startup_routine" onclick="app.handlers.applyProTemplate('startup_routine')">
-                  <div class="custom-drop-item-content">
-                    <span class="custom-drop-icon" style="color:#f59e0b;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
-                    <span>🚀 Founder Routine</span>
-                  </div>
-                </div>
-                <div class="custom-dropdown-option" data-value="fitness_athlete" onclick="app.handlers.applyProTemplate('fitness_athlete')">
-                  <div class="custom-drop-item-content">
-                    <span class="custom-drop-icon" style="color:#f43f5e;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></span>
-                    <span>⚡ Student Athlete</span>
-                  </div>
-                </div>
-                <div class="custom-dropdown-option" data-value="exam_cram" onclick="app.handlers.applyProTemplate('exam_cram')">
-                  <div class="custom-drop-item-content">
-                    <span class="custom-drop-icon" style="color:#ec4899;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span>
-                    <span>📚 Exam Revision</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style="width: 1px; height: 20px; background-color: var(--border-color); margin: 0 2px;"></div>
+            <button class="action-btn" onclick="app.handlers.undo()" id="btnUndo" data-tooltip="Undo Action (Ctrl+Z)" aria-label="Undo Action">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+            </button>
+            <button class="action-btn" onclick="app.handlers.redo()" id="btnRedo" data-tooltip="Redo Action (Ctrl+Y)" aria-label="Redo Action">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
+            </button>
+            <div style="width: 1px; height: 24px; background-color: var(--border-color)"></div>
             <button class="action-btn" onclick="app.handlers.zoomIn()" data-tooltip="Zoom In" aria-label="Zoom In">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m-3-3h6"></path></svg>
             </button>
@@ -5725,39 +5439,37 @@
             </div>
           </div>
 
-          
-
-                              <div class="unified-controls-container" style="display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--bg-card); padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border-color);">
-            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+          <!-- Export, Print & Share Options Bar (Horizontal) -->
+          <div class="export-options-bar" id="exportOptionsBar">
+            <div class="export-options-title">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16" style="color: var(--primary-color);"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+              <span>Export & Share Options</span>
+            </div>
+            <div class="export-options-actions">
+              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print Timetable">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                 <span>Print</span>
               </button>
-              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" aria-label="Save as PDF">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
                 <span>Save PDF</span>
               </button>
-              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" aria-label="Export JSON">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <span>Save JSON</span>
+              </button>
+              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" aria-label="Download PNG">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>PNG</span>
               </button>
-              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span>JSON</span>
-              </button>
-            </div>
-            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
-              <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--text-main); cursor: pointer; user-select: none;">
-                <input type="checkbox" id="toggleResizersCheckbox2" checked onchange="app.handlers.toggleResizers(this)" style="width: 14px; height: 14px; accent-color: var(--primary-color); cursor: pointer;">
-                Enable Grid Resizing
-              </label>
-              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-                <span>Reset Grid Size</span>
+              <button class="export-btn-item export-btn-share btn-primary" onclick="app.handlers.shareSchedule()" id="btnShareSchedule" title="Share Timetable" aria-label="Share Timetable">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M8.684 10.742L15.32 7.424M15.32 16.576l-6.637-3.318M21 12a3 3 0 11-6 0 3 3 0 016 0zm-11-6a3 3 0 11-6 0 3 3 0 016 0zm0 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <span>Share</span>
               </button>
             </div>
           </div>
-<div class="timetable-scroll-container">
+
+          <div class="timetable-scroll-container">
             <div class="timetable-wrapper" id="printTarget">
               
               <!-- STICKY HEADER -->
@@ -5785,7 +5497,7 @@
             
             <!-- HERO SECTION with strong CTA -->
             <section class="seo-hero">
-              <h2 class="seo-h1">The Smartest Online Timetable Creator & Weekly Planner</h2>
+              <h1 class="seo-h1">The Smartest Online Timetable Creator & Weekly Planner</h1>
               <p>
                 Take the hassle out of scheduling. Build, organize, and customize professional school, class, and work rosters in minutes with our high-fidelity, interactive <strong>free timetable maker</strong> and AI generator.
               </p>
@@ -6021,15 +5733,88 @@
               </div>
             </section>
 
-            
+            <!-- FOOTER WITH INTERNAL LINKS & LEGAL/COPYRIGHT -->
+            <footer class="seo-footer">
+              <div class="footer-container">
+                <div class="footer-grid">
+                  
+                  <!-- Column 1: Brand & Description -->
+                  <div class="footer-col" style="max-width: 320px;">
+                    <div class="app-brand-wrapper" style="margin-bottom: 12px;">
+                      <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#673de6"/>
+                        <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="23" cy="21" r="3" fill="#00b090"/>
+                      </svg>
+                      <div class="header-brand-line">
+                        <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
+                        <span class="app-tools-tag">CREATOR</span>
+                      </div>
+                    </div>
+                    <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
+                      Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
+                    </p>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <span style="font-size: 11px; color: #00b090; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                        <span class="pulse-dot"></span>
+                        99.9% Uptime SLA
+                      </span>
+                    </div>
+                  </div>
 
-          
+                  <!-- Column 2: Free Tools -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Product Tools</h3>
+                    <div class="footer-links-list">
+                      <a href="/" class="footer-link-item active" style="color: var(--primary-color); font-weight: 600;">Timetable Creator</a>
+                      <a href="#aiGeneratorSection" class="footer-link-item">AI Schedule Generator</a>
+                      <a href="#about" class="footer-link-item">Weekly Routine Planner</a>
+                      <a href="#exportOptionsBar" class="footer-link-item">PDF & PNG Exporter</a>
+                    </div>
+                  </div>
 
+                  <!-- Column 3: Company -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Company & Resources</h3>
+                    <div class="footer-links-list">
+                      <a href="/blog/about-us/" class="footer-link-item">About Us</a>
+                      <a href="/blog/contact-us/" class="footer-link-item">Customer Support</a>
+                      <a href="/blog/" class="footer-link-item font-semibold" style="font-weight: 600; color: var(--primary-color);">Product Blog & Tutorials</a>
+                    </div>
+                  </div>
+
+                  <!-- Column 4: Legal Terms -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Legal & Security</h3>
+                    <div class="footer-links-list">
+                      <a href="/blog/privacy-policy/" class="footer-link-item">Privacy Policy</a>
+                      <a href="/blog/terms-and-conditions/" class="footer-link-item">Terms of Service</a>
+                      <a href="/blog/refund-policy/" class="footer-link-item">Refund Policy</a>
+                      <a href="/blog/disclaimer/" class="footer-link-item">Disclaimer Notice</a>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Bottom Copyright Row -->
+                <div class="footer-copyright-row" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
+                  <p class="footer-copyright-text" style="margin: 0;">
+                    &copy; 2026 Timetable Creator. All rights reserved. Powered by High-Speed Cloud Infrastructure.
+                  </p>
+                  <div style="display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);">
+                    <span>SSL 256-Bit Secured</span>
+                    <span>GDPR Compliant</span>
+                  </div>
+                </div>
+              </div>
+            </footer>
 
           </div>
         </div>
+
       </main>
     </div>
+
     <!-- MAIN EVENT DIALOG EDITOR -->
     <div class="modal-backdrop" id="eventModal">
       <div class="modal-panel">
@@ -6323,7 +6108,7 @@
           </div>
 
           <!-- Native Device Share Button (Mobile & Desktop Web Share API) -->
-          <button id="btnNativeShare" onclick="app.handlers.triggerNativeShare()" class="btn-ctrl" style="width: 100%; height: 38px; background: var(--primary-glow); border: none; color: var(--primary-color); font-weight: 600; font-size: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;">
+          <button id="btnNativeShare" onclick="app.handlers.triggerNativeShare()" class="btn-ctrl" style="width: 100%; height: 38px; background: var(--primary-glow); border: 1px solid var(--primary-color); color: var(--primary-color); font-weight: 600; font-size: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;">
             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="15"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8m-4-6l-4-4m0 0L8 6m4-4v12"></path></svg>
             Share with Apps (WhatsApp, Messages, AirDrop, etc.)
           </button>
@@ -6443,7 +6228,7 @@
           </div>
           <div>
             <div style="display: flex; align-items: center; gap: 8px;">
-              <h2 style="font-size: 20px; font-weight: 700; color: var(--text-main); margin: 0;">TimetableCreator.online Admin Portal</h2>
+              <h1 style="font-size: 20px; font-weight: 700; color: var(--text-main); margin: 0;">TimetableCreator.online Admin Portal</h1>
               <span style="font-size: 11px; background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 12px; font-weight: 600;">Posts & Pages CMS</span>
             </div>
             <p style="font-size: 13px; color: var(--text-muted); margin: 2px 0 0 0;">Manage, edit, publish, and create blog posts, guides, and static pages.</p>
@@ -6695,7 +6480,7 @@
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
           pageLanguage: 'en',
-          includedLanguages: 'en,es,fr,de,ru,ar,hi,zh-CN,zh-TW',
+          includedLanguages: 'en,es,fr,de,ru,ar,hi',
           layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
           autoDisplay: false
         }, 'google_translate_element');
@@ -6931,18 +6716,13 @@
           classicSubtitle: localStorage.getItem('tt_classic_subtitle') || 'Class & Activity Schedule',
           classicSelectedDays: [0],
           classicSelectedColor: '#10b981',
-          classicColWidths: {},
-          proColWidths: {},
-          classicCellH: 48,
-          classicEvents: null,
-          proEvents: null,
           config: {
             daysCount: 7,
             startTime: 480, // minutes from midnight (8:00 AM)
             endTime: 1140,  // minutes from midnight (7:00 PM)
             interval: 30,   // intervals in minutes
             use24h: true,
-            theme: 'amber',
+            theme: 'slate',
             autoSave: true,
             zoom: 1.0,
             density: 1.0,
@@ -7327,11 +7107,6 @@
           try {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify({
               events: this.state.events,
-              classicEvents: this.state.classicEvents,
-              proEvents: this.state.proEvents,
-              classicColWidths: this.state.classicColWidths,
-              proColWidths: this.state.proColWidths,
-              classicCellH: this.state.classicCellH,
               config: this.state.config
             }));
           } catch(e) {
@@ -7340,7 +7115,7 @@
         },
 
         getRowHeight() {
-          const base = 58;
+          const base = 44;
           const density = this.state.config.density || 1.0;
           const zoom = this.state.config.zoom || 1.0;
           return base * density * zoom;
@@ -7352,11 +7127,6 @@
             if (raw) {
               const parsed = JSON.parse(raw);
               if (parsed.events) this.state.events = parsed.events;
-              if (parsed.classicEvents) this.state.classicEvents = parsed.classicEvents;
-              if (parsed.proEvents) this.state.proEvents = parsed.proEvents;
-              if (parsed.classicColWidths) this.state.classicColWidths = parsed.classicColWidths;
-              if (parsed.proColWidths) this.state.proColWidths = parsed.proColWidths;
-              if (parsed.classicCellH) this.state.classicCellH = parsed.classicCellH;
               if (parsed.config) this.state.config = { ...this.state.config, ...parsed.config };
               
               this.sanitizeConfig();
@@ -7376,7 +7146,7 @@
               endTime: 1140,
               interval: 30,
               use24h: true,
-              theme: 'amber',
+              theme: 'slate',
               autoSave: true,
               zoom: 1.0,
               density: 1.0,
@@ -7395,7 +7165,7 @@
           c.interval = parseInt(c.interval) || 30;
           if (![15, 30, 45, 60].includes(c.interval)) c.interval = 30;
           c.use24h = c.use24h !== false;
-          c.theme = c.theme || 'amber';
+          c.theme = c.theme || 'slate';
           c.autoSave = c.autoSave !== false;
           c.zoom = parseFloat(c.zoom) || 1.0;
           if (isNaN(c.zoom) || c.zoom < 0.5 || c.zoom > 2) c.zoom = 1.0;
@@ -7409,7 +7179,6 @@
 
         syncConfigInputs() {
           const c = this.state.config;
-          document.documentElement.setAttribute('data-preset', c.theme);
           const slideRadius = document.getElementById('slideRadius');
           const slideSize = document.getElementById('slideSize');
           const slideDensity = document.getElementById('slideDensity');
@@ -7434,252 +7203,21 @@
          * Tracking State Change Actions & Multi-Stage History Stack (Undo/Redo)
          */
         pushHistory() {
-          const snapshot = JSON.stringify({
-            events: this.state.events,
-            classicEvents: this.state.classicEvents,
-            proEvents: this.state.proEvents,
-            classicColWidths: this.state.classicColWidths,
-            proColWidths: this.state.proColWidths,
-            classicCellH: this.state.classicCellH,
-            config: this.state.config
-          });
-          if (this.state.history.undoStack.length > 30) {
+          const snapshot = JSON.stringify(this.state.events);
+          // Limit undo elements to prevent runaway memory heap allocation
+          if (this.state.history.undoStack.length > 25) {
             this.state.history.undoStack.shift();
           }
           this.state.history.undoStack.push(snapshot);
-          this.state.history.redoStack = [];
+          this.state.history.redoStack = []; // Clean next-ahead steps path
           this.updateUndoRedoButtons();
         },
 
         updateUndoRedoButtons() {
           const undoBtn = document.getElementById('btnUndo');
           const redoBtn = document.getElementById('btnRedo');
-          const classicUndoBtn = document.getElementById('btnClassicUndo');
-          const classicRedoBtn = document.getElementById('btnClassicRedo');
-          const canUndo = this.state.history.undoStack.length > 0;
-          const canRedo = this.state.history.redoStack.length > 0;
-
-          if (undoBtn) {
-            undoBtn.style.opacity = canUndo ? "1" : "0.4";
-            undoBtn.disabled = !canUndo;
-          }
-          if (redoBtn) {
-            redoBtn.style.opacity = canRedo ? "1" : "0.4";
-            redoBtn.disabled = !canRedo;
-          }
-          if (classicUndoBtn) {
-            classicUndoBtn.style.opacity = canUndo ? "1" : "0.4";
-            classicUndoBtn.disabled = !canUndo;
-          }
-          if (classicRedoBtn) {
-            classicRedoBtn.style.opacity = canRedo ? "1" : "0.4";
-            classicRedoBtn.disabled = !canRedo;
-          }
-        },
-
-        startExcelColResize(e, dayIndex, mode = 'pro') {
-          e.preventDefault();
-          e.stopPropagation();
-
-          const startX = e.clientX;
-          let targetEl = null;
-          let startWidth = 140;
-
-          if (mode === 'classic') {
-            targetEl = document.getElementById(`classic-th-day-${dayIndex}`);
-            if (targetEl) startWidth = targetEl.getBoundingClientRect().width;
-          } else {
-            targetEl = document.getElementById(`hdr-day-${dayIndex}`);
-            if (targetEl) startWidth = targetEl.getBoundingClientRect().width;
-          }
-
-          const guideV = document.getElementById('excelResizeGuideV');
-          if (guideV) {
-            guideV.style.left = `${e.clientX}px`;
-            guideV.style.display = 'block';
-          }
-
-          document.body.classList.add('excel-resizing-col');
-
-          const onMove = (moveEvt) => {
-            const deltaX = moveEvt.clientX - startX;
-            const newWidth = Math.max(65, Math.min(480, startWidth + deltaX));
-
-            if (guideV) {
-              guideV.style.left = `${moveEvt.clientX}px`;
-            }
-
-            if (mode === 'classic') {
-              if (targetEl) {
-                targetEl.style.width = `${newWidth}px`;
-                targetEl.style.minWidth = `${newWidth}px`;
-              }
-              const table = document.getElementById('classicTableGrid');
-              if (table) {
-                table.querySelectorAll(`.classic-td-cell[data-day="${dayIndex}"]`).forEach(cell => {
-                  cell.style.width = `${newWidth}px`;
-                  cell.style.minWidth = `${newWidth}px`;
-                });
-              }
-              if (!this.state.classicColWidths) this.state.classicColWidths = {};
-              this.state.classicColWidths[dayIndex] = newWidth;
-            } else {
-              if (targetEl) {
-                targetEl.style.width = `${newWidth}px`;
-                targetEl.style.minWidth = `${newWidth}px`;
-              }
-              const colEl = document.getElementById(`col-day-${dayIndex}`);
-              if (colEl) {
-                colEl.style.width = `${newWidth}px`;
-                colEl.style.minWidth = `${newWidth}px`;
-              }
-              if (!this.state.proColWidths) this.state.proColWidths = {};
-              this.state.proColWidths[dayIndex] = newWidth;
-            }
-          };
-
-          const onUp = () => {
-            window.removeEventListener('pointermove', onMove);
-            window.removeEventListener('pointerup', onUp);
-            window.removeEventListener('pointercancel', onUp);
-
-            if (guideV) guideV.style.display = 'none';
-            document.body.classList.remove('excel-resizing-col');
-
-            this.pushHistory();
-            if (this.state.config.autoSave) this.saveState();
-          };
-
-          window.addEventListener('pointermove', onMove);
-          window.addEventListener('pointerup', onUp);
-          window.addEventListener('pointercancel', onUp);
-        },
-
-        startExcelRowResize(e, slotIndex, mode = 'pro') {
-          e.preventDefault();
-          e.stopPropagation();
-
-          const startY = e.clientY;
-          const guideH = document.getElementById('excelResizeGuideH');
-          if (guideH) {
-            guideH.style.top = `${e.clientY}px`;
-            guideH.style.display = 'block';
-          }
-
-          document.body.classList.add('excel-resizing-row');
-
-          if (mode === 'classic') {
-            const startCellH = this.state.classicCellH || 48;
-            const mStep = parseInt(this.state.config.interval) || 30;
-            const startTime = parseInt(this.state.config.startTime) !== undefined ? parseInt(this.state.config.startTime) : 480;
-            const endTime = parseInt(this.state.config.endTime) !== undefined ? parseInt(this.state.config.endTime) : 1140;
-
-            const onMove = (moveEvt) => {
-              const deltaY = moveEvt.clientY - startY;
-              const newCellH = Math.max(26, Math.min(160, startCellH + deltaY));
-
-              if (guideH) guideH.style.top = `${moveEvt.clientY}px`;
-
-              this.state.classicCellH = newCellH;
-              document.documentElement.style.setProperty('--classic-cell-h', `${newCellH}px`);
-
-              const table = document.getElementById('classicTableGrid');
-              if (table) {
-                table.querySelectorAll('.classic-td-cell, .classic-td-time').forEach(c => {
-                  c.style.height = `${newCellH}px`;
-                });
-              }
-
-              // Real-time stretch/shrink of all event boxes in Classic
-              const pxPerMin = newCellH / mStep;
-              const events = this.state.classicEvents || this.state.events || [];
-              events.forEach(evt => {
-                const el = document.getElementById(`classic-evt-${evt.id}`);
-                if (el) {
-                  const visibleStart = Math.max(evt.startTime, startTime);
-                  const visibleEnd = Math.min(evt.endTime, endTime);
-                  const duration = visibleEnd - visibleStart;
-                  const topOffset = (visibleStart - startTime) * pxPerMin + 2;
-                  const height = Math.max(24, (duration * pxPerMin) - 4);
-                  el.style.top = `${topOffset}px`;
-                  el.style.height = `${height}px`;
-                }
-              });
-            };
-
-            const onUp = () => {
-              window.removeEventListener('pointermove', onMove);
-              window.removeEventListener('pointerup', onUp);
-              window.removeEventListener('pointercancel', onUp);
-
-              if (guideH) guideH.style.display = 'none';
-              document.body.classList.remove('excel-resizing-row');
-
-              this.pushHistory();
-              if (this.state.config.autoSave) this.saveState();
-            };
-
-            window.addEventListener('pointermove', onMove);
-            window.addEventListener('pointerup', onUp);
-            window.addEventListener('pointercancel', onUp);
-          } else {
-            // Pro Studio Mode
-            const startRowH = this.getRowHeight();
-            const zoom = this.state.config.zoom || 1.0;
-            const interval = parseInt(this.state.config.interval) || 30;
-            const startTime = parseInt(this.state.config.startTime) || 480;
-            const endTime = parseInt(this.state.config.endTime) || 1140;
-
-            const onMove = (moveEvt) => {
-              const deltaY = moveEvt.clientY - startY;
-              const newRowH = Math.max(24, Math.min(160, startRowH + deltaY));
-
-              if (guideH) guideH.style.top = `${moveEvt.clientY}px`;
-
-              const newDensity = newRowH / (44 * zoom);
-              this.state.config.density = newDensity;
-              document.documentElement.style.setProperty('--grid-density-coef', newDensity);
-
-              document.querySelectorAll('.time-cell, .grid-cell').forEach(el => {
-                el.style.height = `${newRowH}px`;
-              });
-
-              // Real-time stretch/shrink of all event cards in Pro Studio
-              const pxPerMin = newRowH / interval;
-              const events = this.state.proEvents || this.state.events || [];
-              events.forEach(evt => {
-                const card = document.getElementById(`evt-card-${evt.id}`);
-                if (card) {
-                  const visibleStart = Math.max(evt.startTime, startTime);
-                  const visibleEnd = Math.min(evt.endTime, endTime);
-                  const duration = visibleEnd - visibleStart;
-                  const topOffset = (visibleStart - startTime) * pxPerMin;
-                  const cardHeight = Math.max(16, (duration * pxPerMin) - 8);
-                  card.style.top = `${topOffset}px`;
-                  card.style.height = `${cardHeight}px`;
-                }
-              });
-
-              this.updateCurrentTimeIndicator();
-            };
-
-            const onUp = () => {
-              window.removeEventListener('pointermove', onMove);
-              window.removeEventListener('pointerup', onUp);
-              window.removeEventListener('pointercancel', onUp);
-
-              if (guideH) guideH.style.display = 'none';
-              document.body.classList.remove('excel-resizing-row');
-
-              this.syncConfigInputs();
-              this.pushHistory();
-              if (this.state.config.autoSave) this.saveState();
-            };
-
-            window.addEventListener('pointermove', onMove);
-            window.addEventListener('pointerup', onUp);
-            window.addEventListener('pointercancel', onUp);
-          }
+          if (undoBtn) undoBtn.style.opacity = this.state.history.undoStack.length > 0 ? "1" : "0.4";
+          if (redoBtn) redoBtn.style.opacity = this.state.history.redoStack.length > 0 ? "1" : "0.4";
         },
 
         /**
@@ -7799,9 +7337,6 @@
               zoomValLabel.textContent = `${Math.round(this.state.classicZoom * 100)}%`;
             }
             document.documentElement.style.setProperty('--classic-zoom', this.state.classicZoom);
-            if (this.state.classicCellH) {
-              document.documentElement.style.setProperty('--classic-cell-h', `${this.state.classicCellH}px`);
-            }
 
             // Synchronize inputs in classic toolbar
             const titleInput = document.getElementById('classicTtTitle');
@@ -7819,8 +7354,7 @@
             }
 
             // Update stats strip in classic ribbon
-            const classicEventsList = this.state.classicEvents || this.state.events || [];
-            const validEvents = classicEventsList.filter(evt => evt.day < activeDaysCount);
+            const validEvents = (this.state.events || []).filter(evt => evt.day < activeDaysCount);
             const totalMinutes = validEvents.reduce((acc, evt) => {
               const dur = Math.max(0, (evt.endTime || 0) - (evt.startTime || 0));
               return acc + dur;
@@ -7837,16 +7371,11 @@
             if (statDays) statDays.textContent = `${activeDaysCount} Days`;
             if (statSpan) statSpan.textContent = `${this.formatMinute(startTime)} - ${this.formatMinute(endTime)}`;
 
-            // Build the Table HTML with Excel line-based resizers
+            // Build the Table HTML
             let html = '<thead><tr><th class="classic-th-corner">Time</th>';
             for (let d = 0; d < activeDaysCount; d++) {
-              let widthStyle = '';
-              if (this.state.classicColWidths && this.state.classicColWidths[d]) {
-                widthStyle = `style="width:${this.state.classicColWidths[d]}px;min-width:${this.state.classicColWidths[d]}px;"`;
-              }
-              html += `<th class="classic-th-day" id="classic-th-day-${d}" data-day="${d}" ${widthStyle}>
+              html += `<th class="classic-th-day" id="classic-th-day-${d}" data-day="${d}">
                 <span>${dayNames[d]}</span>
-                <div class="excel-col-resizer" onpointerdown="app.startExcelColResize(event, ${d}, 'classic')" title="Hold & drag column line to resize"></div>
               </th>`;
             }
             html += '</tr></thead><tbody>';
@@ -7854,17 +7383,10 @@
             for (let s = 0; s < totalSlots; s++) {
               const slotMin = startTime + (s * mStep);
               const timeLabel = this.formatMinute(slotMin);
-              html += `<tr><td class="classic-td-time">${timeLabel}
-                <div class="excel-row-resizer" onpointerdown="app.startExcelRowResize(event, ${s}, 'classic')" title="Hold & drag row line to resize"></div>
-              </td>`;
+              html += `<tr><td class="classic-td-time">${timeLabel}</td>`;
               for (let d = 0; d < activeDaysCount; d++) {
-                let cellWidthStyle = '';
-                if (this.state.classicColWidths && this.state.classicColWidths[d]) {
-                  cellWidthStyle = `style="width:${this.state.classicColWidths[d]}px;min-width:${this.state.classicColWidths[d]}px;"`;
-                }
-                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" ${cellWidthStyle} onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" oncontextmenu="app.handlers.showEmptyCellContext(event, ${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
+                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" oncontextmenu="app.handlers.showEmptyCellContext(event, ${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
                   <svg class="classic-cell-add-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"></path></svg>
-                  <div class="excel-col-resizer" onpointerdown="app.startExcelColResize(event, ${d}, 'classic')" title="Hold & drag column line to resize"></div>
                 </td>`;
               }
               html += '</tr>';
@@ -7873,7 +7395,7 @@
             table.innerHTML = html;
 
             // Render events on top of the classic grid
-            const cellHeight = this.state.classicCellH || 48;
+            const cellHeight = 48; // Base table cell height in px
             const pxPerMin = cellHeight / mStep;
 
             validEvents.forEach(evt => {
@@ -7883,11 +7405,12 @@
               const visibleEnd = Math.min(evt.endTime, endTime);
               const duration = visibleEnd - visibleStart;
 
+              // Find the first matching cell for this day
               const firstCell = table.querySelector(`.classic-td-cell[data-day="${evt.day}"][data-time="${startTime}"]`);
               if (!firstCell) return;
 
               const topOffset = (visibleStart - startTime) * pxPerMin + 2;
-              const height = Math.max(28, (duration * pxPerMin) - 4);
+              const height = Math.max(34, (duration * pxPerMin) - 4);
 
               const eventCard = document.createElement('div');
               eventCard.className = 'classic-event-item';
@@ -7921,7 +7444,7 @@
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
                     <button class="classic-evt-btn" title="Duplicate activity" onclick="event.stopPropagation(); app.duplicateEvent('${evt.id}')">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="15" y1="12" x2="15" y2="18"></line><line x1="12" y1="15" x2="18" y2="15"></line><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"></path></svg>
                     </button>
                     ${this.state.clipboard ? `
                     <button class="classic-evt-btn" title="Paste activity after this" onclick="event.stopPropagation(); app.pasteEvent(${evt.day}, ${evt.endTime})">
@@ -7946,7 +7469,6 @@
             console.error('Error rendering Classic Timetable grid:', err);
           }
         },
-
         renderGridStructure() {
           try {
             const daysRow = document.getElementById('gridHeaderRow');
@@ -7958,12 +7480,15 @@
               return;
             }
 
+            // Clean up old configurations
             daysRow.innerHTML = '<div class="grid-corner">Time</div>';
             timeCol.innerHTML = '';
             colsContainer.innerHTML = '';
 
+            // Ensure configuration properties are valid and sanitized
             this.sanitizeConfig();
 
+            // 1. Render Days depending on Days Limit selection
             const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
             const activeDaysCount = parseInt(this.state.config.daysCount) || 7;
 
@@ -7973,31 +7498,15 @@
               header.className = `day-column-header ${isWeekend ? 'weekend' : ''}`;
               header.id = `hdr-day-${i}`;
               header.textContent = dayNames[i] || `Day ${i + 1}`;
-              if (this.state.proColWidths && this.state.proColWidths[i]) {
-                header.style.width = `${this.state.proColWidths[i]}px`;
-                header.style.minWidth = `${this.state.proColWidths[i]}px`;
-              }
-              const colResizer = document.createElement('div');
-              colResizer.className = 'excel-col-resizer';
-              colResizer.title = 'Hold & drag column line to resize';
-              colResizer.addEventListener('pointerdown', (e) => this.startExcelColResize(e, i, 'pro'));
-              header.appendChild(colResizer);
               daysRow.appendChild(header);
 
+              // Columns containers
               const column = document.createElement('div');
               column.className = 'grid-day-column';
               column.id = `col-day-${i}`;
               column.setAttribute('data-day', i);
-              if (this.state.proColWidths && this.state.proColWidths[i]) {
-                column.style.width = `${this.state.proColWidths[i]}px`;
-                column.style.minWidth = `${this.state.proColWidths[i]}px`;
-              }
-              const colLineResizer = document.createElement('div');
-              colLineResizer.className = 'excel-col-resizer';
-              colLineResizer.title = 'Hold & drag column line to resize';
-              colLineResizer.addEventListener('pointerdown', (e) => this.startExcelColResize(e, i, 'pro'));
-              column.appendChild(colLineResizer);
-
+              
+              // Subdivide cell blocks internally for clicks
               const mStep = parseInt(this.state.config.interval) || 30;
               const startTime = parseInt(this.state.config.startTime) || 480;
               const endTime = parseInt(this.state.config.endTime) || 1140;
@@ -8010,8 +7519,11 @@
                 gridCell.className = 'grid-cell';
                 gridCell.setAttribute('data-time', cellMinutes);
                 
-                gridCell.addEventListener('click', () => {
-                  app.handlers.openNewEventModal(i, cellMinutes);
+                // Double click or simple click to create a new event instantly at the localized spot
+                gridCell.addEventListener('click', (e) => {
+                  const dayId = i;
+                  const timeStart = cellMinutes;
+                  app.handlers.openNewEventModal(dayId, timeStart);
                 });
 
                 column.appendChild(gridCell);
@@ -8020,6 +7532,7 @@
               colsContainer.appendChild(column);
             }
 
+            // 2. Render Time Indicator Rows inside Left column
             const mStep = parseInt(this.state.config.interval) || 30;
             const startTime = parseInt(this.state.config.startTime) || 480;
             const endTime = parseInt(this.state.config.endTime) || 1140;
@@ -8031,11 +7544,6 @@
               const timeCell = document.createElement('div');
               timeCell.className = 'time-cell';
               timeCell.textContent = this.formatMinute(cellMinutes);
-              const rowResizer = document.createElement('div');
-              rowResizer.className = 'excel-row-resizer';
-              rowResizer.title = 'Hold & drag row line to resize';
-              rowResizer.addEventListener('pointerdown', (e) => this.startExcelRowResize(e, i, 'pro'));
-              timeCell.appendChild(rowResizer);
               timeCol.appendChild(timeCell);
             }
           } catch(err) {
@@ -8056,8 +7564,7 @@
           // Calculate conflicts and assign warning indicators dynamically
           const conflicts = this.detectConflicts();
 
-          const proEventsList = this.state.proEvents || this.state.events || [];
-          const filteredEvents = proEventsList.filter(evt => {
+          const filteredEvents = this.state.events.filter(evt => {
             const matchSearch = !searchVal || 
                                evt.title.toLowerCase().includes(searchVal) || 
                                (evt.teacher && evt.teacher.toLowerCase().includes(searchVal)) ||
@@ -8172,7 +7679,7 @@
             const dupBtn = document.createElement('button');
             dupBtn.className = 'evt-act';
             dupBtn.title = 'Duplicate';
-            dupBtn.innerHTML = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><line x1="15" y1="12" x2="15" y2="18"></line><line x1="12" y1="15" x2="18" y2="15"></line><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>`;
+            dupBtn.innerHTML = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14"></path></svg>`;
             dupBtn.addEventListener('click', (e) => {
               e.stopPropagation();
               this.duplicateEvent(evt.id);
@@ -8705,34 +8212,6 @@
          * Direct Handlers hooks for DOM buttons callbacks
          */
         handlers: {
-          toggleResizers(checkbox) {
-            if (checkbox) {
-              app.state.resizersDisabled = !checkbox.checked;
-            } else {
-              app.state.resizersDisabled = !app.state.resizersDisabled;
-            }
-
-            const cb1 = document.getElementById('toggleResizersCheckbox1');
-            const cb2 = document.getElementById('toggleResizersCheckbox2');
-            
-            if (cb1 && cb1 !== checkbox) cb1.checked = !app.state.resizersDisabled;
-            if (cb2 && cb2 !== checkbox) cb2.checked = !app.state.resizersDisabled;
-
-            if (app.state.resizersDisabled) {
-              document.body.classList.add('resizers-disabled');
-            } else {
-              document.body.classList.remove('resizers-disabled');
-            }
-          },
-          resetGridSize() {
-            app.state.classicColWidths = {};
-            app.state.proColWidths = {};
-            app.state.classicCellH = null;
-            document.documentElement.style.removeProperty('--classic-cell-h');
-            if (app.state.config.autoSave) app.saveState();
-            app.render();
-            app.showToast('Grid size reset to default', 'info');
-          },
           allAdminPosts: [],
           adminCurrentCategory: 'all',
           adminSearchQuery: '',
@@ -9350,10 +8829,6 @@
             localStorage.setItem('tt_view_mode', normalizedMode);
 
             if (normalizedMode === 'classic') {
-              if (app.state.classicEvents) {
-                app.state.events = app.state.classicEvents;
-              }
-
               document.body.classList.add('classic-mode-active');
               document.body.classList.remove('pro-mode-active');
 
@@ -9384,10 +8859,7 @@
                 app.showToast('Switched to TimetableCreator.com Classic Clone', 'info');
               }
             } else {
-              if (app.state.proEvents) {
-                app.state.events = app.state.proEvents;
-              }
-
+              // Pro Studio Edition
               document.body.classList.add('pro-mode-active');
               document.body.classList.remove('classic-mode-active');
 
@@ -9517,103 +8989,22 @@
 
             const selectedList = presets[templateKey] || [];
             if (selectedList.length > 0) {
-              const processed = selectedList.map((item, idx) => ({
-                id: 'classic_preset_' + Date.now() + '_' + idx,
+              app.state.events = selectedList.map((item, idx) => ({
+                id: 'evt_preset_' + Date.now() + '_' + idx,
                 ...item,
                 location: item.room || '',
                 category: 'General',
                 notes: ''
               }));
-              app.state.classicEvents = processed;
-              if (app.state.viewMode === 'classic') {
-                app.state.events = processed;
-              }
 
               if (app.state.config.autoSave) app.saveState();
               app.render();
-              app.showToast(`Applied "${templateKey.toUpperCase()}" template to Classic Timetable!`, 'success');
+              app.showToast(`Applied "${templateKey.toUpperCase()}" template schedule!`, 'success');
             }
 
+            // Reset select element back to default
             const selectEl = document.getElementById('classicPresetTemplates');
             if (selectEl) selectEl.value = '';
-          },
-
-          applyProTemplate(templateKey) {
-            if (!templateKey) return;
-            app.pushHistory();
-
-            const presets = {
-              cs_freshman: [
-                { title: 'Data Structures & Algorithms', subject: 'Computer Science', teacher: 'Dr. Turing', room: 'Turing Hall 101', category: 'Lecture', day: 0, startTime: 540, endTime: 630, color: '#3b82f6' },
-                { title: 'Discrete Mathematics', subject: 'Mathematics', teacher: 'Prof. Gauss', room: 'Math 204', category: 'Lecture', day: 0, startTime: 660, endTime: 750, color: '#6366f1' },
-                { title: 'Algorithms Coding Lab', subject: 'Lab Work', teacher: 'TA Alex', room: 'Unix Lab 3', category: 'Lab', day: 1, startTime: 600, endTime: 720, color: '#10b981' },
-                { title: 'Computer Systems & C++', subject: 'Computer Science', teacher: 'Dr. Ritchie', room: 'Hall B', category: 'Lecture', day: 2, startTime: 540, endTime: 630, color: '#06b6d4' },
-                { title: 'Linear Algebra for CS', subject: 'Mathematics', teacher: 'Dr. Euler', room: 'Math 101', category: 'Lecture', day: 2, startTime: 660, endTime: 750, color: '#6366f1' },
-                { title: 'Web App Dev Workshop', subject: 'Full Stack', teacher: 'Prof. Berners', room: 'Lab 4', category: 'Workshop', day: 3, startTime: 600, endTime: 720, color: '#f59e0b' },
-                { title: 'Open Source Hackathon & Sync', subject: 'Projects', teacher: 'Self-Organized', room: 'Student Hub', category: 'Project', day: 4, startTime: 540, endTime: 690, color: '#8b5cf6' }
-              ],
-              premed: [
-                { title: 'Human Gross Anatomy', subject: 'Medicine', teacher: 'Dr. Gray', room: 'Anatomy Lab A', category: 'Lab', day: 0, startTime: 510, endTime: 630, color: '#e11d48' },
-                { title: 'Medical Biochemistry', subject: 'Biochemistry', teacher: 'Dr. Mendel', room: 'Bio Amphitheater', category: 'Lecture', day: 0, startTime: 660, endTime: 750, color: '#10b981' },
-                { title: 'Physiology Seminar', subject: 'Physiology', teacher: 'Prof. Bernard', room: 'Hall 3', category: 'Seminar', day: 1, startTime: 540, endTime: 660, color: '#3b82f6' },
-                { title: 'Organic Chemistry Lab', subject: 'Chemistry', teacher: 'Dr. Curie', room: 'Chem Lab 2', category: 'Lab', day: 2, startTime: 510, endTime: 660, color: '#06b6d4' },
-                { title: 'Clinical Diagnostics Prep', subject: 'Clinical', teacher: 'Dr. House', room: 'Hospital Wing B', category: 'Clinical', day: 3, startTime: 540, endTime: 690, color: '#8b5cf6' },
-                { title: 'Medical Ethics & Policy', subject: 'Ethics', teacher: 'Prof. Singer', room: 'Lecture Hall 1', category: 'Lecture', day: 4, startTime: 540, endTime: 630, color: '#f59e0b' }
-              ],
-              highschool_honors: [
-                { title: 'AP Calculus BC', subject: 'Mathematics', teacher: 'Mr. Davis', room: 'Room 201', category: 'Lecture', day: 0, startTime: 480, endTime: 540, color: '#3b82f6' },
-                { title: 'AP English Literature', subject: 'Literature', teacher: 'Ms. Austen', room: 'Room 105', category: 'Lecture', day: 0, startTime: 555, endTime: 615, color: '#8b5cf6' },
-                { title: 'AP Chemistry & Lab', subject: 'Science', teacher: 'Dr. Curie', room: 'Chem Lab', category: 'Lab', day: 0, startTime: 630, endTime: 720, color: '#10b981' },
-                { title: 'AP US History', subject: 'History', teacher: 'Mr. Smith', room: 'Room 304', category: 'Lecture', day: 1, startTime: 480, endTime: 540, color: '#f59e0b' },
-                { title: 'AP Physics C: Mechanics', subject: 'Physics', teacher: 'Prof. Newton', room: 'Physics Lab', category: 'Lecture', day: 1, startTime: 555, endTime: 645, color: '#06b6d4' },
-                { title: 'Varsity Athletics & Track', subject: 'Sports', teacher: 'Coach Mike', room: 'Stadium', category: 'Sports', day: 2, startTime: 930, endTime: 1020, color: '#f43f5e' },
-                { title: 'Robotics Team Build', subject: 'Extracurricular', teacher: 'Mr. Gates', room: 'Makerspace', category: 'Workshop', day: 3, startTime: 900, endTime: 1020, color: '#6366f1' },
-                { title: 'Mock Trial Team Prep', subject: 'Speech & Debate', teacher: 'Ms. Marshall', room: 'Courtroom 2', category: 'Seminar', day: 4, startTime: 870, endTime: 960, color: '#ec4899' }
-              ],
-              startup_routine: [
-                { title: 'Morning Standup & Roadmap', subject: 'Operations', teacher: 'Core Team', room: 'Zoom / War Room', category: 'Sync', day: 0, startTime: 540, endTime: 570, color: '#6366f1' },
-                { title: 'Deep Work: Core Architecture', subject: 'Engineering', teacher: 'Solo', room: 'Quiet Desk', category: 'Deep Work', day: 0, startTime: 570, endTime: 750, color: '#3b82f6' },
-                { title: 'Product UI/UX Review', subject: 'Design', teacher: 'Design Lead', room: 'Figma Lab', category: 'Review', day: 1, startTime: 600, endTime: 690, color: '#ec4899' },
-                { title: 'Investor & Partner Calls', subject: 'Fundraising', teacher: 'Founders', room: 'Conf Room A', day: 2, startTime: 660, endTime: 780, color: '#f59e0b' },
-                { title: 'Customer Feedback & Interviews', subject: 'Growth', teacher: 'Product Mgr', room: 'Call Booth 1', day: 3, startTime: 600, endTime: 720, color: '#10b981' },
-                { title: 'Sprint Demo & Retrospective', subject: 'Engineering', teacher: 'All Hands', room: 'Main Lounge', day: 4, startTime: 900, endTime: 990, color: '#8b5cf6' }
-              ],
-              fitness_athlete: [
-                { title: 'Fasted Cardio & Core', subject: 'Endurance', teacher: 'Trainer', room: 'Track / Zone A', category: 'Fitness', day: 0, startTime: 420, endTime: 480, color: '#f97316' },
-                { title: 'Upper Body Heavy Bench', subject: 'Strength', teacher: 'Strength Coach', room: 'Weight Room', category: 'Workout', day: 0, startTime: 1020, endTime: 1110, color: '#3b82f6' },
-                { title: 'Speed & Agility Drills', subject: 'Cardio', teacher: 'Head Coach', room: 'Field 1', category: 'Sports', day: 1, startTime: 960, endTime: 1050, color: '#f43f5e' },
-                { title: 'Lower Body Heavy Squats', subject: 'Hypertrophy', teacher: 'Strength Coach', room: 'Squat Racks', category: 'Workout', day: 2, startTime: 1020, endTime: 1110, color: '#8b5cf6' },
-                { title: 'Active Recovery & Yoga', subject: 'Mobility', teacher: 'Yoga Master', room: 'Studio 2', category: 'Recovery', day: 3, startTime: 450, endTime: 510, color: '#10b981' },
-                { title: 'Full Body Power Circuit', subject: 'Conditioning', teacher: 'Coach Alex', room: 'CrossFit Zone', category: 'Workout', day: 4, startTime: 1020, endTime: 1110, color: '#06b6d4' }
-              ],
-              exam_cram: [
-                { title: 'High-Yield Theorems Revision', subject: 'Calculus', teacher: 'Self Study', room: 'Library Pod 4', category: 'Study', day: 0, startTime: 510, endTime: 660, color: '#3b82f6' },
-                { title: 'Formulas Active Recall & Cards', subject: 'Physics', teacher: 'Anki Deck', room: 'Study Hall', category: 'Review', day: 0, startTime: 780, endTime: 870, color: '#10b981' },
-                { title: 'Past Papers Timed Drill #1', subject: 'Chemistry', teacher: 'Exam Simulation', room: 'Silent Room', category: 'Exam', day: 1, startTime: 540, endTime: 720, color: '#f43f5e' },
-                { title: 'Weakness Identification & Fix', subject: 'Review', teacher: 'Notes', room: 'Study Hall', category: 'Analysis', day: 2, startTime: 540, endTime: 690, color: '#f59e0b' },
-                { title: 'Past Papers Timed Drill #2', subject: 'Math', teacher: 'Exam Simulation', room: 'Silent Room', category: 'Exam', day: 3, startTime: 540, endTime: 720, color: '#8b5cf6' },
-                { title: 'Final Summary Cheat Sheet Prep', subject: 'Synthesis', teacher: 'Notes', room: 'Library Desk', category: 'Summary', day: 4, startTime: 540, endTime: 660, color: '#ec4899' }
-              ]
-            };
-
-            const selectedList = presets[templateKey] || [];
-            if (selectedList.length > 0) {
-              const processed = selectedList.map((item, idx) => ({
-                id: 'pro_preset_' + Date.now() + '_' + idx,
-                ...item,
-                notes: item.notes || ''
-              }));
-              app.state.proEvents = processed;
-              if (app.state.viewMode === 'pro') {
-                app.state.events = processed;
-              }
-              if (app.state.config.autoSave) app.saveState();
-              app.render();
-              app.showToast(`Applied "${templateKey.replace(/_/g, ' ').toUpperCase()}" template to Pro Timetable!`, 'success');
-            }
-
-            const wrap = document.getElementById('wrap_proPresetTemplates');
-            if (wrap) wrap.classList.remove('open');
           },
 
           downloadImage() {
@@ -9889,7 +9280,7 @@
 
             if (id) {
               // Modify existing single event
-              const updatedEvents = app.state.events.map(evt => {
+              app.state.events = app.state.events.map(evt => {
                 if (evt.id === id) {
                   return {
                     ...evt,
@@ -9906,8 +9297,6 @@
                 }
                 return evt;
               });
-              app.state.events = updatedEvents;
-              app.state.classicEvents = [...updatedEvents];
               app.showToast('Activity updated successfully!', 'success');
             } else {
               // Create new activity (for each selected day!)
@@ -9928,7 +9317,6 @@
                 };
                 app.state.events.push(newEvt);
               });
-              app.state.classicEvents = [...app.state.events];
               app.showToast(`Created ${selectedDays.length} activity session${selectedDays.length > 1 ? 's' : ''}!`, 'success');
             }
 
@@ -9953,7 +9341,6 @@
             app.state.config.theme = chosen;
             document.documentElement.setAttribute('data-preset', chosen);
             if (app.state.config.autoSave) app.saveState();
-            app.render();
           },
 
           adjustStyle(styleType, value) {
@@ -9983,25 +9370,11 @@
               app.showToast('Nothing to undo', 'error');
               return;
             }
-            const current = JSON.stringify({
-              events: app.state.events,
-              classicEvents: app.state.classicEvents,
-              proEvents: app.state.proEvents,
-              classicColWidths: app.state.classicColWidths,
-              proColWidths: app.state.proColWidths,
-              classicCellH: app.state.classicCellH,
-              config: app.state.config
-            });
+            const current = JSON.stringify(app.state.events);
             app.state.history.redoStack.push(current);
 
-            const prev = JSON.parse(app.state.history.undoStack.pop());
-            if (prev.events) app.state.events = prev.events;
-            if (prev.classicEvents) app.state.classicEvents = prev.classicEvents;
-            if (prev.proEvents) app.state.proEvents = prev.proEvents;
-            if (prev.classicColWidths) app.state.classicColWidths = prev.classicColWidths;
-            if (prev.proColWidths) app.state.proColWidths = prev.proColWidths;
-            if (prev.classicCellH) app.state.classicCellH = prev.classicCellH;
-            if (prev.config) app.state.config = prev.config;
+            const prev = app.state.history.undoStack.pop();
+            app.state.events = JSON.parse(prev);
 
             if (app.state.config.autoSave) app.saveState();
             app.render();
@@ -10014,25 +9387,11 @@
               app.showToast('Nothing to redo', 'error');
               return;
             }
-            const current = JSON.stringify({
-              events: app.state.events,
-              classicEvents: app.state.classicEvents,
-              proEvents: app.state.proEvents,
-              classicColWidths: app.state.classicColWidths,
-              proColWidths: app.state.proColWidths,
-              classicCellH: app.state.classicCellH,
-              config: app.state.config
-            });
+            const current = JSON.stringify(app.state.events);
             app.state.history.undoStack.push(current);
 
-            const next = JSON.parse(app.state.history.redoStack.pop());
-            if (next.events) app.state.events = next.events;
-            if (next.classicEvents) app.state.classicEvents = next.classicEvents;
-            if (next.proEvents) app.state.proEvents = next.proEvents;
-            if (next.classicColWidths) app.state.classicColWidths = next.classicColWidths;
-            if (next.proColWidths) app.state.proColWidths = next.proColWidths;
-            if (next.classicCellH) app.state.classicCellH = next.classicCellH;
-            if (next.config) app.state.config = next.config;
+            const next = app.state.history.redoStack.pop();
+            app.state.events = JSON.parse(next);
 
             if (app.state.config.autoSave) app.saveState();
             app.render();
@@ -11200,7 +10559,7 @@
               endTime: 1140,
               interval: 30,
               use24h: true,
-              theme: 'amber',
+              theme: 'slate',
               autoSave: true,
               zoom: 1.0,
               density: 1.0,
@@ -11386,76 +10745,6 @@
         <li><strong>No Login Required:</strong> Start building your schedule instantly without any complicated signups.</li>
       </ul>
       <p>Take charge of your productivity today by creating a clear, visually appealing schedule that keeps you on track. Our general purpose planner is perfect for freelancers, parents, fitness enthusiasts, and professionals.</p>
-
-<footer class="seo-footer">
-              <div class="footer-container">
-                <div class="footer-grid">
-                  
-                  <!-- Column 1: Brand & Description -->
-                  <div class="footer-col" style="max-width: 320px;">
-                    <div class="app-brand-wrapper" style="margin-bottom: 12px;">
-                      <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="32" height="32" rx="8" fill="#673de6"/>
-                        <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-                        <circle cx="23" cy="21" r="3" fill="#00b090"/>
-                      </svg>
-                      <div class="header-brand-line">
-                        <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
-                        <span class="app-tools-tag">CREATOR</span>
-                      </div>
-                    </div>
-                    <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
-                      Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
-                    </p>
-                    <div style="display: flex; gap: 8px; align-items: center;">
-                      <span style="font-size: 11px; color: #00b090; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
-                        <span class="pulse-dot"></span>
-                        99.9% Uptime SLA
-                      </span>
-                    </div>
-                  </div>
-
-                  <!-- Column 2: Free Tools -->
-                  <div class="footer-col">
-                    <h4 class="footer-title">Free Tools</h4>
-                    <a href="https://timetablecreator.online/" class="footer-link">Pro Studio Edition</a>
-                    <a href="https://timetablecreator.online/?tool=classic" class="footer-link">Classic Grid Maker</a>
-                    <a href="https://timetablecreator.online/?mode=ai" class="footer-link">AI Prompt Generator</a>
-                    <a href="#" class="footer-link" onclick="app.handlers.openModal('exportModal')">Export to PDF / PNG</a>
-                    <a href="#" class="footer-link" onclick="app.handlers.openModal('importExportModal')">JSON Backup System</a>
-                  </div>
-
-                  <!-- Column 3: Resources -->
-                  <div class="footer-col">
-                    <h4 class="footer-title">Resources</h4>
-                    <a href="#how-to" class="footer-link">How to Use</a>
-                    <a href="#faq" class="footer-link">Frequently Asked Questions</a>
-                    <a href="#templates" class="footer-link">Pre-built Templates</a>
-                    <a href="mailto:support@timetablecreator.online" class="footer-link">Contact Support</a>
-                    <a href="#" class="footer-link">Documentation (Coming Soon)</a>
-                  </div>
-
-                  <!-- Column 4: Legal & Policies -->
-                  <div class="footer-col">
-                    <h4 class="footer-title">Legal & Privacy</h4>
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms of Service</a>
-                    <a href="#" class="footer-link">Cookie Policy</a>
-                    <a href="#" class="footer-link">Data Security</a>
-                  </div>
-                </div>
-
-                <div class="footer-bottom">
-                  <div class="footer-bottom-left">
-                    &copy; 2026 Timetable Creator. All rights reserved. Built for students & professionals.
-                  </div>
-                  <div class="footer-bottom-right">
-                    <a href="#" aria-label="Follow us on Twitter"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></a>
-                    <a href="#" aria-label="Star on GitHub"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg></a>
-                  </div>
-                </div>
-              </div>
-            </footer>
     </div>
 </body>
 </html>

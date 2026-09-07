@@ -1,0 +1,411 @@
+<div class="workspace" id="gridWorkspace" onscroll="app.handlers.handleScroll()">
+          
+          
+
+          <!-- AI Schedule Generator -->
+          <div class="section-card" id="aiGeneratorSection" style="margin-bottom: 16px; border: none; background: transparent; max-width: 100%; box-shadow: none; padding: 16px; border-radius: var(--border-radius);">
+            <div class="ai-generator-inner" style="display: flex; gap: 16px; align-items: center; width: 100%; flex-wrap: wrap;">
+              
+              <!-- Left side description -->
+              <div class="ai-generator-text" style="flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: 4px;">
+                <div class="section-title" style="margin-bottom: 0px; text-transform: uppercase;">
+                  <span style="display: flex; align-items: center; gap: 6px; color: var(--primary-color); font-weight: 700;">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14" style="color: var(--primary-color);"><path d="M9.813 15.904L9 21l-.813-5.096L3.091 15 8.187 14.1 9 9l.813 5.1 5.096.9-5.096.904zM19.006 5.005l-.5.001-.13.3-.37 1-.37-1-.13-.3-.5-.001.5-.001.13-.3.37-1 .37 1 .13.3.5.001z"></path></svg>
+                    Smart AI Assistant
+                  </span>
+                </div>
+                <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin: 0;">
+                  Describe your routine or syllabus in plain words. AI automatically schedules courses into open calendar slots.
+                </p>
+              </div>
+
+              <!-- Input text area -->
+              <div class="ai-generator-input" style="flex: 2; min-width: 320px; display: flex; align-items: center;">
+                <textarea id="aiPrompt" class="input-ctrl" rows="2" style="resize: none; font-size: 12px; margin-bottom: 0; width: 100%; height: 48px; min-height: 48px;" placeholder="e.g., Build a computer science freshman schedule with morning lectures, afternoon labs on Wed/Fri, and lunch breaks at 1:00 PM."></textarea>
+              </div>
+
+              <!-- Control buttons -->
+              <div class="ai-generator-actions" style="display: flex; gap: 8px; align-items: center; min-width: 200px; flex-shrink: 0;">
+                <button id="btnAiMerge" class="btn-ctrl" onclick="app.handlers.aiGenerateSchedule(true)" style="font-size: 11px; padding: 0 16px; margin: 0; height: 38px; display: flex; align-items: center; justify-content: center; flex: 1; white-space: nowrap;">
+                  Merge AI
+                </button>
+                <button id="btnAiOvertake" class="btn-ctrl btn-primary" onclick="app.handlers.aiGenerateSchedule(false)" style="font-size: 11px; padding: 0 16px; margin: 0; height: 38px; display: flex; align-items: center; justify-content: center; flex: 1; white-space: nowrap;">
+                  Overtake AI
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Export, Print & Share Options Bar (Horizontal) -->
+          <div class="export-options-bar" id="exportOptionsBar">
+            <div class="export-options-title">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16" style="color: var(--primary-color);"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+              <span>Export & Share Options</span>
+            </div>
+            <div class="export-options-actions">
+              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" aria-label="Print Timetable">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                <span>Print</span>
+              </button>
+              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" aria-label="Save as PDF">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
+                <span>Save PDF</span>
+              </button>
+              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" aria-label="Export JSON">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <span>Save JSON</span>
+              </button>
+              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" aria-label="Download PNG">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span>PNG</span>
+              </button>
+              <button class="export-btn-item export-btn-share btn-primary" onclick="app.handlers.shareSchedule()" id="btnShareSchedule" title="Share Timetable" aria-label="Share Timetable">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M8.684 10.742L15.32 7.424M15.32 16.576l-6.637-3.318M21 12a3 3 0 11-6 0 3 3 0 016 0zm-11-6a3 3 0 11-6 0 3 3 0 016 0zm0 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="timetable-scroll-container">
+            <div class="timetable-wrapper" id="printTarget">
+              
+              <!-- STICKY HEADER -->
+              <div class="grid-header-row" id="gridHeaderRow">
+                <div class="grid-corner">Time</div>
+                <!-- Day headers injected live by javascript -->
+              </div>
+
+              <!-- GRID BODY -->
+              <div class="grid-body">
+                <!-- Sticky Left Time Column -->
+                <div class="time-column" id="gridTimeColumn"></div>
+
+                <!-- Day Column Overlays -->
+                <div class="grid-columns-container" id="gridColumnsContainer">
+                  <!-- Visual absolute event cards elements injected here -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- === SEO LANDING SECTION === -->
+          <div class="seo-landing-container" id="about">
+            
+            <!-- HERO SECTION with strong CTA -->
+            <section class="seo-hero">
+              <h1 class="seo-h1">The Smartest Online Timetable Creator & Weekly Planner</h1>
+              <p>
+                Take the hassle out of scheduling. Build, organize, and customize professional school, class, and work rosters in minutes with our high-fidelity, interactive <strong>free timetable maker</strong> and AI generator.
+              </p>
+              <button class="seo-btn-cta" onclick="document.getElementById('gridWorkspace').scrollTo({top: 0, behavior: 'smooth'});">
+                <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16" style="display:inline-block; margin-right: 6px; vertical-align: middle;"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+                Start Building for Free
+              </button>
+            </section>
+
+            <!-- BENEFITS SECTION -->
+            <section class="seo-benefits">
+              <div class="seo-section-title">
+                <h2>Why Choose Our Free Timetable Maker?</h2>
+                <p>Designed for students, teachers, parents, and managers looking for ultimate scheduling flexibility.</p>
+              </div>
+              <div class="seo-grid-benefits">
+                <div class="seo-benefit-card">
+                  <div class="seo-card-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  </div>
+                  <h3>AI Timetable Creator</h3>
+                  <p>Describe your week in plain English. Our AI copilot parses classes, study hours, and lunch slots to build you a robust draft in seconds.</p>
+                </div>
+                <div class="seo-benefit-card">
+                  <div class="seo-card-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                  </div>
+                  <h3>Mobile & Desktop Ready</h3>
+                  <p>A beautifully responsive <strong>class timetable generator</strong> that fits tablets and smartphones. Switch days and update details on the go.</p>
+                </div>
+                <div class="seo-benefit-card">
+                  <div class="seo-card-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  </div>
+                  <h3>High-Resolution Exports</h3>
+                  <p>Save your plans offline. Print a clean canvas layout as a physical PDF or download a high-definition PNG to keep on your phone lock screen.</p>
+                </div>
+              </div>
+            </section>
+
+            <div class="seo-divider"></div>
+
+            <!-- HOW IT WORKS SECTION (step-by-step) -->
+            <section class="seo-how-it-works">
+              <div class="seo-section-title">
+                <h2>How Our Class Timetable Generator Works</h2>
+                <p>Construct a flawless, color-coded grid in four easy steps.</p>
+              </div>
+              <div class="seo-steps-container">
+                <div class="seo-step-item">
+                  <div class="seo-step-num">1</div>
+                  <div class="seo-step-content">
+                    <h3>Set Up Your Grid Structure</h3>
+                    <p>Select your days of the week (from weekdays to full weekends), and set your active hours. Choose comfortable time slots (15, 30, 45, or 60-minute intervals) using 12h or 24h dynamic formatting.</p>
+                  </div>
+                </div>
+                <div class="seo-step-item">
+                  <div class="seo-step-num">2</div>
+                  <div class="seo-step-content">
+                    <h3>Input Classes Easily</h3>
+                    <p>Double-click or drag on any open spot in the grid to open the card creator. Enter course titles, instructors, subject categories, and room locations. Or, let our automated <strong>AI timetable creator</strong> draft everything for you.</p>
+                  </div>
+                </div>
+                <div class="seo-step-item">
+                  <div class="seo-step-num">3</div>
+                  <div class="seo-step-content">
+                    <h3>Color-Code and Style</h3>
+                    <p>Assign vibrant, beautiful color markers to individual subjects to make your <strong>weekly timetable planner</strong> highly visual and easy to scan at a single glance.</p>
+                  </div>
+                </div>
+                <div class="seo-step-item">
+                  <div class="seo-step-num">4</div>
+                  <div class="seo-step-content">
+                    <h3>Synchronize, Share, or Print</h3>
+                    <p>Create a secure cloud backup to save schedules dynamically. Grab a shareable web link to distribute class routines to colleagues and classmates, or save physical copies to PDF and high-res PNG formats.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="seo-divider"></div>
+
+            <!-- FEATURES SECTION -->
+            <section class="seo-features">
+              <div class="seo-section-title">
+                <h2>Elite Features of Our Online Timetable Creator</h2>
+                <p>Everything you need for an optimized academic and professional work/life balance.</p>
+              </div>
+              <div class="seo-grid-benefits">
+                <div class="seo-benefit-card" style="background-color: transparent; border-color: rgba(103, 61, 230, 0.18);">
+                  <h3>Instant Undo & Redo</h3>
+                  <p>Accidentally moved a course? Easily reverse adjustments using standard toolbar actions or quick keyboard shortcuts (Ctrl+Z / Ctrl+Y).</p>
+                </div>
+                <div class="seo-benefit-card" style="background-color: transparent; border-color: rgba(103, 61, 230, 0.18);">
+                  <h3>Real-Time Search Filters</h3>
+                  <p>Type keywords to instantly highlight specific classes, subjects, or rooms. Perfect for complex university lectures and busy schools.</p>
+                </div>
+                <div class="seo-benefit-card" style="background-color: transparent; border-color: rgba(103, 61, 230, 0.18);">
+                  <h3>Dynamic Live Tracker</h3>
+                  <p>A visual marker moves as the day progresses, showing you exactly what lecture you are currently in and which class lies ahead.</p>
+                </div>
+              </div>
+            </section>
+
+            <div class="seo-divider"></div>
+
+            <!-- TESTIMONIALS / SOCIAL PROOF PLACEHOLDER -->
+            <section class="seo-testimonials-section">
+              <div class="seo-section-title">
+                <h2>Loved by Over 50,000 Students & Faculty</h2>
+                <p>See why users choose our free school timetable maker online for organizing their academic semesters.</p>
+              </div>
+              <div class="seo-testimonials">
+                <div class="seo-testimonial-card">
+                  <p class="seo-testimonial-text">
+                    "This class timetable generator is unbelievably fast. I explained my syllabus guidelines to the AI box, and it built my entire freshman curriculum in five seconds. Color-coding and cloud sync are lifesavers!"
+                  </p>
+                  <div class="seo-testimonial-author">
+                    <div class="seo-avatar">AM</div>
+                    <div class="seo-author-info">
+                      <h3>Alex M.</h3>
+                      <p>Sophomore Biology Student</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="seo-testimonial-card">
+                  <p class="seo-testimonial-text">
+                    "As a high school coordinator, building a weekly timetable planner for multiple streams used to take me days. Now, I use this school timetable maker online, sync, and send a single share link to parents."
+                  </p>
+                  <div class="seo-testimonial-author">
+                    <div class="seo-avatar">ST</div>
+                    <div class="seo-author-info">
+                      <h3>Dr. Sarah T.</h3>
+                      <p>Assistant Principal & Faculty Head</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="seo-testimonial-card">
+                  <p class="seo-testimonial-text">
+                    "I print the high-res PNG and keep it on my iPad lock screen. The grid design is beautiful, extremely clean, and is the best online timetable creator on the internet. I love the dark theme preset!"
+                  </p>
+                  <div class="seo-testimonial-author">
+                    <div class="seo-avatar">KJ</div>
+                    <div class="seo-author-info">
+                      <h3>Kenji J.</h3>
+                      <p>Freelance Instructional Designer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="seo-divider"></div>
+
+            <!-- FAQ SECTION WITH ACCORDION DETAILS -->
+            <section class="seo-faq-section">
+              <div class="seo-section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Learn more about getting the most out of our weekly timetable planner and creator solutions.</p>
+              </div>
+              <div class="seo-faq-list">
+                
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">What is the best online timetable creator?</summary>
+                  <div class="seo-faq-answer">
+                    Our Online Timetable Creator is a powerful, free web app designed to construct high-resolution academic, class, and school schedules. With built-in AI assistant capabilities, it simplifies weekly planning in seconds.
+                  </div>
+                </details>
+
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">How does the AI timetable creator work?</summary>
+                  <div class="seo-faq-answer">
+                    Simply type your routine or schedule requests in natural language inside the AI prompt bar, and our integrated AI logic will intelligently draft classes, labs, and breaks directly onto open spots in your calendar.
+                  </div>
+                </details>
+
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">Is this weekly timetable planner free?</summary>
+                  <div class="seo-faq-answer">
+                    Yes, this is a completely free timetable maker with full access to color customization, PDF rendering, JSON exports, and shareable links. No subscriptions are required!
+                  </div>
+                </details>
+
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">Can I use this as a class timetable generator?</summary>
+                  <div class="seo-faq-answer">
+                    Absolutely. Students and teachers can configure days of the week, customize exact start/end hours, and assign instructors, topics, and room codes to individual blocks.
+                  </div>
+                </details>
+
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">Is the school timetable maker online optimized for mobiles?</summary>
+                  <div class="seo-faq-answer">
+                    Yes. The application features a responsive sidebar configuration, custom touch-friendly cards, and a mobile day selector to manage your weekly planners seamlessly on tablets and smartphones.
+                  </div>
+                </details>
+
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">How can I export my weekly timetable planner?</summary>
+                  <div class="seo-faq-answer">
+                    You can download your weekly timetable as a high-resolution PNG image, print/save it directly to a clean PDF draft, or export a backup JSON file to import later.
+                  </div>
+                </details>
+
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">Does the free timetable maker save my progress?</summary>
+                  <div class="seo-faq-answer">
+                    Yes. If you register a free account, your created timetables are dynamically synched to a secure cloud Firestore database so you can access them on any device.
+                  </div>
+                </details>
+
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">Can I share my schedule link with others?</summary>
+                  <div class="seo-faq-answer">
+                    Yes, clicking "Share" generates an encrypted web link. Anyone who visits the link can view your weekly plan or clone/import it directly into their own workspace.
+                  </div>
+                </details>
+
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">What file types does this free timetable maker support?</summary>
+                  <div class="seo-faq-answer">
+                    It supports standard .json files for full import and export of your calendar configuration, printable PDFs, and standard crisp portable network graphics (.png) for direct phone lock screen utility.
+                  </div>
+                </details>
+
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">How secure is my data on this platform?</summary>
+                  <div class="seo-faq-answer">
+                    Your timetables are saved locally on your browser or synced securely to database standards. This service uses encrypted channels to guarantee your study schedule remains completely private unless published explicitly.
+                  </div>
+                </details>
+
+              </div>
+            </section>
+
+            <!-- FOOTER WITH INTERNAL LINKS & LEGAL/COPYRIGHT -->
+            <footer class="seo-footer">
+              <div class="footer-container">
+                <div class="footer-grid">
+                  
+                  <!-- Column 1: Brand & Description -->
+                  <div class="footer-col" style="max-width: 320px;">
+                    <div class="app-brand-wrapper" style="margin-bottom: 12px;">
+                      <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="8" fill="#673de6"/>
+                        <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="23" cy="21" r="3" fill="#00b090"/>
+                      </svg>
+                      <div class="header-brand-line">
+                        <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
+                        <span class="app-tools-tag">CREATOR</span>
+                      </div>
+                    </div>
+                    <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
+                      Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
+                    </p>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <span style="font-size: 11px; color: #00b090; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                        <span class="pulse-dot"></span>
+                        99.9% Uptime SLA
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Column 2: Free Tools -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Product Tools</h3>
+                    <div class="footer-links-list">
+                      <a href="/" class="footer-link-item active" style="color: var(--primary-color); font-weight: 600;">Timetable Creator</a>
+                      <a href="#aiGeneratorSection" class="footer-link-item">AI Schedule Generator</a>
+                      <a href="#about" class="footer-link-item">Weekly Routine Planner</a>
+                      <a href="#exportOptionsBar" class="footer-link-item">PDF & PNG Exporter</a>
+                    </div>
+                  </div>
+
+                  <!-- Column 3: Company -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Company & Resources</h3>
+                    <div class="footer-links-list">
+                      <a href="/blog/about-us/" class="footer-link-item">About Us</a>
+                      <a href="/blog/contact-us/" class="footer-link-item">Customer Support</a>
+                      <a href="/blog/" class="footer-link-item font-semibold" style="font-weight: 600; color: var(--primary-color);">Product Blog & Tutorials</a>
+                    </div>
+                  </div>
+
+                  <!-- Column 4: Legal Terms -->
+                  <div class="footer-col">
+                    <h3 class="footer-col-title">Legal & Security</h3>
+                    <div class="footer-links-list">
+                      <a href="/blog/privacy-policy/" class="footer-link-item">Privacy Policy</a>
+                      <a href="/blog/terms-and-conditions/" class="footer-link-item">Terms of Service</a>
+                      <a href="/blog/refund-policy/" class="footer-link-item">Refund Policy</a>
+                      <a href="/blog/disclaimer/" class="footer-link-item">Disclaimer Notice</a>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Bottom Copyright Row -->
+                <div class="footer-copyright-row" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
+                  <p class="footer-copyright-text" style="margin: 0;">
+                    &copy; 2026 Timetable Creator. All rights reserved. Powered by High-Speed Cloud Infrastructure.
+                  </p>
+                  <div style="display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);">
+                    <span>SSL 256-Bit Secured</span>
+                    <span>GDPR Compliant</span>
+                  </div>
+                </div>
+              </div>
+            </footer>
+
+          </div>
+        </div>
