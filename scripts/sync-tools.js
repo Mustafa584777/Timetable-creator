@@ -144,66 +144,66 @@ const studentSeoLanding = `<!-- === STUDENT TIMETABLE GENERATOR SEO LANDING SECT
             <div class="seo-divider"></div>
 
             <!-- FAQ SECTION -->
-            <section class="faq-section">
+            <section class="seo-faq">
               <div class="seo-section-title">
                 <h2>Frequently Asked Questions by Students</h2>
                 <p>Everything you need to know about generating and exporting your timetable.</p>
               </div>
-              <div class="faq-accordion">
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <div class="seo-faq-grid">
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">
                     <span>Is this Student Timetable Generator 100% free?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Yes, TimetableCreator is completely free for students, teachers, and schools. You can create unlimited timetables, use AI generation, and export vector PDFs or PNG images with zero watermarks.</p>
+                    <svg class="seo-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </summary>
+                  <div class="seo-faq-answer">
+                    Yes, TimetableCreator is completely free for students, teachers, and schools. You can create unlimited timetables, use AI generation, and export vector PDFs or PNG images with zero watermarks.
                   </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                </details>
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">
                     <span>Can I export a printable PDF formatted for A4 paper?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Yes! Click the Red "PDF" button in the toolbar to instantly generate a print-ready vector PDF formatted in landscape mode for standard A4 and Letter paper.</p>
+                    <svg class="seo-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </summary>
+                  <div class="seo-faq-answer">
+                    Yes! Click the Red "PDF" button in the toolbar to instantly generate a print-ready vector PDF formatted in landscape mode for standard A4 and Letter paper.
                   </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                </details>
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">
                     <span>How do I add room numbers, professors, and subject notes?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>When you click on any grid cell or tap "+ Add Activity", the modal provides fields for Subject Title, Room / Location, Instructor / Teacher Name, Color Swatch, and Extra Notes or meeting links.</p>
+                    <svg class="seo-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </summary>
+                  <div class="seo-faq-answer">
+                    When you click on any grid cell or tap "+ Add Activity", the modal provides fields for Subject Title, Room / Location, Instructor / Teacher Name, Color Swatch, and Extra Notes or meeting links.
                   </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                </details>
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">
                     <span>Can I create a 5-day school week timetable?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Yes. Select "Mon - Fri (5 Days)" from the Active Days dropdown in the toolbar to automatically switch the grid to a Monday through Friday layout.</p>
+                    <svg class="seo-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </summary>
+                  <div class="seo-faq-answer">
+                    Yes. Select "Mon - Fri (5 Days)" from the Active Days dropdown in the toolbar to automatically switch the grid to a Monday through Friday layout.
                   </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                </details>
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">
                     <span>How can I copy, duplicate, or delete activities quickly?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Hover over any activity block to reveal the quick action toolbar with Add (+), Edit (✏️), Copy (📋), Duplicate (📑), and Delete (🗑️) buttons. On desktop, you can also right-click any activity or empty slot for the context menu.</p>
+                    <svg class="seo-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </summary>
+                  <div class="seo-faq-answer">
+                    Hover over any activity block to reveal the quick action toolbar with Add (+), Edit (✏️), Copy (📋), Duplicate (📑), and Delete (🗑️) buttons. On desktop, you can also right-click any activity or empty slot for the context menu.
                   </div>
-                </div>
-                <div class="faq-item">
-                  <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                </details>
+                <details class="seo-faq-item">
+                  <summary class="seo-faq-question">
                     <span>Does this tool work on mobile devices and tablets?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  </button>
-                  <div class="faq-answer">
-                    <p>Yes, the tool is fully responsive with touch gesture support, smooth weekday scrolling, quick day-filter pills, and a floating action button on mobile.</p>
+                    <svg class="seo-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </summary>
+                  <div class="seo-faq-answer">
+                    Yes, the tool is fully responsive with touch gesture support, smooth weekday scrolling, quick day-filter pills, and a floating action button on mobile.
                   </div>
-                </div>
+                </details>
               </div>
             </section>
           </div>`;
@@ -219,11 +219,11 @@ studentHtml = studentHtml.replace(/value="My Weekly Timetable"/g, 'value="Studen
 studentHtml = studentHtml.replace(/value="Class & Activity Schedule"/g, 'value="Class Schedule & Study Routine"');
 
 // Replace the SEO landing container with student-specific SEO content
-const startSeoIdx = studentHtml.indexOf('<div class="seo-landing-container" id="about">');
-const endSeoIdx = studentHtml.indexOf('<!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->');
+const startSeoIdx = studentHtml.indexOf('<!-- === SEO LANDING SECTION === -->');
+const endSeoIdx = studentHtml.indexOf('<!-- FOOTER WITH INTERNAL LINKS & LEGAL/COPYRIGHT -->');
 
 if (startSeoIdx !== -1 && endSeoIdx !== -1) {
-  studentHtml = studentHtml.substring(0, startSeoIdx) + studentSeoLanding + '\n      </div>\n      ' + studentHtml.substring(endSeoIdx);
+  studentHtml = studentHtml.substring(0, startSeoIdx) + studentSeoLanding + '\n        ' + studentHtml.substring(endSeoIdx);
 }
 
 const studentDir = path.join('public', 'timetable-generator-online-for-students');
