@@ -1,6 +1,6 @@
 {
-  "name": "Timetable Creator Pro",
-  "description": "An authentic online timetable and class schedule generator featuring a switchable TimetableCreator.com classic clone mode, AI assistant, and cloud synchronization.",
+  "name": "Free Online Timetable Maker",
+  "description": "Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
