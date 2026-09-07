@@ -14,20 +14,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Online Timetable Creator</title>
     <meta name="description" content="Discover the team, mission, and technology behind the Online Timetable Creator." />
-    <link rel="canonical" href="https://timetablecreator.online/blog/about-us/de" />
+                            <link rel="canonical" href="https://timetablecreator.online/blog/about-us/de" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/blog/about-us/" />
-    <link rel="alternate" hreflang="en" href="https://timetablecreator.online/blog/about-us/en" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/blog/about-us/en-GB" />
-    <link rel="alternate" hreflang="fr" href="https://timetablecreator.online/blog/about-us/fr" />
+    <link rel="alternate" hreflang="en" href="https://timetablecreator.online/blog/about-us/en" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/blog/about-us/es" />
-    <link rel="alternate" hreflang="de" href="https://timetablecreator.online/blog/about-us/de" />
-    <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/blog/about-us/hi" />
-    <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/blog/about-us/ru" />
-    <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/blog/about-us/ar" />
-    <link rel="alternate" hreflang="zh" href="https://timetablecreator.online/blog/about-us/zh" />
-    <link rel="alternate" hreflang="pt" href="https://timetablecreator.online/blog/about-us/pt" />
-    <link rel="alternate" hreflang="it" href="https://timetablecreator.online/blog/about-us/it" />
     <link rel="alternate" hreflang="ja" href="https://timetablecreator.online/blog/about-us/ja" />
+    <link rel="alternate" hreflang="fr" href="https://timetablecreator.online/blog/about-us/fr" />
+    <link rel="alternate" hreflang="de" href="https://timetablecreator.online/blog/about-us/de" />
+    <link rel="alternate" hreflang="pt" href="https://timetablecreator.online/blog/about-us/pt" />
+    <link rel="alternate" hreflang="ko" href="https://timetablecreator.online/blog/about-us/ko" />
+    <link rel="alternate" hreflang="it" href="https://timetablecreator.online/blog/about-us/it" />
+    <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/blog/about-us/hi" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -185,9 +183,22 @@
     <!-- Multi-language Auto-Translate for Deutsch (de) -->
     <script>
       (function() {
+        // Clean any hash that might exist or get appended
+        function cleanGoogtransHash() {
+          if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
+            try {
+              history.replaceState(null, '', window.location.pathname + window.location.search);
+            } catch(e) {}
+          }
+        }
+        cleanGoogtransHash();
+        window.addEventListener('hashchange', cleanGoogtransHash);
+        var _hTimer = setInterval(cleanGoogtransHash, 400);
+        setTimeout(function() { clearInterval(_hTimer); }, 8000);
+
         var langCode = "de";
         var gtCode = "de";
-        if (langCode && langCode !== 'en' && langCode !== 'en-GB') {
+        if (langCode && langCode !== 'en-GB') {
           document.cookie = "googtrans=/en/" + gtCode + "; path=/; SameSite=None; Secure";
           var domain = window.location.hostname;
           if (domain) {
@@ -196,9 +207,6 @@
             if (parts.length >= 2) {
               document.cookie = "googtrans=/en/" + gtCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
             }
-          }
-          if (!window.location.hash.includes('googtrans')) {
-            window.location.hash = "#googtrans(en|" + gtCode + ")";
           }
         } else {
           document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -227,12 +235,15 @@
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.818-2.251-2.253-4.247-4-5.5C6.754 4.753 5.32 6.749 4.5 9h8m-8 0a13.935 13.935 0 002.912 4.5M6.412 9a13.935 13.935 0 002.912 4.5M11 21l3-6 3 6m-5-2h4"></path></svg>
             </button>
             <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 36px; right: auto; left: 0;">
-              <button class="lang-dropdown-item" onclick="changeLanguage('en')">English</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('en')">English (US)</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ja')">日本語</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Français</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('ru')">Русский</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('ar')">العربية</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('pt')">Português</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ko')">한국어</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
             </div>
           </div>
@@ -392,6 +403,7 @@
               <a href="/blog/about-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">About Us</a>
               <a href="/blog/contact-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">Contact Us</a>
               <a href="/blog/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">Blog (Articles Archive)</a>
+              <a href="/html-sitemap" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">HTML Sitemap</a>
             </div>
           </div>
 
@@ -457,91 +469,162 @@
         }
       }
 
+      // Clean up any #googtrans hash if inserted by Google Translate or legacy URLs
+      function cleanGoogtransHash() {
+        if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
+          try {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          } catch(e) {}
+        }
+      }
+      cleanGoogtransHash();
+      window.addEventListener('hashchange', cleanGoogtransHash);
+      var _hashCleanTimer = setInterval(cleanGoogtransHash, 400);
+      setTimeout(function() { clearInterval(_hashCleanTimer); }, 10000);
+
+      var _gtLoaded = false;
+      function loadGoogleTranslateScript() {
+        if (_gtLoaded) return;
+        _gtLoaded = true;
+        var gt = document.createElement('script');
+        gt.type = 'text/javascript';
+        gt.async = true;
+        gt.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(gt);
+      }
+
+      // Clean up any #googtrans hash if inserted by Google Translate or legacy URLs
+      function cleanGoogtransHash() {
+        if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
+          try {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          } catch(e) {}
+        }
+      }
+      cleanGoogtransHash();
+      window.addEventListener('hashchange', cleanGoogtransHash);
+      var _hashCleanTimer = setInterval(cleanGoogtransHash, 400);
+      setTimeout(function() { clearInterval(_hashCleanTimer); }, 10000);
+
+      var _gtLoaded = false;
+      function loadGoogleTranslateScript() {
+        if (_gtLoaded) return;
+        _gtLoaded = true;
+        var gt = document.createElement('script');
+        gt.type = 'text/javascript';
+        gt.async = true;
+        gt.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(gt);
+      }
+
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
           pageLanguage: 'en',
-          includedLanguages: 'en,es,fr,de,ru,ar,hi',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          includedLanguages: 'en,es,ja,fr,de,pt,ko,it,hi',
           autoDisplay: false
         }, 'google_translate_element');
       }
 
-      // Toggle translation selector menu
+      var supportedLangs = ['en-GB', 'en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+
+      function getCleanBasePath() {
+        var pathSegments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+        if (pathSegments.length > 0 && supportedLangs.includes(pathSegments[pathSegments.length - 1])) {
+          pathSegments.pop();
+        }
+        return '/' + (pathSegments.length > 0 ? pathSegments.join('/') + '/' : '');
+      }
+
+      function getLanguageFromPath() {
+        var pathSegments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+        var last = pathSegments[pathSegments.length - 1];
+        if (last && supportedLangs.includes(last)) {
+          return last;
+        }
+        return null;
+      }
+
       function toggleLangDropdown() {
-        const menu = document.getElementById('langDropdownMenu');
+        loadGoogleTranslateScript();
+        var menu = document.getElementById('langDropdownMenu');
         if (menu) {
           menu.classList.toggle('show');
         }
       }
 
-      // Triggers custom Google Translate cookie state and updates parameters
       function changeLanguage(langCode) {
-        const domain = window.location.hostname;
+        var domain = window.location.hostname;
+        var transCode = langCode === 'en-GB' || langCode === 'en' ? 'en' : langCode;
         
-        // Clear existing cookies with different parameters to prevent duplicates
+        // Clear existing cookies
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
         if (domain) {
           document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain + "; SameSite=None; Secure";
+          var parts = domain.split('.');
+          if (parts.length >= 2) {
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+          }
         }
 
-        // Set cookies with SameSite=None and Secure for modern browser iframe compatibility
-        document.cookie = `googtrans=/en/${langCode}; path=/; SameSite=None; Secure`;
-        if (domain) {
-          document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}; SameSite=None; Secure`;
-          const parts = domain.split('.');
-          if (parts.length >= 2) {
-            const baseDomain = parts.slice(-2).join('.');
-            document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${baseDomain}; SameSite=None; Secure`;
+        if (langCode && langCode !== 'en-GB') {
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
+          if (domain) {
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
           }
         }
         
-        const url = new URL(window.location.href);
-        if (langCode === 'en') {
-          url.searchParams.delete('lang');
-          url.hash = '';
+        var basePath = getCleanBasePath();
+        var targetPath = '';
+        if (langCode === 'en-GB' || langCode === 'x-default') {
+          targetPath = basePath === '/' ? '/en-GB' : basePath + 'en-GB';
         } else {
-          url.searchParams.set('lang', langCode);
-          url.hash = `#googtrans(en|${langCode})`;
+          targetPath = basePath === '/' ? '/' + langCode : basePath + langCode;
         }
+
+        var url = new URL(window.location.href);
+        url.pathname = targetPath;
+        url.searchParams.delete('lang');
+        url.hash = ''; // Clean URL - NEVER use #googtrans!
         window.location.href = url.toString();
       }
 
       // Close language dropdown if clicking outside
       window.addEventListener('click', function(e) {
-        const container = document.querySelector('.lang-dropdown-container');
-        const menu = document.getElementById('langDropdownMenu');
+        var container = document.querySelector('.lang-dropdown-container');
+        var menu = document.getElementById('langDropdownMenu');
         if (container && !container.contains(e.target) && menu) {
           menu.classList.remove('show');
         }
       });
 
-      // Synchronize cookie if ?lang= is present
-      const urlParams = new URLSearchParams(window.location.search);
-      const queryLang = urlParams.get('lang');
-      if (queryLang) {
-        document.cookie = `googtrans=/en/${queryLang}; path=/; SameSite=None; Secure`;
-        const domain = window.location.hostname;
-        if (domain) {
-          document.cookie = `googtrans=/en/${queryLang}; path=/; domain=${domain}; SameSite=None; Secure`;
-          const parts = domain.split('.');
-          if (parts.length >= 2) {
-            const baseDomain = parts.slice(-2).join('.');
-            document.cookie = `googtrans=/en/${queryLang}; path=/; domain=.${baseDomain}; SameSite=None; Secure`;
-          }
-        }
-        if (!window.location.hash.includes('googtrans')) {
-          window.location.hash = `#googtrans(en|${queryLang})`;
-        }
-      }
-
-      // Dynamic script injector for Google Translate
+      // Synchronize language from URL path
       (function() {
-        var gt = document.createElement('script');
-        gt.type = 'text/javascript';
-        gt.async = true;
-        gt.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        document.getElementsByTagName('head')[0].appendChild(gt);
+        var currentPathLang = getLanguageFromPath();
+        var urlParams = new URLSearchParams(window.location.search);
+        var queryLang = urlParams.get('lang');
+        var activeLang = currentPathLang || queryLang;
+        
+        if (activeLang && activeLang !== 'en-GB') {
+          var transCode = activeLang === 'en' ? 'en' : activeLang;
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
+          var domain = window.location.hostname;
+          if (domain) {
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+          cleanGoogtransHash();
+          loadGoogleTranslateScript();
+        } else {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
       })();
     </script>
     <div id="google_translate_element" style="display: none !important;"></div>

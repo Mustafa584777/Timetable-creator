@@ -182,17 +182,46 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "public", "sitemap.html"));
   });
 
-  // Root language editions (e.g. /fr, /es, /de)
-  const supportedLangCodes = ['en', 'en-GB', 'es', 'fr', 'de', 'hi', 'ru', 'ar', 'zh', 'pt', 'it', 'ja'];
+  // HTML Sitemap (base and language editions)
+  anonymityApp.get([
+    "/html-sitemap",
+    "/html-sitemap/",
+    "/html-sitemap/:lang",
+    "/html-sitemap/:lang/"
+  ], (req, res) => {
+    const lang = req.params.lang;
+    const subFile = lang ? path.join(lang, "index.html") : "index.html";
+    const filePath = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "html-sitemap", subFile)
+      : path.join(process.cwd(), "public", "html-sitemap", subFile);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const defaultSitemapPath = path.join(process.cwd(), "public", "html-sitemap", "index.html");
+    if (fs.existsSync(defaultSitemapPath)) {
+      return res.sendFile(defaultSitemapPath);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
+  });
+
+  // Root language editions (e.g. /en-GB, /es, /fr, /de, /ja, /ko, /it, /pt, /hi, /en)
+  const supportedLangCodes = ['en-GB', 'en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
   anonymityApp.get(["/:lang", "/:lang/"], (req, res, next) => {
     const lang = req.params.lang;
     if (supportedLangCodes.includes(lang)) {
-      const filePath = process.env.NODE_ENV === "production"
-        ? path.join(process.cwd(), "dist", lang, "index.html")
-        : path.join(process.cwd(), "public", lang, "index.html");
-      if (fs.existsSync(filePath)) {
-        return res.sendFile(filePath);
+      const prodPath = path.join(process.cwd(), "dist", lang, "index.html");
+      const pubPath = path.join(process.cwd(), "public", lang, "index.html");
+      if (process.env.NODE_ENV === "production" && fs.existsSync(prodPath)) {
+        return res.sendFile(prodPath);
       }
+      if (fs.existsSync(pubPath)) {
+        return res.sendFile(pubPath);
+      }
+      // Never 404 on supported language paths
+      const rootFallback = process.env.NODE_ENV === "production"
+        ? path.join(process.cwd(), "dist", "index.html")
+        : path.join(process.cwd(), "index.html");
+      return res.sendFile(rootFallback);
     }
     next();
   });

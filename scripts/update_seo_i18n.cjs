@@ -2,41 +2,38 @@ const fs = require('fs');
 const path = require('path');
 
 const SUPPORTED_LANGS = [
+  { code: 'en-GB', label: 'English (UK)', isDefault: true },
   { code: 'en', label: 'English (US)' },
-  { code: 'en-GB', label: 'English (UK)' },
   { code: 'es', label: 'Español' },
+  { code: 'ja', label: '日本語' },
   { code: 'fr', label: 'Français' },
   { code: 'de', label: 'Deutsch' },
-  { code: 'it', label: 'Italiano' },
   { code: 'pt', label: 'Português' },
-  { code: 'hi', label: 'हिन्दी (Hindi)' },
-  { code: 'ru', label: 'Русский' },
-  { code: 'ar', label: 'العربية' },
-  { code: 'zh', label: '中文 (Mandarin)' }
+  { code: 'ko', label: '한국어' },
+  { code: 'it', label: 'Italiano' },
+  { code: 'hi', label: 'हिन्दी (Hindi)' }
 ];
 
 function generateHreflangs(baseCanonicalUrl) {
-  // strip trailing slash for building lang URLs
-  let urlPrefix = baseCanonicalUrl.replace(/\/+$/, '');
-  let tags = [
+  const urlPrefix = baseCanonicalUrl.replace(/\/+$/, '');
+  const tags = [
     `    <link rel="canonical" href="${baseCanonicalUrl}" />`,
     `    <link rel="alternate" hreflang="x-default" href="${baseCanonicalUrl}" />`,
-    `    <link rel="alternate" hreflang="en" href="${urlPrefix}/en" />`,
     `    <link rel="alternate" hreflang="en-GB" href="${urlPrefix}/en-GB" />`,
+    `    <link rel="alternate" hreflang="en" href="${urlPrefix}/en" />`,
     `    <link rel="alternate" hreflang="es" href="${urlPrefix}/es" />`,
+    `    <link rel="alternate" hreflang="ja" href="${urlPrefix}/ja" />`,
     `    <link rel="alternate" hreflang="fr" href="${urlPrefix}/fr" />`,
     `    <link rel="alternate" hreflang="de" href="${urlPrefix}/de" />`,
-    `    <link rel="alternate" hreflang="it" href="${urlPrefix}/it" />`,
     `    <link rel="alternate" hreflang="pt" href="${urlPrefix}/pt" />`,
-    `    <link rel="alternate" hreflang="hi" href="${urlPrefix}/hi" />`,
-    `    <link rel="alternate" hreflang="ru" href="${urlPrefix}/ru" />`,
-    `    <link rel="alternate" hreflang="ar" href="${urlPrefix}/ar" />`,
-    `    <link rel="alternate" hreflang="zh" href="${urlPrefix}/zh" />`
+    `    <link rel="alternate" hreflang="ko" href="${urlPrefix}/ko" />`,
+    `    <link rel="alternate" hreflang="it" href="${urlPrefix}/it" />`,
+    `    <link rel="alternate" hreflang="hi" href="${urlPrefix}/hi" />`
   ];
   return tags.join('\n');
 }
 
-// 1. Update Core App HTML files (index.html, public/timetable-generator-online-for-students/index.html, public/timetable-generator/index.html)
+// 1. Universal Footer for all pages
 const coreAppFooter = `
 <footer class="seo-footer">
   <div class="footer-container">
@@ -98,8 +95,151 @@ const coreAppFooter = `
   </div>
 </footer>`;
 
+// 2. Clean Translation & Language Switching Script (NO #googtrans hash!)
+const cleanTranslationScript = `
+      // Clean up any #googtrans hash if inserted by Google Translate or legacy URLs
+      function cleanGoogtransHash() {
+        if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
+          try {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          } catch(e) {}
+        }
+      }
+      cleanGoogtransHash();
+      window.addEventListener('hashchange', cleanGoogtransHash);
+      var _hashCleanTimer = setInterval(cleanGoogtransHash, 400);
+      setTimeout(function() { clearInterval(_hashCleanTimer); }, 10000);
+
+      var _gtLoaded = false;
+      function loadGoogleTranslateScript() {
+        if (_gtLoaded) return;
+        _gtLoaded = true;
+        var gt = document.createElement('script');
+        gt.type = 'text/javascript';
+        gt.async = true;
+        gt.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(gt);
+      }
+
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,es,ja,fr,de,pt,ko,it,hi',
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+
+      var supportedLangs = ['en-GB', 'en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+
+      function getCleanBasePath() {
+        var pathSegments = window.location.pathname.replace(/\\/+$/, '').split('/').filter(Boolean);
+        if (pathSegments.length > 0 && supportedLangs.includes(pathSegments[pathSegments.length - 1])) {
+          pathSegments.pop();
+        }
+        return '/' + (pathSegments.length > 0 ? pathSegments.join('/') + '/' : '');
+      }
+
+      function getLanguageFromPath() {
+        var pathSegments = window.location.pathname.replace(/\\/+$/, '').split('/').filter(Boolean);
+        var last = pathSegments[pathSegments.length - 1];
+        if (last && supportedLangs.includes(last)) {
+          return last;
+        }
+        return null;
+      }
+
+      function toggleLangDropdown() {
+        loadGoogleTranslateScript();
+        var menu = document.getElementById('langDropdownMenu');
+        if (menu) {
+          menu.classList.toggle('show');
+        }
+      }
+
+      function changeLanguage(langCode) {
+        var domain = window.location.hostname;
+        var transCode = langCode === 'en-GB' || langCode === 'en' ? 'en' : langCode;
+        
+        // Clear existing cookies
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
+        if (domain) {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain + "; SameSite=None; Secure";
+          var parts = domain.split('.');
+          if (parts.length >= 2) {
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+          }
+        }
+
+        if (langCode && langCode !== 'en-GB') {
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
+          if (domain) {
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+        }
+        
+        var basePath = getCleanBasePath();
+        var targetPath = '';
+        if (langCode === 'en-GB' || langCode === 'x-default') {
+          targetPath = basePath === '/' ? '/en-GB' : basePath + 'en-GB';
+        } else {
+          targetPath = basePath === '/' ? '/' + langCode : basePath + langCode;
+        }
+
+        var url = new URL(window.location.href);
+        url.pathname = targetPath;
+        url.searchParams.delete('lang');
+        url.hash = ''; // Clean URL - NEVER use #googtrans!
+        window.location.href = url.toString();
+      }
+
+      // Close language dropdown if clicking outside
+      window.addEventListener('click', function(e) {
+        var container = document.querySelector('.lang-dropdown-container');
+        var menu = document.getElementById('langDropdownMenu');
+        if (container && !container.contains(e.target) && menu) {
+          menu.classList.remove('show');
+        }
+      });
+
+      // Synchronize language from URL path
+      (function() {
+        var currentPathLang = getLanguageFromPath();
+        var urlParams = new URLSearchParams(window.location.search);
+        var queryLang = urlParams.get('lang');
+        var activeLang = currentPathLang || queryLang;
+        
+        if (activeLang && activeLang !== 'en-GB') {
+          var transCode = activeLang === 'en' ? 'en' : activeLang;
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
+          var domain = window.location.hostname;
+          if (domain) {
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+          cleanGoogtransHash();
+          loadGoogleTranslateScript();
+        } else {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+      })();`;
+
 function updateCoreAppFile(filePath, canonicalUrl) {
   let content = fs.readFileSync(filePath, 'utf8');
+
+  // Set default language to en-GB
+  content = content.replace(/<html(\s+[^>]*)?>/i, (match) => {
+    let m = match.replace(/\blang="[^"]*"/, 'lang="en-GB"');
+    if (!m.includes('lang=')) m = m.replace('<html', '<html lang="en-GB"');
+    return m;
+  });
 
   // Replace Footer
   const footerStart = content.indexOf('<footer class="seo-footer">');
@@ -108,7 +248,7 @@ function updateCoreAppFile(filePath, canonicalUrl) {
     content = content.substring(0, footerStart) + coreAppFooter.trim() + content.substring(footerEnd + 9);
   }
 
-  // Update Footer CSS grid to 4 columns
+  // Update Footer CSS grid
   content = content.replace(
     /grid-template-columns:\s*1\.4fr\s+1\.2fr\s+1fr\s+1fr\s+1fr;/g,
     'grid-template-columns: 1.4fr 1.2fr 1.1fr 1.1fr;'
@@ -130,76 +270,32 @@ function updateCoreAppFile(filePath, canonicalUrl) {
     content = content.replace(dropdownMenuRegex, `<div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; left: 50%; transform: translateX(-50%);">\n${langDropdownItems}\n            </div>`);
   }
 
-  // Update changeLanguage and language sync script
-  const changeLangRegex = /function changeLanguage\(langCode\)[\s\S]*?\/\/ Close language dropdown if clicking outside/;
-  const newChangeLang = `function changeLanguage(langCode) {
-        const supportedLangs = ['en', 'en-GB', 'es', 'fr', 'de', 'it', 'pt', 'hi', 'ru', 'ar', 'zh'];
-        let path = window.location.pathname.replace(/\\/+$/, '');
-        let segments = path.split('/').filter(Boolean);
-        if (segments.length > 0 && supportedLangs.includes(segments[segments.length - 1])) {
-          segments.pop();
-        }
-        let basePath = '/' + segments.join('/');
-        if (basePath === '/') basePath = '';
-
-        let targetPath = '';
-        if (langCode === 'en' || langCode === 'x-default') {
-          targetPath = basePath || '/';
-        } else {
-          targetPath = (basePath ? basePath : '') + '/' + langCode;
-        }
-
-        const domain = window.location.hostname;
-        const transCode = langCode === 'en-GB' ? 'en' : langCode;
-        document.cookie = \`googtrans=/en/\${transCode}; path=/; SameSite=None; Secure\`;
-        if (domain) {
-          document.cookie = \`googtrans=/en/\${transCode}; path=/; domain=\${domain}; SameSite=None; Secure\`;
-        }
-
-        window.location.href = targetPath + (window.location.search || '') + (langCode !== 'en' && langCode !== 'en-GB' ? \`#googtrans(en|\${transCode})\` : '');
-      }
-
-      // Close language dropdown if clicking outside`;
-
-  if (changeLangRegex.test(content)) {
-    content = content.replace(changeLangRegex, newChangeLang);
-  }
-
-  // Update cookie sync to also check path
-  const cookieSyncRegex = /\/\/ Synchronize cookie if \?lang= is present[\s\S]*?loadGoogleTranslateScript\(\);[\s\S]*?\} else \{/m;
-  const newCookieSync = `// Synchronize language from URL path
-      (function() {
-        const supportedLangs = ['en', 'en-GB', 'es', 'fr', 'de', 'it', 'pt', 'hi', 'ru', 'ar', 'zh'];
-        const pathSegments = window.location.pathname.replace(/\\/+$/, '').split('/').filter(Boolean);
-        const pathLang = pathSegments.length > 0 && supportedLangs.includes(pathSegments[pathSegments.length - 1]) ? pathSegments[pathSegments.length - 1] : null;
-        const urlParams = new URLSearchParams(window.location.search);
-        const queryLang = urlParams.get('lang');
-        const activeLang = pathLang || queryLang;
-        
-        if (activeLang && activeLang !== 'en') {
-          const transCode = activeLang === 'en-GB' ? 'en' : activeLang;
-          document.cookie = \`googtrans=/en/\${transCode}; path=/; SameSite=None; Secure\`;
-          const domain = window.location.hostname;
-          if (domain) {
-            document.cookie = \`googtrans=/en/\${transCode}; path=/; domain=\${domain}; SameSite=None; Secure\`;
-          }
-          if (!window.location.hash.includes('googtrans')) {
-            window.location.hash = \`#googtrans(en|\${transCode})\`;
-          }
-          loadGoogleTranslateScript();
-        } else {`;
-  
-  if (cookieSyncRegex.test(content)) {
-    content = content.replace(cookieSyncRegex, newCookieSync);
+  // Replace old translation logic block - strictly boundary-safe
+  const fullBlock = `<!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->\n    <div id="google_translate_element" style="display: none !important;"></div>\n    <script>\n${cleanTranslationScript.trim()}\n    </script>\n\n    `;
+  const translateBlockRegex = /<!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->[\s\S]*?(?=<!-- CODE SCRIPT EXECUTOR MODULE -->)/i;
+  if (translateBlockRegex.test(content)) {
+    content = content.replace(translateBlockRegex, fullBlock);
+  } else {
+    const fallbackRegex = /<!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->[\s\S]*?<\/script>/i;
+    if (fallbackRegex.test(content)) {
+      content = content.replace(fallbackRegex, fullBlock.trim());
+    }
   }
 
   fs.writeFileSync(filePath, content, 'utf8');
   console.log(`Updated core app file: ${filePath}`);
 }
 
-// 2. Update Blog files
+// 3. Update Blog files
 function updateBlogFile(filePath, canonicalUrl) {
   let content = fs.readFileSync(filePath, 'utf8');
+
+  // Set default language to en-GB
+  content = content.replace(/<html(\s+[^>]*)?>/i, (match) => {
+    let m = match.replace(/\blang="[^"]*"/, 'lang="en-GB"');
+    if (!m.includes('lang=')) m = m.replace('<html', '<html lang="en-GB"');
+    return m;
+  });
 
   // Insert HTML Sitemap link into blog footer Company column if not already present
   if (!content.includes('/html-sitemap')) {
@@ -225,91 +321,152 @@ function updateBlogFile(filePath, canonicalUrl) {
     content = content.replace(dropdownMenuRegex, `<div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 36px; right: auto; left: 0;">\n${langDropdownItems}\n            </div>`);
   }
 
-  // Update changeLanguage function in blog
-  const changeLangRegex = /function changeLanguage\(langCode\)[\s\S]*?\/\/ Close language dropdown if clicking outside/;
-  const newChangeLang = `function changeLanguage(langCode) {
-        const supportedLangs = ['en', 'en-GB', 'es', 'fr', 'de', 'it', 'pt', 'hi', 'ru', 'ar', 'zh'];
-        let path = window.location.pathname.replace(/\\/+$/, '');
-        let segments = path.split('/').filter(Boolean);
-        if (segments.length > 0 && supportedLangs.includes(segments[segments.length - 1])) {
-          segments.pop();
-        }
-        let basePath = '/' + segments.join('/');
-        if (basePath === '/') basePath = '';
-
-        let targetPath = '';
-        if (langCode === 'en' || langCode === 'x-default') {
-          targetPath = basePath || '/';
-        } else {
-          targetPath = (basePath ? basePath : '') + '/' + langCode;
-        }
-
-        const domain = window.location.hostname;
-        const transCode = langCode === 'en-GB' ? 'en' : langCode;
-        document.cookie = \`googtrans=/en/\${transCode}; path=/; SameSite=None; Secure\`;
-        if (domain) {
-          document.cookie = \`googtrans=/en/\${transCode}; path=/; domain=\${domain}; SameSite=None; Secure\`;
-        }
-
-        window.location.href = targetPath + (window.location.search || '') + (langCode !== 'en' && langCode !== 'en-GB' ? \`#googtrans(en|\${transCode})\` : '');
-      }
-
-      // Close language dropdown if clicking outside`;
-
-  if (changeLangRegex.test(content)) {
-    content = content.replace(changeLangRegex, newChangeLang);
-  }
-
-  // Update cookie synchronization in blog
-  const blogCookieSyncRegex = /\/\/ Synchronize cookie if \?lang= is present[\s\S]*?loadGoogleTranslateScript\(\);[\s\S]*?\} else \{/m;
-  const newBlogCookieSync = `// Synchronize language from URL path
-      (function() {
-        const supportedLangs = ['en', 'en-GB', 'es', 'fr', 'de', 'it', 'pt', 'hi', 'ru', 'ar', 'zh'];
-        const pathSegments = window.location.pathname.replace(/\\/+$/, '').split('/').filter(Boolean);
-        const pathLang = pathSegments.length > 0 && supportedLangs.includes(pathSegments[pathSegments.length - 1]) ? pathSegments[pathSegments.length - 1] : null;
-        const urlParams = new URLSearchParams(window.location.search);
-        const queryLang = urlParams.get('lang');
-        const activeLang = pathLang || queryLang;
-        
-        if (activeLang && activeLang !== 'en') {
-          const transCode = activeLang === 'en-GB' ? 'en' : activeLang;
-          document.cookie = \`googtrans=/en/\${transCode}; path=/; SameSite=None; Secure\`;
-          const domain = window.location.hostname;
-          if (domain) {
-            document.cookie = \`googtrans=/en/\${transCode}; path=/; domain=\${domain}; SameSite=None; Secure\`;
-          }
-          if (!window.location.hash.includes('googtrans')) {
-            window.location.hash = \`#googtrans(en|\${transCode})\`;
-          }
-          loadGoogleTranslateScript();
-        } else {`;
-
-  if (blogCookieSyncRegex.test(content)) {
-    content = content.replace(blogCookieSyncRegex, newBlogCookieSync);
+  // Replace translation logic in blog
+  const blogScriptRegex = /function googleTranslateElementInit\(\)[\s\S]*?<\/script>\s*<div id="google_translate_element"[^>]*><\/div>/i;
+  if (blogScriptRegex.test(content)) {
+    content = content.replace(blogScriptRegex, `${cleanTranslationScript.trim()}\n    </script>\n    <div id="google_translate_element" style="display: none !important;"></div>`);
+  } else {
+    const fallbackBlogScript = /\/\/ Clean up any #googtrans hash[\s\S]*?<\/script>\s*<div id="google_translate_element"[^>]*><\/div>/i;
+    if (fallbackBlogScript.test(content)) {
+      content = content.replace(fallbackBlogScript, `${cleanTranslationScript.trim()}\n    </script>\n    <div id="google_translate_element" style="display: none !important;"></div>`);
+    }
   }
 
   fs.writeFileSync(filePath, content, 'utf8');
   console.log(`Updated blog file: ${filePath}`);
 }
 
-// Run updates
-updateCoreAppFile('index.html', 'https://timetablecreator.online/');
-updateCoreAppFile('public/timetable-generator-online-for-students/index.html', 'https://timetablecreator.online/timetable-generator-online-for-students/');
-updateCoreAppFile('public/timetable-generator/index.html', 'https://timetablecreator.online/timetable-generator/');
+// 4. Update HTML Sitemap file
+function updateHtmlSitemap(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  let content = fs.readFileSync(filePath, 'utf8');
 
-// Update Blog Index
-updateBlogFile('public/blog/index.html', 'https://timetablecreator.online/blog/');
+  // Set default language to en-GB
+  content = content.replace(/<html(\s+[^>]*)?>/i, (match) => {
+    let m = match.replace(/\blang="[^"]*"/, 'lang="en-GB"');
+    if (!m.includes('lang=')) m = m.replace('<html', '<html lang="en-GB"');
+    return m;
+  });
 
-// Update Blog Articles
-const blogDir = 'public/blog';
-const blogEntries = fs.readdirSync(blogDir, { withFileTypes: true });
-for (const entry of blogEntries) {
-  if (entry.isDirectory()) {
-    const postFile = path.join(blogDir, entry.name, 'index.html');
-    if (fs.existsSync(postFile)) {
-      updateBlogFile(postFile, `https://timetablecreator.online/blog/${entry.name}/`);
-    }
+  // Update hreflang tags
+  const sitemapHreflangRegex = /<link rel="canonical"[\s\S]*?(?=<link rel="preconnect")/;
+  if (sitemapHreflangRegex.test(content)) {
+    content = content.replace(sitemapHreflangRegex, generateHreflangs('https://timetablecreator.online/html-sitemap') + '\n    ');
   }
+
+  // Update language cards in Section 4
+  const section4Cards = `
+          <a href="/en-GB" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">English (UK) <span class="text-[10px] text-violet-600 font-bold ml-1">Default</span></span>
+            <span class="text-[11px] text-slate-400">/en-GB</span>
+          </a>
+          <a href="/en" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">English (US)</span>
+            <span class="text-[11px] text-slate-400">/en</span>
+          </a>
+          <a href="/es" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">Español (Spanish)</span>
+            <span class="text-[11px] text-slate-400">/es</span>
+          </a>
+          <a href="/ja" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">日本語 (Japanese)</span>
+            <span class="text-[11px] text-slate-400">/ja</span>
+          </a>
+          <a href="/fr" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">Français (French)</span>
+            <span class="text-[11px] text-slate-400">/fr</span>
+          </a>
+          <a href="/de" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">Deutsch (German)</span>
+            <span class="text-[11px] text-slate-400">/de</span>
+          </a>
+          <a href="/pt" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">Português (Portuguese)</span>
+            <span class="text-[11px] text-slate-400">/pt</span>
+          </a>
+          <a href="/ko" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">한국어 (Korean)</span>
+            <span class="text-[11px] text-slate-400">/ko</span>
+          </a>
+          <a href="/it" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">Italiano (Italian)</span>
+            <span class="text-[11px] text-slate-400">/it</span>
+          </a>
+          <a href="/hi" class="p-3 rounded-xl border border-slate-100 hover:border-violet-300 hover:bg-violet-50/50 transition-all flex flex-col">
+            <span class="text-xs font-semibold text-slate-800">हिन्दी (Hindi)</span>
+            <span class="text-[11px] text-slate-400">/hi</span>
+          </a>`;
+
+  const cardsContainerRegex = /<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">[\s\S]*?<\/div>/;
+  if (cardsContainerRegex.test(content)) {
+    content = content.replace(cardsContainerRegex, `<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">${section4Cards}\n        </div>`);
+  }
+
+  // Update lang dropdown items in header
+  const langDropdownItems = SUPPORTED_LANGS.map(l => 
+    `              <button class="lang-dropdown-item" onclick="changeLanguage('${l.code}')">${l.label}</button>`
+  ).join('\n');
+
+  const dropdownMenuRegex = /<div class="lang-dropdown-menu" id="langDropdownMenu"[\s\S]*?<\/div>/;
+  if (dropdownMenuRegex.test(content)) {
+    content = content.replace(dropdownMenuRegex, `<div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 36px; right: auto; left: 0;">\n${langDropdownItems}\n            </div>`);
+  }
+
+  // Replace translation logic in html-sitemap
+  const sitemapScriptRegex = /<!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->[\s\S]*?(?=\/\/\s*Local Theme toggle)/i;
+  if (sitemapScriptRegex.test(content)) {
+    content = content.replace(
+      sitemapScriptRegex,
+      `<!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->\n    <div id="google_translate_element" style="display: none !important;"></div>\n    <script>\n${cleanTranslationScript.trim()}\n    </script>\n\n      `
+    );
+  }
+
+  fs.writeFileSync(filePath, content, 'utf8');
+  console.log(`Updated HTML sitemap file: ${filePath}`);
 }
 
-console.log('All files successfully updated with hreflang tags, clean footers, and language URL switching!');
+function runAllUpdates() {
+  console.log('--- Updating SEO & Clean i18n Across Entire Site ---');
+
+  // Core apps
+  updateCoreAppFile('index.html', 'https://timetablecreator.online/');
+  updateCoreAppFile('public/timetable-generator-online-for-students/index.html', 'https://timetablecreator.online/timetable-generator-online-for-students/');
+  updateCoreAppFile('public/timetable-generator/index.html', 'https://timetablecreator.online/timetable-generator/');
+  
+  // HTML Sitemap
+  updateHtmlSitemap('public/html-sitemap/index.html');
+
+  // Blog Archive
+  if (fs.existsSync('public/blog/index.html')) {
+    updateBlogFile('public/blog/index.html', 'https://timetablecreator.online/blog/');
+  }
+
+  // All Blog Posts
+  const blogDir = 'public/blog';
+  if (fs.existsSync(blogDir)) {
+    const entries = fs.readdirSync(blogDir, { withFileTypes: true });
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        const isLang = SUPPORTED_LANGS.some(l => l.code === entry.name);
+        if (!isLang) {
+          const postFile = path.join(blogDir, entry.name, 'index.html');
+          if (fs.existsSync(postFile)) {
+            updateBlogFile(postFile, `https://timetablecreator.online/blog/${entry.name}/`);
+          }
+        }
+      }
+    }
+  }
+
+  console.log('--- SEO & Clean i18n update completed successfully ---');
+}
+
+if (require.main === module) {
+  runAllUpdates();
+}
+
+module.exports = {
+  SUPPORTED_LANGS,
+  generateHreflangs,
+  runAllUpdates
+};

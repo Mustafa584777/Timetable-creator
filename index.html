@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-preset="amber" data-theme="dark">
+<html lang="en-GB" data-preset="amber" data-theme="dark">
   <head>
     <!-- Google Tag Manager (Non-blocking deferred loader for 100 PageSpeed Performance) -->
     <script>
@@ -54,21 +54,18 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-    <link rel="canonical" href="https://timetablecreator.online/" />
+                            <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
-    <link rel="alternate" hreflang="en" href="https://timetablecreator.online/en" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
-    <link rel="alternate" hreflang="fr" href="https://timetablecreator.online/fr" />
+    <link rel="alternate" hreflang="en" href="https://timetablecreator.online/en" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
-    <link rel="alternate" hreflang="de" href="https://timetablecreator.online/de" />
-    <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/hi" />
-    <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/ru" />
-    <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/ar" />
-    <link rel="alternate" hreflang="zh" href="https://timetablecreator.online/zh" />
-    <link rel="alternate" hreflang="pt" href="https://timetablecreator.online/pt" />
-    <link rel="alternate" hreflang="it" href="https://timetablecreator.online/it" />
     <link rel="alternate" hreflang="ja" href="https://timetablecreator.online/ja" />
-
+    <link rel="alternate" hreflang="fr" href="https://timetablecreator.online/fr" />
+    <link rel="alternate" hreflang="de" href="https://timetablecreator.online/de" />
+    <link rel="alternate" hreflang="pt" href="https://timetablecreator.online/pt" />
+    <link rel="alternate" hreflang="ko" href="https://timetablecreator.online/ko" />
+    <link rel="alternate" hreflang="it" href="https://timetablecreator.online/it" />
+    <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/hi" />
     <!-- FAQPage Schema Markup for SEO -->
     <script type="application/ld+json">
     {
@@ -4927,18 +4924,16 @@
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width: 18px; height: 18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.818-2.251-2.253-4.247-4-5.5C6.754 4.753 5.32 6.749 4.5 9h8m-8 0a13.935 13.935 0 002.912 4.5M6.412 9a13.935 13.935 0 002.912 4.5M11 21l3-6 3 6m-5-2h4"></path></svg>
             </button>
             <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; left: 50%; transform: translateX(-50%);">
-              <button class="lang-dropdown-item" onclick="changeLanguage('en')">English (US)</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Français</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('en')">English (US)</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('ru')">Русский</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('ar')">العربية</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('zh')">中文 (Mandarin)</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('pt')">Português</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('ja')">日本語</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Français</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('pt')">Português</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ko')">한국어</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
             </div>
           </div>
 
@@ -6689,14 +6684,18 @@
     <!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->
     <div id="google_translate_element" style="display: none !important;"></div>
     <script>
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'en,es,fr,de,ru,ar,hi,zh-CN,pt,it,ja',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        }, 'google_translate_element');
+// Clean up any #googtrans hash if inserted by Google Translate or legacy URLs
+      function cleanGoogtransHash() {
+        if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
+          try {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          } catch(e) {}
+        }
       }
+      cleanGoogtransHash();
+      window.addEventListener('hashchange', cleanGoogtransHash);
+      var _hashCleanTimer = setInterval(cleanGoogtransHash, 400);
+      setTimeout(function() { clearInterval(_hashCleanTimer); }, 10000);
 
       var _gtLoaded = false;
       function loadGoogleTranslateScript() {
@@ -6709,15 +6708,18 @@
         document.head.appendChild(gt);
       }
 
-      const supportedLangs = ['en', 'en-GB', 'es', 'fr', 'de', 'hi', 'ru', 'ar', 'zh', 'pt', 'it', 'ja'];
-      const gtMapping = {
-        'en': 'en',
-        'en-GB': 'en',
-        'zh': 'zh-CN',
-      };
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,es,ja,fr,de,pt,ko,it,hi',
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+
+      var supportedLangs = ['en-GB', 'en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
 
       function getCleanBasePath() {
-        const pathSegments = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+        var pathSegments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
         if (pathSegments.length > 0 && supportedLangs.includes(pathSegments[pathSegments.length - 1])) {
           pathSegments.pop();
         }
@@ -6725,8 +6727,8 @@
       }
 
       function getLanguageFromPath() {
-        const pathSegments = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
-        const last = pathSegments[pathSegments.length - 1];
+        var pathSegments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+        var last = pathSegments[pathSegments.length - 1];
         if (last && supportedLangs.includes(last)) {
           return last;
         }
@@ -6735,99 +6737,86 @@
 
       function toggleLangDropdown() {
         loadGoogleTranslateScript();
-        const menu = document.getElementById('langDropdownMenu');
+        var menu = document.getElementById('langDropdownMenu');
         if (menu) {
           menu.classList.toggle('show');
         }
       }
 
       function changeLanguage(langCode) {
-        const domain = window.location.hostname;
-        const gtCode = gtMapping[langCode] || langCode;
+        var domain = window.location.hostname;
+        var transCode = langCode === 'en-GB' || langCode === 'en' ? 'en' : langCode;
         
-        // Clear existing cookies with different parameters to prevent duplicates
+        // Clear existing cookies
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
         if (domain) {
           document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain + "; SameSite=None; Secure";
-          const parts = domain.split('.');
+          var parts = domain.split('.');
           if (parts.length >= 2) {
             document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
           }
         }
 
-        if (langCode && langCode !== 'en' && langCode !== 'en-GB') {
-          // Set cookies with SameSite=None and Secure
-          document.cookie = `googtrans=/en/${gtCode}; path=/; SameSite=None; Secure`;
+        if (langCode && langCode !== 'en-GB') {
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
           if (domain) {
-            document.cookie = `googtrans=/en/${gtCode}; path=/; domain=${domain}; SameSite=None; Secure`;
-            const parts = domain.split('.');
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
             if (parts.length >= 2) {
-              document.cookie = `googtrans=/en/${gtCode}; path=/; domain=.` + parts.slice(-2).join('.') + `; SameSite=None; Secure`;
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
             }
           }
         }
         
-        const basePath = getCleanBasePath();
-        let targetPath = '';
-        if (basePath === '/') {
-          targetPath = '/' + langCode;
+        var basePath = getCleanBasePath();
+        var targetPath = '';
+        if (langCode === 'en-GB' || langCode === 'x-default') {
+          targetPath = basePath === '/' ? '/en-GB' : basePath + 'en-GB';
         } else {
-          targetPath = basePath + langCode;
+          targetPath = basePath === '/' ? '/' + langCode : basePath + langCode;
         }
 
-        const url = new URL(window.location.href);
+        var url = new URL(window.location.href);
         url.pathname = targetPath;
         url.searchParams.delete('lang');
-        if (langCode && langCode !== 'en' && langCode !== 'en-GB') {
-          url.hash = `#googtrans(en|${gtCode})`;
-        } else {
-          url.hash = '';
-        }
+        url.hash = ''; // Clean URL - NEVER use #googtrans!
         window.location.href = url.toString();
       }
 
       // Close language dropdown if clicking outside
       window.addEventListener('click', function(e) {
-        const container = document.querySelector('.lang-dropdown-container');
-        const menu = document.getElementById('langDropdownMenu');
+        var container = document.querySelector('.lang-dropdown-container');
+        var menu = document.getElementById('langDropdownMenu');
         if (container && !container.contains(e.target) && menu) {
           menu.classList.remove('show');
         }
       });
 
-      // Synchronize language from URL path or ?lang= query
-      const currentPathLang = getLanguageFromPath();
-      const urlParams = new URLSearchParams(window.location.search);
-      const queryLang = urlParams.get('lang');
-      const activeLang = currentPathLang || queryLang;
-      
-      if (activeLang && activeLang !== 'en' && activeLang !== 'en-GB') {
-        const gtCode = gtMapping[activeLang] || activeLang;
-        document.cookie = `googtrans=/en/${gtCode}; path=/; SameSite=None; Secure`;
-        const domain = window.location.hostname;
-        if (domain) {
-          document.cookie = `googtrans=/en/${gtCode}; path=/; domain=${domain}; SameSite=None; Secure`;
-          const parts = domain.split('.');
-          if (parts.length >= 2) {
-            document.cookie = `googtrans=/en/${gtCode}; path=/; domain=.` + parts.slice(-2).join('.') + `; SameSite=None; Secure`;
+      // Synchronize language from URL path
+      (function() {
+        var currentPathLang = getLanguageFromPath();
+        var urlParams = new URLSearchParams(window.location.search);
+        var queryLang = urlParams.get('lang');
+        var activeLang = currentPathLang || queryLang;
+        
+        if (activeLang && activeLang !== 'en-GB') {
+          var transCode = activeLang === 'en' ? 'en' : activeLang;
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
+          var domain = window.location.hostname;
+          if (domain) {
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
           }
-        }
-        if (!window.location.hash.includes('googtrans')) {
-          window.location.hash = `#googtrans(en|${gtCode})`;
-        }
-        loadGoogleTranslateScript();
-      } else {
-        if (currentPathLang === 'en' || currentPathLang === 'en-GB') {
+          cleanGoogtransHash();
+          loadGoogleTranslateScript();
+        } else {
           document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
-        // Defer loading on idle for instant first paint and 0 main-thread blocking
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(function() { setTimeout(loadGoogleTranslateScript, 3000); });
-        } else {
-          setTimeout(loadGoogleTranslateScript, 3500);
-        }
-      }
+      })();
     </script>
 
     <!-- CODE SCRIPT EXECUTOR MODULE -->
@@ -11424,63 +11413,64 @@
       <p>Take charge of your productivity today by creating a clear, visually appealing schedule that keeps you on track. Our general purpose planner is perfect for freelancers, parents, fitness enthusiasts, and professionals.</p>
 
 <footer class="seo-footer">
-              <div class="footer-container">
-                <div class="footer-grid">
-                  
-                  <!-- Column 1: Brand & Description -->
-                  <div class="footer-col" style="max-width: 320px;">
-                    <div class="app-brand-wrapper" style="margin-bottom: 12px;">
-                      <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="32" height="32" rx="8" fill="#673de6"/>
-                        <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-                        <circle cx="23" cy="21" r="3" fill="#00b090"/>
-                      </svg>
-                      <div class="header-brand-line">
-                        <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
-                        <span class="app-tools-tag">CREATOR</span>
-                      </div>
-                    </div>
-                    <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0;">
-                      Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
-                    </p>
-                  </div>
+  <div class="footer-container">
+    <div class="footer-grid">
+      
+      <!-- Column 1: Brand & Description -->
+      <div class="footer-col" style="max-width: 320px;">
+        <div class="app-brand-wrapper" style="margin-bottom: 12px;">
+          <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="#673de6"/>
+            <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="23" cy="21" r="3" fill="#00b090"/>
+          </svg>
+          <div class="header-brand-line">
+            <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
+            <span class="app-tools-tag">CREATOR</span>
+          </div>
+        </div>
+        <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
+          Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
+        </p>
+      </div>
 
-                  <!-- Column 2: All Timetable Generators -->
-                  <div class="footer-col">
-                    <h4 class="footer-title">All Timetable Generators</h4>
-                    <a href="/timetable-generator-online-for-students/" class="footer-link">Student Timetable Generator</a>
-                    <a href="/" class="footer-link">Free Online Timetable Maker</a>
-                    <a href="/timetable-generator/" class="footer-link">Timetable Generator</a>
-                  </div>
+      <!-- Column 2: All Timetable Generators -->
+      <div class="footer-col">
+        <h4 class="footer-title">All Timetable Generators</h4>
+        <a href="/timetable-generator-online-for-students/" class="footer-link">Student Timetable Generator</a>
+        <a href="/" class="footer-link">Free Online Timetable Maker</a>
+        <a href="/timetable-generator/" class="footer-link">Timetable Generator Tool</a>
+      </div>
 
-                  <!-- Column 3: Resources -->
-                  <div class="footer-col">
-                    <h4 class="footer-title">Resources</h4>
-                    <a href="/blog/" class="footer-link">Blog & Tutorials</a>
-                    <a href="/sitemap.html" class="footer-link">HTML Sitemap</a>
-                    <a href="/blog/about-us/" class="footer-link">About Us</a>
-                    <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
-                    <a href="#how-to" class="footer-link">How to Use</a>
-                    <a href="#faq" class="footer-link">Frequently Asked Questions</a>
-                  </div>
+      <!-- Column 3: Resources -->
+      <div class="footer-col">
+        <h4 class="footer-title">Resources</h4>
+        <a href="/blog/" class="footer-link">Blog & Tutorials</a>
+        <a href="/html-sitemap" class="footer-link">HTML Sitemap</a>
+        <a href="/blog/about-us/" class="footer-link">About Us</a>
+        <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
+        <a href="#how-to" class="footer-link">How to Use</a>
+        <a href="#faq" class="footer-link">Frequently Asked Questions</a>
+      </div>
 
-                  <!-- Column 4: Legal & Policies -->
-                  <div class="footer-col">
-                    <h4 class="footer-title">Legal & Privacy</h4>
-                    <a href="/blog/privacy-policy/" class="footer-link">Privacy Policy</a>
-                    <a href="/blog/terms-and-conditions/" class="footer-link">Terms of Service</a>
-                    <a href="/blog/refund-policy/" class="footer-link">Refund Policy</a>
-                    <a href="/blog/disclaimer/" class="footer-link">Disclaimer</a>
-                  </div>
-                </div>
+      <!-- Column 4: Legal & Policies -->
+      <div class="footer-col">
+        <h4 class="footer-title">Legal & Privacy</h4>
+        <a href="/blog/privacy-policy/" class="footer-link">Privacy Policy</a>
+        <a href="/blog/terms-and-conditions/" class="footer-link">Terms of Service</a>
+        <a href="/blog/refund-policy/" class="footer-link">Refund Policy</a>
+        <a href="/blog/disclaimer/" class="footer-link">Disclaimer</a>
+      </div>
+    </div>
 
-                <div class="footer-bottom">
-                  <div class="footer-bottom-left">
-                    &copy; 2026 Timetable Creator. All rights reserved.
-                  </div>
-                </div>
-              </div>
-            </footer>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        &copy; 2026 Timetable Creator. All rights reserved.
+      </div>
+      <div class="footer-bottom-right"></div>
+    </div>
+  </div>
+</footer>
     </div>
 </body>
 </html>

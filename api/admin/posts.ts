@@ -17,6 +17,15 @@ const defaults = [
   { id: '12', title: 'Disclaimer Notice', slug: 'disclaimer', category: 'Legal', author: 'Legal Team', readTime: '3 Min Read', status: 'Published', updatedAt: '2026-01-10', url: '/blog/disclaimer/', excerpt: 'Educational disclaimer notice and liability limits.', content: 'Disclaimer terms...' }
 ];
 
+function triggerSitemapUpdate() {
+  try {
+    const { updateSitemapFile } = require(path.join(process.cwd(), "scripts", "sitemap_generator.cjs"));
+    updateSitemapFile();
+  } catch (err) {
+    console.error("Failed to update sitemap:", err);
+  }
+}
+
 let inMemoryPosts = [...defaults];
 
 export default function handler(req: any, res: any) {
@@ -45,6 +54,7 @@ export default function handler(req: any, res: any) {
       content: content || ''
     };
     inMemoryPosts.unshift(newPost);
+    triggerSitemapUpdate();
     return res.status(200).json({ success: true, post: newPost });
   }
 
@@ -66,12 +76,14 @@ export default function handler(req: any, res: any) {
       content: content !== undefined ? content : inMemoryPosts[idx].content,
       updatedAt: new Date().toISOString().split('T')[0]
     };
+    triggerSitemapUpdate();
     return res.status(200).json({ success: true, post: inMemoryPosts[idx] });
   }
 
   if (req.method === "DELETE") {
     const { id } = req.query || req.body || {};
     inMemoryPosts = inMemoryPosts.filter(p => p.id !== id);
+    triggerSitemapUpdate();
     return res.status(200).json({ success: true });
   }
 

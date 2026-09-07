@@ -66,6 +66,18 @@
       "destination": "/timetable-generator/index.html"
     },
     {
+      "source": "/html-sitemap/:lang",
+      "destination": "/html-sitemap/:lang/index.html"
+    },
+    {
+      "source": "/html-sitemap",
+      "destination": "/html-sitemap/index.html"
+    },
+    {
+      "source": "/html-sitemap/",
+      "destination": "/html-sitemap/index.html"
+    },
+    {
       "source": "/sitemap/:lang",
       "destination": "/sitemap/:lang/index.html"
     },
@@ -74,8 +86,20 @@
       "destination": "/sitemap.html"
     },
     {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
       "source": "/blog/:slug*",
       "destination": "/blog/:slug*"
+    },
+    {
+      "source": "/:lang(en-GB|en|es|ja|fr|de|pt|ko|it|hi)",
+      "destination": "/:lang/index.html"
+    },
+    {
+      "source": "/:lang(en-GB|en|es|ja|fr|de|pt|ko|it|hi)/",
+      "destination": "/:lang/index.html"
     },
     {
       "source": "/:toolSlug",
