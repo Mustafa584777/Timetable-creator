@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Disclaimer - Online Timetable Creator</title>
     <meta name="description" content="Read the disclaimer policy for Online Timetable Creator." />
-                                <link rel="canonical" href="https://timetablecreator.online/blog/disclaimer/en-GB" />
+                                        <link rel="canonical" href="https://timetablecreator.online/blog/disclaimer/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/blog/disclaimer/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/blog/disclaimer/en-GB" />
     <link rel="alternate" hreflang="en" href="https://timetablecreator.online/blog/disclaimer/en" />
@@ -278,6 +278,8 @@
             <div class="flex flex-col gap-2.5">
               <a href="/blog/about-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">About Us</a>
               <a href="/blog/contact-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">Contact Us</a>
+              <a href="/how-to-use/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">How to Use</a>
+              <a href="/faqs/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">FAQs</a>
               <a href="/blog/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">Blog (Articles Archive)</a>
               <a href="/html-sitemap" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">HTML Sitemap</a>
             </div>
@@ -305,9 +307,8 @@
       </div>
     </footer>
 
-    <!-- LIGHT/DARK MODE SCRIPT FOR STATIC BLOG PAGE -->
+<!-- LIGHT/DARK MODE & TRANSLATION SCRIPT -->
     <script>
-      // Load current theme from localStorage
       const savedTheme = localStorage.getItem('timetable_theme') || '';
       if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
@@ -344,6 +345,141 @@
           menu.classList.toggle('hidden');
         }
       }
+
+// Clean up any #googtrans hash if inserted by Google Translate or legacy URLs
+      function cleanGoogtransHash() {
+        if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
+          try {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          } catch(e) {}
+        }
+      }
+      cleanGoogtransHash();
+      window.addEventListener('hashchange', cleanGoogtransHash);
+      var _hashCleanTimer = setInterval(cleanGoogtransHash, 400);
+      setTimeout(function() { clearInterval(_hashCleanTimer); }, 10000);
+
+      var _gtLoaded = false;
+      function loadGoogleTranslateScript() {
+        if (_gtLoaded) return;
+        _gtLoaded = true;
+        var gt = document.createElement('script');
+        gt.type = 'text/javascript';
+        gt.async = true;
+        gt.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(gt);
+      }
+
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,es,ja,fr,de,pt,ko,it,hi',
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+
+      var supportedLangs = ['en-GB', 'en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+
+      function getCleanBasePath() {
+        var pathSegments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+        if (pathSegments.length > 0 && supportedLangs.includes(pathSegments[pathSegments.length - 1])) {
+          pathSegments.pop();
+        }
+        return '/' + (pathSegments.length > 0 ? pathSegments.join('/') + '/' : '');
+      }
+
+      function getLanguageFromPath() {
+        var pathSegments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+        var last = pathSegments[pathSegments.length - 1];
+        if (last && supportedLangs.includes(last)) {
+          return last;
+        }
+        return null;
+      }
+
+      function toggleLangDropdown() {
+        loadGoogleTranslateScript();
+        var menu = document.getElementById('langDropdownMenu');
+        if (menu) {
+          menu.classList.toggle('show');
+        }
+      }
+
+      function changeLanguage(langCode) {
+        var domain = window.location.hostname;
+        var transCode = langCode === 'en-GB' || langCode === 'en' ? 'en' : langCode;
+        
+        // Clear existing cookies
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
+        if (domain) {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain + "; SameSite=None; Secure";
+          var parts = domain.split('.');
+          if (parts.length >= 2) {
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+          }
+        }
+
+        if (langCode && langCode !== 'en-GB') {
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
+          if (domain) {
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+        }
+        
+        var basePath = getCleanBasePath();
+        var targetPath = '';
+        if (langCode === 'en-GB' || langCode === 'x-default') {
+          targetPath = basePath === '/' ? '/en-GB' : basePath + 'en-GB';
+        } else {
+          targetPath = basePath === '/' ? '/' + langCode : basePath + langCode;
+        }
+
+        var url = new URL(window.location.href);
+        url.pathname = targetPath;
+        url.searchParams.delete('lang');
+        url.hash = ''; // Clean URL - NEVER use #googtrans!
+        window.location.href = url.toString();
+      }
+
+      // Close language dropdown if clicking outside
+      window.addEventListener('click', function(e) {
+        var container = document.querySelector('.lang-dropdown-container');
+        var menu = document.getElementById('langDropdownMenu');
+        if (container && !container.contains(e.target) && menu) {
+          menu.classList.remove('show');
+        }
+      });
+
+      // Synchronize language from URL path
+      (function() {
+        var currentPathLang = getLanguageFromPath();
+        var urlParams = new URLSearchParams(window.location.search);
+        var queryLang = urlParams.get('lang');
+        var activeLang = currentPathLang || queryLang;
+        
+        if (activeLang && activeLang !== 'en-GB') {
+          var transCode = activeLang === 'en' ? 'en' : activeLang;
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
+          var domain = window.location.hostname;
+          if (domain) {
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+          cleanGoogtransHash();
+          loadGoogleTranslateScript();
+        } else {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+      })();
     </script>
+    <div id="google_translate_element" style="display: none !important;"></div>
   </body>
 </html>

@@ -72,8 +72,8 @@ const coreAppFooter = `
         <a href="/html-sitemap" class="footer-link">HTML Sitemap</a>
         <a href="/blog/about-us/" class="footer-link">About Us</a>
         <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
-        <a href="#how-to" class="footer-link">How to Use</a>
-        <a href="#faq" class="footer-link">Frequently Asked Questions</a>
+        <a href="/how-to-use/" class="footer-link">How to Use</a>
+        <a href="/faqs/" class="footer-link">Frequently Asked Questions</a>
       </div>
 
       <!-- Column 4: Legal & Policies -->
@@ -297,7 +297,13 @@ function updateBlogFile(filePath, canonicalUrl) {
     return m;
   });
 
-  // Insert HTML Sitemap link into blog footer Company column if not already present
+  // Insert HTML Sitemap, How to Use, and FAQs into blog footer Company column
+  if (!content.includes('/how-to-use/')) {
+    content = content.replace(
+      '<a href="/blog/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">Blog (Articles Archive)</a>',
+      '<a href="/how-to-use/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">How to Use</a>\n              <a href="/faqs/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">FAQs</a>\n              <a href="/blog/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">Blog (Articles Archive)</a>'
+    );
+  }
   if (!content.includes('/html-sitemap')) {
     content = content.replace(
       '<a href="/blog/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">Blog (Articles Archive)</a>',
@@ -321,15 +327,54 @@ function updateBlogFile(filePath, canonicalUrl) {
     content = content.replace(dropdownMenuRegex, `<div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 36px; right: auto; left: 0;">\n${langDropdownItems}\n            </div>`);
   }
 
-  // Replace translation logic in blog
-  const blogScriptRegex = /function googleTranslateElementInit\(\)[\s\S]*?<\/script>\s*<div id="google_translate_element"[^>]*><\/div>/i;
-  if (blogScriptRegex.test(content)) {
-    content = content.replace(blogScriptRegex, `${cleanTranslationScript.trim()}\n    </script>\n    <div id="google_translate_element" style="display: none !important;"></div>`);
-  } else {
-    const fallbackBlogScript = /\/\/ Clean up any #googtrans hash[\s\S]*?<\/script>\s*<div id="google_translate_element"[^>]*><\/div>/i;
-    if (fallbackBlogScript.test(content)) {
-      content = content.replace(fallbackBlogScript, `${cleanTranslationScript.trim()}\n    </script>\n    <div id="google_translate_element" style="display: none !important;"></div>`);
-    }
+  // Replace trailing scripts cleanly between </footer> and </body>
+  const unifiedBlogScriptBlock = `    <!-- LIGHT/DARK MODE & TRANSLATION SCRIPT -->
+    <script>
+      const savedTheme = localStorage.getItem('timetable_theme') || '';
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateLocalThemeIcon('dark');
+      }
+
+      function toggleLocalTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          html.removeAttribute('data-theme');
+          localStorage.setItem('timetable_theme', 'light');
+          updateLocalThemeIcon('light');
+        } else {
+          html.setAttribute('data-theme', 'dark');
+          localStorage.setItem('timetable_theme', 'dark');
+          updateLocalThemeIcon('dark');
+        }
+      }
+
+      function updateLocalThemeIcon(theme) {
+        const iconSvg = document.getElementById('themeIconLocal');
+        if (!iconSvg) return;
+        if (theme === 'dark') {
+          iconSvg.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>';
+        } else {
+          iconSvg.innerHTML = '<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+        }
+      }
+
+      function toggleMobileMenuLocal() {
+        const menu = document.getElementById('mobileMenuLocal');
+        if (menu) {
+          menu.classList.toggle('hidden');
+        }
+      }
+
+${cleanTranslationScript.trim()}
+    </script>
+    <div id="google_translate_element" style="display: none !important;"></div>`;
+
+  const footerCloseIdx = content.indexOf('</footer>');
+  const bodyCloseIdx = content.indexOf('</body>');
+  if (footerCloseIdx !== -1 && bodyCloseIdx !== -1) {
+    content = content.substring(0, footerCloseIdx + 9) + '\n\n' + unifiedBlogScriptBlock.trim() + '\n  ' + content.substring(bodyCloseIdx);
   }
 
   fs.writeFileSync(filePath, content, 'utf8');
@@ -417,7 +462,7 @@ function updateHtmlSitemap(filePath) {
   if (sitemapScriptRegex.test(content)) {
     content = content.replace(
       sitemapScriptRegex,
-      `<!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->\n    <div id="google_translate_element" style="display: none !important;"></div>\n    <script>\n${cleanTranslationScript.trim()}\n    </script>\n\n      `
+      `<!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->\n    <div id="google_translate_element" style="display: none !important;"></div>\n    <script>\n${cleanTranslationScript.trim()}\n    </script>\n\n    <script>\n      `
     );
   }
 
@@ -433,29 +478,45 @@ function runAllUpdates() {
   updateCoreAppFile('public/timetable-generator-online-for-students/index.html', 'https://timetablecreator.online/timetable-generator-online-for-students/');
   updateCoreAppFile('public/timetable-generator/index.html', 'https://timetablecreator.online/timetable-generator/');
   
-  // HTML Sitemap
+  // HTML Sitemap and all its language subpages
   updateHtmlSitemap('public/html-sitemap/index.html');
-
-  // Blog Archive
-  if (fs.existsSync('public/blog/index.html')) {
-    updateBlogFile('public/blog/index.html', 'https://timetablecreator.online/blog/');
-  }
-
-  // All Blog Posts
-  const blogDir = 'public/blog';
-  if (fs.existsSync(blogDir)) {
-    const entries = fs.readdirSync(blogDir, { withFileTypes: true });
-    for (const entry of entries) {
+  const sitemapDir = 'public/html-sitemap';
+  if (fs.existsSync(sitemapDir)) {
+    const sitemapEntries = fs.readdirSync(sitemapDir, { withFileTypes: true });
+    for (const entry of sitemapEntries) {
       if (entry.isDirectory()) {
-        const isLang = SUPPORTED_LANGS.some(l => l.code === entry.name);
-        if (!isLang) {
-          const postFile = path.join(blogDir, entry.name, 'index.html');
-          if (fs.existsSync(postFile)) {
-            updateBlogFile(postFile, `https://timetablecreator.online/blog/${entry.name}/`);
-          }
+        const langSitemap = path.join(sitemapDir, entry.name, 'index.html');
+        if (fs.existsSync(langSitemap)) {
+          updateHtmlSitemap(langSitemap);
         }
       }
     }
+  }
+
+  // All Blog Posts (including all language folders)
+  const blogDir = 'public/blog';
+  if (fs.existsSync(blogDir)) {
+    function walkBlog(dir) {
+      const items = fs.readdirSync(dir, { withFileTypes: true });
+      for (const item of items) {
+        const fullPath = path.join(dir, item.name);
+        if (item.isDirectory()) {
+          walkBlog(fullPath);
+        } else if (item.isFile() && item.name === 'index.html') {
+          const relPath = path.relative(blogDir, fullPath).replace(/\\/g, '/');
+          const segments = relPath.replace(/index\.html$/, '').split('/').filter(Boolean);
+          if (segments.length > 0 && SUPPORTED_LANGS.some(l => l.code === segments[segments.length - 1])) {
+            segments.pop();
+          }
+          const canonicalSlug = segments.join('/');
+          const canonical = canonicalSlug 
+            ? `https://timetablecreator.online/blog/${canonicalSlug}/`
+            : `https://timetablecreator.online/blog/`;
+          updateBlogFile(fullPath, canonical);
+        }
+      }
+    }
+    walkBlog(blogDir);
   }
 
   console.log('--- SEO & Clean i18n update completed successfully ---');

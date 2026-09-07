@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Ultimate Timetable Guide: Frameworks for Academic & Personal Scheduling (2026)</title>
     <meta name="description" content="Master your day with the ultimate timetable creation guide. Explore scientific time blocking frameworks, constraint-based schedules, and free printable templates." />
-                            <link rel="canonical" href="https://timetablecreator.online/blog/timetable-guides/" />
+                                        <link rel="canonical" href="https://timetablecreator.online/blog/timetable-guides/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/blog/timetable-guides/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/blog/timetable-guides/en-GB" />
     <link rel="alternate" hreflang="en" href="https://timetablecreator.online/blog/timetable-guides/en" />
@@ -523,6 +523,8 @@
             <div class="flex flex-col gap-2.5">
               <a href="/blog/about-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">About Us</a>
               <a href="/blog/contact-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">Contact Us</a>
+              <a href="/how-to-use/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">How to Use</a>
+              <a href="/faqs/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">FAQs</a>
               <a href="/blog/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">Blog (Articles Archive)</a>
               <a href="/html-sitemap" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">HTML Sitemap</a>
             </div>
@@ -550,9 +552,8 @@
       </div>
     </footer>
 
-    <!-- LIGHT/DARK MODE SCRIPT FOR STATIC BLOG PAGE -->
+<!-- LIGHT/DARK MODE & TRANSLATION SCRIPT -->
     <script>
-      // Load current theme from localStorage
       const savedTheme = localStorage.getItem('timetable_theme') || '';
       if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
@@ -590,7 +591,7 @@
         }
       }
 
-      // Clean up any #googtrans hash if inserted by Google Translate or legacy URLs
+// Clean up any #googtrans hash if inserted by Google Translate or legacy URLs
       function cleanGoogtransHash() {
         if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
           try {

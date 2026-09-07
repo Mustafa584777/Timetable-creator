@@ -204,6 +204,29 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
+  // Explicit sitemap.xml with correct XML mime type
+  anonymityApp.get("/sitemap.xml", (req, res) => {
+    const sitemapPath = process.env.NODE_ENV === "production"
+      ? (fs.existsSync(path.join(process.cwd(), "dist", "sitemap.xml")) ? path.join(process.cwd(), "dist", "sitemap.xml") : path.join(process.cwd(), "public", "sitemap.xml"))
+      : path.join(process.cwd(), "public", "sitemap.xml");
+    res.type("application/xml; charset=utf-8");
+    res.sendFile(sitemapPath);
+  });
+
+  // Explicit sitemap.xsl with text/xsl mime type
+  anonymityApp.get("/sitemap.xsl", (req, res) => {
+    const xslPath = process.env.NODE_ENV === "production"
+      ? (fs.existsSync(path.join(process.cwd(), "dist", "sitemap.xsl")) ? path.join(process.cwd(), "dist", "sitemap.xsl") : path.join(process.cwd(), "public", "sitemap.xsl"))
+      : path.join(process.cwd(), "public", "sitemap.xsl");
+    res.type("text/xsl; charset=utf-8");
+    res.sendFile(xslPath);
+  });
+
+  // FAQ redirect alias (/faq -> /faqs/)
+  anonymityApp.get(["/faq", "/faq/"], (req, res) => {
+    res.redirect(301, "/faqs/");
+  });
+
   // Root language editions (e.g. /en-GB, /es, /fr, /de, /ja, /ko, /it, /pt, /hi, /en)
   const supportedLangCodes = ['en-GB', 'en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
   anonymityApp.get(["/:lang", "/:lang/"], (req, res, next) => {

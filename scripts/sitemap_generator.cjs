@@ -24,6 +24,8 @@ function getAllSitePages(baseDir = 'public') {
     { loc: `${baseUrl}/`, priority: '1.0', changefreq: 'weekly' },
     { loc: `${baseUrl}/timetable-generator-online-for-students/`, priority: '0.9', changefreq: 'weekly' },
     { loc: `${baseUrl}/timetable-generator/`, priority: '0.9', changefreq: 'weekly' },
+    { loc: `${baseUrl}/how-to-use/`, priority: '0.8', changefreq: 'weekly' },
+    { loc: `${baseUrl}/faqs/`, priority: '0.8', changefreq: 'weekly' },
     { loc: `${baseUrl}/html-sitemap/`, priority: '0.8', changefreq: 'weekly' },
     { loc: `${baseUrl}/blog/`, priority: '0.8', changefreq: 'weekly' }
   ];
@@ -58,6 +60,7 @@ function generateSitemapXmlString(customPages = null) {
   const currentDate = new Date().toISOString().split('T')[0];
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+  xml += `<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
 
   for (const page of pages) {

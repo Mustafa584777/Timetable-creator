@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWSV97NM4Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZWSV97NM4Z');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Use Online Timetable Creator - Step-by-Step Guide &amp; Tutorial</title>
+    <meta name="description" content="Master Timetable Creator Online in 5 easy steps. Complete guide to setting up weekly schedules, student class routines, AI auto-scheduling, and HD PDF/PNG exports." />
+    <link rel="canonical" href="https://timetablecreator.online/how-to-use/" />
+
+    <!-- Hreflang Tags for All Supported Language Editions -->
+    <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/how-to-use/" />
+    <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/how-to-use/en-GB" />
+    <link rel="alternate" hreflang="en" href="https://timetablecreator.online/how-to-use/en" />
+    <link rel="alternate" hreflang="es" href="https://timetablecreator.online/how-to-use/es" />
+    <link rel="alternate" hreflang="ja" href="https://timetablecreator.online/how-to-use/ja" />
+    <link rel="alternate" hreflang="fr" href="https://timetablecreator.online/how-to-use/fr" />
+    <link rel="alternate" hreflang="de" href="https://timetablecreator.online/how-to-use/de" />
+    <link rel="alternate" hreflang="pt" href="https://timetablecreator.online/how-to-use/pt" />
+    <link rel="alternate" hreflang="ko" href="https://timetablecreator.online/how-to-use/ko" />
+    <link rel="alternate" hreflang="it" href="https://timetablecreator.online/how-to-use/it" />
+    <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/how-to-use/hi" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              violet: {
+                50: '#f5f3ff',
+                100: '#ede9fe',
+                200: '#ddd6fe',
+                500: '#8b5cf6',
+                600: '#7c3aed',
+                700: '#6d28d9',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      [data-theme="dark"] {
+        background-color: #0b0f19 !important;
+        color: #f1f5f9 !important;
+      }
+      [data-theme="dark"] header {
+        background-color: #111827 !important;
+        border-color: #1f2937 !important;
+      }
+      [data-theme="dark"] footer {
+        background-color: #111827 !important;
+        border-color: #1f2937 !important;
+      }
+      [data-theme="dark"] .bg-white {
+        background-color: #111827 !important;
+      }
+      [data-theme="dark"] .bg-slate-50, 
+      [data-theme="dark"] .bg-violet-50\/50,
+      [data-theme="dark"] .bg-violet-50 {
+        background-color: #1e293b !important;
+      }
+      [data-theme="dark"] .border-slate-100, 
+      [data-theme="dark"] .border-slate-200, 
+      [data-theme="dark"] .border-violet-100 {
+        border-color: #334155 !important;
+      }
+      [data-theme="dark"] .text-slate-900 {
+        color: #f8fafc !important;
+      }
+      [data-theme="dark"] .text-slate-700, 
+      [data-theme="dark"] .text-slate-600 {
+        color: #cbd5e1 !important;
+      }
+      [data-theme="dark"] .text-slate-500, 
+      [data-theme="dark"] .text-slate-400 {
+        color: #94a3b8 !important;
+      }
+
+      /* Language Dropdown */
+      .lang-dropdown-container {
+        position: relative;
+        display: inline-block;
+      }
+      .lang-dropdown-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 12.5px;
+        font-weight: 500;
+        color: #334155;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      [data-theme="dark"] .lang-dropdown-btn {
+        background-color: #1e293b;
+        border-color: #334155;
+        color: #f1f5f9;
+      }
+      .lang-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 6px;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        min-width: 160px;
+        z-index: 50;
+        max-height: 280px;
+        overflow-y: auto;
+        padding: 6px;
+      }
+      [data-theme="dark"] .lang-dropdown-menu {
+        background-color: #1e293b;
+        border-color: #334155;
+      }
+      .lang-dropdown-menu.show {
+        display: block;
+      }
+      .lang-dropdown-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 13px;
+        color: #334155;
+        background: transparent;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.15s;
+      }
+      [data-theme="dark"] .lang-dropdown-item {
+        color: #f1f5f9;
+      }
+      .lang-dropdown-item:hover {
+        background-color: #f1f5f9;
+        color: #7c3aed;
+      }
+      [data-theme="dark"] .lang-dropdown-item:hover {
+        background-color: #334155;
+        color: #a78bfa;
+      }
+    </style>
+
+    <!-- Structured Data Schema for HowTo -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Create a Timetable Online in 5 Simple Steps",
+      "description": "Step-by-step tutorial on creating, organizing, and exporting a school, college, or weekly timetable using Timetable Creator Online.",
+      "image": "https://timetablecreator.online/og-image.png",
+      "totalTime": "PT5M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Select Your Timetable Planner Mode",
+          "text": "Choose between the Free Online Timetable Maker for flexible weekly scheduling or the Student Timetable Generator for subject/teacher classroom routines.",
+          "url": "https://timetablecreator.online/how-to-use/#step-1"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Set Active Days and Time Slots",
+          "text": "Customize your weekly range (Monday through Friday or 7-day week) and adjust slot starting times, ending times, and durations.",
+          "url": "https://timetablecreator.online/how-to-use/#step-2"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Add Classes, Subjects and Activity Blocks",
+          "text": "Click any open cell to type your course title, instructor name, classroom number, and choose custom color coding.",
+          "url": "https://timetablecreator.online/how-to-use/#step-3"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Use AI Smart Generation for Fast Scheduling",
+          "text": "Type your routine in natural language and let the AI assistant allocate slots automatically without overlaps.",
+          "url": "https://timetablecreator.online/how-to-use/#step-4"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Export, Print, or Share Your Timetable",
+          "text": "Save your timetable as a high-resolution PNG image, print it as a clean PDF document, or copy a shareable link.",
+          "url": "https://timetablecreator.online/how-to-use/#step-5"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://timetablecreator.online/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How to Use",
+          "item": "https://timetablecreator.online/how-to-use/"
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-slate-50/50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-violet-100 selection:text-violet-700">
+
+    <!-- HEADER / NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-violet-100 transition-colors duration-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        
+        <!-- Logo & Site Name -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-violet-600 to-indigo-500 text-white flex items-center justify-center shadow-md shadow-violet-200 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div>
+            <span class="text-base font-bold text-slate-900 leading-tight block tracking-tight">Timetable Creator</span>
+            <span class="text-[11px] text-slate-400 font-medium tracking-wide block">Online Class Scheduler</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="/" class="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">Timetable Maker</a>
+          <a href="/timetable-generator-online-for-students/" class="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">Student Timetable</a>
+          <a href="/how-to-use/" class="text-sm font-semibold text-violet-600 border-b-2 border-violet-600 pb-0.5">How to Use</a>
+          <a href="/faqs/" class="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">FAQs</a>
+          <a href="/blog/" class="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">Blog</a>
+          <a href="/html-sitemap" class="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">Sitemap</a>
+        </nav>
+
+        <!-- Right Action Items: Language & Theme Toggle -->
+        <div class="flex items-center gap-2.5">
+          <!-- Language Selector -->
+          <div class="lang-dropdown-container">
+            <button class="lang-dropdown-btn" onclick="toggleLangDropdown()" aria-label="Change Language">
+              <svg class="w-4 h-4 text-violet-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span id="currentLangLabel">Languages</span>
+              <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu">
+              <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('en')">English (US)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ja')">日本語</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Français</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('pt')">Português</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ko')">한국어</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी</button>
+            </div>
+          </div>
+
+          <!-- Theme Toggle -->
+          <button onclick="toggleLocalTheme()" class="p-2 text-slate-500 hover:text-violet-600 hover:bg-slate-100 rounded-lg transition-colors" aria-label="Toggle Theme">
+            <svg id="themeIconLocal" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button onclick="toggleMobileMenuLocal()" class="md:hidden p-2 text-slate-600 hover:text-violet-600 rounded-lg" aria-label="Open Mobile Menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobileMenuLocal" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-2">
+        <a href="/" class="block py-1.5 text-sm font-medium text-slate-700 hover:text-violet-600">Timetable Maker</a>
+        <a href="/timetable-generator-online-for-students/" class="block py-1.5 text-sm font-medium text-slate-700 hover:text-violet-600">Student Timetable</a>
+        <a href="/how-to-use/" class="block py-1.5 text-sm font-semibold text-violet-600">How to Use Guide</a>
+        <a href="/faqs/" class="block py-1.5 text-sm font-medium text-slate-700 hover:text-violet-600">Frequently Asked Questions</a>
+        <a href="/blog/" class="block py-1.5 text-sm font-medium text-slate-700 hover:text-violet-600">Blog Archive</a>
+        <a href="/html-sitemap" class="block py-1.5 text-sm font-medium text-slate-700 hover:text-violet-600">HTML Sitemap</a>
+      </div>
+    </header>
+
+    <!-- BREADCRUMB & HERO -->
+    <main class="flex-grow">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-16">
+        
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-slate-800 font-medium">How to Use</span>
+        </nav>
+
+        <!-- Hero Card -->
+        <div class="bg-white border border-violet-100 rounded-3xl p-8 sm:p-12 shadow-sm mb-12 relative overflow-hidden">
+          <div class="absolute -top-24 -right-24 w-72 h-72 bg-violet-100 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+          
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 text-violet-700 text-xs font-semibold mb-4 border border-violet-100">
+            <span class="w-2 h-2 rounded-full bg-violet-600 animate-pulse"></span>
+            Official Step-by-Step User Guide (2026 Edition)
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+            How to Use Online Timetable Creator
+          </h1>
+          
+          <p class="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed mb-8">
+            Create beautiful, clash-free schedules in minutes. Whether you are building a school timetable, a university semester lecture plan, a revision routine, or a weekly work planner, follow this comprehensive walkthrough to get started with zero learning curve.
+          </p>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold shadow-md shadow-violet-200 transition-all hover:-translate-y-0.5">
+              Launch Free Timetable Maker
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="/timetable-generator-online-for-students/" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold transition-colors">
+              Student Routine Tool
+            </a>
+            <a href="/faqs/" class="inline-flex items-center gap-1.5 px-4 py-3 text-sm font-medium text-violet-600 hover:underline">
+              Have Questions? Check FAQs &#8594;
+            </a>
+          </div>
+        </div>
+
+        <!-- 5-STEP QUICK START WALKTHROUGH -->
+        <div class="mb-16">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">5 Steps to Create Your Perfect Schedule</h2>
+            <p class="text-sm text-slate-500">Everything you need to transform a chaotic week into an organized, color-coded timetable.</p>
+          </div>
+
+          <div class="space-y-6">
+            
+            <!-- Step 1 -->
+            <div id="step-1" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 transition-shadow hover:shadow-md">
+              <div class="flex items-start gap-4 sm:gap-6">
+                <div class="w-12 h-12 rounded-2xl bg-violet-600 text-white font-extrabold text-lg flex items-center justify-center shrink-0 shadow-md shadow-violet-200">
+                  1
+                </div>
+                <div class="flex-grow">
+                  <span class="text-xs font-bold text-violet-600 uppercase tracking-wider">Step 1</span>
+                  <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Select Your Timetable Planner Mode</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Timetable Creator provides two specialized scheduling engines. Choose the one that matches your current goal:
+                  </p>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                    <div class="p-4 rounded-xl bg-violet-50/60 border border-violet-100">
+                      <div class="font-bold text-slate-900 text-sm mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-violet-600"></span>
+                        Free Online Timetable Maker
+                      </div>
+                      <p class="text-xs text-slate-600 leading-relaxed">
+                        Best for general weekly routines, work shifts, home study habits, workout blocks, and daily task management with custom hourly intervals.
+                      </p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                      <div class="font-bold text-slate-900 text-sm mb-1 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                        Student Timetable Generator
+                      </div>
+                      <p class="text-xs text-slate-600 leading-relaxed">
+                        Designed specifically for schools, colleges, and universities with support for subject names, teacher names, room codes, and period-based slots.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="step-2" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 transition-shadow hover:shadow-md">
+              <div class="flex items-start gap-4 sm:gap-6">
+                <div class="w-12 h-12 rounded-2xl bg-violet-600 text-white font-extrabold text-lg flex items-center justify-center shrink-0 shadow-md shadow-violet-200">
+                  2
+                </div>
+                <div class="flex-grow">
+                  <span class="text-xs font-bold text-violet-600 uppercase tracking-wider">Step 2</span>
+                  <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Configure Active Days &amp; Time Slots</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Before adding subjects, align your timetable grid with your institution's timing or your personal schedule:
+                  </p>
+                  <ul class="space-y-2.5 text-sm text-slate-600">
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-violet-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span><strong>Days of the Week:</strong> Toggle Monday through Friday (standard school week), Monday through Saturday (university schedule), or all 7 days for weekend study.</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-violet-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span><strong>Start &amp; End Hours:</strong> Set when your day begins (e.g., 08:00 AM) and when your final session concludes (e.g., 05:00 PM).</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-violet-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <span><strong>Interval Length:</strong> Pick 30 minutes, 45 minutes, 60 minutes, or 90 minutes per block to match your school period bell timings.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div id="step-3" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 transition-shadow hover:shadow-md">
+              <div class="flex items-start gap-4 sm:gap-6">
+                <div class="w-12 h-12 rounded-2xl bg-violet-600 text-white font-extrabold text-lg flex items-center justify-center shrink-0 shadow-md shadow-violet-200">
+                  3
+                </div>
+                <div class="flex-grow">
+                  <span class="text-xs font-bold text-violet-600 uppercase tracking-wider">Step 3</span>
+                  <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Add Classes, Subjects &amp; Activity Blocks</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Populating your timetable is seamless and intuitive:
+                  </p>
+                  <div class="space-y-3 text-sm text-slate-600">
+                    <p>
+                      <strong>Click any slot:</strong> Click any cell on the grid to open the fast event editor dialog.
+                    </p>
+                    <p>
+                      <strong>Fill in details:</strong> Enter your course title (e.g., <em>Advanced Mathematics</em>), instructor name (e.g., <em>Prof. Anderson</em>), and room code (e.g., <em>Hall 204</em>).
+                    </p>
+                    <p>
+                      <strong>Color Coding:</strong> Assign distinct pastel or vibrant colors to each subject (e.g., Blue for Math, Emerald for Biology, Amber for History, Rose for Breaks). Color coding allows your eye to recognise schedule patterns in fractions of a second.
+                    </p>
+                    <p>
+                      <strong>Repeat &amp; Duplicate:</strong> Need the same class on Monday, Wednesday, and Friday? Use the quick duplicate button to replicate blocks without retyping.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div id="step-4" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 transition-shadow hover:shadow-md">
+              <div class="flex items-start gap-4 sm:gap-6">
+                <div class="w-12 h-12 rounded-2xl bg-violet-600 text-white font-extrabold text-lg flex items-center justify-center shrink-0 shadow-md shadow-violet-200">
+                  4
+                </div>
+                <div class="flex-grow">
+                  <span class="text-xs font-bold text-violet-600 uppercase tracking-wider">Step 4</span>
+                  <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Supercharge with AI Smart Schedule Generation</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Don't want to place every subject manually? Use our built-in natural language AI schedule generator:
+                  </p>
+                  <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 mb-3">
+                    "Create a balanced university timetable with Computer Science on Mon/Wed 10:00-11:30 in Lab 3, Physics on Tue/Thu 09:00-10:30, and a 1-hour lunch break every day at 12:00."
+                  </div>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Type your prompt into the AI prompt bar, click <strong>Generate</strong>, and the AI algorithm will analyze conflicts, insert lunch intervals, and automatically distribute your courses evenly across the week.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div id="step-5" class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 transition-shadow hover:shadow-md">
+              <div class="flex items-start gap-4 sm:gap-6">
+                <div class="w-12 h-12 rounded-2xl bg-violet-600 text-white font-extrabold text-lg flex items-center justify-center shrink-0 shadow-md shadow-violet-200">
+                  5
+                </div>
+                <div class="flex-grow">
+                  <span class="text-xs font-bold text-violet-600 uppercase tracking-wider">Step 5</span>
+                  <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Save, Print &amp; Export Your Timetable</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Once your routine is finalized, export it in multiple versatile formats:
+                  </p>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                    <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                      <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-violet-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        Download HD PNG
+                      </div>
+                      <p class="text-slate-500">Crystal-clear image format, ideal for mobile phone lockscreens, tablet backgrounds, or messaging apps.</p>
+                    </div>
+                    <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                      <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg>
+                        Print / Save as PDF
+                      </div>
+                      <p class="text-slate-500">Formatted cleanly for A4 and Letter paper. Perfect for pinning on study desk pinboards or classroom walls.</p>
+                    </div>
+                    <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                      <div class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                        Encrypted Share Link
+                      </div>
+                      <p class="text-slate-500">Send an instant link to friends or classmates so they can view or clone your schedule into their own planner.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PRO TIPS FOR DIFFERENT AUDIENCES -->
+        <div class="mb-16">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Scheduling Tips for Every User</h2>
+            <p class="text-sm text-slate-500">Proven recommendations to help you get the most out of your timetable.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="bg-white border border-slate-200 rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="p-2.5 rounded-xl bg-blue-50 text-blue-600">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+                </span>
+                <h3 class="font-bold text-slate-900 text-base">For School &amp; College Students</h3>
+              </div>
+              <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                <li>&#8226; <strong>Add Study Buffers:</strong> Don't just schedule class lectures; allocate 45-minute independent revision blocks right after hard subjects.</li>
+                <li>&#8226; <strong>Save to Lock Screen:</strong> Download the timetable as PNG and set it as your smartphone wallpaper during exam week so you never miss a lecture hall.</li>
+                <li>&#8226; <strong>Color by Difficulty:</strong> Mark challenging subjects with bold red or amber colors to mentally prepare before entering class.</li>
+              </ul>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="p-2.5 rounded-xl bg-violet-50 text-violet-600">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </span>
+                <h3 class="font-bold text-slate-900 text-base">For Teachers &amp; Faculty</h3>
+              </div>
+              <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                <li>&#8226; <strong>Include Classroom Codes:</strong> Always fill in room numbers and lab designations to avoid double-booking physical school spaces.</li>
+                <li>&#8226; <strong>Mark Office Hours:</strong> Block dedicated 60-minute student consultation periods so your week remains structured and stress-free.</li>
+                <li>&#8226; <strong>Export as PDF:</strong> Print the master schedule in landscape format to display outside departmental bulletin boards.</li>
+              </ul>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="p-2.5 rounded-xl bg-emerald-50 text-emerald-600">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                </span>
+                <h3 class="font-bold text-slate-900 text-base">For Parents &amp; Homeschoolers</h3>
+              </div>
+              <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                <li>&#8226; <strong>Balance Academics &amp; Play:</strong> Alternate academic focus sessions with 20-minute movement, outdoor, or snack breaks.</li>
+                <li>&#8226; <strong>Visual Consistency:</strong> Use child-friendly colors (bright yellow, green, orange) to make following the routine fun and rewarding.</li>
+                <li>&#8226; <strong>Pin on the Fridge:</strong> Print a fresh copy every Sunday evening and review the upcoming week together with your children.</li>
+              </ul>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="p-2.5 rounded-xl bg-amber-50 text-amber-600">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+                <h3 class="font-bold text-slate-900 text-base">For Professionals &amp; Freelancers</h3>
+              </div>
+              <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                <li>&#8226; <strong>Time Blocking:</strong> Dedicate deep work mornings (09:00 - 12:00) with zero meetings, and group client calls into the afternoons.</li>
+                <li>&#8226; <strong>Cloud Sync:</strong> Sign in with Google so your timetable syncs seamlessly across your desktop laptop and phone browser.</li>
+                <li>&#8226; <strong>Respect Weekends:</strong> Keep Saturday and Sunday distinct from Monday-Friday to prevent remote work burnout.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FREQUENTLY ASKED QUESTIONS PREVIEW -->
+        <div class="bg-violet-50/50 border border-violet-100 rounded-3xl p-8 sm:p-10 mb-12">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Common Questions About Using Timetable Creator</h2>
+              <p class="text-sm text-slate-500 mt-1">Quick answers to help you navigate the platform effortlessly.</p>
+            </div>
+            <a href="/faqs/" class="px-5 py-2.5 bg-white border border-violet-200 text-violet-700 hover:bg-violet-50 text-xs font-bold rounded-xl transition-colors shadow-sm">
+              View All 24+ FAQs &#8594;
+            </a>
+          </div>
+
+          <div class="space-y-3">
+            <details class="group bg-white border border-violet-100 rounded-xl p-4 cursor-pointer">
+              <summary class="font-semibold text-sm text-slate-800 flex items-center justify-between">
+                <span>Do I need to install any software or app?</span>
+                <span class="text-violet-600 group-open:rotate-180 transition-transform">&#9662;</span>
+              </summary>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
+                No installation is required. Timetable Creator is 100% web-based and runs smoothly inside Chrome, Safari, Edge, Firefox, and all mobile browsers without downloading any APK or executable.
+              </p>
+            </details>
+
+            <details class="group bg-white border border-violet-100 rounded-xl p-4 cursor-pointer">
+              <summary class="font-semibold text-sm text-slate-800 flex items-center justify-between">
+                <span>Will my schedule be erased if I refresh or close my browser?</span>
+                <span class="text-violet-600 group-open:rotate-180 transition-transform">&#9662;</span>
+              </summary>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
+                No! The application automatically saves your active schedule to your browser's local cache. If you log in with your account, your schedules are saved permanently in our secure cloud Firestore database so you can access them from any computer or mobile device.
+              </p>
+            </details>
+
+            <details class="group bg-white border border-violet-100 rounded-xl p-4 cursor-pointer">
+              <summary class="font-semibold text-sm text-slate-800 flex items-center justify-between">
+                <span>Is Timetable Creator completely free?</span>
+                <span class="text-violet-600 group-open:rotate-180 transition-transform">&#9662;</span>
+              </summary>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
+                Yes! All core scheduling features, including AI generation, color styling, PNG downloads, and PDF exports, are 100% free with no credit card required.
+              </p>
+            </details>
+          </div>
+        </div>
+
+        <!-- BOTTOM CALL TO ACTION -->
+        <div class="text-center py-8">
+          <h2 class="text-2xl font-extrabold text-slate-900 mb-3">Ready to Build Your Schedule?</h2>
+          <p class="text-slate-600 text-sm max-w-lg mx-auto mb-6">Start planning your week with clarity and confidence right now.</p>
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <a href="/" class="px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold shadow-md shadow-violet-200 transition-transform hover:-translate-y-0.5">
+              Open Online Timetable Maker
+            </a>
+            <a href="/timetable-generator-online-for-students/" class="px-6 py-3 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-sm font-semibold transition-colors">
+              Open Student Routine Generator
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- UNIVERSAL FOOTER -->
+    <footer class="border-t border-violet-100 bg-white pt-12 pb-8 transition-colors duration-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-100">
+          
+          <!-- Column 1: Brand -->
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-violet-600 to-indigo-500 text-white flex items-center justify-center font-bold text-sm shadow-sm">
+                &#128197;
+              </div>
+              <span class="text-base font-bold text-slate-900">Timetable Creator</span>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              The high-performance web scheduling suite designed for students, teachers, parents, and working professionals worldwide.
+            </p>
+            <div class="text-xs text-slate-400">
+              Inquiries: <a href="mailto:support@timetablecreator.online" class="text-violet-600 font-semibold hover:underline">support@timetablecreator.online</a>
+            </div>
+          </div>
+
+          <!-- Column 2: Generators -->
+          <div class="space-y-3">
+            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-widest">All Timetable Generators</h3>
+            <div class="flex flex-col gap-2">
+              <a href="/timetable-generator-online-for-students/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Student Timetable Generator</a>
+              <a href="/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Free Online Timetable Maker</a>
+              <a href="/timetable-generator/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Timetable Generator Tool</a>
+            </div>
+          </div>
+
+          <!-- Column 3: Resources & Guides -->
+          <div class="space-y-3">
+            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-widest">Resources &amp; Guides</h3>
+            <div class="flex flex-col gap-2">
+              <a href="/how-to-use/" class="text-xs text-violet-600 font-bold transition-colors">How to Use Guide</a>
+              <a href="/faqs/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Frequently Asked Questions (FAQs)</a>
+              <a href="/blog/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Blog &amp; Tutorials</a>
+              <a href="/html-sitemap" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">HTML Sitemap</a>
+              <a href="/blog/about-us/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">About Us</a>
+              <a href="/blog/contact-us/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Contact Support</a>
+            </div>
+          </div>
+
+          <!-- Column 4: Legal -->
+          <div class="space-y-3">
+            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-widest">Legal &amp; Privacy</h3>
+            <div class="flex flex-col gap-2">
+              <a href="/blog/privacy-policy/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Privacy Policy</a>
+              <a href="/blog/terms-and-conditions/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Terms of Service</a>
+              <a href="/blog/refund-policy/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Refund Policy</a>
+              <a href="/blog/disclaimer/" class="text-xs text-slate-600 hover:text-violet-600 transition-colors">Disclaimer Notice</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-6 text-center">
+          <p class="text-xs text-slate-400">
+            &copy; 2026 Timetable Creator. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- GOOGLE TRANSLATE CUSTOM INTEGRATION -->
+    <div id="google_translate_element" style="display: none !important;"></div>
+    <script>
+      function cleanGoogtransHash() {
+        if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
+          try {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          } catch(e) {}
+        }
+      }
+      cleanGoogtransHash();
+      window.addEventListener('hashchange', cleanGoogtransHash);
+      var _hashCleanTimer = setInterval(cleanGoogtransHash, 400);
+      setTimeout(function() { clearInterval(_hashCleanTimer); }, 10000);
+
+      var _gtLoaded = false;
+      function loadGoogleTranslateScript() {
+        if (_gtLoaded) return;
+        _gtLoaded = true;
+        var gt = document.createElement('script');
+        gt.type = 'text/javascript';
+        gt.async = true;
+        gt.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(gt);
+      }
+
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,es,ja,fr,de,pt,ko,it,hi',
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+
+      var supportedLangs = ['en-GB', 'en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+
+      function getCleanBasePath() {
+        var pathSegments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+        if (pathSegments.length > 0 && supportedLangs.includes(pathSegments[pathSegments.length - 1])) {
+          pathSegments.pop();
+        }
+        return '/' + (pathSegments.length > 0 ? pathSegments.join('/') + '/' : '');
+      }
+
+      function getLanguageFromPath() {
+        var pathSegments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+        var last = pathSegments[pathSegments.length - 1];
+        if (last && supportedLangs.includes(last)) {
+          return last;
+        }
+        return null;
+      }
+
+      function toggleLangDropdown() {
+        loadGoogleTranslateScript();
+        var menu = document.getElementById('langDropdownMenu');
+        if (menu) {
+          menu.classList.toggle('show');
+        }
+      }
+
+      function changeLanguage(langCode) {
+        var domain = window.location.hostname;
+        var transCode = langCode === 'en-GB' || langCode === 'en' ? 'en' : langCode;
+        
+        // Clear existing cookies
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
+        if (domain) {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain + "; SameSite=None; Secure";
+          var parts = domain.split('.');
+          if (parts.length >= 2) {
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+          }
+        }
+
+        if (langCode && langCode !== 'en-GB') {
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
+          if (domain) {
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+        }
+        
+        var basePath = getCleanBasePath();
+        var targetPath = '';
+        if (langCode === 'en-GB' || langCode === 'x-default') {
+          targetPath = basePath === '/' ? '/en-GB' : basePath + 'en-GB';
+        } else {
+          targetPath = basePath === '/' ? '/' + langCode : basePath + langCode;
+        }
+
+        var url = new URL(window.location.href);
+        url.pathname = targetPath;
+        url.searchParams.delete('lang');
+        url.hash = ''; // Clean URL - NEVER use #googtrans!
+        window.location.href = url.toString();
+      }
+
+      window.addEventListener('click', function(e) {
+        var container = document.querySelector('.lang-dropdown-container');
+        var menu = document.getElementById('langDropdownMenu');
+        if (container && !container.contains(e.target) && menu) {
+          menu.classList.remove('show');
+        }
+      });
+
+      (function() {
+        var currentPathLang = getLanguageFromPath();
+        var urlParams = new URLSearchParams(window.location.search);
+        var queryLang = urlParams.get('lang');
+        var activeLang = currentPathLang || queryLang;
+        
+        if (activeLang && activeLang !== 'en-GB') {
+          var transCode = activeLang === 'en' ? 'en' : activeLang;
+          document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
+          var domain = window.location.hostname;
+          if (domain) {
+            document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + transCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+          cleanGoogtransHash();
+          loadGoogleTranslateScript();
+        } else {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+      })();
+    </script>
+
+    <!-- Theme & Mobile Nav Script -->
+    <script>
+      const savedTheme = localStorage.getItem('timetable_theme') || '';
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateLocalThemeIcon('dark');
+      }
+
+      function toggleLocalTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          html.removeAttribute('data-theme');
+          localStorage.setItem('timetable_theme', 'light');
+          updateLocalThemeIcon('light');
+        } else {
+          html.setAttribute('data-theme', 'dark');
+          localStorage.setItem('timetable_theme', 'dark');
+          updateLocalThemeIcon('dark');
+        }
+      }
+
+      function updateLocalThemeIcon(theme) {
+        const iconSvg = document.getElementById('themeIconLocal');
+        if (!iconSvg) return;
+        if (theme === 'dark') {
+          iconSvg.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>';
+        } else {
+          iconSvg.innerHTML = '<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+        }
+      }
+
+      function toggleMobileMenuLocal() {
+        const menu = document.getElementById('mobileMenuLocal');
+        if (menu) {
+          menu.classList.toggle('hidden');
+        }
+      }
+    </script>
+  </body>
+</html>
