@@ -54,7 +54,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                        <link rel="canonical" href="https://timetablecreator.online/" />
+                                                        <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="en" href="https://timetablecreator.online/en" />
@@ -406,16 +406,26 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
-        border: 1.5px solid var(--border-color) !important;
-        color: var(--text-main);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        border: 1.5px solid #10b981 !important;
+        color: #059669 !important;
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.08);
         transition: all 0.2s ease;
+      }
+      .btn-ctrl svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
       }
 
       .btn-ctrl:hover {
         background-color: #ffffff !important;
+        border-color: #059669 !important;
+        color: #047857 !important;
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+      }
+      .btn-ctrl:hover svg {
+        color: #047857 !important;
+        stroke: #047857 !important;
       }
 
       .btn-ctrl:active {
@@ -424,69 +434,62 @@
 
       .btn-ctrl.btn-primary {
         background-color: #ffffff !important;
-        color: #6366f1 !important;
-        border: 1.5px solid #6366f1 !important;
-        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15) !important;
+        color: #059669 !important;
+        border: 1.5px solid #10b981 !important;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.18) !important;
       }
 
       .btn-ctrl.btn-primary svg {
-        color: #6366f1 !important;
-        stroke: #6366f1 !important;
+        color: #10b981 !important;
+        stroke: #10b981 !important;
       }
 
       .btn-ctrl.btn-primary:hover {
         background-color: #ffffff !important;
-        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25) !important;
+        border-color: #059669 !important;
+        color: #047857 !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.28) !important;
+      }
+      .btn-ctrl.btn-primary:hover svg {
+        color: #047857 !important;
+        stroke: #047857 !important;
       }
 
-      .btn-sidebar-import {
-        border-color: #10b981 !important;
-        color: #10b981 !important;
+      .btn-sidebar-import,
+      .btn-sidebar-export,
+      .btn-sidebar-backup,
+      .btn-sidebar-reset,
+      .btn-ai-merge,
+      .btn-ai-overtake {
+        border: 1.5px solid #10b981 !important;
+        color: #059669 !important;
       }
-      .btn-sidebar-import svg {
+      .btn-sidebar-import svg,
+      .btn-sidebar-export svg,
+      .btn-sidebar-backup svg,
+      .btn-sidebar-reset svg,
+      .btn-ai-merge svg,
+      .btn-ai-overtake svg {
         color: #10b981 !important;
         stroke: #10b981 !important;
       }
-      .btn-sidebar-export {
-        border-color: #3b82f6 !important;
-        color: #3b82f6 !important;
+      .btn-sidebar-import:hover,
+      .btn-sidebar-export:hover,
+      .btn-sidebar-backup:hover,
+      .btn-sidebar-reset:hover,
+      .btn-ai-merge:hover,
+      .btn-ai-overtake:hover {
+        border-color: #059669 !important;
+        color: #047857 !important;
       }
-      .btn-sidebar-export svg {
-        color: #3b82f6 !important;
-        stroke: #3b82f6 !important;
-      }
-      .btn-sidebar-backup {
-        border-color: #6366f1 !important;
-        color: #6366f1 !important;
-      }
-      .btn-sidebar-backup svg {
-        color: #6366f1 !important;
-        stroke: #6366f1 !important;
-      }
-      .btn-sidebar-reset {
-        border-color: #ef4444 !important;
-        color: #ef4444 !important;
-      }
-      .btn-sidebar-reset svg {
-        color: #ef4444 !important;
-        stroke: #ef4444 !important;
-      }
-
-      .btn-ai-merge {
-        border-color: #8b5cf6 !important;
-        color: #8b5cf6 !important;
-      }
-      .btn-ai-merge svg {
-        color: #8b5cf6 !important;
-        stroke: #8b5cf6 !important;
-      }
-      .btn-ai-overtake {
-        border-color: #6366f1 !important;
-        color: #6366f1 !important;
-      }
-      .btn-ai-overtake svg {
-        color: #6366f1 !important;
-        stroke: #6366f1 !important;
+      .btn-sidebar-import:hover svg,
+      .btn-sidebar-export:hover svg,
+      .btn-sidebar-backup:hover svg,
+      .btn-sidebar-reset:hover svg,
+      .btn-ai-merge:hover svg,
+      .btn-ai-overtake:hover svg {
+        color: #047857 !important;
+        stroke: #047857 !important;
       }
 
       .flex-half {
@@ -552,75 +555,53 @@
         gap: 6px;
         white-space: nowrap;
         background-color: #ffffff !important;
-        color: var(--text-main);
-        border: 1.5px solid var(--border-color) !important;
+        color: #059669 !important;
+        border: 1.5px solid #10b981 !important;
         border-radius: calc(var(--border-radius) - 2px);
         cursor: pointer;
         transition: all 0.15s ease;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.08);
       }
-
-      .export-btn-item.export-btn-print {
-        border-color: #8b5cf6 !important;
-        color: #8b5cf6 !important;
-      }
-      .export-btn-item.export-btn-print svg {
-        color: #8b5cf6 !important;
-        stroke: #8b5cf6 !important;
-      }
-      .export-btn-item.export-btn-pdf {
-        border-color: #ef4444 !important;
-        color: #ef4444 !important;
-      }
-      .export-btn-item.export-btn-pdf svg {
-        color: #ef4444 !important;
-        stroke: #ef4444 !important;
-      }
-      .export-btn-item.export-btn-json {
-        border-color: #0284c7 !important;
-        color: #0284c7 !important;
-      }
-      .export-btn-item.export-btn-json svg {
-        color: #0284c7 !important;
-        stroke: #0284c7 !important;
-      }
-      .export-btn-item.export-btn-png {
-        border-color: #10b981 !important;
-        color: #10b981 !important;
-      }
-      .export-btn-item.export-btn-png svg {
+      .export-btn-item svg {
         color: #10b981 !important;
         stroke: #10b981 !important;
       }
-      .export-btn-item.export-btn-share {
-        border-color: #6366f1 !important;
-        color: #6366f1 !important;
+
+      .export-btn-item.export-btn-print,
+      .export-btn-item.export-btn-pdf,
+      .export-btn-item.export-btn-json,
+      .export-btn-item.export-btn-png,
+      .export-btn-item.export-btn-share,
+      .export-btn-item.btn-primary {
+        border-color: #10b981 !important;
+        color: #059669 !important;
       }
-      .export-btn-item.export-btn-share svg {
-        color: #6366f1 !important;
-        stroke: #6366f1 !important;
+      .export-btn-item.export-btn-print svg,
+      .export-btn-item.export-btn-pdf svg,
+      .export-btn-item.export-btn-json svg,
+      .export-btn-item.export-btn-png svg,
+      .export-btn-item.export-btn-share svg,
+      .export-btn-item.btn-primary svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
       }
 
-      .export-btn-item:hover {
+      .export-btn-item:hover,
+      .export-btn-item.btn-primary:hover {
         background-color: #ffffff !important;
+        border-color: #059669 !important;
+        color: #047857 !important;
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.22);
+      }
+      .export-btn-item:hover svg,
+      .export-btn-item.btn-primary:hover svg {
+        color: #047857 !important;
+        stroke: #047857 !important;
       }
 
       .export-btn-item:active {
         transform: translateY(0);
-      }
-
-      .export-btn-item.btn-primary {
-        background-color: #ffffff !important;
-        color: #6366f1 !important;
-        border-color: #6366f1 !important;
-        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15) !important;
-      }
-
-      .export-btn-item.btn-primary:hover {
-        background-color: #ffffff !important;
-        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25) !important;
       }
       [data-theme="dark"] .btn-ctrl,
       [data-theme="dark"] .export-btn-item {
@@ -737,55 +718,47 @@
         justify-content: center;
         border-radius: var(--border-radius);
         background-color: #ffffff !important;
-        border: 1.5px solid #6366f1 !important;
-        color: #6366f1 !important;
+        border: 1.5px solid #10b981 !important;
+        color: #059669 !important;
         cursor: pointer;
         position: relative;
         transition: all 0.2s ease;
-        box-shadow: 0 2px 6px rgba(99, 102, 241, 0.1);
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.1);
       }
 
       .action-btn.action-btn-zoom-in,
       .action-btn.action-btn-zoom-out,
-      .action-btn[data-tooltip*="Zoom"] {
-        border-color: #3b82f6 !important;
-        color: #3b82f6 !important;
-        box-shadow: 0 2px 6px rgba(59, 130, 246, 0.1);
-      }
-      .action-btn.action-btn-zoom-in svg,
-      .action-btn.action-btn-zoom-out svg,
-      .action-btn[data-tooltip*="Zoom"] svg {
-        color: #3b82f6 !important;
-        stroke: #3b82f6 !important;
-      }
-
+      .action-btn[data-tooltip*="Zoom"],
       .action-btn#btnResetSchedule,
       .action-btn.action-btn-reset {
-        border-color: #ef4444 !important;
-        color: #ef4444 !important;
-        box-shadow: 0 2px 6px rgba(239, 68, 68, 0.1);
+        border-color: #10b981 !important;
+        color: #059669 !important;
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.1);
       }
+      .action-btn svg,
+      .action-btn.action-btn-zoom-in svg,
+      .action-btn.action-btn-zoom-out svg,
+      .action-btn[data-tooltip*="Zoom"] svg,
       .action-btn#btnResetSchedule svg,
       .action-btn.action-btn-reset svg {
-        color: #ef4444 !important;
-        stroke: #ef4444 !important;
+        color: #10b981 !important;
+        stroke: #10b981 !important;
       }
 
       .action-btn:hover {
         background-color: #ffffff !important;
+        border-color: #059669 !important;
+        color: #047857 !important;
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.22);
+      }
+      .action-btn:hover svg {
+        color: #047857 !important;
+        stroke: #047857 !important;
       }
 
       .action-btn:active {
         transform: translateY(0);
-      }
-
-      .action-btn svg {
-        width: 18px;
-        height: 18px;
-        color: inherit;
-        stroke: currentColor;
       }
 
       .btn-labeled {
@@ -805,37 +778,50 @@
         letter-spacing: 0.01em;
         border-radius: var(--border-radius) !important;
         background-color: #ffffff !important;
-        color: #6366f1 !important;
-        border: 1.5px solid #6366f1 !important;
+        color: #059669 !important;
+        border: 1.5px solid #10b981 !important;
         cursor: pointer;
         display: inline-flex !important;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.18) !important;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2) !important;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
         white-space: nowrap;
       }
       .btn-add-event:hover {
         background-color: #ffffff !important;
+        border-color: #059669 !important;
+        color: #047857 !important;
         transform: translateY(-1px);
-        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.28) !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
+      }
+      .btn-add-event:hover svg {
+        color: #047857 !important;
+        stroke: #047857 !important;
       }
       .btn-add-event:active {
         transform: translateY(0);
-        box-shadow: 0 1px 3px rgba(99, 102, 241, 0.2) !important;
+        box-shadow: 0 1px 3px rgba(16, 185, 129, 0.2) !important;
       }
       .btn-add-event svg {
         width: 17px !important;
         height: 17px !important;
         stroke-width: 2.3 !important;
         flex-shrink: 0;
-        color: #6366f1 !important;
-        stroke: #6366f1 !important;
+        color: #10b981 !important;
+        stroke: #10b981 !important;
       }
       [data-theme="dark"] .action-btn,
       [data-theme="dark"] .btn-add-event {
         background-color: #1e293b !important;
+        border-color: #10b981 !important;
+        color: #34d399 !important;
+      }
+      [data-theme="dark"] .action-btn svg,
+      [data-theme="dark"] .btn-add-event svg {
+        color: #34d399 !important;
+        stroke: #34d399 !important;
       }
 
       /* Tooltip for micro interactions */
@@ -3681,8 +3667,26 @@
       }
 
       /* ==========================================================================
-         STUDENT TIMETABLE GENERATOR TOOL (#timetableApp) & MODALS - VIOLET BORDERS & ICONS
+         ALL BUTTONS GREEN THEME (#10b981) - BORDERS, TEXT, AND ICONS
          ========================================================================== */
+      button,
+      .btn-ctrl,
+      .action-btn,
+      .export-btn-item,
+      .btn-add-event,
+      .btn-sidebar-import,
+      .btn-sidebar-export,
+      .btn-sidebar-backup,
+      .btn-sidebar-reset,
+      .classic-btn-add-primary,
+      .classic-icon-btn,
+      .classic-evt-btn,
+      .classic-mobile-fab,
+      .classic-duration-btn,
+      .custom-dropdown-trigger,
+      .seo-btn-cta,
+      .btn-signin-header,
+      .btn-signup-header,
       #timetableApp button,
       #timetableApp .btn-ctrl,
       #timetableApp .action-btn,
@@ -3707,26 +3711,42 @@
       #classicEventModal .btn-ctrl,
       #classicEventModal .classic-day-chip,
       #classicEventModal .classic-duration-btn,
-      #classicEventModal .modal-close {
+      #classicEventModal .modal-close,
+      #authModal button,
+      #shareModal button,
+      #confirmResetModal button {
         background-color: #ffffff !important;
-        border: none !important;
-        color: #1d1e2c !important;
+        border: 1.5px solid #10b981 !important;
+        color: #059669 !important;
         border-radius: 8px;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+        box-shadow: 0 1px 4px rgba(16, 185, 129, 0.1) !important;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
         cursor: pointer;
       }
 
-      /* Vibrant colored icons in Student Timetable Generator tool and Classic tool */
-      .export-btn-print svg { color: #3b82f6 !important; stroke: #3b82f6 !important; }
-      .export-btn-pdf svg { color: #e11d48 !important; stroke: #e11d48 !important; }
-      .export-btn-json svg { color: #f59e0b !important; stroke: #f59e0b !important; }
-      .export-btn-png svg { color: #10b981 !important; stroke: #10b981 !important; }
-      .export-btn-share svg { color: #6366f1 !important; stroke: #6366f1 !important; }
-      
-      #timetableApp .btn-add-event svg,
-      #timetableApp #btnCreateNowCta svg { color: #7c3aed !important; stroke: #7c3aed !important; }
-      
+      button svg,
+      .btn-ctrl svg,
+      .action-btn svg,
+      .export-btn-item svg,
+      .btn-add-event svg,
+      .btn-sidebar-import svg,
+      .btn-sidebar-export svg,
+      .btn-sidebar-backup svg,
+      .btn-sidebar-reset svg,
+      .classic-btn-add-primary svg,
+      .classic-icon-btn svg,
+      .classic-evt-btn svg,
+      .classic-mobile-fab svg,
+      .classic-duration-btn svg,
+      .custom-dropdown-trigger svg,
+      .seo-btn-cta svg,
+      .btn-signin-header svg,
+      .btn-signup-header svg,
+      .export-btn-print svg,
+      .export-btn-pdf svg,
+      .export-btn-json svg,
+      .export-btn-png svg,
+      .export-btn-share svg,
       #timetableApp svg,
       #timetableApp button svg,
       #timetableApp .btn-ctrl svg,
@@ -3748,12 +3768,31 @@
       #classicEventModal svg,
       #classicEventModal button svg,
       #classicEventModal .btn-ctrl svg,
-      #classicEventModal .modal-close svg {
-        color: #0284c7 !important;
-        stroke: #0284c7 !important;
+      #classicEventModal .modal-close svg,
+      #authModal svg,
+      #shareModal svg,
+      #confirmResetModal svg {
+        color: #10b981 !important;
+        stroke: #10b981 !important;
       }
 
       /* Hover States */
+      button:hover,
+      .btn-ctrl:hover,
+      .action-btn:hover,
+      .export-btn-item:hover,
+      .btn-add-event:hover,
+      .btn-sidebar-import:hover,
+      .btn-sidebar-export:hover,
+      .btn-sidebar-backup:hover,
+      .btn-sidebar-reset:hover,
+      .classic-btn-add-primary:hover,
+      .classic-icon-btn:hover,
+      .classic-evt-btn:hover,
+      .classic-mobile-fab:hover,
+      .classic-duration-btn:hover,
+      .custom-dropdown-trigger:hover,
+      .seo-btn-cta:hover,
       #timetableApp button:hover,
       #timetableApp .btn-ctrl:hover,
       #timetableApp .action-btn:hover,
@@ -3775,25 +3814,53 @@
       #classicEventModal button:hover,
       #classicEventModal .btn-ctrl:hover,
       #classicEventModal .classic-day-chip:hover,
-      #classicEventModal .classic-duration-btn:hover {
+      #classicEventModal .classic-duration-btn:hover,
+      #authModal button:hover,
+      #shareModal button:hover,
+      #confirmResetModal button:hover {
         background-color: #ffffff !important;
-        border-color: #6d28d9 !important;
-        color: #6d28d9 !important;
+        border-color: #059669 !important;
+        color: #047857 !important;
         transform: translateY(-1px) !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.24) !important;
+      }
+
+      button:hover svg,
+      .btn-ctrl:hover svg,
+      .action-btn:hover svg,
+      .export-btn-item:hover svg,
+      .btn-add-event:hover svg,
+      .classic-btn-add-primary:hover svg,
+      .classic-icon-btn:hover svg,
+      .classic-evt-btn:hover svg,
+      .classic-mobile-fab:hover svg,
+      .classic-duration-btn:hover svg,
+      .custom-dropdown-trigger:hover svg,
+      .seo-btn-cta:hover svg,
+      #timetableApp button:hover svg,
+      #eventModal button:hover svg,
+      #classicEventModal button:hover svg,
+      #authModal button:hover svg,
+      #shareModal button:hover svg {
+        color: #047857 !important;
+        stroke: #047857 !important;
       }
 
       /* Active / Selected States (e.g. mobile day filter, active action buttons) */
+      button:active,
+      .btn-ctrl:active,
+      .action-btn:active,
+      .export-btn-item:active,
       #timetableApp .mobile-day-btn.active,
       #timetableApp .btn-ctrl.active,
       #timetableApp .action-btn.active,
       #eventModal .btn-primary,
       #classicEventModal .classic-day-chip.active,
       #classicEventModal .btn-primary {
-        background-color: #7c3aed !important;
-        border-color: #7c3aed !important;
+        background-color: #10b981 !important;
+        border-color: #10b981 !important;
         color: #ffffff !important;
-        box-shadow: 0 3px 10px rgba(124, 58, 237, 0.35) !important;
+        box-shadow: 0 3px 10px rgba(16, 185, 129, 0.35) !important;
       }
       #timetableApp .mobile-day-btn.active svg,
       #timetableApp .btn-ctrl.active svg,
@@ -3805,52 +3872,45 @@
         stroke: #ffffff !important;
       }
 
-      /* Danger / Reset / Delete Buttons */
-      #timetableApp #btnResetSchedule,
-      #timetableApp .btn-sidebar-reset,
-      #btnClassicDeleteEvt {
-        border-color: #ef4444 !important;
-        color: #ef4444 !important;
-      }
-      #timetableApp #btnResetSchedule svg,
-      #timetableApp .btn-sidebar-reset svg,
-      #btnClassicDeleteEvt svg {
-        color: #ef4444 !important;
-        stroke: #ef4444 !important;
-      }
-      #timetableApp #btnResetSchedule:hover,
-      #timetableApp .btn-sidebar-reset:hover,
-      #btnClassicDeleteEvt:hover {
-        border-color: #dc2626 !important;
-        color: #dc2626 !important;
-        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2) !important;
-      }
-
-      /* Student Timetable Generator Content Buttons & FAQ Items */
-      #timetableApp .seo-faq-item {
+      /* FAQ items */
+      #timetableApp .seo-faq-item,
+      .seo-faq-item {
         background-color: #ffffff !important;
-        border: 1.5px solid #8b5cf6 !important;
+        border: 1.5px solid #10b981 !important;
         border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.08) !important;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08) !important;
         overflow: hidden;
         transition: all 0.2s ease;
       }
-      #timetableApp .seo-faq-item:hover {
-        box-shadow: 0 4px 14px rgba(139, 92, 246, 0.16) !important;
+      #timetableApp .seo-faq-item:hover,
+      .seo-faq-item:hover {
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.18) !important;
       }
-      #timetableApp .seo-faq-question {
-        color: #7c3aed !important;
+      #timetableApp .seo-faq-question,
+      .seo-faq-question {
+        color: #059669 !important;
         font-weight: 600;
       }
-      #timetableApp .seo-faq-question::after {
-        color: #7c3aed !important;
+      #timetableApp .seo-faq-question::after,
+      .seo-faq-question::after {
+        color: #10b981 !important;
       }
       #timetableApp .seo-btn-cta,
       #timetableApp .seo-author-info h3 {
-        color: #7c3aed !important;
+        color: #059669 !important;
       }
 
-      /* Dark Mode Adjustments */
+      /* Dark Mode Button Styling */
+      [data-theme="dark"] button,
+      [data-theme="dark"] .btn-ctrl,
+      [data-theme="dark"] .action-btn,
+      [data-theme="dark"] .export-btn-item,
+      [data-theme="dark"] .btn-add-event,
+      [data-theme="dark"] .classic-btn-add-primary,
+      [data-theme="dark"] .classic-icon-btn,
+      [data-theme="dark"] .classic-evt-btn,
+      [data-theme="dark"] .classic-mobile-fab,
+      [data-theme="dark"] .custom-dropdown-trigger,
       [data-theme="dark"] #timetableApp button,
       [data-theme="dark"] #timetableApp .btn-ctrl,
       [data-theme="dark"] #timetableApp .action-btn,
@@ -3861,17 +3921,27 @@
       [data-theme="dark"] #eventModal button,
       [data-theme="dark"] #eventModal .btn-ctrl,
       [data-theme="dark"] #classicEventModal button,
-      [data-theme="dark"] #classicEventModal .btn-ctrl {
+      [data-theme="dark"] #classicEventModal .btn-ctrl,
+      [data-theme="dark"] #authModal button,
+      [data-theme="dark"] #shareModal button,
+      [data-theme="dark"] #confirmResetModal button {
         background-color: #1e293b !important;
-        border-color: #8b5cf6 !important;
-        color: #a78bfa !important;
-        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2) !important;
+        border-color: #10b981 !important;
+        color: #34d399 !important;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2) !important;
       }
+      [data-theme="dark"] button svg,
+      [data-theme="dark"] .btn-ctrl svg,
+      [data-theme="dark"] .action-btn svg,
+      [data-theme="dark"] .export-btn-item svg,
+      [data-theme="dark"] .btn-add-event svg,
       [data-theme="dark"] #timetableApp svg,
       [data-theme="dark"] #eventModal svg,
-      [data-theme="dark"] #classicEventModal svg {
-        color: #a78bfa !important;
-        stroke: #a78bfa !important;
+      [data-theme="dark"] #classicEventModal svg,
+      [data-theme="dark"] #authModal svg,
+      [data-theme="dark"] #shareModal svg {
+        color: #34d399 !important;
+        stroke: #34d399 !important;
       }
 
       /* Mobile Kinetic Scroll Tip */
@@ -5052,18 +5122,6 @@
                       <span>High School Routine</span>
                     </div>
                   </div>
-                  <div class="custom-dropdown-option" data-value="work" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'work', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
-                      <span>Work & Shift Planner</span>
-                    </div>
-                  </div>
-                  <div class="custom-dropdown-option" data-value="fitness" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'fitness', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#f43f5e;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v8H2zM6 8v8M12 8v8"></path></svg></span>
-                      <span>Workout & Gym Plan</span>
-                    </div>
-                  </div>
                   <div class="custom-dropdown-option" data-value="exam" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'exam', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
                     <div class="custom-drop-item-content">
                       <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
@@ -5628,18 +5686,6 @@
                   <div class="custom-drop-item-content">
                     <span class="custom-drop-icon" style="color:#8b5cf6;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></span>
                     <span>🎓 High School Honours</span>
-                  </div>
-                </div>
-                <div class="custom-dropdown-option" data-value="startup_routine" onclick="app.handlers.applyProTemplate('startup_routine')">
-                  <div class="custom-drop-item-content">
-                    <span class="custom-drop-icon" style="color:#f59e0b;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
-                    <span>🚀 Founder Routine</span>
-                  </div>
-                </div>
-                <div class="custom-dropdown-option" data-value="fitness_athlete" onclick="app.handlers.applyProTemplate('fitness_athlete')">
-                  <div class="custom-drop-item-content">
-                    <span class="custom-drop-icon" style="color:#f43f5e;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></span>
-                    <span>⚡ Student Athlete</span>
                   </div>
                 </div>
                 <div class="custom-dropdown-option" data-value="exam_cram" onclick="app.handlers.applyProTemplate('exam_cram')">

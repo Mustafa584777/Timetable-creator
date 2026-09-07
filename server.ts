@@ -88,15 +88,17 @@ async function startServer() {
     res.sendFile(filePath);
   });
 
-  // Explicitly serve sitemap.html and robots.txt at the root level
+  // Sitemap XML and XSL stylesheet handler
   anonymityApp.get(["/sitemap.html", "/sitemap.html/"], (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "sitemap.html")
-      : path.join(process.cwd(), "public", "sitemap.html");
-    if (fs.existsSync(filePath)) {
-      return res.sendFile(filePath);
-    }
-    res.redirect("/");
+    return res.redirect(301, "/sitemap.xml");
+  });
+
+  anonymityApp.get("/sitemap.xsl", (req, res) => {
+    const xslPath = process.env.NODE_ENV === "production"
+      ? (fs.existsSync(path.join(process.cwd(), "dist", "sitemap.xsl")) ? path.join(process.cwd(), "dist", "sitemap.xsl") : path.join(process.cwd(), "public", "sitemap.xsl"))
+      : path.join(process.cwd(), "public", "sitemap.xsl");
+    res.type("text/xsl; charset=utf-8");
+    res.sendFile(xslPath);
   });
 
   // Universal Blog route handler for all blog posts, blog index, and language editions
