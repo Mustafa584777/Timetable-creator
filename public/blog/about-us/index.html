@@ -14,15 +14,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Online Timetable Creator</title>
     <meta name="description" content="Discover the team, mission, and technology behind the Online Timetable Creator." />
-    <link rel="canonical" href="https://timetablecreator.online/blog/about-us/" />
+        <link rel="canonical" href="https://timetablecreator.online/blog/about-us/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/blog/about-us/" />
-    <link rel="alternate" hreflang="en" href="https://timetablecreator.online/blog/about-us/" />
-    <link rel="alternate" hreflang="es" href="https://timetablecreator.online/blog/about-us/?lang=es" />
-    <link rel="alternate" hreflang="fr" href="https://timetablecreator.online/blog/about-us/?lang=fr" />
-    <link rel="alternate" hreflang="de" href="https://timetablecreator.online/blog/about-us/?lang=de" />
-    <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/blog/about-us/?lang=ru" />
-    <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/blog/about-us/?lang=ar" />
-    <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/blog/about-us/?lang=hi" />
+    <link rel="alternate" hreflang="en" href="https://timetablecreator.online/blog/about-us/en" />
+    <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/blog/about-us/en-GB" />
+    <link rel="alternate" hreflang="es" href="https://timetablecreator.online/blog/about-us/es" />
+    <link rel="alternate" hreflang="fr" href="https://timetablecreator.online/blog/about-us/fr" />
+    <link rel="alternate" hreflang="de" href="https://timetablecreator.online/blog/about-us/de" />
+    <link rel="alternate" hreflang="it" href="https://timetablecreator.online/blog/about-us/it" />
+    <link rel="alternate" hreflang="pt" href="https://timetablecreator.online/blog/about-us/pt" />
+    <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/blog/about-us/hi" />
+    <link rel="alternate" hreflang="ru" href="https://timetablecreator.online/blog/about-us/ru" />
+    <link rel="alternate" hreflang="ar" href="https://timetablecreator.online/blog/about-us/ar" />
+    <link rel="alternate" hreflang="zh" href="https://timetablecreator.online/blog/about-us/zh" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -198,13 +202,17 @@
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.818-2.251-2.253-4.247-4-5.5C6.754 4.753 5.32 6.749 4.5 9h8m-8 0a13.935 13.935 0 002.912 4.5M6.412 9a13.935 13.935 0 002.912 4.5M11 21l3-6 3 6m-5-2h4"></path></svg>
             </button>
             <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 36px; right: auto; left: 0;">
-              <button class="lang-dropdown-item" onclick="changeLanguage('en')">English</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('en')">English (US)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Français</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('pt')">Português</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('ru')">Русский</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('ar')">العربية</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('zh')">中文 (Mandarin)</button>
             </div>
           </div>
         </div>
@@ -362,6 +370,7 @@
               <a href="/blog/about-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">About Us</a>
               <a href="/blog/contact-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">Contact Us</a>
               <a href="/blog/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">Blog (Articles Archive)</a>
+              <a href="/html-sitemap" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">HTML Sitemap</a>
             </div>
           </div>
 
@@ -446,35 +455,30 @@
 
       // Triggers custom Google Translate cookie state and updates parameters
       function changeLanguage(langCode) {
-        const domain = window.location.hostname;
-        
-        // Clear existing cookies with different parameters to prevent duplicates
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure";
-        if (domain) {
-          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain + "; SameSite=None; Secure";
+        const supportedLangs = ['en', 'en-GB', 'es', 'fr', 'de', 'it', 'pt', 'hi', 'ru', 'ar', 'zh'];
+        let path = window.location.pathname.replace(/\/+$/, '');
+        let segments = path.split('/').filter(Boolean);
+        if (segments.length > 0 && supportedLangs.includes(segments[segments.length - 1])) {
+          segments.pop();
+        }
+        let basePath = '/' + segments.join('/');
+        if (basePath === '/') basePath = '';
+
+        let targetPath = '';
+        if (langCode === 'en' || langCode === 'x-default') {
+          targetPath = basePath || '/';
+        } else {
+          targetPath = (basePath ? basePath : '') + '/' + langCode;
         }
 
-        // Set cookies with SameSite=None and Secure for modern browser iframe compatibility
-        document.cookie = `googtrans=/en/${langCode}; path=/; SameSite=None; Secure`;
+        const domain = window.location.hostname;
+        const transCode = langCode === 'en-GB' ? 'en' : langCode;
+        document.cookie = `googtrans=/en/${transCode}; path=/; SameSite=None; Secure`;
         if (domain) {
-          document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}; SameSite=None; Secure`;
-          const parts = domain.split('.');
-          if (parts.length >= 2) {
-            const baseDomain = parts.slice(-2).join('.');
-            document.cookie = `googtrans=/en/${langCode}; path=/; domain=.${baseDomain}; SameSite=None; Secure`;
-          }
+          document.cookie = `googtrans=/en/${transCode}; path=/; domain=${domain}; SameSite=None; Secure`;
         }
-        
-        const url = new URL(window.location.href);
-        if (langCode === 'en') {
-          url.searchParams.delete('lang');
-          url.hash = '';
-        } else {
-          url.searchParams.set('lang', langCode);
-          url.hash = `#googtrans(en|${langCode})`;
-        }
-        window.location.href = url.toString();
+
+        window.location.href = targetPath + (window.location.search || '') + (langCode !== 'en' && langCode !== 'en-GB' ? `#googtrans(en|${transCode})` : '');
       }
 
       // Close language dropdown if clicking outside

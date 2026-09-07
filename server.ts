@@ -27,7 +27,7 @@ function getAi(): GoogleGenAI {
 
 async function startServer() {
   const anonymityApp = express();
-  const PORT = process.env.PORT || 3000;
+  const PORT = 3000;
 
   anonymityApp.use(express.json());
   const upload = multer();
@@ -88,61 +88,191 @@ async function startServer() {
     res.sendFile(filePath);
   });
 
-  // Serve all static files in public folder
-  anonymityApp.use(express.static(path.join(process.cwd(), "public")));
+  // Serve all static files in public folder without auto directory index/redirect so custom i18n route handlers take precedence
+  anonymityApp.use(express.static(path.join(process.cwd(), "public"), { redirect: false, index: false }));
 
-  // Universal Blog route handler for all blog posts and blog index
-  anonymityApp.get(["/blog", "/blog/", "/blog/:slug", "/blog/:slug/"], (req, res, next) => {
-    const slug = req.params.slug;
-    const blogRelativePath = slug ? path.join(slug, "index.html") : "index.html";
-    const devBlogPath = path.join(process.cwd(), "public", "blog", blogRelativePath);
-    const prodBlogPath = path.join(process.cwd(), "dist", "blog", blogRelativePath);
+  const SUPPORTED_LANG_CODES = ['en', 'en-GB', 'es', 'fr', 'de', 'it', 'pt', 'hi', 'ru', 'ar', 'zh'];
+  const BASE_DOMAIN = 'https://timetablecreator.online';
 
-    if (process.env.NODE_ENV === "production" && fs.existsSync(prodBlogPath)) {
-      return res.sendFile(prodBlogPath);
+  function generateI18nHreflangs(baseCanonicalUrl: string): string {
+    const urlPrefix = baseCanonicalUrl.replace(/\/+$/, '');
+    return [
+      `<link rel="canonical" href="${baseCanonicalUrl}" />`,
+      `<link rel="alternate" hreflang="x-default" href="${baseCanonicalUrl}" />`,
+      `<link rel="alternate" hreflang="en" href="${urlPrefix}/en" />`,
+      `<link rel="alternate" hreflang="en-GB" href="${urlPrefix}/en-GB" />`,
+      `<link rel="alternate" hreflang="es" href="${urlPrefix}/es" />`,
+      `<link rel="alternate" hreflang="fr" href="${urlPrefix}/fr" />`,
+      `<link rel="alternate" hreflang="de" href="${urlPrefix}/de" />`,
+      `<link rel="alternate" hreflang="it" href="${urlPrefix}/it" />`,
+      `<link rel="alternate" hreflang="pt" href="${urlPrefix}/pt" />`,
+      `<link rel="alternate" hreflang="hi" href="${urlPrefix}/hi" />`,
+      `<link rel="alternate" hreflang="ru" href="${urlPrefix}/ru" />`,
+      `<link rel="alternate" hreflang="ar" href="${urlPrefix}/ar" />`,
+      `<link rel="alternate" hreflang="zh" href="${urlPrefix}/zh" />`
+    ].join('\n    ');
+  }
+
+  function serveI18nHtml(req: express.Request, res: express.Response, filePath: string, basePath: string, lang: string | null) {
+    if (!fs.existsSync(filePath)) {
+      filePath = path.join(process.cwd(), "index.html");
     }
-    if (fs.existsSync(devBlogPath)) {
-      return res.sendFile(devBlogPath);
+    let html = fs.readFileSync(filePath, "utf8");
+
+    // Base canonical url is without language suffix
+    const baseCanonicalUrl = basePath ? `${BASE_DOMAIN}${basePath}/` : `${BASE_DOMAIN}/`;
+    const activeCanonicalUrl = (lang && lang !== 'en' && lang !== 'x-default') 
+      ? `${BASE_DOMAIN}${basePath}/${lang}`
+      : baseCanonicalUrl;
+
+    // Update <html lang="...">
+    if (lang) {
+      html = html.replace(/<html(\s+[^>]*?)lang="[^"]*"/i, `<html$1lang="${lang}"`);
+    }
+
+    // Replace canonical and hreflang block
+    const hreflangBlock = generateI18nHreflangs(baseCanonicalUrl);
+    const activeHreflangBlock = (lang && lang !== 'en')
+      ? hreflangBlock.replace(`<link rel="canonical" href="${baseCanonicalUrl}" />`, `<link rel="canonical" href="${activeCanonicalUrl}" />`)
+      : hreflangBlock;
+
+    const headCanonicalRegex = /<link rel="canonical"[\s\S]*?(?=<link rel="preconnect"|<script|<style|<\!-- High Performance|<\!-- FAQPage|<\!-- Universal)/i;
+    if (headCanonicalRegex.test(html)) {
+      html = html.replace(headCanonicalRegex, activeHreflangBlock + '\n    ');
+    }
+
+    // If specific language is requested, set language cookie in response
+    if (lang && lang !== 'en') {
+      const transCode = lang === 'en-GB' ? 'en' : lang;
+      res.cookie('googtrans', `/en/${transCode}`, { path: '/', sameSite: 'none', secure: true });
+    } else if (lang === 'en') {
+      res.cookie('googtrans', '/en/en', { path: '/', sameSite: 'none', secure: true });
+    }
+
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    return res.send(html);
+  }
+
+  // Student Timetable Generator
+  anonymityApp.get([
+    "/timetable-generator-online-for-students",
+    "/timetable-generator-online-for-students/",
+    "/timetable-generator-online-for-students/:lang",
+    "/timetable-generator-online-for-students/:lang/"
+  ], (req, res) => {
+    const lang = req.params.lang && SUPPORTED_LANG_CODES.includes(req.params.lang) ? req.params.lang : null;
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "timetable-generator-online-for-students", "index.html")
+      : path.join(process.cwd(), "public", "timetable-generator-online-for-students", "index.html");
+    return serveI18nHtml(req, res, filePath, "/timetable-generator-online-for-students", lang);
+  });
+
+  // General Timetable Generator
+  anonymityApp.get([
+    "/timetable-generator",
+    "/timetable-generator/",
+    "/timetable-generator/:lang",
+    "/timetable-generator/:lang/"
+  ], (req, res) => {
+    const lang = req.params.lang && SUPPORTED_LANG_CODES.includes(req.params.lang) ? req.params.lang : null;
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "timetable-generator", "index.html")
+      : path.join(process.cwd(), "public", "timetable-generator", "index.html");
+    return serveI18nHtml(req, res, filePath, "/timetable-generator", lang);
+  });
+
+  // HTML Sitemap
+  anonymityApp.get([
+    "/html-sitemap",
+    "/html-sitemap/",
+    "/html-sitemap/:lang",
+    "/html-sitemap/:lang/",
+    "/sitemap.html"
+  ], (req, res) => {
+    const lang = req.params.lang && SUPPORTED_LANG_CODES.includes(req.params.lang) ? req.params.lang : null;
+    const filePath = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "html-sitemap", "index.html")
+      : path.join(process.cwd(), "public", "html-sitemap", "index.html");
+    return serveI18nHtml(req, res, filePath, "/html-sitemap", lang);
+  });
+
+  // Universal Blog route handler with language URLs
+  anonymityApp.get([
+    "/blog",
+    "/blog/",
+    "/blog/:p1",
+    "/blog/:p1/",
+    "/blog/:p1/:p2",
+    "/blog/:p1/:p2/"
+  ], (req, res, next) => {
+    const p1 = req.params.p1;
+    const p2 = req.params.p2;
+
+    // Check if p1 is a language code (e.g. /blog/fr)
+    if (p1 && SUPPORTED_LANG_CODES.includes(p1) && !p2) {
+      const blogIndexPath = process.env.NODE_ENV === "production"
+        ? path.join(process.cwd(), "dist", "blog", "index.html")
+        : path.join(process.cwd(), "public", "blog", "index.html");
+      return serveI18nHtml(req, res, blogIndexPath, "/blog", p1);
+    }
+
+    // Base blog index: /blog
+    if (!p1) {
+      const blogIndexPath = process.env.NODE_ENV === "production"
+        ? path.join(process.cwd(), "dist", "blog", "index.html")
+        : path.join(process.cwd(), "public", "blog", "index.html");
+      return serveI18nHtml(req, res, blogIndexPath, "/blog", null);
+    }
+
+    // Otherwise p1 is a blog article slug (e.g. /blog/study-timetable-for-class-10)
+    const slug = p1;
+    const lang = p2 && SUPPORTED_LANG_CODES.includes(p2) ? p2 : null;
+    const blogPostPath = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "blog", slug, "index.html")
+      : path.join(process.cwd(), "public", "blog", slug, "index.html");
+
+    if (fs.existsSync(blogPostPath)) {
+      return serveI18nHtml(req, res, blogPostPath, `/blog/${slug}`, lang);
     }
     next();
   });
 
-  anonymityApp.get(["/timetable-generator-online-for-students", "/timetable-generator-online-for-students/"], (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "timetable-generator-online-for-students", "index.html")
-      : path.join(process.cwd(), "public", "timetable-generator-online-for-students", "index.html");
-    if (fs.existsSync(filePath)) {
-      return res.sendFile(filePath);
+  // Homepage Language URLs (e.g. /en, /en-GB, /fr, /es, etc.)
+  anonymityApp.get(
+    SUPPORTED_LANG_CODES.flatMap(code => [`/${code}`, `/${code}/`]),
+    (req, res) => {
+      const lang = req.path.replace(/^\/|\/$/g, '');
+      const rootIndex = process.env.NODE_ENV === "production"
+        ? path.join(process.cwd(), "dist", "index.html")
+        : path.join(process.cwd(), "index.html");
+      return serveI18nHtml(req, res, rootIndex, "", lang);
     }
-    const rootIndex = process.env.NODE_ENV === "production"
-      ? path.join(process.cwd(), "dist", "index.html")
-      : path.join(process.cwd(), "index.html");
-    if (fs.existsSync(rootIndex)) {
-      return res.sendFile(rootIndex);
-    }
-    res.sendFile(path.join(process.cwd(), "index.html"));
-  });
+  );
 
-  anonymityApp.get(["/timetable-generator", "/timetable-generator/"], (req, res) => {
-    const filePath = process.env.NODE_ENV === "production" 
-      ? path.join(process.cwd(), "dist", "timetable-generator", "index.html")
-      : path.join(process.cwd(), "public", "timetable-generator", "index.html");
-    if (fs.existsSync(filePath)) {
-      return res.sendFile(filePath);
-    }
+  // Root Homepage
+  anonymityApp.get("/", (req, res, next) => {
     const rootIndex = process.env.NODE_ENV === "production"
       ? path.join(process.cwd(), "dist", "index.html")
       : path.join(process.cwd(), "index.html");
     if (fs.existsSync(rootIndex)) {
-      return res.sendFile(rootIndex);
+      return serveI18nHtml(req, res, rootIndex, "", null);
     }
-    res.sendFile(path.join(process.cwd(), "index.html"));
+    next();
   });
 
   // Dynamic route for any custom timetable creator tool without timetable-creator/ folder in URL
-  anonymityApp.get(["/:toolSlug", "/:toolSlug/"], (req, res, next) => {
+  anonymityApp.get(["/:toolSlug", "/:toolSlug/", "/:toolSlug/:lang", "/:toolSlug/:lang/"], (req, res, next) => {
     const toolSlug = req.params.toolSlug;
-    if (toolSlug.startsWith("api") || toolSlug.startsWith("blog") || toolSlug.startsWith("@") || toolSlug.includes(".")) {
+    const lang = req.params.lang && SUPPORTED_LANG_CODES.includes(req.params.lang) ? req.params.lang : null;
+
+    if (
+      toolSlug.startsWith("api") ||
+      toolSlug.startsWith("blog") ||
+      toolSlug.startsWith("@") ||
+      toolSlug.startsWith("src") ||
+      toolSlug.includes(".") ||
+      SUPPORTED_LANG_CODES.includes(toolSlug)
+    ) {
       return next();
     }
     const publicToolPath = path.join(process.cwd(), "public", toolSlug, "index.html");
@@ -151,22 +281,22 @@ async function startServer() {
     const rootToolPath = path.join(process.cwd(), "timetable-creator", toolSlug, "index.html");
 
     if (fs.existsSync(distToolPath) && process.env.NODE_ENV === "production") {
-      return res.sendFile(distToolPath);
+      return serveI18nHtml(req, res, distToolPath, `/${toolSlug}`, lang);
     }
     if (fs.existsSync(publicToolPath)) {
-      return res.sendFile(publicToolPath);
+      return serveI18nHtml(req, res, publicToolPath, `/${toolSlug}`, lang);
     }
     if (fs.existsSync(publicSubToolPath)) {
-      return res.sendFile(publicSubToolPath);
+      return serveI18nHtml(req, res, publicSubToolPath, `/${toolSlug}`, lang);
     }
     if (fs.existsSync(rootToolPath)) {
-      return res.sendFile(rootToolPath);
+      return serveI18nHtml(req, res, rootToolPath, `/${toolSlug}`, lang);
     }
     // Fall back to main SPA index.html so it never 404s
     const rootIndex = process.env.NODE_ENV === "production"
       ? path.join(process.cwd(), "dist", "index.html")
       : path.join(process.cwd(), "index.html");
-    return res.sendFile(rootIndex);
+    return serveI18nHtml(req, res, rootIndex, `/${toolSlug}`, lang);
   });
 
   // Handle api.php for saving/loading shared timetables
