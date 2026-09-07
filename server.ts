@@ -88,6 +88,17 @@ async function startServer() {
     res.sendFile(filePath);
   });
 
+  anonymityApp.get("/ads.txt", (req, res) => {
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "ads.txt")
+      : path.join(process.cwd(), "public", "ads.txt");
+    if (fs.existsSync(filePath)) {
+      res.sendFile(filePath);
+    } else {
+      res.sendFile(path.join(process.cwd(), "ads.txt"));
+    }
+  });
+
   // Explicitly serve sitemap.html and robots.txt at the root level
   anonymityApp.get(["/sitemap.html", "/sitemap.html/"], (req, res) => {
     const filePath = process.env.NODE_ENV === "production" 
