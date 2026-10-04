@@ -15,8 +15,8 @@ const languages = SUPPORTED_LANGS.map(l => ({
 
 const baseUrl = 'https://timetablecreator.online';
 
-// Helper to remove obsolete directories (ru, ar, zh)
-const obsoleteLangs = ['ru', 'ar', 'zh'];
+// Helper to remove obsolete directories (ru, ar, zh, en)
+const obsoleteLangs = ['ru', 'ar', 'zh', 'en'];
 function cleanObsoleteDirs(dir) {
   if (!fs.existsSync(dir)) return;
   const entries = fs.readdirSync(dir, { withFileTypes: true });
