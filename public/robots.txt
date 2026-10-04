@@ -8,16 +8,72 @@ Disallow: /firebase-applet-config.json
 Disallow: /*.tsx$
 Disallow: /*.ts$
 
-# Disallow Blog & All Multilingual Versions (except allowed legal pages)
+# Disallow Blog Root & Archive
 Disallow: /blog/
-Allow: /blog/privacy-policy/
-Allow: /blog/terms-and-conditions/
-Allow: /blog/refund-policy/
-Allow: /blog/disclaimer/
-Allow: /blog/about-us/
-Allow: /blog/contact-us/
-Allow: /blog/contact-support/
 
+# Explicitly Disallow All Blog Articles & All Their Language Versions
+Disallow: /blog/study-timetable-for-class-10/
+Disallow: /blog/study-timetable-for-class-10/en-GB
+Disallow: /blog/study-timetable-for-class-10/en
+Disallow: /blog/study-timetable-for-class-10/es
+Disallow: /blog/study-timetable-for-class-10/ja
+Disallow: /blog/study-timetable-for-class-10/fr
+Disallow: /blog/study-timetable-for-class-10/de
+Disallow: /blog/study-timetable-for-class-10/pt
+Disallow: /blog/study-timetable-for-class-10/ko
+Disallow: /blog/study-timetable-for-class-10/it
+Disallow: /blog/study-timetable-for-class-10/hi
+
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/en-GB
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/en
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/es
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/ja
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/fr
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/de
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/pt
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/ko
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/it
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/hi
+
+Disallow: /blog/daily-routine-for-class-10-student-at-home/
+Disallow: /blog/daily-routine-for-class-10-student-at-home/en-GB
+Disallow: /blog/daily-routine-for-class-10-student-at-home/en
+Disallow: /blog/daily-routine-for-class-10-student-at-home/es
+Disallow: /blog/daily-routine-for-class-10-student-at-home/ja
+Disallow: /blog/daily-routine-for-class-10-student-at-home/fr
+Disallow: /blog/daily-routine-for-class-10-student-at-home/de
+Disallow: /blog/daily-routine-for-class-10-student-at-home/pt
+Disallow: /blog/daily-routine-for-class-10-student-at-home/ko
+Disallow: /blog/daily-routine-for-class-10-student-at-home/it
+Disallow: /blog/daily-routine-for-class-10-student-at-home/hi
+
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/en-GB
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/en
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/es
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/ja
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/fr
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/de
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/pt
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/ko
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/it
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/hi
+
+Disallow: /blog/timetable-guides/
+Disallow: /blog/timetable-guides/en-GB
+Disallow: /blog/timetable-guides/en
+Disallow: /blog/timetable-guides/es
+Disallow: /blog/timetable-guides/ja
+Disallow: /blog/timetable-guides/fr
+Disallow: /blog/timetable-guides/de
+Disallow: /blog/timetable-guides/pt
+Disallow: /blog/timetable-guides/ko
+Disallow: /blog/timetable-guides/it
+Disallow: /blog/timetable-guides/hi
+
+# Allow ONLY Legal Policy Pages (and their language versions)
+Allow: /blog/privacy-policy/
 Allow: /blog/privacy-policy/en-GB
 Allow: /blog/privacy-policy/en
 Allow: /blog/privacy-policy/es
@@ -29,6 +85,7 @@ Allow: /blog/privacy-policy/ko
 Allow: /blog/privacy-policy/it
 Allow: /blog/privacy-policy/hi
 
+Allow: /blog/terms-and-conditions/
 Allow: /blog/terms-and-conditions/en-GB
 Allow: /blog/terms-and-conditions/en
 Allow: /blog/terms-and-conditions/es
@@ -40,6 +97,7 @@ Allow: /blog/terms-and-conditions/ko
 Allow: /blog/terms-and-conditions/it
 Allow: /blog/terms-and-conditions/hi
 
+Allow: /blog/refund-policy/
 Allow: /blog/refund-policy/en-GB
 Allow: /blog/refund-policy/en
 Allow: /blog/refund-policy/es
@@ -51,6 +109,7 @@ Allow: /blog/refund-policy/ko
 Allow: /blog/refund-policy/it
 Allow: /blog/refund-policy/hi
 
+Allow: /blog/disclaimer/
 Allow: /blog/disclaimer/en-GB
 Allow: /blog/disclaimer/en
 Allow: /blog/disclaimer/es
@@ -62,6 +121,7 @@ Allow: /blog/disclaimer/ko
 Allow: /blog/disclaimer/it
 Allow: /blog/disclaimer/hi
 
+Allow: /blog/about-us/
 Allow: /blog/about-us/en-GB
 Allow: /blog/about-us/en
 Allow: /blog/about-us/es
@@ -73,6 +133,7 @@ Allow: /blog/about-us/ko
 Allow: /blog/about-us/it
 Allow: /blog/about-us/hi
 
+Allow: /blog/contact-us/
 Allow: /blog/contact-us/en-GB
 Allow: /blog/contact-us/en
 Allow: /blog/contact-us/es
