@@ -286,7 +286,7 @@ function updateCoreAppFile(filePath, canonicalUrl) {
 }
 
 // 3. Update Blog files
-function updateBlogFile(filePath, canonicalUrl) {
+function updateBlogFile(filePath, canonicalUrl, isLegal) {
   let content = fs.readFileSync(filePath, 'utf8');
 
   // Set default language to en-GB
@@ -295,6 +295,17 @@ function updateBlogFile(filePath, canonicalUrl) {
     if (!m.includes('lang=')) m = m.replace('<html', '<html lang="en-GB"');
     return m;
   });
+
+  // Manage robots meta tag (Legal pages index, blog articles/archives noindex)
+  const robotsMeta = isLegal 
+    ? '<meta name="robots" content="index, follow" />' 
+    : '<meta name="robots" content="noindex, follow" />';
+  
+  if (/<meta name="robots"[^>]*>/i.test(content)) {
+    content = content.replace(/<meta name="robots"[^>]*>/i, robotsMeta);
+  } else {
+    content = content.replace('</head>', `    ${robotsMeta}\n  </head>`);
+  }
 
   // Insert HTML Sitemap, How to Use, and FAQs into blog footer Company column
   if (!content.includes('/how-to-use/')) {
@@ -493,6 +504,7 @@ function runAllUpdates() {
 
   // All Blog Posts (including all language folders)
   const blogDir = 'public/blog';
+  const legalPages = ['privacy-policy', 'terms-and-conditions', 'refund-policy', 'disclaimer', 'about-us', 'contact-us'];
   if (fs.existsSync(blogDir)) {
     function walkBlog(dir) {
       const items = fs.readdirSync(dir, { withFileTypes: true });
@@ -510,7 +522,8 @@ function runAllUpdates() {
           const canonical = canonicalSlug 
             ? `https://timetablecreator.online/blog/${canonicalSlug}/`
             : `https://timetablecreator.online/blog/`;
-          updateBlogFile(fullPath, canonical);
+          const isLegal = segments.length > 0 && legalPages.includes(segments[0]);
+          updateBlogFile(fullPath, canonical, isLegal);
         }
       }
     }

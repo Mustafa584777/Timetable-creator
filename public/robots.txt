@@ -8,6 +8,16 @@ Disallow: /firebase-applet-config.json
 Disallow: /*.tsx$
 Disallow: /*.ts$
 
+# Disallow blog articles and blog archives, except allowed legal/policy pages
+Disallow: /blog/
+Allow: /blog/privacy-policy/
+Allow: /blog/terms-and-conditions/
+Allow: /blog/refund-policy/
+Allow: /blog/disclaimer/
+Allow: /blog/about-us/
+Allow: /blog/contact-us/
+Allow: /blog/contact-support/
+
 # Allowed Key Pages & Language Versions
 Allow: /
 Allow: /en-GB
@@ -33,14 +43,6 @@ Allow: /timetable-generator-online-for-students/ko
 Allow: /timetable-generator-online-for-students/it
 Allow: /timetable-generator-online-for-students/hi
 
-Allow: /blog/privacy-policy/
-Allow: /blog/terms-and-conditions/
-Allow: /blog/refund-policy/
-Allow: /blog/disclaimer/
-Allow: /blog/about-us/
-Allow: /blog/contact-us/
-Allow: /blog/contact-support/
-
 Allow: /faqs/
 Allow: /faqs/en-GB
 Allow: /faqs/en
@@ -55,6 +57,5 @@ Allow: /faqs/hi
 
 Allow: /how-to-use/
 Allow: /html-sitemap/
-Allow: /blog/
 
 Sitemap: https://timetablecreator.online/sitemap.xml
