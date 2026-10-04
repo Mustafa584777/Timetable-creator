@@ -5,7 +5,6 @@ const baseUrl = 'https://timetablecreator.online';
 
 const languages = [
   { code: 'en-GB', name: 'English (UK)' },
-  { code: 'en', name: 'English (US)' },
   { code: 'es', name: 'Español' },
   { code: 'ja', name: '日本語' },
   { code: 'fr', name: 'Français' },

@@ -3,7 +3,6 @@ const path = require('path');
 
 const SUPPORTED_LANGS = [
   { code: 'en-GB', label: 'English (UK)', isDefault: true },
-  { code: 'en', label: 'English (US)' },
   { code: 'es', label: 'Español' },
   { code: 'ja', label: '日本語' },
   { code: 'fr', label: 'Français' },
@@ -20,7 +19,6 @@ function generateHreflangs(baseCanonicalUrl) {
     `    <link rel="canonical" href="${baseCanonicalUrl}" />`,
     `    <link rel="alternate" hreflang="x-default" href="${baseCanonicalUrl}" />`,
     `    <link rel="alternate" hreflang="en-GB" href="${urlPrefix}/en-GB" />`,
-    `    <link rel="alternate" hreflang="en" href="${urlPrefix}/en" />`,
     `    <link rel="alternate" hreflang="es" href="${urlPrefix}/es" />`,
     `    <link rel="alternate" hreflang="ja" href="${urlPrefix}/ja" />`,
     `    <link rel="alternate" hreflang="fr" href="${urlPrefix}/fr" />`,

@@ -9,7 +9,17 @@ Disallow: /*.tsx$
 Disallow: /*.ts$
 Disallow: /*?*
 
-# Disallow Blog Root & All Multilingual Blog Archive Versions
+# Disallow ALL /en versions across the entire site
+Disallow: /en
+Disallow: /timetable-generator-online-for-students/en
+Disallow: /blog/privacy-policy/en
+Disallow: /blog/terms-and-conditions/en
+Disallow: /blog/refund-policy/en
+Disallow: /blog/disclaimer/en
+Disallow: /blog/about-us/en
+Disallow: /blog/contact-us/en
+
+# Disallow Blog Root & All Multilingual Blog Archive Versions (including /en)
 Disallow: /blog/
 Disallow: /blog/en
 Disallow: /blog/en-GB
@@ -24,8 +34,8 @@ Disallow: /blog/hi
 
 # Explicitly Disallow All Blog Articles & All Their Language Versions
 Disallow: /blog/study-timetable-for-class-10/
-Disallow: /blog/study-timetable-for-class-10/en-GB
 Disallow: /blog/study-timetable-for-class-10/en
+Disallow: /blog/study-timetable-for-class-10/en-GB
 Disallow: /blog/study-timetable-for-class-10/es
 Disallow: /blog/study-timetable-for-class-10/ja
 Disallow: /blog/study-timetable-for-class-10/fr
@@ -36,8 +46,8 @@ Disallow: /blog/study-timetable-for-class-10/it
 Disallow: /blog/study-timetable-for-class-10/hi
 
 Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/
-Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/en-GB
 Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/en
+Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/en-GB
 Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/es
 Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/ja
 Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/fr
@@ -48,8 +58,8 @@ Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guid
 Disallow: /blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/hi
 
 Disallow: /blog/daily-routine-for-class-10-student-at-home/
-Disallow: /blog/daily-routine-for-class-10-student-at-home/en-GB
 Disallow: /blog/daily-routine-for-class-10-student-at-home/en
+Disallow: /blog/daily-routine-for-class-10-student-at-home/en-GB
 Disallow: /blog/daily-routine-for-class-10-student-at-home/es
 Disallow: /blog/daily-routine-for-class-10-student-at-home/ja
 Disallow: /blog/daily-routine-for-class-10-student-at-home/fr
@@ -60,8 +70,8 @@ Disallow: /blog/daily-routine-for-class-10-student-at-home/it
 Disallow: /blog/daily-routine-for-class-10-student-at-home/hi
 
 Disallow: /blog/how-does-an-automatic-timetable-creator-work/
-Disallow: /blog/how-does-an-automatic-timetable-creator-work/en-GB
 Disallow: /blog/how-does-an-automatic-timetable-creator-work/en
+Disallow: /blog/how-does-an-automatic-timetable-creator-work/en-GB
 Disallow: /blog/how-does-an-automatic-timetable-creator-work/es
 Disallow: /blog/how-does-an-automatic-timetable-creator-work/ja
 Disallow: /blog/how-does-an-automatic-timetable-creator-work/fr
@@ -72,8 +82,8 @@ Disallow: /blog/how-does-an-automatic-timetable-creator-work/it
 Disallow: /blog/how-does-an-automatic-timetable-creator-work/hi
 
 Disallow: /blog/timetable-guides/
-Disallow: /blog/timetable-guides/en-GB
 Disallow: /blog/timetable-guides/en
+Disallow: /blog/timetable-guides/en-GB
 Disallow: /blog/timetable-guides/es
 Disallow: /blog/timetable-guides/ja
 Disallow: /blog/timetable-guides/fr
@@ -83,10 +93,9 @@ Disallow: /blog/timetable-guides/ko
 Disallow: /blog/timetable-guides/it
 Disallow: /blog/timetable-guides/hi
 
-# Allow ONLY Legal Policy Pages (and their language versions)
+# Allow ONLY Legal Policy Pages (and their language versions except /en)
 Allow: /blog/privacy-policy/
 Allow: /blog/privacy-policy/en-GB
-Allow: /blog/privacy-policy/en
 Allow: /blog/privacy-policy/es
 Allow: /blog/privacy-policy/ja
 Allow: /blog/privacy-policy/fr
@@ -98,7 +107,6 @@ Allow: /blog/privacy-policy/hi
 
 Allow: /blog/terms-and-conditions/
 Allow: /blog/terms-and-conditions/en-GB
-Allow: /blog/terms-and-conditions/en
 Allow: /blog/terms-and-conditions/es
 Allow: /blog/terms-and-conditions/ja
 Allow: /blog/terms-and-conditions/fr
@@ -110,7 +118,6 @@ Allow: /blog/terms-and-conditions/hi
 
 Allow: /blog/refund-policy/
 Allow: /blog/refund-policy/en-GB
-Allow: /blog/refund-policy/en
 Allow: /blog/refund-policy/es
 Allow: /blog/refund-policy/ja
 Allow: /blog/refund-policy/fr
@@ -122,7 +129,6 @@ Allow: /blog/refund-policy/hi
 
 Allow: /blog/disclaimer/
 Allow: /blog/disclaimer/en-GB
-Allow: /blog/disclaimer/en
 Allow: /blog/disclaimer/es
 Allow: /blog/disclaimer/ja
 Allow: /blog/disclaimer/fr
@@ -134,7 +140,6 @@ Allow: /blog/disclaimer/hi
 
 Allow: /blog/about-us/
 Allow: /blog/about-us/en-GB
-Allow: /blog/about-us/en
 Allow: /blog/about-us/es
 Allow: /blog/about-us/ja
 Allow: /blog/about-us/fr
@@ -146,7 +151,6 @@ Allow: /blog/about-us/hi
 
 Allow: /blog/contact-us/
 Allow: /blog/contact-us/en-GB
-Allow: /blog/contact-us/en
 Allow: /blog/contact-us/es
 Allow: /blog/contact-us/ja
 Allow: /blog/contact-us/fr
@@ -156,10 +160,10 @@ Allow: /blog/contact-us/ko
 Allow: /blog/contact-us/it
 Allow: /blog/contact-us/hi
 
-# Disallow HTML Sitemap & All Language Versions
+# Disallow HTML Sitemap & All Language Versions (including /en)
 Disallow: /html-sitemap/
-Disallow: /html-sitemap/en-GB
 Disallow: /html-sitemap/en
+Disallow: /html-sitemap/en-GB
 Disallow: /html-sitemap/es
 Disallow: /html-sitemap/ja
 Disallow: /html-sitemap/fr
@@ -169,10 +173,10 @@ Disallow: /html-sitemap/ko
 Disallow: /html-sitemap/it
 Disallow: /html-sitemap/hi
 
-# Disallow FAQ Page & All Language Versions
+# Disallow FAQ Page & All Language Versions (including /en)
 Disallow: /faqs/
-Disallow: /faqs/en-GB
 Disallow: /faqs/en
+Disallow: /faqs/en-GB
 Disallow: /faqs/es
 Disallow: /faqs/ja
 Disallow: /faqs/fr
@@ -182,10 +186,10 @@ Disallow: /faqs/ko
 Disallow: /faqs/it
 Disallow: /faqs/hi
 
-# Disallow How to Use & All Language Versions
+# Disallow How to Use & All Language Versions (including /en)
 Disallow: /how-to-use/
-Disallow: /how-to-use/en-GB
 Disallow: /how-to-use/en
+Disallow: /how-to-use/en-GB
 Disallow: /how-to-use/es
 Disallow: /how-to-use/ja
 Disallow: /how-to-use/fr
@@ -195,10 +199,9 @@ Disallow: /how-to-use/ko
 Disallow: /how-to-use/it
 Disallow: /how-to-use/hi
 
-# Allowed Key Pages & Language Versions (Homepage & Student Timetable Generator only)
+# Allowed Key Pages & Language Versions (Homepage & Student Timetable Generator only, excluding /en)
 Allow: /
 Allow: /en-GB
-Allow: /en
 Allow: /es
 Allow: /ja
 Allow: /fr
@@ -210,7 +213,6 @@ Allow: /hi
 
 Allow: /timetable-generator-online-for-students/
 Allow: /timetable-generator-online-for-students/en-GB
-Allow: /timetable-generator-online-for-students/en
 Allow: /timetable-generator-online-for-students/es
 Allow: /timetable-generator-online-for-students/ja
 Allow: /timetable-generator-online-for-students/fr
