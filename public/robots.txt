@@ -8,7 +8,7 @@ Disallow: /firebase-applet-config.json
 Disallow: /*.tsx$
 Disallow: /*.ts$
 
-# Disallow Blog, HTML Sitemap, FAQs, and How to Use (and all language versions)
+# Disallow Blog & All Multilingual Versions (except allowed legal pages)
 Disallow: /blog/
 Allow: /blog/privacy-policy/
 Allow: /blog/terms-and-conditions/
@@ -18,9 +18,110 @@ Allow: /blog/about-us/
 Allow: /blog/contact-us/
 Allow: /blog/contact-support/
 
+Allow: /blog/privacy-policy/en-GB
+Allow: /blog/privacy-policy/en
+Allow: /blog/privacy-policy/es
+Allow: /blog/privacy-policy/ja
+Allow: /blog/privacy-policy/fr
+Allow: /blog/privacy-policy/de
+Allow: /blog/privacy-policy/pt
+Allow: /blog/privacy-policy/ko
+Allow: /blog/privacy-policy/it
+Allow: /blog/privacy-policy/hi
+
+Allow: /blog/terms-and-conditions/en-GB
+Allow: /blog/terms-and-conditions/en
+Allow: /blog/terms-and-conditions/es
+Allow: /blog/terms-and-conditions/ja
+Allow: /blog/terms-and-conditions/fr
+Allow: /blog/terms-and-conditions/de
+Allow: /blog/terms-and-conditions/pt
+Allow: /blog/terms-and-conditions/ko
+Allow: /blog/terms-and-conditions/it
+Allow: /blog/terms-and-conditions/hi
+
+Allow: /blog/refund-policy/en-GB
+Allow: /blog/refund-policy/en
+Allow: /blog/refund-policy/es
+Allow: /blog/refund-policy/ja
+Allow: /blog/refund-policy/fr
+Allow: /blog/refund-policy/de
+Allow: /blog/refund-policy/pt
+Allow: /blog/refund-policy/ko
+Allow: /blog/refund-policy/it
+Allow: /blog/refund-policy/hi
+
+Allow: /blog/disclaimer/en-GB
+Allow: /blog/disclaimer/en
+Allow: /blog/disclaimer/es
+Allow: /blog/disclaimer/ja
+Allow: /blog/disclaimer/fr
+Allow: /blog/disclaimer/de
+Allow: /blog/disclaimer/pt
+Allow: /blog/disclaimer/ko
+Allow: /blog/disclaimer/it
+Allow: /blog/disclaimer/hi
+
+Allow: /blog/about-us/en-GB
+Allow: /blog/about-us/en
+Allow: /blog/about-us/es
+Allow: /blog/about-us/ja
+Allow: /blog/about-us/fr
+Allow: /blog/about-us/de
+Allow: /blog/about-us/pt
+Allow: /blog/about-us/ko
+Allow: /blog/about-us/it
+Allow: /blog/about-us/hi
+
+Allow: /blog/contact-us/en-GB
+Allow: /blog/contact-us/en
+Allow: /blog/contact-us/es
+Allow: /blog/contact-us/ja
+Allow: /blog/contact-us/fr
+Allow: /blog/contact-us/de
+Allow: /blog/contact-us/pt
+Allow: /blog/contact-us/ko
+Allow: /blog/contact-us/it
+Allow: /blog/contact-us/hi
+
+# Disallow HTML Sitemap & All Language Versions
 Disallow: /html-sitemap/
+Disallow: /html-sitemap/en-GB
+Disallow: /html-sitemap/en
+Disallow: /html-sitemap/es
+Disallow: /html-sitemap/ja
+Disallow: /html-sitemap/fr
+Disallow: /html-sitemap/de
+Disallow: /html-sitemap/pt
+Disallow: /html-sitemap/ko
+Disallow: /html-sitemap/it
+Disallow: /html-sitemap/hi
+
+# Disallow FAQ Page & All Language Versions
 Disallow: /faqs/
+Disallow: /faqs/en-GB
+Disallow: /faqs/en
+Disallow: /faqs/es
+Disallow: /faqs/ja
+Disallow: /faqs/fr
+Disallow: /faqs/de
+Disallow: /faqs/pt
+Disallow: /faqs/ko
+Disallow: /faqs/it
+Disallow: /faqs/hi
+
+# Disallow How to Use & All Language Versions
 Disallow: /how-to-use/
+Disallow: /how-to-use/en-GB
+Disallow: /how-to-use/en
+Disallow: /how-to-use/es
+Disallow: /how-to-use/ja
+Disallow: /how-to-use/fr
+Disallow: /how-to-use/de
+Disallow: /how-to-use/pt
+Disallow: /how-to-use/ko
+Disallow: /how-to-use/it
+Disallow: /how-to-use/hi
 
 # Allowed Key Pages & Language Versions (Homepage & Student Timetable Generator only)
 Allow: /
