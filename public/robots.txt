@@ -1,10 +1,60 @@
 User-agent: *
-
 Disallow: /api/
 Disallow: /src/
+Disallow: /scripts/
+Disallow: /dist/
+Disallow: /node_modules/
 Disallow: /firebase-applet-config.json
 Disallow: /*.tsx$
 Disallow: /*.ts$
 
+# Allowed Key Pages & Language Versions
+Allow: /
+Allow: /en-GB
+Allow: /en
+Allow: /es
+Allow: /ja
+Allow: /fr
+Allow: /de
+Allow: /pt
+Allow: /ko
+Allow: /it
+Allow: /hi
+
+Allow: /timetable-generator-online-for-students/
+Allow: /timetable-generator-online-for-students/en-GB
+Allow: /timetable-generator-online-for-students/en
+Allow: /timetable-generator-online-for-students/es
+Allow: /timetable-generator-online-for-students/ja
+Allow: /timetable-generator-online-for-students/fr
+Allow: /timetable-generator-online-for-students/de
+Allow: /timetable-generator-online-for-students/pt
+Allow: /timetable-generator-online-for-students/ko
+Allow: /timetable-generator-online-for-students/it
+Allow: /timetable-generator-online-for-students/hi
+
+Allow: /blog/privacy-policy/
+Allow: /blog/terms-and-conditions/
+Allow: /blog/refund-policy/
+Allow: /blog/disclaimer/
+Allow: /blog/about-us/
+Allow: /blog/contact-us/
+Allow: /blog/contact-support/
+
+Allow: /faqs/
+Allow: /faqs/en-GB
+Allow: /faqs/en
+Allow: /faqs/es
+Allow: /faqs/ja
+Allow: /faqs/fr
+Allow: /faqs/de
+Allow: /faqs/pt
+Allow: /faqs/ko
+Allow: /faqs/it
+Allow: /faqs/hi
+
+Allow: /how-to-use/
+Allow: /html-sitemap/
+Allow: /blog/
 
 Sitemap: https://timetablecreator.online/sitemap.xml
