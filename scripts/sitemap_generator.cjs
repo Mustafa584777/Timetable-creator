@@ -27,7 +27,7 @@ function getAllSitePages(baseDir = 'public') {
 
   // Scan blog directories dynamically from public/blog, keeping ONLY legal pages
   const blogDir = path.join(pubDir, 'blog');
-  const legalPages = ['privacy-policy', 'terms-and-conditions', 'refund-policy', 'disclaimer', 'about-us', 'contact-us', 'contact-support'];
+  const legalPages = ['privacy-policy', 'terms-and-conditions', 'disclaimer', 'about-us', 'contact-us', 'contact-support'];
   if (fs.existsSync(blogDir)) {
     const entries = fs.readdirSync(blogDir, { withFileTypes: true });
     for (const entry of entries) {

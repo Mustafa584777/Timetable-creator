@@ -93,6 +93,18 @@ Disallow: /blog/timetable-guides/ko
 Disallow: /blog/timetable-guides/it
 Disallow: /blog/timetable-guides/hi
 
+Disallow: /blog/refund-policy/
+Disallow: /blog/refund-policy/en
+Disallow: /blog/refund-policy/en-GB
+Disallow: /blog/refund-policy/es
+Disallow: /blog/refund-policy/ja
+Disallow: /blog/refund-policy/fr
+Disallow: /blog/refund-policy/de
+Disallow: /blog/refund-policy/pt
+Disallow: /blog/refund-policy/ko
+Disallow: /blog/refund-policy/it
+Disallow: /blog/refund-policy/hi
+
 # Allow ONLY Legal Policy Pages (and their language versions except /en)
 Allow: /blog/privacy-policy/
 Allow: /blog/privacy-policy/en-GB
@@ -115,17 +127,6 @@ Allow: /blog/terms-and-conditions/pt
 Allow: /blog/terms-and-conditions/ko
 Allow: /blog/terms-and-conditions/it
 Allow: /blog/terms-and-conditions/hi
-
-Allow: /blog/refund-policy/
-Allow: /blog/refund-policy/en-GB
-Allow: /blog/refund-policy/es
-Allow: /blog/refund-policy/ja
-Allow: /blog/refund-policy/fr
-Allow: /blog/refund-policy/de
-Allow: /blog/refund-policy/pt
-Allow: /blog/refund-policy/ko
-Allow: /blog/refund-policy/it
-Allow: /blog/refund-policy/hi
 
 Allow: /blog/disclaimer/
 Allow: /blog/disclaimer/en-GB

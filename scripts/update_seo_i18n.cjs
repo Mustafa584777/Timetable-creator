@@ -551,7 +551,7 @@ function runAllUpdates() {
 
   // All Blog Posts (including all language folders)
   const blogDir = 'public/blog';
-  const legalPages = ['privacy-policy', 'terms-and-conditions', 'refund-policy', 'disclaimer', 'about-us', 'contact-us'];
+  const legalPages = ['privacy-policy', 'terms-and-conditions', 'disclaimer', 'about-us', 'contact-us'];
   if (fs.existsSync(blogDir)) {
     function walkBlog(dir) {
       const items = fs.readdirSync(dir, { withFileTypes: true });
