@@ -20,18 +20,15 @@ function getAllSitePages(baseDir = 'public') {
   const rootDir = process.cwd();
   const pubDir = path.isAbsolute(baseDir) ? baseDir : path.join(rootDir, baseDir);
   
-  // Only 2 tools: Main homepage and Student timetable generator
+  // Only Homepage, Student timetable generator, and legal pages
   const pages = [
     { loc: `${baseUrl}/`, priority: '1.0', changefreq: 'weekly' },
-    { loc: `${baseUrl}/timetable-generator-online-for-students/`, priority: '0.9', changefreq: 'weekly' },
-    { loc: `${baseUrl}/how-to-use/`, priority: '0.8', changefreq: 'weekly' },
-    { loc: `${baseUrl}/faqs/`, priority: '0.8', changefreq: 'weekly' },
-    { loc: `${baseUrl}/html-sitemap/`, priority: '0.8', changefreq: 'weekly' },
-    { loc: `${baseUrl}/blog/`, priority: '0.8', changefreq: 'weekly' }
+    { loc: `${baseUrl}/timetable-generator-online-for-students/`, priority: '0.9', changefreq: 'weekly' }
   ];
 
-  // Scan blog directories dynamically from public/blog
+  // Scan blog directories dynamically from public/blog, keeping ONLY legal pages
   const blogDir = path.join(pubDir, 'blog');
+  const legalPages = ['privacy-policy', 'terms-and-conditions', 'refund-policy', 'disclaimer', 'about-us', 'contact-us', 'contact-support'];
   if (fs.existsSync(blogDir)) {
     const entries = fs.readdirSync(blogDir, { withFileTypes: true });
     for (const entry of entries) {
@@ -40,12 +37,14 @@ function getAllSitePages(baseDir = 'public') {
         if (!isLang) {
           const postFile = path.join(blogDir, entry.name, 'index.html');
           if (fs.existsSync(postFile)) {
-            const isLegal = ['privacy-policy', 'terms-and-conditions', 'refund-policy', 'disclaimer', 'about-us', 'contact-us'].includes(entry.name);
-            pages.push({
-              loc: `${baseUrl}/blog/${entry.name}/`,
-              priority: isLegal ? '0.5' : '0.7',
-              changefreq: 'monthly'
-            });
+            const isLegal = legalPages.includes(entry.name);
+            if (isLegal) {
+              pages.push({
+                loc: `${baseUrl}/blog/${entry.name}/`,
+                priority: '0.5',
+                changefreq: 'monthly'
+              });
+            }
           }
         }
       }

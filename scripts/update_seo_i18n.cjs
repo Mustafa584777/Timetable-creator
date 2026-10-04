@@ -480,6 +480,18 @@ function updateHtmlSitemap(filePath) {
   console.log(`Updated HTML sitemap file: ${filePath}`);
 }
 
+function ensureNoindex(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  let content = fs.readFileSync(filePath, 'utf8');
+  const robotsMeta = '<meta name="robots" content="noindex, follow" />';
+  if (/<meta name="robots"[^>]*>/i.test(content)) {
+    content = content.replace(/<meta name="robots"[^>]*>/i, robotsMeta);
+  } else {
+    content = content.replace('</head>', `    ${robotsMeta}\n  </head>`);
+  }
+  fs.writeFileSync(filePath, content, 'utf8');
+}
+
 function runAllUpdates() {
   console.log('--- Updating SEO & Clean i18n Across Entire Site ---');
 
@@ -487,19 +499,56 @@ function runAllUpdates() {
   updateCoreAppFile('index.html', 'https://timetablecreator.online/');
   updateCoreAppFile('public/timetable-generator-online-for-students/index.html', 'https://timetablecreator.online/timetable-generator-online-for-students/');
   
-  // HTML Sitemap and all its language subpages
+  // HTML Sitemap and all its language subpages (Noindex)
   updateHtmlSitemap('public/html-sitemap/index.html');
   const sitemapDir = 'public/html-sitemap';
   if (fs.existsSync(sitemapDir)) {
-    const sitemapEntries = fs.readdirSync(sitemapDir, { withFileTypes: true });
-    for (const entry of sitemapEntries) {
-      if (entry.isDirectory()) {
-        const langSitemap = path.join(sitemapDir, entry.name, 'index.html');
-        if (fs.existsSync(langSitemap)) {
-          updateHtmlSitemap(langSitemap);
+    function walkDirNoindex(dir) {
+      const items = fs.readdirSync(dir, { withFileTypes: true });
+      for (const item of items) {
+        const fullPath = path.join(dir, item.name);
+        if (item.isDirectory()) {
+          walkDirNoindex(fullPath);
+        } else if (item.isFile() && item.name === 'index.html') {
+          ensureNoindex(fullPath);
         }
       }
     }
+    walkDirNoindex(sitemapDir);
+  }
+
+  // FAQs and all its language subpages (Noindex)
+  const faqsDir = 'public/faqs';
+  if (fs.existsSync(faqsDir)) {
+    function walkFaqs(dir) {
+      const items = fs.readdirSync(dir, { withFileTypes: true });
+      for (const item of items) {
+        const fullPath = path.join(dir, item.name);
+        if (item.isDirectory()) {
+          walkFaqs(fullPath);
+        } else if (item.isFile() && item.name === 'index.html') {
+          ensureNoindex(fullPath);
+        }
+      }
+    }
+    walkFaqs(faqsDir);
+  }
+
+  // How to use and all its language subpages (Noindex)
+  const howToUseDir = 'public/how-to-use';
+  if (fs.existsSync(howToUseDir)) {
+    function walkHowToUse(dir) {
+      const items = fs.readdirSync(dir, { withFileTypes: true });
+      for (const item of items) {
+        const fullPath = path.join(dir, item.name);
+        if (item.isDirectory()) {
+          walkHowToUse(fullPath);
+        } else if (item.isFile() && item.name === 'index.html') {
+          ensureNoindex(fullPath);
+        }
+      }
+    }
+    walkHowToUse(howToUseDir);
   }
 
   // All Blog Posts (including all language folders)
