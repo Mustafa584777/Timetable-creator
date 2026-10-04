@@ -7,9 +7,20 @@ Disallow: /node_modules/
 Disallow: /firebase-applet-config.json
 Disallow: /*.tsx$
 Disallow: /*.ts$
+Disallow: /*?*
 
-# Disallow Blog Root & Archive
+# Disallow Blog Root & All Multilingual Blog Archive Versions
 Disallow: /blog/
+Disallow: /blog/en
+Disallow: /blog/en-GB
+Disallow: /blog/es
+Disallow: /blog/ja
+Disallow: /blog/fr
+Disallow: /blog/de
+Disallow: /blog/pt
+Disallow: /blog/ko
+Disallow: /blog/it
+Disallow: /blog/hi
 
 # Explicitly Disallow All Blog Articles & All Their Language Versions
 Disallow: /blog/study-timetable-for-class-10/
