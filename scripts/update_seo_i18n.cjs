@@ -40,11 +40,7 @@ const coreAppFooter = `
       <!-- Column 1: Brand & Description -->
       <div class="footer-col" style="max-width: 320px;">
         <div class="app-brand-wrapper" style="margin-bottom: 12px;">
-          <svg class="app-brand-logo" viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="32" height="32" rx="8" fill="#673de6"/>
-            <path d="M8 12h16M8 17h10M8 22h13" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="23" cy="21" r="3" fill="#00b090"/>
-          </svg>
+          <img src="/logo.png" alt="Timetable Creator Logo" class="app-brand-logo" width="28" height="28" style="object-fit: contain; border-radius: 6px;">
           <div class="header-brand-line">
             <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
             <span class="app-tools-tag">CREATOR</span>
@@ -228,8 +224,28 @@ const cleanTranslationScript = `
         }
       })();`;
 
+const faviconTags = `
+    <!-- Favicon and App Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">`;
+
+function ensureFaviconTags(content) {
+  if (content.includes('href="/apple-touch-icon.png"') || content.includes('href="/favicon-32x32.png"')) {
+    return content;
+  }
+  if (content.includes('</head>')) {
+    return content.replace('</head>', `${faviconTags}\n  </head>`);
+  }
+  return content;
+}
+
 function updateCoreAppFile(filePath, canonicalUrl) {
   let content = fs.readFileSync(filePath, 'utf8');
+
+  // Ensure favicon & manifest tags in head
+  content = ensureFaviconTags(content);
 
   // Set default language to en-GB
   content = content.replace(/<html(\s+[^>]*)?>/i, (match) => {
@@ -286,6 +302,9 @@ function updateCoreAppFile(filePath, canonicalUrl) {
 // 3. Update Blog files
 function updateBlogFile(filePath, canonicalUrl, isLegal) {
   let content = fs.readFileSync(filePath, 'utf8');
+
+  // Ensure favicon & manifest tags in head
+  content = ensureFaviconTags(content);
 
   // Set default language to en-GB
   content = content.replace(/<html(\s+[^>]*)?>/i, (match) => {
@@ -394,6 +413,9 @@ function updateHtmlSitemap(filePath) {
   if (!fs.existsSync(filePath)) return;
   let content = fs.readFileSync(filePath, 'utf8');
 
+  // Ensure favicon & manifest tags in head
+  content = ensureFaviconTags(content);
+
   // Set default language to en-GB
   content = content.replace(/<html(\s+[^>]*)?>/i, (match) => {
     let m = match.replace(/\blang="[^"]*"/, 'lang="en-GB"');
@@ -481,6 +503,7 @@ function updateHtmlSitemap(filePath) {
 function ensureNoindex(filePath) {
   if (!fs.existsSync(filePath)) return;
   let content = fs.readFileSync(filePath, 'utf8');
+  content = ensureFaviconTags(content);
   const robotsMeta = '<meta name="robots" content="noindex, follow" />';
   if (/<meta name="robots"[^>]*>/i.test(content)) {
     content = content.replace(/<meta name="robots"[^>]*>/i, robotsMeta);
