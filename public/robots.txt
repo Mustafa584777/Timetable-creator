@@ -7,6 +7,20 @@ Disallow: /node_modules/
 Disallow: /firebase-applet-config.json
 Disallow: /*.tsx$
 Disallow: /*.ts$
+
+# Disallow all query strings and old multilingual format (?lang=xx, &lang=xx)
+Disallow: /*?*lang=*
+Disallow: /*?lang=*
+Disallow: /*&lang=*
+Disallow: /*lang=*
+Disallow: /*?*
+
+# Explicit Disallow for Googlebot & Web Crawlers
+User-agent: Googlebot
+Disallow: /*?*lang=*
+Disallow: /*?lang=*
+Disallow: /*&lang=*
+Disallow: /*lang=*
 Disallow: /*?*
 
 # Disallow ALL /en versions across the entire site

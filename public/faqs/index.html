@@ -711,13 +711,27 @@
         }
       });
 
-      // Synchronize language from URL path
+      // Client-side immediate redirect for old ?lang= URLs to clean path
       (function() {
-        var currentPathLang = getLanguageFromPath();
         var urlParams = new URLSearchParams(window.location.search);
         var queryLang = urlParams.get('lang');
-        var activeLang = currentPathLang || queryLang;
-        
+        if (queryLang) {
+          urlParams.delete('lang');
+          var cleanSearch = urlParams.toString();
+          var cleanQuery = cleanSearch ? '?' + cleanSearch : '';
+          var supported = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+          var basePath = window.location.pathname.replace(//+$/, '');
+          var targetPath = '/';
+          if (supported.includes(queryLang)) {
+            targetPath = basePath ? basePath + '/' + queryLang : '/' + queryLang;
+          } else {
+            targetPath = basePath || '/';
+          }
+          window.location.replace(targetPath + cleanQuery + window.location.hash);
+          return;
+        }
+
+        var activeLang = getLanguageFromPath();
         if (activeLang && activeLang !== 'en-GB') {
           var transCode = activeLang === 'en' ? 'en' : activeLang;
           document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";

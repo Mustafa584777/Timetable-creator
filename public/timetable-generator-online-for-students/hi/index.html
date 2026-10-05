@@ -55,7 +55,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Student Timetable Generator Online - Free Class &amp; Study Schedule Maker" />
     <meta property="twitter:description" content="Create student schedules, university lecture routines, revision planners, and class timetables easily with the free online student timetable maker. Instant PDF &amp; PNG export." />
-                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/timetable-generator-online-for-students/hi" />
+                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/timetable-generator-online-for-students/hi" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/timetable-generator-online-for-students/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/timetable-generator-online-for-students/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/timetable-generator-online-for-students/es" />
@@ -4826,6 +4826,14 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -7420,13 +7428,27 @@
         }
       });
 
-      // Synchronize language from URL path
+      // Client-side immediate redirect for old ?lang= URLs to clean path
       (function() {
-        var currentPathLang = getLanguageFromPath();
         var urlParams = new URLSearchParams(window.location.search);
         var queryLang = urlParams.get('lang');
-        var activeLang = currentPathLang || queryLang;
-        
+        if (queryLang) {
+          urlParams.delete('lang');
+          var cleanSearch = urlParams.toString();
+          var cleanQuery = cleanSearch ? '?' + cleanSearch : '';
+          var supported = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+          var basePath = window.location.pathname.replace(//+$/, '');
+          var targetPath = '/';
+          if (supported.includes(queryLang)) {
+            targetPath = basePath ? basePath + '/' + queryLang : '/' + queryLang;
+          } else {
+            targetPath = basePath || '/';
+          }
+          window.location.replace(targetPath + cleanQuery + window.location.hash);
+          return;
+        }
+
+        var activeLang = getLanguageFromPath();
         if (activeLang && activeLang !== 'en-GB') {
           var transCode = activeLang === 'en' ? 'en' : activeLang;
           document.cookie = "googtrans=/en/" + transCode + "; path=/; SameSite=None; Secure";
