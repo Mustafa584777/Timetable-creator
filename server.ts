@@ -248,14 +248,26 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
-  // Timetable Generator: 301 redirect legacy /timetable-generator to /
+  // Online Timetable Generator (base and language editions)
   anonymityApp.get([
     "/timetable-generator",
     "/timetable-generator/",
     "/timetable-generator/:lang",
     "/timetable-generator/:lang/"
   ], (req, res) => {
-    return res.redirect(301, "/");
+    const lang = req.params.lang;
+    const subFile = lang ? path.join(lang, "index.html") : "index.html";
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "timetable-generator", subFile)
+      : path.join(process.cwd(), "public", "timetable-generator", subFile);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const defaultPath = path.join(process.cwd(), "public", "timetable-generator", "index.html");
+    if (fs.existsSync(defaultPath)) {
+      return res.sendFile(defaultPath);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
   // Sitemap Language editions
