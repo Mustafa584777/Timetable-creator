@@ -55,7 +55,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/" />
+                                                                                                                                                                                                                                <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -4802,7 +4802,974 @@
       body.resizers-disabled .excel-row-resizer {
         display: none !important;
       }
-</style>
+
+      /* ==========================================================================
+         HOMEPAGE MODERN REDESIGN (MATCHING SCREENSHOT WITH SIDEBAR & 3-CARD LAYOUT)
+         ========================================================================== */
+      :root {
+        --primary-color: #0d9488;
+        --primary-glow: rgba(13, 148, 136, 0.15);
+        --bg-app: #f1f5f9;
+        --bg-card: #ffffff;
+        --border-color: #e2e8f0;
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+      }
+
+      /* Global Header Redesign */
+      .tc-global-header {
+        height: 64px;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        box-sizing: border-box;
+      }
+      .tc-header-brand-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      .tc-brand-logo-img {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+      .tc-header-brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
+      }
+      .tc-brand-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: #1e293b;
+      }
+      .tc-brand-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        color: #64748b;
+        font-weight: 400;
+        margin: 0;
+      }
+      .tc-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .tc-header-btn {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        padding: 6px 12px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
+        color: #475569;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12.5px;
+        font-weight: 500;
+        transition: all 0.15s ease;
+      }
+      .tc-header-btn:hover {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+        color: #0f172a;
+      }
+      .tc-header-btn-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        padding: 0;
+      }
+      .tc-theme-toggle-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        padding: 4px 10px;
+        cursor: pointer;
+        height: 34px;
+        transition: all 0.15s ease;
+      }
+      .tc-theme-toggle-pill:hover {
+        background: #f1f5f9;
+        border-color: #cbd5e1;
+      }
+
+      /* 2-Column Layout (Sidebar + Main Workspace) */
+      .tc-app-layout {
+        display: flex;
+        width: 100%;
+        min-height: calc(100vh - 64px);
+        background: #f1f5f9;
+        box-sizing: border-box;
+      }
+
+      /* Left Sidebar */
+      .tc-sidebar {
+        width: 185px;
+        min-width: 185px;
+        background: #ffffff;
+        border-right: 1px solid #e2e8f0;
+        padding: 20px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        position: sticky;
+        top: 64px;
+        height: calc(100vh - 64px);
+      }
+      .tc-sidebar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .tc-sidebar-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: none;
+        background: transparent;
+        color: #475569;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13.5px;
+        font-weight: 500;
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.15s ease;
+        box-sizing: border-box;
+      }
+      .tc-sidebar-item:hover {
+        background: #f8fafc;
+        color: #0f172a;
+      }
+      .tc-sidebar-item.active {
+        background: #e0f7f6;
+        color: #0d9488;
+        font-weight: 600;
+      }
+      .tc-sidebar-item.active svg {
+        color: #0d9488;
+        stroke: #0d9488;
+      }
+      .tc-sidebar-item svg {
+        color: #64748b;
+        flex-shrink: 0;
+      }
+
+      /* Bottom Illustration Promo Card in Sidebar */
+      .tc-sidebar-promo {
+        background: #e0f7f6;
+        border-radius: 16px;
+        padding: 16px 14px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .tc-sidebar-promo-graphic {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .tc-sidebar-promo-text {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: #0f172a;
+        line-height: 1.3;
+      }
+
+      /* Main Workspace Viewport */
+      .tc-main-workspace {
+        flex: 1;
+        min-width: 0;
+        padding: 20px 24px 60px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        box-sizing: border-box;
+      }
+
+      /* Base White Rounded Card */
+      .tc-card {
+        background: #ffffff;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.03);
+        box-sizing: border-box;
+      }
+
+      /* Card 1: Schedule Header & Stats */
+      .tc-schedule-header-card {
+        padding: 22px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .tc-schedule-header-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .tc-title-block {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex: 1;
+        min-width: 240px;
+      }
+      .tc-title-edit-wrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tc-title-input {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #0f172a;
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 2px 6px;
+        margin-left: -6px;
+        outline: none;
+        letter-spacing: -0.01em;
+        width: 100%;
+        max-width: 380px;
+        transition: all 0.15s ease;
+      }
+      .tc-title-input:hover {
+        background: #f8fafc;
+        border-color: #e2e8f0;
+      }
+      .tc-title-input:focus {
+        background: #ffffff;
+        border-color: #0d9488;
+        box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+      }
+      .tc-title-edit-icon {
+        color: #94a3b8;
+        flex-shrink: 0;
+        pointer-events: none;
+      }
+      .tc-subtitle-input {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        color: #64748b;
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        padding: 2px 6px;
+        margin-left: -6px;
+        outline: none;
+        width: 100%;
+        max-width: 380px;
+        transition: all 0.15s ease;
+      }
+      .tc-subtitle-input:hover {
+        background: #f8fafc;
+        border-color: #e2e8f0;
+      }
+      .tc-subtitle-input:focus {
+        background: #ffffff;
+        border-color: #0d9488;
+      }
+
+      /* 4 Metric Stats Badges in Top Right */
+      .tc-stats-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .tc-stat-card {
+        border-radius: 12px;
+        padding: 8px 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 110px;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+      }
+      .tc-stat-card.stat-teal {
+        background: #f0fdfa;
+        border-color: #ccfbf1;
+      }
+      .tc-stat-card.stat-amber {
+        background: #fffbeb;
+        border-color: #fef3c7;
+      }
+      .tc-stat-card.stat-purple {
+        background: #faf5ff;
+        border-color: #f3e8ff;
+      }
+      .tc-stat-card.stat-blue {
+        background: #eff6ff;
+        border-color: #dbeafe;
+      }
+      .tc-stat-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .tc-stat-info {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
+      }
+      .tc-stat-val {
+        font-family: 'Poppins', sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        color: #0f172a;
+        font-variant-numeric: tabular-nums;
+      }
+      .tc-stat-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        color: #64748b;
+        font-weight: 400;
+        white-space: nowrap;
+      }
+
+      /* Schedule Header Bottom Row (Actions & Day Filters) */
+      .tc-schedule-header-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        padding-top: 4px;
+      }
+      .tc-cta-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .tc-btn-teal-primary {
+        background: #0d9488;
+        color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        padding: 9px 18px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13.5px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(13, 148, 136, 0.25);
+        transition: all 0.15s ease;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .tc-btn-teal-primary:hover {
+        background: #0f766e;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(13, 148, 136, 0.35);
+      }
+      .tc-btn-teal-primary:active {
+        transform: scale(0.98);
+      }
+      .tc-btn-outline-white {
+        background: #ffffff;
+        color: #1e293b;
+        border: 1.5px solid #cbd5e1;
+        border-radius: 10px;
+        padding: 9px 16px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .tc-btn-outline-white:hover {
+        background: #f8fafc;
+        border-color: #94a3b8;
+      }
+
+      /* Day Filter Pills */
+      .tc-day-pills-bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 24px;
+        padding: 3px 6px;
+        overflow-x: auto;
+      }
+      .tc-day-pill {
+        background: transparent;
+        border: none;
+        border-radius: 18px;
+        padding: 5px 14px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12.5px;
+        font-weight: 500;
+        color: #64748b;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .tc-day-pill:hover {
+        color: #0f172a;
+      }
+      .tc-day-pill.active {
+        background: #0d9488;
+        color: #ffffff;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(13, 148, 136, 0.25);
+      }
+
+      /* Clear All Danger Button */
+      .tc-btn-clear-all {
+        background: #ffffff;
+        color: #ef4444;
+        border: 1.5px solid #fecaca;
+        border-radius: 10px;
+        padding: 8px 16px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        margin-left: auto;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .tc-btn-clear-all:hover {
+        background: #fef2f2;
+        border-color: #ef4444;
+      }
+
+      /* Card 2: Action Toolbar */
+      .tc-toolbar-card {
+        padding: 8px 16px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .tc-toolbar-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .tc-tool-btn {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12.5px;
+        font-weight: 500;
+        color: #334155;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.15s ease;
+        user-select: none;
+      }
+      .tc-tool-btn:hover {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+        color: #0f172a;
+      }
+      .tc-zoom-pill {
+        display: inline-flex;
+        align-items: center;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 2px 4px;
+        gap: 6px;
+      }
+      .tc-zoom-btn {
+        background: transparent;
+        border: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 15px;
+        color: #475569;
+        transition: background 0.15s ease;
+      }
+      .tc-zoom-btn:hover {
+        background: #e2e8f0;
+        color: #0f172a;
+      }
+      .tc-zoom-val {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: #0f172a;
+        min-width: 38px;
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+      }
+      .tc-toggle-wrap {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .tc-toggle-switch {
+        position: relative;
+        width: 36px;
+        height: 20px;
+        background: #cbd5e1;
+        border-radius: 10px;
+        transition: background 0.2s ease;
+      }
+      .tc-toggle-switch::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        transition: transform 0.2s ease;
+      }
+      .tc-toggle-wrap input {
+        display: none;
+      }
+      .tc-toggle-wrap input:checked + .tc-toggle-switch {
+        background: #0d9488;
+      }
+      .tc-toggle-wrap input:checked + .tc-toggle-switch::after {
+        transform: translateX(16px);
+      }
+      .tc-toggle-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12.5px;
+        font-weight: 500;
+        color: #334155;
+      }
+
+      /* Export Dropdown Button in Toolbar */
+      .tc-btn-export-teal {
+        background: #0d9488;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        padding: 7px 16px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+      .tc-btn-export-teal:hover {
+        background: #0f766e;
+      }
+      .tc-export-dropdown {
+        min-width: 170px;
+        padding: 6px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      }
+      .tc-export-option {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border: none;
+        background: transparent;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: #1e293b;
+        cursor: pointer;
+        text-align: left;
+        transition: background 0.15s ease;
+      }
+      .tc-export-option:hover {
+        background: #f1f5f9;
+        color: #0d9488;
+      }
+
+      /* Card 3: Interactive Timetable Grid Container */
+      .tc-grid-card {
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .classic-th-corner {
+        background: #f8fafc !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        color: #64748b !important;
+        letter-spacing: 0.05em !important;
+        text-transform: uppercase !important;
+      }
+      .classic-th-day {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        border-right: 1px solid #e2e8f0 !important;
+        padding: 12px 10px !important;
+      }
+      .classic-td-time {
+        font-size: 11px !important;
+        font-weight: 500 !important;
+        color: #64748b !important;
+        background: #f8fafc !important;
+        border-right: 1px solid #e2e8f0 !important;
+        border-bottom: 1px solid #f1f5f9 !important;
+      }
+      .classic-td-cell {
+        border-right: 1px solid #f1f5f9 !important;
+        border-bottom: 1px solid #f1f5f9 !important;
+      }
+      .classic-td-cell:hover {
+        background-color: rgba(13, 148, 136, 0.05) !important;
+      }
+
+      /* Modern Event Card Component */
+      .classic-event-item {
+        border-radius: 12px !important;
+        padding: 8px 10px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .classic-event-item:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22) !important;
+      }
+      .classic-event-top-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2px;
+      }
+      .classic-event-icon-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        color: #ffffff;
+      }
+      .classic-event-dots-btn {
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.85);
+        cursor: pointer;
+        padding: 2px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s ease;
+      }
+      .classic-event-dots-btn:hover {
+        background: rgba(0, 0, 0, 0.2);
+        color: #ffffff;
+      }
+      .classic-event-title {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 13.5px !important;
+        font-weight: 700 !important;
+        color: #ffffff !important;
+        line-height: 1.25 !important;
+      }
+      .classic-event-details {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        font-size: 11px !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        line-height: 1.2 !important;
+        margin-top: 2px;
+      }
+      .classic-event-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .classic-event-time-line {
+        color: rgba(255, 255, 255, 0.82) !important;
+        font-size: 10.5px !important;
+        font-weight: 500 !important;
+      }
+
+      /* Dark Mode Adaptations */
+      [data-theme="dark"] {
+        --bg-app: #0f172a;
+        --bg-card: #1e293b;
+        --border-color: #334155;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+      }
+      [data-theme="dark"] .tc-global-header,
+      [data-theme="dark"] .tc-sidebar,
+      [data-theme="dark"] .tc-card {
+        background: #1e293b;
+        border-color: #334155;
+      }
+      [data-theme="dark"] .tc-brand-title,
+      [data-theme="dark"] .tc-title-input,
+      [data-theme="dark"] .tc-stat-val,
+      [data-theme="dark"] .tc-btn-outline-white,
+      [data-theme="dark"] .tc-tool-btn {
+        color: #f8fafc;
+      }
+      [data-theme="dark"] .tc-btn-outline-white,
+      [data-theme="dark"] .tc-tool-btn,
+      [data-theme="dark"] .tc-header-btn {
+        background: #1e293b;
+        border-color: #334155;
+      }
+      [data-theme="dark"] .tc-day-pills-bar,
+      [data-theme="dark"] .tc-zoom-pill {
+        background: #0f172a;
+        border-color: #334155;
+      }
+      [data-theme="dark"] .tc-stat-card.stat-teal {
+        background: rgba(13, 148, 136, 0.12);
+        border-color: rgba(13, 148, 136, 0.3);
+      }
+      [data-theme="dark"] .tc-stat-card.stat-amber {
+        background: rgba(217, 119, 6, 0.12);
+        border-color: rgba(217, 119, 6, 0.3);
+      }
+      [data-theme="dark"] .tc-stat-card.stat-purple {
+        background: rgba(124, 58, 237, 0.12);
+        border-color: rgba(124, 58, 237, 0.3);
+      }
+      [data-theme="dark"] .tc-stat-card.stat-blue {
+        background: rgba(37, 99, 235, 0.12);
+        border-color: rgba(37, 99, 235, 0.3);
+      }
+      [data-theme="dark"] .tc-sidebar-item {
+        color: #94a3b8;
+      }
+      [data-theme="dark"] .tc-sidebar-item:hover {
+        background: #334155;
+        color: #f8fafc;
+      }
+      [data-theme="dark"] .tc-sidebar-item.active {
+        background: rgba(13, 148, 136, 0.2);
+        color: #2dd4bf;
+      }
+      [data-theme="dark"] .tc-sidebar-promo {
+        background: #0f2b29;
+        border: 1px solid rgba(13, 148, 136, 0.3);
+      }
+      [data-theme="dark"] .tc-sidebar-promo-text {
+        color: #f8fafc;
+      }
+      [data-theme="dark"] .classic-th-corner,
+      [data-theme="dark"] .classic-td-time {
+        background: #1e293b !important;
+        color: #94a3b8 !important;
+        border-color: #334155 !important;
+      }
+      [data-theme="dark"] .classic-td-cell {
+        background: #1e293b !important;
+        border-color: #334155 !important;
+      }
+      [data-theme="dark"] .classic-th-day {
+        color: #0f172a !important;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 1024px) {
+        .tc-sidebar {
+          display: none;
+        }
+        .tc-sidebar.mobile-open {
+          display: flex;
+          position: fixed;
+          left: 0;
+          top: 64px;
+          bottom: 0;
+          z-index: 200;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .tc-main-workspace {
+          padding: 14px 14px 80px 14px;
+        }
+        .tc-schedule-header-top {
+          flex-direction: column;
+        }
+        .tc-stats-row {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+    
+      /* Day Header Badges Matching Modern Screenshot */
+      .classic-th-day-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 14px;
+        border-radius: 9999px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13.5px;
+        font-weight: 600;
+        background: #f1f5f9;
+        color: #334155;
+        transition: all 0.15s ease;
+        user-select: none;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      }
+      .classic-day-badge-0 { background: #ecfdf5; color: #047857; } /* Monday */
+      .classic-day-badge-1 { background: #f5f3ff; color: #6d28d9; } /* Tuesday */
+      .classic-day-badge-2 { background: #eff6ff; color: #1d4ed8; } /* Wednesday */
+      .classic-day-badge-3 { background: #fffbeb; color: #b45309; } /* Thursday */
+      .classic-day-badge-4 { background: #fdf2f8; color: #be185d; } /* Friday */
+      .classic-day-badge-5 { background: #f0fdfa; color: #0f766e; } /* Saturday */
+      .classic-day-badge-6 { background: #f8fafc; color: #475569; } /* Sunday */
+      [data-theme="dark"] .classic-th-day-badge {
+        background: #334155 !important;
+        color: #f8fafc !important;
+      }
+      .classic-event-item {
+        cursor: pointer;
+        border-radius: 12px !important;
+        padding: 10px 12px !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+        transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+      }
+      .classic-event-item:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22) !important;
+      }
+      .classic-event-top-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 4px;
+      }
+      .classic-event-icon-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        flex-shrink: 0;
+      }
+      .classic-event-dots-btn {
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.85);
+        cursor: pointer;
+        padding: 2px 4px;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .classic-event-dots-btn:hover {
+        background: rgba(0, 0, 0, 0.25);
+        color: #ffffff;
+      }
+      .classic-event-title {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 13.5px !important;
+        font-weight: 700 !important;
+        color: #ffffff !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .classic-event-details {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-top: 3px;
+        font-size: 11px !important;
+        color: rgba(255, 255, 255, 0.92) !important;
+        line-height: 1.25 !important;
+      }
+      .classic-event-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .classic-event-time-line {
+        color: rgba(255, 255, 255, 0.82) !important;
+        font-size: 10px !important;
+        font-weight: 500 !important;
+      }
+
+    </style>
   
     <script type="application/ld+json">
     {
@@ -4917,6 +5884,10 @@
     
     
     
+    
+    
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -4992,220 +5963,341 @@
     <!-- Active Toast Notifications -->
     <div id="toastContainer" class="toast-container"></div>
 
-    <!-- PREMIUM GLOBAL NAVIGATION HEADER -->
-    <header class="global-header">
-      <div class="header-container">
-        <!-- Left Section: Logo & Brand -->
-        <div class="header-left-desktop">
-          <a href="/" class="header-brand" aria-label="Timetable Creator">
-            <div class="app-brand-wrapper">
-              <img src="/logo.png" alt="Timetable Creator Logo" class="app-brand-logo" width="32" height="32" style="object-fit: contain; border-radius: 8px;">
-              <div class="header-title-group">
-                <div class="header-brand-line">
-                  <span class="app-brand-name">TIMETABLE</span>
-                  <span class="app-tools-tag">CREATOR</span>
-                </div>
-                <p class="header-subtitle">Online Schedule Generator</p>
-              </div>
-            </div>
-          </a>
+    <!-- PREMIUM GLOBAL NAVIGATION HEADER (UPGRADED HOMEPAGE DESIGN) -->
+    <header class="tc-global-header">
+      <!-- Left: App Logo & Brand -->
+      <a href="/" class="tc-header-brand-wrap" aria-label="Timetable Creator">
+        <svg class="tc-brand-logo-img" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="30" height="26" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+          <path d="M2 10C2 6.68629 4.68629 4 8 4H26C29.3137 4 32 6.68629 32 10V11H2V10Z" fill="#0d9488"/>
+          <rect x="7" y="1" width="3" height="6" rx="1.5" fill="#0f766e"/>
+          <rect x="24" y="1" width="3" height="6" rx="1.5" fill="#0f766e"/>
+          <circle cx="8" cy="16" r="2" fill="#ef4444"/>
+          <circle cx="14" cy="16" r="2" fill="#f59e0b"/>
+          <circle cx="20" cy="16" r="2" fill="#10b981"/>
+          <circle cx="26" cy="16" r="2" fill="#3b82f6"/>
+          <circle cx="8" cy="22" r="2" fill="#f59e0b"/>
+          <circle cx="14" cy="22" r="2" fill="#10b981"/>
+          <circle cx="20" cy="22" r="2" fill="#3b82f6"/>
+          <circle cx="26" cy="22" r="2" fill="#8b5cf6"/>
+        </svg>
+        <div class="tc-header-brand-text">
+          <span class="tc-brand-title">TIMETABLE CREATOR</span>
+          <p class="tc-brand-subtitle">Online Schedule Generator</p>
         </div>
+      </a>
 
-        <!-- Center Section: Translate Selector & Menu Links (Desktop Center Aligned) -->
-        <div class="header-center-desktop">
-          <!-- Light/Dark Mode Toggle in Header -->
-          <button class="action-btn-header" onclick="toggleLocalTheme()" data-tooltip="Toggle theme mode" title="Toggle theme mode" aria-label="Toggle Theme">
-            <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
-              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
+      <!-- Right: Utility Controls (Theme, Translate, Menu) -->
+      <div class="tc-header-actions">
+        <!-- Sun/Moon Theme Toggle Pill -->
+        <button class="tc-theme-toggle-pill" onclick="toggleLocalTheme()" data-tooltip="Toggle light/dark theme" title="Toggle theme mode" aria-label="Toggle Theme">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Google Translate Dropdown Selector -->
+        <div class="lang-dropdown-container">
+          <button class="tc-header-btn tc-header-btn-icon" onclick="toggleLangDropdown()" id="btnLangDropdown" data-tooltip="Change Language" aria-label="Change Language" title="Change Language">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width: 18px; height: 18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.818-2.251-2.253-4.247-4-5.5C6.754 4.753 5.32 6.749 4.5 9h8m-8 0a13.935 13.935 0 002.912 4.5M6.412 9a13.935 13.935 0 002.912 4.5M11 21l3-6 3 6m-5-2h4"></path></svg>
           </button>
-          <!-- Google Translate Dropdown Selector -->
-          <div class="lang-dropdown-container">
-            <button class="action-btn-header" onclick="toggleLangDropdown()" id="btnLangDropdown" data-tooltip="Change Language" aria-label="Change Language" title="Change Language">
-              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width: 18px; height: 18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.818-2.251-2.253-4.247-4-5.5C6.754 4.753 5.32 6.749 4.5 9h8m-8 0a13.935 13.935 0 002.912 4.5M6.412 9a13.935 13.935 0 002.912 4.5M11 21l3-6 3 6m-5-2h4"></path></svg>
-            </button>
-            <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; left: 50%; transform: translateX(-50%);">
-              <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('ja')">日本語</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Français</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('pt')">Português</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('ko')">한국어</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
-              <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
-            </div>
+          <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; right: 0;">
+            <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
+            <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
+            <button class="lang-dropdown-item" onclick="changeLanguage('ja')">日本語</button>
+            <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Français</button>
+            <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
+            <button class="lang-dropdown-item" onclick="changeLanguage('pt')">Português</button>
+            <button class="lang-dropdown-item" onclick="changeLanguage('ko')">한국어</button>
+            <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
+            <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
           </div>
-
-          <!-- Nav links (Desktop) -->
-          <nav class="header-nav-desktop">
-            <a href="/" class="nav-link-header active">Workspace</a>
-            <a href="/timetable-generator-online-for-students/" class="nav-link-header ">Free Students Timetable Maker</a>
-            <a href="/sitemap.html" class="nav-link-header ">Sitemap</a>
-          </nav>
         </div>
 
-        <!-- Mobile Navigation Toggle Button -->
-        <button class="header-mobile-toggle" onclick="toggleMobileMenuLocal()" aria-label="Toggle menu">
-          <svg id="mobileMenuIcon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24" height="24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        <!-- Hamburger Menu Toggle Button -->
+        <button class="tc-header-btn tc-header-btn-icon" onclick="app.handlers.toggleSidebarMenu()" aria-label="Toggle menu" title="Menu">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
           </svg>
         </button>
-      </div>
-
-      <!-- Mobile Drawer Menu (Slide Down) -->
-      <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
-        <nav class="mobile-nav-links">
-          <a href="/" class="mobile-nav-link active" onclick="toggleMobileMenuLocal()">Workspace</a>
-          <a href="/timetable-generator-online-for-students/" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Free Students Timetable Maker</a>
-          <a href="/sitemap.html" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Sitemap</a>
-        </nav>
       </div>
     </header>
 
     <!-- ==========================================================================
-         TIMETABLECREATOR.COM CLASSIC CLONE WORKSPACE
+         UPGRADED HOMEPAGE WORKSPACE (SIDEBAR + 3-CARD DASHBOARD)
          ========================================================================== -->
-    <div class="classic-tt-app" id="timetableCreatorClassicApp">
-      <div class="classic-container">
+    <div class="classic-tt-app active-view" id="timetableCreatorClassicApp">
+      <div class="tc-app-layout">
         
-        <!-- 1. Dedicated Top Schedule Header Bar (Cleaned of branding) -->
-        <div class="classic-main-header">
-          <!-- Schedule Title & Subtitle Direct Editable Area -->
-          <div class="classic-schedule-meta-box">
-            <div class="classic-title-edit-wrap">
-              <input type="text" id="classicTtTitle" class="classic-title-input" value="My Weekly Timetable" placeholder="Timetable Title..." onchange="app.handlers.updateClassicTitle(this.value)" aria-label="Timetable Title">
-              <svg class="classic-edit-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-            </div>
-            <input type="text" id="classicTtSubtitle" class="classic-subtitle-input" value="Class & Activity Schedule" placeholder="Optional Subtitle or Semester..." onchange="app.handlers.updateClassicSubtitle(this.value)" aria-label="Timetable Subtitle">
-          </div>
-
-          <!-- Header Quick Actions -->
-          <div class="classic-header-quick-actions">
-            <!-- Add Activity Primary Button -->
-            <button class="classic-btn-add-primary" onclick="app.handlers.openClassicAddModal()" data-shortcut-tip="Alt + A" data-shortcut-name="Add Activity" aria-label="Add Activity">
-              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="15" height="15"><path d="M12 4v16m8-8H4"></path></svg>
-              <span>Add Activity</span>
+        <!-- LEFT SIDEBAR -->
+        <aside class="tc-sidebar" id="tcMainSidebar">
+          <nav class="tc-sidebar-nav">
+            <button class="tc-sidebar-item active" onclick="app.handlers.sidebarAction('timetable')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>Timetable</span>
             </button>
+            <button class="tc-sidebar-item" onclick="app.handlers.sidebarAction('templates')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"></path></svg>
+              <span>Templates</span>
+            </button>
+            <button class="tc-sidebar-item" onclick="app.handlers.sidebarAction('grid-setup')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <span>Grid Setup</span>
+            </button>
+            <button class="tc-sidebar-item" onclick="app.handlers.sidebarAction('export')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+              <span>Export</span>
+            </button>
+            <button class="tc-sidebar-item" onclick="app.handlers.sidebarAction('settings')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+              <span>Settings</span>
+            </button>
+          </nav>
 
-            <!-- Template Preset Selector Custom Dropdown -->
-            <div class="classic-template-select-wrap">
-              <div class="custom-dropdown-wrap" id="wrap_classicPresetTemplates" style="min-width: 220px;">
-                <input type="hidden" id="classicPresetTemplates" value="">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Load Template">
-                  <span class="custom-dropdown-label"><span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span><span>Load Template Schedule...</span></span>
-                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="custom-dropdown-menu">
-                  <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', '', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span>
-                      <span>Load Template Schedule...</span>
-                    </div>
+          <!-- Bottom Illustration Card -->
+          <div class="tc-sidebar-promo">
+            <div class="tc-sidebar-promo-graphic">
+              <svg width="90" height="90" viewBox="0 0 120 120" fill="none">
+                <circle cx="60" cy="60" r="50" fill="#ccfbf1" />
+                <rect x="25" y="32" width="62" height="66" rx="10" fill="#ffffff" stroke="#0d9488" stroke-width="2.5" />
+                <path d="M25 42C25 36.4772 29.4772 32 35 32H77C82.5228 32 87 36.4772 87 42V46H25V42Z" fill="#0d9488" />
+                <rect x="36" y="26" width="4" height="10" rx="2" fill="#0f766e" />
+                <rect x="72" y="26" width="4" height="10" rx="2" fill="#0f766e" />
+                <rect x="34" y="54" width="8" height="8" rx="2" fill="#f87171" />
+                <rect x="47" y="54" width="8" height="8" rx="2" fill="#fbbf24" />
+                <rect x="60" y="54" width="8" height="8" rx="2" fill="#34d399" />
+                <rect x="73" y="54" width="8" height="8" rx="2" fill="#60a5fa" />
+                <rect x="34" y="68" width="8" height="8" rx="2" fill="#fbbf24" />
+                <rect x="47" y="68" width="8" height="8" rx="2" fill="#34d399" />
+                <rect x="60" y="68" width="8" height="8" rx="2" fill="#a78bfa" />
+                <rect x="73" y="68" width="8" height="8" rx="2" fill="#f472b6" />
+                <rect x="70" y="22" width="36" height="38" rx="6" fill="#fef08a" stroke="#ca8a04" stroke-width="2" transform="rotate(10 70 22)" />
+                <line x1="77" y1="36" x2="98" y2="40" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" />
+                <line x1="79" y1="44" x2="96" y2="47" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="tc-sidebar-promo-text">
+              <span>Create</span>
+              <span>Organize</span>
+              <span>Stay Productive</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN WORKSPACE -->
+        <main class="tc-main-workspace">
+          
+          <!-- 1. Header & Stats Card -->
+          <div class="tc-card tc-schedule-header-card">
+            <div class="tc-schedule-header-top">
+              <div class="tc-title-block">
+                <div class="tc-title-edit-wrap">
+                  <input type="text" id="classicTtTitle" class="tc-title-input" value="My Weekly Timetable" placeholder="Timetable Title..." onchange="app.handlers.updateClassicTitle(this.value)" aria-label="Timetable Title">
+                  <svg class="tc-title-edit-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </div>
+                <input type="text" id="classicTtSubtitle" class="tc-subtitle-input" value="Class & Activity Schedule" placeholder="Class & Activity Schedule..." onchange="app.handlers.updateClassicSubtitle(this.value)" aria-label="Timetable Subtitle">
+              </div>
+
+              <!-- 4 Stats Badges -->
+              <div class="tc-stats-row">
+                <!-- Activities -->
+                <div class="tc-stat-card stat-teal" title="Total Scheduled Activities">
+                  <div class="tc-stat-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path></svg>
                   </div>
-                  <div class="custom-dropdown-option" data-value="university" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'university', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"></path></svg></span>
-                      <span>University Student Schedule</span>
-                    </div>
+                  <div class="tc-stat-info">
+                    <span class="tc-stat-val" id="statClassesCount">8</span>
+                    <span class="tc-stat-label">Activities</span>
                   </div>
-                  <div class="custom-dropdown-option" data-value="school" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'school', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M3 21h18M3 7v14M21 7v14M12 3l9 4H3l9-4zM9 10h6v4H9z"></path></svg></span>
-                      <span>High School Routine</span>
-                    </div>
+                </div>
+
+                <!-- Hours per week -->
+                <div class="tc-stat-card stat-amber" title="Total Weekly Duration">
+                  <div class="tc-stat-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                   </div>
-                  <div class="custom-dropdown-option" data-value="work" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'work', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
-                      <span>Work & Shift Planner</span>
-                    </div>
+                  <div class="tc-stat-info">
+                    <span class="tc-stat-val" id="statHoursCount">13h</span>
+                    <span class="tc-stat-label">per week</span>
                   </div>
-                  <div class="custom-dropdown-option" data-value="fitness" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'fitness', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#f43f5e;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v8H2zM6 8v8M12 8v8"></path></svg></span>
-                      <span>Workout & Gym Plan</span>
-                    </div>
+                </div>
+
+                <!-- Days -->
+                <div class="tc-stat-card stat-purple" title="Active Days">
+                  <div class="tc-stat-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                   </div>
-                  <div class="custom-dropdown-option" data-value="exam" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'exam', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
-                    <div class="custom-drop-item-content">
-                      <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
-                      <span>Exam Revision Timetable</span>
-                    </div>
+                  <div class="tc-stat-info">
+                    <span class="tc-stat-val" id="statDaysCount">7</span>
+                    <span class="tc-stat-label">Days</span>
+                  </div>
+                </div>
+
+                <!-- Time Range -->
+                <div class="tc-stat-card stat-blue" title="Active Time Range">
+                  <div class="tc-stat-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 15 9"></polyline></svg>
+                  </div>
+                  <div class="tc-stat-info">
+                    <span class="tc-stat-val" id="statTimeRange">08:00 – 19:00</span>
+                    <span class="tc-stat-label">Time Range</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- 2. Interactive Navigation Ribbon: Stats, Day Filter, Zoom & Grid Settings -->
-        <div class="classic-toolbar-card">
-          <div class="classic-ribbon-top-row">
-            <!-- Dynamic Stats Strip -->
-            <div class="classic-stats-strip">
-              <span class="classic-stat-pill" title="Total Scheduled Activities">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                <strong id="classicStatClasses">0</strong> Activities
-              </span>
-              <span class="classic-stat-pill" title="Total Weekly Duration">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <strong id="classicStatHours">0h</strong> / wk
-              </span>
-              <span class="classic-stat-pill" title="Active Days">
-                <strong id="classicStatDays">7 Days</strong>
-              </span>
-              <span class="classic-stat-pill" title="Active Hours Range">
-                <strong id="classicStatSpan">08:00 - 19:00</strong>
-              </span>
-            </div>
-
-            <!-- Responsive Day Filter Pills (Scrolls to Day on Mobile/Tablet) -->
-            <div class="classic-day-pills-bar" id="classicDayPillsBar">
-              <button class="classic-day-pill-filter active" onclick="app.handlers.focusClassicDay('all')">All Days</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(0)" data-shortcut-tip="Alt + 1" data-shortcut-name="Mon">Mon</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(1)" data-shortcut-tip="Alt + 2" data-shortcut-name="Tue">Tue</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(2)" data-shortcut-tip="Alt + 3" data-shortcut-name="Wed">Wed</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(3)" data-shortcut-tip="Alt + 4" data-shortcut-name="Thu">Thu</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(4)" data-shortcut-tip="Alt + 5" data-shortcut-name="Fri">Fri</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(5)" data-shortcut-tip="Alt + 6" data-shortcut-name="Sat">Sat</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(6)" data-shortcut-tip="Alt + 7" data-shortcut-name="Sun">Sun</button>
-            </div>
-
-            <!-- Utility Controls: Undo, Redo, Zoom & Settings Toggle -->
-            <div class="classic-utility-controls">
-              <div class="classic-undo-redo-group">
-                <button class="classic-btn-mini" onclick="app.handlers.undo()" id="btnClassicUndo" data-shortcut-tip="Ctrl + Z" data-shortcut-name="Undo" title="Undo (Ctrl+Z)" aria-label="Undo">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
-                  <span>Undo</span>
+            <!-- Action Buttons & Day Filter Bar -->
+            <div class="tc-schedule-header-bottom">
+              <div class="tc-cta-group">
+                <!-- + Add Activity Button (split dropdown) -->
+                <button class="tc-btn-teal-primary" onclick="app.handlers.openClassicAddModal()" data-shortcut-tip="Alt + A" data-shortcut-name="Add Activity" aria-label="Add Activity">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>Add Activity</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
-                <button class="classic-btn-mini" onclick="app.handlers.redo()" id="btnClassicRedo" data-shortcut-tip="Ctrl + Y" data-shortcut-name="Redo" title="Redo (Ctrl+Y)" aria-label="Redo">
-                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
-                  <span>Redo</span>
-                </button>
+
+                <!-- Load Template Schedule Dropdown Button -->
+                <div class="custom-dropdown-wrap" id="wrap_classicPresetTemplates" style="min-width: 220px;">
+                  <input type="hidden" id="classicPresetTemplates" value="">
+                  <button type="button" class="tc-btn-outline-white" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Load Template">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"></path></svg>
+                    <span>Load Template Schedule</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="custom-dropdown-menu">
+                    <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', '', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span>
+                        <span>Load Template Schedule...</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="university" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'university', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"></path></svg></span>
+                        <span>University Student Schedule</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="school" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'school', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M3 21h18M3 7v14M21 7v14M12 3l9 4H3l9-4zM9 10h6v4H9z"></path></svg></span>
+                        <span>High School Routine</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="work" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'work', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></span>
+                        <span>Work & Shift Planner</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="fitness" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'fitness', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#f43f5e;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v8H2zM6 8v8M12 8v8"></path></svg></span>
+                        <span>Workout & Gym Plan</span>
+                      </div>
+                    </div>
+                    <div class="custom-dropdown-option" data-value="exam" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'exam', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
+                      <div class="custom-drop-item-content">
+                        <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+                        <span>Exam Revision Timetable</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <!-- Zoom Controls -->
-              <div class="classic-zoom-group">
-                <button class="classic-btn-mini icon-only" onclick="app.handlers.adjustClassicZoom(-0.1)" data-shortcut-tip="Alt + -" data-shortcut-name="Zoom Out" title="Zoom Out Grid" aria-label="Zoom Out">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                </button>
-                <span class="classic-zoom-val" id="classicZoomValLabel">100%</span>
-                <button class="classic-btn-mini icon-only" onclick="app.handlers.adjustClassicZoom(0.1)" data-shortcut-tip="Alt + +" data-shortcut-name="Zoom In" title="Zoom In Grid" aria-label="Zoom In">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                </button>
+              <!-- Day Filter Pills -->
+              <div class="tc-day-pills-bar" id="classicDayPillsBar">
+                <button class="tc-day-pill active" onclick="app.handlers.focusClassicDay('all')">All Days</button>
+                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(0)" data-shortcut-tip="Alt + 1" data-shortcut-name="Mon">Mon</button>
+                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(1)" data-shortcut-tip="Alt + 2" data-shortcut-name="Tue">Tue</button>
+                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(2)" data-shortcut-tip="Alt + 3" data-shortcut-name="Wed">Wed</button>
+                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(3)" data-shortcut-tip="Alt + 4" data-shortcut-name="Thu">Thu</button>
+                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(4)" data-shortcut-tip="Alt + 5" data-shortcut-name="Fri">Fri</button>
+                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(5)" data-shortcut-tip="Alt + 6" data-shortcut-name="Sat">Sat</button>
+                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(6)" data-shortcut-tip="Alt + 7" data-shortcut-name="Sun">Sun</button>
               </div>
 
-              <!-- Collapsible Options Toggle -->
-              <button class="classic-btn-mini" id="btnToggleClassicConfig" data-shortcut-tip="Alt + G" data-shortcut-name="Grid Setup" onclick="app.handlers.toggleClassicConfig()" title="Toggle Grid Settings" aria-label="Toggle Settings">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                <span>Grid Setup</span>
+              <!-- Clear All Danger Button -->
+              <button class="tc-btn-clear-all" onclick="app.handlers.resetSchedule()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Clear Schedule" aria-label="Clear All">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                <span>Clear All</span>
               </button>
             </div>
           </div>
 
-          <!-- Collapsible Grid Configuration Controls -->
-          <div class="classic-config-bar" id="classicConfigBar">
+          <!-- 2. Action Toolbar Card -->
+          <div class="tc-card tc-toolbar-card">
+            <div class="tc-toolbar-left">
+              <!-- Undo / Redo -->
+              <button class="tc-tool-btn" onclick="app.handlers.undo()" id="btnClassicUndo" data-shortcut-tip="Ctrl + Z" data-shortcut-name="Undo" title="Undo (Ctrl+Z)" aria-label="Undo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+                <span>Undo</span>
+              </button>
+              <button class="tc-tool-btn" onclick="app.handlers.redo()" id="btnClassicRedo" data-shortcut-tip="Ctrl + Y" data-shortcut-name="Redo" title="Redo (Ctrl+Y)" aria-label="Redo">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
+                <span>Redo</span>
+              </button>
+
+              <!-- Zoom Pill Segmented -->
+              <div class="tc-zoom-pill">
+                <button class="tc-zoom-btn" onclick="app.handlers.adjustClassicZoom(-0.1)" data-shortcut-tip="Alt + -" data-shortcut-name="Zoom Out" title="Zoom Out Grid" aria-label="Zoom Out">–</button>
+                <span class="tc-zoom-val" id="classicZoomValLabel">100%</span>
+                <button class="tc-zoom-btn" onclick="app.handlers.adjustClassicZoom(0.1)" data-shortcut-tip="Alt + +" data-shortcut-name="Zoom In" title="Zoom In Grid" aria-label="Zoom In">+</button>
+              </div>
+
+              <!-- Grid Setup button -->
+              <button class="tc-tool-btn" id="btnToggleClassicConfig" data-shortcut-tip="Alt + G" data-shortcut-name="Grid Setup" onclick="app.handlers.toggleClassicConfig()" title="Toggle Grid Settings" aria-label="Toggle Settings">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>Grid Setup</span>
+              </button>
+
+              <!-- Resize Grid Toggle Switch -->
+              <label class="tc-toggle-wrap" title="Toggle column & row dragging lines">
+                <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)">
+                <span class="tc-toggle-switch"></span>
+                <span class="tc-toggle-text">Resize Grid</span>
+              </label>
+
+              <!-- Reset Size button -->
+              <button class="tc-tool-btn" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" title="Reset Grid Size">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                <span>Reset Size</span>
+              </button>
+            </div>
+
+            <!-- Export Button with Dropdown -->
+            <div class="tc-toolbar-right">
+              <div class="custom-dropdown-wrap tc-export-wrap" id="wrap_exportMenu">
+                <button type="button" class="tc-btn-export-teal" onclick="app.handlers.toggleCustomDropdown('wrap_exportMenu', event)" aria-label="Export Timetable">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                  <span>Export</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu tc-export-dropdown" style="right: 0; left: auto;">
+                  <button class="tc-export-option" onclick="app.handlers.printTimetable()" data-shortcut-tip="Ctrl + P" data-shortcut-name="Print">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z"></path></svg>
+                    <span>Print</span>
+                  </button>
+                  <button class="tc-export-option" onclick="app.handlers.savePdf()" data-shortcut-tip="Alt + P" data-shortcut-name="Save PDF">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Save as PDF</span>
+                  </button>
+                  <button class="tc-export-option" onclick="app.handlers.downloadPng()" data-shortcut-tip="Alt + E" data-shortcut-name="Download PNG">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    <span>Export as PNG</span>
+                  </button>
+                  <button class="tc-export-option" onclick="app.handlers.exportJson()" data-shortcut-tip="Alt + J" data-shortcut-name="Export JSON">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"></path></svg>
+                    <span>Export as JSON</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collapsible Grid Configuration Controls Bar -->
+          <div class="classic-config-bar" id="classicConfigBar" style="display: none;">
             <!-- Days Preset -->
             <div class="classic-cfg-item">
               <span class="classic-cfg-label">Days:</span>
@@ -5221,23 +6313,23 @@
                   <div class="custom-dropdown-option" data-value="3" onclick="app.handlers.onSelectCustomDropdown('configDays', '3', '3 Days', 'wrap_configDays', function(){ app.handlers.configChange(); })">3 Days</div>
                   <div class="custom-dropdown-option" data-value="4" onclick="app.handlers.onSelectCustomDropdown('configDays', '4', '4 Days', 'wrap_configDays', function(){ app.handlers.configChange(); })">4 Days</div>
                   <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Fri (5 Days)</span>
-                      </div>
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#3b82f6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                      <span>Mon - Fri (5 Days)</span>
                     </div>
-                    <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Sat (6 Days)</span>
-                      </div>
+                  </div>
+                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                      <span>Mon - Sat (6 Days)</span>
                     </div>
-                    <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
-                        <span>Mon - Sun (7 Days)</span>
-                      </div>
+                  </div>
+                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+                      <span>Mon - Sun (7 Days)</span>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -5292,29 +6384,29 @@
                 </button>
                 <div class="custom-dropdown-menu">
                   <div class="custom-dropdown-option" data-value="15" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '15', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#06b6d4;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></span>
-                        <span>15 Minutes</span>
-                      </div>
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#06b6d4;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg></span>
+                      <span>15 Minutes</span>
                     </div>
-                    <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '30', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
-                        <span>30 Minutes</span>
-                      </div>
+                  </div>
+                  <div class="custom-dropdown-option selected" data-value="30" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '30', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#10b981;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+                      <span>30 Minutes</span>
                     </div>
-                    <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '45', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 17 12"></polyline></svg></span>
-                        <span>45 Minutes</span>
-                      </div>
+                  </div>
+                  <div class="custom-dropdown-option" data-value="45" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '45', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 17 12"></polyline></svg></span>
+                      <span>45 Minutes</span>
                     </div>
-                    <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '60', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 12 18"></polyline></svg></span>
-                        <span>60 Minutes</span>
-                      </div>
+                  </div>
+                  <div class="custom-dropdown-option" data-value="60" onclick="app.handlers.onSelectCustomDropdown('classicConfigInterval', '60', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigInterval', function(){ app.handlers.classicConfigChange(); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#8b5cf6;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 12 18"></polyline></svg></span>
+                      <span>60 Minutes</span>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -5330,17 +6422,17 @@
                 </button>
                 <div class="custom-dropdown-menu">
                   <div class="custom-dropdown-option" data-value="12" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '12', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42"></path></svg></span>
-                        <span>12-Hour (AM/PM)</span>
-                      </div>
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#f59e0b;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42"></path></svg></span>
+                      <span>12-Hour (AM/PM)</span>
                     </div>
-                    <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '24', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">
-                      <div class="custom-drop-item-content">
-                        <span class="custom-drop-icon" style="color:#6366f1;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
-                        <span>24-Hour (Military)</span>
-                      </div>
+                  </div>
+                  <div class="custom-dropdown-option selected" data-value="24" onclick="app.handlers.onSelectCustomDropdown('classicConfigFormat', '24', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicConfigFormat', function(){ app.handlers.classicConfigChange(); })">
+                    <div class="custom-drop-item-content">
+                      <span class="custom-drop-icon" style="color:#6366f1;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="8" y1="12" x2="16" y2="12"></line></svg></span>
+                      <span>24-Hour (Military)</span>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -5349,74 +6441,27 @@
             <div class="classic-cfg-item classic-cfg-item-actions">
               <span class="classic-cfg-label">Backup & Clear:</span>
               <div class="classic-cfg-action-buttons">
-                
                 <button class="classic-btn-cfg-action classic-btn-cfg-import" onclick="app.handlers.triggerImport()" data-shortcut-tip="Alt + O" data-shortcut-name="Import JSON" title="Import JSON File">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                   <span>Import JSON</span>
-                </button>
-                <button class="classic-btn-cfg-action danger classic-btn-cfg-clear" onclick="app.handlers.clearAll()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Reset All Entries">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  <span>Clear All</span>
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- Mobile Scroll Tip -->
-          <div class="classic-mobile-scroll-hint">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
-            <span>Tip: Swipe horizontally to scroll weekdays. Tap any day pill above to jump directly. Tap any slot to add an activity!</span>
-          </div>
-                    <div class="unified-controls-container" style="display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--bg-card); padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border-color);">
-            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" data-shortcut-tip="Ctrl + P" data-shortcut-name="Print Timetable" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                <span>Print</span>
-              </button>
-              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" data-shortcut-tip="Alt + P" data-shortcut-name="Save PDF" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
-                <span>Save PDF</span>
-              </button>
-              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" data-shortcut-tip="Alt + E" data-shortcut-name="Download PNG" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <span>PNG</span>
-              </button>
-              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" data-shortcut-tip="Alt + J" data-shortcut-name="Export JSON" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span>JSON</span>
-              </button>
-              <button class="export-btn-item export-btn-clear" onclick="app.handlers.clearAll()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Clear Entire Schedule" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid #f87171; background: rgba(248, 113, 113, 0.1); color: #ef4444; cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                <span>Clear All</span>
-              </button>
-            </div>
-            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
-              <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--text-main); cursor: pointer; user-select: none;">
-                <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)" style="width: 14px; height: 14px; accent-color: var(--primary-color); cursor: pointer;">
-                Enable Grid Resizing
-              </label>
-              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-                <span>Reset Grid Size</span>
-              </button>
+          <!-- 3. Interactive Timetable Grid Card -->
+          <div class="tc-card tc-grid-card">
+            <div class="classic-grid-scroll-wrapper" id="classicGridScrollWrapper" tabindex="0" role="region" aria-label="Interactive Timetable Grid">
+              <table class="classic-table-grid" id="classicTableGrid">
+                <!-- Dynamically populated table structure -->
+              </table>
             </div>
           </div>
-        </div>
 
-        <!-- 3. Classic Timetable Interactive Grid Canvas (Fully Responsive & Scrollable) -->
-        <div class="classic-grid-card">
-          <div class="classic-grid-scroll-wrapper" id="classicGridScrollWrapper" tabindex="0" role="region" aria-label="Interactive Timetable Grid">
-            <table class="classic-table-grid" id="classicTableGrid">
-              <!-- Dynamically populated table structure -->
-            </table>
-          </div>
-        </div>
-
-
-
-
+        </main>
       </div>
-      <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
+
+      <!-- Floating Action Button (FAB) for Mobile Quick Add -->
       <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" data-shortcut-tip="Alt + A" data-shortcut-name="Add Activity" aria-label="Add Activity">
         <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v16m8-8H4"></path></svg>
         <span>Add Activity</span>
@@ -7070,115 +8115,129 @@
         defaultStarterEvents: [
           {
             id: "evt_starter_1",
-            title: "Mathematics & Calculus",
-            subject: "Mathematics",
-            teacher: "Prof. Anderson",
-            room: "Room 101",
-            location: "Room 101",
-            category: "Academic",
-            notes: "Scientific calculator & workbook",
+            title: "Calculus III",
+            subject: "Calculus III",
+            teacher: "Prof. Gauss",
+            room: "Hall A",
+            location: "Hall A",
+            category: "Mathematics",
+            notes: "Advanced multi-variable calculus lecture",
             day: 0,
-            startTime: 510,
-            endTime: 600,
-            color: "#3b82f6"
+            startTime: 480,
+            endTime: 570,
+            color: "#2563eb"
           },
           {
             id: "evt_starter_2",
-            title: "Computer Science Lab",
-            subject: "Computer Science",
-            teacher: "Dr. Evans",
-            room: "Lab 3B",
-            location: "Lab 3B",
-            category: "Practical",
-            notes: "Data structures & algorithm exercises",
+            title: "Data Structures",
+            subject: "Data Structures",
+            teacher: "Dr. Turing",
+            room: "CS Lab 2",
+            location: "CS Lab 2",
+            category: "Computer Science",
+            notes: "Binary trees & graph algorithms lab",
             day: 0,
-            startTime: 630,
-            endTime: 750,
-            color: "#10b981"
+            startTime: 600,
+            endTime: 690,
+            color: "#059669"
           },
           {
             id: "evt_starter_3",
-            title: "Physics Mechanics",
+            title: "Physics II Lab",
             subject: "Physics",
-            teacher: "Dr. Miller",
-            room: "Hall A",
-            location: "Hall A",
-            category: "Academic",
-            notes: "Chapters 4 & 5 problem review",
+            teacher: "Prof. Newton",
+            room: "Science C",
+            location: "Science C",
+            category: "Physics",
+            notes: "Electromagnetism & Optics practical experiments",
             day: 1,
             startTime: 540,
-            endTime: 630,
-            color: "#8b5cf6"
+            endTime: 660,
+            color: "#7c3aed"
           },
           {
             id: "evt_starter_4",
-            title: "English Literature",
-            subject: "English",
-            teacher: "Prof. Davies",
-            room: "Room 204",
-            location: "Room 204",
-            category: "Humanities",
-            notes: "Reading assignment & essay workshop",
+            title: "Chemistry",
+            subject: "Chemistry",
+            teacher: "Dr. Curie",
+            room: "Lab 1",
+            location: "Lab 1",
+            category: "Chemistry",
+            notes: "Molecular synthesis and titration session",
             day: 1,
-            startTime: 660,
-            endTime: 750,
+            startTime: 690,
+            endTime: 780,
             color: "#f59e0b"
           },
           {
             id: "evt_starter_5",
-            title: "Chemistry Laboratory",
-            subject: "Chemistry",
-            teacher: "Dr. Watson",
-            room: "Chem Lab 2",
-            location: "Chem Lab 2",
-            category: "Practical",
-            notes: "Safety goggles required for titration experiment",
+            title: "Linear Algebra",
+            subject: "Linear Algebra",
+            teacher: "Dr. Euler",
+            room: "Hall B",
+            location: "Hall B",
+            category: "Mathematics",
+            notes: "Matrix transformations & vector spaces",
             day: 2,
-            startTime: 540,
-            endTime: 690,
-            color: "#06b6d4"
+            startTime: 480,
+            endTime: 570,
+            color: "#2563eb"
           },
           {
             id: "evt_starter_6",
-            title: "History & World Affairs",
-            subject: "History",
-            teacher: "Prof. Clark",
-            room: "Room 302",
-            location: "Room 302",
-            category: "Humanities",
-            notes: "Midterm revision notes sharing",
-            day: 3,
+            title: "Web Development",
+            subject: "Web Development",
+            teacher: "Prof. Berners",
+            room: "Lab 4",
+            location: "Lab 4",
+            category: "Engineering",
+            notes: "Full-stack cloud applications & TypeScript",
+            day: 2,
             startTime: 600,
             endTime: 690,
-            color: "#ec4899"
+            color: "#ef4444"
           },
           {
             id: "evt_starter_7",
-            title: "Physical Education & Fitness",
-            subject: "Sports",
-            teacher: "Coach Taylor",
-            room: "Main Gym",
-            location: "Main Gym",
-            category: "Fitness",
-            notes: "Cardio conditioning & team games",
-            day: 4,
+            title: "English Literature",
+            subject: "English",
+            teacher: "Dr. Shakespeare",
+            room: "Room 101",
+            location: "Room 101",
+            category: "Literature",
+            notes: "Critical essay reviews and literary analysis",
+            day: 3,
             startTime: 540,
             endTime: 630,
-            color: "#10b981"
+            color: "#0d9488"
           },
           {
             id: "evt_starter_8",
-            title: "Study Group & Project Work",
-            subject: "Self Study",
-            teacher: "Study Circle",
-            room: "Library 4",
-            location: "Library 4",
-            category: "Study",
-            notes: "Group assignment finalization",
+            title: "Statistics",
+            subject: "Statistics",
+            teacher: "Prof. Fisher",
+            room: "Hall C",
+            location: "Hall C",
+            category: "Mathematics",
+            notes: "Statistical inference and hypothesis testing",
             day: 4,
             startTime: 660,
-            endTime: 780,
-            color: "#6366f1"
+            endTime: 750,
+            color: "#7c3aed"
+          },
+          {
+            id: "evt_starter_9",
+            title: "Computer Networks",
+            subject: "Computer Networks",
+            teacher: "Dr. Kurose",
+            room: "Lab 3",
+            location: "Lab 3",
+            category: "Networks",
+            notes: "Routing protocols and network security",
+            day: 5,
+            startTime: 480,
+            endTime: 600,
+            color: "#ea580c"
           }
         ],
         state: {
@@ -8038,6 +9097,29 @@
           });
         },
 
+        getSubjectCategoryIcon(cat, title) {
+          const text = ((cat || '') + ' ' + (title || '')).toLowerCase();
+          if (text.includes('code') || text.includes('data') || text.includes('cs') || text.includes('comput') || text.includes('web') || text.includes('program') || text.includes('softw')) {
+            return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>';
+          }
+          if (text.includes('physic') || text.includes('chem') || text.includes('lab') || text.includes('scien')) {
+            return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path><path d="M8.5 2h7"></path><path d="M7 16h10"></path></svg>';
+          }
+          if (text.includes('math') || text.includes('calc') || text.includes('algeb') || text.includes('stat') || text.includes('geom') || text.includes('linear')) {
+            return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>';
+          }
+          if (text.includes('hist') || text.includes('lit') || text.includes('eng') || text.includes('read') || text.includes('writ')) {
+            return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>';
+          }
+          if (text.includes('net') || text.includes('wire') || text.includes('cloud') || text.includes('sys')) {
+            return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>';
+          }
+          if (text.includes('gym') || text.includes('sport') || text.includes('fit') || text.includes('bio')) {
+            return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>';
+          }
+          return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>';
+        },
+
         renderClassicGrid() {
           try {
             const table = document.getElementById('classicTableGrid');
@@ -8085,10 +9167,10 @@
             }, 0);
             const totalHours = (totalMinutes / 60).toFixed(1).replace(/\.0$/, '');
 
-            const statClasses = document.getElementById('classicStatClasses');
-            const statHours = document.getElementById('classicStatHours');
-            const statDays = document.getElementById('classicStatDays');
-            const statSpan = document.getElementById('classicStatSpan');
+            const statClasses = document.getElementById('classicStatClasses') || document.getElementById('statClassesCount');
+            const statHours = document.getElementById('classicStatHours') || document.getElementById('statHoursCount');
+            const statDays = document.getElementById('classicStatDays') || document.getElementById('statDaysCount');
+            const statSpan = document.getElementById('classicStatSpan') || document.getElementById('statTimeRange');
 
             if (statClasses) statClasses.textContent = validEvents.length;
             if (statHours) statHours.textContent = `${totalHours}h`;
@@ -8103,7 +9185,9 @@
                 widthStyle = `style="width:${this.state.classicColWidths[d]}px;min-width:${this.state.classicColWidths[d]}px;"`;
               }
               html += `<th class="classic-th-day" id="classic-th-day-${d}" data-day="${d}" ${widthStyle}>
-                <span>${dayNames[d]}</span>
+                <div class="classic-th-day-badge classic-day-badge-${d}">
+                  <span>${dayNames[d]}</span>
+                </div>
                 <div class="excel-col-resizer" onpointerdown="app.startExcelColResize(event, ${d}, 'classic')" title="Hold & drag column line to resize"></div>
               </th>`;
             }
@@ -8164,37 +9248,22 @@
               };
 
               const timeBadge = `${this.formatMinute(evt.startTime)} - ${this.formatMinute(evt.endTime)}`;
+              const catIcon = this.getSubjectCategoryIcon(evt.category, evt.title);
 
               eventCard.innerHTML = `
-                <div class="classic-event-title-line">
-                  <span class="classic-event-title" title="${this.escapeHtml(evt.title)}">${this.escapeHtml(evt.title)}</span>
-                  <div class="classic-event-tools">
-                    <button class="classic-evt-btn" title="Add activity next" onclick="event.stopPropagation(); app.handlers.openClassicAddModal(${evt.day}, ${evt.endTime})">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"></path></svg>
-                    </button>
-                    <button class="classic-evt-btn" title="Edit activity" onclick="event.stopPropagation(); app.handlers.openClassicEditModal(app.state.events.find(x => x.id === '${evt.id}'))">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                    </button>
-                    <button class="classic-evt-btn" title="Copy (Ctrl+C)" onclick="event.stopPropagation(); app.copyEvent('${evt.id}')">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                    </button>
-                    <button class="classic-evt-btn" title="Duplicate activity" onclick="event.stopPropagation(); app.duplicateEvent('${evt.id}')">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="15" y1="12" x2="15" y2="18"></line><line x1="12" y1="15" x2="18" y2="15"></line><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
-                    </button>
-                    ${this.state.clipboard ? `
-                    <button class="classic-evt-btn" title="Paste activity after this" onclick="event.stopPropagation(); app.pasteEvent(${evt.day}, ${evt.endTime})">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                    </button>
-                    ` : ''}
-                    <button class="classic-evt-btn" title="Delete activity" onclick="event.stopPropagation(); app.deleteEvent('${evt.id}')">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                    </button>
+                <div class="classic-event-top-line">
+                  <div class="classic-event-icon-badge" title="${this.escapeHtml(evt.category || evt.subject || 'Class')}">
+                    ${catIcon}
                   </div>
+                  <button class="classic-event-dots-btn" title="Options" onclick="event.stopPropagation(); app.handlers.showEventContext(event, app.state.events.find(x => x.id === '${evt.id}'))" aria-label="Activity options">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2.2"></circle><circle cx="12" cy="12" r="2.2"></circle><circle cx="12" cy="19" r="2.2"></circle></svg>
+                  </button>
                 </div>
+                <div class="classic-event-title" title="${this.escapeHtml(evt.title)}">${this.escapeHtml(evt.title)}</div>
                 <div class="classic-event-details">
-                  ${evt.teacher ? `<span style="display:inline-flex;align-items:center;gap:3px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>${this.escapeHtml(evt.teacher)}</span>` : ''}
-                  ${evt.room ? `<span style="display:inline-flex;align-items:center;gap:3px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>${this.escapeHtml(evt.room)}</span>` : ''}
-                  <span class="classic-event-badge-time" style="display:inline-flex;align-items:center;gap:3px;"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${timeBadge}</span>
+                  ${evt.teacher ? `<span class="classic-event-line"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>${this.escapeHtml(evt.teacher)}</span>` : ''}
+                  ${evt.room ? `<span class="classic-event-line"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>${this.escapeHtml(evt.room)}</span>` : ''}
+                  <span class="classic-event-line classic-event-time-line"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${timeBadge}</span>
                 </div>
               `;
 
@@ -9879,6 +10948,40 @@
           },
 
           // ==========================================
+          // SIDEBAR ACTIONS & NAVIGATION
+          sidebarAction(action) {
+            const sidebarItems = document.querySelectorAll('.tc-sidebar-item');
+            sidebarItems.forEach(btn => btn.classList.remove('active'));
+            if (window.event && window.event.currentTarget) {
+              window.event.currentTarget.classList.add('active');
+            }
+
+            if (action === 'timetable') {
+              const el = document.getElementById('classicGridScrollWrapper');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else if (action === 'templates') {
+              app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', window.event);
+            } else if (action === 'grid-setup') {
+              app.handlers.toggleClassicConfig();
+            } else if (action === 'export') {
+              app.handlers.toggleCustomDropdown('wrap_exportMenu', window.event);
+            } else if (action === 'settings') {
+              app.handlers.toggleClassicConfig();
+            }
+
+            const sidebar = document.getElementById('tcMainSidebar');
+            if (sidebar && window.innerWidth <= 1024) {
+              sidebar.classList.remove('mobile-open');
+            }
+          },
+
+          toggleSidebarMenu() {
+            const sidebar = document.getElementById('tcMainSidebar');
+            if (sidebar) {
+              sidebar.classList.toggle('mobile-open');
+            }
+          },
+
           // CLASSIC EVENT MODAL HANDLERS
           // ==========================================
           openClassicAddModal(day = 0, startTime = null) {
