@@ -41,23 +41,27 @@ async function startServer() {
       return res.redirect(301, `https://${nonWwwHost}${req.originalUrl}`);
     }
 
-    // 301 Permanent Redirect for old query-parameter multilingual URLs (?lang=xx, &lang=xx) to clean URLs
-    if (req.query && typeof req.query.lang !== 'undefined') {
-      const rawLang = String(req.query.lang).trim();
-      const supportedLangs = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+    // 301 Permanent Redirect for old query-parameter multilingual URLs (?lang=xx, &lang=xx, etc.) across all pages
+    const reqUrl = req.url || '';
+    if (reqUrl.includes('lang=') || (req.query && typeof req.query.lang !== 'undefined')) {
+      const rawLang = req.query && req.query.lang ? String(req.query.lang).trim() : (reqUrl.match(/[?&]lang=([^&]+)/)?.[1] || '');
+      const supportedLangs = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi', 'en-GB', 'en'];
       const cleanPath = req.path.replace(/\/+$/, '');
 
       let dest = '/';
-      if (supportedLangs.includes(rawLang)) {
-        dest = cleanPath ? `${cleanPath}/${rawLang}` : `/${rawLang}`;
+      const transCode = rawLang === 'en-GB' || rawLang === 'en' ? '' : rawLang;
+      if (supportedLangs.includes(rawLang) && transCode) {
+        dest = cleanPath ? `${cleanPath}/${transCode}` : `/${transCode}`;
       } else {
         dest = cleanPath || '/';
       }
 
       const otherParams = new URLSearchParams();
-      for (const [key, value] of Object.entries(req.query)) {
-        if (key !== 'lang' && typeof value === 'string') {
-          otherParams.append(key, value);
+      if (req.query) {
+        for (const [key, value] of Object.entries(req.query)) {
+          if (key !== 'lang' && typeof value === 'string') {
+            otherParams.append(key, value);
+          }
         }
       }
       const otherQs = otherParams.toString();
