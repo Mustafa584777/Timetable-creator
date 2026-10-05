@@ -259,15 +259,16 @@ const cleanTranslationScript = `
 
 const faviconTags = `
     <!-- Favicon and App Icons -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">`;
 
 function ensureFaviconTags(content) {
-  if (content.includes('href="/apple-touch-icon.png"') || content.includes('href="/favicon-32x32.png"')) {
-    return content;
-  }
+  content = content.replace(/<!-- Favicon and App Icons -->[\s\S]*?(?:<link rel="manifest"[^>]*>|<link rel="apple-touch-icon"[^>]*>)/gi, '');
+  content = content.replace(/<link rel="(?:shortcut icon|icon|apple-touch-icon|manifest)"[^>]*>\s*/gi, '');
   if (content.includes('</head>')) {
     return content.replace('</head>', `${faviconTags}\n  </head>`);
   }
@@ -723,9 +724,7 @@ function ensureHeaderAndResponsiveStyles(content) {
 
 function replaceHeaderInHtml(content, activePage) {
   const newHeader = generateHeaderHtml(activePage);
-  if (/<header[\s\S]*?<\/header>/i.test(content)) {
-    content = content.replace(/<header[\s\S]*?<\/header>/i, newHeader);
-  }
+  content = content.replace(/(?:<!--[\s\S]*?-->\s*)*<header[\s\S]*?<\/header>/i, newHeader);
   return content;
 }
 

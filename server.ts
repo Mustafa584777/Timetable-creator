@@ -110,6 +110,64 @@ async function startServer() {
     res.redirect("/");
   });
 
+  // Explicit static routes for logos, favicons, and manifest
+  anonymityApp.get("/logo.png", (req, res) => {
+    const file = process.env.NODE_ENV === "production" && fs.existsSync(path.join(process.cwd(), "dist", "logo.png"))
+      ? path.join(process.cwd(), "dist", "logo.png")
+      : path.join(process.cwd(), "public", "logo.png");
+    res.type("image/png");
+    res.sendFile(file);
+  });
+
+  anonymityApp.get(["/favicon.ico", "/favicon"], (req, res) => {
+    const file = process.env.NODE_ENV === "production" && fs.existsSync(path.join(process.cwd(), "dist", "favicon.ico"))
+      ? path.join(process.cwd(), "dist", "favicon.ico")
+      : path.join(process.cwd(), "public", "favicon.ico");
+    res.type("image/x-icon");
+    res.sendFile(file);
+  });
+
+  anonymityApp.get("/apple-touch-icon.png", (req, res) => {
+    const file = process.env.NODE_ENV === "production" && fs.existsSync(path.join(process.cwd(), "dist", "apple-touch-icon.png"))
+      ? path.join(process.cwd(), "dist", "apple-touch-icon.png")
+      : path.join(process.cwd(), "public", "apple-touch-icon.png");
+    res.type("image/png");
+    res.sendFile(file);
+  });
+
+  anonymityApp.get("/favicon-32x32.png", (req, res) => {
+    const file = process.env.NODE_ENV === "production" && fs.existsSync(path.join(process.cwd(), "dist", "favicon-32x32.png"))
+      ? path.join(process.cwd(), "dist", "favicon-32x32.png")
+      : path.join(process.cwd(), "public", "favicon-32x32.png");
+    res.type("image/png");
+    res.sendFile(file);
+  });
+
+  anonymityApp.get("/favicon-16x16.png", (req, res) => {
+    const file = process.env.NODE_ENV === "production" && fs.existsSync(path.join(process.cwd(), "dist", "favicon-16x16.png"))
+      ? path.join(process.cwd(), "dist", "favicon-16x16.png")
+      : path.join(process.cwd(), "public", "favicon-16x16.png");
+    res.type("image/png");
+    res.sendFile(file);
+  });
+
+  anonymityApp.get(["/site.webmanifest", "/manifest.json"], (req, res) => {
+    const file = process.env.NODE_ENV === "production" && fs.existsSync(path.join(process.cwd(), "dist", "site.webmanifest"))
+      ? path.join(process.cwd(), "dist", "site.webmanifest")
+      : path.join(process.cwd(), "public", "site.webmanifest");
+    res.type("application/manifest+json; charset=utf-8");
+    res.sendFile(file);
+  });
+
+  anonymityApp.get(["/android-chrome-192x192.png", "/android-chrome-512x512.png"], (req, res) => {
+    const filename = path.basename(req.path);
+    const file = process.env.NODE_ENV === "production" && fs.existsSync(path.join(process.cwd(), "dist", filename))
+      ? path.join(process.cwd(), "dist", filename)
+      : path.join(process.cwd(), "public", filename);
+    res.type("image/png");
+    res.sendFile(file);
+  });
+
   // Universal Blog route handler for all blog posts, blog index, and language editions
   anonymityApp.get([
     "/blog",
