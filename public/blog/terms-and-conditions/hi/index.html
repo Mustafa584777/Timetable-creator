@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terms of Service - Online Timetable Creator</title>
-    <meta name="description" content="Read the terms of service and conditions of use for Online Timetable Creator." />
-                                                                                                                                                                                <link rel="canonical" href="https://timetablecreator.online/blog/terms-and-conditions/hi" />
+    <title>Terms and Conditions - Online Timetable Creator</title>
+    <meta name="description" content="Review the terms and conditions of using Online Timetable Creator." />
+    <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://timetablecreator.online/blog/terms-and-conditions/hi" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/blog/terms-and-conditions/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/blog/terms-and-conditions/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/blog/terms-and-conditions/es" />
@@ -16,12 +17,23 @@
     <link rel="alternate" hreflang="ko" href="https://timetablecreator.online/blog/terms-and-conditions/ko" />
     <link rel="alternate" hreflang="it" href="https://timetablecreator.online/blog/terms-and-conditions/it" />
     <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/blog/terms-and-conditions/hi" />
+    
+    <!-- Favicon and App Icons -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- High Performance Google Fonts & Tailwind CSS CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: ['class', '[data-theme="dark"]'],
         theme: {
           extend: {
             colors: {
@@ -29,92 +41,527 @@
                 50: '#f5f3ff',
                 100: '#ede9fe',
                 200: '#ddd6fe',
+                300: '#c4b5fd',
+                400: '#a78bfa',
                 500: '#8b5cf6',
                 600: '#7c3aed',
                 700: '#6d28d9',
+                800: '#5b21b6',
+                900: '#4c1d95',
               }
             }
           }
         }
       }
     </script>
-    <style>
-      body {
-        font-family: 'Poppins', sans-serif;
+    <!-- UNIVERSAL GLOBAL HEADER & 100VW RESPONSIVE STYLES -->
+    <style id="universal-header-responsive-css">
+      html, body {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-text-size-adjust: 100%;
       }
-      h1, h2, h3, h4 {
-        font-family: 'Poppins', sans-serif;
+      *, *::before, *::after {
+        box-sizing: border-box;
       }
-      /* Dark Theme styling mimics main app */
-      [data-theme="dark"] {
-        background-color: #000000 !important;
-        color: #ffffff !important;
+      img, svg, video, iframe {
+        max-width: 100%;
+        height: auto;
       }
-      [data-theme="dark"] .bg-white {
-        background-color: #000000 !important;
-        border-color: #2e1065 !important;
+      .global-header {
+        height: 64px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #ebe8fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        z-index: 998;
+        transition: background-color 0.2s, border-color 0.2s;
+        width: 100%;
+        max-width: 100vw;
       }
-      [data-theme="dark"] .text-slate-900 {
-        color: #ffffff !important;
+      [data-theme="dark"] .global-header {
+        background-color: #0e0d1e !important;
+        border-bottom-color: #2f2b54 !important;
       }
-      [data-theme="dark"] .text-slate-600 {
-        color: #9ca3af !important;
+      .header-container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        position: relative;
+        gap: 16px;
       }
-      [data-theme="dark"] .text-slate-500 {
-        color: #9ca3af !important;
+      .header-left-desktop {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
       }
-      [data-theme="dark"] .bg-slate-50 {
-        background-color: #0b0b0f !important;
+      .header-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        cursor: pointer;
       }
-      [data-theme="dark"] .border-slate-100 {
-        border-color: #2e1065 !important;
+      .app-brand-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
-      [data-theme="dark"] .border-slate-200 {
-        border-color: #2e1065 !important;
+      .app-brand-logo {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        object-fit: contain;
+        transition: transform 0.2s ease;
       }
-      [data-theme="dark"] .bg-[#fafafa] {
-        background-color: #000000 !important;
+      .header-brand:hover .app-brand-logo {
+        transform: scale(1.05);
       }
-      [data-theme="dark"] header, [data-theme="dark"] footer {
-        background-color: #000000 !important;
-        border-color: #2e1065 !important;
+      .header-title-group {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+      .header-brand-line {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .app-brand-name {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 800 !important;
+        color: #1d1e2c !important;
+        letter-spacing: -0.01em !important;
+        line-height: 1.1;
+      }
+      [data-theme="dark"] .app-brand-name {
+        color: #f5f4fc !important;
+      }
+      .app-tools-tag {
+        background: rgba(103, 61, 230, 0.1);
+        color: #673de6;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        padding: 1px 6px;
+        border-radius: 4px;
+        border: 1px solid rgba(103, 61, 230, 0.25);
+        text-transform: uppercase;
+      }
+      [data-theme="dark"] .app-tools-tag {
+        background: rgba(140, 104, 252, 0.15);
+        color: #a78bfa;
+        border-color: rgba(140, 104, 252, 0.3);
+      }
+      .header-subtitle {
+        font-size: 11px !important;
+        color: #6e6d7a !important;
+        margin: 0 !important;
+        font-weight: 500 !important;
+      }
+      [data-theme="dark"] .header-subtitle {
+        color: #a3a0c2 !important;
+      }
+      .header-center-desktop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .header-nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-left: 0;
+      }
+      .nav-link-header {
+        font-size: 13.5px;
+        font-weight: 500;
+        color: #6e6d7a;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        white-space: nowrap;
       }
       [data-theme="dark"] .nav-link-header {
-        color: #9ca3af;
+        color: #a3a0c2 !important;
       }
-      [data-theme="dark"] .nav-link-header:hover {
+      .nav-link-header:hover, .nav-link-header.active {
+        color: #673de6 !important;
+        background-color: rgba(103, 61, 230, 0.08) !important;
+        font-weight: 600;
+      }
+      [data-theme="dark"] .nav-link-header:hover, [data-theme="dark"] .nav-link-header.active {
+        color: #a78bfa !important;
+        background-color: rgba(140, 104, 252, 0.15) !important;
+      }
+      .action-btn-header {
+        background: none;
+        border: none;
+        border-radius: 10px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #1d1e2c;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      [data-theme="dark"] .action-btn-header {
+        color: #f5f4fc;
+      }
+      .action-btn-header:hover {
+        background-color: #f5f3ff;
+        color: #673de6;
+      }
+      [data-theme="dark"] .action-btn-header:hover {
+        background-color: #232140;
         color: #a78bfa;
-        background-color: rgba(167, 139, 250, 0.1);
+      }
+      .lang-dropdown-container {
+        position: relative;
+        display: inline-block;
+      }
+      .lang-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 44px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ffffff;
+        border: 1px solid #ebe8fa;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px -5px rgba(103, 61, 230, 0.12), 0 4px 8px -4px rgba(29, 30, 44, 0.04);
+        min-width: 140px;
+        z-index: 1100;
+        overflow: hidden;
+        padding: 4px;
+      }
+      [data-theme="dark"] .lang-dropdown-menu {
+        background: #19172f !important;
+        border-color: #2f2b54 !important;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+      }
+      .lang-dropdown-menu.show {
+        display: block;
+      }
+      .lang-dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #1d1e2c;
+        border-radius: 8px;
+        background: transparent;
+        border: none !important;
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.15s ease;
+      }
+      [data-theme="dark"] .lang-dropdown-item {
+        color: #f5f4fc;
+      }
+      .lang-dropdown-item:hover {
+        background: #f4f0fd;
+        color: #673de6;
+      }
+      [data-theme="dark"] .lang-dropdown-item:hover {
+        background: #232140 !important;
+        color: #a78bfa !important;
+      }
+      .header-mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        border-radius: 10px;
+        width: 38px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        color: #1d1e2c;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      [data-theme="dark"] .header-mobile-toggle {
+        color: #f5f4fc;
+      }
+      .header-mobile-toggle:hover {
+        background-color: #f5f3ff;
+        color: #673de6;
+      }
+      [data-theme="dark"] .header-mobile-toggle:hover {
+        background-color: #232140;
+        color: #a78bfa;
+      }
+      .mobile-menu-drawer {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        border-bottom: 1px solid #ebe8fa;
+        box-shadow: 0 12px 24px -4px rgba(103, 61, 230, 0.12);
+        padding: 16px 20px;
+        z-index: 997;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 0 0 16px 16px;
+      }
+      [data-theme="dark"] .mobile-menu-drawer {
+        background-color: #19172f !important;
+        border-bottom-color: #2f2b54 !important;
+        box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.6) !important;
+      }
+      .mobile-menu-drawer.hidden {
+        display: none;
+      }
+      .mobile-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .mobile-nav-link {
+        font-size: 14px;
+        font-weight: 500;
+        color: #6e6d7a;
+        text-decoration: none;
+        padding: 10px 14px;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+      }
+      [data-theme="dark"] .mobile-nav-link {
+        color: #a3a0c2 !important;
+      }
+      .mobile-nav-link:hover, .mobile-nav-link.active {
+        color: #673de6 !important;
+        background-color: rgba(103, 61, 230, 0.08) !important;
+        font-weight: 600;
+      }
+      [data-theme="dark"] .mobile-nav-link:hover, [data-theme="dark"] .mobile-nav-link.active {
+        color: #a78bfa !important;
+        background-color: rgba(140, 104, 252, 0.15) !important;
+      }
+      @media (max-width: 1024px) {
+        .header-center-desktop {
+          position: static;
+          transform: none;
+          justify-content: flex-end;
+          margin-right: 6px;
+        }
+        .header-nav-desktop {
+          display: none !important;
+        }
+        .header-mobile-toggle {
+          display: flex !important;
+        }
+      }
+      /* Responsive Article Tables (Max-width 100vw Safe) */
+      .article-table-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        margin: 1.25rem 0 !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 1rem !important;
+        display: block !important;
+      }
+      [data-theme="dark"] .article-table-wrap {
+        border-color: #2f2b54 !important;
+      }
+      .article-table-wrap table {
+        min-width: 540px !important;
+        width: 100% !important;
+        border-collapse: collapse !important;
+      }
+      /* Responsive typography & elements */
+      article, main {
+        overflow-wrap: break-word;
+      }
+      p, li {
+        overflow-wrap: break-word;
+      }
+      pre, code {
+        max-width: 100% !important;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+      }
+      /* --- UNIVERSAL FOOTER STYLES --- */
+      .seo-footer {
+        width: 100%;
+        max-width: 100vw;
+        padding: 48px 24px 32px 24px;
+        margin-top: auto;
+        border-top: 1px solid #ebe8fa;
+        background-color: #ffffff;
+        text-align: left;
+        transition: background-color 0.2s, border-color 0.2s;
+        box-sizing: border-box;
+      }
+      [data-theme="dark"] .seo-footer {
+        background-color: #0e0d1e !important;
+        border-top-color: #2f2b54 !important;
+      }
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid #ebe8fa;
+      }
+      [data-theme="dark"] .footer-grid {
+        border-bottom-color: #2f2b54 !important;
+      }
+      @media (min-width: 640px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 32px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: 1.4fr 1.2fr 1.1fr 1.1fr;
+          gap: 32px;
+        }
+      }
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-title {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        color: #1d1e2c !important;
+        margin: 0 0 4px 0 !important;
+      }
+      [data-theme="dark"] .footer-title {
+        color: #f1f0fb !important;
+      }
+      .footer-link {
+        font-size: 13px !important;
+        color: #6e6d7a !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease, transform 0.15s ease;
+        line-height: 1.5;
+        display: inline-block;
+      }
+      [data-theme="dark"] .footer-link {
+        color: #a3a0c2 !important;
+      }
+      .footer-link:hover {
+        color: #673de6 !important;
+        transform: translateX(2px);
+      }
+      [data-theme="dark"] .footer-link:hover {
+        color: #a78bfa !important;
+      }
+      .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 24px;
+        gap: 12px;
+        font-size: 12px;
+        color: #6e6d7a;
+      }
+      [data-theme="dark"] .footer-bottom {
+        color: #a3a0c2 !important;
+      }
+      @media (min-width: 640px) {
+        .footer-bottom {
+          flex-direction: row;
+        }
+      }
+      .footer-bottom-left {
+        font-size: 12px;
+      }
+      /* Form inputs & search in dark mode */
+      [data-theme="dark"] input, [data-theme="dark"] textarea {
+        background-color: #19172f !important;
+        color: #f1f0fb !important;
+        border-color: #2f2b54 !important;
+      }
+      [data-theme="dark"] input::placeholder {
+        color: #64748b !important;
+      }
+      [data-theme="dark"] .category-pill.active {
+        background-color: #7c3aed !important;
+        color: #ffffff !important;
+      }
+      [data-theme="dark"] .category-pill:not(.active) {
+        background-color: #121026 !important;
+        color: #cbd5e1 !important;
+        border-color: #2f2b54 !important;
       }
     </style>
-  
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Terms of Service - Online Timetable Creator",
-      "description": "Read the terms of service and conditions of use for Online Timetable Creator.",
-      "author": {
-        "@type": "Organization",
-        "name": "Timetable Creator Team"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Timetable Creator",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://timetablecreator.online/logo.png"
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://timetablecreator.online/blog/terms-and-conditions/"
-      }
-    }
-    </script>
-    <meta name="robots" content="index, follow" />
-  
     
+  
+    <!-- Multi-language Auto-Translate for हिन्दी (Hindi) (hi) -->
+    <script>
+      (function() {
+        // Clean any hash that might exist or get appended
+        function cleanGoogtransHash() {
+          if (window.location.hash && window.location.hash.indexOf('googtrans') !== -1) {
+            try {
+              history.replaceState(null, '', window.location.pathname + window.location.search);
+            } catch(e) {}
+          }
+        }
+        cleanGoogtransHash();
+        window.addEventListener('hashchange', cleanGoogtransHash);
+        var _hTimer = setInterval(cleanGoogtransHash, 400);
+        setTimeout(function() { clearInterval(_hTimer); }, 8000);
+
+        var langCode = "hi";
+        var gtCode = "hi";
+        if (langCode && langCode !== 'en-GB') {
+          document.cookie = "googtrans=/en/" + gtCode + "; path=/; SameSite=None; Secure";
+          var domain = window.location.hostname;
+          if (domain) {
+            document.cookie = "googtrans=/en/" + gtCode + "; path=/; domain=" + domain + "; SameSite=None; Secure";
+            var parts = domain.split('.');
+            if (parts.length >= 2) {
+              document.cookie = "googtrans=/en/" + gtCode + "; path=/; domain=." + parts.slice(-2).join('.') + "; SameSite=None; Secure";
+            }
+          }
+        } else {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-[#f8f9fa] text-slate-800 antialiased min-h-screen flex flex-col selection:bg-violet-500 selection:text-white">
     <!-- PREMIUM GLOBAL NAVIGATION HEADER -->
     <header class="global-header">
       <div class="header-container">
@@ -185,8 +632,6 @@
         </nav>
       </div>
     </header>
-
-    <!-- MAIN CONTAINER -->
     <main class="w-full max-w-4xl mx-auto px-3 sm:px-6 py-6 sm:py-10 flex-grow" style="max-width: min(56rem, 100vw); width: 100%;">
       <div class="bg-white border border-[#e5e7eb] rounded-3xl p-8 md:p-12 shadow-sm">
         <div class="border-b border-[#e5e7eb] pb-6 mb-8">
@@ -255,48 +700,60 @@
         </div>
       </div>
     </main>
-
-    <!-- UNIVERSAL FOOTER MATCHING DESIGN IMAGE -->
-    <footer class="border-t border-violet-100 bg-white pt-12 pb-8 transition-colors duration-200">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 pb-8 border-b border-slate-100">
-          
-          <!-- Column 1: Company -->
-          <div class="space-y-4">
-            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-widest">Company</h3>
-            <div class="flex flex-col gap-2.5">
-              <a href="/blog/about-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">About Us</a>
-              <a href="/blog/contact-us/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">Contact Us</a>
-              <a href="/how-to-use/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">How to Use</a>
-              <a href="/faqs/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">FAQs</a>
-              <a href="/blog/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">Blog (Articles Archive)</a>
-              <a href="/html-sitemap" class="text-sm text-slate-500 hover:text-violet-600 transition-colors font-semibold">HTML Sitemap</a>
-            </div>
+    <footer class="seo-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      
+      <!-- Column 1: Brand & Description -->
+      <div class="footer-col" style="max-width: 320px;">
+        <div class="app-brand-wrapper" style="margin-bottom: 12px;">
+          <img src="/logo.png" alt="Timetable Creator Logo" class="app-brand-logo" width="28" height="28" style="object-fit: contain; border-radius: 6px;">
+          <div class="header-brand-line">
+            <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
+            <span class="app-tools-tag">CREATOR</span>
           </div>
-
-          <!-- Column 2: Legal Terms -->
-          <div class="space-y-4">
-            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-widest">Legal Terms</h3>
-            <div class="flex flex-col gap-2.5">
-              <a href="/blog/privacy-policy/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">Privacy Policy</a>
-              <a href="/blog/terms-and-conditions/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">Terms of Service</a>
-              <a href="/blog/refund-policy/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">Refund Policy</a>
-              <a href="/blog/disclaimer/" class="text-sm text-slate-500 hover:text-violet-600 transition-colors">Disclaimer Notice</a>
-            </div>
-          </div>
-
         </div>
-
-        <!-- Bottom Copyright Row -->
-        <div class="pt-8 text-center">
-          <p class="text-xs text-slate-400">
-            &copy; 2026 Online Timetable Creator. All rights reserved.
-          </p>
-        </div>
+        <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
+          Online Timetable Creator is a high-performance web scheduling application built to organize classes, routines, and exams with ease.
+        </p>
       </div>
-    </footer>
 
-<!-- UNIVERSAL APP LOGIC: THEME, MOBILE MENU & CLEAN TRANSLATION -->
+      <!-- Column 2: All Timetable Generators -->
+      <div class="footer-col">
+        <h4 class="footer-title">All Timetable Generators</h4>
+        <a href="/" class="footer-link">Free Online Timetable Maker</a>
+        <a href="/timetable-generator-online-for-students/" class="footer-link">Student Timetable Generator</a>
+      </div>
+
+      <!-- Column 3: Resources -->
+      <div class="footer-col">
+        <h4 class="footer-title">Resources</h4>
+        <a href="/sitemap.html" class="footer-link">Sitemap</a>
+        <a href="/blog/about-us/" class="footer-link">About Us</a>
+        <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
+        <a href="/how-to-use/" class="footer-link">How to Use</a>
+        <a href="/faqs/" class="footer-link">Frequently Asked Questions</a>
+      </div>
+
+      <!-- Column 4: Legal & Policies -->
+      <div class="footer-col">
+        <h4 class="footer-title">Legal & Privacy</h4>
+        <a href="/blog/privacy-policy/" class="footer-link">Privacy Policy</a>
+        <a href="/blog/terms-and-conditions/" class="footer-link">Terms of Service</a>
+        <a href="/blog/refund-policy/" class="footer-link">Refund Policy</a>
+        <a href="/blog/disclaimer/" class="footer-link">Disclaimer</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        &copy; 2026 Timetable Creator. All rights reserved.
+      </div>
+      <div class="footer-bottom-right"></div>
+    </div>
+  </div>
+</footer>
+    <!-- UNIVERSAL APP LOGIC: THEME, MOBILE MENU & CLEAN TRANSLATION -->
     <script>
       const savedTheme = localStorage.getItem('timetable_theme') || '';
       if (savedTheme === 'dark') {
@@ -535,5 +992,6 @@
       }
     </script>
     <div id="google_translate_element" style="display: none !important;"></div>
+    
   </body>
 </html>
