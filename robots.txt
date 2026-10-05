@@ -223,6 +223,10 @@ Disallow: /how-to-use/ko
 Disallow: /how-to-use/it
 Disallow: /how-to-use/hi
 
+# Disallow Keyboard Shortcuts Page (Internal / Noindex)
+Disallow: /keyboard-shortcuts
+Disallow: /keyboard-shortcuts/
+
 # Allowed Key Pages & Language Versions (Homepage & Student Timetable Generator only, excluding /en)
 Allow: /
 Allow: /en-GB

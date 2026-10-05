@@ -55,7 +55,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Student Timetable Generator Online - Free Class &amp; Study Schedule Maker" />
     <meta property="twitter:description" content="Create student schedules, university lecture routines, revision planners, and class timetables easily with the free online student timetable maker. Instant PDF &amp; PNG export." />
-                                                                                                                                                                                                    <link rel="canonical" href="https://timetablecreator.online/timetable-generator-online-for-students/de" />
+                                                                                                                                                                                                                                <link rel="canonical" href="https://timetablecreator.online/timetable-generator-online-for-students/de" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/timetable-generator-online-for-students/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/timetable-generator-online-for-students/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/timetable-generator-online-for-students/es" />
@@ -4841,6 +4841,80 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
+    
+    <!-- DESKTOP / PC KEYBOARD SHORTCUT TOOLTIPS & MODAL STYLES -->
+    <style id="tc-shortcut-tooltips-css">
+      @media (hover: hover) and (pointer: fine) {
+        .tc-shortcut-tooltip {
+          position: fixed;
+          z-index: 999999;
+          pointer-events: none;
+          background: #0f172a;
+          color: #f8fafc;
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          padding: 6px 11px;
+          border-radius: 8px;
+          font-size: 11.5px;
+          font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+          font-weight: 500;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45), 0 8px 10px -6px rgba(0, 0, 0, 0.35);
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          white-space: nowrap;
+          opacity: 0;
+          transform: translateY(4px) scale(0.96);
+          transition: opacity 0.15s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .tc-shortcut-tooltip.show {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+        .tc-shortcut-tooltip kbd {
+          background: rgba(255, 255, 255, 0.12);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+          border-radius: 4px;
+          padding: 1px 5px;
+          font-size: 10px;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+          font-weight: 600;
+          color: #38bdf8;
+          box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+        }
+      }
+      .tc-modal-kbd {
+        background: rgba(0,0,0,0.06);
+        border: 1px solid rgba(0,0,0,0.15);
+        border-bottom: 2px solid rgba(0,0,0,0.25);
+        border-radius: 4px;
+        padding: 1px 5px;
+        font-size: 10.5px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-weight: 600;
+        color: #0284c7;
+      }
+      [data-theme="dark"] .tc-modal-kbd {
+        background: rgba(255,255,255,0.08);
+        border-color: rgba(255,255,255,0.18);
+        border-bottom-color: rgba(255,255,255,0.3);
+        color: #38bdf8;
+      }
+    </style>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -5041,7 +5115,7 @@
           <!-- Header Quick Actions -->
           <div class="classic-header-quick-actions">
             <!-- Add Activity Primary Button -->
-            <button class="classic-btn-add-primary" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
+            <button class="classic-btn-add-primary" onclick="app.handlers.openClassicAddModal()" data-shortcut-tip="Alt + A" data-shortcut-name="Add Activity" aria-label="Add Activity">
               <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="15" height="15"><path d="M12 4v16m8-8H4"></path></svg>
               <span>Add Activity</span>
             </button>
@@ -5115,23 +5189,23 @@
             <!-- Responsive Day Filter Pills (Scrolls to Day on Mobile/Tablet) -->
             <div class="classic-day-pills-bar" id="classicDayPillsBar">
               <button class="classic-day-pill-filter active" onclick="app.handlers.focusClassicDay('all')">All Days</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(0)">Mon</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(1)">Tue</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(2)">Wed</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(3)">Thu</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(4)">Fri</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(5)">Sat</button>
-              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(6)">Sun</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(0)" data-shortcut-tip="Alt + 1" data-shortcut-name="Mon">Mon</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(1)" data-shortcut-tip="Alt + 2" data-shortcut-name="Tue">Tue</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(2)" data-shortcut-tip="Alt + 3" data-shortcut-name="Wed">Wed</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(3)" data-shortcut-tip="Alt + 4" data-shortcut-name="Thu">Thu</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(4)" data-shortcut-tip="Alt + 5" data-shortcut-name="Fri">Fri</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(5)" data-shortcut-tip="Alt + 6" data-shortcut-name="Sat">Sat</button>
+              <button class="classic-day-pill-filter" onclick="app.handlers.focusClassicDay(6)" data-shortcut-tip="Alt + 7" data-shortcut-name="Sun">Sun</button>
             </div>
 
             <!-- Utility Controls: Undo, Redo, Zoom & Settings Toggle -->
             <div class="classic-utility-controls">
               <div class="classic-undo-redo-group">
-                <button class="classic-btn-mini" onclick="app.handlers.undo()" id="btnClassicUndo" title="Undo (Ctrl+Z)" aria-label="Undo">
+                <button class="classic-btn-mini" onclick="app.handlers.undo()" id="btnClassicUndo" data-shortcut-tip="Ctrl + Z" data-shortcut-name="Undo" title="Undo (Ctrl+Z)" aria-label="Undo">
                   <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
                   <span>Undo</span>
                 </button>
-                <button class="classic-btn-mini" onclick="app.handlers.redo()" id="btnClassicRedo" title="Redo (Ctrl+Y)" aria-label="Redo">
+                <button class="classic-btn-mini" onclick="app.handlers.redo()" id="btnClassicRedo" data-shortcut-tip="Ctrl + Y" data-shortcut-name="Redo" title="Redo (Ctrl+Y)" aria-label="Redo">
                   <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
                   <span>Redo</span>
                 </button>
@@ -5139,17 +5213,17 @@
 
               <!-- Zoom Controls -->
               <div class="classic-zoom-group">
-                <button class="classic-btn-mini icon-only" onclick="app.handlers.adjustClassicZoom(-0.1)" title="Zoom Out Grid" aria-label="Zoom Out">
+                <button class="classic-btn-mini icon-only" onclick="app.handlers.adjustClassicZoom(-0.1)" data-shortcut-tip="Alt + -" data-shortcut-name="Zoom Out" title="Zoom Out Grid" aria-label="Zoom Out">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </button>
                 <span class="classic-zoom-val" id="classicZoomValLabel">100%</span>
-                <button class="classic-btn-mini icon-only" onclick="app.handlers.adjustClassicZoom(0.1)" title="Zoom In Grid" aria-label="Zoom In">
+                <button class="classic-btn-mini icon-only" onclick="app.handlers.adjustClassicZoom(0.1)" data-shortcut-tip="Alt + +" data-shortcut-name="Zoom In" title="Zoom In Grid" aria-label="Zoom In">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 </button>
               </div>
 
               <!-- Collapsible Options Toggle -->
-              <button class="classic-btn-mini" id="btnToggleClassicConfig" onclick="app.handlers.toggleClassicConfig()" title="Toggle Grid Settings" aria-label="Toggle Settings">
+              <button class="classic-btn-mini" id="btnToggleClassicConfig" data-shortcut-tip="Alt + G" data-shortcut-name="Grid Setup" onclick="app.handlers.toggleClassicConfig()" title="Toggle Grid Settings" aria-label="Toggle Settings">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                 <span>Grid Setup</span>
               </button>
@@ -5302,11 +5376,11 @@
               <span class="classic-cfg-label">Backup & Clear:</span>
               <div class="classic-cfg-action-buttons">
                 
-                <button class="classic-btn-cfg-action classic-btn-cfg-import" onclick="app.handlers.triggerImport()" title="Import JSON File">
+                <button class="classic-btn-cfg-action classic-btn-cfg-import" onclick="app.handlers.triggerImport()" data-shortcut-tip="Alt + O" data-shortcut-name="Import JSON" title="Import JSON File">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                   <span>Import JSON</span>
                 </button>
-                <button class="classic-btn-cfg-action danger classic-btn-cfg-clear" onclick="app.handlers.clearAll()" title="Reset All Entries">
+                <button class="classic-btn-cfg-action danger classic-btn-cfg-clear" onclick="app.handlers.clearAll()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Reset All Entries">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                   <span>Clear All</span>
                 </button>
@@ -5321,23 +5395,23 @@
           </div>
                     <div class="unified-controls-container" style="display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--bg-card); padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border-color);">
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" data-shortcut-tip="Ctrl + P" data-shortcut-name="Print Timetable" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                 <span>Print</span>
               </button>
-              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" data-shortcut-tip="Alt + P" data-shortcut-name="Save PDF" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
                 <span>Save PDF</span>
               </button>
-              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" data-shortcut-tip="Alt + E" data-shortcut-name="Download PNG" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>PNG</span>
               </button>
-              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" data-shortcut-tip="Alt + J" data-shortcut-name="Export JSON" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 <span>JSON</span>
               </button>
-              <button class="export-btn-item export-btn-clear" onclick="app.handlers.clearAll()" title="Clear Entire Schedule" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid #f87171; background: rgba(248, 113, 113, 0.1); color: #ef4444; cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-clear" onclick="app.handlers.clearAll()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Clear Entire Schedule" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid #f87171; background: rgba(248, 113, 113, 0.1); color: #ef4444; cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                 <span>Clear All</span>
               </button>
@@ -5347,7 +5421,7 @@
                 <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)" style="width: 14px; height: 14px; accent-color: var(--primary-color); cursor: pointer;">
                 Enable Grid Resizing
               </label>
-              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
+              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                 <span>Reset Grid Size</span>
               </button>
@@ -5369,7 +5443,7 @@
 
       </div>
       <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
-      <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
+      <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" data-shortcut-tip="Alt + A" data-shortcut-name="Add Activity" aria-label="Add Activity">
         <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v16m8-8H4"></path></svg>
         <span>Add Activity</span>
       </button>
@@ -5581,18 +5655,18 @@
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"></path></svg>
             </div>
             <div class="flex-half">
-              <button class="btn-ctrl btn-sidebar-import" onclick="app.handlers.triggerImport()">
+              <button class="btn-ctrl btn-sidebar-import" onclick="app.handlers.triggerImport()" data-shortcut-tip="Alt + O" data-shortcut-name="Import JSON">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                 Import
               </button>
-              <button class="btn-ctrl btn-sidebar-export" onclick="app.handlers.exportJson()">
+              <button class="btn-ctrl btn-sidebar-export" onclick="app.handlers.exportJson()" data-shortcut-tip="Alt + J" data-shortcut-name="Export JSON">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 Export
               </button>
             </div>
             <input type="file" id="fileImporter" class="hidden-input" accept=".json" onchange="app.handlers.handleImport(event)">
             <button class="btn-ctrl btn-sidebar-backup btn-primary" onclick="app.handlers.manualSave()">Manual Backup</button>
-            <button class="btn-ctrl btn-sidebar-reset" style="color: #ef4444;" onclick="app.handlers.clearAll()">
+            <button class="btn-ctrl btn-sidebar-reset" style="color: #ef4444;" onclick="app.handlers.clearAll()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
               Standard Reset
             </button>
@@ -5739,19 +5813,19 @@
 
                               <div class="unified-controls-container" style="display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--bg-card); padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border-color);">
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" data-shortcut-tip="Ctrl + P" data-shortcut-name="Print Timetable" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                 <span>Print</span>
               </button>
-              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" data-shortcut-tip="Alt + P" data-shortcut-name="Save PDF" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
                 <span>Save PDF</span>
               </button>
-              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" data-shortcut-tip="Alt + E" data-shortcut-name="Download PNG" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>PNG</span>
               </button>
-              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" data-shortcut-tip="Alt + J" data-shortcut-name="Export JSON" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 <span>JSON</span>
               </button>
@@ -5761,7 +5835,7 @@
                 <input type="checkbox" id="toggleResizersCheckbox2" checked onchange="app.handlers.toggleResizers(this)" style="width: 14px; height: 14px; accent-color: var(--primary-color); cursor: pointer;">
                 Enable Grid Resizing
               </label>
-              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
+              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                 <span>Reset Grid Size</span>
               </button>
@@ -5993,7 +6067,7 @@
           </div>
       </div>
       <!-- 4. Floating Action Button (FAB) for Mobile Quick Add -->
-      <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" aria-label="Add Activity">
+      <button class="classic-mobile-fab" onclick="app.handlers.openClassicAddModal()" data-shortcut-tip="Alt + A" data-shortcut-name="Add Activity" aria-label="Add Activity">
         <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v16m8-8H4"></path></svg>
         <span>Add Activity</span>
       </button>
@@ -6205,18 +6279,18 @@
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"></path></svg>
             </div>
             <div class="flex-half">
-              <button class="btn-ctrl btn-sidebar-import" onclick="app.handlers.triggerImport()">
+              <button class="btn-ctrl btn-sidebar-import" onclick="app.handlers.triggerImport()" data-shortcut-tip="Alt + O" data-shortcut-name="Import JSON">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                 Import
               </button>
-              <button class="btn-ctrl btn-sidebar-export" onclick="app.handlers.exportJson()">
+              <button class="btn-ctrl btn-sidebar-export" onclick="app.handlers.exportJson()" data-shortcut-tip="Alt + J" data-shortcut-name="Export JSON">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 Export
               </button>
             </div>
             <input type="file" id="fileImporter" class="hidden-input" accept=".json" onchange="app.handlers.handleImport(event)">
             <button class="btn-ctrl btn-sidebar-backup btn-primary" onclick="app.handlers.manualSave()">Manual Backup</button>
-            <button class="btn-ctrl btn-sidebar-reset" style="color: #ef4444;" onclick="app.handlers.clearAll()">
+            <button class="btn-ctrl btn-sidebar-reset" style="color: #ef4444;" onclick="app.handlers.clearAll()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
               Standard Reset
             </button>
@@ -6363,19 +6437,19 @@
 
                               <div class="unified-controls-container" style="display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--bg-card); padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border-color);">
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" data-shortcut-tip="Ctrl + P" data-shortcut-name="Print Timetable" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                 <span>Print</span>
               </button>
-              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-pdf" onclick="app.handlers.savePdf()" data-shortcut-tip="Alt + P" data-shortcut-name="Save PDF" title="Save as PDF document" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
                 <span>Save PDF</span>
               </button>
-              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-png" onclick="app.handlers.downloadPng()" data-shortcut-tip="Alt + E" data-shortcut-name="Download PNG" title="Download PNG" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>PNG</span>
               </button>
-              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
+              <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" data-shortcut-tip="Alt + J" data-shortcut-name="Export JSON" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 <span>JSON</span>
               </button>
@@ -6385,7 +6459,7 @@
                 <input type="checkbox" id="toggleResizersCheckbox2" checked onchange="app.handlers.toggleResizers(this)" style="width: 14px; height: 14px; accent-color: var(--primary-color); cursor: pointer;">
                 Enable Grid Resizing
               </label>
-              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
+              <button class="btn-ctrl" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" style="font-size: 12px; height: 34px; margin: 0; display: flex; align-items: center; gap: 6px;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                 <span>Reset Grid Size</span>
               </button>
@@ -6767,6 +6841,123 @@
     </div>
 
     <!-- TIMETABLECREATOR.COM CLASSIC EVENT DIALOG EDITOR -->
+    
+    <!-- KEYBOARD SHORTCUTS CHEATSHEET MODAL -->
+    <div class="modal-backdrop" id="tcShortcutsModal" style="display:none; align-items:center; justify-content:center; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px);">
+      <div class="modal-panel" style="max-width: 640px; width: 92%; max-height: 85vh; display: flex; flex-direction: column; background: var(--bg-panel, #ffffff); border: 1px solid var(--border-color, #e2e8f0); border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35); overflow: hidden;">
+        <div class="modal-header" style="padding: 16px 20px; border-bottom: 1px solid var(--border-color, #e2e8f0); display: flex; align-items: center; justify-content: space-between; background: var(--bg-header, #f8fafc);">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(124, 58, 237, 0.12); color: #7c3aed; display: flex; align-items: center; justify-content: center;">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"></path></svg>
+            </div>
+            <div>
+              <h3 style="margin: 0; font-size: 16px; font-weight: 700; color: var(--text-main, #0f172a);">Keyboard Shortcuts</h3>
+              <p style="margin: 0; font-size: 11px; color: var(--text-muted, #64748b);">PC & Desktop hotkeys for faster scheduling</p>
+            </div>
+          </div>
+          <button onclick="window.toggleShortcutsModal()" style="border: none; background: transparent; cursor: pointer; color: var(--text-muted, #64748b); padding: 6px; border-radius: 6px; display: flex; align-items: center; justify-content: center;" title="Close (Esc)">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+        <div style="padding: 16px 20px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 16px;">
+          <div>
+            <h4 style="margin: 0 0 8px 0; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #7c3aed;">Core Actions</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Add Activity</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">A</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Save Schedule</span>
+                <span><kbd class="tc-modal-kbd">Ctrl</kbd> + <kbd class="tc-modal-kbd">S</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Undo</span>
+                <span><kbd class="tc-modal-kbd">Ctrl</kbd> + <kbd class="tc-modal-kbd">Z</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Redo</span>
+                <span><kbd class="tc-modal-kbd">Ctrl</kbd> + <kbd class="tc-modal-kbd">Y</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Grid Setup</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">G</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Toggle Theme</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">T</kbd></span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 style="margin: 0 0 8px 0; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #0284c7;">Export & Files</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Print Timetable</span>
+                <span><kbd class="tc-modal-kbd">Ctrl</kbd> + <kbd class="tc-modal-kbd">P</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Export PDF</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">P</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Download PNG</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">E</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Export JSON</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">J</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Import JSON</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">O</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Clear All</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">C</kbd></span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 style="margin: 0 0 8px 0; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #059669;">Zoom & Views</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Zoom In / Out</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">+</kbd> / <kbd class="tc-modal-kbd">-</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Reset Zoom</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">0</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>All Days View</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">D</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Mon – Sun View</span>
+                <span><kbd class="tc-modal-kbd">Alt</kbd> + <kbd class="tc-modal-kbd">1</kbd>..<kbd class="tc-modal-kbd">7</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Close / Cancel</span>
+                <span><kbd class="tc-modal-kbd">Esc</kbd></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; background: rgba(0,0,0,0.02); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; font-size: 12px;">
+                <span>Save in Modal</span>
+                <span><kbd class="tc-modal-kbd">Ctrl</kbd> + <kbd class="tc-modal-kbd">Enter</kbd></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 12px 20px; border-top: 1px solid var(--border-color, #e2e8f0); background: var(--bg-header, #f8fafc); display: flex; justify-content: space-between; align-items: center; font-size: 12px;">
+          <a href="/keyboard-shortcuts/" target="_blank" style="color: #7c3aed; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+            <span>View Full Shortcuts Page</span>
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg>
+          </a>
+          <button onclick="window.toggleShortcutsModal()" class="classic-btn-mini" style="padding: 5px 14px; font-size: 12px; cursor: pointer; border-radius: 6px;">Close (Esc)</button>
+        </div>
+      </div>
+    </div>
+
     <div class="modal-backdrop" id="classicEventModal">
       <div class="modal-panel" style="max-width: 520px;">
         <div class="modal-header" style="background: var(--bg-panel); border-bottom: 1px solid var(--border-color);">
@@ -12328,6 +12519,7 @@
         <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
         <a href="/how-to-use/" class="footer-link">How to Use</a>
         <a href="/faqs/" class="footer-link">Frequently Asked Questions</a>
+        <a href="/keyboard-shortcuts" class="footer-link">Keyboard Shortcuts</a>
       </div>
 
       <!-- Column 4: Legal & Policies -->
@@ -12335,7 +12527,6 @@
         <h4 class="footer-title">Legal & Privacy</h4>
         <a href="/blog/privacy-policy/" class="footer-link">Privacy Policy</a>
         <a href="/blog/terms-and-conditions/" class="footer-link">Terms of Service</a>
-        <a href="/blog/refund-policy/" class="footer-link">Refund Policy</a>
         <a href="/blog/disclaimer/" class="footer-link">Disclaimer</a>
       </div>
     </div>
@@ -12349,5 +12540,274 @@
   </div>
 </footer>
     </div>
-</body>
+
+    <!-- COMPREHENSIVE NON-CONFLICTING KEYBOARD SHORTCUTS & DESKTOP TOOLTIPS SYSTEM -->
+    <script>
+      (function() {
+        window.toggleShortcutsModal = function() {
+          const m = document.getElementById('tcShortcutsModal');
+          if (!m) return;
+          const isShown = m.style.display === 'flex';
+          m.style.display = isShown ? 'none' : 'flex';
+        };
+
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+          let tooltipEl = document.createElement('div');
+          tooltipEl.className = 'tc-shortcut-tooltip';
+          document.body.appendChild(tooltipEl);
+
+          let currentTarget = null;
+
+          document.addEventListener('mouseover', function(e) {
+            const el = e.target.closest('[data-shortcut-tip]');
+            if (!el || el === currentTarget) return;
+            currentTarget = el;
+
+            const actionText = el.getAttribute('data-shortcut-name') || el.getAttribute('aria-label') || el.innerText?.trim() || '';
+            const shortcutKeys = el.getAttribute('data-shortcut-tip');
+            if (!shortcutKeys) return;
+
+            const isMac = navigator.platform && navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+            const keysHtml = shortcutKeys.split('+').map(function(k) {
+              let trimmed = k.trim();
+              if (isMac) {
+                if (trimmed === 'Ctrl') trimmed = '⌘ Cmd';
+                if (trimmed === 'Alt') trimmed = '⌥ Opt';
+              }
+              return '<kbd>' + trimmed + '</kbd>';
+            }).join(' + ');
+
+            tooltipEl.innerHTML = (actionText ? '<span>' + actionText + '</span> <span style="opacity:0.4;margin:0 2px;">•</span> ' : '') + keysHtml;
+
+            const rect = el.getBoundingClientRect();
+            const tooltipHeight = 30;
+            let top = rect.top - tooltipHeight - 8;
+            if (top < 8) {
+              top = rect.bottom + 8;
+            }
+            let left = rect.left + (rect.width / 2);
+
+            tooltipEl.style.top = top + 'px';
+            tooltipEl.style.left = left + 'px';
+            tooltipEl.style.transform = 'translateX(-50%) scale(0.96)';
+
+            requestAnimationFrame(function() {
+              tooltipEl.classList.add('show');
+              tooltipEl.style.transform = 'translateX(-50%) scale(1)';
+            });
+          }, true);
+
+          document.addEventListener('mouseout', function(e) {
+            if (!currentTarget) return;
+            const toEl = e.relatedTarget;
+            if (currentTarget.contains(toEl)) return;
+            currentTarget = null;
+            tooltipEl.classList.remove('show');
+          }, true);
+
+          window.addEventListener('scroll', function() {
+            if (currentTarget) {
+              currentTarget = null;
+              tooltipEl.classList.remove('show');
+            }
+          }, { passive: true });
+        }
+
+        document.addEventListener('keydown', function(e) {
+          const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+          const isInputActive = activeTag === 'input' || activeTag === 'textarea' || (document.activeElement && document.activeElement.isContentEditable);
+
+          if (e.key === 'Escape') {
+            const scModal = document.getElementById('tcShortcutsModal');
+            if (scModal && scModal.style.display === 'flex') {
+              scModal.style.display = 'none';
+              return;
+            }
+            const modal = document.getElementById('classicEventModal');
+            if (modal && (modal.classList.contains('active') || modal.style.display === 'flex')) {
+              if (window.app && window.app.handlers && window.app.handlers.closeClassicModal) {
+                window.app.handlers.closeClassicModal();
+              } else {
+                modal.classList.remove('active');
+                modal.style.display = 'none';
+              }
+              return;
+            }
+            const cfg = document.getElementById('classicConfigBar');
+            if (cfg && cfg.classList.contains('open')) {
+              cfg.classList.remove('open');
+              return;
+            }
+            if (isInputActive) {
+              document.activeElement.blur();
+            }
+            return;
+          }
+
+          if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+            const modal = document.getElementById('classicEventModal');
+            if (modal && (modal.classList.contains('active') || modal.style.display === 'flex')) {
+              e.preventDefault();
+              const saveBtn = document.getElementById('btnClassicSaveEvt');
+              if (saveBtn) saveBtn.click();
+              return;
+            }
+          }
+
+          const isCtrl = e.ctrlKey || e.metaKey;
+          const isAlt = e.altKey;
+
+          if (isCtrl && !e.shiftKey && !isAlt && e.key.toLowerCase() === 's') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.manualSave) {
+              window.app.handlers.manualSave();
+            }
+            return;
+          }
+
+          if (isCtrl && !e.shiftKey && !isAlt && e.key.toLowerCase() === 'z') {
+            if (!isInputActive) {
+              e.preventDefault();
+              if (window.app && window.app.handlers && window.app.handlers.undo) {
+                window.app.handlers.undo();
+              }
+            }
+            return;
+          }
+
+          if ((isCtrl && !isAlt && e.key.toLowerCase() === 'y') || (isCtrl && e.shiftKey && e.key.toLowerCase() === 'z')) {
+            if (!isInputActive) {
+              e.preventDefault();
+              if (window.app && window.app.handlers && window.app.handlers.redo) {
+                window.app.handlers.redo();
+              }
+            }
+            return;
+          }
+
+          if (isCtrl && !e.shiftKey && !isAlt && e.key.toLowerCase() === 'p') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.printTimetable) {
+              window.app.handlers.printTimetable();
+            }
+            return;
+          }
+
+          if (isInputActive) return;
+
+          if (isAlt && !isCtrl && e.key.toLowerCase() === 'a') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.openClassicAddModal) {
+              window.app.handlers.openClassicAddModal();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key.toLowerCase() === 'p') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.savePdf) {
+              window.app.handlers.savePdf();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key.toLowerCase() === 'e') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.downloadPng) {
+              window.app.handlers.downloadPng();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key.toLowerCase() === 'j') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.exportJson) {
+              window.app.handlers.exportJson();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key.toLowerCase() === 'o') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.triggerImport) {
+              window.app.handlers.triggerImport();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key.toLowerCase() === 'c') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.clearAll) {
+              window.app.handlers.clearAll();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key.toLowerCase() === 'g') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.toggleClassicConfig) {
+              window.app.handlers.toggleClassicConfig();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key.toLowerCase() === 't') {
+            e.preventDefault();
+            if (typeof toggleLocalTheme === 'function') {
+              toggleLocalTheme();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && (e.key === '=' || e.key === '+')) {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.adjustClassicZoom) {
+              window.app.handlers.adjustClassicZoom(0.1);
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && (e.key === '-' || e.key === '_')) {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.adjustClassicZoom) {
+              window.app.handlers.adjustClassicZoom(-0.1);
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key === '0') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.resetGridSize) {
+              window.app.handlers.resetGridSize();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key.toLowerCase() === 'd') {
+            e.preventDefault();
+            if (window.app && window.app.handlers && window.app.handlers.focusClassicDay) {
+              window.app.handlers.focusClassicDay();
+            }
+            return;
+          }
+
+          if (isAlt && !isCtrl && e.key >= '1' && e.key <= '7') {
+            e.preventDefault();
+            const dayIdx = parseInt(e.key) - 1;
+            if (window.app && window.app.handlers && window.app.handlers.focusClassicDay) {
+              window.app.handlers.focusClassicDay(dayIdx);
+            }
+            return;
+          }
+
+          if (e.key === '?' || (e.shiftKey && e.key === '/')) {
+            e.preventDefault();
+            window.toggleShortcutsModal();
+            return;
+          }
+        });
+      })();
+    </script>
+
+  </body>
 </html>

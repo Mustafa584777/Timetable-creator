@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "node generate_multilingual.cjs && vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "build": "npx @tailwindcss/cli -i input.css -o public/tailwind-built.css --minify && cp public/tailwind-built.css public/style.css && node generate_multilingual.cjs && vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
@@ -27,6 +27,7 @@
     "vite": "^6.2.3"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
     "@types/express": "^4.17.21",
     "@types/multer": "^2.2.0",
     "@types/node": "^22.14.0",

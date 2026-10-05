@@ -66,6 +66,7 @@ const coreAppFooter = `
         <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
         <a href="/how-to-use/" class="footer-link">How to Use</a>
         <a href="/faqs/" class="footer-link">Frequently Asked Questions</a>
+        <a href="/keyboard-shortcuts" class="footer-link">Keyboard Shortcuts</a>
       </div>
 
       <!-- Column 4: Legal & Policies -->
@@ -73,7 +74,6 @@ const coreAppFooter = `
         <h4 class="footer-title">Legal & Privacy</h4>
         <a href="/blog/privacy-policy/" class="footer-link">Privacy Policy</a>
         <a href="/blog/terms-and-conditions/" class="footer-link">Terms of Service</a>
-        <a href="/blog/refund-policy/" class="footer-link">Refund Policy</a>
         <a href="/blog/disclaimer/" class="footer-link">Disclaimer</a>
       </div>
     </div>
@@ -957,6 +957,17 @@ const PAGE_META = {
   }
 };
 
+let _cachedTailwindCss = null;
+function getStaticTailwindCss() {
+  if (_cachedTailwindCss) return _cachedTailwindCss;
+  const cssPath = path.join(__dirname, '../public/tailwind-built.css');
+  if (fs.existsSync(cssPath)) {
+    _cachedTailwindCss = fs.readFileSync(cssPath, 'utf8');
+    return _cachedTailwindCss;
+  }
+  return '';
+}
+
 function buildFullCleanDocument({
   lang = 'en-GB',
   title,
@@ -968,6 +979,7 @@ function buildFullCleanDocument({
   additionalHead = '',
   pageScript = ''
 }) {
+  const staticCss = getStaticTailwindCss();
   return `<!doctype html>
 <html lang="${lang}">
   <head>
@@ -986,10 +998,18 @@ function buildFullCleanDocument({
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     
-    <!-- High Performance Google Fonts & Tailwind CSS CDN -->
+    <!-- High Performance Google Fonts, Local Static CSS & Fallback CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- EMBEDDED PRODUCTION TAILWIND CSS (100% Offline & Main-Domain Safe) -->
+    <link rel="stylesheet" href="/tailwind-built.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <style id="tc-static-tailwind-css">
+${staticCss}
+    </style>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {

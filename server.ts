@@ -248,14 +248,26 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
-  // Timetable Generator: 301 redirect legacy /timetable-generator to /
+  // Online Timetable Generator (base and language editions)
   anonymityApp.get([
     "/timetable-generator",
     "/timetable-generator/",
     "/timetable-generator/:lang",
     "/timetable-generator/:lang/"
   ], (req, res) => {
-    return res.redirect(301, "/");
+    const lang = req.params.lang;
+    const subFile = lang ? path.join(lang, "index.html") : "index.html";
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "timetable-generator", subFile)
+      : path.join(process.cwd(), "public", "timetable-generator", subFile);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const defaultPath = path.join(process.cwd(), "public", "timetable-generator", "index.html");
+    if (fs.existsSync(defaultPath)) {
+      return res.sendFile(defaultPath);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
   // Sitemap Language editions
@@ -288,6 +300,24 @@ async function startServer() {
       return res.sendFile(defaultSitemapPath);
     }
     res.sendFile(path.join(process.cwd(), "index.html"));
+  });
+
+  // Keyboard Shortcuts Page (noindex, disallowed in robots.txt)
+  anonymityApp.get([
+    "/keyboard-shortcuts",
+    "/keyboard-shortcuts/"
+  ], (req, res, next) => {
+    const filePath = process.env.NODE_ENV === "production"
+      ? path.join(process.cwd(), "dist", "keyboard-shortcuts", "index.html")
+      : path.join(process.cwd(), "public", "keyboard-shortcuts", "index.html");
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const publicPath = path.join(process.cwd(), "public", "keyboard-shortcuts", "index.html");
+    if (fs.existsSync(publicPath)) {
+      return res.sendFile(publicPath);
+    }
+    next();
   });
 
   // Explicit sitemap.xml with correct XML mime type

@@ -26,10 +26,43 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     
-    <!-- High Performance Google Fonts & Tailwind CSS CDN -->
+    <!-- High Performance Google Fonts, Local Static CSS & Fallback CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- EMBEDDED PRODUCTION TAILWIND CSS (100% Offline & Main-Domain Safe) -->
+    <link rel="stylesheet" href="/tailwind-built.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <style id="tc-static-tailwind-css">
+
+/* --- MASTER ROBUST STYLESHEET (100% Offline & Main-Domain Safe) --- */
+:root {
+  --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --primary-color: #673de6;
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #1d1e2c;
+  --text-muted: #6e6d7a;
+  --border-color: #ebe8fa;
+}
+[data-theme="dark"] {
+  --primary-color: #8c68fc;
+  --bg-page: #0b0a16;
+  --bg-card: #19172f;
+  --text-main: #f5f4fc;
+  --text-muted: #a3a0c2;
+  --border-color: #2f2b54;
+}
+html, body { max-width: 100vw !important; overflow-x: hidden !important; margin: 0; padding: 0; font-family: var(--font-sans); background-color: var(--bg-page); color: var(--text-main); }
+.global-header { height: 64px; background: var(--bg-card); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; position: sticky; top: 0; z-index: 998; width: 100%; }
+.seo-footer { background: var(--bg-card); border-top: 1px solid var(--border-color); padding: 48px 24px 32px; margin-top: auto; }
+.shortcut-card, .sitemap-card, .faq-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 16px 20px; }
+.category-pill { padding: 8px 16px; border-radius: 9999px; font-weight: 600; background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border-color); cursor: pointer; }
+.category-pill.active { background: #673de6; color: #fff; border-color: #673de6; }
+
+    </style>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -879,6 +912,7 @@
         <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
         <a href="/how-to-use/" class="footer-link">How to Use</a>
         <a href="/faqs/" class="footer-link">Frequently Asked Questions</a>
+        <a href="/keyboard-shortcuts" class="footer-link">Keyboard Shortcuts</a>
       </div>
 
       <!-- Column 4: Legal & Policies -->
@@ -886,7 +920,6 @@
         <h4 class="footer-title">Legal & Privacy</h4>
         <a href="/blog/privacy-policy/" class="footer-link">Privacy Policy</a>
         <a href="/blog/terms-and-conditions/" class="footer-link">Terms of Service</a>
-        
         <a href="/blog/disclaimer/" class="footer-link">Disclaimer</a>
       </div>
     </div>
