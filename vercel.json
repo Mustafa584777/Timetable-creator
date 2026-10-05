@@ -112,29 +112,6 @@
       ],
       "destination": "/timetable-generator-online-for-students/",
       "permanent": true
-    },
-    {
-      "source": "/:slug((?!api|assets|.*\\..*)[^/]+)/?",
-      "has": [
-        {
-          "type": "query",
-          "key": "lang",
-          "value": "(?<langCode>es|ja|fr|de|pt|ko|it|hi)"
-        }
-      ],
-      "destination": "/:slug/:langCode",
-      "permanent": true
-    },
-    {
-      "source": "/:slug((?!api|assets|.*\\..*)[^/]+)/?",
-      "has": [
-        {
-          "type": "query",
-          "key": "lang"
-        }
-      ],
-      "destination": "/:slug",
-      "permanent": true
     }
   ],
   "rewrites": [
