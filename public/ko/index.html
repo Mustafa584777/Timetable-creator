@@ -55,7 +55,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                    <link rel="canonical" href="https://timetablecreator.online/ko" />
+                                                                                                                                                            <link rel="canonical" href="https://timetablecreator.online/ko" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -4823,6 +4823,10 @@
 
     
     
+    
+    
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -4981,7 +4985,6 @@
           <nav class="header-nav-desktop">
             <a href="/" class="nav-link-header active">Workspace</a>
             <a href="/timetable-generator-online-for-students/" class="nav-link-header ">Free Students Timetable Maker</a>
-            <a href="/blog/" class="nav-link-header ">Blog</a>
             <a href="/sitemap.html" class="nav-link-header ">Sitemap</a>
           </nav>
         </div>
@@ -4999,7 +5002,6 @@
         <nav class="mobile-nav-links">
           <a href="/" class="mobile-nav-link active" onclick="toggleMobileMenuLocal()">Workspace</a>
           <a href="/timetable-generator-online-for-students/" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Free Students Timetable Maker</a>
-          <a href="/blog/" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Blog</a>
           <a href="/sitemap.html" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Sitemap</a>
         </nav>
       </div>
@@ -5326,6 +5328,10 @@
               <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 <span>JSON</span>
+              </button>
+              <button class="export-btn-item export-btn-clear" onclick="app.handlers.clearAll()" title="Clear Entire Schedule" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid #f87171; background: rgba(248, 113, 113, 0.1); color: #ef4444; cursor: pointer; transition: 0.2s ease;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                <span>Clear All</span>
               </button>
             </div>
             <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
@@ -5740,6 +5746,10 @@
               <button class="export-btn-item export-btn-json" onclick="app.handlers.exportJson()" title="Export JSON" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 <span>JSON</span>
+              </button>
+              <button class="export-btn-item export-btn-clear" onclick="app.handlers.clearAll()" title="Clear Entire Schedule" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid #f87171; background: rgba(248, 113, 113, 0.1); color: #ef4444; cursor: pointer; transition: 0.2s ease;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                <span>Clear All</span>
               </button>
             </div>
             <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
@@ -11476,7 +11486,6 @@
       <!-- Column 3: Resources -->
       <div class="footer-col">
         <h4 class="footer-title">Resources</h4>
-        <a href="/blog/" class="footer-link">Blog & Tutorials</a>
         <a href="/sitemap.html" class="footer-link">Sitemap</a>
         <a href="/blog/about-us/" class="footer-link">About Us</a>
         <a href="/blog/contact-us/" class="footer-link">Contact Support</a>

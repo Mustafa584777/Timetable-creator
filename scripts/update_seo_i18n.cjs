@@ -61,7 +61,6 @@ const coreAppFooter = `
       <!-- Column 3: Resources -->
       <div class="footer-col">
         <h4 class="footer-title">Resources</h4>
-        <a href="/blog/" class="footer-link">Blog & Tutorials</a>
         <a href="/sitemap.html" class="footer-link">Sitemap</a>
         <a href="/blog/about-us/" class="footer-link">About Us</a>
         <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
@@ -326,7 +325,6 @@ function generateHeaderHtml(activePage = '') {
           <nav class="header-nav-desktop">
             <a href="/" class="nav-link-header ${activePage === 'workspace' ? 'active' : ''}">Workspace</a>
             <a href="/timetable-generator-online-for-students/" class="nav-link-header ${activePage === 'students' ? 'active' : ''}">Free Students Timetable Maker</a>
-            <a href="/blog/" class="nav-link-header ${activePage === 'blog' ? 'active' : ''}">Blog</a>
             <a href="/sitemap.html" class="nav-link-header ${activePage === 'sitemap' ? 'active' : ''}">Sitemap</a>
           </nav>
         </div>
@@ -344,7 +342,6 @@ function generateHeaderHtml(activePage = '') {
         <nav class="mobile-nav-links">
           <a href="/" class="mobile-nav-link ${activePage === 'workspace' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Workspace</a>
           <a href="/timetable-generator-online-for-students/" class="mobile-nav-link ${activePage === 'students' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Free Students Timetable Maker</a>
-          <a href="/blog/" class="mobile-nav-link ${activePage === 'blog' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Blog</a>
           <a href="/sitemap.html" class="mobile-nav-link ${activePage === 'sitemap' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Sitemap</a>
         </nav>
       </div>
