@@ -698,7 +698,7 @@ const universalHeaderAndResponsiveCss = `
         display: block !important;
       }
       [data-theme="dark"] .article-table-wrap {
-        border-color: #2e1065 !important;
+        border-color: #2f2b54 !important;
       }
       .article-table-wrap table {
         min-width: 540px !important;
@@ -706,19 +706,133 @@ const universalHeaderAndResponsiveCss = `
         border-collapse: collapse !important;
       }
       /* Responsive typography & elements */
-      h1, h2, h3, h4, h5, h6, p, li, span, a, td, th {
-        overflow-wrap: break-word !important;
-        word-break: break-word !important;
+      article, main {
+        overflow-wrap: break-word;
+      }
+      p, li {
+        overflow-wrap: break-word;
       }
       pre, code {
         max-width: 100% !important;
         white-space: pre-wrap !important;
         word-break: break-word !important;
       }
+      /* --- UNIVERSAL FOOTER STYLES --- */
       .seo-footer {
-        width: 100% !important;
-        max-width: 100vw !important;
-        overflow-x: hidden !important;
+        width: 100%;
+        max-width: 100vw;
+        padding: 48px 24px 32px 24px;
+        margin-top: auto;
+        border-top: 1px solid #ebe8fa;
+        background-color: #ffffff;
+        text-align: left;
+        transition: background-color 0.2s, border-color 0.2s;
+        box-sizing: border-box;
+      }
+      [data-theme="dark"] .seo-footer {
+        background-color: #0e0d1e !important;
+        border-top-color: #2f2b54 !important;
+      }
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid #ebe8fa;
+      }
+      [data-theme="dark"] .footer-grid {
+        border-bottom-color: #2f2b54 !important;
+      }
+      @media (min-width: 640px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 32px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: 1.4fr 1.2fr 1.1fr 1.1fr;
+          gap: 32px;
+        }
+      }
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-title {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        color: #1d1e2c !important;
+        margin: 0 0 4px 0 !important;
+      }
+      [data-theme="dark"] .footer-title {
+        color: #f1f0fb !important;
+      }
+      .footer-link {
+        font-size: 13px !important;
+        color: #6e6d7a !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease, transform 0.15s ease;
+        line-height: 1.5;
+        display: inline-block;
+      }
+      [data-theme="dark"] .footer-link {
+        color: #a3a0c2 !important;
+      }
+      .footer-link:hover {
+        color: #673de6 !important;
+        transform: translateX(2px);
+      }
+      [data-theme="dark"] .footer-link:hover {
+        color: #a78bfa !important;
+      }
+      .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 24px;
+        gap: 12px;
+        font-size: 12px;
+        color: #6e6d7a;
+      }
+      [data-theme="dark"] .footer-bottom {
+        color: #a3a0c2 !important;
+      }
+      @media (min-width: 640px) {
+        .footer-bottom {
+          flex-direction: row;
+        }
+      }
+      .footer-bottom-left {
+        font-size: 12px;
+      }
+      /* Form inputs & search in dark mode */
+      [data-theme="dark"] input, [data-theme="dark"] textarea {
+        background-color: #19172f !important;
+        color: #f1f0fb !important;
+        border-color: #2f2b54 !important;
+      }
+      [data-theme="dark"] input::placeholder {
+        color: #64748b !important;
+      }
+      [data-theme="dark"] .category-pill.active {
+        background-color: #7c3aed !important;
+        color: #ffffff !important;
+      }
+      [data-theme="dark"] .category-pill:not(.active) {
+        background-color: #121026 !important;
+        color: #cbd5e1 !important;
+        border-color: #2f2b54 !important;
       }
     </style>
 `;
@@ -735,8 +849,182 @@ function ensureHeaderAndResponsiveStyles(content) {
 
 function replaceHeaderInHtml(content, activePage) {
   const newHeader = generateHeaderHtml(activePage);
-  content = content.replace(/(?:<!--[\s\S]*?-->\s*)*<header[\s\S]*?<\/header>/i, newHeader);
+  if (/<!--\s*PREMIUM GLOBAL NAVIGATION HEADER\s*-->\s*<header\b[\s\S]*?<\/header>/i.test(content)) {
+    return content.replace(/<!--\s*PREMIUM GLOBAL NAVIGATION HEADER\s*-->\s*<header\b[\s\S]*?<\/header>/i, newHeader);
+  }
+  if (/<header\b[\s\S]*?<\/header>/i.test(content)) {
+    return content.replace(/<header\b[\s\S]*?<\/header>/i, newHeader);
+  }
   return content;
+}
+
+const PAGE_META = {
+  'public/sitemap.html': {
+    title: 'HTML Sitemap - Complete Site Index | Online Timetable Creator',
+    description: 'Complete index of all schedule makers, student timetable planners, guides, tools, and translations available on Timetable Creator Online.',
+    activePage: 'sitemap',
+    isNoindex: false
+  },
+  'public/html-sitemap/index.html': {
+    title: 'HTML Sitemap - Complete Site Index | Online Timetable Creator',
+    description: 'Explore all pages, timetable generators, student study planners, blogs, guides, and international language editions on Timetable Creator Online.',
+    activePage: 'sitemap',
+    isNoindex: true
+  },
+  'public/how-to-use/index.html': {
+    title: 'How to Use Online Timetable Creator - Step-by-Step Guide',
+    description: 'Learn how to use Online Timetable Creator to build weekly schedules, study routines, and class planners with ease. Free step-by-step tutorial.',
+    activePage: '',
+    isNoindex: true
+  },
+  'public/faqs/index.html': {
+    title: 'Frequently Asked Questions (FAQs) - Online Timetable Creator',
+    description: 'Find answers to common questions about creating timetables, PDF exports, privacy, and timetable customization on Online Timetable Creator.',
+    activePage: '',
+    isNoindex: true
+  },
+  'public/blog/index.html': {
+    title: 'Blog & Timetable Guides - Online Timetable Creator',
+    description: 'Read educational timetable guides, revision schedule strategies, and time management articles from Online Timetable Creator.',
+    activePage: '',
+    isNoindex: true
+  },
+  'public/blog/about-us/index.html': {
+    title: 'About Us - Online Timetable Creator',
+    description: 'Learn more about Online Timetable Creator, our mission to simplify schedule planning, and our free web productivity tools.',
+    activePage: '',
+    isNoindex: false
+  },
+  'public/blog/contact-us/index.html': {
+    title: 'Contact Us - Online Timetable Creator',
+    description: 'Reach out to the support and administrative desk for Online Timetable Creator.',
+    activePage: '',
+    isNoindex: false
+  },
+  'public/blog/privacy-policy/index.html': {
+    title: 'Privacy Policy - Online Timetable Creator',
+    description: 'Read the privacy policy and data protection terms for Online Timetable Creator.',
+    activePage: '',
+    isNoindex: false
+  },
+  'public/blog/terms-and-conditions/index.html': {
+    title: 'Terms and Conditions - Online Timetable Creator',
+    description: 'Review the terms and conditions of using Online Timetable Creator.',
+    activePage: '',
+    isNoindex: false
+  },
+  'public/blog/refund-policy/index.html': {
+    title: 'Refund Policy - Online Timetable Creator',
+    description: 'Understand the refund and cancellation policy for Online Timetable Creator.',
+    activePage: '',
+    isNoindex: false
+  },
+  'public/blog/disclaimer/index.html': {
+    title: 'Disclaimer - Online Timetable Creator',
+    description: 'Read the legal disclaimer and terms of usage for Online Timetable Creator.',
+    activePage: '',
+    isNoindex: false
+  },
+  'public/blog/study-timetable-for-class-10/index.html': {
+    title: 'Best Study Timetable for Class 10 - Daily Routine for Board Exams',
+    description: 'Proven daily revision timetable and schedule planner for Class 10 students preparing for board exams.',
+    activePage: '',
+    isNoindex: true
+  },
+  'public/blog/daily-routine-for-class-10-student-at-home/index.html': {
+    title: 'Daily Routine for Class 10 Student at Home - Balanced Study Plan',
+    description: 'Ideal daily routine and timetable for Class 10 students studying at home, balancing academics, rest, and revision.',
+    activePage: '',
+    isNoindex: true
+  },
+  'public/blog/how-does-an-automatic-timetable-creator-work/index.html': {
+    title: 'How Does an Automatic Timetable Creator Work? Algorithms & Design',
+    description: 'Discover how automatic timetable makers and scheduling algorithms eliminate conflicts and optimize student schedules.',
+    activePage: '',
+    isNoindex: true
+  },
+  'public/blog/how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers/index.html': {
+    title: 'How to Make a Perfect School Timetable in 2026 - Step-by-Step Guide',
+    description: 'Master the art of school schedule making with our comprehensive 2026 guide for teachers, parents, and students.',
+    activePage: '',
+    isNoindex: true
+  },
+  'public/blog/timetable-guides/index.html': {
+    title: 'The Ultimate Timetable Guide - Frameworks for Academic & Personal Scheduling',
+    description: 'Comprehensive guide and frameworks for building optimal academic class routines, study plans, and personal schedules.',
+    activePage: '',
+    isNoindex: true
+  }
+};
+
+function buildFullCleanDocument({
+  lang = 'en-GB',
+  title,
+  description,
+  canonicalUrl,
+  robotsMeta,
+  activePage = '',
+  mainContent,
+  additionalHead = '',
+  pageScript = ''
+}) {
+  return `<!doctype html>
+<html lang="${lang}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${title}</title>
+    <meta name="description" content="${description}" />
+    ${robotsMeta}
+    ${generateHreflangs(canonicalUrl)}
+    
+    <!-- Favicon and App Icons -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- High Performance Google Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: ['class', '[data-theme="dark"]'],
+        theme: {
+          extend: {
+            colors: {
+              violet: {
+                50: '#f5f3ff',
+                100: '#ede9fe',
+                200: '#ddd6fe',
+                300: '#c4b5fd',
+                400: '#a78bfa',
+                500: '#8b5cf6',
+                600: '#7c3aed',
+                700: '#6d28d9',
+                800: '#5b21b6',
+                900: '#4c1d95',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    ${universalHeaderAndResponsiveCss.trim()}
+    ${additionalHead}
+  </head>
+  <body class="bg-[#f8f9fa] text-slate-800 antialiased min-h-screen flex flex-col selection:bg-violet-500 selection:text-white">
+    ${generateHeaderHtml(activePage)}
+    ${mainContent}
+    ${coreAppFooter.trim()}
+    ${unifiedAppScriptBlock.trim()}
+    ${pageScript ? `<script>\n${pageScript.trim()}\n</script>` : ''}
+  </body>
+</html>`;
 }
 
 function makeArticleContentResponsive(content) {
@@ -908,63 +1196,45 @@ function updateCoreAppFile(filePath, canonicalUrl, activePage = 'workspace') {
 
 // 6. Update Blog files (Articles and Legal Pages)
 function updateBlogFile(filePath, canonicalUrl, isLegal) {
+  if (!fs.existsSync(filePath)) return;
   let content = fs.readFileSync(filePath, 'utf8');
 
-  // Ensure favicon & manifest tags in head
-  content = ensureFaviconTags(content);
+  // Extract <main>...</main>
+  const mainStart = content.indexOf('<main');
+  const mainEnd = content.indexOf('</main>', mainStart);
+  if (mainStart === -1 || mainEnd === -1) {
+    console.warn(`Could not find <main> in ${filePath}`);
+    return;
+  }
+  let mainContent = content.substring(mainStart, mainEnd + 7);
 
-  // Set default language to en-GB
-  content = content.replace(/<html(\s+[^>]*)?>/i, (match) => {
-    let m = match.replace(/\blang="[^"]*"/, 'lang="en-GB"');
-    if (!m.includes('lang=')) m = m.replace('<html', '<html lang="en-GB"');
-    return m;
+  // Make Article & Content Responsive (100vw, responsive tables, responsive padding)
+  mainContent = makeArticleContentResponsive(mainContent);
+
+  // Clean any auth links from mainContent if present
+  mainContent = mainContent.replace(/<a\s+href="[^"]*auth=signin"[^>]*>[\s\S]*?<\/a>/gi, '');
+  mainContent = mainContent.replace(/<a\s+href="[^"]*auth=signup"[^>]*>[\s\S]*?<\/a>/gi, '');
+
+  const meta = PAGE_META[filePath] || {
+    title: isLegal ? 'Legal Notice - Online Timetable Creator' : 'Study Guide - Online Timetable Creator',
+    description: 'Read guides and policies from Online Timetable Creator.'
+  };
+
+  const isNoindex = meta.isNoindex !== undefined ? meta.isNoindex : (!isLegal);
+
+  const cleanDoc = buildFullCleanDocument({
+    lang: 'en-GB',
+    title: meta.title,
+    description: meta.description,
+    canonicalUrl: canonicalUrl,
+    robotsMeta: isNoindex 
+      ? '<meta name="robots" content="noindex, follow" />' 
+      : '<meta name="robots" content="index, follow" />',
+    activePage: isLegal ? '' : (filePath.includes('/blog/index.html') ? 'blog' : ''),
+    mainContent: mainContent
   });
 
-  // Manage robots meta tag (Legal pages index, blog articles/archives noindex)
-  const robotsMeta = isLegal 
-    ? '<meta name="robots" content="index, follow" />' 
-    : '<meta name="robots" content="noindex, follow" />';
-  
-  if (/<meta name="robots"[^>]*>/i.test(content)) {
-    content = content.replace(/<meta name="robots"[^>]*>/i, robotsMeta);
-  } else {
-    content = content.replace('</head>', `    ${robotsMeta}\n  </head>`);
-  }
-
-  // Update hreflang tags
-  const blogHreflangRegex = /<link rel="canonical"[\s\S]*?(?=<link rel="preconnect"|<style|<script|<\!-- Universal)/;
-  if (blogHreflangRegex.test(content)) {
-    content = content.replace(blogHreflangRegex, generateHreflangs(canonicalUrl) + '\n    ');
-  }
-
-  // Inject/Update Universal Header & Responsive CSS
-  content = ensureHeaderAndResponsiveStyles(content);
-
-  // Replace Header (activePage: isLegal ? '' : 'blog')
-  content = replaceHeaderInHtml(content, isLegal ? '' : 'blog');
-
-  // Make Article & Content Responsive (100vw, responsive tables, responsive padding, word break)
-  content = makeArticleContentResponsive(content);
-
-  // Remove any remaining auth buttons
-  content = content.replace(/<a\s+href="[^"]*auth=signin"[^>]*>[\s\S]*?<\/a>/gi, '');
-  content = content.replace(/<a\s+href="[^"]*auth=signup"[^>]*>[\s\S]*?<\/a>/gi, '');
-
-  // Replace Footer
-  const footerStart = content.indexOf('<footer class="seo-footer">');
-  const footerEnd = content.indexOf('</footer>', footerStart);
-  if (footerStart !== -1 && footerEnd !== -1) {
-    content = content.substring(0, footerStart) + coreAppFooter.trim() + content.substring(footerEnd + 9);
-  }
-
-  // Replace trailing scripts cleanly between </footer> and </body>
-  const footerCloseIdx = content.indexOf('</footer>');
-  const bodyCloseIdx = content.indexOf('</body>');
-  if (footerCloseIdx !== -1 && bodyCloseIdx !== -1) {
-    content = content.substring(0, footerCloseIdx + 9) + '\n\n' + unifiedAppScriptBlock.trim() + '\n  ' + content.substring(bodyCloseIdx);
-  }
-
-  fs.writeFileSync(filePath, content, 'utf8');
+  fs.writeFileSync(filePath, cleanDoc, 'utf8');
   console.log(`Updated blog file: ${filePath}`);
 }
 
@@ -973,57 +1243,107 @@ function updateStandaloneFile(filePath, canonicalUrl, activePage, isNoindex) {
   if (!fs.existsSync(filePath)) return;
   let content = fs.readFileSync(filePath, 'utf8');
 
-  // Ensure favicon & manifest tags in head
-  content = ensureFaviconTags(content);
+  // Extract <main>...</main>
+  const mainStart = content.indexOf('<main');
+  const mainEnd = content.indexOf('</main>', mainStart);
+  if (mainStart === -1 || mainEnd === -1) {
+    console.warn(`Could not find <main> in ${filePath}`);
+    return;
+  }
+  let mainContent = content.substring(mainStart, mainEnd + 7);
 
-  // Set default language to en-GB
-  content = content.replace(/<html(\s+[^>]*)?>/i, (match) => {
-    let m = match.replace(/\blang="[^"]*"/, 'lang="en-GB"');
-    if (!m.includes('lang=')) m = m.replace('<html', '<html lang="en-GB"');
-    return m;
+  // Clean any auth or launch buttons if needed
+  mainContent = mainContent.replace(/<a\s+href="[^"]*auth=signin"[^>]*>[\s\S]*?<\/a>/gi, '');
+  mainContent = mainContent.replace(/<a\s+href="[^"]*auth=signup"[^>]*>[\s\S]*?<\/a>/gi, '');
+
+  let pageScript = '';
+  if (filePath.includes('faqs')) {
+    pageScript = `
+      function filterFaqs() {
+        var query = (document.getElementById('faqSearchInput') ? document.getElementById('faqSearchInput').value : '').toLowerCase().trim();
+        var clearBtn = document.getElementById('clearSearchBtn');
+        if (clearBtn) clearBtn.classList.toggle('hidden', !query);
+        var activePill = document.querySelector('.category-pill.active');
+        var cat = activePill ? activePill.getAttribute('data-cat') : 'all';
+        var items = document.querySelectorAll('.faq-item');
+        var visibleCount = 0;
+        items.forEach(function(item) {
+          var text = item.textContent.toLowerCase();
+          var itemCat = item.getAttribute('data-category');
+          var matchesCat = cat === 'all' || itemCat === cat;
+          var matchesQuery = !query || text.indexOf(query) !== -1;
+          if (matchesCat && matchesQuery) {
+            item.style.display = '';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        var label = document.getElementById('faqCountLabel');
+        if (label) label.textContent = 'Showing ' + visibleCount + ' question' + (visibleCount === 1 ? '' : 's');
+      }
+
+      function filterCategory(cat) {
+        document.querySelectorAll('.category-pill').forEach(function(pill) {
+          if (pill.getAttribute('data-cat') === cat) {
+            pill.classList.add('active', 'bg-violet-600', 'text-white');
+            pill.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+          } else {
+            pill.classList.remove('active', 'bg-violet-600', 'text-white');
+            pill.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+          }
+        });
+        filterFaqs();
+      }
+
+      function clearFaqSearch() {
+        var input = document.getElementById('faqSearchInput');
+        if (input) {
+          input.value = '';
+          filterFaqs();
+          input.focus();
+        }
+      }
+    `;
+  } else if (filePath.includes('sitemap.html')) {
+    pageScript = `
+      function filterSitemap(val) {
+        var query = (val || '').toLowerCase().trim();
+        var links = document.querySelectorAll('.sitemap-section a');
+        links.forEach(function(a) {
+          var parentLi = a.closest('li') || a.parentElement;
+          if (!query) {
+            if (parentLi) parentLi.style.display = '';
+          } else {
+            var match = a.textContent.toLowerCase().indexOf(query) !== -1 || (a.getAttribute('href') || '').toLowerCase().indexOf(query) !== -1;
+            if (parentLi) parentLi.style.display = match ? '' : 'none';
+          }
+        });
+      }
+    `;
+  }
+
+  const meta = PAGE_META[filePath] || {
+    title: 'Online Timetable Creator',
+    description: 'Create and export custom schedules and class timetables.',
+    activePage: activePage || '',
+    isNoindex: isNoindex
+  };
+
+  const cleanDoc = buildFullCleanDocument({
+    lang: 'en-GB',
+    title: meta.title,
+    description: meta.description,
+    canonicalUrl: canonicalUrl,
+    robotsMeta: isNoindex 
+      ? '<meta name="robots" content="noindex, follow" />' 
+      : '<meta name="robots" content="index, follow" />',
+    activePage: activePage || meta.activePage || '',
+    mainContent: mainContent,
+    pageScript: pageScript
   });
 
-  // Manage robots meta tag if requested
-  if (isNoindex) {
-    const robotsMeta = '<meta name="robots" content="noindex, follow" />';
-    if (/<meta name="robots"[^>]*>/i.test(content)) {
-      content = content.replace(/<meta name="robots"[^>]*>/i, robotsMeta);
-    } else {
-      content = content.replace('</head>', `    ${robotsMeta}\n  </head>`);
-    }
-  }
-
-  // Update hreflang tags if canonical exists
-  const hreflangRegex = /<link rel="canonical"[\s\S]*?(?=<link rel="preconnect"|<style|<script|<\!-- High Performance|<\!-- FAQPage)/;
-  if (hreflangRegex.test(content)) {
-    content = content.replace(hreflangRegex, generateHreflangs(canonicalUrl) + '\n    ');
-  }
-
-  // Inject/Update Universal Header & Responsive CSS
-  content = ensureHeaderAndResponsiveStyles(content);
-
-  // Replace Header
-  content = replaceHeaderInHtml(content, activePage);
-
-  // Replace Footer if present
-  const footerStart = content.indexOf('<footer class="seo-footer">');
-  const footerEnd = content.indexOf('</footer>', footerStart);
-  if (footerStart !== -1 && footerEnd !== -1) {
-    content = content.substring(0, footerStart) + coreAppFooter.trim() + content.substring(footerEnd + 9);
-  }
-
-  // Replace trailing script block before </body>
-  const lastFooterIdx = content.lastIndexOf('</footer>');
-  const bodyCloseIdx = content.indexOf('</body>');
-  if (lastFooterIdx !== -1 && bodyCloseIdx !== -1) {
-    content = content.substring(0, lastFooterIdx + 9) + '\n\n' + unifiedAppScriptBlock.trim() + '\n  ' + content.substring(bodyCloseIdx);
-  }
-
-  // Remove any remaining auth or launch maker buttons
-  content = content.replace(/<a\s+href="[^"]*auth=signin"[^>]*>[\s\S]*?<\/a>/gi, '');
-  content = content.replace(/<a\s+href="[^"]*auth=signup"[^>]*>[\s\S]*?<\/a>/gi, '');
-
-  fs.writeFileSync(filePath, content, 'utf8');
+  fs.writeFileSync(filePath, cleanDoc, 'utf8');
   console.log(`Updated standalone file: ${filePath}`);
 }
 
