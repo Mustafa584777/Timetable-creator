@@ -91,7 +91,7 @@
       "permanent": true
     },
     {
-      "source": "/timetable-generator-online-for-students/?",
+      "source": "/timetable-generator-online-for-students",
       "has": [
         {
           "type": "query",
@@ -103,7 +103,7 @@
       "permanent": true
     },
     {
-      "source": "/timetable-generator-online-for-students/?",
+      "source": "/timetable-generator-online-for-students",
       "has": [
         {
           "type": "query",
