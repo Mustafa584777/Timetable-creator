@@ -8,6 +8,15 @@ export default defineConfig(() => {
     plugins: [react(), tailwindcss()],
     publicDir: 'public',
     appType: 'spa' as const,
+    assetsInclude: [
+      '**/*.png',
+      '**/*.ico',
+      '**/*.webmanifest',
+      '**/*.svg',
+      '**/*.webp',
+      '**/*.jpg',
+      '**/*.jpeg'
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
@@ -17,6 +26,9 @@ export default defineConfig(() => {
       port: 3000,
       host: '0.0.0.0',
       allowedHosts: true as const,
+      fs: {
+        strict: false,
+      },
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       hmr: process.env.DISABLE_HMR !== 'true',
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
@@ -24,6 +36,7 @@ export default defineConfig(() => {
     build: {
       outDir: 'dist',
       emptyOutDir: false,
+      copyPublicDir: true,
     },
   };
 });

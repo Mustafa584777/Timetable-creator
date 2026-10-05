@@ -21,6 +21,27 @@
       ]
     },
     {
+      "source": "/(site\\.webmanifest|manifest\\.json)",
+      "headers": [
+        { "key": "Content-Type", "value": "application/manifest+json; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/logo.png",
+      "headers": [
+        { "key": "Content-Type", "value": "image/png" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        { "key": "Content-Type", "value": "image/x-icon" },
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
       "source": "/firebase-applet-config.json",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
@@ -102,15 +123,15 @@
       "destination": "/:lang/index.html"
     },
     {
-      "source": "/:toolSlug",
+      "source": "/:toolSlug((?!api|blog|assets|favicon|logo|site|manifest|robots|ads|sitemap|apple-touch-icon|android-chrome|.*\\..*)[^/]+)",
       "destination": "/:toolSlug/index.html"
     },
     {
-      "source": "/:toolSlug/",
+      "source": "/:toolSlug((?!api|blog|assets|favicon|logo|site|manifest|robots|ads|sitemap|apple-touch-icon|android-chrome|.*\\..*)[^/]+)/",
       "destination": "/:toolSlug/index.html"
     },
     {
-      "source": "/((?!api/|blog/|assets/|favicon|timetable-generator|timetable-creator|sitemap|.*\\..*).*)",
+      "source": "/((?!api/|blog/|assets/|favicon|logo|site|manifest|robots|ads|timetable-generator|timetable-creator|sitemap|apple-touch-icon|android-chrome|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
