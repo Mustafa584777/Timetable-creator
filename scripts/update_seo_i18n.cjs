@@ -116,12 +116,12 @@ const cleanTranslationScript = `
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
           pageLanguage: 'en',
-          includedLanguages: 'en,es,ja,fr,de,pt,ko,it,hi',
+          includedLanguages: 'en,es,ja,fr,de,pt,ko,it,hi,ms',
           autoDisplay: false
         }, 'google_translate_element');
       }
 
-      var supportedLangs = ['en-GB', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+      var supportedLangs = ['en-GB', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi', 'ms'];
 
       function getCleanBasePath() {
         var pathSegments = window.location.pathname.replace(/\\/+$/, '').split('/').filter(Boolean);
@@ -206,8 +206,8 @@ const cleanTranslationScript = `
           urlParams.delete('lang');
           var cleanSearch = urlParams.toString();
           var cleanQuery = cleanSearch ? '?' + cleanSearch : '';
-          var supported = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
-          var basePath = window.location.pathname.replace(/\/+$/, '');
+          var supported = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi', 'ms'];
+          var basePath = window.location.pathname.replace(/\\/+$/, '');
           var targetPath = '/';
           if (supported.includes(queryLang)) {
             targetPath = basePath ? basePath + '/' + queryLang : '/' + queryLang;
@@ -268,6 +268,30 @@ const cleanTranslationScript = `
           drawer.classList.toggle('hidden');
         }
       }
+
+      // Expose globally so header onclick always finds them
+      window.toggleLocalTheme = toggleLocalTheme;
+      window.toggleMobileMenuLocal = toggleMobileMenuLocal;
+      window.toggleLangDropdown = toggleLangDropdown;
+      window.changeLanguage = changeLanguage;
+
+      // Sync header theme icon on initial load
+      (function syncHeaderThemeIcon() {
+        var sunPath = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>';
+        var moonPath = '<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+        function updateIcon() {
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          var iconHeader = document.getElementById('themeToggleIconHeader');
+          if (iconHeader) {
+            iconHeader.innerHTML = isDark ? sunPath : moonPath;
+          }
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', updateIcon);
+        } else {
+          updateIcon();
+        }
+      })();
 `;
 
 const faviconTags = `
@@ -332,6 +356,7 @@ function generateHeaderHtml(activePage = '') {
               <button class="lang-dropdown-item" onclick="changeLanguage('ko')">한국어</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ms')">Bahasa Melayu</button>
             </div>
           </div>
 
