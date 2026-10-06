@@ -1,6 +1,17 @@
 <!doctype html>
-<html lang="en-GB" data-preset="amber" data-theme="dark">
+<html lang="en-GB" data-preset="amber">
   <head>
+    <script>
+      (function() {
+        var savedTheme = localStorage.getItem('timetable_theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      })();
+    </script>
+
     <!-- Google Tag Manager (Non-blocking deferred loader for 100 PageSpeed Performance) -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -5639,7 +5650,7 @@
       /* Mobile responsiveness */
       @media (max-width: 1024px) {
         .tc-sidebar {
-          display: none;
+          display: none !important;
         }
         .tc-sidebar.mobile-open {
           display: flex;
@@ -5964,65 +5975,97 @@
     <div id="toastContainer" class="toast-container"></div>
 
     <!-- PREMIUM GLOBAL NAVIGATION HEADER (UPGRADED HOMEPAGE DESIGN) -->
-    <header class="tc-global-header">
-      <!-- Left: App Logo & Brand -->
-      <a href="/" class="tc-header-brand-wrap" aria-label="Timetable Creator">
-        <svg class="tc-brand-logo-img" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="4" width="30" height="26" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
-          <path d="M2 10C2 6.68629 4.68629 4 8 4H26C29.3137 4 32 6.68629 32 10V11H2V10Z" fill="#0d9488"/>
-          <rect x="7" y="1" width="3" height="6" rx="1.5" fill="#0f766e"/>
-          <rect x="24" y="1" width="3" height="6" rx="1.5" fill="#0f766e"/>
-          <circle cx="8" cy="16" r="2" fill="#ef4444"/>
-          <circle cx="14" cy="16" r="2" fill="#f59e0b"/>
-          <circle cx="20" cy="16" r="2" fill="#10b981"/>
-          <circle cx="26" cy="16" r="2" fill="#3b82f6"/>
-          <circle cx="8" cy="22" r="2" fill="#f59e0b"/>
-          <circle cx="14" cy="22" r="2" fill="#10b981"/>
-          <circle cx="20" cy="22" r="2" fill="#3b82f6"/>
-          <circle cx="26" cy="22" r="2" fill="#8b5cf6"/>
-        </svg>
-        <div class="tc-header-brand-text">
-          <span class="tc-brand-title">TIMETABLE CREATOR</span>
-          <p class="tc-brand-subtitle">Online Schedule Generator</p>
+    
+    <header class="global-header">
+      <div class="header-container">
+        <div class="header-left-desktop">
+          <a href="/" class="header-brand" aria-label="Timetable Creator">
+            <div class="app-brand-wrapper">
+              <svg class="app-brand-logo" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="4" width="30" height="26" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+                <path d="M2 10C2 6.68629 4.68629 4 8 4H26C29.3137 4 32 6.68629 32 10V11H2V10Z" fill="#0d9488"/>
+                <rect x="7" y="1" width="3" height="6" rx="1.5" fill="#0f766e"/>
+                <rect x="24" y="1" width="3" height="6" rx="1.5" fill="#0f766e"/>
+                <circle cx="8" cy="16" r="2" fill="#ef4444"/>
+                <circle cx="14" cy="16" r="2" fill="#f59e0b"/>
+                <circle cx="20" cy="16" r="2" fill="#10b981"/>
+                <circle cx="26" cy="16" r="2" fill="#3b82f6"/>
+                <circle cx="8" cy="22" r="2" fill="#f59e0b"/>
+                <circle cx="14" cy="22" r="2" fill="#10b981"/>
+                <circle cx="20" cy="22" r="2" fill="#3b82f6"/>
+                <circle cx="26" cy="22" r="2" fill="#8b5cf6"/>
+              </svg>
+              <div class="header-title-group">
+                <span class="app-brand-name">TIMETABLE CREATOR</span>
+                <span class="header-subtitle">Online Schedule Generator</span>
+              </div>
+            </div>
+          </a>
         </div>
-      </a>
 
-      <!-- Right: Utility Controls (Theme, Translate, Menu) -->
-      <div class="tc-header-actions">
-        <!-- Sun/Moon Theme Toggle Pill -->
-        <button class="tc-theme-toggle-pill" onclick="toggleLocalTheme()" data-tooltip="Toggle light/dark theme" title="Toggle theme mode" aria-label="Toggle Theme">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1.5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
+        <div class="header-center-desktop">
+          <nav class="header-nav-desktop">
+            <a href="/" class="nav-link-header active">Timetable</a>
+            <a href="/timetable-generator-online-for-students" class="nav-link-header">Student Guide</a>
+            <a href="/timetable-generator" class="nav-link-header">Generator</a>
+            <a href="/sitemap.xml" class="nav-link-header">Sitemap</a>
+          </nav>
+        </div>
 
-        <!-- Google Translate Dropdown Selector -->
-        <div class="lang-dropdown-container">
-          <button class="tc-header-btn tc-header-btn-icon" onclick="toggleLangDropdown()" id="btnLangDropdown" data-tooltip="Change Language" aria-label="Change Language" title="Change Language">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width: 18px; height: 18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.818-2.251-2.253-4.247-4-5.5C6.754 4.753 5.32 6.749 4.5 9h8m-8 0a13.935 13.935 0 002.912 4.5M6.412 9a13.935 13.935 0 002.912 4.5M11 21l3-6 3 6m-5-2h4"></path></svg>
+        <div class="header-actions-desktop">
+          <!-- Theme Toggle Button -->
+          <button class="action-btn-header" onclick="toggleLocalTheme()" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg id="themeToggleIconHeader" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
           </button>
-          <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; right: 0;">
-            <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
-            <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
-            <button class="lang-dropdown-item" onclick="changeLanguage('ja')">日本語</button>
-            <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Français</button>
-            <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
-            <button class="lang-dropdown-item" onclick="changeLanguage('pt')">Português</button>
-            <button class="lang-dropdown-item" onclick="changeLanguage('ko')">한국어</button>
-            <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
-            <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
-          </div>
-        </div>
 
-        <!-- Hamburger Menu Toggle Button -->
-        <button class="tc-header-btn tc-header-btn-icon" onclick="app.handlers.toggleSidebarMenu()" aria-label="Toggle menu" title="Menu">
-          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20">
-            <line x1="4" y1="7" x2="20" y2="7"></line>
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="17" x2="20" y2="17"></line>
-          </svg>
-        </button>
+          <!-- Google Translate Dropdown -->
+          <div class="lang-dropdown-container">
+            <button class="action-btn-header" onclick="toggleLangDropdown()" title="Change Language" aria-label="Change Language">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.818-2.251-2.253-4.247-4-5.5C6.754 4.753 5.32 6.749 4.5 9h8m-8 0a13.935 13.935 0 002.912 4.5M6.412 9a13.935 13.935 0 002.912 4.5M11 21l3-6 3 6m-5-2h4"></path></svg>
+            </button>
+            <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; right: 0;">
+              <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ja')">日本語</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('fr')">Français</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('de')">Deutsch</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('pt')">Português</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ko')">한국어</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
+            </div>
+          </div>
+
+          <!-- Auth Group -->
+          <div class="header-auth-group" id="unauthGroupHeader">
+            <button class="btn-signin-header" onclick="app.handlers.openAuthModal('signin')">Sign In</button>
+            <button class="btn-signup-header" onclick="app.handlers.openAuthModal('signup')">Sign Up</button>
+          </div>
+          <div class="header-auth-group hidden" id="authGroupHeader" style="position:relative;">
+            <div class="user-avatar-trigger" onclick="app.handlers.toggleUserDropdownHeader()">
+              <div class="user-avatar-bubble" id="userAvatarHeader">U</div>
+              <span class="user-email-label" id="userEmailLabelHeader">User</span>
+            </div>
+            <div class="header-dropdown hidden" id="userDropdownHeader">
+              <div class="dropdown-email" id="userDropdownEmailHeader">user@example.com</div>
+              <div class="dropdown-sync"><span class="sync-dot" id="syncBadge"></span><span id="syncBadgeText">Cloud synced</span></div>
+              <button class="dropdown-btn" onclick="app.handlers.openAccountModal()">Account Settings</button>
+              <button class="dropdown-btn danger" onclick="app.handlers.signOut()">Sign Out</button>
+            </div>
+          </div>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="header-mobile-toggle" onclick="app.handlers.toggleSidebarMenu()" aria-label="Toggle menu" title="Menu">
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="20" height="20">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="17" x2="20" y2="17"></line>
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
+
 
     <!-- ==========================================================================
          UPGRADED HOMEPAGE WORKSPACE (SIDEBAR + 3-CARD DASHBOARD)
@@ -8065,15 +8108,11 @@
       })();
 
       function toggleLocalTheme() {
-        if (window.app && window.app.handlers && window.app.handlers.toggleDark) {
-          window.app.handlers.toggleDark();
-          return;
-        }
         var html = document.documentElement;
         var currentTheme = html.getAttribute('data-theme');
         var iconHeader = document.getElementById('themeToggleIconHeader');
-        var sunPath = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>';
-        var moonPath = '<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+        var sunPath = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+        var moonPath = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
         if (currentTheme === 'dark') {
           html.removeAttribute('data-theme');
           localStorage.setItem('timetable_theme', 'light');
