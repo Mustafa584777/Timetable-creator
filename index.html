@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/" />
+                                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -5780,6 +5780,30 @@
         font-weight: 500 !important;
       }
 
+    
+      .tc-grid-top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+      }
+      .tc-grid-right-actions-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 6px 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      }
+      [data-theme="dark"] .tc-grid-right-actions-card {
+        background: #1e293b !important;
+        border-color: #334155 !important;
+      }
+
     </style>
   
     <script type="application/ld+json">
@@ -5885,6 +5909,14 @@
     </style>
 
 
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -6175,7 +6207,7 @@
               </div>
             </div>
 
-            <!-- Action Buttons & Day Filter Bar -->
+            <!-- Action Buttons & Clear Button -->
             <div class="tc-schedule-header-bottom">
               <div class="tc-cta-group">
                 <!-- + Add Activity Button (split dropdown) -->
@@ -6185,19 +6217,19 @@
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
 
-                <!-- Load Template Schedule Dropdown Button -->
-                <div class="custom-dropdown-wrap" id="wrap_classicPresetTemplates" style="min-width: 220px;">
+                <!-- Template Dropdown Button -->
+                <div class="custom-dropdown-wrap" id="wrap_classicPresetTemplates" style="min-width: 160px;">
                   <input type="hidden" id="classicPresetTemplates" value="">
-                  <button type="button" class="tc-btn-outline-white" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Load Template">
+                  <button type="button" class="tc-btn-outline-white" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Template">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"></path></svg>
-                    <span>Load Template Schedule</span>
+                    <span>Template</span>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                   </button>
                   <div class="custom-dropdown-menu">
                     <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', '', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
                       <div class="custom-drop-item-content">
                         <span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span>
-                        <span>Load Template Schedule...</span>
+                        <span>Template...</span>
                       </div>
                     </div>
                     <div class="custom-dropdown-option" data-value="university" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'university', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
@@ -6234,18 +6266,6 @@
                 </div>
               </div>
 
-              <!-- Day Filter Pills -->
-              <div class="tc-day-pills-bar" id="classicDayPillsBar">
-                <button class="tc-day-pill active" onclick="app.handlers.focusClassicDay('all')">All Days</button>
-                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(0)" data-shortcut-tip="Alt + 1" data-shortcut-name="Mon">Mon</button>
-                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(1)" data-shortcut-tip="Alt + 2" data-shortcut-name="Tue">Tue</button>
-                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(2)" data-shortcut-tip="Alt + 3" data-shortcut-name="Wed">Wed</button>
-                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(3)" data-shortcut-tip="Alt + 4" data-shortcut-name="Thu">Thu</button>
-                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(4)" data-shortcut-tip="Alt + 5" data-shortcut-name="Fri">Fri</button>
-                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(5)" data-shortcut-tip="Alt + 6" data-shortcut-name="Sat">Sat</button>
-                <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(6)" data-shortcut-tip="Alt + 7" data-shortcut-name="Sun">Sun</button>
-              </div>
-
               <!-- Clear All Danger Button -->
               <button class="tc-btn-clear-all" onclick="app.handlers.resetSchedule()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Clear Schedule" aria-label="Clear All">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
@@ -6267,25 +6287,10 @@
                 <span>Redo</span>
               </button>
 
-
-
               <!-- Grid Setup button -->
               <button class="tc-tool-btn" id="btnToggleClassicConfig" data-shortcut-tip="Alt + G" data-shortcut-name="Grid Setup" onclick="app.handlers.toggleClassicConfig()" title="Toggle Grid Settings" aria-label="Toggle Settings">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                 <span>Grid Setup</span>
-              </button>
-
-              <!-- Resize Grid Toggle Switch -->
-              <label class="tc-toggle-wrap" title="Toggle column & row dragging lines">
-                <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)">
-                <span class="tc-toggle-switch"></span>
-                <span class="tc-toggle-text">Resize Grid</span>
-              </label>
-
-              <!-- Reset Size button -->
-              <button class="tc-tool-btn" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" title="Reset Grid Size">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-                <span>Reset Size</span>
               </button>
             </div>
 
@@ -6469,6 +6474,34 @@
                   <span>Import JSON</span>
                 </button>
               </div>
+            </div>
+          </div>
+
+          <!-- Timetable Controls Bar (Day Filter Pills & Separate White Container for Reset/Resize) -->
+          <div class="tc-grid-top-bar">
+            <!-- Day Filter Pills -->
+            <div class="tc-day-pills-bar" id="classicDayPillsBar">
+              <button class="tc-day-pill active" onclick="app.handlers.focusClassicDay('all')">All Days</button>
+              <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(0)" data-shortcut-tip="Alt + 1" data-shortcut-name="Mon">Mon</button>
+              <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(1)" data-shortcut-tip="Alt + 2" data-shortcut-name="Tue">Tue</button>
+              <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(2)" data-shortcut-tip="Alt + 3" data-shortcut-name="Wed">Wed</button>
+              <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(3)" data-shortcut-tip="Alt + 4" data-shortcut-name="Thu">Thu</button>
+              <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(4)" data-shortcut-tip="Alt + 5" data-shortcut-name="Fri">Fri</button>
+              <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(5)" data-shortcut-tip="Alt + 6" data-shortcut-name="Sat">Sat</button>
+              <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(6)" data-shortcut-tip="Alt + 7" data-shortcut-name="Sun">Sun</button>
+            </div>
+
+            <!-- Separate White Container for Reset & Resize Grid -->
+            <div class="tc-grid-right-actions-card">
+              <label class="tc-toggle-wrap" title="Toggle column & row dragging lines">
+                <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)">
+                <span class="tc-toggle-switch"></span>
+                <span class="tc-toggle-text">Resize Grid</span>
+              </label>
+              <button class="tc-tool-btn" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" title="Reset Grid Size">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                <span>Reset Size</span>
+              </button>
             </div>
           </div>
 
@@ -11734,13 +11767,14 @@
           },
 
           resetSchedule() {
-            if (confirm("Are you sure you want to clear all activities and reset your timetable?")) {
-              app.pushHistory();
-              app.state.events = [];
-              if (app.state.config.autoSave) app.saveState();
-              app.render();
-              app.showToast("Timetable reset successfully", "info");
-            }
+            app.pushHistory();
+            app.state.events = [];
+            app.state.classicEvents = [];
+            app.state.proEvents = [];
+            localStorage.removeItem(app.STORAGE_KEY);
+            if (app.state.config.autoSave) app.saveState();
+            app.render();
+            app.showToast("Timetable reset successfully", "info");
           },
 
 
@@ -12578,6 +12612,9 @@
           confirmResetSchedule() {
             app.pushHistory();
             app.state.events = [];
+            app.state.classicEvents = [];
+            app.state.proEvents = [];
+            localStorage.removeItem(app.STORAGE_KEY);
             
             app.state.config = {
               daysCount: 7,

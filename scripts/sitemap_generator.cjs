@@ -12,7 +12,8 @@ const languages = [
   { code: 'pt', name: 'Português' },
   { code: 'ko', name: '한국어' },
   { code: 'it', name: 'Italiano' },
-  { code: 'hi', name: 'हिन्दी' }
+  { code: 'hi', name: 'हिन्दी' },
+  { code: 'ms', name: 'Bahasa Melayu' }
 ];
 
 function getAllSitePages(baseDir = 'public') {
