@@ -10,7 +10,8 @@ const SUPPORTED_LANGS = [
   { code: 'pt', label: 'Português' },
   { code: 'ko', label: '한국어' },
   { code: 'it', label: 'Italiano' },
-  { code: 'hi', label: 'हिन्दी (Hindi)' }
+  { code: 'hi', label: 'हिन्दी (Hindi)' },
+  { code: 'ms', label: 'Bahasa Melayu' }
 ];
 
 function generateHreflangs(baseCanonicalUrl) {
@@ -26,7 +27,8 @@ function generateHreflangs(baseCanonicalUrl) {
     `    <link rel="alternate" hreflang="pt" href="${urlPrefix}/pt" />`,
     `    <link rel="alternate" hreflang="ko" href="${urlPrefix}/ko" />`,
     `    <link rel="alternate" hreflang="it" href="${urlPrefix}/it" />`,
-    `    <link rel="alternate" hreflang="hi" href="${urlPrefix}/hi" />`
+    `    <link rel="alternate" hreflang="hi" href="${urlPrefix}/hi" />`,
+    `    <link rel="alternate" hreflang="ms" href="${urlPrefix}/ms" />`
   ];
   return tags.join('\n');
 }
@@ -362,9 +364,8 @@ function generateHeaderHtml(activePage = '') {
 
           <!-- Nav links (Desktop) -->
           <nav class="header-nav-desktop">
-            <a href="/" class="nav-link-header ${activePage === 'workspace' ? 'active' : ''}">Workspace</a>
+            <a href="/" class="nav-link-header ${activePage === 'workspace' || activePage === 'timetable-maker' ? 'active' : ''}">Timetable Maker</a>
             <a href="/timetable-generator-online-for-students/" class="nav-link-header ${activePage === 'students' ? 'active' : ''}">Free Students Timetable Maker</a>
-            <a href="/sitemap.html" class="nav-link-header ${activePage === 'sitemap' ? 'active' : ''}">Sitemap</a>
           </nav>
         </div>
 
@@ -379,9 +380,8 @@ function generateHeaderHtml(activePage = '') {
       <!-- Mobile Drawer Menu (Slide Down) -->
       <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
         <nav class="mobile-nav-links">
-          <a href="/" class="mobile-nav-link ${activePage === 'workspace' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Workspace</a>
+          <a href="/" class="mobile-nav-link ${activePage === 'workspace' || activePage === 'timetable-maker' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Timetable Maker</a>
           <a href="/timetable-generator-online-for-students/" class="mobile-nav-link ${activePage === 'students' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Free Students Timetable Maker</a>
-          <a href="/sitemap.html" class="mobile-nav-link ${activePage === 'sitemap' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Sitemap</a>
         </nav>
       </div>
     </header>`;

@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                                                            <link rel="canonical" href="https://timetablecreator.online/" />
+                                                                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -77,6 +77,7 @@
     <link rel="alternate" hreflang="ko" href="https://timetablecreator.online/ko" />
     <link rel="alternate" hreflang="it" href="https://timetablecreator.online/it" />
     <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/hi" />
+    <link rel="alternate" hreflang="ms" href="https://timetablecreator.online/ms" />
     <!-- FAQPage Schema Markup for SEO -->
     <script type="application/ld+json">
     {
@@ -5184,10 +5185,10 @@
         padding-top: 4px;
       }
       .tc-cta-group {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         gap: 10px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
       }
       .tc-btn-teal-primary {
         background: #0d9488;
@@ -5803,6 +5804,56 @@
         background: #1e293b !important;
         border-color: #334155 !important;
       }
+      .tc-grid-top-right-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-left: auto;
+      }
+      .tc-clear-all-white-box {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 4px 6px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      }
+      [data-theme="dark"] .tc-clear-all-white-box {
+        background: #1e293b !important;
+        border-color: #334155 !important;
+      }
+      .tc-btn-clear-box {
+        background: #ffffff;
+        color: #ef4444;
+        border: 1.5px solid #fecaca;
+        border-radius: 8px;
+        padding: 5px 12px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12.5px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+        user-select: none;
+      }
+      .tc-btn-clear-box:hover {
+        background: #fef2f2;
+        border-color: #ef4444;
+        color: #dc2626;
+      }
+      [data-theme="dark"] .tc-btn-clear-box {
+        background: #1e293b !important;
+        border-color: rgba(239, 68, 68, 0.35) !important;
+        color: #f87171 !important;
+      }
+      [data-theme="dark"] .tc-btn-clear-box:hover {
+        background: rgba(239, 68, 68, 0.15) !important;
+      }
 
     </style>
   
@@ -5909,6 +5960,12 @@
     </style>
 
 
+    
+    
+    
+    
+    
+    
     
     
     
@@ -6070,9 +6127,8 @@
 
           <!-- Nav links (Desktop) -->
           <nav class="header-nav-desktop">
-            <a href="/" class="nav-link-header active">Workspace</a>
+            <a href="/" class="nav-link-header active">Timetable Maker</a>
             <a href="/timetable-generator-online-for-students/" class="nav-link-header ">Free Students Timetable Maker</a>
-            <a href="/sitemap.html" class="nav-link-header ">Sitemap</a>
           </nav>
         </div>
 
@@ -6087,9 +6143,8 @@
       <!-- Mobile Drawer Menu (Slide Down) -->
       <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
         <nav class="mobile-nav-links">
-          <a href="/" class="mobile-nav-link active" onclick="toggleMobileMenuLocal()">Workspace</a>
+          <a href="/" class="mobile-nav-link active" onclick="toggleMobileMenuLocal()">Timetable Maker</a>
           <a href="/timetable-generator-online-for-students/" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Free Students Timetable Maker</a>
-          <a href="/sitemap.html" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Sitemap</a>
         </nav>
       </div>
     </header>
@@ -6276,12 +6331,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Clear All Danger Button -->
-              <button class="tc-btn-clear-all" onclick="app.handlers.resetSchedule()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Clear Schedule" aria-label="Clear All">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                <span>Clear All</span>
-              </button>
             </div>
           </div>
 
@@ -6502,17 +6551,27 @@
               <button class="tc-day-pill" onclick="app.handlers.focusClassicDay(6)" data-shortcut-tip="Alt + 7" data-shortcut-name="Sun">Sun</button>
             </div>
 
-            <!-- Separate White Container for Reset & Resize Grid -->
-            <div class="tc-grid-right-actions-card">
-              <label class="tc-toggle-wrap" title="Toggle column & row dragging lines">
-                <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)">
-                <span class="tc-toggle-switch"></span>
-                <span class="tc-toggle-text">Resize Grid</span>
-              </label>
-              <button class="tc-tool-btn" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" title="Reset Grid Size">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-                <span>Reset Size</span>
-              </button>
+            <!-- Top Right Corner of Timetable: White Container Boxes -->
+            <div class="tc-grid-top-right-group">
+              <div class="tc-grid-right-actions-card">
+                <label class="tc-toggle-wrap" title="Toggle column & row dragging lines">
+                  <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)">
+                  <span class="tc-toggle-switch"></span>
+                  <span class="tc-toggle-text">Resize Grid</span>
+                </label>
+                <button class="tc-tool-btn" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" title="Reset Grid Size">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                  <span>Reset Size</span>
+                </button>
+              </div>
+
+              <!-- Dedicated White Box for Clear All Button at Top Right Corner of Timetable -->
+              <div class="tc-clear-all-white-box">
+                <button class="tc-btn-clear-box" onclick="app.handlers.resetSchedule()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Clear Entire Schedule" aria-label="Clear All">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                  <span>Clear All</span>
+                </button>
+              </div>
             </div>
           </div>
 
