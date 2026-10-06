@@ -73,7 +73,7 @@
         {
           "type": "query",
           "key": "lang",
-          "value": "(?<langCode>es|ja|fr|de|pt|ko|it|hi)"
+          "value": "(?<langCode>es|ja|fr|de|pt|ko|it|hi|ms)"
         }
       ],
       "destination": "/:langCode",
@@ -96,7 +96,7 @@
         {
           "type": "query",
           "key": "lang",
-          "value": "(?<langCode>es|ja|fr|de|pt|ko|it|hi)"
+          "value": "(?<langCode>es|ja|fr|de|pt|ko|it|hi|ms)"
         }
       ],
       "destination": "/timetable-generator-online-for-students/:langCode",

@@ -956,6 +956,13 @@
               <span class="text-[10px] text-slate-400 font-mono">/ja</span>
             </a>
 
+            <!-- 13. Bahasa Melayu -->
+            <a href="/ms" class="sitemap-card bg-white p-3 rounded-xl border border-slate-200 hover:border-violet-500 hover:scale-105 transition-all block text-center">
+              <span class="text-lg block mb-1">🇲🇾</span>
+              <strong class="text-xs font-semibold text-slate-900 block">Bahasa Melayu</strong>
+              <span class="text-[10px] text-slate-400 font-mono">/ms</span>
+            </a>
+
           </div>
         </section>
 
@@ -1190,7 +1197,7 @@
           var cleanSearch = urlParams.toString();
           var cleanQuery = cleanSearch ? '?' + cleanSearch : '';
           var supported = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
-          var basePath = window.location.pathname.replace(//+$/, '');
+          var basePath = window.location.pathname.replace(/\/+$/, '');
           var targetPath = '/';
           if (supported.includes(queryLang)) {
             targetPath = basePath ? basePath + '/' + queryLang : '/' + queryLang;
