@@ -12031,12 +12031,21 @@
           },
 
           // Firebase Authentication helpers & hooks
-          openAuthModal() {
+          openAuthModal(mode = 'signin') {
             app.ensureFirebase();
-            document.getElementById('authErrorAlert').classList.add('hidden');
-            document.getElementById('authEmail').value = '';
-            document.getElementById('authPassword').value = '';
-            document.getElementById('authModal').classList.add('active');
+            const errAlert = document.getElementById('authErrorAlert');
+            if (errAlert) errAlert.classList.add('hidden');
+            const emailEl = document.getElementById('authEmail');
+            const pwdEl = document.getElementById('authPassword');
+            if (emailEl) emailEl.value = '';
+            if (pwdEl) pwdEl.value = '';
+            const modal = document.getElementById('authModal');
+            if (modal) modal.classList.add('active');
+            if (mode === 'signup' && typeof app.handlers.switchAuthTab === 'function') {
+              app.handlers.switchAuthTab('signup');
+            } else if (mode === 'signin' && typeof app.handlers.switchAuthTab === 'function') {
+              app.handlers.switchAuthTab('signin');
+            }
           },
 
           closeAuthModal() {
