@@ -141,8 +141,8 @@ html = html.replace(
                   <span class="custom-dropdown-label">Load Template Schedule...</span>`,
   `<div class="custom-dropdown-wrap" id="wrap_classicPresetTemplates" style="min-width: 220px;">
                 <input type="hidden" id="classicPresetTemplates" value="">
-                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Load Template">
-                  <span class="custom-dropdown-label"><span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span><span>Load Template Schedule...</span></span>`
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Templates">
+                  <span class="custom-dropdown-label"><span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span><span>Templates</span></span>`
 );
 
 html = html.replace(
