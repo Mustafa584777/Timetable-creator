@@ -30,7 +30,7 @@
       })();
     </script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.67, maximum-scale=5.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=5.0" />
     <title>Student Timetable Generator Online - Free Class & Study Timetable Maker</title>
     <meta name="description" content="Create student schedules, university lecture routines, revision planners, and class timetables easily with the free online student timetable maker. Instant PDF & PNG export." />
     
@@ -55,7 +55,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Student Timetable Generator Online - Free Class &amp; Study Schedule Maker" />
     <meta property="twitter:description" content="Create student schedules, university lecture routines, revision planners, and class timetables easily with the free online student timetable maker. Instant PDF &amp; PNG export." />
-                                                                                                                                                                                                                                <link rel="canonical" href="https://timetablecreator.online/timetable-generator-online-for-students/ja" />
+                                                                                                                                                                                                                                                                                    <link rel="canonical" href="https://timetablecreator.online/timetable-generator-online-for-students/ja" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/timetable-generator-online-for-students/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/timetable-generator-online-for-students/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/timetable-generator-online-for-students/es" />
@@ -66,6 +66,7 @@
     <link rel="alternate" hreflang="ko" href="https://timetablecreator.online/timetable-generator-online-for-students/ko" />
     <link rel="alternate" hreflang="it" href="https://timetablecreator.online/timetable-generator-online-for-students/it" />
     <link rel="alternate" hreflang="hi" href="https://timetablecreator.online/timetable-generator-online-for-students/hi" />
+    <link rel="alternate" hreflang="ms" href="https://timetablecreator.online/timetable-generator-online-for-students/ms" />
     <!-- FAQPage Schema Markup for SEO -->
     <script type="application/ld+json">
     {
@@ -4915,6 +4916,32 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -5066,14 +5093,14 @@
               <button class="lang-dropdown-item" onclick="changeLanguage('ko')">한국어</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('it')">Italiano</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
+              <button class="lang-dropdown-item" onclick="changeLanguage('ms')">Bahasa Melayu</button>
             </div>
           </div>
 
           <!-- Nav links (Desktop) -->
           <nav class="header-nav-desktop">
-            <a href="/" class="nav-link-header ">Workspace</a>
+            <a href="/" class="nav-link-header ">Timetable Maker</a>
             <a href="/timetable-generator-online-for-students/" class="nav-link-header active">Free Students Timetable Maker</a>
-            <a href="/sitemap.html" class="nav-link-header ">Sitemap</a>
           </nav>
         </div>
 
@@ -5088,9 +5115,8 @@
       <!-- Mobile Drawer Menu (Slide Down) -->
       <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
         <nav class="mobile-nav-links">
-          <a href="/" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Workspace</a>
+          <a href="/" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Timetable Maker</a>
           <a href="/timetable-generator-online-for-students/" class="mobile-nav-link active" onclick="toggleMobileMenuLocal()">Free Students Timetable Maker</a>
-          <a href="/sitemap.html" class="mobile-nav-link " onclick="toggleMobileMenuLocal()">Sitemap</a>
         </nav>
       </div>
     </header>
@@ -5102,15 +5128,7 @@
       <div class="classic-container">
         
         <!-- 1. Dedicated Top Schedule Header Bar (Cleaned of branding) -->
-        <div class="classic-main-header">
-          <!-- Schedule Title & Subtitle Direct Editable Area -->
-          <div class="classic-schedule-meta-box">
-            <div class="classic-title-edit-wrap">
-              <input type="text" id="classicTtTitle" class="classic-title-input" value="Student Timetable Generator" placeholder="Timetable Title..." onchange="app.handlers.updateClassicTitle(this.value)" aria-label="Timetable Title">
-              <svg class="classic-edit-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-            </div>
-            <input type="text" id="classicTtSubtitle" class="classic-subtitle-input" value="Class Schedule & Study Routine" placeholder="Optional Subtitle or Semester..." onchange="app.handlers.updateClassicSubtitle(this.value)" aria-label="Timetable Subtitle">
-          </div>
+        <div class="classic-main-header" style="justify-content: flex-end;">
 
           <!-- Header Quick Actions -->
           <div class="classic-header-quick-actions">
@@ -5395,6 +5413,10 @@
           </div>
                     <div class="unified-controls-container" style="display: flex; gap: 12px; margin-top: 12px; margin-bottom: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--bg-card); padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border-color);">
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="export-btn-item export-btn-share" onclick="app.handlers.shareSchedule()" data-shortcut-tip="Alt + S" data-shortcut-name="Share" title="Share Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 12px; border: 1.5px solid #0d9488; background: #ffffff; color: #0d9488; cursor: pointer; transition: 0.2s ease;">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                <span>Share</span>
+              </button>
               <button class="export-btn-item export-btn-print" onclick="app.handlers.printTimetable()" data-shortcut-tip="Ctrl + P" data-shortcut-name="Print Timetable" title="Print Timetable" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-panel); color: var(--text-main); cursor: pointer; transition: 0.2s ease;">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                 <span>Print</span>
@@ -5411,12 +5433,8 @@
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                 <span>JSON</span>
               </button>
-              <button class="export-btn-item export-btn-clear" onclick="app.handlers.clearAll()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Clear Entire Schedule" style="height: 34px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 12px; border: 1px solid #f87171; background: rgba(248, 113, 113, 0.1); color: #ef4444; cursor: pointer; transition: 0.2s ease;">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                <span>Clear All</span>
-              </button>
             </div>
-            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
               <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--text-main); cursor: pointer; user-select: none;">
                 <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)" style="width: 14px; height: 14px; accent-color: var(--primary-color); cursor: pointer;">
                 Enable Grid Resizing
@@ -5425,6 +5443,12 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                 <span>Reset Grid Size</span>
               </button>
+              <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 2px 4px; display: flex; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
+                <button class="export-btn-item export-btn-clear" onclick="app.handlers.clearAll()" data-shortcut-tip="Alt + C" data-shortcut-name="Clear All" title="Clear Entire Schedule" style="height: 30px; border-radius: 6px; padding: 0 12px; display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 12px; border: 1.5px solid #fecaca; background: #ffffff; color: #ef4444; cursor: pointer; transition: 0.2s ease;">
+                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                  <span>Clear All</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -5435,6 +5459,12 @@
             <table class="classic-table-grid" id="classicTableGrid">
               <!-- Dynamically populated table structure -->
             </table>
+          </div>
+          <div class="tc-grid-footer" style="padding: 12px 16px; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-start; background: var(--bg-card);">
+            <button class="classic-btn-add-primary" onclick="app.handlers.addTimeSlot()" aria-label="Add Time Slot" style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 8px; cursor: pointer;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>Add Time Slot</span>
+            </button>
           </div>
         </div>
 
@@ -7544,12 +7574,12 @@
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
           pageLanguage: 'en',
-          includedLanguages: 'en,es,ja,fr,de,pt,ko,it,hi',
+          includedLanguages: 'en,es,ja,fr,de,pt,ko,it,hi,ms',
           autoDisplay: false
         }, 'google_translate_element');
       }
 
-      var supportedLangs = ['en-GB', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+      var supportedLangs = ['en-GB', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi', 'ms'];
 
       function getCleanBasePath() {
         var pathSegments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
@@ -7634,8 +7664,8 @@
           urlParams.delete('lang');
           var cleanSearch = urlParams.toString();
           var cleanQuery = cleanSearch ? '?' + cleanSearch : '';
-          var supported = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
-          var basePath = window.location.pathname.replace(//+$/, '');
+          var supported = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi', 'ms'];
+          var basePath = window.location.pathname.replace(/\/+$/, '');
           var targetPath = '/';
           if (supported.includes(queryLang)) {
             targetPath = basePath ? basePath + '/' + queryLang : '/' + queryLang;
@@ -7696,6 +7726,30 @@
           drawer.classList.toggle('hidden');
         }
       }
+
+      // Expose globally so header onclick always finds them
+      window.toggleLocalTheme = toggleLocalTheme;
+      window.toggleMobileMenuLocal = toggleMobileMenuLocal;
+      window.toggleLangDropdown = toggleLangDropdown;
+      window.changeLanguage = changeLanguage;
+
+      // Sync header theme icon on initial load
+      (function syncHeaderThemeIcon() {
+        var sunPath = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>';
+        var moonPath = '<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+        function updateIcon() {
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          var iconHeader = document.getElementById('themeToggleIconHeader');
+          if (iconHeader) {
+            iconHeader.innerHTML = isDark ? sunPath : moonPath;
+          }
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', updateIcon);
+        } else {
+          updateIcon();
+        }
+      })();
     </script>
 
     <!-- CODE SCRIPT EXECUTOR MODULE -->
@@ -8722,9 +8776,22 @@
               this.handlers.setCustomDropdownValue('classicConfigTheme', this.state.config.theme || 'slate', 'wrap_classicConfigTheme');
             }
 
+            // Determine visible days based on day filter selection
+            let visibleDayIndices = [];
+            for (let i = 0; i < activeDaysCount; i++) {
+              visibleDayIndices.push(i);
+            }
+            if (this.state.classicFilterDays && this.state.classicFilterDays !== 'all' && Array.isArray(this.state.classicFilterDays) && this.state.classicFilterDays.length > 0) {
+              const filtered = this.state.classicFilterDays.filter(d => d < activeDaysCount);
+              if (filtered.length > 0) {
+                visibleDayIndices = filtered;
+              }
+            }
+            const isFiltered = visibleDayIndices.length < activeDaysCount;
+
             // Update stats strip in classic ribbon
             const classicEventsList = this.state.classicEvents || this.state.events || [];
-            const validEvents = classicEventsList.filter(evt => evt.day < activeDaysCount);
+            const validEvents = classicEventsList.filter(evt => visibleDayIndices.includes(evt.day));
             const totalMinutes = validEvents.reduce((acc, evt) => {
               const dur = Math.max(0, (evt.endTime || 0) - (evt.startTime || 0));
               return acc + dur;
@@ -8738,14 +8805,20 @@
 
             if (statClasses) statClasses.textContent = validEvents.length;
             if (statHours) statHours.textContent = `${totalHours}h`;
-            if (statDays) statDays.textContent = `${activeDaysCount} Days`;
+            if (statDays) statDays.textContent = isFiltered ? `${visibleDayIndices.length} Selected` : `${activeDaysCount} Days`;
             if (statSpan) statSpan.textContent = `${this.formatMinute(startTime)} - ${this.formatMinute(endTime)}`;
 
             // Build the Table HTML with Excel line-based resizers
+            if (isFiltered) {
+              table.classList.add('has-filtered-days');
+            } else {
+              table.classList.remove('has-filtered-days');
+            }
+
             let html = '<thead><tr><th class="classic-th-corner">Time</th>';
-            for (let d = 0; d < activeDaysCount; d++) {
+            for (const d of visibleDayIndices) {
               let widthStyle = '';
-              if (this.state.classicColWidths && this.state.classicColWidths[d]) {
+              if (!isFiltered && this.state.classicColWidths && this.state.classicColWidths[d]) {
                 widthStyle = `style="width:${this.state.classicColWidths[d]}px;min-width:${this.state.classicColWidths[d]}px;"`;
               }
               html += `<th class="classic-th-day" id="classic-th-day-${d}" data-day="${d}" ${widthStyle}>
@@ -8761,9 +8834,9 @@
               html += `<tr><td class="classic-td-time">${timeLabel}
                 <div class="excel-row-resizer" onpointerdown="app.startExcelRowResize(event, ${s}, 'classic')" title="Hold & drag row line to resize"></div>
               </td>`;
-              for (let d = 0; d < activeDaysCount; d++) {
+              for (const d of visibleDayIndices) {
                 let cellWidthStyle = '';
-                if (this.state.classicColWidths && this.state.classicColWidths[d]) {
+                if (!isFiltered && this.state.classicColWidths && this.state.classicColWidths[d]) {
                   cellWidthStyle = `style="width:${this.state.classicColWidths[d]}px;min-width:${this.state.classicColWidths[d]}px;"`;
                 }
                 html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" ${cellWidthStyle} onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" oncontextmenu="app.handlers.showEmptyCellContext(event, ${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
@@ -8782,6 +8855,7 @@
 
             validEvents.forEach(evt => {
               if (evt.startTime >= endTime || evt.endTime <= startTime) return;
+              if (!visibleDayIndices.includes(evt.day)) return;
 
               const visibleStart = Math.max(evt.startTime, startTime);
               const visibleEnd = Math.min(evt.endTime, endTime);
@@ -10326,6 +10400,18 @@
             app.render();
           },
 
+          addTimeSlot() {
+            app.pushHistory();
+            const mStep = parseInt(app.state.config.interval) || 30;
+            if (app.state.config.endTime === undefined) {
+              app.state.config.endTime = 1140;
+            }
+            app.state.config.endTime += mStep;
+            if (app.state.config.autoSave) app.saveState();
+            app.render();
+            app.showToast('New time slot added', 'success');
+          },
+
           updateClassicTitle(val) {
             app.state.classicTitle = val;
             localStorage.setItem('tt_classic_title', val);
@@ -10630,31 +10716,72 @@
             app.showToast('Activity removed from timetable', 'info');
           },
 
-          focusClassicDay(dayIdx) {
-            const pills = document.querySelectorAll('#classicDayPillsBar .classic-day-pill-filter');
-            pills.forEach((p, idx) => {
-              if (dayIdx === 'all') {
-                if (idx === 0) p.classList.add('active');
-                else p.classList.remove('active');
+          focusClassicDay(dayIdx, event) {
+            event = event || window.event;
+            const activeDaysCount = parseInt(app.state.config.daysCount) || 7;
+            const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+            if (dayIdx === 'all' || dayIdx === undefined) {
+              app.state.classicFilterDays = 'all';
+              app.showToast('Showing all days in timetable', 'info');
+            } else {
+              const targetDay = parseInt(dayIdx);
+              if (isNaN(targetDay) || targetDay < 0 || targetDay >= activeDaysCount) return;
+
+              let current = (app.state.classicFilterDays === 'all' || !Array.isArray(app.state.classicFilterDays))
+                ? []
+                : [...app.state.classicFilterDays];
+
+              if (current.includes(targetDay)) {
+                current = current.filter(d => d !== targetDay);
               } else {
-                if (idx === (dayIdx + 1)) p.classList.add('active');
-                else p.classList.remove('active');
+                current.push(targetDay);
               }
-            });
+
+              if (current.length === 0 || current.length >= activeDaysCount) {
+                app.state.classicFilterDays = 'all';
+                app.showToast('Showing all days in timetable', 'info');
+              } else {
+                current.sort((a, b) => a - b);
+                app.state.classicFilterDays = current;
+                if (current.length === 1) {
+                  app.showToast(`Showing ${dayNames[current[0]]} only`, 'info');
+                } else {
+                  const names = current.map(d => dayNames[d]).join(', ');
+                  app.showToast(`Showing ${names}`, 'info');
+                }
+              }
+            }
+
+            this.syncDayPillsUi();
+            app.renderClassicGrid();
 
             const scrollWrapper = document.getElementById('classicGridScrollWrapper');
-            if (!scrollWrapper) return;
-
-            if (dayIdx === 'all') {
+            if (scrollWrapper) {
               scrollWrapper.scrollTo({ left: 0, behavior: 'smooth' });
-              return;
             }
+          },
 
-            const targetTh = document.getElementById(`classic-th-day-${dayIdx}`);
-            if (targetTh) {
-              const leftPos = targetTh.offsetLeft - 80;
-              scrollWrapper.scrollTo({ left: Math.max(0, leftPos), behavior: 'smooth' });
-            }
+          syncDayPillsUi() {
+            const pillsBar = document.getElementById('classicDayPillsBar');
+            if (!pillsBar) return;
+            const pills = pillsBar.querySelectorAll('.tc-day-pill, .classic-day-pill-filter');
+            const isAll = !app.state.classicFilterDays || app.state.classicFilterDays === 'all';
+            const selected = Array.isArray(app.state.classicFilterDays) ? app.state.classicFilterDays : [];
+
+            pills.forEach((p, idx) => {
+              if (idx === 0) {
+                if (isAll) p.classList.add('active');
+                else p.classList.remove('active');
+              } else {
+                const dayIndex = idx - 1;
+                if (!isAll && selected.includes(dayIndex)) {
+                  p.classList.add('active');
+                } else {
+                  p.classList.remove('active');
+                }
+              }
+            });
           },
 
           adjustClassicZoom(delta) {
