@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/hi" />
+                                                                                                                                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/hi" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -275,6 +275,8 @@
       }
 
       body {
+        zoom: 0.7;
+        -webkit-text-size-adjust: 100%;
         font-family: var(--font-sans);
         font-size: var(--font-size);
         background-color: var(--bg-app);
@@ -2784,6 +2786,8 @@
 
       /* When in Classic mode, allow body to scroll smoothly downwards */
       body.classic-mode-active {
+        zoom: 0.7;
+        -webkit-text-size-adjust: 100%;
         overflow-x: hidden !important;
         overflow-y: auto !important;
         height: auto !important;
@@ -6326,18 +6330,29 @@
         min-width: 140px;
       }
 
-      /* Restore Timetable tool to normal 100% zoom */
-      @media (max-width: 768px) {
-        .tc-app-layout,
-        .classic-tt-app,
-        #timetableCreatorClassicApp,
-        #timetableApp,
-        .timetable-app-container {
-          zoom: 1 !important;
-          -webkit-text-size-adjust: 100%;
-        }
+      /* Tool Page Zoom Setting: 80% zoom across the entire page with robust responsiveness */
+      html, body {
+        zoom: 0.8 !important;
+        -webkit-text-size-adjust: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
       }
-
+      body.classic-mode-active {
+        zoom: 0.8 !important;
+        -webkit-text-size-adjust: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .tc-app-layout, .tc-container, .tc-grid-card, .classic-grid-scroll-wrapper {
+        max-width: 100% !important;
+      }
     </style>
   
     <script type="application/ld+json">
@@ -6443,6 +6458,14 @@
     </style>
 
 
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -6823,7 +6846,7 @@
                   <button type="button" class="tc-btn-outline-white" onclick="app.handlers.toggleCustomDropdown('wrap_classicPresetTemplates', event)" aria-label="Template" style="white-space: nowrap; width: 100%; justify-content: space-between;">
                     <div style="display: flex; align-items: center; gap: 6px;">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"></path></svg>
-                      <span>Template Schedule</span>
+                      <span>Templates</span>
                     </div>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                   </button>
@@ -6831,7 +6854,7 @@
                     <div class="custom-dropdown-option selected" data-value="" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', '', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
                       <div class="custom-drop-item-content">
                         <span class="custom-drop-icon" style="color:var(--text-muted);"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path d="M4 6h16M4 12h16M4 18h7"></path></svg></span>
-                        <span>Template...</span>
+                        <span>Templates</span>
                       </div>
                     </div>
                     <div class="custom-dropdown-option" data-value="university" onclick="app.handlers.onSelectCustomDropdown('classicPresetTemplates', 'university', this.querySelector('.custom-drop-item-content').innerHTML, 'wrap_classicPresetTemplates', function(val){ app.handlers.applyClassicTemplate(val); })">
@@ -6874,13 +6897,11 @@
           <div class="tc-card tc-toolbar-card">
             <div class="tc-toolbar-left">
               <!-- Undo / Redo -->
-              <button class="tc-tool-btn" onclick="app.handlers.undo()" id="btnClassicUndo" data-shortcut-tip="Ctrl + Z" data-shortcut-name="Undo" title="Undo (Ctrl+Z)" aria-label="Undo">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
-                <span>Undo</span>
+              <button class="tc-tool-btn" onclick="app.handlers.undo()" id="btnClassicUndo" data-shortcut-tip="Ctrl + Z" data-shortcut-name="Undo" title="Undo (Ctrl+Z)" aria-label="Undo" style="background: transparent !important; border: none !important; padding: 6px !important; color: #000000 !important; box-shadow: none !important;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
               </button>
-              <button class="tc-tool-btn" onclick="app.handlers.redo()" id="btnClassicRedo" data-shortcut-tip="Ctrl + Y" data-shortcut-name="Redo" title="Redo (Ctrl+Y)" aria-label="Redo">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
-                <span>Redo</span>
+              <button class="tc-tool-btn" onclick="app.handlers.redo()" id="btnClassicRedo" data-shortcut-tip="Ctrl + Y" data-shortcut-name="Redo" title="Redo (Ctrl+Y)" aria-label="Redo" style="background: transparent !important; border: none !important; padding: 6px !important; color: #000000 !important; box-shadow: none !important;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
               </button>
 
               <!-- Grid Setup button -->
@@ -6894,15 +6915,17 @@
             <div class="tc-toolbar-right" style="display: flex; align-items: center; gap: 8px;">
               <!-- Import Button -->
               <button type="button" class="tc-btn-share" onclick="app.handlers.triggerImport()" data-shortcut-tip="Alt + O" data-shortcut-name="Import" title="Import Timetable JSON" aria-label="Import Timetable">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" style="color: #ffffff !important; stroke: #ffffff !important;">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
                 <span>Import</span>
               </button>
 
               <!-- Share Button -->
               <button type="button" class="tc-btn-share" onclick="app.handlers.shareSchedule()" data-shortcut-tip="Alt + S" data-shortcut-name="Share" title="Share Timetable Schedule" aria-label="Share Timetable">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" style="color: #ffffff !important; stroke: #ffffff !important;">
                   <circle cx="18" cy="5" r="3"></circle>
                   <circle cx="6" cy="12" r="3"></circle>
                   <circle cx="18" cy="19" r="3"></circle>
@@ -7347,11 +7370,11 @@
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
             <div class="undo-redo-compact-group">
-              <button class="action-btn" onclick="app.handlers.undo()" id="btnUndo" data-tooltip="Undo Action (Ctrl+Z)" aria-label="Undo Action">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+              <button class="action-btn" onclick="app.handlers.undo()" id="btnUndo" data-tooltip="Undo Action (Ctrl+Z)" aria-label="Undo Action" style="background: transparent !important; border: none !important; padding: 6px !important; color: #000000 !important; box-shadow: none !important;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
               </button>
-              <button class="action-btn" onclick="app.handlers.redo()" id="btnRedo" data-tooltip="Redo Action (Ctrl+Y)" aria-label="Redo Action">
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
+              <button class="action-btn" onclick="app.handlers.redo()" id="btnRedo" data-tooltip="Redo Action (Ctrl+Y)" aria-label="Redo Action" style="background: transparent !important; border: none !important; padding: 6px !important; color: #000000 !important; box-shadow: none !important;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
               </button>
             </div>
             <div style="width: 1px; height: 20px; background-color: var(--border-color); margin: 0 2px;"></div>
@@ -12478,31 +12501,65 @@
 
 
           triggerImport() {
-            document.getElementById('fileImporter').click();
+            let importer = document.getElementById('fileImporter');
+            if (!importer) {
+              importer = document.createElement('input');
+              importer.type = 'file';
+              importer.id = 'fileImporter';
+              importer.accept = '.json,application/json';
+              importer.style.display = 'none';
+              document.body.appendChild(importer);
+            }
+            importer.onchange = (e) => app.handlers.handleImport(e);
+            importer.value = '';
+            importer.click();
           },
 
           handleImport(e) {
-            const file = e.target.files[0];
+            const file = e.target.files && e.target.files[0];
             if (!file) return;
 
             const reader = new FileReader();
             reader.onload = (evt) => {
               try {
-                const parsed = JSON.parse(evt.target.result);
-                if (parsed.events && Array.isArray(parsed.events)) {
+                let parsed = JSON.parse(evt.target.result);
+                let eventsToLoad = null;
+                if (Array.isArray(parsed)) {
+                  eventsToLoad = parsed;
+                } else if (parsed.events && Array.isArray(parsed.events)) {
+                  eventsToLoad = parsed.events;
+                } else if (parsed.classicEvents && Array.isArray(parsed.classicEvents)) {
+                  eventsToLoad = parsed.classicEvents;
+                }
+
+                if (eventsToLoad) {
                   app.pushHistory();
-                  app.state.events = parsed.events;
+                  app.state.events = eventsToLoad;
+                  app.state.classicEvents = [...eventsToLoad];
                   if (parsed.config) app.state.config = { ...app.state.config, ...parsed.config };
-                  
+                  if (parsed.classicTitle) {
+                    app.state.classicTitle = parsed.classicTitle;
+                    localStorage.setItem('tt_classic_title', parsed.classicTitle);
+                    const titleEl = document.getElementById('classicTtTitle');
+                    if (titleEl) titleEl.value = parsed.classicTitle;
+                  }
+                  if (parsed.classicSubtitle) {
+                    app.state.classicSubtitle = parsed.classicSubtitle;
+                    localStorage.setItem('tt_classic_subtitle', parsed.classicSubtitle);
+                    const subEl = document.getElementById('classicTtSubtitle');
+                    if (subEl) subEl.value = parsed.classicSubtitle;
+                  }
                   if (app.state.config.autoSave) app.saveState();
                   app.render();
-                  app.showToast('File imported successfully!', 'success');
+                  app.showToast('Timetable imported successfully!', 'success');
                 } else {
-                  app.showToast('Invalid schedule data structure!', 'error');
+                  app.showToast('Invalid schedule data structure in JSON!', 'error');
                 }
               } catch(err) {
-                app.showToast('Failed to parse JSON file!', 'error');
+                console.error('Import JSON error:', err);
+                app.showToast('Failed to parse timetable JSON file!', 'error');
               }
+              if (e.target) e.target.value = '';
             };
             reader.readAsText(file);
           },
@@ -12510,7 +12567,10 @@
           exportJson() {
             const exportObject = {
               events: app.state.events,
-              config: app.state.config
+              classicEvents: app.state.classicEvents || app.state.events,
+              config: app.state.config,
+              classicTitle: app.state.classicTitle || '',
+              classicSubtitle: app.state.classicSubtitle || ''
             };
 
             const bytes = new Blob([JSON.stringify(exportObject, null, 2)], { type: 'application/json' });
