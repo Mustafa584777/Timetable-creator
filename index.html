@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/" />
+                                                                                                                                                                                                                                                                                                                                                                            <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -6526,6 +6526,8 @@
     
     
     
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -7046,6 +7048,11 @@
             <!-- Top Right Corner of Timetable: White Container Boxes -->
             <div class="tc-grid-top-right-group">
               <div class="tc-grid-right-actions-card">
+                <label class="tc-toggle-wrap" title="Enable or disable compact view (adjusts card height & width to fit content without cropping)">
+                  <input type="checkbox" id="toggleCompactViewCheckbox" onchange="app.handlers.toggleCompactView(this)">
+                  <span class="tc-toggle-switch"></span>
+                  <span class="tc-toggle-text">Compact View</span>
+                </label>
                 <label class="tc-toggle-wrap" title="Enable or disable vertical scrolling (expand all rows)">
                   <input type="checkbox" id="toggleVerticalScrollCheckbox" checked onchange="app.handlers.toggleVerticalScroll(this)">
                   <span class="tc-toggle-switch"></span>
@@ -8065,11 +8072,10 @@
             <textarea id="classicEvtNotes" class="input-ctrl" rows="2" style="resize: none;" placeholder="Optional notes, materials, classroom link..."></textarea>
           </div>
 
-          <!-- Custom Fields & Properties Section -->
+          <!-- Custom Fields Section -->
           <div class="form-group" style="margin-bottom: 0;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-              <label style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 0;">Custom Fields & Properties</label>
-              <button type="button" class="btn-ctrl" onclick="app.handlers.addCustomFieldRow()" style="padding: 2px 8px; font-size: 11px; height: 24px; border-color: #10b981; color: #10b981; background: transparent;">+ Add Field</button>
+            <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 4px;">
+              <button type="button" class="btn-ctrl" onclick="app.handlers.addCustomFieldRow()" style="padding: 2px 6px; font-size: 11.5px; height: 26px; border: none; color: #10b981; background: transparent; font-weight: 600; cursor: pointer; box-shadow: none;">+ Add Field</button>
             </div>
             <div id="classicCustomFieldsContainer" style="display: flex; flex-direction: column; gap: 8px;">
               <!-- Dynamic custom field rows -->
@@ -8091,19 +8097,23 @@
 
         <div class="modal-footer" style="background: var(--bg-panel); border-top: 1px solid var(--border-color); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
           <div style="display: flex; gap: 6px; align-items: center;">
-            <button id="btnClassicDeleteEvt" class="btn-ctrl" style="color: #ef4444; border-color: #ef4444; display: none;" onclick="app.handlers.deleteClassicEventFromModal()">
+            <button id="btnClassicDeleteEvt" class="btn-ctrl" style="color: #ef4444; border-color: #ef4444; display: none; align-items: center; gap: 5px;" onclick="app.handlers.deleteClassicEventFromModal()">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
               Delete
             </button>
-            <button type="button" class="btn-ctrl" style="border-color: #0d9488; color: #0d9488; font-size: 12px;" onclick="app.handlers.applyClassicFieldsToAll()" title="Apply current fields and custom properties to all activities in timetable">
+            <button type="button" class="btn-ctrl" style="border-color: #0d9488; color: #0d9488; font-size: 12px; display: flex; align-items: center; gap: 6px;" onclick="app.handlers.applyClassicFieldsToAll()" title="Apply current fields and custom properties to all activities in timetable">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
               Apply to All
             </button>
           </div>
           <div style="display: flex; gap: 8px; align-items: center;">
-            <button class="btn-ctrl" onclick="app.handlers.closeClassicEventModal()">Cancel</button>
-            <button class="btn-ctrl btn-primary" style="background-color: #ffffff !important; border: 1.5px solid #10b981 !important; color: #10b981 !important; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);" onclick="app.handlers.saveClassicEventFromModal()">
+            <button class="btn-ctrl" onclick="app.handlers.closeClassicEventModal()" style="display: flex; align-items: center; gap: 6px;">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+              Cancel
+            </button>
+            <button class="btn-ctrl btn-primary" style="background-color: #ffffff !important; border: 1.5px solid #10b981 !important; color: #10b981 !important; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2); display: flex; align-items: center; gap: 6px;" onclick="app.handlers.saveClassicEventFromModal()">
               <svg fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <span>Save Activity</span>
+              <span>Save</span>
             </button>
           </div>
         </div>
@@ -11710,15 +11720,43 @@
             const rowDiv = document.createElement('div');
             rowDiv.id = rowId;
             rowDiv.className = 'custom-field-row';
-            rowDiv.style.cssText = 'display: flex; align-items: center; gap: 8px; background: var(--bg-panel); padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border-color);';
+            rowDiv.style.cssText = 'display: flex; align-items: center; gap: 8px; margin-bottom: 6px; width: 100%;';
             rowDiv.innerHTML = `
-              <input type="text" class="input-ctrl cf-name" placeholder="Field Name (e.g. Credits)" value="${app.escapeHtml(fieldName)}" style="flex: 1; font-size: 12px; padding: 6px 8px;">
-              <input type="text" class="input-ctrl cf-value" placeholder="Field Value (e.g. 4)" value="${app.escapeHtml(fieldValue)}" style="flex: 1; font-size: 12px; padding: 6px 8px;">
-              <button type="button" class="btn-ctrl" onclick="this.closest('.custom-field-row').remove()" style="padding: 6px; border-color: #ef4444; color: #ef4444; background: transparent;" title="Delete Field">
+              <input type="text" class="input-ctrl cf-name" placeholder="Field name (e.g. Credits)" value="${app.escapeHtml(fieldName)}" style="flex: 1; font-size: 12.5px; height: 36px; padding: 0 10px; border-radius: 8px;">
+              <input type="text" class="input-ctrl cf-value" placeholder="Field value (e.g. 4)" value="${app.escapeHtml(fieldValue)}" style="flex: 1; font-size: 12.5px; height: 36px; padding: 0 10px; border-radius: 8px;">
+              <button type="button" class="btn-ctrl" onclick="app.handlers.saveSingleCustomFieldRow('${rowId}')" style="padding: 0 10px; height: 36px; font-size: 11.5px; border-color: #10b981; color: #10b981; background: transparent; white-space: nowrap;" title="Save Field">Save</button>
+              <button type="button" class="btn-ctrl" onclick="this.closest('.custom-field-row').remove()" style="padding: 0 8px; height: 36px; border-color: #ef4444; color: #ef4444; background: transparent;" title="Delete Field">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
               </button>
             `;
             container.appendChild(rowDiv);
+          },
+
+          saveSingleCustomFieldRow(rowId) {
+            const rowDiv = document.getElementById(rowId);
+            if (!rowDiv) return;
+            const nameInput = rowDiv.querySelector('.cf-name');
+            const valInput = rowDiv.querySelector('.cf-value');
+            if (!nameInput || !nameInput.value.trim()) {
+              app.showToast('Please enter a field name first!', 'error');
+              return;
+            }
+            app.showToast(`Custom field "${nameInput.value.trim()}" saved!`, 'success');
+          },
+
+          toggleCompactView(checkbox) {
+            const isEnabled = checkbox.checked;
+            app.state.config.compactView = isEnabled;
+            if (isEnabled) {
+              document.documentElement.style.setProperty('--classic-cell-h', '34px');
+              app.state.classicCellH = 34;
+            } else {
+              document.documentElement.style.setProperty('--classic-cell-h', '48px');
+              app.state.classicCellH = 48;
+            }
+            if (app.state.config.autoSave) app.saveState();
+            app.render();
+            app.showToast(isEnabled ? 'Compact View enabled' : 'Compact View disabled', 'info');
           },
 
           getCustomFieldsFromModal() {
