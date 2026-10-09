@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                                                                                                                                                    <link rel="canonical" href="https://timetablecreator.online/" />
+                                                                                                                                                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -1193,8 +1193,8 @@
         width: 100dvw;
         height: 100vh;
         height: 100dvh;
-        background-color: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(4px);
+        background-color: transparent !important;
+        backdrop-filter: none !important;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1652,20 +1652,20 @@
 
         /* Make modal editor forms fluid and fully scrollable on mobile and when zoomed */
         .modal-backdrop {
-          align-items: flex-end;
-          padding: 0;
+          align-items: center !important;
+          justify-content: center !important;
+          padding: 16px 12px !important;
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
         }
 
         .modal-panel {
-          width: 100% !important;
-          max-width: 100% !important;
+          width: 100vw !important;
+          max-width: 100vw !important;
           max-height: 92dvh !important;
           max-height: 92vh !important;
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
-          margin: 0 !important;
+          border-radius: var(--border-radius) !important;
+          margin: auto !important;
           display: flex !important;
           flex-direction: column !important;
         }
@@ -6524,6 +6524,8 @@
     
     
     
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -8063,6 +8065,17 @@
             <textarea id="classicEvtNotes" class="input-ctrl" rows="2" style="resize: none;" placeholder="Optional notes, materials, classroom link..."></textarea>
           </div>
 
+          <!-- Custom Fields & Properties Section -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <label style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 0;">Custom Fields & Properties</label>
+              <button type="button" class="btn-ctrl" onclick="app.handlers.addCustomFieldRow()" style="padding: 2px 8px; font-size: 11px; height: 24px; border-color: #10b981; color: #10b981; background: transparent;">+ Add Field</button>
+            </div>
+            <div id="classicCustomFieldsContainer" style="display: flex; flex-direction: column; gap: 8px;">
+              <!-- Dynamic custom field rows -->
+            </div>
+          </div>
+
           <!-- Color Assignment Palette -->
           <div class="form-group" style="margin-bottom: 0;">
             <label style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
@@ -8076,16 +8089,23 @@
 
         </div>
 
-        <div class="modal-footer" style="background: var(--bg-panel); border-top: 1px solid var(--border-color); padding: 14px 20px; display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
-          <button id="btnClassicDeleteEvt" class="btn-ctrl" style="color: #ef4444; border-color: #ef4444; display: none; margin-right: auto;" onclick="app.handlers.deleteClassicEventFromModal()">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-            Delete
-          </button>
-          <button class="btn-ctrl" onclick="app.handlers.closeClassicEventModal()">Cancel</button>
-          <button class="btn-ctrl btn-primary" style="background-color: #ffffff !important; border: 1.5px solid #10b981 !important; color: #10b981 !important; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);" onclick="app.handlers.saveClassicEventFromModal()">
-            <svg fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Save Activity</span>
-          </button>
+        <div class="modal-footer" style="background: var(--bg-panel); border-top: 1px solid var(--border-color); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <button id="btnClassicDeleteEvt" class="btn-ctrl" style="color: #ef4444; border-color: #ef4444; display: none;" onclick="app.handlers.deleteClassicEventFromModal()">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+              Delete
+            </button>
+            <button type="button" class="btn-ctrl" style="border-color: #0d9488; color: #0d9488; font-size: 12px;" onclick="app.handlers.applyClassicFieldsToAll()" title="Apply current fields and custom properties to all activities in timetable">
+              Apply to All
+            </button>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <button class="btn-ctrl" onclick="app.handlers.closeClassicEventModal()">Cancel</button>
+            <button class="btn-ctrl btn-primary" style="background-color: #ffffff !important; border: 1.5px solid #10b981 !important; color: #10b981 !important; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);" onclick="app.handlers.saveClassicEventFromModal()">
+              <svg fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Save Activity</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -9927,6 +9947,15 @@
               const timeBadge = `${this.formatMinute(evt.startTime)} - ${this.formatMinute(evt.endTime)}`;
               const catIcon = this.getSubjectCategoryIcon(evt.category, evt.title);
 
+              let customFieldsHtml = '';
+              if (evt.customFields && Array.isArray(evt.customFields) && evt.customFields.length > 0) {
+                customFieldsHtml = '<div style="display: flex; gap: 4px; flex-wrap: wrap; margin-top: 3px;">';
+                evt.customFields.forEach(cf => {
+                  customFieldsHtml += `<span style="font-size: 9px; background: rgba(255,255,255,0.25); padding: 1px 4px; border-radius: 4px; font-weight: 600;">${this.escapeHtml(cf.name)}: ${this.escapeHtml(cf.value)}</span>`;
+                });
+                customFieldsHtml += '</div>';
+              }
+
               eventCard.innerHTML = `
                 <div class="classic-event-top-line">
                   <div class="classic-event-icon-badge" title="${this.escapeHtml(evt.category || evt.subject || 'Class')}">
@@ -9941,6 +9970,7 @@
                   ${evt.teacher ? `<span class="classic-event-line"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>${this.escapeHtml(evt.teacher)}</span>` : ''}
                   ${evt.room ? `<span class="classic-event-line"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>${this.escapeHtml(evt.room)}</span>` : ''}
                   <span class="classic-event-line classic-event-time-line"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${timeBadge}</span>
+                  ${customFieldsHtml}
                 </div>
               `;
 
@@ -11672,6 +11702,69 @@
             }
           },
 
+          addCustomFieldRow(fieldName = '', fieldValue = '') {
+            const container = document.getElementById('classicCustomFieldsContainer');
+            if (!container) return;
+
+            const rowId = 'custom_field_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4);
+            const rowDiv = document.createElement('div');
+            rowDiv.id = rowId;
+            rowDiv.className = 'custom-field-row';
+            rowDiv.style.cssText = 'display: flex; align-items: center; gap: 8px; background: var(--bg-panel); padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border-color);';
+            rowDiv.innerHTML = `
+              <input type="text" class="input-ctrl cf-name" placeholder="Field Name (e.g. Credits)" value="${app.escapeHtml(fieldName)}" style="flex: 1; font-size: 12px; padding: 6px 8px;">
+              <input type="text" class="input-ctrl cf-value" placeholder="Field Value (e.g. 4)" value="${app.escapeHtml(fieldValue)}" style="flex: 1; font-size: 12px; padding: 6px 8px;">
+              <button type="button" class="btn-ctrl" onclick="this.closest('.custom-field-row').remove()" style="padding: 6px; border-color: #ef4444; color: #ef4444; background: transparent;" title="Delete Field">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+              </button>
+            `;
+            container.appendChild(rowDiv);
+          },
+
+          getCustomFieldsFromModal() {
+            const container = document.getElementById('classicCustomFieldsContainer');
+            if (!container) return [];
+            const fields = [];
+            container.querySelectorAll('.custom-field-row').forEach(row => {
+              const nameInput = row.querySelector('.cf-name');
+              const valInput = row.querySelector('.cf-value');
+              if (nameInput && valInput) {
+                const name = nameInput.value.trim();
+                const value = valInput.value.trim();
+                if (name) {
+                  fields.push({ name, value });
+                }
+              }
+            });
+            return fields;
+          },
+
+          applyClassicFieldsToAll() {
+            const room = document.getElementById('classicEvtRoom').value.trim();
+            const teacher = document.getElementById('classicEvtTeacher').value.trim();
+            const notes = document.getElementById('classicEvtNotes').value.trim();
+            const customFields = app.handlers.getCustomFieldsFromModal();
+
+            if (!confirm('Are you sure you want to apply these field values and custom properties to ALL activities in the timetable?')) {
+              return;
+            }
+
+            app.pushHistory();
+            app.state.events = app.state.events.map(evt => ({
+              ...evt,
+              room: room !== '' ? room : evt.room,
+              teacher: teacher !== '' ? teacher : evt.teacher,
+              notes: notes !== '' ? notes : evt.notes,
+              customFields: customFields.length > 0 ? customFields : (evt.customFields || [])
+            }));
+            app.state.classicEvents = [...app.state.events];
+
+            if (app.state.config.autoSave) app.saveState();
+            app.render();
+            app.showToast('Applied custom fields & values to all timetable activities!', 'success');
+            app.handlers.closeClassicEventModal();
+          },
+
           // CLASSIC EVENT MODAL HANDLERS
           // ==========================================
           openClassicAddModal(day = 0, startTime = null) {
@@ -11683,6 +11776,9 @@
             document.getElementById('classicEvtRoom').value = '';
             document.getElementById('classicEvtTeacher').value = '';
             document.getElementById('classicEvtNotes').value = '';
+
+            const customContainer = document.getElementById('classicCustomFieldsContainer');
+            if (customContainer) customContainer.innerHTML = '';
 
             const btnDel = document.getElementById('btnClassicDeleteEvt');
             if (btnDel) btnDel.style.display = 'none';
@@ -11737,6 +11833,16 @@
             document.getElementById('classicEvtRoom').value = evt.room || evt.location || '';
             document.getElementById('classicEvtTeacher').value = evt.teacher || '';
             document.getElementById('classicEvtNotes').value = evt.notes || '';
+
+            const customContainer = document.getElementById('classicCustomFieldsContainer');
+            if (customContainer) {
+              customContainer.innerHTML = '';
+              if (evt.customFields && Array.isArray(evt.customFields)) {
+                evt.customFields.forEach(cf => {
+                  this.addCustomFieldRow(cf.name, cf.value);
+                });
+              }
+            }
 
             const btnDel = document.getElementById('btnClassicDeleteEvt');
             if (btnDel) btnDel.style.display = 'inline-flex';
@@ -11977,6 +12083,7 @@
             const room = document.getElementById('classicEvtRoom').value.trim();
             const teacher = document.getElementById('classicEvtTeacher').value.trim();
             const notes = document.getElementById('classicEvtNotes').value.trim();
+            const customFields = app.handlers.getCustomFieldsFromModal();
 
             const startTimeStr = document.getElementById('classicEvtStart').value;
             const endTimeStr = document.getElementById('classicEvtEnd').value;
@@ -12010,6 +12117,7 @@
                     location: room,
                     teacher,
                     notes,
+                    customFields,
                     day: selectedDays[0],
                     startTime,
                     endTime,
@@ -12033,6 +12141,7 @@
                   location: room,
                   category: 'General',
                   notes,
+                  customFields,
                   day,
                   startTime,
                   endTime,
