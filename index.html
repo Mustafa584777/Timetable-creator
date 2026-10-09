@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                                                                                                                                                <link rel="canonical" href="https://timetablecreator.online/" />
+                                                                                                                                                                                                                                                                                                                                                                    <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -1694,46 +1694,29 @@
 
       /* Print Stylesheet Overrides */
       @media print {
-        body {
-          background-color: #ffffff !important;
-          color: #000000 !important;
-          overflow: visible !important;
-          height: auto !important;
+        body * {
+          visibility: hidden !important;
         }
-        .global-header, .sidebar, .top-bar, .context-menu, .toast-container, .modal-backdrop, .seo-landing-container, .seo-footer, #aiGeneratorSection, .section-card, .lang-dropdown-container, .toast {
-          display: none !important;
+        .tc-grid-card, .tc-grid-card * {
+          visibility: visible !important;
         }
-        .app-container {
-          display: block !important;
-          height: auto !important;
-        }
-        .main-content {
-          display: block !important;
-          height: auto !important;
-          overflow: visible !important;
-        }
-        .workspace {
-          padding: 0 !important;
-          background-color: #ffffff !important;
-          overflow: visible !important;
-        }
-        .timetable-scroll-container {
-          overflow: visible !important;
-        }
-        .timetable-wrapper {
-          box-shadow: none !important;
-          border: 1px solid #cbd5e1 !important;
+        .tc-grid-card {
+          position: absolute !important;
+          left: 0 !important;
+          top: 0 !important;
           width: 100% !important;
-        }
-        .event-card {
-          border: 1px solid rgba(0, 0, 0, 0.15) !important;
-          color: #ffffff !important;
+          max-height: none !important;
+          overflow: visible !important;
           box-shadow: none !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
+          border: none !important;
+          background: #ffffff !important;
         }
-        .time-cell, .day-column-header, .grid-corner {
-          background-color: #f1f5f9 !important;
+        .classic-grid-scroll-wrapper {
+          max-height: none !important;
+          overflow: visible !important;
+          height: auto !important;
+        }
+        .classic-event-item {
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;
         }
@@ -6539,6 +6522,8 @@
     
     
     
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -6886,16 +6871,15 @@
 
             <!-- Export & Share Buttons in Toolbar -->
             <div class="tc-toolbar-right" style="display: flex; align-items: center; gap: 8px;">
-              <!-- Share Button -->
-              <button type="button" class="tc-btn-share" onclick="app.handlers.shareSchedule()" data-shortcut-tip="Alt + S" data-shortcut-name="Share" title="Share Timetable Schedule" aria-label="Share Timetable">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" style="color: #ffffff !important; stroke: #ffffff !important;">
+              <!-- Share Button (Icon only, green color) -->
+              <button type="button" onclick="app.handlers.shareSchedule()" data-shortcut-tip="Alt + S" data-shortcut-name="Share" title="Share Timetable Schedule" aria-label="Share Timetable" style="background: transparent !important; border: none !important; padding: 6px !important; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: none !important;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5" style="color: #0d9488 !important; stroke: #0d9488 !important;">
                   <circle cx="18" cy="5" r="3"></circle>
                   <circle cx="6" cy="12" r="3"></circle>
                   <circle cx="18" cy="19" r="3"></circle>
                   <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                   <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                 </svg>
-                <span>Share</span>
               </button>
 
               <!-- Import Button (before Export button with inverted icon) -->
@@ -7060,6 +7044,11 @@
             <!-- Top Right Corner of Timetable: White Container Boxes -->
             <div class="tc-grid-top-right-group">
               <div class="tc-grid-right-actions-card">
+                <label class="tc-toggle-wrap" title="Enable or disable vertical scrolling (expand all rows)">
+                  <input type="checkbox" id="toggleVerticalScrollCheckbox" checked onchange="app.handlers.toggleVerticalScroll(this)">
+                  <span class="tc-toggle-switch"></span>
+                  <span class="tc-toggle-text">Vertical Scroll</span>
+                </label>
                 <label class="tc-toggle-wrap" title="Toggle column & row dragging lines">
                   <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)">
                   <span class="tc-toggle-switch"></span>
@@ -11904,6 +11893,18 @@
             }
           },
 
+          toggleVerticalScroll(checkbox) {
+            const wrapper = document.getElementById('classicGridScrollWrapper');
+            if (!wrapper) return;
+            if (checkbox.checked) {
+              wrapper.style.maxHeight = '72vh';
+              wrapper.style.overflowY = 'auto';
+            } else {
+              wrapper.style.maxHeight = 'none';
+              wrapper.style.overflowY = 'visible';
+            }
+          },
+
           closeClassicEventModal() {
             const modal = document.getElementById('classicEventModal');
             if (modal) modal.classList.remove('active');
@@ -12599,17 +12600,32 @@
 
           async generateScheduleCanvas(scale = 2) {
             const html2canvas = await this.loadHtml2canvas();
-            const targetEl = document.getElementById('classicTableGrid') || document.querySelector('.tc-grid-card');
+            const targetEl = document.querySelector('.tc-grid-card') || document.getElementById('classicTableGrid');
             if (html2canvas && targetEl) {
               try {
+                const scrollWrapper = document.getElementById('classicGridScrollWrapper');
+                const oldMaxH = scrollWrapper ? scrollWrapper.style.maxHeight : '';
+                const oldOverflow = scrollWrapper ? scrollWrapper.style.overflowY : '';
+                if (scrollWrapper) {
+                  scrollWrapper.style.maxHeight = 'none';
+                  scrollWrapper.style.overflowY = 'visible';
+                }
+
                 const canvas = await html2canvas(targetEl, {
                   scale: scale,
                   useCORS: true,
-                  backgroundColor: '#ffffff'
+                  backgroundColor: '#ffffff',
+                  logging: false
                 });
+
+                if (scrollWrapper) {
+                  scrollWrapper.style.maxHeight = oldMaxH;
+                  scrollWrapper.style.overflowY = oldOverflow;
+                }
+
                 return canvas;
               } catch (e) {
-                console.warn('html2canvas render error, falling back to vector canvas', e);
+                console.warn('html2canvas screenshot error, falling back to vector canvas', e);
               }
             }
 
