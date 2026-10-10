@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                                                                                                                                                                    <link rel="canonical" href="https://timetablecreator.online/" />
+                                                                                                                                                                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -151,6 +151,9 @@
       ]
     }
     </script>
+    <!-- Preloaded High-Performance Export Engines -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
       /* --- FONTS & CSS THEME SETUP --- */
 
@@ -2318,10 +2321,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 12px;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 20;
+      }
+      .header-right-desktop {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: auto;
+        z-index: 20;
       }
       .header-nav-desktop {
         display: flex;
@@ -2650,13 +2660,14 @@
 
       @media (max-width: 1024px) {
         .header-center-desktop {
-          position: static;
-          transform: none;
-          justify-content: flex-end;
-          margin-right: 6px;
+          display: none !important;
         }
         .header-nav-desktop, .header-actions-desktop {
           display: none !important;
+        }
+        .header-right-desktop {
+          margin-left: auto;
+          margin-right: 8px;
         }
         .header-mobile-toggle {
           display: flex !important;
@@ -5868,6 +5879,64 @@
         font-weight: 500 !important;
       }
 
+      /* High-Resolution Schedule Export Styles */
+      .tc-export-header-banner {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        background: #ffffff;
+        border-bottom: 2px solid #0d9488;
+        box-sizing: border-box;
+      }
+      .tc-export-title-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tc-export-title {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        margin: 0 !important;
+      }
+      .tc-export-subtitle {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 11.5px !important;
+        color: #64748b !important;
+        margin: 2px 0 0 0 !important;
+      }
+      .tc-export-meta-badge {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        color: #0d9488 !important;
+        background: #f0fdfa !important;
+        border: 1px solid #ccfbf1 !important;
+        padding: 5px 12px !important;
+        border-radius: 6px !important;
+      }
+      body.is-exporting-schedule .tc-export-header-banner {
+        display: flex !important;
+      }
+      body.is-exporting-schedule .excel-col-resizer,
+      body.is-exporting-schedule .excel-row-resizer,
+      body.is-exporting-schedule .classic-cell-add-icon,
+      body.is-exporting-schedule .classic-event-dots-btn,
+      body.is-exporting-schedule .tc-grid-footer,
+      body.is-exporting-schedule .classic-mobile-fab {
+        display: none !important;
+        visibility: hidden !important;
+      }
+      body.is-exporting-schedule .classic-event-item {
+        box-shadow: none !important;
+        transform: none !important;
+      }
+      body.is-exporting-schedule .classic-table-grid {
+        background: #ffffff !important;
+      }
+
       /* Dark Mode Adaptations */
       [data-theme="dark"] {
         --bg-app: #0f172a;
@@ -7004,6 +7073,8 @@
     
     
     
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -7100,8 +7171,16 @@
           </a>
         </div>
 
-        <!-- Center Section: Translate Selector & Menu Links (Desktop Center Aligned) -->
+        <!-- Center Section: Menu Links (Desktop Center Aligned) -->
         <div class="header-center-desktop">
+          <nav class="header-nav-desktop">
+            <a href="/" class="nav-link-header active">Timetable Maker</a>
+            <a href="/timetable-generator-online-for-students/" class="nav-link-header ">Free Students Timetable Maker</a>
+          </nav>
+        </div>
+
+        <!-- Right Section: Theme Toggle Icon & Translate Button (Right Corner Aligned) -->
+        <div class="header-right-desktop">
           <!-- Light/Dark Mode Toggle in Header -->
           <button class="action-btn-header" onclick="toggleLocalTheme()" data-tooltip="Toggle theme mode" title="Toggle theme mode" aria-label="Toggle Theme">
             <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
@@ -7113,7 +7192,7 @@
             <button class="action-btn-header" onclick="toggleLangDropdown()" id="btnLangDropdown" data-tooltip="Change Language" aria-label="Change Language" title="Change Language">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width: 18px; height: 18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.818-2.251-2.253-4.247-4-5.5C6.754 4.753 5.32 6.749 4.5 9h8m-8 0a13.935 13.935 0 002.912 4.5M6.412 9a13.935 13.935 0 002.912 4.5M11 21l3-6 3 6m-5-2h4"></path></svg>
             </button>
-            <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; left: 50%; transform: translateX(-50%);">
+            <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; right: 0;">
               <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('ja')">日本語</button>
@@ -7126,12 +7205,6 @@
               <button class="lang-dropdown-item" onclick="changeLanguage('ms')">Bahasa Melayu</button>
             </div>
           </div>
-
-          <!-- Nav links (Desktop) -->
-          <nav class="header-nav-desktop">
-            <a href="/" class="nav-link-header active">Timetable Maker</a>
-            <a href="/timetable-generator-online-for-students/" class="nav-link-header ">Free Students Timetable Maker</a>
-          </nav>
         </div>
 
         <!-- Mobile Navigation Toggle Button -->
@@ -7177,9 +7250,9 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
               <span>Export</span>
             </button>
-            <button class="tc-sidebar-item" onclick="app.handlers.sidebarAction('settings')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
-              <span>Settings</span>
+            <button class="tc-sidebar-item" onclick="app.handlers.sidebarAction('share')" title="Share Timetable Schedule">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              <span>Share</span>
             </button>
           </nav>
 
@@ -7682,7 +7755,25 @@
           </div>
 
           <!-- 3. Interactive Timetable Grid Card -->
-          <div class="tc-card tc-grid-card">
+          <div class="tc-card tc-grid-card" id="classicGridCard">
+            <!-- Dedicated Export / Print Header Banner (Shown during PNG / PDF export) -->
+            <div class="tc-export-header-banner" id="tcExportHeaderBanner">
+              <div class="tc-export-header-left">
+                <div class="tc-export-title-row">
+                  <div class="tc-export-logo-badge">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </div>
+                  <h2 class="tc-export-title" id="tcExportTitle">Weekly Timetable Schedule</h2>
+                </div>
+                <p class="tc-export-subtitle" id="tcExportSubtitle">Generated via Timetable Creator</p>
+              </div>
+              <div class="tc-export-header-right">
+                <div class="tc-export-meta-badge" id="tcExportMetaBadge">
+                  <span id="tcExportDaysCount">7 Days</span> • <span id="tcExportTimeSpan">08:00 - 19:00</span>
+                </div>
+              </div>
+            </div>
+
             <div class="classic-grid-scroll-wrapper" id="classicGridScrollWrapper" tabindex="0" role="region" aria-label="Interactive Timetable Grid">
               <table class="classic-table-grid" id="classicTableGrid">
                 <!-- Dynamically populated table structure -->
@@ -12356,6 +12447,8 @@
               app.handlers.toggleClassicConfig();
             } else if (action === 'export') {
               app.handlers.toggleCustomDropdown('wrap_exportMenu', window.event);
+            } else if (action === 'share') {
+              app.handlers.shareSchedule();
             } else if (action === 'settings') {
               app.handlers.toggleClassicConfig();
             }
@@ -13704,158 +13797,310 @@
             });
           },
 
-          async generateScheduleCanvas(scale = 2) {
-            const html2canvas = await this.loadHtml2canvas();
-            const targetEl = document.querySelector('.tc-grid-card') || document.getElementById('classicTableGrid');
-            if (html2canvas && targetEl) {
-              try {
-                const scrollWrapper = document.getElementById('classicGridScrollWrapper');
-                const oldMaxH = scrollWrapper ? scrollWrapper.style.maxHeight : '';
-                const oldOverflow = scrollWrapper ? scrollWrapper.style.overflowY : '';
-                if (scrollWrapper) {
-                  scrollWrapper.style.maxHeight = 'none';
-                  scrollWrapper.style.overflowY = 'visible';
-                }
+          async generateScheduleCanvas(targetScale = 3) {
+            // Update export header banner details
+            const titleEl = document.getElementById('tcExportTitle');
+            const subEl = document.getElementById('tcExportSubtitle');
+            const daysEl = document.getElementById('tcExportDaysCount');
+            const spanEl = document.getElementById('tcExportTimeSpan');
+            const activeDaysCount = parseInt(app.state.config.daysCount) || 7;
+            const startTime = parseInt(app.state.config.startTime) !== undefined ? parseInt(app.state.config.startTime) : 480;
+            const endTime = parseInt(app.state.config.endTime) !== undefined ? parseInt(app.state.config.endTime) : 1140;
 
-                const canvas = await html2canvas(targetEl, {
+            if (titleEl) {
+              titleEl.textContent = app.state.classicTitle || 'Weekly Schedule Timetable';
+            }
+            if (subEl) {
+              subEl.textContent = app.state.classicSubtitle || 'Generated via Timetable Creator';
+            }
+            if (daysEl) {
+              daysEl.textContent = `${activeDaysCount} Days (${activeDaysCount === 5 ? 'Mon - Fri' : (activeDaysCount === 6 ? 'Mon - Sat' : 'Mon - Sun')})`;
+            }
+            if (spanEl) {
+              spanEl.textContent = `${app.formatMinute(startTime)} - ${app.formatMinute(endTime)}`;
+            }
+
+            const html2canvas = await this.loadHtml2canvas();
+            const targetCard = document.getElementById('classicGridCard') || document.querySelector('.tc-grid-card');
+            const scrollWrapper = document.getElementById('classicGridScrollWrapper');
+            const table = document.getElementById('classicTableGrid');
+
+            if (html2canvas && targetCard && table) {
+              const prevBodyZoom = document.body.style.zoom;
+              const prevHtmlZoom = document.documentElement.style.zoom;
+              const prevWrapperOverflow = scrollWrapper ? scrollWrapper.style.overflow : '';
+              const prevWrapperMaxH = scrollWrapper ? scrollWrapper.style.maxHeight : '';
+              const prevWrapperWidth = scrollWrapper ? scrollWrapper.style.width : '';
+              const prevWrapperMaxWidth = scrollWrapper ? scrollWrapper.style.maxWidth : '';
+              const prevCardOverflow = targetCard.style.overflow;
+              const prevCardWidth = targetCard.style.width;
+              const prevCardMaxWidth = targetCard.style.maxWidth;
+              const prevCardBorderRadius = targetCard.style.borderRadius;
+
+              try {
+                // Activate export mode styles
+                document.body.classList.add('is-exporting-schedule');
+
+                // Crucial fix: Override CSS zoom: 0.7 so html2canvas computes pixel-perfect crisp coordinates
+                document.body.style.setProperty('zoom', '1', 'important');
+                document.documentElement.style.setProperty('zoom', '1', 'important');
+
+                // Expand scroll wrapper and card so all columns and rows are captured without clipping
+                if (scrollWrapper) {
+                  scrollWrapper.style.setProperty('overflow', 'visible', 'important');
+                  scrollWrapper.style.setProperty('max-height', 'none', 'important');
+                  scrollWrapper.style.setProperty('width', 'max-content', 'important');
+                  scrollWrapper.style.setProperty('max-width', 'none', 'important');
+                }
+                targetCard.style.setProperty('overflow', 'visible', 'important');
+                targetCard.style.setProperty('width', 'max-content', 'important');
+                targetCard.style.setProperty('max-width', 'none', 'important');
+                targetCard.style.setProperty('border-radius', '8px', 'important');
+                targetCard.style.setProperty('background', '#ffffff', 'important');
+
+                // Force layout reflow
+                void targetCard.offsetWidth;
+
+                const fullWidth = Math.max(table.scrollWidth, table.offsetWidth, 1100);
+                const fullHeight = targetCard.scrollHeight;
+                const scale = Math.max(2.5, targetScale || 3);
+
+                const canvas = await html2canvas(targetCard, {
                   scale: scale,
                   useCORS: true,
+                  allowTaint: true,
                   backgroundColor: '#ffffff',
-                  logging: false
+                  logging: false,
+                  scrollX: 0,
+                  scrollY: 0,
+                  width: fullWidth,
+                  height: fullHeight,
+                  windowWidth: fullWidth + 100,
+                  windowHeight: fullHeight + 100,
+                  onclone: (clonedDoc) => {
+                    clonedDoc.body.style.zoom = '1';
+                    clonedDoc.documentElement.style.zoom = '1';
+                    const banner = clonedDoc.getElementById('tcExportHeaderBanner');
+                    if (banner) banner.style.display = 'flex';
+                    clonedDoc.querySelectorAll('.excel-col-resizer, .excel-row-resizer, .classic-cell-add-icon, .classic-event-dots-btn, .tc-grid-footer, .classic-mobile-fab').forEach(el => {
+                      el.style.display = 'none';
+                      el.style.visibility = 'hidden';
+                    });
+                  }
                 });
 
-                if (scrollWrapper) {
-                  scrollWrapper.style.maxHeight = oldMaxH;
-                  scrollWrapper.style.overflowY = oldOverflow;
+                if (canvas && canvas.width > 0 && canvas.height > 0) {
+                  return canvas;
                 }
-
-                return canvas;
               } catch (e) {
-                console.warn('html2canvas screenshot error, falling back to vector canvas', e);
+                console.warn('html2canvas capture error, falling back to direct high-res canvas render', e);
+              } finally {
+                // Restore all styles immediately
+                document.body.classList.remove('is-exporting-schedule');
+                if (prevBodyZoom) {
+                  document.body.style.setProperty('zoom', prevBodyZoom);
+                } else {
+                  document.body.style.removeProperty('zoom');
+                }
+                if (prevHtmlZoom) {
+                  document.documentElement.style.setProperty('zoom', prevHtmlZoom);
+                } else {
+                  document.documentElement.style.removeProperty('zoom');
+                }
+                if (scrollWrapper) {
+                  scrollWrapper.style.overflow = prevWrapperOverflow;
+                  scrollWrapper.style.maxHeight = prevWrapperMaxH;
+                  scrollWrapper.style.width = prevWrapperWidth;
+                  scrollWrapper.style.maxWidth = prevWrapperMaxWidth;
+                }
+                targetCard.style.overflow = prevCardOverflow;
+                targetCard.style.width = prevCardWidth;
+                targetCard.style.maxWidth = prevCardMaxWidth;
+                targetCard.style.borderRadius = prevCardBorderRadius;
               }
             }
 
+            // Direct high-resolution vector canvas generator fallback
+            return this.renderDirectHighResCanvas(targetScale || 3);
+          },
+
+          renderDirectHighResCanvas(scale = 3) {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
 
             const activeDaysCount = parseInt(app.state.config.daysCount) || 7;
-            const mStep = parseInt(app.state.config.interval) || 60;
-            const startM = app.state.config.startTime !== undefined ? app.state.config.startTime : 480;
-            const endM = app.state.config.endTime !== undefined ? app.state.config.endTime : 1080;
+            const mStep = parseInt(app.state.config.interval) || 30;
+            const startM = app.state.config.startTime !== undefined ? parseInt(app.state.config.startTime) : 480;
+            const endM = app.state.config.endTime !== undefined ? parseInt(app.state.config.endTime) : 1140;
             const totalColsMinutes = Math.max(mStep, endM - startM);
             const rowsCount = Math.max(1, Math.floor(totalColsMinutes / mStep));
 
-            // Canvas sizes calculations
+            // Visible days
+            const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            let visibleDayIndices = [];
+            for (let i = 0; i < activeDaysCount; i++) visibleDayIndices.push(i);
+            if (app.state.classicFilterDays && app.state.classicFilterDays !== 'all' && Array.isArray(app.state.classicFilterDays) && app.state.classicFilterDays.length > 0) {
+              const filtered = app.state.classicFilterDays.filter(d => d < activeDaysCount);
+              if (filtered.length > 0) visibleDayIndices = filtered;
+            }
+            const renderedDaysCount = visibleDayIndices.length;
+
+            const bannerHeight = 84;
             const cornerWidth = 100;
             const colWidth = 180;
-            const rowHeight = 60;
-            const headerHeight = 70;
+            const rowHeight = 52;
+            const headerHeight = 60;
 
-            const baseWidth = cornerWidth + (colWidth * activeDaysCount);
-            const baseHeight = headerHeight + (rowHeight * rowsCount);
+            const baseWidth = cornerWidth + (colWidth * renderedDaysCount);
+            const baseHeight = bannerHeight + headerHeight + (rowHeight * rowsCount);
 
             canvas.width = baseWidth * scale;
             canvas.height = baseHeight * scale;
             ctx.scale(scale, scale);
 
-            // Fill Background
+            // Background
             ctx.fillStyle = '#ffffff';
             ctx.fillRect(0, 0, baseWidth, baseHeight);
 
-            // Set general fonts settings
+            // Top Header Banner
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(0, 0, baseWidth, bannerHeight);
+            ctx.fillStyle = '#0d9488';
+            ctx.fillRect(0, 0, baseWidth, 4);
+
+            // Title & Subtitle in Banner
+            ctx.textAlign = 'left';
             ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 20px "Poppins", sans-serif';
+            ctx.fillText(app.state.classicTitle || 'Weekly Timetable Schedule', 24, 34);
 
-            // Draw Corner
-            ctx.fillStyle = '#f8f7fd';
-            ctx.fillRect(0, 0, cornerWidth, headerHeight);
-            ctx.strokeStyle = '#ebe8fa';
+            ctx.fillStyle = '#64748b';
+            ctx.font = '500 12px "Poppins", sans-serif';
+            const subText = app.state.classicSubtitle || 'Created with Timetable Creator';
+            ctx.fillText(subText, 24, 58);
+
+            // Meta badge in top-right of banner
+            const daysLabel = activeDaysCount === 5 ? 'Mon - Fri' : (activeDaysCount === 6 ? 'Mon - Sat' : 'Mon - Sun');
+            const metaString = `${renderedDaysCount} Days (${daysLabel}) • ${app.formatMinute(startM)} - ${app.formatMinute(endM)}`;
+            ctx.textAlign = 'right';
+            ctx.fillStyle = '#0d9488';
+            ctx.font = 'bold 12px "Poppins", sans-serif';
+            ctx.fillText(metaString, baseWidth - 24, 44);
+
+            // Table Header Separator
+            ctx.strokeStyle = '#e2e8f0';
             ctx.lineWidth = 1;
-            ctx.strokeRect(0, 0, cornerWidth, headerHeight);
+            ctx.beginPath();
+            ctx.moveTo(0, bannerHeight);
+            ctx.lineTo(baseWidth, bannerHeight);
+            ctx.stroke();
 
-            ctx.fillStyle = '#6e6d7a';
-            ctx.font = 'bold 14px "Poppins", sans-serif';
+            // Corner Header Cell (Time)
+            const gridStartY = bannerHeight;
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(0, gridStartY, cornerWidth, headerHeight);
+            ctx.strokeStyle = '#e2e8f0';
+            ctx.strokeRect(0, gridStartY, cornerWidth, headerHeight);
+
+            ctx.fillStyle = '#64748b';
+            ctx.font = 'bold 12px "Poppins", sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('Time', cornerWidth / 2, headerHeight / 2);
+            ctx.fillText('TIME', cornerWidth / 2, gridStartY + (headerHeight / 2));
 
-            // Draw Days Headers
-            const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-            for (let i = 0; i < activeDaysCount; i++) {
+            // Day Headers
+            for (let i = 0; i < renderedDaysCount; i++) {
+              const dayIdx = visibleDayIndices[i];
               const x = cornerWidth + (i * colWidth);
-              ctx.fillStyle = '#f8f7fd';
-              ctx.fillRect(x, 0, colWidth, headerHeight);
-              ctx.strokeRect(x, 0, colWidth, headerHeight);
+              ctx.fillStyle = '#f8fafc';
+              ctx.fillRect(x, gridStartY, colWidth, headerHeight);
+              ctx.strokeStyle = '#e2e8f0';
+              ctx.strokeRect(x, gridStartY, colWidth, headerHeight);
 
-              ctx.fillStyle = '#1d1e2c';
+              ctx.fillStyle = '#0f172a';
               ctx.font = 'bold 14px "Poppins", sans-serif';
-              ctx.fillText(dayNames[i], x + (colWidth / 2), headerHeight / 2);
+              ctx.fillText(dayNames[dayIdx], x + (colWidth / 2), gridStartY + (headerHeight / 2));
             }
 
-            // Draw Time Column & grid rows backdrops
+            // Time Slots & Cells
             for (let r = 0; r < rowsCount; r++) {
-              const y = headerHeight + (r * rowHeight);
+              const y = gridStartY + headerHeight + (r * rowHeight);
               const minutes = startM + (r * mStep);
 
-              // Time label block
-              ctx.fillStyle = '#f8f7fd';
+              // Time column cell
+              ctx.fillStyle = '#f8fafc';
               ctx.fillRect(0, y, cornerWidth, rowHeight);
+              ctx.strokeStyle = '#e2e8f0';
               ctx.strokeRect(0, y, cornerWidth, rowHeight);
 
-              ctx.fillStyle = '#6e6d7a';
-              ctx.font = 'bold 12px "Poppins", sans-serif';
+              ctx.fillStyle = '#64748b';
+              ctx.font = '500 11.5px "Poppins", sans-serif';
               ctx.textAlign = 'center';
               ctx.fillText(app.formatMinute(minutes), cornerWidth / 2, y + (rowHeight / 2));
 
-              // Clean background lines segments
-              for (let c = 0; c < activeDaysCount; c++) {
+              // Day cells
+              for (let c = 0; c < renderedDaysCount; c++) {
                 const x = cornerWidth + (c * colWidth);
                 ctx.fillStyle = '#ffffff';
                 ctx.fillRect(x, y, colWidth, rowHeight);
+                ctx.strokeStyle = '#f1f5f9';
                 ctx.strokeRect(x, y, colWidth, rowHeight);
               }
             }
 
-            // Render absolute card representations internally on canvas space
-            app.state.events.forEach(evt => {
-              if (evt.day >= activeDaysCount) return;
+            // Events rendering
+            const classicEventsList = Array.isArray(app.state.classicEvents) && app.state.classicEvents.length > 0
+              ? app.state.classicEvents
+              : (app.state.events || []);
+
+            const pxPerMin = rowHeight / mStep;
+
+            classicEventsList.forEach(evt => {
+              const colPos = visibleDayIndices.indexOf(evt.day);
+              if (colPos === -1) return;
               if (evt.startTime >= endM || evt.endTime <= startM) return;
 
               const visibleStart = Math.max(evt.startTime, startM);
               const visibleEnd = Math.min(evt.endTime, endM);
               const visibleDuration = visibleEnd - visibleStart;
 
-              const x = cornerWidth + (evt.day * colWidth) + 6;
-              const y = headerHeight + ((visibleStart - startM) / mStep) * rowHeight + 6;
+              const x = cornerWidth + (colPos * colWidth) + 6;
+              const y = gridStartY + headerHeight + ((visibleStart - startM) * pxPerMin) + 3;
               const w = colWidth - 12;
-              const h = Math.max(24, ((visibleDuration / mStep) * rowHeight) - 12);
+              const h = Math.max(28, (visibleDuration * pxPerMin) - 6);
 
-              // Rounded rectangle drawer helper code block
-              ctx.fillStyle = evt.color || '#673de6';
+              // Card background
+              ctx.fillStyle = evt.color || '#0d9488';
               ctx.beginPath();
-              ctx.roundRect(x, y, w, h, 8);
+              if (ctx.roundRect) {
+                ctx.roundRect(x, y, w, h, 8);
+              } else {
+                ctx.rect(x, y, w, h);
+              }
               ctx.fill();
 
-              // Border Left custom bar overlays
-              ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
-              ctx.beginPath();
-              ctx.roundRect(x, y, 6, h, [8, 0, 0, 8]);
-              ctx.fill();
-
-              // Card Texts assignments details
+              // Card text
               ctx.fillStyle = '#ffffff';
               ctx.textAlign = 'left';
 
-              // Text titles limits
-              ctx.font = 'bold 12px "Poppins", sans-serif';
-              ctx.fillText(evt.title, x + 12, y + 16, w - 20);
+              // Title
+              ctx.font = 'bold 12.5px "Poppins", sans-serif';
+              ctx.fillText(evt.title || 'Untitled', x + 10, y + 16, w - 16);
 
-              if (evt.teacher && h > 45) {
-                ctx.font = '500 11px "Poppins", sans-serif';
-                ctx.fillText(evt.teacher, x + 12, y + 32, w - 20);
+              // Time badge
+              if (h >= 40) {
+                const timeString = `${app.formatMinute(evt.startTime)} - ${app.formatMinute(evt.endTime)}`;
+                ctx.font = '500 10.5px "Poppins", sans-serif';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+                ctx.fillText(timeString, x + 10, y + 32, w - 16);
               }
 
-              if (evt.room && h > 65) {
-                ctx.font = '10px "Poppins", sans-serif';
-                ctx.fillText(`Room: ${evt.room}`, x + 12, y + h - 16, w - 20);
+              // Teacher / Room if space permits
+              if (h >= 64 && (evt.teacher || evt.room)) {
+                ctx.font = '500 10px "Poppins", sans-serif';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                const detail = [evt.teacher, evt.room ? `Rm: ${evt.room}` : ''].filter(Boolean).join(' • ');
+                ctx.fillText(detail, x + 10, y + Math.min(h - 10, 48), w - 16);
               }
             });
 
@@ -13867,24 +14112,51 @@
           },
 
           async savePdf() {
-            app.showToast('Generating PDF document...', 'info');
+            app.showToast('Generating standard A4 PDF document...', 'info');
             try {
-              const canvas = await this.generateScheduleCanvas(2);
+              const canvas = await this.generateScheduleCanvas(3);
               if (!canvas) {
                 window.print();
                 return;
               }
+
               const jsPdfConstructor = await this.loadJsPdf();
               if (jsPdfConstructor) {
-                const orientation = canvas.width >= canvas.height ? 'landscape' : 'portrait';
+                // Standard A4 PDF formatting
+                const isLandscape = canvas.width >= canvas.height;
+                const orientation = isLandscape ? 'landscape' : 'portrait';
+
                 const pdf = new jsPdfConstructor({
                   orientation: orientation,
-                  unit: 'px',
-                  format: [canvas.width / 2, canvas.height / 2]
+                  unit: 'mm',
+                  format: 'a4',
+                  compress: true
                 });
-                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, canvas.width / 2, canvas.height / 2);
-                pdf.save(`Timetable_${Date.now()}.pdf`);
-                app.showToast('PDF Saved Successfully!', 'success');
+
+                const pageWidth = pdf.internal.pageSize.getWidth();
+                const pageHeight = pdf.internal.pageSize.getHeight();
+                const margin = 8;
+                const availWidth = pageWidth - (margin * 2);
+                const availHeight = pageHeight - (margin * 2);
+
+                const imgRatio = canvas.width / canvas.height;
+                let renderWidth = availWidth;
+                let renderHeight = renderWidth / imgRatio;
+
+                if (renderHeight > availHeight) {
+                  renderHeight = availHeight;
+                  renderWidth = renderHeight * imgRatio;
+                }
+
+                const posX = margin + (availWidth - renderWidth) / 2;
+                const posY = margin + (availHeight - renderHeight) / 2;
+
+                const imgData = canvas.toDataURL('image/png', 1.0);
+                pdf.addImage(imgData, 'PNG', posX, posY, renderWidth, renderHeight, undefined, 'FAST');
+                
+                const fileTitle = (app.state.classicTitle || 'Timetable_Schedule').replace(/[^a-zA-Z0-9_-]/g, '_');
+                pdf.save(`${fileTitle}_${new Date().toISOString().slice(0, 10)}.pdf`);
+                app.showToast('Standard A4 PDF Saved Successfully!', 'success');
               } else {
                 window.print();
               }
@@ -13895,15 +14167,22 @@
           },
 
           async downloadPng() {
-            app.showToast('Generating high-res PNG...', 'info');
+            app.showToast('Generating high-resolution PNG image...', 'info');
             try {
-              const canvas = await this.generateScheduleCanvas(2);
-              const representation = canvas.toDataURL('image/png');
+              const canvas = await this.generateScheduleCanvas(3);
+              if (!canvas) {
+                app.showToast('Error generating timetable canvas.', 'error');
+                return;
+              }
+              const representation = canvas.toDataURL('image/png', 1.0);
               const handlerBtn = document.createElement('a');
               handlerBtn.href = representation;
-              handlerBtn.download = `My_Timetable_${Date.now()}.png`;
+              const fileTitle = (app.state.classicTitle || 'Timetable_Schedule').replace(/[^a-zA-Z0-9_-]/g, '_');
+              handlerBtn.download = `${fileTitle}_${new Date().toISOString().slice(0, 10)}.png`;
+              document.body.appendChild(handlerBtn);
               handlerBtn.click();
-              app.showToast('High-Res PNG Saved!', 'success');
+              document.body.removeChild(handlerBtn);
+              app.showToast('High-Resolution PNG Saved!', 'success');
             } catch (err) {
               console.error('PNG Download Error:', err);
               app.showToast('Error saving PNG image.', 'error');
