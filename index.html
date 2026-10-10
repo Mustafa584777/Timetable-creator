@@ -1670,41 +1670,55 @@
           flex-direction: column !important;
         }
 
-        /* Mobile specific for Add / Edit timetable activity popup: min-width 90vw */
+        /* Mobile specific for Add / Edit timetable activity popup: centered with min-width 100vw */
         #classicEventModal.modal-backdrop {
-          padding: 12px !important;
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          width: 100vw !important;
+          width: 100dvw !important;
+          height: 100vh !important;
+          height: 100dvh !important;
+          padding: 8px 0 !important;
+          margin: 0 !important;
           display: flex !important;
           align-items: center !important;
           justify-content: center !important;
+          overflow-x: hidden !important;
           overflow-y: auto !important;
           -webkit-overflow-scrolling: touch;
+          z-index: 99999 !important;
+          background: rgba(15, 23, 42, 0.6) !important;
+          backdrop-filter: blur(4px) !important;
         }
 
         #classicEventModal .modal-panel {
           position: relative !important;
           top: auto !important;
-          left: auto !important;
-          right: auto !important;
+          left: 0 !important;
+          right: 0 !important;
           bottom: auto !important;
-          min-width: 90vw !important;
-          width: 90vw !important;
-          max-width: 95vw !important;
+          min-width: 100vw !important;
+          width: 100vw !important;
+          max-width: 100vw !important;
           height: auto !important;
-          max-height: 90vh !important;
-          max-height: 90dvh !important;
-          border-radius: 14px !important;
+          max-height: 94vh !important;
+          max-height: 94dvh !important;
+          border-radius: 16px !important;
           border: 1px solid var(--border-color) !important;
           margin: auto !important;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35) !important;
           display: flex !important;
           flex-direction: column !important;
           transform: none !important;
-          z-index: 1005 !important;
+          z-index: 100000 !important;
           box-sizing: border-box !important;
         }
 
         #classicEventModal .modal-header {
-          border-radius: 14px 14px 0 0 !important;
+          border-radius: 16px 16px 0 0 !important;
           padding: 14px 18px !important;
           flex-shrink: 0 !important;
         }
@@ -1714,14 +1728,14 @@
           gap: 12px !important;
           flex: 1 1 auto !important;
           min-height: 0 !important;
-          max-height: calc(90vh - 125px) !important;
-          max-height: calc(90dvh - 125px) !important;
+          max-height: calc(94vh - 125px) !important;
+          max-height: calc(94dvh - 125px) !important;
           overflow-y: auto !important;
           -webkit-overflow-scrolling: touch;
         }
 
         #classicEventModal .modal-footer {
-          border-radius: 0 0 14px 14px !important;
+          border-radius: 0 0 16px 16px !important;
           padding: 12px 16px !important;
           padding-bottom: max(14px, env(safe-area-inset-bottom, 14px)) !important;
           flex-shrink: 0 !important;
@@ -3604,7 +3618,8 @@
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
       }
       .custom-dropdown-wrap.open .custom-dropdown-trigger {
-        box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2), 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+        box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25), 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+        border-color: #0d9488 !important;
       }
       .custom-dropdown-label {
         white-space: nowrap;
@@ -3622,14 +3637,14 @@
         width: 14px;
         height: 14px;
         flex-shrink: 0;
-        color: #7c3aed !important;
-        stroke: #7c3aed !important;
+        color: #0d9488 !important;
+        stroke: #0d9488 !important;
         transition: transform 0.2s ease, color 0.2s ease;
       }
       .custom-dropdown-wrap.open .custom-dropdown-chevron {
         transform: rotate(180deg);
-        color: #6d28d9 !important;
-        stroke: #6d28d9 !important;
+        color: #0f766e !important;
+        stroke: #0f766e !important;
       }
       .custom-dropdown-menu {
         position: absolute;
@@ -3640,7 +3655,7 @@
         max-height: 240px;
         overflow-y: auto;
         background: #ffffff !important;
-        border: none !important;
+        border: 1px solid rgba(13, 148, 136, 0.22) !important;
         border-radius: 10px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
         padding: 4px;
@@ -3673,19 +3688,19 @@
         white-space: nowrap;
       }
       .custom-dropdown-option:hover {
-        background: rgba(124, 58, 237, 0.08);
-        color: #7c3aed;
+        background: rgba(13, 148, 136, 0.1) !important;
+        color: #0d9488 !important;
       }
       .custom-dropdown-option.selected {
-        background: rgba(124, 58, 237, 0.14);
-        color: #7c3aed;
-        font-weight: 600;
+        background: rgba(13, 148, 136, 0.16) !important;
+        color: #0d9488 !important;
+        font-weight: 600 !important;
       }
       .custom-dropdown-option.selected::after {
         content: "✓";
         font-size: 12px;
         font-weight: 700;
-        color: #7c3aed;
+        color: #0d9488 !important;
       }
 
       /* Dark mode custom dropdowns */
@@ -3694,26 +3709,31 @@
         color: #f1f5f9 !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
       }
+      [data-theme="dark"] .custom-dropdown-chevron {
+        color: #14b8a6 !important;
+        stroke: #14b8a6 !important;
+      }
       [data-theme="dark"] .custom-dropdown-label {
         color: #f1f5f9;
       }
       [data-theme="dark"] .custom-dropdown-menu {
         background: #1e293b !important;
+        border: 1px solid rgba(20, 184, 166, 0.3) !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
       }
       [data-theme="dark"] .custom-dropdown-option {
         color: #cbd5e1;
       }
       [data-theme="dark"] .custom-dropdown-option:hover {
-        background: rgba(139, 92, 246, 0.2);
-        color: #c4b5fd;
+        background: rgba(20, 184, 166, 0.2) !important;
+        color: #2dd4bf !important;
       }
       [data-theme="dark"] .custom-dropdown-option.selected {
-        background: rgba(139, 92, 246, 0.3);
-        color: #a78bfa;
+        background: rgba(20, 184, 166, 0.3) !important;
+        color: #2dd4bf !important;
       }
       [data-theme="dark"] .custom-dropdown-option.selected::after {
-        color: #a78bfa;
+        color: #2dd4bf !important;
       }
 
       /* ==========================================================================
@@ -3929,10 +3949,10 @@
       }
 
       #classicEventModal .tc-btn-modal-save {
-        background: #10b981 !important;
-        background-color: #10b981 !important;
-        border: 1.5px solid #059669 !important;
-        border-color: #059669 !important;
+        background: #0d9488 !important;
+        background-color: #0d9488 !important;
+        border: 1.5px solid #0d9488 !important;
+        border-color: #0d9488 !important;
         color: #ffffff !important;
         width: 38px !important;
         height: 38px !important;
@@ -3942,7 +3962,7 @@
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+        box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3) !important;
         cursor: pointer !important;
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
       }
@@ -3951,12 +3971,12 @@
         stroke: #ffffff !important;
       }
       #classicEventModal .tc-btn-modal-save:hover {
-        background: #059669 !important;
-        background-color: #059669 !important;
-        border-color: #047857 !important;
+        background: #0f766e !important;
+        background-color: #0f766e !important;
+        border-color: #0f766e !important;
         color: #ffffff !important;
         transform: translateY(-1px) !important;
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45) !important;
+        box-shadow: 0 4px 12px rgba(13, 148, 136, 0.45) !important;
       }
 
       /* Dark mode overrides for Activity Modal Buttons */
@@ -3984,10 +4004,14 @@
         stroke: #ffffff !important;
       }
       [data-theme="dark"] #classicEventModal .tc-btn-modal-save {
-        background: #10b981 !important;
-        background-color: #10b981 !important;
-        border-color: #059669 !important;
+        background: #0d9488 !important;
+        background-color: #0d9488 !important;
+        border-color: #0d9488 !important;
         color: #ffffff !important;
+      }
+      [data-theme="dark"] #classicEventModal .tc-btn-modal-save:hover {
+        background: #14b8a6 !important;
+        border-color: #14b8a6 !important;
       }
       [data-theme="dark"] #classicEventModal .tc-btn-modal-save svg {
         color: #ffffff !important;
@@ -4413,18 +4437,27 @@
         user-select: none;
       }
       .classic-day-chip:hover {
-        border-color: #10b981;
-        color: #10b981;
+        border-color: #0d9488 !important;
+        color: #0d9488 !important;
         background: var(--bg-card);
       }
       .classic-day-chip:active {
         transform: scale(0.95);
       }
       .classic-day-chip.active {
-        background: #10b981;
-        color: #ffffff;
-        border-color: #10b981;
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+        background: #0d9488 !important;
+        color: #ffffff !important;
+        border-color: #0d9488 !important;
+        box-shadow: 0 2px 8px rgba(13, 148, 136, 0.35) !important;
+      }
+      [data-theme="dark"] .classic-day-chip.active {
+        background: #0d9488 !important;
+        border-color: #0d9488 !important;
+        color: #ffffff !important;
+      }
+      [data-theme="dark"] .classic-day-chip:hover {
+        border-color: #14b8a6 !important;
+        color: #14b8a6 !important;
       }
 
       /* Quick Duration Preset Buttons in Modal */
@@ -7369,6 +7402,23 @@
 
           <!-- Collapsible Grid Configuration Controls Bar -->
           <div class="classic-config-bar" id="classicConfigBar" style="display: none;">
+            <!-- Days of Week -->
+            <div class="classic-cfg-item">
+              <span class="classic-cfg-label">Days of Week:</span>
+              <div class="custom-dropdown-wrap" id="wrap_classicConfigDays">
+                <input type="hidden" id="classicConfigDays" value="7">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigDays', event)" aria-label="Select Days Count">
+                  <span class="custom-dropdown-label">Full Week (Mon - Sun)</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', 'Weekdays (Mon - Fri)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Weekdays (Mon - Fri)</div>
+                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', '6 Days (Mon - Sat)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">6 Days (Mon - Sat)</div>
+                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', 'Full Week (Mon - Sun)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Full Week (Mon - Sun)</div>
+                </div>
+              </div>
+            </div>
+
             <!-- Start Time -->
             <div class="classic-cfg-item">
               <span class="classic-cfg-label">Start Time:</span>
@@ -8645,7 +8695,7 @@
               </div>
               <div style="display: flex; justify-content: flex-end; align-items: center; gap: 8px;">
                 <button type="button" class="btn-ctrl" onclick="app.handlers.cancelNewCustomField()" style="height: 30px; padding: 0 12px; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-muted);">Cancel</button>
-                <button type="button" class="btn-ctrl" onclick="app.handlers.saveNewCustomField()" style="height: 30px; padding: 0 14px; font-size: 12px; background: #10b981; border: 1px solid #10b981; color: #ffffff; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                <button type="button" class="btn-ctrl" onclick="app.handlers.saveNewCustomField()" style="height: 30px; padding: 0 14px; font-size: 12px; background: #0d9488; border: 1px solid #0d9488; color: #ffffff; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span>Save</span>
                 </button>
@@ -8654,8 +8704,8 @@
 
             <!-- Add Field button: NO background, NO border, NO header text -->
             <div style="display: flex; justify-content: flex-start; align-items: center; margin-top: 4px;">
-              <button type="button" id="btnClassicAddNewField" onclick="app.handlers.showNewCustomFieldForm()" style="padding: 2px 0; font-size: 12.5px; border: none !important; color: #10b981 !important; background: transparent !important; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; outline: none; box-shadow: none !important;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <button type="button" id="btnClassicAddNewField" onclick="app.handlers.showNewCustomFieldForm()" style="padding: 2px 0; font-size: 12.5px; border: none !important; color: #0d9488 !important; background: transparent !important; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; outline: none; box-shadow: none !important;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                 <span>+ Add Field</span>
               </button>
             </div>
@@ -8665,7 +8715,7 @@
           <div class="form-group" style="margin-bottom: 0;">
             <label style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
               <span>Activity Color Swatch</span>
-              <span id="classicColorHexLabel" style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">#10b981</span>
+              <span id="classicColorHexLabel" style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">#0d9488</span>
             </label>
             <div class="color-grid" id="classicColorGrid" style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px;">
               <!-- Populated live with signature colors -->
@@ -8676,7 +8726,7 @@
 
         <div class="modal-footer" style="background: var(--bg-panel); border-top: 1px solid var(--border-color); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
           <div style="display: flex; gap: 6px; align-items: center;">
-            <button id="btnClassicDeleteEvt" class="btn-ctrl" style="display: none;" title="Delete Activity" aria-label="Delete Activity" onclick="app.handlers.deleteClassicEventFromModal()">
+            <button type="button" id="btnClassicDeleteEvt" class="btn-ctrl" style="display: none;" title="Delete Activity" aria-label="Delete Activity" onclick="app.handlers.deleteClassicEventFromModal()">
               <svg fill="none" stroke="#ffffff" stroke-width="2.2" viewBox="0 0 24 24" width="16" height="16"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
             </button>
           </div>
@@ -10935,7 +10985,7 @@
         ],
 
         colorsListClassic: [
-          '#10b981', '#06b6d4', '#3b82f6', '#6366f1',
+          '#0d9488', '#06b6d4', '#3b82f6', '#6366f1',
           '#8b5cf6', '#d946ef', '#ec4899', '#f43f5e',
           '#f97316', '#eab308', '#84cc16', '#475569',
           '#14b8a6', '#0284c7', '#7c3aed', '#db2777'
@@ -11122,22 +11172,48 @@
          * Events data models mutations handlers
          */
         updateEventFields(id, updates) {
-          this.state.events = this.state.events.map(evt => {
-            if (evt.id === id) {
+          if (!id) return;
+          const idStr = String(id);
+          this.state.events = (this.state.events || []).map(evt => {
+            if (String(evt.id) === idStr) {
               return { ...evt, ...updates };
             }
             return evt;
           });
+          if (Array.isArray(this.state.classicEvents)) {
+            this.state.classicEvents = this.state.classicEvents.map(evt => {
+              if (String(evt.id) === idStr) {
+                return { ...evt, ...updates };
+              }
+              return evt;
+            });
+          }
+          if (Array.isArray(this.state.proEvents)) {
+            this.state.proEvents = this.state.proEvents.map(evt => {
+              if (String(evt.id) === idStr) {
+                return { ...evt, ...updates };
+              }
+              return evt;
+            });
+          }
           if (this.state.config.autoSave) this.saveState();
           this.render();
         },
 
         deleteEvent(id) {
+          if (!id) return;
           this.pushHistory();
-          this.state.events = this.state.events.filter(evt => evt.id !== id);
+          const idStr = String(id);
+          this.state.events = (this.state.events || []).filter(evt => String(evt.id) !== idStr);
+          if (Array.isArray(this.state.classicEvents)) {
+            this.state.classicEvents = this.state.classicEvents.filter(evt => String(evt.id) !== idStr);
+          }
+          if (Array.isArray(this.state.proEvents)) {
+            this.state.proEvents = this.state.proEvents.filter(evt => String(evt.id) !== idStr);
+          }
           if (this.state.config.autoSave) this.saveState();
           this.render();
-          this.showToast('Event removed', 'warning');
+          this.showToast('Activity removed from timetable', 'info');
         },
 
         copyEvent(id) {
@@ -12469,7 +12545,7 @@
                     </div>
                     <div style="display: flex; justify-content: flex-end; gap: 6px;">
                       <button type="button" class="btn-ctrl" onclick="app.handlers.cancelEditCustomField('${cf.id}')" style="height: 28px; padding: 0 10px; font-size: 11.5px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-muted);">Cancel</button>
-                      <button type="button" class="btn-ctrl" onclick="app.handlers.saveEditedCustomField('${cf.id}')" style="height: 28px; padding: 0 12px; font-size: 11.5px; background: #10b981; color: #fff; border-color: #10b981; font-weight: 600;">Save</button>
+                      <button type="button" class="btn-ctrl" onclick="app.handlers.saveEditedCustomField('${cf.id}')" style="height: 28px; padding: 0 12px; font-size: 11.5px; background: #0d9488; color: #fff; border-color: #0d9488; font-weight: 600;">Save</button>
                     </div>
                   </div>
                 </div>
@@ -12566,20 +12642,20 @@
 
             const isMobile = window.innerWidth <= 768;
             if (isMobile) {
-              // Mobile layout: ensure modal has min-width 90vw, centered nicely
+              // Mobile layout: centered modal with min-width 100vw
               panel.style.position = 'relative';
-              panel.style.left = 'auto';
+              panel.style.left = '0px';
+              panel.style.right = '0px';
               panel.style.top = 'auto';
-              panel.style.right = 'auto';
               panel.style.bottom = 'auto';
-              panel.style.minWidth = '90vw';
-              panel.style.width = '90vw';
-              panel.style.maxWidth = '95vw';
+              panel.style.minWidth = '100vw';
+              panel.style.width = '100vw';
+              panel.style.maxWidth = '100vw';
               panel.style.height = 'auto';
-              panel.style.maxHeight = '90vh';
+              panel.style.maxHeight = '94vh';
               panel.style.margin = 'auto';
               panel.style.transform = 'none';
-              panel.style.borderRadius = '14px';
+              panel.style.borderRadius = '16px';
               return;
             }
 
@@ -12801,12 +12877,10 @@
             if (!id) return;
             app.deleteEvent(id);
             this.closeClassicEventModal();
-            app.showToast('Activity removed from timetable', 'info');
           },
 
           focusClassicDay(dayIdx, event) {
             event = event || window.event;
-            const activeDaysCount = parseInt(app.state.config.daysCount) || 7;
             const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
             if (dayIdx === 'all' || dayIdx === undefined) {
@@ -12814,7 +12888,16 @@
               app.showToast('Showing all days in timetable', 'info');
             } else {
               const targetDay = parseInt(dayIdx);
-              if (isNaN(targetDay) || targetDay < 0 || targetDay >= activeDaysCount) return;
+              if (isNaN(targetDay) || targetDay < 0 || targetDay > 6) return;
+
+              // If selecting Saturday (5) or Sunday (6) while config has fewer days, auto-expand config to 7 days
+              if (targetDay >= (parseInt(app.state.config.daysCount) || 5)) {
+                app.state.config.daysCount = 7;
+                if (app.state.config.autoSave) app.saveState();
+                app.syncConfigInputs();
+              }
+
+              const totalDaysCount = Math.max(7, parseInt(app.state.config.daysCount) || 7);
 
               // Support multi-day selection on every single tap/click
               let current = (app.state.classicFilterDays === 'all' || !Array.isArray(app.state.classicFilterDays))
@@ -12827,7 +12910,7 @@
                 current.push(targetDay);
               }
 
-              if (current.length === 0 || current.length >= activeDaysCount) {
+              if (current.length === 0 || current.length >= totalDaysCount) {
                 app.state.classicFilterDays = 'all';
                 app.showToast('Showing all days in timetable', 'info');
               } else {
@@ -13655,7 +13738,7 @@
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
 
-            const activeDaysCount = parseInt(app.state.config.daysCount) || 5;
+            const activeDaysCount = parseInt(app.state.config.daysCount) || 7;
             const mStep = parseInt(app.state.config.interval) || 60;
             const startM = app.state.config.startTime !== undefined ? app.state.config.startTime : 480;
             const endM = app.state.config.endTime !== undefined ? app.state.config.endTime : 1080;
