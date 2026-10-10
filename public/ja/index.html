@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/ja" />
+                                                                                                                                                                                                                                                                                                                                                                                                <link rel="canonical" href="https://timetablecreator.online/ja" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -151,6 +151,9 @@
       ]
     }
     </script>
+    <!-- Preloaded High-Performance Export Engines -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
       /* --- FONTS & CSS THEME SETUP --- */
 
@@ -1193,8 +1196,8 @@
         width: 100dvw;
         height: 100vh;
         height: 100dvh;
-        background-color: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(4px);
+        background-color: transparent !important;
+        backdrop-filter: none !important;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1652,38 +1655,93 @@
 
         /* Make modal editor forms fluid and fully scrollable on mobile and when zoomed */
         .modal-backdrop {
-          align-items: flex-end;
-          padding: 0;
+          align-items: center !important;
+          justify-content: center !important;
+          padding: 16px 12px !important;
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
         }
 
         .modal-panel {
-          width: 100% !important;
-          max-width: 100% !important;
+          width: 100vw !important;
+          max-width: 100vw !important;
           max-height: 92dvh !important;
           max-height: 92vh !important;
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
-          margin: 0 !important;
+          border-radius: var(--border-radius) !important;
+          margin: auto !important;
           display: flex !important;
           flex-direction: column !important;
         }
 
-        .modal-body {
-          padding: 16px;
-          gap: 12px;
-          flex: 1 1 auto;
-          min-height: 0;
-          max-height: none !important;
+        /* Mobile specific for Add / Edit timetable activity popup: centered with min-width 100vw */
+        #classicEventModal.modal-backdrop {
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          width: 100vw !important;
+          width: 100dvw !important;
+          height: 100vh !important;
+          height: 100dvh !important;
+          padding: 8px 0 !important;
+          margin: 0 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          overflow-x: hidden !important;
+          overflow-y: auto !important;
+          -webkit-overflow-scrolling: touch;
+          z-index: 99999 !important;
+          background: rgba(15, 23, 42, 0.6) !important;
+          backdrop-filter: blur(4px) !important;
+        }
+
+        #classicEventModal .modal-panel {
+          position: relative !important;
+          top: auto !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: auto !important;
+          min-width: 100vw !important;
+          width: 100vw !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          max-height: 94vh !important;
+          max-height: 94dvh !important;
+          border-radius: 16px !important;
+          border: 1px solid var(--border-color) !important;
+          margin: auto !important;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35) !important;
+          display: flex !important;
+          flex-direction: column !important;
+          transform: none !important;
+          z-index: 100000 !important;
+          box-sizing: border-box !important;
+        }
+
+        #classicEventModal .modal-header {
+          border-radius: 16px 16px 0 0 !important;
+          padding: 14px 18px !important;
+          flex-shrink: 0 !important;
+        }
+
+        #classicEventModal .modal-body {
+          padding: 16px !important;
+          gap: 12px !important;
+          flex: 1 1 auto !important;
+          min-height: 0 !important;
+          max-height: calc(94vh - 125px) !important;
+          max-height: calc(94dvh - 125px) !important;
           overflow-y: auto !important;
           -webkit-overflow-scrolling: touch;
         }
 
-        .modal-footer {
-          padding: 12px 16px;
-          padding-bottom: max(16px, env(safe-area-inset-bottom, 16px));
-          flex-shrink: 0;
+        #classicEventModal .modal-footer {
+          border-radius: 0 0 16px 16px !important;
+          padding: 12px 16px !important;
+          padding-bottom: max(14px, env(safe-area-inset-bottom, 14px)) !important;
+          flex-shrink: 0 !important;
         }
 
         .flex-half {
@@ -1694,46 +1752,29 @@
 
       /* Print Stylesheet Overrides */
       @media print {
-        body {
-          background-color: #ffffff !important;
-          color: #000000 !important;
-          overflow: visible !important;
-          height: auto !important;
+        body * {
+          visibility: hidden !important;
         }
-        .global-header, .sidebar, .top-bar, .context-menu, .toast-container, .modal-backdrop, .seo-landing-container, .seo-footer, #aiGeneratorSection, .section-card, .lang-dropdown-container, .toast {
-          display: none !important;
+        .tc-grid-card, .tc-grid-card * {
+          visibility: visible !important;
         }
-        .app-container {
-          display: block !important;
-          height: auto !important;
-        }
-        .main-content {
-          display: block !important;
-          height: auto !important;
-          overflow: visible !important;
-        }
-        .workspace {
-          padding: 0 !important;
-          background-color: #ffffff !important;
-          overflow: visible !important;
-        }
-        .timetable-scroll-container {
-          overflow: visible !important;
-        }
-        .timetable-wrapper {
-          box-shadow: none !important;
-          border: 1px solid #cbd5e1 !important;
+        .tc-grid-card {
+          position: absolute !important;
+          left: 0 !important;
+          top: 0 !important;
           width: 100% !important;
-        }
-        .event-card {
-          border: 1px solid rgba(0, 0, 0, 0.15) !important;
-          color: #ffffff !important;
+          max-height: none !important;
+          overflow: visible !important;
           box-shadow: none !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
+          border: none !important;
+          background: #ffffff !important;
         }
-        .time-cell, .day-column-header, .grid-corner {
-          background-color: #f1f5f9 !important;
+        .classic-grid-scroll-wrapper {
+          max-height: none !important;
+          overflow: visible !important;
+          height: auto !important;
+        }
+        .classic-event-item {
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;
         }
@@ -2280,10 +2321,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 12px;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 20;
+      }
+      .header-right-desktop {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: auto;
+        z-index: 20;
       }
       .header-nav-desktop {
         display: flex;
@@ -2612,13 +2660,14 @@
 
       @media (max-width: 1024px) {
         .header-center-desktop {
-          position: static;
-          transform: none;
-          justify-content: flex-end;
-          margin-right: 6px;
+          display: none !important;
         }
         .header-nav-desktop, .header-actions-desktop {
           display: none !important;
+        }
+        .header-right-desktop {
+          margin-left: auto;
+          margin-right: 8px;
         }
         .header-mobile-toggle {
           display: flex !important;
@@ -3580,7 +3629,8 @@
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
       }
       .custom-dropdown-wrap.open .custom-dropdown-trigger {
-        box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2), 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+        box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25), 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+        border-color: #0d9488 !important;
       }
       .custom-dropdown-label {
         white-space: nowrap;
@@ -3598,14 +3648,14 @@
         width: 14px;
         height: 14px;
         flex-shrink: 0;
-        color: #7c3aed !important;
-        stroke: #7c3aed !important;
+        color: #0d9488 !important;
+        stroke: #0d9488 !important;
         transition: transform 0.2s ease, color 0.2s ease;
       }
       .custom-dropdown-wrap.open .custom-dropdown-chevron {
         transform: rotate(180deg);
-        color: #6d28d9 !important;
-        stroke: #6d28d9 !important;
+        color: #0f766e !important;
+        stroke: #0f766e !important;
       }
       .custom-dropdown-menu {
         position: absolute;
@@ -3616,7 +3666,7 @@
         max-height: 240px;
         overflow-y: auto;
         background: #ffffff !important;
-        border: none !important;
+        border: 1px solid rgba(13, 148, 136, 0.22) !important;
         border-radius: 10px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
         padding: 4px;
@@ -3649,19 +3699,19 @@
         white-space: nowrap;
       }
       .custom-dropdown-option:hover {
-        background: rgba(124, 58, 237, 0.08);
-        color: #7c3aed;
+        background: rgba(13, 148, 136, 0.1) !important;
+        color: #0d9488 !important;
       }
       .custom-dropdown-option.selected {
-        background: rgba(124, 58, 237, 0.14);
-        color: #7c3aed;
-        font-weight: 600;
+        background: rgba(13, 148, 136, 0.16) !important;
+        color: #0d9488 !important;
+        font-weight: 600 !important;
       }
       .custom-dropdown-option.selected::after {
         content: "✓";
         font-size: 12px;
         font-weight: 700;
-        color: #7c3aed;
+        color: #0d9488 !important;
       }
 
       /* Dark mode custom dropdowns */
@@ -3670,26 +3720,31 @@
         color: #f1f5f9 !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
       }
+      [data-theme="dark"] .custom-dropdown-chevron {
+        color: #14b8a6 !important;
+        stroke: #14b8a6 !important;
+      }
       [data-theme="dark"] .custom-dropdown-label {
         color: #f1f5f9;
       }
       [data-theme="dark"] .custom-dropdown-menu {
         background: #1e293b !important;
+        border: 1px solid rgba(20, 184, 166, 0.3) !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
       }
       [data-theme="dark"] .custom-dropdown-option {
         color: #cbd5e1;
       }
       [data-theme="dark"] .custom-dropdown-option:hover {
-        background: rgba(139, 92, 246, 0.2);
-        color: #c4b5fd;
+        background: rgba(20, 184, 166, 0.2) !important;
+        color: #2dd4bf !important;
       }
       [data-theme="dark"] .custom-dropdown-option.selected {
-        background: rgba(139, 92, 246, 0.3);
-        color: #a78bfa;
+        background: rgba(20, 184, 166, 0.3) !important;
+        color: #2dd4bf !important;
       }
       [data-theme="dark"] .custom-dropdown-option.selected::after {
-        color: #a78bfa;
+        color: #2dd4bf !important;
       }
 
       /* ==========================================================================
@@ -3817,25 +3872,161 @@
         stroke: #ffffff !important;
       }
 
-      /* Danger / Reset / Delete Buttons */
+      /* Danger / Reset Buttons */
       #timetableApp #btnResetSchedule,
-      #timetableApp .btn-sidebar-reset,
-      #btnClassicDeleteEvt {
+      #timetableApp .btn-sidebar-reset {
         border-color: #ef4444 !important;
         color: #ef4444 !important;
       }
       #timetableApp #btnResetSchedule svg,
-      #timetableApp .btn-sidebar-reset svg,
-      #btnClassicDeleteEvt svg {
+      #timetableApp .btn-sidebar-reset svg {
         color: #ef4444 !important;
         stroke: #ef4444 !important;
       }
       #timetableApp #btnResetSchedule:hover,
-      #timetableApp .btn-sidebar-reset:hover,
-      #btnClassicDeleteEvt:hover {
+      #timetableApp .btn-sidebar-reset:hover {
         border-color: #dc2626 !important;
         color: #dc2626 !important;
         box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2) !important;
+      }
+
+      /* Activity Modal Buttons: Delete (Red bg + white icon), Cancel (Yellow bg + white icon & text), Save (Green bg + white icon) */
+      #btnClassicDeleteEvt,
+      #classicEventModal #btnClassicDeleteEvt {
+        background: #ef4444 !important;
+        background-color: #ef4444 !important;
+        border: 1.5px solid #dc2626 !important;
+        border-color: #dc2626 !important;
+        color: #ffffff !important;
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        padding: 0 !important;
+        border-radius: 8px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 2px 8px rgba(239, 68, 68, 0.28) !important;
+        cursor: pointer !important;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      #btnClassicDeleteEvt svg,
+      #classicEventModal #btnClassicDeleteEvt svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+      }
+      #btnClassicDeleteEvt:hover,
+      #classicEventModal #btnClassicDeleteEvt:hover {
+        background: #dc2626 !important;
+        background-color: #dc2626 !important;
+        border-color: #b91c1c !important;
+        color: #ffffff !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.45) !important;
+      }
+
+      #classicEventModal .tc-btn-modal-cancel {
+        background: #eab308 !important;
+        background-color: #eab308 !important;
+        border: 1.5px solid #ca8a04 !important;
+        border-color: #ca8a04 !important;
+        color: #ffffff !important;
+        height: 38px !important;
+        padding: 0 16px !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        font-size: 13px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        box-shadow: 0 2px 8px rgba(234, 179, 8, 0.28) !important;
+        cursor: pointer !important;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      #classicEventModal .tc-btn-modal-cancel svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+      }
+      #classicEventModal .tc-btn-modal-cancel span {
+        color: #ffffff !important;
+      }
+      #classicEventModal .tc-btn-modal-cancel:hover {
+        background: #ca8a04 !important;
+        background-color: #ca8a04 !important;
+        border-color: #a16207 !important;
+        color: #ffffff !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(234, 179, 8, 0.45) !important;
+      }
+
+      #classicEventModal .tc-btn-modal-save {
+        background: #0d9488 !important;
+        background-color: #0d9488 !important;
+        border: 1.5px solid #0d9488 !important;
+        border-color: #0d9488 !important;
+        color: #ffffff !important;
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        padding: 0 !important;
+        border-radius: 8px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3) !important;
+        cursor: pointer !important;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      #classicEventModal .tc-btn-modal-save svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+      }
+      #classicEventModal .tc-btn-modal-save:hover {
+        background: #0f766e !important;
+        background-color: #0f766e !important;
+        border-color: #0f766e !important;
+        color: #ffffff !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(13, 148, 136, 0.45) !important;
+      }
+
+      /* Dark mode overrides for Activity Modal Buttons */
+      [data-theme="dark"] #btnClassicDeleteEvt,
+      [data-theme="dark"] #classicEventModal #btnClassicDeleteEvt {
+        background: #ef4444 !important;
+        background-color: #ef4444 !important;
+        border-color: #dc2626 !important;
+        color: #ffffff !important;
+      }
+      [data-theme="dark"] #btnClassicDeleteEvt svg,
+      [data-theme="dark"] #classicEventModal #btnClassicDeleteEvt svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+      }
+      [data-theme="dark"] #classicEventModal .tc-btn-modal-cancel {
+        background: #eab308 !important;
+        background-color: #eab308 !important;
+        border-color: #ca8a04 !important;
+        color: #ffffff !important;
+      }
+      [data-theme="dark"] #classicEventModal .tc-btn-modal-cancel svg,
+      [data-theme="dark"] #classicEventModal .tc-btn-modal-cancel span {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+      }
+      [data-theme="dark"] #classicEventModal .tc-btn-modal-save {
+        background: #0d9488 !important;
+        background-color: #0d9488 !important;
+        border-color: #0d9488 !important;
+        color: #ffffff !important;
+      }
+      [data-theme="dark"] #classicEventModal .tc-btn-modal-save:hover {
+        background: #14b8a6 !important;
+        border-color: #14b8a6 !important;
+      }
+      [data-theme="dark"] #classicEventModal .tc-btn-modal-save svg {
+        color: #ffffff !important;
+        stroke: #ffffff !important;
       }
 
       /* Student Timetable Generator Content Buttons & FAQ Items */
@@ -4257,18 +4448,27 @@
         user-select: none;
       }
       .classic-day-chip:hover {
-        border-color: #10b981;
-        color: #10b981;
+        border-color: #0d9488 !important;
+        color: #0d9488 !important;
         background: var(--bg-card);
       }
       .classic-day-chip:active {
         transform: scale(0.95);
       }
       .classic-day-chip.active {
-        background: #10b981;
-        color: #ffffff;
-        border-color: #10b981;
-        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+        background: #0d9488 !important;
+        color: #ffffff !important;
+        border-color: #0d9488 !important;
+        box-shadow: 0 2px 8px rgba(13, 148, 136, 0.35) !important;
+      }
+      [data-theme="dark"] .classic-day-chip.active {
+        background: #0d9488 !important;
+        border-color: #0d9488 !important;
+        color: #ffffff !important;
+      }
+      [data-theme="dark"] .classic-day-chip:hover {
+        border-color: #14b8a6 !important;
+        color: #14b8a6 !important;
       }
 
       /* Quick Duration Preset Buttons in Modal */
@@ -5137,24 +5337,26 @@
         align-items: center;
         gap: 10px;
         min-width: 110px;
-        border: 1px solid transparent;
+        background: #0d9488 !important;
+        border: none !important;
         box-sizing: border-box;
       }
-      .tc-stat-card.stat-teal {
-        background: #f0fdfa;
-        border-color: #ccfbf1;
-      }
-      .tc-stat-card.stat-amber {
-        background: #fffbeb;
-        border-color: #fef3c7;
-      }
-      .tc-stat-card.stat-purple {
-        background: #faf5ff;
-        border-color: #f3e8ff;
-      }
+      .tc-stat-card.stat-teal,
+      .tc-stat-card.stat-amber,
+      .tc-stat-card.stat-purple,
       .tc-stat-card.stat-blue {
-        background: #eff6ff;
-        border-color: #dbeafe;
+        background: #0d9488 !important;
+        border: none !important;
+      }
+      .tc-stat-val {
+        color: #ffffff !important;
+      }
+      .tc-stat-label {
+        color: #ffffff !important;
+      }
+      .tc-stat-icon svg {
+        stroke: #ffffff !important;
+        color: #ffffff !important;
       }
       .tc-stat-icon {
         display: flex;
@@ -5284,8 +5486,9 @@
         display: flex;
         align-items: center;
         gap: 6px;
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
         border-radius: 24px;
         padding: 3px 6px;
         overflow-x: auto;
@@ -5676,6 +5879,64 @@
         font-weight: 500 !important;
       }
 
+      /* High-Resolution Schedule Export Styles */
+      .tc-export-header-banner {
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        background: #ffffff;
+        border-bottom: 2px solid #0d9488;
+        box-sizing: border-box;
+      }
+      .tc-export-title-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tc-export-title {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        margin: 0 !important;
+      }
+      .tc-export-subtitle {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 11.5px !important;
+        color: #64748b !important;
+        margin: 2px 0 0 0 !important;
+      }
+      .tc-export-meta-badge {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        color: #0d9488 !important;
+        background: #f0fdfa !important;
+        border: 1px solid #ccfbf1 !important;
+        padding: 5px 12px !important;
+        border-radius: 6px !important;
+      }
+      body.is-exporting-schedule .tc-export-header-banner {
+        display: flex !important;
+      }
+      body.is-exporting-schedule .excel-col-resizer,
+      body.is-exporting-schedule .excel-row-resizer,
+      body.is-exporting-schedule .classic-cell-add-icon,
+      body.is-exporting-schedule .classic-event-dots-btn,
+      body.is-exporting-schedule .tc-grid-footer,
+      body.is-exporting-schedule .classic-mobile-fab {
+        display: none !important;
+        visibility: hidden !important;
+      }
+      body.is-exporting-schedule .classic-event-item {
+        box-shadow: none !important;
+        transform: none !important;
+      }
+      body.is-exporting-schedule .classic-table-grid {
+        background: #ffffff !important;
+      }
+
       /* Dark Mode Adaptations */
       [data-theme="dark"] {
         --bg-app: #0f172a;
@@ -5911,6 +6172,272 @@
       [data-theme="dark"] .tc-grid-right-actions-card {
         background: #1e293b !important;
         border-color: #334155 !important;
+      }
+
+      /* Floating Info (i) Button & Tooltip for Grid Actions */
+      .tc-action-info-wrap {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        vertical-align: middle;
+      }
+      .tc-floating-info-btn {
+        position: absolute;
+        top: -6px;
+        right: -5px;
+        width: 15px;
+        height: 15px;
+        min-width: 15px;
+        min-height: 15px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 1.2px solid #0d9488;
+        color: #0d9488;
+        display: none !important; /* By default disabled & hidden */
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        z-index: 15;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+        outline: none;
+      }
+      body.tc-show-tooltips .tc-floating-info-btn {
+        display: inline-flex !important; /* Visible when tooltip toggle is enabled in Grid Setup */
+      }
+      .tc-floating-info-btn:hover {
+        background: #0d9488;
+        border-color: #0d9488;
+        color: #ffffff;
+        transform: scale(1.18);
+        box-shadow: 0 2px 6px rgba(13, 148, 136, 0.35);
+      }
+      .tc-floating-info-btn:active {
+        transform: scale(0.95);
+      }
+      .tc-floating-info-btn.active {
+        background: #0d9488;
+        border-color: #0d9488;
+        color: #ffffff;
+        box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.3);
+      }
+
+      /* Grid Setup Tooltip Toggle Switch */
+      .tc-cfg-toggle-wrap {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        height: 36px;
+        padding: 0 10px;
+        background: #ffffff !important;
+        border: 1.5px solid var(--border-color, #e2e8f0);
+        border-radius: 8px;
+        box-sizing: border-box;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+        user-select: none;
+      }
+      .tc-cfg-toggle-wrap:hover {
+        border-color: #0d9488;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+      }
+      .tc-cfg-toggle-wrap input {
+        display: none;
+      }
+      .tc-cfg-toggle-wrap input:checked + .tc-toggle-switch {
+        background: #0d9488;
+      }
+      .tc-cfg-toggle-wrap input:checked + .tc-toggle-switch::after {
+        transform: translateX(16px);
+      }
+      [data-theme="dark"] .tc-cfg-toggle-wrap {
+        background: #1e293b !important;
+        border-color: #334155 !important;
+      }
+      [data-theme="dark"] .tc-cfg-toggle-wrap .tc-toggle-text {
+        color: #f1f5f9;
+      }
+      [data-theme="dark"] .tc-floating-info-btn {
+        background: #1e293b;
+        border-color: #14b8a6;
+        color: #2dd4bf;
+      }
+      [data-theme="dark"] .tc-floating-info-btn:hover,
+      [data-theme="dark"] .tc-floating-info-btn.active {
+        background: #0d9488;
+        border-color: #0d9488;
+        color: #ffffff;
+      }
+      .tc-floating-info-btn-white {
+        background: #ffffff !important;
+        border-color: #0d9488 !important;
+        color: #0d9488 !important;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.2) !important;
+      }
+      .tc-floating-info-btn-white:hover {
+        background: #0f766e !important;
+        border-color: #0f766e !important;
+        color: #ffffff !important;
+      }
+      [data-theme="dark"] .tc-floating-info-btn-white {
+        background: #0f172a !important;
+        border-color: #2dd4bf !important;
+        color: #2dd4bf !important;
+      }
+      [data-theme="dark"] .tc-floating-info-btn-white:hover {
+        background: #0d9488 !important;
+        border-color: #0d9488 !important;
+        color: #ffffff !important;
+      }
+
+      /* Tooltip Popover */
+      .tc-action-tooltip-popover {
+        position: absolute;
+        top: calc(100% + 8px);
+        min-width: 240px;
+        max-width: 280px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 12px 14px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+        z-index: 1050;
+        display: none;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity 0.18s ease, transform 0.18s ease;
+        pointer-events: none;
+        text-align: left;
+      }
+      .tc-action-tooltip-popover.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      [data-theme="dark"] .tc-action-tooltip-popover {
+        background: #1e293b;
+        border-color: #334155;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      }
+      #info_popover_compactView {
+        left: 0;
+        right: auto;
+      }
+      #info_popover_verticalScroll {
+        left: 0;
+        right: auto;
+      }
+      #info_popover_resizeGrid {
+        right: 0;
+        left: auto;
+      }
+      #info_popover_resetSize {
+        right: 0;
+        left: auto;
+      }
+      .tc-tooltip-arrow {
+        position: absolute;
+        top: -6px;
+        width: 10px;
+        height: 10px;
+        background: #ffffff;
+        border-left: 1px solid #e2e8f0;
+        border-top: 1px solid #e2e8f0;
+        transform: rotate(45deg);
+        border-top-left-radius: 2px;
+      }
+      [data-theme="dark"] .tc-tooltip-arrow {
+        background: #1e293b;
+        border-color: #334155;
+      }
+      #info_popover_compactView .tc-tooltip-arrow,
+      #info_popover_verticalScroll .tc-tooltip-arrow {
+        left: 20px;
+      }
+      #info_popover_resizeGrid .tc-tooltip-arrow,
+      #info_popover_resetSize .tc-tooltip-arrow {
+        right: 20px;
+      }
+      .tc-tooltip-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 6px;
+        gap: 8px;
+      }
+      .tc-tooltip-title-wrap {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: #0f172a;
+      }
+      [data-theme="dark"] .tc-tooltip-title-wrap {
+        color: #f1f5f9;
+      }
+      .tc-tooltip-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #0d9488;
+      }
+      [data-theme="dark"] .tc-tooltip-icon {
+        color: #2dd4bf;
+      }
+      .tc-tooltip-close {
+        background: transparent;
+        border: none;
+        color: #94a3b8;
+        font-size: 16px;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0 4px;
+        border-radius: 4px;
+        transition: color 0.15s ease;
+      }
+      .tc-tooltip-close:hover {
+        color: #ef4444;
+      }
+      .tc-tooltip-desc {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        line-height: 1.45;
+        color: #475569;
+        margin-bottom: 8px;
+      }
+      [data-theme="dark"] .tc-tooltip-desc {
+        color: #cbd5e1;
+      }
+      .tc-tooltip-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #0d9488;
+        background: rgba(13, 148, 136, 0.08);
+        border-radius: 6px;
+        padding: 3px 8px;
+      }
+      [data-theme="dark"] .tc-tooltip-badge {
+        background: rgba(13, 148, 136, 0.2);
+        color: #2dd4bf;
+      }
+      .tc-tooltip-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #0d9488;
+      }
+      [data-theme="dark"] .tc-tooltip-dot {
+        background: #2dd4bf;
       }
       .tc-grid-top-right-group {
         display: flex;
@@ -6532,6 +7059,26 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -6739,9 +7286,9 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
               <span>Export</span>
             </button>
-            <button class="tc-sidebar-item" onclick="app.handlers.sidebarAction('settings')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
-              <span>Settings</span>
+            <button class="tc-sidebar-item" onclick="app.handlers.sidebarAction('share')" title="Share Timetable Schedule">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+              <span>Share</span>
             </button>
           </nav>
 
@@ -6834,7 +7381,7 @@
             <div class="tc-schedule-header-bottom">
               <div class="tc-cta-group">
                 <!-- + Add Activity Button (split dropdown) -->
-                <button class="tc-btn-teal-primary" onclick="app.handlers.openClassicAddModal()" data-shortcut-tip="Alt + A" data-shortcut-name="Add Activity" aria-label="Add Activity">
+                <button class="tc-btn-teal-primary" onclick="app.handlers.openClassicAddModal(null, null, event)" data-shortcut-tip="Alt + A" data-shortcut-name="Add Activity" aria-label="Add Activity">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                   <span>Add Activity</span>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -6897,11 +7444,11 @@
           <div class="tc-card tc-toolbar-card">
             <div class="tc-toolbar-left">
               <!-- Undo / Redo -->
-              <button class="tc-tool-btn" onclick="app.handlers.undo()" id="btnClassicUndo" data-shortcut-tip="Ctrl + Z" data-shortcut-name="Undo" title="Undo (Ctrl+Z)" aria-label="Undo" style="background: transparent !important; border: none !important; padding: 6px !important; color: #000000 !important; box-shadow: none !important;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+              <button onclick="app.handlers.undo()" id="btnClassicUndo" data-shortcut-tip="Ctrl + Z" data-shortcut-name="Undo" title="Undo (Ctrl+Z)" aria-label="Undo" style="background: transparent !important; border: none !important; padding: 6px !important; color: #0d9488 !important; box-shadow: none !important; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5" style="color: #0d9488 !important; stroke: #0d9488 !important;"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
               </button>
-              <button class="tc-tool-btn" onclick="app.handlers.redo()" id="btnClassicRedo" data-shortcut-tip="Ctrl + Y" data-shortcut-name="Redo" title="Redo (Ctrl+Y)" aria-label="Redo" style="background: transparent !important; border: none !important; padding: 6px !important; color: #000000 !important; box-shadow: none !important;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
+              <button onclick="app.handlers.redo()" id="btnClassicRedo" data-shortcut-tip="Ctrl + Y" data-shortcut-name="Redo" title="Redo (Ctrl+Y)" aria-label="Redo" style="background: transparent !important; border: none !important; padding: 6px !important; color: #0d9488 !important; box-shadow: none !important; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5" style="color: #0d9488 !important; stroke: #0d9488 !important;"><path d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"></path></svg>
               </button>
 
               <!-- Grid Setup button -->
@@ -6913,26 +7460,25 @@
 
             <!-- Export & Share Buttons in Toolbar -->
             <div class="tc-toolbar-right" style="display: flex; align-items: center; gap: 8px;">
-              <!-- Import Button -->
-              <button type="button" class="tc-btn-share" onclick="app.handlers.triggerImport()" data-shortcut-tip="Alt + O" data-shortcut-name="Import" title="Import Timetable JSON" aria-label="Import Timetable">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" style="color: #ffffff !important; stroke: #ffffff !important;">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span>Import</span>
-              </button>
-
-              <!-- Share Button -->
-              <button type="button" class="tc-btn-share" onclick="app.handlers.shareSchedule()" data-shortcut-tip="Alt + S" data-shortcut-name="Share" title="Share Timetable Schedule" aria-label="Share Timetable">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" style="color: #ffffff !important; stroke: #ffffff !important;">
+              <!-- Share Button (Icon only, green color) -->
+              <button type="button" onclick="app.handlers.shareSchedule()" data-shortcut-tip="Alt + S" data-shortcut-name="Share" title="Share Timetable Schedule" aria-label="Share Timetable" style="background: transparent !important; border: none !important; padding: 6px !important; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: none !important;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5" style="color: #0d9488 !important; stroke: #0d9488 !important;">
                   <circle cx="18" cy="5" r="3"></circle>
                   <circle cx="6" cy="12" r="3"></circle>
                   <circle cx="18" cy="19" r="3"></circle>
                   <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                   <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                 </svg>
-                <span>Share</span>
+              </button>
+
+              <!-- Import Button (before Export button with inverted icon) -->
+              <button type="button" class="tc-btn-share" onclick="app.handlers.triggerImport()" data-shortcut-tip="Alt + O" data-shortcut-name="Import" title="Import Timetable JSON" aria-label="Import Timetable">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" style="color: #ffffff !important; stroke: #ffffff !important; transform: rotate(180deg);">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <span>Import</span>
               </button>
 
               <div class="custom-dropdown-wrap tc-export-wrap" id="wrap_exportMenu">
@@ -6965,6 +7511,23 @@
 
           <!-- Collapsible Grid Configuration Controls Bar -->
           <div class="classic-config-bar" id="classicConfigBar" style="display: none;">
+            <!-- Days of Week -->
+            <div class="classic-cfg-item">
+              <span class="classic-cfg-label">Days of Week:</span>
+              <div class="custom-dropdown-wrap" id="wrap_classicConfigDays">
+                <input type="hidden" id="classicConfigDays" value="7">
+                <button type="button" class="custom-dropdown-trigger" onclick="app.handlers.toggleCustomDropdown('wrap_classicConfigDays', event)" aria-label="Select Days Count">
+                  <span class="custom-dropdown-label">Full Week (Mon - Sun)</span>
+                  <svg class="custom-dropdown-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="custom-dropdown-menu">
+                  <div class="custom-dropdown-option" data-value="5" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '5', 'Weekdays (Mon - Fri)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Weekdays (Mon - Fri)</div>
+                  <div class="custom-dropdown-option" data-value="6" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '6', '6 Days (Mon - Sat)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">6 Days (Mon - Sat)</div>
+                  <div class="custom-dropdown-option selected" data-value="7" onclick="app.handlers.onSelectCustomDropdown('classicConfigDays', '7', 'Full Week (Mon - Sun)', 'wrap_classicConfigDays', function(){ app.handlers.classicConfigChange(); })">Full Week (Mon - Sun)</div>
+                </div>
+              </div>
+            </div>
+
             <!-- Start Time -->
             <div class="classic-cfg-item">
               <span class="classic-cfg-label">Start Time:</span>
@@ -7068,6 +7631,16 @@
               </div>
             </div>
 
+            <!-- Action Tooltips Toggle (Disabled by default) -->
+            <div class="classic-cfg-item" id="itemGridTooltipsToggle">
+              <span class="classic-cfg-label">Action Tooltips:</span>
+              <label class="tc-cfg-toggle-wrap" title="Show or hide interactive (i) tooltip buttons on timetable controls">
+                <input type="checkbox" id="toggleGridTooltipsCheckbox" onchange="app.handlers.toggleTooltipsVisibility(this)">
+                <span class="tc-toggle-switch"></span>
+                <span class="tc-toggle-text" id="toggleGridTooltipsLabel">Tooltips: Off</span>
+              </label>
+            </div>
+
           </div>
 
           <!-- Timetable Controls Bar (Day Filter Pills & Separate White Container for Reset/Resize) -->
@@ -7087,15 +7660,124 @@
             <!-- Top Right Corner of Timetable: White Container Boxes -->
             <div class="tc-grid-top-right-group">
               <div class="tc-grid-right-actions-card">
-                <label class="tc-toggle-wrap" title="Toggle column & row dragging lines">
-                  <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)">
-                  <span class="tc-toggle-switch"></span>
-                  <span class="tc-toggle-text">Resize Grid</span>
-                </label>
-                <button class="tc-tool-btn" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" title="Reset Grid Size">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-                  <span>Reset Size</span>
-                </button>
+                <!-- 1. Compact View with floating info button & tooltip -->
+                <div class="tc-action-info-wrap" id="wrap_infoCompactView">
+                  <label class="tc-toggle-wrap" title="Enable or disable compact view (adjusts card height & width to fit content without cropping)">
+                    <input type="checkbox" id="toggleCompactViewCheckbox" onchange="app.handlers.toggleCompactView(this)">
+                    <span class="tc-toggle-switch"></span>
+                    <span class="tc-toggle-text">Compact View</span>
+                  </label>
+                  <button type="button" class="tc-floating-info-btn" onclick="app.handlers.toggleActionTooltip(event, 'info_popover_compactView')" aria-label="Compact View Information" title="About Compact View">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  </button>
+                  <div class="tc-action-tooltip-popover" id="info_popover_compactView">
+                    <div class="tc-tooltip-arrow"></div>
+                    <div class="tc-tooltip-header">
+                      <div class="tc-tooltip-title-wrap">
+                        <span class="tc-tooltip-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 14h6m0 0v6m0-6L3 21m17-7h-6m0 0v6m0-6l7 7M4 10h6m0 0V4m0 6L3 3m17 7h-6m0 0V4m0 6l7-7"/></svg>
+                        </span>
+                        <span>Compact View</span>
+                      </div>
+                      <button type="button" class="tc-tooltip-close" onclick="app.handlers.closeActionTooltips(event)">×</button>
+                    </div>
+                    <div class="tc-tooltip-desc">
+                      Automatically adjusts activity card heights and widths according to their content so every activity card is fully viewable without any cropping or text clipping.
+                    </div>
+                    <div class="tc-tooltip-badge">
+                      <span class="tc-tooltip-dot"></span> Default: Disabled
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Vertical Scroll with floating info button & tooltip -->
+                <div class="tc-action-info-wrap" id="wrap_infoVerticalScroll">
+                  <label class="tc-toggle-wrap" title="Enable or disable vertical scrolling (expand all rows)">
+                    <input type="checkbox" id="toggleVerticalScrollCheckbox" checked onchange="app.handlers.toggleVerticalScroll(this)">
+                    <span class="tc-toggle-switch"></span>
+                    <span class="tc-toggle-text">Vertical Scroll</span>
+                  </label>
+                  <button type="button" class="tc-floating-info-btn" onclick="app.handlers.toggleActionTooltip(event, 'info_popover_verticalScroll')" aria-label="Vertical Scroll Information" title="About Vertical Scroll">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  </button>
+                  <div class="tc-action-tooltip-popover" id="info_popover_verticalScroll">
+                    <div class="tc-tooltip-arrow"></div>
+                    <div class="tc-tooltip-header">
+                      <div class="tc-tooltip-title-wrap">
+                        <span class="tc-tooltip-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3l4-4 4 4M8 21l4 4 4-4M12 2v20"/></svg>
+                        </span>
+                        <span>Vertical Scroll</span>
+                      </div>
+                      <button type="button" class="tc-tooltip-close" onclick="app.handlers.closeActionTooltips(event)">×</button>
+                    </div>
+                    <div class="tc-tooltip-desc">
+                      Expands all timetable time-slot rows so you can scroll smoothly through your complete day's schedule from morning to night.
+                    </div>
+                    <div class="tc-tooltip-badge">
+                      <span class="tc-tooltip-dot"></span> Default: Enabled
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. Resize Grid with floating info button & tooltip -->
+                <div class="tc-action-info-wrap" id="wrap_infoResizeGrid">
+                  <label class="tc-toggle-wrap" title="Toggle column & row dragging lines">
+                    <input type="checkbox" id="toggleResizersCheckbox1" checked onchange="app.handlers.toggleResizers(this)">
+                    <span class="tc-toggle-switch"></span>
+                    <span class="tc-toggle-text">Resize Grid</span>
+                  </label>
+                  <button type="button" class="tc-floating-info-btn" onclick="app.handlers.toggleActionTooltip(event, 'info_popover_resizeGrid')" aria-label="Resize Grid Information" title="About Resize Grid">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  </button>
+                  <div class="tc-action-tooltip-popover" id="info_popover_resizeGrid">
+                    <div class="tc-tooltip-arrow"></div>
+                    <div class="tc-tooltip-header">
+                      <div class="tc-tooltip-title-wrap">
+                        <span class="tc-tooltip-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </span>
+                        <span>Resize Grid</span>
+                      </div>
+                      <button type="button" class="tc-tooltip-close" onclick="app.handlers.closeActionTooltips(event)">×</button>
+                    </div>
+                    <div class="tc-tooltip-desc">
+                      Enables interactive drag handles on timetable borders. Drag column headers sideways or row borders up and down to customize widths and heights.
+                    </div>
+                    <div class="tc-tooltip-badge">
+                      <span class="tc-tooltip-dot"></span> Default: Enabled
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 4. Reset Grid Size with floating info button & tooltip -->
+                <div class="tc-action-info-wrap" id="wrap_infoResetSize">
+                  <button class="tc-tool-btn" onclick="app.handlers.resetGridSize()" data-shortcut-tip="Alt + 0" data-shortcut-name="Reset Zoom" title="Reset Grid Size">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    <span>Reset Size</span>
+                  </button>
+                  <button type="button" class="tc-floating-info-btn tc-floating-info-btn-white" onclick="app.handlers.toggleActionTooltip(event, 'info_popover_resetSize')" aria-label="Reset Size Information" title="About Reset Size">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  </button>
+                  <div class="tc-action-tooltip-popover" id="info_popover_resetSize">
+                    <div class="tc-tooltip-arrow"></div>
+                    <div class="tc-tooltip-header">
+                      <div class="tc-tooltip-title-wrap">
+                        <span class="tc-tooltip-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                        </span>
+                        <span>Reset Size</span>
+                      </div>
+                      <button type="button" class="tc-tooltip-close" onclick="app.handlers.closeActionTooltips(event)">×</button>
+                    </div>
+                    <div class="tc-tooltip-desc">
+                      Instantly restores all customized row heights, column widths, and zoom scaling back to their original default dimensions.
+                    </div>
+                    <div class="tc-tooltip-badge">
+                      <span class="tc-tooltip-dot"></span> Shortcut: Alt + 0
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <!-- Dedicated Red Box for Clear All Button at Top Right Corner of Timetable -->
@@ -7109,7 +7791,25 @@
           </div>
 
           <!-- 3. Interactive Timetable Grid Card -->
-          <div class="tc-card tc-grid-card">
+          <div class="tc-card tc-grid-card" id="classicGridCard">
+            <!-- Dedicated Export / Print Header Banner (Shown during PNG / PDF export) -->
+            <div class="tc-export-header-banner" id="tcExportHeaderBanner">
+              <div class="tc-export-header-left">
+                <div class="tc-export-title-row">
+                  <div class="tc-export-logo-badge">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </div>
+                  <h2 class="tc-export-title" id="tcExportTitle">Weekly Timetable Schedule</h2>
+                </div>
+                <p class="tc-export-subtitle" id="tcExportSubtitle">Generated via Timetable Creator</p>
+              </div>
+              <div class="tc-export-header-right">
+                <div class="tc-export-meta-badge" id="tcExportMetaBadge">
+                  <span id="tcExportDaysCount">7 Days</span> • <span id="tcExportTimeSpan">08:00 - 19:00</span>
+                </div>
+              </div>
+            </div>
+
             <div class="classic-grid-scroll-wrapper" id="classicGridScrollWrapper" tabindex="0" role="region" aria-label="Interactive Timetable Grid">
               <table class="classic-table-grid" id="classicTableGrid">
                 <!-- Dynamically populated table structure -->
@@ -8101,11 +8801,48 @@
             <textarea id="classicEvtNotes" class="input-ctrl" rows="2" style="resize: none;" placeholder="Optional notes, materials, classroom link..."></textarea>
           </div>
 
+          <!-- Custom Fields Section -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <!-- Saved Custom Fields displayed properly after Extra Notes -->
+            <div id="classicSavedCustomFieldsList" style="display: flex; flex-direction: column; gap: 8px;">
+              <!-- Dynamic saved custom field cards -->
+            </div>
+
+            <!-- New Custom Field Creator Form (opened when + Add Field is clicked) -->
+            <div id="classicNewFieldBox" style="display: none; background: var(--bg-panel, #f8fafc); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; padding: 12px; margin-top: 4px; margin-bottom: 8px;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                <div>
+                  <label for="classicNewCfName" style="font-size: 11.5px; font-weight: 600; color: var(--text-muted); margin-bottom: 4px; display: block;">Field Name *</label>
+                  <input type="text" id="classicNewCfName" class="input-ctrl" placeholder="e.g. Textbook, Credits" style="width: 100%; height: 36px; font-size: 13px;">
+                </div>
+                <div>
+                  <label for="classicNewCfValue" style="font-size: 11.5px; font-weight: 600; color: var(--text-muted); margin-bottom: 4px; display: block;">Field Value</label>
+                  <input type="text" id="classicNewCfValue" class="input-ctrl" placeholder="e.g. Chapter 4, 3" style="width: 100%; height: 36px; font-size: 13px;">
+                </div>
+              </div>
+              <div style="display: flex; justify-content: flex-end; align-items: center; gap: 8px;">
+                <button type="button" class="btn-ctrl" onclick="app.handlers.cancelNewCustomField()" style="height: 30px; padding: 0 12px; font-size: 12px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-muted);">Cancel</button>
+                <button type="button" class="btn-ctrl" onclick="app.handlers.saveNewCustomField()" style="height: 30px; padding: 0 14px; font-size: 12px; background: #0d9488; border: 1px solid #0d9488; color: #ffffff; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Save</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Add Field button: NO background, NO border, NO header text -->
+            <div style="display: flex; justify-content: flex-start; align-items: center; margin-top: 4px;">
+              <button type="button" id="btnClassicAddNewField" onclick="app.handlers.showNewCustomFieldForm()" style="padding: 2px 0; font-size: 12.5px; border: none !important; color: #0d9488 !important; background: transparent !important; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; outline: none; box-shadow: none !important;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <span>+ Add Field</span>
+              </button>
+            </div>
+          </div>
+
           <!-- Color Assignment Palette -->
           <div class="form-group" style="margin-bottom: 0;">
             <label style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;">
               <span>Activity Color Swatch</span>
-              <span id="classicColorHexLabel" style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">#10b981</span>
+              <span id="classicColorHexLabel" style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">#0d9488</span>
             </label>
             <div class="color-grid" id="classicColorGrid" style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px;">
               <!-- Populated live with signature colors -->
@@ -8114,16 +8851,21 @@
 
         </div>
 
-        <div class="modal-footer" style="background: var(--bg-panel); border-top: 1px solid var(--border-color); padding: 14px 20px; display: flex; align-items: center; justify-content: flex-end; gap: 8px;">
-          <button id="btnClassicDeleteEvt" class="btn-ctrl" style="color: #ef4444; border-color: #ef4444; display: none; margin-right: auto;" onclick="app.handlers.deleteClassicEventFromModal()">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-            Delete
-          </button>
-          <button class="btn-ctrl" onclick="app.handlers.closeClassicEventModal()">Cancel</button>
-          <button class="btn-ctrl btn-primary" style="background-color: #ffffff !important; border: 1.5px solid #10b981 !important; color: #10b981 !important; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);" onclick="app.handlers.saveClassicEventFromModal()">
-            <svg fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Save Activity</span>
-          </button>
+        <div class="modal-footer" style="background: var(--bg-panel); border-top: 1px solid var(--border-color); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <button type="button" id="btnClassicDeleteEvt" class="btn-ctrl" style="display: none;" title="Delete Activity" aria-label="Delete Activity" onclick="app.handlers.deleteClassicEventFromModal()">
+              <svg fill="none" stroke="#ffffff" stroke-width="2.2" viewBox="0 0 24 24" width="16" height="16"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            </button>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <button type="button" class="btn-ctrl tc-btn-modal-cancel" onclick="app.handlers.closeClassicEventModal()" title="Cancel" aria-label="Cancel">
+              <svg fill="none" stroke="#ffffff" stroke-width="2.2" viewBox="0 0 24 24" width="15" height="15"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+              <span>Cancel</span>
+            </button>
+            <button type="button" class="btn-ctrl tc-btn-modal-save" title="Save Activity" aria-label="Save" onclick="app.handlers.saveClassicEventFromModal()">
+              <svg fill="none" stroke="#ffffff" stroke-width="2.5" viewBox="0 0 24 24" width="18" height="18"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -8997,6 +9739,19 @@
           this.applyGeneralStyles();
           this.handlers.switchViewMode(this.state.viewMode, false);
           this.render();
+
+          // Initialize Action Tooltips toggle state (disabled by default)
+          const tooltipsCheckbox = document.getElementById('toggleGridTooltipsCheckbox');
+          const tooltipsLabel = document.getElementById('toggleGridTooltipsLabel');
+          const tooltipsSaved = localStorage.getItem('tc_show_action_tooltips');
+          const tooltipsEnabled = tooltipsSaved === 'true'; // false by default
+          if (tooltipsCheckbox) tooltipsCheckbox.checked = tooltipsEnabled;
+          if (tooltipsLabel) tooltipsLabel.textContent = tooltipsEnabled ? 'Tooltips: On' : 'Tooltips: Off';
+          if (tooltipsEnabled) {
+            document.body.classList.add('tc-show-tooltips');
+          } else {
+            document.body.classList.remove('tc-show-tooltips');
+          }
 
           // Check if opening a shared link query ?share=ID or ?data=BASE64
           const params = new URLSearchParams(window.location.search);
@@ -9918,7 +10673,7 @@
                 if (!isFiltered && this.state.classicColWidths && this.state.classicColWidths[d]) {
                   cellWidthStyle = `style="width:${this.state.classicColWidths[d]}px;min-width:${this.state.classicColWidths[d]}px;"`;
                 }
-                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" ${cellWidthStyle} onclick="app.handlers.openClassicAddModal(${d}, ${slotMin})" oncontextmenu="app.handlers.showEmptyCellContext(event, ${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
+                html += `<td class="classic-td-cell" data-day="${d}" data-time="${slotMin}" ${cellWidthStyle} onclick="app.handlers.openClassicAddModal(${d}, ${slotMin}, event)" oncontextmenu="app.handlers.showEmptyCellContext(event, ${d}, ${slotMin})" title="Add activity on ${dayNames[d]} at ${timeLabel}">
                   <svg class="classic-cell-add-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"></path></svg>
                   <div class="excel-col-resizer" onpointerdown="app.startExcelColResize(event, ${d}, 'classic')" title="Hold & drag column line to resize"></div>
                 </td>`;
@@ -9955,7 +10710,7 @@
 
               eventCard.onclick = (e) => {
                 e.stopPropagation();
-                app.handlers.openClassicEditModal(evt);
+                app.handlers.openClassicEditModal(evt, e);
               };
 
               eventCard.oncontextmenu = (e) => {
@@ -9964,6 +10719,15 @@
 
               const timeBadge = `${this.formatMinute(evt.startTime)} - ${this.formatMinute(evt.endTime)}`;
               const catIcon = this.getSubjectCategoryIcon(evt.category, evt.title);
+
+              let customFieldsHtml = '';
+              if (evt.customFields && Array.isArray(evt.customFields) && evt.customFields.length > 0) {
+                customFieldsHtml = '<div style="display: flex; gap: 4px; flex-wrap: wrap; margin-top: 3px;">';
+                evt.customFields.forEach(cf => {
+                  customFieldsHtml += `<span style="font-size: 9px; background: rgba(255,255,255,0.25); padding: 1px 4px; border-radius: 4px; font-weight: 600;">${this.escapeHtml(cf.name)}: ${this.escapeHtml(cf.value)}</span>`;
+                });
+                customFieldsHtml += '</div>';
+              }
 
               eventCard.innerHTML = `
                 <div class="classic-event-top-line">
@@ -9979,6 +10743,7 @@
                   ${evt.teacher ? `<span class="classic-event-line"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>${this.escapeHtml(evt.teacher)}</span>` : ''}
                   ${evt.room ? `<span class="classic-event-line"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>${this.escapeHtml(evt.room)}</span>` : ''}
                   <span class="classic-event-line classic-event-time-line"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${timeBadge}</span>
+                  ${customFieldsHtml}
                 </div>
               `;
 
@@ -10347,7 +11112,7 @@
         ],
 
         colorsListClassic: [
-          '#10b981', '#06b6d4', '#3b82f6', '#6366f1',
+          '#0d9488', '#06b6d4', '#3b82f6', '#6366f1',
           '#8b5cf6', '#d946ef', '#ec4899', '#f43f5e',
           '#f97316', '#eab308', '#84cc16', '#475569',
           '#14b8a6', '#0284c7', '#7c3aed', '#db2777'
@@ -10534,22 +11299,48 @@
          * Events data models mutations handlers
          */
         updateEventFields(id, updates) {
-          this.state.events = this.state.events.map(evt => {
-            if (evt.id === id) {
+          if (!id) return;
+          const idStr = String(id);
+          this.state.events = (this.state.events || []).map(evt => {
+            if (String(evt.id) === idStr) {
               return { ...evt, ...updates };
             }
             return evt;
           });
+          if (Array.isArray(this.state.classicEvents)) {
+            this.state.classicEvents = this.state.classicEvents.map(evt => {
+              if (String(evt.id) === idStr) {
+                return { ...evt, ...updates };
+              }
+              return evt;
+            });
+          }
+          if (Array.isArray(this.state.proEvents)) {
+            this.state.proEvents = this.state.proEvents.map(evt => {
+              if (String(evt.id) === idStr) {
+                return { ...evt, ...updates };
+              }
+              return evt;
+            });
+          }
           if (this.state.config.autoSave) this.saveState();
           this.render();
         },
 
         deleteEvent(id) {
+          if (!id) return;
           this.pushHistory();
-          this.state.events = this.state.events.filter(evt => evt.id !== id);
+          const idStr = String(id);
+          this.state.events = (this.state.events || []).filter(evt => String(evt.id) !== idStr);
+          if (Array.isArray(this.state.classicEvents)) {
+            this.state.classicEvents = this.state.classicEvents.filter(evt => String(evt.id) !== idStr);
+          }
+          if (Array.isArray(this.state.proEvents)) {
+            this.state.proEvents = this.state.proEvents.filter(evt => String(evt.id) !== idStr);
+          }
           if (this.state.config.autoSave) this.saveState();
           this.render();
-          this.showToast('Event removed', 'warning');
+          this.showToast('Activity removed from timetable', 'info');
         },
 
         copyEvent(id) {
@@ -11692,6 +12483,8 @@
               app.handlers.toggleClassicConfig();
             } else if (action === 'export') {
               app.handlers.toggleCustomDropdown('wrap_exportMenu', window.event);
+            } else if (action === 'share') {
+              app.handlers.shareSchedule();
             } else if (action === 'settings') {
               app.handlers.toggleClassicConfig();
             }
@@ -11710,9 +12503,382 @@
             }
           },
 
+          toggleActionTooltip(event, popoverId) {
+            if (event) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            const popover = document.getElementById(popoverId);
+            if (!popover) return;
+            const isAlreadyActive = popover.classList.contains('active');
+            this.closeActionTooltips();
+            if (!isAlreadyActive) {
+              popover.classList.add('active');
+              const btn = event && (event.currentTarget || event.target.closest('.tc-floating-info-btn'));
+              if (btn) btn.classList.add('active');
+
+              // Responsive check to avoid horizontal overflow on edge screens
+              requestAnimationFrame(() => {
+                const rect = popover.getBoundingClientRect();
+                if (rect.right > window.innerWidth - 12) {
+                  popover.style.right = '0px';
+                  popover.style.left = 'auto';
+                } else if (rect.left < 12) {
+                  popover.style.left = '0px';
+                  popover.style.right = 'auto';
+                }
+              });
+            }
+          },
+
+          closeActionTooltips(event) {
+            if (event) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            document.querySelectorAll('.tc-action-tooltip-popover.active').forEach(p => {
+              p.classList.remove('active');
+              p.style.left = '';
+              p.style.right = '';
+            });
+            document.querySelectorAll('.tc-floating-info-btn.active').forEach(b => b.classList.remove('active'));
+          },
+
+          toggleTooltipsVisibility(checkbox) {
+            const isEnabled = checkbox ? checkbox.checked : document.body.classList.contains('tc-show-tooltips');
+            if (isEnabled) {
+              document.body.classList.add('tc-show-tooltips');
+            } else {
+              document.body.classList.remove('tc-show-tooltips');
+              this.closeActionTooltips();
+            }
+            if (app.state && app.state.config) {
+              app.state.config.showTooltips = isEnabled;
+            }
+            try {
+              localStorage.setItem('tc_show_action_tooltips', isEnabled ? 'true' : 'false');
+            } catch (e) {}
+            
+            const label = document.getElementById('toggleGridTooltipsLabel');
+            if (label) {
+              label.textContent = isEnabled ? 'Tooltips: On' : 'Tooltips: Off';
+            }
+            
+            app.showToast(isEnabled ? 'Action tooltips enabled' : 'Action tooltips hidden', 'info');
+          },
+
+          toggleCompactView(checkbox) {
+            const isEnabled = checkbox.checked;
+            app.state.config.compactView = isEnabled;
+            if (isEnabled) {
+              document.documentElement.style.setProperty('--classic-cell-h', '34px');
+              app.state.classicCellH = 34;
+            } else {
+              document.documentElement.style.setProperty('--classic-cell-h', '48px');
+              app.state.classicCellH = 48;
+            }
+            if (app.state.config.autoSave) app.saveState();
+            app.render();
+            app.showToast(isEnabled ? 'Compact View enabled' : 'Compact View disabled', 'info');
+          },
+
+          // CUSTOM FIELDS MANAGEMENT
+          // ==========================================
+          showNewCustomFieldForm() {
+            const box = document.getElementById('classicNewFieldBox');
+            if (box) {
+              box.style.display = 'block';
+              const nameInp = document.getElementById('classicNewCfName');
+              if (nameInp) {
+                nameInp.value = '';
+                nameInp.focus();
+              }
+              const valInp = document.getElementById('classicNewCfValue');
+              if (valInp) valInp.value = '';
+            }
+          },
+
+          hideNewCustomFieldForm() {
+            const box = document.getElementById('classicNewFieldBox');
+            if (box) box.style.display = 'none';
+          },
+
+          cancelNewCustomField() {
+            this.hideNewCustomFieldForm();
+          },
+
+          saveNewCustomField() {
+            const nameInp = document.getElementById('classicNewCfName');
+            const valInp = document.getElementById('classicNewCfValue');
+            const name = nameInp ? nameInp.value.trim() : '';
+            const value = valInp ? valInp.value.trim() : '';
+
+            if (!name) {
+              app.showToast('Please enter a field name!', 'error');
+              if (nameInp) nameInp.focus();
+              return;
+            }
+
+            if (!Array.isArray(app.state.currentModalCustomFields)) {
+              app.state.currentModalCustomFields = [];
+            }
+
+            const fieldId = 'cf_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4);
+            app.state.currentModalCustomFields.push({ id: fieldId, name, value });
+
+            this.hideNewCustomFieldForm();
+            this.renderCustomFieldsList();
+            app.showToast(`Custom field "${name}" saved!`, 'success');
+          },
+
+          renderCustomFieldsList() {
+            const container = document.getElementById('classicSavedCustomFieldsList');
+            if (!container) return;
+
+            const fields = Array.isArray(app.state.currentModalCustomFields) ? app.state.currentModalCustomFields : [];
+            if (fields.length === 0) {
+              container.innerHTML = '';
+              return;
+            }
+
+            let html = '';
+            fields.forEach(cf => {
+              html += `
+                <div class="saved-cf-card" id="cf_card_${cf.id}" style="border: 1px solid var(--border-color, #e2e8f0); background: var(--bg-panel, #f8fafc); border-radius: 8px; padding: 8px 12px; margin-bottom: 2px;">
+                  <div class="cf-view-mode" id="cf_view_${cf.id}" style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="flex: 1; min-width: 0; padding-right: 8px;">
+                      <div style="font-size: 11px; font-weight: 700; color: #0d9488; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">${app.escapeHtml(cf.name)}</div>
+                      <div style="font-size: 13px; font-weight: 500; color: var(--text-main); word-break: break-word;">${app.escapeHtml(cf.value || '—')}</div>
+                    </div>
+                    <div style="display: flex; gap: 4px; align-items: center; flex-shrink: 0;">
+                      <button type="button" class="btn-ctrl" onclick="app.handlers.editCustomField('${cf.id}')" title="Edit Field" style="padding: 3px 8px; height: 26px; font-size: 11px; border: 1px solid var(--border-color); background: var(--bg-card); color: #0d9488; display: inline-flex; align-items: center; gap: 4px; border-radius: 6px; cursor: pointer;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        Edit
+                      </button>
+                      <button type="button" class="btn-ctrl" onclick="app.handlers.deleteCustomField('${cf.id}')" title="Delete Field" style="padding: 3px 8px; height: 26px; font-size: 11px; border: 1px solid #fecaca; background: #fef2f2; color: #ef4444; display: inline-flex; align-items: center; gap: 4px; border-radius: 6px; cursor: pointer;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                  <div class="cf-edit-mode" id="cf_edit_${cf.id}" style="display: none; flex-direction: column; gap: 8px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                      <div>
+                        <label style="font-size: 11px; font-weight: 600; color: var(--text-muted); margin-bottom: 2px; display: block;">Field Name</label>
+                        <input type="text" id="cf_edit_name_${cf.id}" class="input-ctrl" value="${app.escapeHtml(cf.name)}" style="width: 100%; height: 32px; font-size: 12.5px;">
+                      </div>
+                      <div>
+                        <label style="font-size: 11px; font-weight: 600; color: var(--text-muted); margin-bottom: 2px; display: block;">Field Value</label>
+                        <input type="text" id="cf_edit_value_${cf.id}" class="input-ctrl" value="${app.escapeHtml(cf.value)}" style="width: 100%; height: 32px; font-size: 12.5px;">
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; gap: 6px;">
+                      <button type="button" class="btn-ctrl" onclick="app.handlers.cancelEditCustomField('${cf.id}')" style="height: 28px; padding: 0 10px; font-size: 11.5px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-muted);">Cancel</button>
+                      <button type="button" class="btn-ctrl" onclick="app.handlers.saveEditedCustomField('${cf.id}')" style="height: 28px; padding: 0 12px; font-size: 11.5px; background: #0d9488; color: #fff; border-color: #0d9488; font-weight: 600;">Save</button>
+                    </div>
+                  </div>
+                </div>
+              `;
+            });
+            container.innerHTML = html;
+          },
+
+          editCustomField(id) {
+            const viewEl = document.getElementById(`cf_view_${id}`);
+            const editEl = document.getElementById(`cf_edit_${id}`);
+            if (viewEl && editEl) {
+              viewEl.style.display = 'none';
+              editEl.style.display = 'flex';
+              const nameInput = document.getElementById(`cf_edit_name_${id}`);
+              if (nameInput) nameInput.focus();
+            }
+          },
+
+          cancelEditCustomField(id) {
+            const viewEl = document.getElementById(`cf_view_${id}`);
+            const editEl = document.getElementById(`cf_edit_${id}`);
+            if (viewEl && editEl) {
+              viewEl.style.display = 'flex';
+              editEl.style.display = 'none';
+            }
+          },
+
+          saveEditedCustomField(id) {
+            const nameInput = document.getElementById(`cf_edit_name_${id}`);
+            const valInput = document.getElementById(`cf_edit_value_${id}`);
+            const name = nameInput ? nameInput.value.trim() : '';
+            const val = valInput ? valInput.value.trim() : '';
+
+            if (!name) {
+              app.showToast('Field name cannot be empty!', 'error');
+              return;
+            }
+
+            if (Array.isArray(app.state.currentModalCustomFields)) {
+              const item = app.state.currentModalCustomFields.find(f => f.id === id);
+              if (item) {
+                item.name = name;
+                item.value = val;
+              }
+            }
+
+            this.renderCustomFieldsList();
+            app.showToast('Custom field updated!', 'success');
+          },
+
+          deleteCustomField(id) {
+            if (Array.isArray(app.state.currentModalCustomFields)) {
+              app.state.currentModalCustomFields = app.state.currentModalCustomFields.filter(f => f.id !== id);
+            }
+            this.renderCustomFieldsList();
+            app.showToast('Custom field deleted', 'info');
+          },
+
+          getCustomFieldsFromModal() {
+            // If user typed in new field box without hitting Save, auto-commit it
+            const newNameInp = document.getElementById('classicNewCfName');
+            const newValInp = document.getElementById('classicNewCfValue');
+            if (newNameInp && newNameInp.value.trim()) {
+              const name = newNameInp.value.trim();
+              const value = newValInp ? newValInp.value.trim() : '';
+              if (!Array.isArray(app.state.currentModalCustomFields)) {
+                app.state.currentModalCustomFields = [];
+              }
+              app.state.currentModalCustomFields.push({
+                id: 'cf_' + Date.now(),
+                name,
+                value
+              });
+              newNameInp.value = '';
+              if (newValInp) newValInp.value = '';
+              this.hideNewCustomFieldForm();
+            }
+
+            const list = Array.isArray(app.state.currentModalCustomFields) ? app.state.currentModalCustomFields : [];
+            return list.map(item => ({
+              name: item.name,
+              value: item.value
+            }));
+          },
+
+          // POPUP POSITIONING FOR TABLET, PC, AND MOBILE
+          // ==========================================
+          positionClassicModal(trigger) {
+            const modal = document.getElementById('classicEventModal');
+            if (!modal) return;
+            const panel = modal.querySelector('.modal-panel');
+            if (!panel) return;
+
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+              // Mobile layout: centered modal with min-width 100vw
+              panel.style.position = 'relative';
+              panel.style.left = '0px';
+              panel.style.right = '0px';
+              panel.style.top = 'auto';
+              panel.style.bottom = 'auto';
+              panel.style.minWidth = '100vw';
+              panel.style.width = '100vw';
+              panel.style.maxWidth = '100vw';
+              panel.style.height = 'auto';
+              panel.style.maxHeight = '94vh';
+              panel.style.margin = 'auto';
+              panel.style.transform = 'none';
+              panel.style.borderRadius = '16px';
+              return;
+            }
+
+            // Tablet & PC: Position right where the user clicked, without cropping
+            panel.style.position = 'fixed';
+            panel.style.margin = '0';
+            panel.style.transform = 'none';
+            panel.style.borderRadius = '12px';
+            panel.style.height = 'auto';
+
+            let rect = null;
+            if (trigger) {
+              if (trigger instanceof HTMLElement) {
+                rect = trigger.getBoundingClientRect();
+              } else if (trigger.currentTarget instanceof HTMLElement) {
+                rect = trigger.currentTarget.getBoundingClientRect();
+              } else if (trigger.target instanceof HTMLElement) {
+                const cell = trigger.target.closest('.classic-td-cell, .classic-event-item, button') || trigger.target;
+                rect = cell.getBoundingClientRect();
+              } else if (trigger.clientX !== undefined && trigger.clientY !== undefined && (trigger.clientX > 0 || trigger.clientY > 0)) {
+                rect = { left: trigger.clientX, right: trigger.clientX, top: trigger.clientY, bottom: trigger.clientY, width: 0, height: 0 };
+              }
+            }
+
+            const vw = window.innerWidth;
+            const vh = window.innerHeight;
+            const panelW = 480;
+            const panelH = 540;
+
+            let left = Math.round((vw - panelW) / 2);
+            let top = Math.max(20, Math.round((vh - panelH) / 2));
+
+            if (rect) {
+              // Align with the clicked cell / element
+              left = rect.left;
+              top = rect.bottom + 8;
+
+              // Boundary check horizontal
+              if (left + panelW > vw - 16) {
+                left = vw - panelW - 16;
+              }
+              if (left < 16) {
+                left = 16;
+              }
+
+              // Boundary check vertical
+              if (top + panelH > vh - 16) {
+                if (rect.top - panelH - 8 >= 16) {
+                  top = rect.top - panelH - 8;
+                } else {
+                  top = Math.max(16, vh - panelH - 16);
+                }
+              }
+              if (top < 16) {
+                top = 16;
+              }
+            }
+
+            panel.style.left = `${Math.round(left)}px`;
+            panel.style.top = `${Math.round(top)}px`;
+            panel.style.width = '480px';
+            panel.style.maxWidth = 'calc(100vw - 32px)';
+            panel.style.maxHeight = 'calc(100vh - 32px)';
+          },
+
+          applyClassicFieldsToAll() {
+            const room = document.getElementById('classicEvtRoom').value.trim();
+            const teacher = document.getElementById('classicEvtTeacher').value.trim();
+            const notes = document.getElementById('classicEvtNotes').value.trim();
+            const customFields = app.handlers.getCustomFieldsFromModal();
+
+            if (!confirm('Are you sure you want to apply these field values and custom properties to ALL activities in the timetable?')) {
+              return;
+            }
+
+            app.pushHistory();
+            app.state.events = app.state.events.map(evt => ({
+              ...evt,
+              room: room !== '' ? room : evt.room,
+              teacher: teacher !== '' ? teacher : evt.teacher,
+              notes: notes !== '' ? notes : evt.notes,
+              customFields: customFields.length > 0 ? customFields : (evt.customFields || [])
+            }));
+            app.state.classicEvents = [...app.state.events];
+
+            if (app.state.config.autoSave) app.saveState();
+            app.render();
+            app.showToast('Applied custom fields & values to all timetable activities!', 'success');
+            app.handlers.closeClassicEventModal();
+          },
+
           // CLASSIC EVENT MODAL HANDLERS
           // ==========================================
-          openClassicAddModal(day = 0, startTime = null) {
+          openClassicAddModal(day = 0, startTime = null, trigger = null) {
             const modal = document.getElementById('classicEventModal');
             if (!modal) return;
 
@@ -11721,6 +12887,10 @@
             document.getElementById('classicEvtRoom').value = '';
             document.getElementById('classicEvtTeacher').value = '';
             document.getElementById('classicEvtNotes').value = '';
+
+            app.state.currentModalCustomFields = [];
+            this.renderCustomFieldsList();
+            this.hideNewCustomFieldForm();
 
             const btnDel = document.getElementById('btnClassicDeleteEvt');
             if (btnDel) btnDel.style.display = 'none';
@@ -11763,9 +12933,13 @@
 
             document.getElementById('classicModalTitle').textContent = 'Add Timetable Activity';
             modal.classList.add('active');
+
+            const resolvedTrigger = trigger || window.event;
+            app.state.lastClassicModalTrigger = resolvedTrigger;
+            this.positionClassicModal(resolvedTrigger);
           },
 
-          openClassicEditModal(evt) {
+          openClassicEditModal(evt, trigger = null) {
             if (!evt) return;
             const modal = document.getElementById('classicEventModal');
             if (!modal) return;
@@ -11775,6 +12949,12 @@
             document.getElementById('classicEvtRoom').value = evt.room || evt.location || '';
             document.getElementById('classicEvtTeacher').value = evt.teacher || '';
             document.getElementById('classicEvtNotes').value = evt.notes || '';
+
+            app.state.currentModalCustomFields = (evt.customFields && Array.isArray(evt.customFields))
+              ? evt.customFields.map((cf, idx) => ({ id: cf.id || ('cf_' + idx + '_' + Date.now()), name: cf.name || '', value: cf.value || '' }))
+              : [];
+            this.renderCustomFieldsList();
+            this.hideNewCustomFieldForm();
 
             const btnDel = document.getElementById('btnClassicDeleteEvt');
             if (btnDel) btnDel.style.display = 'inline-flex';
@@ -11815,6 +12995,10 @@
 
             document.getElementById('classicModalTitle').textContent = 'Edit Timetable Activity';
             modal.classList.add('active');
+
+            const resolvedTrigger = trigger || window.event;
+            app.state.lastClassicModalTrigger = resolvedTrigger;
+            this.positionClassicModal(resolvedTrigger);
           },
 
           deleteClassicEventFromModal() {
@@ -11822,12 +13006,10 @@
             if (!id) return;
             app.deleteEvent(id);
             this.closeClassicEventModal();
-            app.showToast('Activity removed from timetable', 'info');
           },
 
           focusClassicDay(dayIdx, event) {
             event = event || window.event;
-            const activeDaysCount = parseInt(app.state.config.daysCount) || 7;
             const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
             if (dayIdx === 'all' || dayIdx === undefined) {
@@ -11835,7 +13017,16 @@
               app.showToast('Showing all days in timetable', 'info');
             } else {
               const targetDay = parseInt(dayIdx);
-              if (isNaN(targetDay) || targetDay < 0 || targetDay >= activeDaysCount) return;
+              if (isNaN(targetDay) || targetDay < 0 || targetDay > 6) return;
+
+              // If selecting Saturday (5) or Sunday (6) while config has fewer days, auto-expand config to 7 days
+              if (targetDay >= (parseInt(app.state.config.daysCount) || 5)) {
+                app.state.config.daysCount = 7;
+                if (app.state.config.autoSave) app.saveState();
+                app.syncConfigInputs();
+              }
+
+              const totalDaysCount = Math.max(7, parseInt(app.state.config.daysCount) || 7);
 
               // Support multi-day selection on every single tap/click
               let current = (app.state.classicFilterDays === 'all' || !Array.isArray(app.state.classicFilterDays))
@@ -11848,7 +13039,7 @@
                 current.push(targetDay);
               }
 
-              if (current.length === 0 || current.length >= activeDaysCount) {
+              if (current.length === 0 || current.length >= totalDaysCount) {
                 app.state.classicFilterDays = 'all';
                 app.showToast('Showing all days in timetable', 'info');
               } else {
@@ -11931,9 +13122,22 @@
             }
           },
 
+          toggleVerticalScroll(checkbox) {
+            const wrapper = document.getElementById('classicGridScrollWrapper');
+            if (!wrapper) return;
+            if (checkbox.checked) {
+              wrapper.style.maxHeight = '72vh';
+              wrapper.style.overflowY = 'auto';
+            } else {
+              wrapper.style.maxHeight = 'none';
+              wrapper.style.overflowY = 'visible';
+            }
+          },
+
           closeClassicEventModal() {
             const modal = document.getElementById('classicEventModal');
             if (modal) modal.classList.remove('active');
+            this.hideNewCustomFieldForm();
           },
 
           toggleClassicModalDay(dayIdx) {
@@ -12003,6 +13207,7 @@
             const room = document.getElementById('classicEvtRoom').value.trim();
             const teacher = document.getElementById('classicEvtTeacher').value.trim();
             const notes = document.getElementById('classicEvtNotes').value.trim();
+            const customFields = app.handlers.getCustomFieldsFromModal();
 
             const startTimeStr = document.getElementById('classicEvtStart').value;
             const endTimeStr = document.getElementById('classicEvtEnd').value;
@@ -12036,6 +13241,7 @@
                     location: room,
                     teacher,
                     notes,
+                    customFields,
                     day: selectedDays[0],
                     startTime,
                     endTime,
@@ -12059,6 +13265,7 @@
                   location: room,
                   category: 'General',
                   notes,
+                  customFields,
                   day,
                   startTime,
                   endTime,
@@ -12350,6 +13557,7 @@
             if (!evt) return;
             e.preventDefault();
             e.stopPropagation();
+            app.state.lastCtxEvent = e;
             app.state.ctxSelectedEventId = evt.id;
             app.state.ctxSelectedDay = evt.day;
             app.state.ctxSelectedTime = evt.endTime;
@@ -12379,6 +13587,7 @@
           showEmptyCellContext(e, day, slotMin) {
             e.preventDefault();
             e.stopPropagation();
+            app.state.lastCtxEvent = e;
             app.state.ctxSelectedEventId = null;
             app.state.ctxSelectedDay = day;
             app.state.ctxSelectedTime = slotMin;
@@ -12408,14 +13617,14 @@
           contextEdit() {
             const id = app.state.ctxSelectedEventId;
             const item = app.state.events.find(evt => evt.id === id);
-            if (item) app.handlers.openClassicEditModal(item);
+            if (item) app.handlers.openClassicEditModal(item, app.state.lastCtxEvent);
             const menu = document.getElementById('ctxMenu');
             if (menu) menu.style.display = 'none';
           },
 
           contextAddAfter() {
             if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
-              app.handlers.openClassicAddModal(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
+              app.handlers.openClassicAddModal(app.state.ctxSelectedDay, app.state.ctxSelectedTime, app.state.lastCtxEvent);
             }
             const menu = document.getElementById('ctxMenu');
             if (menu) menu.style.display = 'none';
@@ -12474,7 +13683,7 @@
 
           contextAddHere() {
             if (app.state.ctxSelectedDay !== undefined && app.state.ctxSelectedTime !== undefined) {
-              app.handlers.openClassicAddModal(app.state.ctxSelectedDay, app.state.ctxSelectedTime);
+              app.handlers.openClassicAddModal(app.state.ctxSelectedDay, app.state.ctxSelectedTime, app.state.lastCtxEvent);
             }
             const menu = document.getElementById('ctxMenu');
             if (menu) menu.style.display = 'none';
@@ -12613,128 +13822,321 @@
             });
           },
 
-          generateScheduleCanvas(scale = 2) {
+          async loadHtml2canvas() {
+            if (window.html2canvas) return window.html2canvas;
+            return new Promise((resolve) => {
+              const script = document.createElement('script');
+              script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+              script.onload = () => resolve(window.html2canvas || null);
+              script.onerror = () => resolve(null);
+              document.head.appendChild(script);
+            });
+          },
+
+          async generateScheduleCanvas(targetScale = 3) {
+            // Update export header banner details
+            const titleEl = document.getElementById('tcExportTitle');
+            const subEl = document.getElementById('tcExportSubtitle');
+            const daysEl = document.getElementById('tcExportDaysCount');
+            const spanEl = document.getElementById('tcExportTimeSpan');
+            const activeDaysCount = parseInt(app.state.config.daysCount) || 7;
+            const startTime = parseInt(app.state.config.startTime) !== undefined ? parseInt(app.state.config.startTime) : 480;
+            const endTime = parseInt(app.state.config.endTime) !== undefined ? parseInt(app.state.config.endTime) : 1140;
+
+            if (titleEl) {
+              titleEl.textContent = app.state.classicTitle || 'Weekly Schedule Timetable';
+            }
+            if (subEl) {
+              subEl.textContent = app.state.classicSubtitle || 'Generated via Timetable Creator';
+            }
+            if (daysEl) {
+              daysEl.textContent = `${activeDaysCount} Days (${activeDaysCount === 5 ? 'Mon - Fri' : (activeDaysCount === 6 ? 'Mon - Sat' : 'Mon - Sun')})`;
+            }
+            if (spanEl) {
+              spanEl.textContent = `${app.formatMinute(startTime)} - ${app.formatMinute(endTime)}`;
+            }
+
+            const html2canvas = await this.loadHtml2canvas();
+            const targetCard = document.getElementById('classicGridCard') || document.querySelector('.tc-grid-card');
+            const scrollWrapper = document.getElementById('classicGridScrollWrapper');
+            const table = document.getElementById('classicTableGrid');
+
+            if (html2canvas && targetCard && table) {
+              const prevBodyZoom = document.body.style.zoom;
+              const prevHtmlZoom = document.documentElement.style.zoom;
+              const prevWrapperOverflow = scrollWrapper ? scrollWrapper.style.overflow : '';
+              const prevWrapperMaxH = scrollWrapper ? scrollWrapper.style.maxHeight : '';
+              const prevWrapperWidth = scrollWrapper ? scrollWrapper.style.width : '';
+              const prevWrapperMaxWidth = scrollWrapper ? scrollWrapper.style.maxWidth : '';
+              const prevCardOverflow = targetCard.style.overflow;
+              const prevCardWidth = targetCard.style.width;
+              const prevCardMaxWidth = targetCard.style.maxWidth;
+              const prevCardBorderRadius = targetCard.style.borderRadius;
+
+              try {
+                // Activate export mode styles
+                document.body.classList.add('is-exporting-schedule');
+
+                // Crucial fix: Override CSS zoom: 0.7 so html2canvas computes pixel-perfect crisp coordinates
+                document.body.style.setProperty('zoom', '1', 'important');
+                document.documentElement.style.setProperty('zoom', '1', 'important');
+
+                // Expand scroll wrapper and card so all columns and rows are captured without clipping
+                if (scrollWrapper) {
+                  scrollWrapper.style.setProperty('overflow', 'visible', 'important');
+                  scrollWrapper.style.setProperty('max-height', 'none', 'important');
+                  scrollWrapper.style.setProperty('width', 'max-content', 'important');
+                  scrollWrapper.style.setProperty('max-width', 'none', 'important');
+                }
+                targetCard.style.setProperty('overflow', 'visible', 'important');
+                targetCard.style.setProperty('width', 'max-content', 'important');
+                targetCard.style.setProperty('max-width', 'none', 'important');
+                targetCard.style.setProperty('border-radius', '8px', 'important');
+                targetCard.style.setProperty('background', '#ffffff', 'important');
+
+                // Force layout reflow
+                void targetCard.offsetWidth;
+
+                const fullWidth = Math.max(table.scrollWidth, table.offsetWidth, 1100);
+                const fullHeight = targetCard.scrollHeight;
+                const scale = Math.max(2.5, targetScale || 3);
+
+                const canvas = await html2canvas(targetCard, {
+                  scale: scale,
+                  useCORS: true,
+                  allowTaint: true,
+                  backgroundColor: '#ffffff',
+                  logging: false,
+                  scrollX: 0,
+                  scrollY: 0,
+                  width: fullWidth,
+                  height: fullHeight,
+                  windowWidth: fullWidth + 100,
+                  windowHeight: fullHeight + 100,
+                  onclone: (clonedDoc) => {
+                    clonedDoc.body.style.zoom = '1';
+                    clonedDoc.documentElement.style.zoom = '1';
+                    const banner = clonedDoc.getElementById('tcExportHeaderBanner');
+                    if (banner) banner.style.display = 'flex';
+                    clonedDoc.querySelectorAll('.excel-col-resizer, .excel-row-resizer, .classic-cell-add-icon, .classic-event-dots-btn, .tc-grid-footer, .classic-mobile-fab').forEach(el => {
+                      el.style.display = 'none';
+                      el.style.visibility = 'hidden';
+                    });
+                  }
+                });
+
+                if (canvas && canvas.width > 0 && canvas.height > 0) {
+                  return canvas;
+                }
+              } catch (e) {
+                console.warn('html2canvas capture error, falling back to direct high-res canvas render', e);
+              } finally {
+                // Restore all styles immediately
+                document.body.classList.remove('is-exporting-schedule');
+                if (prevBodyZoom) {
+                  document.body.style.setProperty('zoom', prevBodyZoom);
+                } else {
+                  document.body.style.removeProperty('zoom');
+                }
+                if (prevHtmlZoom) {
+                  document.documentElement.style.setProperty('zoom', prevHtmlZoom);
+                } else {
+                  document.documentElement.style.removeProperty('zoom');
+                }
+                if (scrollWrapper) {
+                  scrollWrapper.style.overflow = prevWrapperOverflow;
+                  scrollWrapper.style.maxHeight = prevWrapperMaxH;
+                  scrollWrapper.style.width = prevWrapperWidth;
+                  scrollWrapper.style.maxWidth = prevWrapperMaxWidth;
+                }
+                targetCard.style.overflow = prevCardOverflow;
+                targetCard.style.width = prevCardWidth;
+                targetCard.style.maxWidth = prevCardMaxWidth;
+                targetCard.style.borderRadius = prevCardBorderRadius;
+              }
+            }
+
+            // Direct high-resolution vector canvas generator fallback
+            return this.renderDirectHighResCanvas(targetScale || 3);
+          },
+
+          renderDirectHighResCanvas(scale = 3) {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
 
-            const activeDaysCount = parseInt(app.state.config.daysCount) || 5;
-            const mStep = parseInt(app.state.config.interval) || 60;
-            const startM = app.state.config.startTime !== undefined ? app.state.config.startTime : 480;
-            const endM = app.state.config.endTime !== undefined ? app.state.config.endTime : 1080;
+            const activeDaysCount = parseInt(app.state.config.daysCount) || 7;
+            const mStep = parseInt(app.state.config.interval) || 30;
+            const startM = app.state.config.startTime !== undefined ? parseInt(app.state.config.startTime) : 480;
+            const endM = app.state.config.endTime !== undefined ? parseInt(app.state.config.endTime) : 1140;
             const totalColsMinutes = Math.max(mStep, endM - startM);
             const rowsCount = Math.max(1, Math.floor(totalColsMinutes / mStep));
 
-            // Canvas sizes calculations
+            // Visible days
+            const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            let visibleDayIndices = [];
+            for (let i = 0; i < activeDaysCount; i++) visibleDayIndices.push(i);
+            if (app.state.classicFilterDays && app.state.classicFilterDays !== 'all' && Array.isArray(app.state.classicFilterDays) && app.state.classicFilterDays.length > 0) {
+              const filtered = app.state.classicFilterDays.filter(d => d < activeDaysCount);
+              if (filtered.length > 0) visibleDayIndices = filtered;
+            }
+            const renderedDaysCount = visibleDayIndices.length;
+
+            const bannerHeight = 84;
             const cornerWidth = 100;
             const colWidth = 180;
-            const rowHeight = 60;
-            const headerHeight = 70;
+            const rowHeight = 52;
+            const headerHeight = 60;
 
-            const baseWidth = cornerWidth + (colWidth * activeDaysCount);
-            const baseHeight = headerHeight + (rowHeight * rowsCount);
+            const baseWidth = cornerWidth + (colWidth * renderedDaysCount);
+            const baseHeight = bannerHeight + headerHeight + (rowHeight * rowsCount);
 
             canvas.width = baseWidth * scale;
             canvas.height = baseHeight * scale;
             ctx.scale(scale, scale);
 
-            // Fill Background
+            // Background
             ctx.fillStyle = '#ffffff';
             ctx.fillRect(0, 0, baseWidth, baseHeight);
 
-            // Set general fonts settings
+            // Top Header Banner
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(0, 0, baseWidth, bannerHeight);
+            ctx.fillStyle = '#0d9488';
+            ctx.fillRect(0, 0, baseWidth, 4);
+
+            // Title & Subtitle in Banner
+            ctx.textAlign = 'left';
             ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 20px "Poppins", sans-serif';
+            ctx.fillText(app.state.classicTitle || 'Weekly Timetable Schedule', 24, 34);
 
-            // Draw Corner
-            ctx.fillStyle = '#f8f7fd';
-            ctx.fillRect(0, 0, cornerWidth, headerHeight);
-            ctx.strokeStyle = '#ebe8fa';
+            ctx.fillStyle = '#64748b';
+            ctx.font = '500 12px "Poppins", sans-serif';
+            const subText = app.state.classicSubtitle || 'Created with Timetable Creator';
+            ctx.fillText(subText, 24, 58);
+
+            // Meta badge in top-right of banner
+            const daysLabel = activeDaysCount === 5 ? 'Mon - Fri' : (activeDaysCount === 6 ? 'Mon - Sat' : 'Mon - Sun');
+            const metaString = `${renderedDaysCount} Days (${daysLabel}) • ${app.formatMinute(startM)} - ${app.formatMinute(endM)}`;
+            ctx.textAlign = 'right';
+            ctx.fillStyle = '#0d9488';
+            ctx.font = 'bold 12px "Poppins", sans-serif';
+            ctx.fillText(metaString, baseWidth - 24, 44);
+
+            // Table Header Separator
+            ctx.strokeStyle = '#e2e8f0';
             ctx.lineWidth = 1;
-            ctx.strokeRect(0, 0, cornerWidth, headerHeight);
+            ctx.beginPath();
+            ctx.moveTo(0, bannerHeight);
+            ctx.lineTo(baseWidth, bannerHeight);
+            ctx.stroke();
 
-            ctx.fillStyle = '#6e6d7a';
-            ctx.font = 'bold 14px "Poppins", sans-serif';
+            // Corner Header Cell (Time)
+            const gridStartY = bannerHeight;
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(0, gridStartY, cornerWidth, headerHeight);
+            ctx.strokeStyle = '#e2e8f0';
+            ctx.strokeRect(0, gridStartY, cornerWidth, headerHeight);
+
+            ctx.fillStyle = '#64748b';
+            ctx.font = 'bold 12px "Poppins", sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('Time', cornerWidth / 2, headerHeight / 2);
+            ctx.fillText('TIME', cornerWidth / 2, gridStartY + (headerHeight / 2));
 
-            // Draw Days Headers
-            const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-            for (let i = 0; i < activeDaysCount; i++) {
+            // Day Headers
+            for (let i = 0; i < renderedDaysCount; i++) {
+              const dayIdx = visibleDayIndices[i];
               const x = cornerWidth + (i * colWidth);
-              ctx.fillStyle = '#f8f7fd';
-              ctx.fillRect(x, 0, colWidth, headerHeight);
-              ctx.strokeRect(x, 0, colWidth, headerHeight);
+              ctx.fillStyle = '#f8fafc';
+              ctx.fillRect(x, gridStartY, colWidth, headerHeight);
+              ctx.strokeStyle = '#e2e8f0';
+              ctx.strokeRect(x, gridStartY, colWidth, headerHeight);
 
-              ctx.fillStyle = '#1d1e2c';
+              ctx.fillStyle = '#0f172a';
               ctx.font = 'bold 14px "Poppins", sans-serif';
-              ctx.fillText(dayNames[i], x + (colWidth / 2), headerHeight / 2);
+              ctx.fillText(dayNames[dayIdx], x + (colWidth / 2), gridStartY + (headerHeight / 2));
             }
 
-            // Draw Time Column & grid rows backdrops
+            // Time Slots & Cells
             for (let r = 0; r < rowsCount; r++) {
-              const y = headerHeight + (r * rowHeight);
+              const y = gridStartY + headerHeight + (r * rowHeight);
               const minutes = startM + (r * mStep);
 
-              // Time label block
-              ctx.fillStyle = '#f8f7fd';
+              // Time column cell
+              ctx.fillStyle = '#f8fafc';
               ctx.fillRect(0, y, cornerWidth, rowHeight);
+              ctx.strokeStyle = '#e2e8f0';
               ctx.strokeRect(0, y, cornerWidth, rowHeight);
 
-              ctx.fillStyle = '#6e6d7a';
-              ctx.font = 'bold 12px "Poppins", sans-serif';
+              ctx.fillStyle = '#64748b';
+              ctx.font = '500 11.5px "Poppins", sans-serif';
               ctx.textAlign = 'center';
               ctx.fillText(app.formatMinute(minutes), cornerWidth / 2, y + (rowHeight / 2));
 
-              // Clean background lines segments
-              for (let c = 0; c < activeDaysCount; c++) {
+              // Day cells
+              for (let c = 0; c < renderedDaysCount; c++) {
                 const x = cornerWidth + (c * colWidth);
                 ctx.fillStyle = '#ffffff';
                 ctx.fillRect(x, y, colWidth, rowHeight);
+                ctx.strokeStyle = '#f1f5f9';
                 ctx.strokeRect(x, y, colWidth, rowHeight);
               }
             }
 
-            // Render absolute card representations internally on canvas space
-            app.state.events.forEach(evt => {
-              if (evt.day >= activeDaysCount) return;
+            // Events rendering
+            const classicEventsList = Array.isArray(app.state.classicEvents) && app.state.classicEvents.length > 0
+              ? app.state.classicEvents
+              : (app.state.events || []);
+
+            const pxPerMin = rowHeight / mStep;
+
+            classicEventsList.forEach(evt => {
+              const colPos = visibleDayIndices.indexOf(evt.day);
+              if (colPos === -1) return;
               if (evt.startTime >= endM || evt.endTime <= startM) return;
 
               const visibleStart = Math.max(evt.startTime, startM);
               const visibleEnd = Math.min(evt.endTime, endM);
               const visibleDuration = visibleEnd - visibleStart;
 
-              const x = cornerWidth + (evt.day * colWidth) + 6;
-              const y = headerHeight + ((visibleStart - startM) / mStep) * rowHeight + 6;
+              const x = cornerWidth + (colPos * colWidth) + 6;
+              const y = gridStartY + headerHeight + ((visibleStart - startM) * pxPerMin) + 3;
               const w = colWidth - 12;
-              const h = Math.max(24, ((visibleDuration / mStep) * rowHeight) - 12);
+              const h = Math.max(28, (visibleDuration * pxPerMin) - 6);
 
-              // Rounded rectangle drawer helper code block
-              ctx.fillStyle = evt.color || '#673de6';
+              // Card background
+              ctx.fillStyle = evt.color || '#0d9488';
               ctx.beginPath();
-              ctx.roundRect(x, y, w, h, 8);
+              if (ctx.roundRect) {
+                ctx.roundRect(x, y, w, h, 8);
+              } else {
+                ctx.rect(x, y, w, h);
+              }
               ctx.fill();
 
-              // Border Left custom bar overlays
-              ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
-              ctx.beginPath();
-              ctx.roundRect(x, y, 6, h, [8, 0, 0, 8]);
-              ctx.fill();
-
-              // Card Texts assignments details
+              // Card text
               ctx.fillStyle = '#ffffff';
               ctx.textAlign = 'left';
 
-              // Text titles limits
-              ctx.font = 'bold 12px "Poppins", sans-serif';
-              ctx.fillText(evt.title, x + 12, y + 16, w - 20);
+              // Title
+              ctx.font = 'bold 12.5px "Poppins", sans-serif';
+              ctx.fillText(evt.title || 'Untitled', x + 10, y + 16, w - 16);
 
-              if (evt.teacher && h > 45) {
-                ctx.font = '500 11px "Poppins", sans-serif';
-                ctx.fillText(evt.teacher, x + 12, y + 32, w - 20);
+              // Time badge
+              if (h >= 40) {
+                const timeString = `${app.formatMinute(evt.startTime)} - ${app.formatMinute(evt.endTime)}`;
+                ctx.font = '500 10.5px "Poppins", sans-serif';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+                ctx.fillText(timeString, x + 10, y + 32, w - 16);
               }
 
-              if (evt.room && h > 65) {
-                ctx.font = '10px "Poppins", sans-serif';
-                ctx.fillText(`Room: ${evt.room}`, x + 12, y + h - 16, w - 20);
+              // Teacher / Room if space permits
+              if (h >= 64 && (evt.teacher || evt.room)) {
+                ctx.font = '500 10px "Poppins", sans-serif';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                const detail = [evt.teacher, evt.room ? `Rm: ${evt.room}` : ''].filter(Boolean).join(' • ');
+                ctx.fillText(detail, x + 10, y + Math.min(h - 10, 48), w - 16);
               }
             });
 
@@ -12746,24 +14148,51 @@
           },
 
           async savePdf() {
-            app.showToast('Generating PDF document...', 'info');
+            app.showToast('Generating standard A4 PDF document...', 'info');
             try {
-              const canvas = this.generateScheduleCanvas(2);
+              const canvas = await this.generateScheduleCanvas(3);
               if (!canvas) {
                 window.print();
                 return;
               }
+
               const jsPdfConstructor = await this.loadJsPdf();
               if (jsPdfConstructor) {
-                const orientation = canvas.width >= canvas.height ? 'landscape' : 'portrait';
+                // Standard A4 PDF formatting
+                const isLandscape = canvas.width >= canvas.height;
+                const orientation = isLandscape ? 'landscape' : 'portrait';
+
                 const pdf = new jsPdfConstructor({
                   orientation: orientation,
-                  unit: 'px',
-                  format: [canvas.width / 2, canvas.height / 2]
+                  unit: 'mm',
+                  format: 'a4',
+                  compress: true
                 });
-                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, canvas.width / 2, canvas.height / 2);
-                pdf.save(`Timetable_${Date.now()}.pdf`);
-                app.showToast('PDF Saved Successfully!', 'success');
+
+                const pageWidth = pdf.internal.pageSize.getWidth();
+                const pageHeight = pdf.internal.pageSize.getHeight();
+                const margin = 8;
+                const availWidth = pageWidth - (margin * 2);
+                const availHeight = pageHeight - (margin * 2);
+
+                const imgRatio = canvas.width / canvas.height;
+                let renderWidth = availWidth;
+                let renderHeight = renderWidth / imgRatio;
+
+                if (renderHeight > availHeight) {
+                  renderHeight = availHeight;
+                  renderWidth = renderHeight * imgRatio;
+                }
+
+                const posX = margin + (availWidth - renderWidth) / 2;
+                const posY = margin + (availHeight - renderHeight) / 2;
+
+                const imgData = canvas.toDataURL('image/png', 1.0);
+                pdf.addImage(imgData, 'PNG', posX, posY, renderWidth, renderHeight, undefined, 'FAST');
+                
+                const fileTitle = (app.state.classicTitle || 'Timetable_Schedule').replace(/[^a-zA-Z0-9_-]/g, '_');
+                pdf.save(`${fileTitle}_${new Date().toISOString().slice(0, 10)}.pdf`);
+                app.showToast('Standard A4 PDF Saved Successfully!', 'success');
               } else {
                 window.print();
               }
@@ -12774,15 +14203,22 @@
           },
 
           async downloadPng() {
-            app.showToast('Generating high-res PNG...', 'info');
+            app.showToast('Generating high-resolution PNG image...', 'info');
             try {
-              const canvas = this.generateScheduleCanvas(2);
-              const representation = canvas.toDataURL('image/png');
+              const canvas = await this.generateScheduleCanvas(3);
+              if (!canvas) {
+                app.showToast('Error generating timetable canvas.', 'error');
+                return;
+              }
+              const representation = canvas.toDataURL('image/png', 1.0);
               const handlerBtn = document.createElement('a');
               handlerBtn.href = representation;
-              handlerBtn.download = `My_Timetable_${Date.now()}.png`;
+              const fileTitle = (app.state.classicTitle || 'Timetable_Schedule').replace(/[^a-zA-Z0-9_-]/g, '_');
+              handlerBtn.download = `${fileTitle}_${new Date().toISOString().slice(0, 10)}.png`;
+              document.body.appendChild(handlerBtn);
               handlerBtn.click();
-              app.showToast('High-Res PNG Saved!', 'success');
+              document.body.removeChild(handlerBtn);
+              app.showToast('High-Resolution PNG Saved!', 'success');
             } catch (err) {
               console.error('PNG Download Error:', err);
               app.showToast('Error saving PNG image.', 'error');
@@ -13488,6 +14924,26 @@
       // Set application on global scope for inline HTML handlers
       window.app = app;
 
+      // Handle window resize and backdrop clicks for classicEventModal
+      window.addEventListener('resize', () => {
+        const modal = document.getElementById('classicEventModal');
+        if (modal && modal.classList.contains('active') && app.handlers && app.handlers.positionClassicModal) {
+          app.handlers.positionClassicModal(app.state.lastClassicModalTrigger);
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        const modal = document.getElementById('classicEventModal');
+        if (modal && modal.classList.contains('active') && e.target === modal && app.handlers && app.handlers.closeClassicEventModal) {
+          app.handlers.closeClassicEventModal();
+        }
+        if (!e.target.closest('.tc-action-info-wrap')) {
+          if (window.app && window.app.handlers && window.app.handlers.closeActionTooltips) {
+            window.app.handlers.closeActionTooltips();
+          }
+        }
+      });
+
       
       // Loading overlay logic for tab switches
       document.addEventListener('click', function(e) {
@@ -13688,6 +15144,15 @@
           const isInputActive = activeTag === 'input' || activeTag === 'textarea' || (document.activeElement && document.activeElement.isContentEditable);
 
           if (e.key === 'Escape') {
+            const activeTooltip = document.querySelector('.tc-action-tooltip-popover.active');
+            if (activeTooltip) {
+              if (window.app && window.app.handlers && window.app.handlers.closeActionTooltips) {
+                window.app.handlers.closeActionTooltips();
+              } else {
+                activeTooltip.classList.remove('active');
+              }
+              return;
+            }
             const scModal = document.getElementById('tcShortcutsModal');
             if (scModal && scModal.style.display === 'flex') {
               scModal.style.display = 'none';
