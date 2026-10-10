@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                                                                                                                                                                                <link rel="canonical" href="https://timetablecreator.online/" />
+                                                                                                                                                                                                                                                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -7075,10 +7075,6 @@
     
     
     
-    
-    
-    
-    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -7175,8 +7171,16 @@
           </a>
         </div>
 
-        <!-- Center Section: Translate Selector & Menu Links (Desktop Center Aligned) -->
+        <!-- Center Section: Menu Links (Desktop Center Aligned) -->
         <div class="header-center-desktop">
+          <nav class="header-nav-desktop">
+            <a href="/" class="nav-link-header active">Timetable Maker</a>
+            <a href="/timetable-generator-online-for-students/" class="nav-link-header ">Free Students Timetable Maker</a>
+          </nav>
+        </div>
+
+        <!-- Right Section: Theme Toggle Icon & Translate Button (Right Corner Aligned) -->
+        <div class="header-right-desktop">
           <!-- Light/Dark Mode Toggle in Header -->
           <button class="action-btn-header" onclick="toggleLocalTheme()" data-tooltip="Toggle theme mode" title="Toggle theme mode" aria-label="Toggle Theme">
             <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
@@ -7188,7 +7192,7 @@
             <button class="action-btn-header" onclick="toggleLangDropdown()" id="btnLangDropdown" data-tooltip="Change Language" aria-label="Change Language" title="Change Language">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width: 18px; height: 18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 0c-.818-2.251-2.253-4.247-4-5.5C6.754 4.753 5.32 6.749 4.5 9h8m-8 0a13.935 13.935 0 002.912 4.5M6.412 9a13.935 13.935 0 002.912 4.5M11 21l3-6 3 6m-5-2h4"></path></svg>
             </button>
-            <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; left: 50%; transform: translateX(-50%);">
+            <div class="lang-dropdown-menu" id="langDropdownMenu" style="top: 44px; right: 0;">
               <button class="lang-dropdown-item" onclick="changeLanguage('en-GB')">English (UK)</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('es')">Español</button>
               <button class="lang-dropdown-item" onclick="changeLanguage('ja')">日本語</button>
@@ -7201,12 +7205,6 @@
               <button class="lang-dropdown-item" onclick="changeLanguage('ms')">Bahasa Melayu</button>
             </div>
           </div>
-
-          <!-- Nav links (Desktop) -->
-          <nav class="header-nav-desktop">
-            <a href="/" class="nav-link-header active">Timetable Maker</a>
-            <a href="/timetable-generator-online-for-students/" class="nav-link-header ">Free Students Timetable Maker</a>
-          </nav>
         </div>
 
         <!-- Mobile Navigation Toggle Button -->
