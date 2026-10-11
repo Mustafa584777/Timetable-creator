@@ -16,3 +16,14 @@
   --color-violet-800: #5b21b6;
   --color-violet-900: #4c1d95;
 }
+
+/* Media Query: Max-width 742px se neeche ke liye for Timetable Activity Modal Popup */
+@media (max-width: 742px) {
+  #classicEventModal .modal-panel,
+  #eventModal .modal-panel,
+  .timetable-activity-popup,
+  .modal-panel {
+    width: 90vw !important;
+    max-width: 90vw !important;
+  }
+}
