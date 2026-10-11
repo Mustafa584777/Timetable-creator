@@ -66,7 +66,7 @@
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Free Online Timetable Maker" />
     <meta property="twitter:description" content="Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download." />
-                                                                                                                                                                                                                                                                                                                                                                                                    <link rel="canonical" href="https://timetablecreator.online/pt" />
+                                                                                                                                                                                                                                                                                                                                                                                                            <link rel="canonical" href="https://timetablecreator.online/pt" />
     <link rel="alternate" hreflang="x-default" href="https://timetablecreator.online/" />
     <link rel="alternate" hreflang="en-GB" href="https://timetablecreator.online/en-GB" />
     <link rel="alternate" hreflang="es" href="https://timetablecreator.online/es" />
@@ -1238,99 +1238,6 @@
         transform: translateY(0);
       }
 
-      /* Activity Add / Edit Timetable Popup (#classicEventModal)
-         - 100% transparent backdrop: no dark/black overlay, no blur
-         - PC/Desktop: positioned dynamically right near clicked cell/element
-         - Elevated card design with crisp shadow and borders */
-      #classicEventModal.modal-backdrop {
-        position: fixed !important;
-        inset: 0 !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100vw !important;
-        width: 100dvw !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-        background: transparent !important;
-        background-color: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        z-index: 99999 !important;
-        display: block !important;
-        pointer-events: none !important;
-        opacity: 0 !important;
-        overflow: hidden !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        transition: opacity 0.2s ease !important;
-      }
-
-      #classicEventModal.modal-backdrop.active {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-
-      #classicEventModal .modal-panel {
-        background-color: var(--bg-card, #ffffff) !important;
-        border-radius: 14px !important;
-        border: 1px solid var(--border-color, #e2e8f0) !important;
-        box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.22), 0 2px 10px rgba(0, 0, 0, 0.08) !important;
-        width: 460px;
-        max-width: calc(100vw - 32px);
-        max-height: calc(100vh - 32px);
-        max-height: calc(100dvh - 32px);
-        display: flex !important;
-        flex-direction: column !important;
-        overflow: hidden !important;
-        box-sizing: border-box !important;
-        transform: none !important;
-        z-index: 100000 !important;
-        margin: 0 !important;
-      }
-
-      [data-theme="dark"] #classicEventModal .modal-panel {
-        background-color: #1a192e !important;
-        border-color: #3b3765 !important;
-        box-shadow: 0 20px 48px -6px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
-      }
-
-      #classicEventModal .modal-header {
-        padding: 13px 18px !important;
-        border-bottom: 1px solid var(--border-color) !important;
-        background: var(--bg-panel) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        flex-shrink: 0 !important;
-        border-radius: 14px 14px 0 0 !important;
-      }
-
-      #classicEventModal .modal-body {
-        padding: 16px 18px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 13px !important;
-        flex: 1 1 auto !important;
-        min-height: 0 !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      #classicEventModal .modal-footer {
-        padding: 12px 18px !important;
-        border-top: 1px solid var(--border-color) !important;
-        background: var(--bg-panel) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 10px !important;
-        flex-shrink: 0 !important;
-        border-radius: 0 0 14px 14px !important;
-      }
-
       .modal-header {
         padding: 16px 20px;
         border-bottom: 1px solid var(--border-color);
@@ -1766,159 +1673,147 @@
           flex-direction: column !important;
         }
 
-        /* Tablet & Mobile specific for Add / Edit timetable activity popup:
-           - Completely transparent backdrop (no black overlay, no blur)
-           - Position fixed, centered horizontally & vertically
-           - 90vw width, proper spacing on all sides
-           - Vertical scroll enabled */
-        #classicEventModal.modal-backdrop {
-          position: fixed !important;
-          inset: 0 !important;
-          top: 0 !important;
-          left: 0 !important;
-          right: 0 !important;
-          bottom: 0 !important;
-          width: 100vw !important;
-          width: 100dvw !important;
-          height: 100vh !important;
-          height: 100dvh !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-          padding: 16px 12px !important;
-          margin: 0 !important;
-          overflow: hidden !important;
-          z-index: 99999 !important;
-          background: transparent !important;
-          background-color: transparent !important;
-          backdrop-filter: none !important;
-          -webkit-backdrop-filter: none !important;
-        }
-
-        #classicEventModal .modal-panel {
-          position: fixed !important;
-          top: 50% !important;
-          left: 50% !important;
-          transform: translate(-50%, -50%) !important;
-          width: 90vw !important;
-          width: 90dvw !important;
-          max-width: 520px !important;
-          height: auto !important;
-          max-height: 88vh !important;
-          max-height: 88dvh !important;
-          border-radius: 16px !important;
-          border: 1px solid var(--border-color) !important;
-          margin: 0 !important;
-          box-shadow: 0 18px 48px -6px rgba(0, 0, 0, 0.32), 0 0 0 1px var(--border-color) !important;
-          display: flex !important;
-          flex-direction: column !important;
-          z-index: 100000 !important;
-          box-sizing: border-box !important;
-          overflow: hidden !important;
-        }
-
-        #classicEventModal .modal-header {
-          border-radius: 16px 16px 0 0 !important;
-          padding: 13px 16px !important;
-          flex-shrink: 0 !important;
-        }
-
-        #classicEventModal .modal-body {
-          padding: 15px 16px !important;
-          gap: 12px !important;
-          flex: 1 1 auto !important;
-          min-height: 0 !important;
-          max-height: calc(88dvh - 120px) !important;
-          max-height: calc(88vh - 120px) !important;
-          overflow-y: auto !important;
-          overflow-x: hidden !important;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        #classicEventModal .modal-footer {
-          border-radius: 0 0 16px 16px !important;
-          padding: 12px 16px !important;
-          padding-bottom: max(14px, env(safe-area-inset-bottom, 14px)) !important;
-          flex-shrink: 0 !important;
-        }
-
         .flex-half {
           flex-direction: column;
           gap: 12px;
         }
       }
 
-      /* Tablet specific (769px to 900px): Centered, 90vw width, proper spacing, vertical scroll */
-      @media (min-width: 769px) and (max-width: 900px) {
-        #classicEventModal.modal-backdrop {
-          position: fixed !important;
-          inset: 0 !important;
-          top: 0 !important;
-          left: 0 !important;
-          right: 0 !important;
-          bottom: 0 !important;
-          width: 100vw !important;
-          width: 100dvw !important;
-          height: 100vh !important;
-          height: 100dvh !important;
+      /* ==========================================================================
+         Timetable Activity Popup Modal - Professional & Responsive Styling
+         - Transparent Backdrop (No black overlay / No dark tint)
+         - Tablet & Mobile (<= 900px): Fixed center popup, 90vw width, proper margin/padding, vertical scroll
+         - Desktop (> 900px): Contextual positioning near clicked cell / element
+         ========================================================================== */
+      #classicEventModal.modal-backdrop,
+      #eventModal.modal-backdrop {
+        position: fixed !important;
+        inset: 0 !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        width: 100dvw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        z-index: 99999 !important;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      #classicEventModal.modal-backdrop.active,
+      #eventModal.modal-backdrop.active {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+
+      #classicEventModal .modal-panel,
+      #eventModal .modal-panel {
+        background-color: var(--bg-card) !important;
+        border: 1px solid var(--border-color) !important;
+        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.22), 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+        border-radius: 16px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        z-index: 100000 !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Tablet & Mobile Viewports (<= 900px) */
+      @media (max-width: 900px) {
+        #classicEventModal.modal-backdrop,
+        #eventModal.modal-backdrop {
           display: flex !important;
           align-items: center !important;
           justify-content: center !important;
-          padding: 20px !important;
-          margin: 0 !important;
-          overflow: hidden !important;
-          z-index: 99999 !important;
+          padding: 16px !important;
           background: transparent !important;
           background-color: transparent !important;
           backdrop-filter: none !important;
           -webkit-backdrop-filter: none !important;
         }
 
-        #classicEventModal .modal-panel {
+        #classicEventModal .modal-panel,
+        #eventModal .modal-panel {
           position: fixed !important;
           top: 50% !important;
           left: 50% !important;
           transform: translate(-50%, -50%) !important;
           width: 90vw !important;
-          width: 90dvw !important;
-          max-width: 520px !important;
+          max-width: 90vw !important;
+          min-width: 0 !important;
           height: auto !important;
           max-height: 88vh !important;
           max-height: 88dvh !important;
+          margin: 0 !important;
           border-radius: 16px !important;
           border: 1px solid var(--border-color) !important;
-          margin: 0 !important;
-          box-shadow: 0 18px 48px -6px rgba(0, 0, 0, 0.32), 0 0 0 1px var(--border-color) !important;
+          box-shadow: 0 18px 52px rgba(0, 0, 0, 0.26), 0 4px 14px rgba(0, 0, 0, 0.1) !important;
           display: flex !important;
           flex-direction: column !important;
+          overflow: hidden !important;
           z-index: 100000 !important;
           box-sizing: border-box !important;
-          overflow: hidden !important;
         }
 
-        #classicEventModal .modal-header {
+        #classicEventModal .modal-header,
+        #eventModal .modal-header {
           border-radius: 16px 16px 0 0 !important;
-          padding: 13px 18px !important;
+          padding: 14px 18px !important;
           flex-shrink: 0 !important;
+          border-bottom: 1px solid var(--border-color) !important;
         }
 
-        #classicEventModal .modal-body {
+        #classicEventModal .modal-body,
+        #eventModal .modal-body {
           padding: 16px 18px !important;
           gap: 12px !important;
           flex: 1 1 auto !important;
           min-height: 0 !important;
-          max-height: calc(88dvh - 120px) !important;
-          max-height: calc(88vh - 120px) !important;
+          max-height: calc(88vh - 130px) !important;
+          max-height: calc(88dvh - 130px) !important;
           overflow-y: auto !important;
-          overflow-x: hidden !important;
-          -webkit-overflow-scrolling: touch;
+          -webkit-overflow-scrolling: touch !important;
         }
 
-        #classicEventModal .modal-footer {
+        #classicEventModal .modal-footer,
+        #eventModal .modal-footer {
           border-radius: 0 0 16px 16px !important;
           padding: 12px 18px !important;
+          border-top: 1px solid var(--border-color) !important;
           padding-bottom: max(14px, env(safe-area-inset-bottom, 14px)) !important;
           flex-shrink: 0 !important;
+        }
+      }
+
+      /* Desktop / PC Viewports (> 900px) */
+      @media (min-width: 901px) {
+        #classicEventModal .modal-panel {
+          border-radius: 14px !important;
+          width: 480px;
+          max-width: calc(100vw - 32px);
+          max-height: calc(100vh - 32px);
+          box-shadow: 0 14px 44px rgba(0, 0, 0, 0.22), 0 3px 10px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        #classicEventModal .modal-body {
+          padding: 20px !important;
+          flex: 1 1 auto;
+          min-height: 0;
+          max-height: calc(100vh - 180px);
+          overflow-y: auto !important;
+          -webkit-overflow-scrolling: touch;
         }
       }
 
@@ -7253,6 +7148,10 @@
     
     
     
+    
+    
+    
+    
     <!-- Favicon and App Icons -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -8902,7 +8801,7 @@
 
     <div class="modal-backdrop" id="classicEventModal">
       <div class="modal-panel">
-        <div class="modal-header">
+        <div class="modal-header" style="background: var(--bg-panel); border-bottom: 1px solid var(--border-color);">
           <div style="display: flex; align-items: center; gap: 8px;">
             <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></div>
             <h2 class="modal-title" id="classicModalTitle" style="font-size: 15px; font-weight: 700;">Add Activity to Timetable</h2>
@@ -8912,7 +8811,7 @@
           </button>
         </div>
         
-        <div class="modal-body">
+        <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
           <input type="hidden" id="classicEvtId">
 
           <!-- Activity Title Input -->
@@ -12937,7 +12836,7 @@
 
           // POPUP POSITIONING FOR TABLET, PC, AND MOBILE
           // ==========================================
-          positionClassicModal(trigger, day = null, startTime = null, evtId = null) {
+          positionClassicModal(trigger) {
             const modal = document.getElementById('classicEventModal');
             if (!modal) return;
             const panel = modal.querySelector('.modal-panel');
@@ -12945,108 +12844,96 @@
 
             const isMobileOrTablet = window.innerWidth <= 900;
             if (isMobileOrTablet) {
-              // Tablet & Mobile layout: Centered with 90vw width, proper spacing, vertical scroll
+              // Tablet & Mobile (<= 900px):
+              // Full-screen centered popup with 90vw width, proper margin/spacing, vertical scroll
               panel.style.position = 'fixed';
               panel.style.top = '50%';
               panel.style.left = '50%';
               panel.style.transform = 'translate(-50%, -50%)';
               panel.style.width = '90vw';
-              panel.style.maxWidth = '520px';
+              panel.style.maxWidth = '90vw';
+              panel.style.minWidth = '0';
               panel.style.height = 'auto';
-              panel.style.maxHeight = '88dvh';
+              panel.style.maxHeight = '88vh';
               panel.style.margin = '0';
               panel.style.borderRadius = '16px';
+              panel.style.right = 'auto';
+              panel.style.bottom = 'auto';
+              panel.style.overflowY = 'hidden';
               return;
             }
 
-            // PC / Desktop: Position right near the clicked cell or trigger element
+            // Desktop / PC (> 900px):
+            // Position right near the clicked cell or element without cropping
             panel.style.position = 'fixed';
-            panel.style.transform = 'none';
             panel.style.margin = '0';
+            panel.style.transform = 'none';
             panel.style.borderRadius = '14px';
-            panel.style.width = '460px';
-            panel.style.maxWidth = 'calc(100vw - 32px)';
-            panel.style.maxHeight = 'calc(100vh - 32px)';
             panel.style.height = 'auto';
 
             let rect = null;
-            if (trigger) {
-              if (trigger instanceof HTMLElement) {
-                rect = trigger.getBoundingClientRect();
-              } else if (trigger.currentTarget instanceof HTMLElement) {
-                rect = trigger.currentTarget.getBoundingClientRect();
-              } else if (trigger.target instanceof HTMLElement) {
-                const cell = trigger.target.closest('.classic-td-cell, .classic-event-item, button, .tc-btn-teal-primary') || trigger.target;
-                rect = cell.getBoundingClientRect();
-              } else if (typeof trigger.clientX === 'number' && typeof trigger.clientY === 'number' && (trigger.clientX > 0 || trigger.clientY > 0)) {
-                rect = {
-                  left: trigger.clientX,
-                  right: trigger.clientX,
-                  top: trigger.clientY,
-                  bottom: trigger.clientY,
-                  width: 0,
-                  height: 0
-                };
-              }
+            let targetEl = null;
+
+            if (trigger instanceof Element) {
+              targetEl = trigger;
+            } else if (trigger && trigger.target instanceof Element) {
+              targetEl = trigger.target;
+            } else if (trigger && trigger.currentTarget instanceof Element) {
+              targetEl = trigger.currentTarget;
             }
 
-            // Fallback: If rect not found from trigger, search timetable DOM for cell or event card
-            if (!rect && evtId) {
-              const evtEl = document.getElementById(`classic-evt-${evtId}`);
-              if (evtEl) rect = evtEl.getBoundingClientRect();
-            }
-            if (!rect && day !== null && startTime !== null && startTime !== undefined) {
-              const cellEl = document.querySelector(`.classic-td-cell[data-day="${day}"][data-time="${startTime}"]`);
-              if (cellEl) rect = cellEl.getBoundingClientRect();
+            if (targetEl) {
+              const cell = targetEl.closest('.classic-td-cell, .classic-event-item, button, td, th');
+              if (cell) {
+                rect = cell.getBoundingClientRect();
+              } else {
+                rect = targetEl.getBoundingClientRect();
+              }
+            } else if (trigger && typeof trigger.clientX === 'number' && (trigger.clientX > 0 || trigger.clientY > 0)) {
+              rect = {
+                left: trigger.clientX,
+                right: trigger.clientX,
+                top: trigger.clientY,
+                bottom: trigger.clientY,
+                width: 0,
+                height: 0
+              };
             }
 
             const vw = window.innerWidth;
             const vh = window.innerHeight;
-            const panelW = 460;
-            const panelH = panel.offsetHeight > 150 ? panel.offsetHeight : 500;
+            const panelW = 480;
+            const panelH = 540;
 
             let left = Math.round((vw - panelW) / 2);
             let top = Math.max(20, Math.round((vh - panelH) / 2));
 
             if (rect) {
-              // 1. Horizontal placement: align with clicked cell/element
+              // Align with the clicked cell / element
               left = rect.left;
 
-              // Ensure it doesn't overflow right or left viewport edges
+              // Boundary check horizontal
               if (left + panelW > vw - 16) {
-                left = vw - panelW - 16;
+                left = rect.right - panelW;
+                if (left < 16) {
+                  left = vw - panelW - 16;
+                }
               }
               if (left < 16) {
                 left = 16;
               }
 
-              // 2. Vertical placement: near the clicked cell
-              const spaceBelow = vh - rect.bottom - 12;
-              const spaceAbove = rect.top - 12;
+              // Boundary check vertical: place right below the cell
+              top = rect.bottom + 6;
 
-              if (spaceBelow >= panelH || spaceBelow >= 300 || spaceBelow >= spaceAbove) {
-                // Place right below the cell
-                top = rect.bottom + 6;
-                // Clamp within viewport if it spills over bottom
-                if (top + panelH > vh - 16) {
+              // If it overflows bottom of viewport, try placing above the cell
+              if (top + panelH > vh - 16) {
+                if (rect.top - panelH - 6 >= 16) {
+                  top = rect.top - panelH - 6;
+                } else {
                   top = Math.max(16, vh - panelH - 16);
                 }
-              } else if (spaceAbove >= panelH || spaceAbove > spaceBelow) {
-                // Place above the cell
-                top = Math.max(16, rect.top - panelH - 6);
-              } else {
-                // Fallback: Check if room to the side (right or left of cell)
-                if (rect.right + panelW + 16 <= vw) {
-                  left = rect.right + 10;
-                  top = Math.max(16, Math.min(rect.top, vh - panelH - 16));
-                } else if (rect.left - panelW - 16 >= 0) {
-                  left = rect.left - panelW - 10;
-                  top = Math.max(16, Math.min(rect.top, vh - panelH - 16));
-                } else {
-                  top = Math.max(16, Math.min(rect.bottom + 6, vh - panelH - 16));
-                }
               }
-
               if (top < 16) {
                 top = 16;
               }
@@ -13054,6 +12941,11 @@
 
             panel.style.left = `${Math.round(left)}px`;
             panel.style.top = `${Math.round(top)}px`;
+            panel.style.right = 'auto';
+            panel.style.bottom = 'auto';
+            panel.style.width = `${panelW}px`;
+            panel.style.maxWidth = 'calc(100vw - 32px)';
+            panel.style.maxHeight = 'calc(100vh - 32px)';
           },
 
           applyClassicFieldsToAll() {
@@ -13142,10 +13034,7 @@
 
             const resolvedTrigger = trigger || window.event;
             app.state.lastClassicModalTrigger = resolvedTrigger;
-            app.state.lastClassicModalDay = day;
-            app.state.lastClassicModalTime = startM;
-            app.state.lastClassicModalEvtId = null;
-            this.positionClassicModal(resolvedTrigger, day, startM, null);
+            this.positionClassicModal(resolvedTrigger);
           },
 
           openClassicEditModal(evt, trigger = null) {
@@ -13207,10 +13096,7 @@
 
             const resolvedTrigger = trigger || window.event;
             app.state.lastClassicModalTrigger = resolvedTrigger;
-            app.state.lastClassicModalDay = evt.day;
-            app.state.lastClassicModalTime = evt.startTime;
-            app.state.lastClassicModalEvtId = evt.id;
-            this.positionClassicModal(resolvedTrigger, evt.day, evt.startTime, evt.id);
+            this.positionClassicModal(resolvedTrigger);
           },
 
           deleteClassicEventFromModal() {
@@ -15140,20 +15026,17 @@
       window.addEventListener('resize', () => {
         const modal = document.getElementById('classicEventModal');
         if (modal && modal.classList.contains('active') && app.handlers && app.handlers.positionClassicModal) {
-          app.handlers.positionClassicModal(
-            app.state.lastClassicModalTrigger,
-            app.state.lastClassicModalDay,
-            app.state.lastClassicModalTime,
-            app.state.lastClassicModalEvtId
-          );
+          app.handlers.positionClassicModal(app.state.lastClassicModalTrigger);
         }
       });
 
       document.addEventListener('click', (e) => {
         const modal = document.getElementById('classicEventModal');
-        if (modal && modal.classList.contains('active') && app.handlers && app.handlers.closeClassicEventModal) {
-          if (e.target === modal) {
-            app.handlers.closeClassicEventModal();
+        if (modal && modal.classList.contains('active')) {
+          if (e.target === modal || (e.target.closest('#classicEventModal') && !e.target.closest('.modal-panel'))) {
+            if (app.handlers && app.handlers.closeClassicEventModal) {
+              app.handlers.closeClassicEventModal();
+            }
           }
         }
         if (!e.target.closest('.tc-action-info-wrap')) {
