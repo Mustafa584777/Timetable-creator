@@ -248,6 +248,28 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
+  // School Timetable Maker for Teachers (base and language editions)
+  anonymityApp.get([
+    "/school-timetable-maker-for-teachers",
+    "/school-timetable-maker-for-teachers/",
+    "/school-timetable-maker-for-teachers/:lang",
+    "/school-timetable-maker-for-teachers/:lang/"
+  ], (req, res) => {
+    const lang = req.params.lang;
+    const subFile = lang ? path.join(lang, "index.html") : "index.html";
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "school-timetable-maker-for-teachers", subFile)
+      : path.join(process.cwd(), "public", "school-timetable-maker-for-teachers", subFile);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const defaultSchoolPath = path.join(process.cwd(), "public", "school-timetable-maker-for-teachers", "index.html");
+    if (fs.existsSync(defaultSchoolPath)) {
+      return res.sendFile(defaultSchoolPath);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
+  });
+
   // Online Timetable Generator (base and language editions)
   anonymityApp.get([
     "/timetable-generator",
