@@ -1,6 +1,6 @@
 {
-  "name": "Free Online Timetable Maker",
-  "description": "Free Online Timetable Maker to easily create, customize, and export weekly class schedules, study routines, and work planners. Free PDF and PNG download.",
+  "name": "Free Online Timetable Maker & AI Timetable Generator",
+  "description": "Create custom weekly schedules and class routines instantly with the free online timetable maker, AI timetable generator, and automatic timetable maker. Free PDF & PNG download.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
