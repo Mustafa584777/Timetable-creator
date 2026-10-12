@@ -69,6 +69,11 @@ const pagesToVersion = [
     canonicalBase: 'https://timetablecreator.online/timetable-generator-online-for-students/'
   },
   {
+    sourceFile: 'public/study-timetable-creator/index.html',
+    destDir: 'public/study-timetable-creator',
+    canonicalBase: 'https://timetablecreator.online/study-timetable-creator/'
+  },
+  {
     sourceFile: 'public/how-to-use/index.html',
     destDir: 'public/how-to-use',
     canonicalBase: 'https://timetablecreator.online/how-to-use/'

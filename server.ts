@@ -248,6 +248,28 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
+  // Study Timetable Creator & Automatic Study Timetable Generator (base and language editions)
+  anonymityApp.get([
+    "/study-timetable-creator",
+    "/study-timetable-creator/",
+    "/study-timetable-creator/:lang",
+    "/study-timetable-creator/:lang/"
+  ], (req, res) => {
+    const lang = req.params.lang;
+    const subFile = lang ? path.join(lang, "index.html") : "index.html";
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "study-timetable-creator", subFile)
+      : path.join(process.cwd(), "public", "study-timetable-creator", subFile);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const defaultStudyPath = path.join(process.cwd(), "public", "study-timetable-creator", "index.html");
+    if (fs.existsSync(defaultStudyPath)) {
+      return res.sendFile(defaultStudyPath);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
+  });
+
   // School Timetable Maker for Teachers (base and language editions)
   anonymityApp.get([
     "/school-timetable-maker",
