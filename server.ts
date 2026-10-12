@@ -250,6 +250,8 @@ async function startServer() {
 
   // School Timetable Maker for Teachers (base and language editions)
   anonymityApp.get([
+    "/school-timetable-maker",
+    "/school-timetable-maker/",
     "/school-timetable-maker-for-teachers",
     "/school-timetable-maker-for-teachers/",
     "/school-timetable-maker-for-teachers/:lang",
