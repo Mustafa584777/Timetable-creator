@@ -272,6 +272,28 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
+  // Revision Timetable Creator & Exam Revision Timetable Maker (base and language editions)
+  anonymityApp.get([
+    "/revision-timetable-creator",
+    "/revision-timetable-creator/",
+    "/revision-timetable-creator/:lang",
+    "/revision-timetable-creator/:lang/"
+  ], (req, res) => {
+    const lang = req.params.lang;
+    const subFile = lang ? path.join(lang, "index.html") : "index.html";
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "revision-timetable-creator", subFile)
+      : path.join(process.cwd(), "public", "revision-timetable-creator", subFile);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const defaultRevisionPath = path.join(process.cwd(), "public", "revision-timetable-creator", "index.html");
+    if (fs.existsSync(defaultRevisionPath)) {
+      return res.sendFile(defaultRevisionPath);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
+  });
+
   // Online Timetable Generator (base and language editions)
   anonymityApp.get([
     "/timetable-generator",

@@ -24,7 +24,8 @@ function getAllSitePages(baseDir = 'public') {
   const pages = [
     { loc: `${baseUrl}/`, priority: '1.0', changefreq: 'weekly' },
     { loc: `${baseUrl}/timetable-generator-online-for-students/`, priority: '0.9', changefreq: 'weekly' },
-    { loc: `${baseUrl}/school-timetable-maker-for-teachers/`, priority: '0.9', changefreq: 'weekly' }
+    { loc: `${baseUrl}/school-timetable-maker-for-teachers/`, priority: '0.9', changefreq: 'weekly' },
+    { loc: `${baseUrl}/revision-timetable-creator/`, priority: '0.9', changefreq: 'weekly' }
   ];
 
   // Scan blog directories dynamically from public/blog, keeping ONLY legal pages

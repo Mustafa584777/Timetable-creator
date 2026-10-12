@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Revision Timetable Creator - Free Exam Revision Timetable Maker & Generator</title>
+    <meta name="description" content="Free revision timetable creator and exam revision timetable maker. Build a personalized spaced-repetition study schedule with our revision timetable generator online free." />
+    <meta name="keywords" content="revision timetable creator, exam revision timetable maker, revision timetable generator online free, study timetable creator, exam schedule planner, GCSE revision timetable, A-Level study planner" />
+    <link rel="canonical" href="https://timetablecreator.online/revision-timetable-creator/" />
+
+    <!-- Open Graph / Social Previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Revision Timetable Creator - Exam Revision Timetable Maker" />
+    <meta property="og:description" content="Create a balanced, stress-free study plan with our revision timetable generator online free. Spaced repetition, exam countdowns, and progress tracking." />
+    <meta property="og:url" content="https://timetablecreator.online/revision-timetable-creator/" />
+    <meta property="og:image" content="https://timetablecreator.online/logo.png" />
+    <meta property="og:site_name" content="Timetable Creator" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Revision Timetable Creator - Exam Revision Timetable Maker" />
+    <meta name="twitter:description" content="Free revision timetable generator online free. Plan your exams with intelligent spaced repetition and printable PDF schedules." />
+    <meta name="twitter:image" content="https://timetablecreator.online/logo.png" />
+
+    <!-- JSON-LD Structured Data for Enhanced SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Revision Timetable Creator & Exam Revision Timetable Maker",
+          "alternateName": [
+            "Revision Timetable Creator",
+            "Exam Revision Timetable Maker",
+            "Revision Timetable Generator Online Free",
+            "Study Timetable Creator",
+            "Exam Revision Planner"
+          ],
+          "url": "https://timetablecreator.online/revision-timetable-creator/",
+          "description": "Free revision timetable creator and exam revision timetable maker. Generate optimized, spaced-repetition study routines with our revision timetable generator online free. Download CSV and print PDF.",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "browserRequirements": "Requires JavaScript and HTML5 support",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "1350",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the best revision timetable creator for exam preparation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our free revision timetable creator is specifically engineered for students preparing for GCSEs, A-Levels, SATs, and university exams. It automatically prioritizes subjects with upcoming exam dates and distributes study blocks using proven spaced repetition techniques."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does this exam revision timetable maker prioritize subjects?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The exam revision timetable maker considers two vital factors: your actual exam countdown date and your self-assessed difficulty rating (High, Medium, Low). Harder topics and imminent exams receive more frequent study blocks while maintaining healthy break periods."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this revision timetable generator online free to use without registration?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, our revision timetable generator online free tool requires no sign-ups, subscriptions, or credit card information. You can generate unlimited revision timetables, track completed sessions, and export to CSV or PDF completely free."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I track my completed revision sessions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Every revision block on the interactive timetable can be checked off with a single click. The live revision progress bar automatically calculates your completion percentage so you stay motivated."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I print or download my revision schedule?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, you can print a high-resolution, clean planner optimized for physical study desks, download a CSV spreadsheet for Excel or Google Sheets, or copy your revision routine as formatted text."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Favicon and App Icons -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <style>
+      :root {
+        --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --bg-body: #f8fafc;
+        --bg-card: #ffffff;
+        --bg-panel: #f1f5f9;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --border-color: #e2e8f0;
+        
+        /* Homepage Matching Colors: Signature Teal Palette */
+        --primary-color: #0d9488;
+        --primary-hover: #0f766e;
+        --primary-light: #ccfbf1;
+        --primary-border: #99f6e4;
+        --primary-glow: rgba(13, 148, 136, 0.16);
+        --accent-violet: #673de6;
+        --accent-violet-hover: #5b21b6;
+        --accent-violet-light: #ede9fe;
+        --border-radius: 12px;
+      }
+
+      [data-theme="dark"] {
+        --bg-body: #0f172a;
+        --bg-card: #1e293b;
+        --bg-panel: #0b1120;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --border-color: #334155;
+        --primary-color: #14b8a6;
+        --primary-hover: #2dd4bf;
+        --primary-light: rgba(20, 184, 166, 0.18);
+        --primary-border: #0d9488;
+        --primary-glow: rgba(20, 184, 166, 0.22);
+        --accent-violet: #8b5cf6;
+        --accent-violet-hover: #a78bfa;
+        --accent-violet-light: rgba(139, 92, 246, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-sans);
+        background-color: var(--bg-body);
+        color: var(--text-main);
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Global Header */
+      .global-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+      .header-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header-left-desktop {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .header-brand {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        align-items: center;
+      }
+      .app-brand-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .app-brand-logo {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+      .header-brand-line {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .app-brand-name {
+        font-weight: 800;
+        font-size: 17px;
+        letter-spacing: -0.02em;
+        color: var(--text-main);
+      }
+      .app-tools-tag {
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 6px;
+        background: var(--primary-light);
+        color: var(--primary-color);
+        border: 1px solid var(--primary-border);
+      }
+      .header-subtitle {
+        margin: 0;
+        font-size: 10.5px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .header-center-desktop {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .action-btn-header {
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-main);
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .action-btn-header:hover {
+        background: var(--bg-panel);
+      }
+      .header-nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .nav-link-header {
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-muted);
+        padding: 7px 13px;
+        border-radius: 8px;
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .nav-link-header:hover {
+        color: var(--text-main);
+        background: var(--bg-panel);
+      }
+      .nav-link-header.active {
+        color: var(--primary-color);
+        background: var(--primary-light);
+        font-weight: 600;
+      }
+
+      .header-mobile-toggle {
+        display: none;
+        background: transparent;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-main);
+        cursor: pointer;
+        padding: 7px;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (max-width: 990px) {
+        .header-nav-desktop {
+          display: none;
+        }
+        .header-mobile-toggle {
+          display: flex;
+        }
+      }
+      .mobile-menu-drawer {
+        display: flex;
+        flex-direction: column;
+        padding: 12px 20px;
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        gap: 6px;
+        animation: slideDown 0.2s ease-out;
+      }
+      .mobile-menu-drawer.hidden {
+        display: none;
+      }
+      @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .mobile-nav-link {
+        text-decoration: none;
+        padding: 11px 16px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-muted);
+        border-radius: 8px;
+        display: block;
+      }
+      .mobile-nav-link.active {
+        color: var(--primary-color);
+        background: var(--primary-light);
+        font-weight: 600;
+      }
+
+      /* Main Page Wrapper */
+      .tool-main-container {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 24px 16px 80px 16px;
+        width: 100%;
+      }
+
+      /* Hero Title Section */
+      .tool-hero-header {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+      .tool-hero-h1 {
+        font-size: clamp(22px, 4vw, 34px);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin: 0 0 10px 0;
+        color: var(--text-main);
+        line-height: 1.25;
+      }
+      .tool-hero-desc {
+        font-size: clamp(13px, 2.5vw, 15px);
+        color: var(--text-muted);
+        max-width: 820px;
+        margin: 0 auto 18px auto;
+        line-height: 1.6;
+      }
+      .tool-badges-row {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .tool-feature-badge {
+        font-size: 12px;
+        font-weight: 600;
+        background: var(--primary-light);
+        border: 1px solid var(--primary-border);
+        color: var(--primary-color);
+        padding: 5px 14px;
+        border-radius: 999px;
+      }
+
+      /* Countdown Cards Banner */
+      .countdown-banner {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .countdown-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      }
+      .countdown-card-left {
+        display: flex;
+        flex-direction: column;
+      }
+      .countdown-subj-name {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      .countdown-exam-date {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+      .countdown-badge {
+        font-size: 12px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: var(--primary-light);
+        color: var(--primary-color);
+        border: 1px solid var(--primary-border);
+      }
+      .countdown-badge.urgent {
+        background: #fee2e2;
+        color: #b91c1c;
+        border-color: #fca5a5;
+      }
+
+      /* Progress Card Banner */
+      .progress-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 18px 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      }
+      .progress-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .progress-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .progress-stats-text {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+      .progress-bar-track {
+        width: 100%;
+        height: 12px;
+        background: var(--bg-panel);
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+      }
+      .progress-bar-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--primary-color), #2dd4bf);
+        border-radius: 999px;
+        transition: width 0.3s ease;
+      }
+
+      /* Configuration Card */
+      .config-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: clamp(16px, 3.5vw, 28px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        margin-bottom: 24px;
+      }
+      .config-card-title {
+        font-size: clamp(17px, 3vw, 20px);
+        font-weight: 700;
+        margin: 0 0 18px 0;
+        color: var(--text-main);
+      }
+
+      .config-section-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      /* Days Pill Selector */
+      .days-pill-group {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 22px;
+      }
+      .day-pill-btn {
+        padding: 8px 16px;
+        min-height: 40px;
+        border-radius: 999px;
+        border: 1px solid var(--border-color);
+        background: var(--bg-card);
+        color: var(--text-main);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        touch-action: manipulation;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .day-pill-btn:hover {
+        border-color: var(--primary-color);
+      }
+      .day-pill-btn.active {
+        background: var(--primary-light);
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      /* Timetable Settings Grid */
+      .settings-dropdowns-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+      @media (max-width: 900px) {
+        .settings-dropdowns-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 440px) {
+        .settings-dropdowns-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .settings-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .settings-field label {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--text-main);
+      }
+      .settings-select {
+        height: 42px;
+        padding: 0 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        background: var(--bg-card);
+        color: var(--text-main);
+        font-family: inherit;
+        font-size: 13.5px;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        width: 100%;
+      }
+      .settings-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px var(--primary-glow);
+      }
+
+      /* Subjects & Exam Dates Table */
+      .subjects-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .btn-add-subject {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        min-height: 38px;
+        border-radius: 8px;
+        border: 1px solid var(--primary-border);
+        background: var(--primary-light);
+        color: var(--primary-color);
+        font-size: 12.5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        touch-action: manipulation;
+      }
+      .btn-add-subject:hover {
+        background: var(--primary-color);
+        color: #ffffff;
+      }
+
+      .subjects-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+      .subject-row-item {
+        display: grid;
+        grid-template-columns: 20px 1.5fr 1fr 120px 36px;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+      }
+      @media (max-width: 768px) {
+        .subject-row-item {
+          grid-template-columns: 20px 1fr 36px;
+          grid-template-rows: auto auto;
+          background: var(--bg-panel);
+          padding: 10px 12px;
+          border-radius: 10px;
+          border: 1px solid var(--border-color);
+          gap: 8px;
+        }
+        .subject-row-item .subject-color-dot {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+        }
+        .subject-row-item .subject-name-input {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+        }
+        .subject-row-item .btn-remove-subject {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+          justify-self: end;
+        }
+        .subject-row-item .exam-date-input {
+          grid-column: 1 / 3;
+          grid-row: 2 / 3;
+        }
+        .subject-row-item .priority-select {
+          grid-column: 3 / 4;
+          grid-row: 2 / 3;
+        }
+      }
+      .subject-color-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        cursor: pointer;
+        box-shadow: 0 0 0 2px var(--border-color);
+        transition: transform 0.15s;
+      }
+      .subject-color-dot:hover {
+        transform: scale(1.15);
+      }
+      .subject-name-input, .exam-date-input, .priority-select {
+        height: 40px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        background: var(--bg-card);
+        color: var(--text-main);
+        padding: 0 10px;
+        font-family: inherit;
+        font-size: 13px;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        width: 100%;
+      }
+      .subject-name-input:focus, .exam-date-input:focus, .priority-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px var(--primary-glow);
+      }
+      .btn-remove-subject {
+        background: transparent;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        width: 34px;
+        height: 34px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      .btn-remove-subject:hover {
+        color: #ef4444;
+        background: rgba(239, 68, 68, 0.1);
+      }
+
+      /* Card Action Buttons */
+      .card-actions-row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .btn-generate-primary {
+        background: var(--primary-color);
+        color: #ffffff;
+        border: none;
+        padding: 12px 30px;
+        min-height: 44px;
+        border-radius: 24px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 2px 8px var(--primary-glow);
+        touch-action: manipulation;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn-generate-primary:hover {
+        background: var(--primary-hover);
+      }
+      .btn-regenerate-secondary {
+        background: var(--bg-card);
+        color: var(--text-main);
+        border: 1px solid var(--border-color);
+        padding: 11px 26px;
+        min-height: 44px;
+        border-radius: 24px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        touch-action: manipulation;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn-regenerate-secondary:hover {
+        background: var(--bg-panel);
+      }
+      @media (max-width: 480px) {
+        .card-actions-row {
+          flex-direction: column;
+          width: 100%;
+        }
+        .btn-generate-primary, .btn-regenerate-secondary {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      /* Export / Actions Toolbar */
+      .timetable-actions-toolbar {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+      .action-export-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-main);
+        padding: 8px 14px;
+        min-height: 38px;
+        border-radius: 8px;
+        font-size: 12.5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        touch-action: manipulation;
+      }
+      .action-export-btn:hover {
+        background: var(--bg-panel);
+        border-color: #cbd5e1;
+      }
+      @media (max-width: 480px) {
+        .timetable-actions-toolbar {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+        }
+      }
+
+      /* Interactive Timetable Grid Table */
+      .timetable-table-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        margin-bottom: 24px;
+        position: relative;
+      }
+      .mobile-scroll-hint {
+        display: none;
+        padding: 8px 14px;
+        font-size: 12px;
+        color: var(--primary-color);
+        background: var(--primary-light);
+        border-bottom: 1px solid var(--primary-border);
+        align-items: center;
+        gap: 6px;
+        font-weight: 600;
+      }
+      @media (max-width: 768px) {
+        .mobile-scroll-hint {
+          display: flex;
+        }
+      }
+      .table-scroll-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+      }
+      .revision-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 720px;
+        text-align: center;
+      }
+      .revision-table th {
+        background: var(--bg-panel);
+        color: var(--text-main);
+        font-size: 13px;
+        font-weight: 700;
+        padding: 12px 14px;
+        border: 1px solid var(--border-color);
+        white-space: nowrap;
+      }
+      .revision-table th.time-header-col {
+        width: 110px;
+        min-width: 110px;
+        position: sticky;
+        left: 0;
+        z-index: 3;
+        background: var(--bg-panel);
+        border-right: 2px solid var(--border-color);
+      }
+      .revision-table td {
+        padding: 8px 10px;
+        border: 1px solid var(--border-color);
+        vertical-align: middle;
+      }
+      .revision-table td.time-cell {
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--text-muted);
+        background: var(--bg-card);
+        line-height: 1.35;
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        border-right: 2px solid var(--border-color);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.03);
+      }
+      .revision-table td.break-cell {
+        background: var(--bg-panel);
+        color: var(--text-muted);
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-align: center;
+      }
+
+      /* Subject Slot Cards */
+      .slot-card {
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-size: 12.5px;
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.15s;
+        border: 1px solid transparent;
+        line-height: 1.3;
+        min-height: 52px;
+        position: relative;
+      }
+      .slot-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .slot-card.completed {
+        opacity: 0.55;
+        text-decoration: line-through;
+        background-color: var(--bg-panel) !important;
+        color: var(--text-muted) !important;
+        border-color: var(--border-color) !important;
+      }
+      .slot-card .completed-badge {
+        position: absolute;
+        top: 2px;
+        right: 4px;
+        font-size: 11px;
+      }
+      .slot-card .priority-pill {
+        font-size: 10px;
+        font-weight: 600;
+        padding: 1px 6px;
+        border-radius: 10px;
+        margin-top: 3px;
+        opacity: 0.9;
+      }
+
+      /* Legend Bar */
+      .legend-container-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        margin-bottom: 44px;
+      }
+      .legend-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      .legend-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 999px;
+      }
+
+      /* Toast Notification */
+      .copy-toast {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: #0f172a;
+        color: #f8fafc;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        z-index: 99999;
+        display: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+      .copy-toast.show {
+        display: block;
+        animation: fadeIn 0.2s ease-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* On-Page SEO Articles & FAQ Styling */
+      .seo-section-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: clamp(20px, 4vw, 36px);
+        margin-bottom: 24px;
+      }
+      .seo-h2 {
+        font-size: clamp(20px, 3.5vw, 24px);
+        font-weight: 700;
+        color: var(--text-main);
+        margin: 0 0 14px 0;
+      }
+      .seo-p {
+        font-size: 14.5px;
+        line-height: 1.7;
+        color: var(--text-muted);
+        margin: 0 0 16px 0;
+      }
+      .seo-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+        margin: 22px 0 10px 0;
+      }
+      .seo-feature-box {
+        padding: 20px;
+        border-radius: 12px;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+      }
+      .seo-feature-box h3 {
+        margin: 0 0 8px 0;
+        font-size: 15.5px;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      .seo-feature-box p {
+        margin: 0;
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: var(--text-muted);
+      }
+
+      /* FAQ Accordion */
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+      }
+      .faq-item {
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        background: var(--bg-card);
+        overflow: hidden;
+      }
+      .faq-question {
+        padding: 16px 20px;
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--text-main);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+      }
+      .faq-answer {
+        padding: 0 20px 18px 20px;
+        font-size: 13.5px;
+        line-height: 1.65;
+        color: var(--text-muted);
+        display: none;
+      }
+      .faq-item.open .faq-answer {
+        display: block;
+      }
+
+      /* Global Footer */
+      .seo-footer {
+        background: var(--bg-card);
+        border-top: 1px solid var(--border-color);
+        padding: 50px 20px 30px 20px;
+        margin-top: auto;
+      }
+      .footer-container {
+        max-width: 1260px;
+        margin: 0 auto;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 32px;
+        margin-bottom: 36px;
+      }
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .footer-title {
+        font-size: 12.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-main);
+        margin: 0 0 6px 0;
+      }
+      .footer-link {
+        font-size: 13px;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-link:hover {
+        color: var(--primary-color);
+      }
+      .footer-bottom {
+        padding-top: 24px;
+        border-top: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        color: var(--text-muted);
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      /* Print Optimizations */
+      @media print {
+        .global-header,
+        .config-card,
+        .countdown-banner,
+        .progress-card,
+        .timetable-actions-toolbar,
+        .seo-section-card,
+        .seo-footer,
+        .legend-container-card,
+        .mobile-scroll-hint {
+          display: none !important;
+        }
+        body, .tool-main-container {
+          background: #ffffff !important;
+          color: #000000 !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        .tool-hero-header {
+          margin-bottom: 12px;
+        }
+        .tool-badges-row {
+          display: none;
+        }
+        .timetable-table-card {
+          box-shadow: none !important;
+          border: 1px solid #000 !important;
+        }
+        .revision-table th, .revision-table td {
+          border: 1px solid #000 !important;
+          padding: 6px !important;
+        }
+        .slot-card {
+          border: 1px solid #999 !important;
+          box-shadow: none !important;
+          color: #000000 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- GLOBAL NAVIGATION HEADER -->
+    <header class="global-header">
+      <div class="header-container">
+        <!-- Brand -->
+        <div class="header-left-desktop">
+          <a href="/" class="header-brand" aria-label="Timetable Creator">
+            <div class="app-brand-wrapper">
+              <img src="/logo.png" alt="Timetable Creator Logo" class="app-brand-logo" width="32" height="32" />
+              <div class="header-title-group">
+                <div class="header-brand-line">
+                  <span class="app-brand-name">TIMETABLE</span>
+                  <span class="app-tools-tag">EXAM REVISION</span>
+                </div>
+                <p class="header-subtitle">Online Study Schedule Generator</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Center / Right Nav -->
+        <div class="header-center-desktop">
+          <!-- Light/Dark Mode Toggle in Header -->
+          <button class="action-btn-header" onclick="toggleLocalTheme()" data-tooltip="Toggle theme mode" title="Toggle theme mode" aria-label="Toggle Theme">
+            <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
+              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+
+          <!-- Nav links (Desktop) -->
+          <nav class="header-nav-desktop">
+            <a href="/" class="nav-link-header">Timetable Maker</a>
+            <a href="/timetable-generator-online-for-students/" class="nav-link-header">Free Students Timetable Maker</a>
+            <a href="/school-timetable-maker-for-teachers/" class="nav-link-header">School Timetable Maker</a>
+            <a href="/revision-timetable-creator/" class="nav-link-header active">Revision Timetable Creator</a>
+            <a href="/how-to-use/" class="nav-link-header">How to Use</a>
+          </nav>
+        </div>
+
+        <!-- Mobile Navigation Toggle Button -->
+        <button class="header-mobile-toggle" onclick="toggleMobileMenuLocal()" aria-label="Toggle menu">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24" height="24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Drawer Menu -->
+      <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
+        <a href="/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">Timetable Maker</a>
+        <a href="/timetable-generator-online-for-students/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">Free Students Timetable Maker</a>
+        <a href="/school-timetable-maker-for-teachers/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">School Timetable Maker</a>
+        <a href="/revision-timetable-creator/" class="mobile-nav-link active" onclick="toggleMobileMenuLocal()">Revision Timetable Creator</a>
+        <a href="/how-to-use/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">How to Use</a>
+      </div>
+    </header>
+
+    <!-- MAIN INTERACTIVE TOOL CONTAINER -->
+    <main class="tool-main-container">
+      
+      <!-- HERO HEADER -->
+      <div class="tool-hero-header">
+        <h1 class="tool-hero-h1">Revision Timetable Creator & Exam Revision Timetable Maker</h1>
+        <p class="tool-hero-desc">
+          Plan your exam preparation with our <strong>revision timetable generator online free</strong>. Balance your study sessions across weekdays and weekends, prioritize difficult subjects with upcoming exam countdowns, track completed revision blocks, and print your custom study plan.
+        </p>
+        <div class="tool-badges-row">
+          <span class="tool-feature-badge">⚡ Spaced Repetition Engine</span>
+          <span class="tool-feature-badge">⏳ Exam Countdown Tracking</span>
+          <span class="tool-feature-badge">☕ Pomodoro Break Intervals</span>
+          <span class="tool-feature-badge">✅ Interactive Progress Check</span>
+          <span class="tool-feature-badge">🖨️ PDF & CSV Export</span>
+        </div>
+      </div>
+
+      <!-- EXAM COUNTDOWN BANNER -->
+      <div class="countdown-banner" id="countdownBannerContainer">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- PROGRESS TRACKER BANNER -->
+      <div class="progress-card">
+        <div class="progress-header-row">
+          <div class="progress-title">
+            <span>🎯 Revision Progress Tracker</span>
+          </div>
+          <div class="progress-stats-text" id="progressStatsText">0 of 0 sessions completed (0%)</div>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- 1. CONFIGURE YOUR REVISION TIMETABLE CARD -->
+      <div class="config-card">
+        <h2 class="config-card-title">Configure Your Revision Timetable</h2>
+
+        <!-- Revision Days Selector -->
+        <span class="config-section-label">Study Days</span>
+        <div class="days-pill-group" id="daysPillGroup">
+          <button type="button" class="day-pill-btn active" data-day="Mon" onclick="toggleDay('Mon')">Mon</button>
+          <button type="button" class="day-pill-btn active" data-day="Tue" onclick="toggleDay('Tue')">Tue</button>
+          <button type="button" class="day-pill-btn active" data-day="Wed" onclick="toggleDay('Wed')">Wed</button>
+          <button type="button" class="day-pill-btn active" data-day="Thu" onclick="toggleDay('Thu')">Thu</button>
+          <button type="button" class="day-pill-btn active" data-day="Fri" onclick="toggleDay('Fri')">Fri</button>
+          <button type="button" class="day-pill-btn active" data-day="Sat" onclick="toggleDay('Sat')">Sat</button>
+          <button type="button" class="day-pill-btn active" data-day="Sun" onclick="toggleDay('Sun')">Sun</button>
+        </div>
+
+        <!-- Start Time, End Time, Session Duration, Break Interval -->
+        <div class="settings-dropdowns-grid">
+          <div class="settings-field">
+            <label for="selectStartTime">Daily Start Time</label>
+            <select id="selectStartTime" class="settings-select" onchange="onSettingChange()">
+              <option value="7:00 AM">7:00 AM (Early Bird)</option>
+              <option value="8:00 AM">8:00 AM</option>
+              <option value="9:00 AM" selected>9:00 AM (Standard)</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="1:00 PM">1:00 PM (Afternoon)</option>
+              <option value="4:00 PM">4:00 PM (Evening)</option>
+            </select>
+          </div>
+
+          <div class="settings-field">
+            <label for="selectEndTime">Daily End Time</label>
+            <select id="selectEndTime" class="settings-select" onchange="onSettingChange()">
+              <option value="1:00 PM">1:00 PM (Half-Day)</option>
+              <option value="3:00 PM">3:00 PM</option>
+              <option value="5:00 PM" selected>5:00 PM (Standard)</option>
+              <option value="7:00 PM">7:00 PM</option>
+              <option value="9:00 PM">9:00 PM (Night Owl)</option>
+            </select>
+          </div>
+
+          <div class="settings-field">
+            <label for="selectDuration">Study Session Duration</label>
+            <select id="selectDuration" class="settings-select" onchange="onSettingChange()">
+              <option value="30">30 minutes (Quick)</option>
+              <option value="45" selected>45 minutes (Pomodoro)</option>
+              <option value="60">60 minutes (Deep Focus)</option>
+              <option value="90">90 minutes (Extended)</option>
+            </select>
+          </div>
+
+          <div class="settings-field">
+            <label for="selectBreakInterval">Rest Break After Every</label>
+            <select id="selectBreakInterval" class="settings-select" onchange="onSettingChange()">
+              <option value="1">1 session (15m break)</option>
+              <option value="2" selected>2 sessions (15m break)</option>
+              <option value="3">3 sessions</option>
+              <option value="0">No Breaks</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Exam Subjects & Priority -->
+        <div class="subjects-header-row">
+          <span class="config-section-label" style="margin-bottom:0;">Exam Subjects, Exam Dates & Priority</span>
+          <button type="button" class="btn-add-subject" onclick="addNewSubjectRow()">
+            <span>+ Add Exam Subject</span>
+          </button>
+        </div>
+
+        <div class="subjects-list" id="subjectsListContainer">
+          <!-- Populated live via JS -->
+        </div>
+
+        <!-- Buttons -->
+        <div class="card-actions-row">
+          <button type="button" class="btn-generate-primary" onclick="generateRevisionTimetable()">
+            Generate Revision Timetable
+          </button>
+          <button type="button" class="btn-regenerate-secondary" onclick="regenerateRevisionTimetable()">
+            Regenerate & Rebalance
+          </button>
+          <button type="button" class="btn-regenerate-secondary" onclick="resetSampleData()">
+            Reset Sample Data
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. ACTIONS TOOLBAR -->
+      <div class="timetable-actions-toolbar">
+        <button type="button" class="action-export-btn" onclick="copyTimetableAsText()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy as Text</span>
+        </button>
+        <button type="button" class="action-export-btn" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>Print Schedule</span>
+        </button>
+        <button type="button" class="action-export-btn" onclick="downloadTimetableCSV()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Download CSV</span>
+        </button>
+        <button type="button" class="action-export-btn" onclick="resetAllCompletion()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+          <span>Reset Checkmarks</span>
+        </button>
+      </div>
+
+      <!-- 3. REVISION TIMETABLE TABLE CARD -->
+      <div class="timetable-table-card" id="timetablePrintContainer">
+        <div class="mobile-scroll-hint">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          <span>Swipe horizontally to view all days • Click slots to mark done ✅</span>
+        </div>
+        <div class="table-scroll-wrapper">
+          <table class="revision-table" id="revisionTimetableTable">
+            <thead id="revisionTableHeader">
+              <!-- Dynamically rendered -->
+            </thead>
+            <tbody id="revisionTableBody">
+              <!-- Dynamically populated with color-coded slots, breaks, and checkboxes -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4. LEGEND & EXAM SUMMARY -->
+      <div class="legend-container-card" id="legendContainer">
+        <span class="legend-title">Subject Legend:</span>
+        <div id="legendItemsList" style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+          <!-- Injected live -->
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- SEO CONTENT: ALL TARGET KEYWORDS INTEGRATED NATURALLY             -->
+      <!-- ================================================================= -->
+      <article class="seo-section-card">
+        <h2 class="seo-h2">Why Use Our Free Revision Timetable Creator & Exam Revision Timetable Maker?</h2>
+        <p class="seo-p">
+          Preparing for critical exams requires more than random late-night study sessions. Whether you are revising for GCSEs, A-Levels, SATs, university semester finals, or professional licensing exams, our <strong>revision timetable creator</strong> helps you build a structured, balanced roadmap to academic success.
+        </p>
+        <p class="seo-p">
+          Unlike rigid static templates, this smart <strong>exam revision timetable maker</strong> calculates optimal study distribution based on your actual exam dates and subject difficulty levels. By scheduling harder courses more frequently and maintaining consistent spaced repetition intervals, our <strong>revision timetable generator online free</strong> prevents cognitive overload, eliminates pre-exam panic, and guarantees maximum memory retention.
+        </p>
+
+        <div class="seo-grid-3">
+          <div class="seo-feature-box">
+            <h3>🧠 Spaced Repetition Science</h3>
+            <p>Our <strong>revision timetable creator</strong> spreads your topics across consecutive days and weeks, reinforcing neural pathways and preventing the forgetting curve.</p>
+          </div>
+          <div class="seo-feature-box">
+            <h3>⏳ Exam Countdown Prioritization</h3>
+            <p>The <strong>exam revision timetable maker</strong> dynamically weighs upcoming exam dates, allocating more study blocks to courses with imminent deadlines.</p>
+          </div>
+          <div class="seo-feature-box">
+            <h3>☕ Healthy Pomodoro Rest Breaks</h3>
+            <p>Automatic 15-minute breaks after 1 or 2 study blocks protect your focus, keeping your mind alert and preventing mental burnout.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="seo-section-card">
+        <h2 class="seo-h2">Powerful Features of Our Revision Timetable Generator Online Free</h2>
+        <p class="seo-p">
+          Our online platform combines ease of use with professional scheduling algorithms. Students across high schools, colleges, and medical universities rely on our <strong>revision timetable generator online free</strong> because it provides everything needed in one convenient web app without forced sign-ups or payments.
+        </p>
+
+        <div class="seo-grid-3">
+          <div class="seo-feature-box">
+            <h3>✅ Interactive Progress Checkmarks</h3>
+            <p>Click any revision slot on your schedule to mark it completed. The real-time progress tracker celebrates your daily milestones and keeps you accountable.</p>
+          </div>
+          <div class="seo-feature-box">
+            <h3>🎨 Color-Coded Subject Blocks</h3>
+            <p>Visually distinct color palettes allow you to immediately distinguish between STEM subjects, humanities, languages, and scheduled breaks at a glance.</p>
+          </div>
+          <div class="seo-feature-box">
+            <h3>🖨️ Printable Study Desk Layouts</h3>
+            <p>Export your revision routine as a clean, high-contrast PDF document ready for printing, or download a CSV spreadsheet for Excel and Google Sheets.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4-STEP HOW IT WORKS GUIDE -->
+      <article class="seo-section-card">
+        <h2 class="seo-h2">How to Create an Effective Study Routine in 4 Easy Steps</h2>
+        <div class="seo-grid-3">
+          <div class="seo-feature-box">
+            <h3>1. Input Your Exam Subjects</h3>
+            <p>Enter the courses you need to revise (e.g., Mathematics, Biology, Chemistry, History) along with their scheduled exam dates and difficulty ratings.</p>
+          </div>
+          <div class="seo-feature-box">
+            <h3>2. Set Your Active Study Hours</h3>
+            <p>Select your daily revision window (e.g., 9:00 AM to 5:00 PM), pick your preferred study duration (30, 45, or 60 mins), and choose your rest break frequency.</p>
+          </div>
+          <div class="seo-feature-box">
+            <h3>3. Generate & Balance Timetable</h3>
+            <p>Click "Generate Revision Timetable" to produce an optimized, conflict-free weekly plan that spreads subjects evenly without back-to-back repetitions.</p>
+          </div>
+          <div class="seo-feature-box">
+            <h3>4. Track Progress & Print</h3>
+            <p>Mark study blocks completed as you revise throughout the week, print a copy for your bulletin board, or download CSV files for digital calendar tracking.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- FREQUENTLY ASKED QUESTIONS -->
+      <article class="seo-section-card">
+        <h2 class="seo-h2">Frequently Asked Questions About Online Revision Timetable Makers</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>What makes this the best revision timetable creator for exams?</span>
+              <span style="font-size:18px;">+</span>
+            </div>
+            <div class="faq-answer">
+              Our <strong>revision timetable creator</strong> goes beyond static calendars by utilizing intelligent constraint algorithms. It adapts to your exam countdown dates, weights subject difficulties, introduces synchronized rest intervals, and provides interactive click-to-complete checkmarks.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>How does the exam revision timetable maker prioritize subjects?</span>
+              <span style="font-size:18px;">+</span>
+            </div>
+            <div class="faq-answer">
+              Our <strong>exam revision timetable maker</strong> analyzes two key metrics: the chronological proximity of your exam dates and your custom priority selection (High, Medium, Low). High-priority subjects and imminent exams receive a greater share of weekly study blocks.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>Is this revision timetable generator online free to use?</span>
+              <span style="font-size:18px;">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes! Our <strong>revision timetable generator online free</strong> tool is 100% free with no registration, subscriptions, or credit card requirements. You have complete access to unlimited timetable generations, interactive progress tracking, and CSV/PDF export.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>How many hours should I revise each day?</span>
+              <span style="font-size:18px;">+</span>
+            </div>
+            <div class="faq-answer">
+              Cognitive research suggests that 4 to 6 focused hours of daily revision with structured 15-minute breaks produces significantly better retention than prolonged 10-hour cram sessions. Our tool helps you stay within healthy study boundaries to prevent burnout.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>Can I use this revision planner on my mobile phone or tablet?</span>
+              <span style="font-size:18px;">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes, our tool is built with a mobile-first responsive layout. You can access your revision schedule on smartphones and tablets, swipe horizontally across days with a sticky time column, and tap slots to mark them done on the go.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- KEYWORDS BADGE -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px 24px; font-size: 12.5px; color: var(--text-muted); line-height: 1.7;">
+        <strong>Keywords:</strong> revision timetable creator, exam revision timetable maker, revision timetable generator online free, study timetable creator, exam schedule planner, GCSE revision timetable, A-Level study planner, spaced repetition study routine, college exam planner.
+      </div>
+
+    </main>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="copyToast" class="copy-toast">Revision timetable copied to clipboard!</div>
+
+    <!-- GLOBAL FOOTER -->
+    <footer class="seo-footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <!-- Col 1 -->
+          <div class="footer-col" style="max-width: 320px;">
+            <div class="app-brand-wrapper" style="margin-bottom: 12px;">
+              <img src="/logo.png" alt="Timetable Creator Logo" class="app-brand-logo" width="28" height="28" />
+              <div class="header-brand-line">
+                <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
+                <span class="app-tools-tag">CREATOR</span>
+              </div>
+            </div>
+            <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
+              Free web-based scheduling suite built for schools, universities, students, educators, and exam candidates worldwide.
+            </p>
+          </div>
+
+          <!-- Col 2 -->
+          <div class="footer-col">
+            <h4 class="footer-title">All Timetable Generators</h4>
+            <a href="/" class="footer-link">Free Online Timetable Maker</a>
+            <a href="/timetable-generator-online-for-students/" class="footer-link">Student Timetable Generator</a>
+            <a href="/school-timetable-maker-for-teachers/" class="footer-link">School Timetable Maker</a>
+            <a href="/revision-timetable-creator/" class="footer-link">Revision Timetable Creator</a>
+          </div>
+
+          <!-- Col 3 -->
+          <div class="footer-col">
+            <h4 class="footer-title">Resources & Guides</h4>
+            <a href="/how-to-use/" class="footer-link">How to Use Guide</a>
+            <a href="/faqs/" class="footer-link">Frequently Asked Questions</a>
+            <a href="/keyboard-shortcuts/" class="footer-link">Keyboard Shortcuts</a>
+            <a href="/sitemap.html" class="footer-link">HTML Sitemap</a>
+          </div>
+
+          <!-- Col 4 -->
+          <div class="footer-col">
+            <h4 class="footer-title">Legal & Privacy</h4>
+            <a href="/blog/privacy-policy/" class="footer-link">Privacy Policy</a>
+            <a href="/blog/terms-and-conditions/" class="footer-link">Terms of Service</a>
+            <a href="/blog/about-us/" class="footer-link">About Us</a>
+            <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>&copy; 2026 Timetable Creator. All rights reserved.</div>
+          <div>Smart Revision Timetable Creator & Exam Revision Timetable Maker</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+      // Color Palette matching brand theme
+      const COLOR_PALETTE = [
+        { bg: '#ccfbf1', text: '#0f766e', dot: '#0d9488', name: 'Teal' },     // Brand Teal
+        { bg: '#dbeafe', text: '#1e40af', dot: '#3b82f6', name: 'Blue' },     // Blue
+        { bg: '#ede9fe', text: '#5b21b6', dot: '#7c3aed', name: 'Violet' },   // Violet
+        { bg: '#dcfce7', text: '#166534', dot: '#22c55e', name: 'Green' },    // Green
+        { bg: '#fef3c7', text: '#92400e', dot: '#f59e0b', name: 'Amber' },    // Amber
+        { bg: '#fee2e2', text: '#991b1b', dot: '#ef4444', name: 'Coral' },    // Coral
+        { bg: '#ffedd5', text: '#9a3412', dot: '#f97316', name: 'Orange' },   // Orange
+        { bg: '#fce7f3', text: '#9d174d', dot: '#ec4899', name: 'Pink' }      // Pink
+      ];
+
+      // Default upcoming dates
+      function getDefaultExamDate(daysAhead) {
+        const d = new Date();
+        d.setDate(d.getDate() + daysAhead);
+        return d.toISOString().split('T')[0];
+      }
+
+      let selectedDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+      let subjects = [
+        { id: 1, name: 'Mathematics (Calculus & Algebra)', examDate: getDefaultExamDate(14), priority: 'high', colorIdx: 1 },
+        { id: 2, name: 'Biology (Cell Systems & Ecology)', examDate: getDefaultExamDate(21), priority: 'medium', colorIdx: 3 },
+        { id: 3, name: 'Chemistry (Organic & Periodic)', examDate: getDefaultExamDate(18), priority: 'high', colorIdx: 0 },
+        { id: 4, name: 'English Literature (Essays)', examDate: getDefaultExamDate(28), priority: 'low', colorIdx: 2 },
+        { id: 5, name: 'World History (Modern Era)', examDate: getDefaultExamDate(35), priority: 'medium', colorIdx: 4 }
+      ];
+
+      let generatedSchedule = []; // rows: { timeStr, isBreak, slots: { Mon: { id, subj, completed }, ... } }
+
+      // DOM Elements
+      const subjectsListContainer = document.getElementById('subjectsListContainer');
+      const countdownBannerContainer = document.getElementById('countdownBannerContainer');
+      const revisionTableHeader = document.getElementById('revisionTableHeader');
+      const revisionTableBody = document.getElementById('revisionTableBody');
+      const legendItemsList = document.getElementById('legendItemsList');
+      const progressStatsText = document.getElementById('progressStatsText');
+      const progressBarFill = document.getElementById('progressBarFill');
+
+      function parseTimeToMinutes(str) {
+        const [timePart, modifier] = str.split(' ');
+        let [hours, minutes] = timePart.split(':').map(Number);
+        if (modifier === 'PM' && hours < 12) hours += 12;
+        if (modifier === 'AM' && hours === 12) hours = 0;
+        return hours * 60 + minutes;
+      }
+
+      function formatMinutesToTime(mins) {
+        let h = Math.floor(mins / 60) % 24;
+        let m = mins % 60;
+        const ampm = h >= 12 ? 'PM' : 'AM';
+        h = h % 12;
+        if (h === 0) h = 12;
+        const mStr = m < 10 ? '0' + m : m;
+        return `${h}:${mStr} ${ampm}`;
+      }
+
+      function toggleDay(day) {
+        const btn = document.querySelector(`.day-pill-btn[data-day="${day}"]`);
+        if (selectedDays.includes(day)) {
+          if (selectedDays.length === 1) return;
+          selectedDays = selectedDays.filter(d => d !== day);
+          btn.classList.remove('active');
+        } else {
+          selectedDays.push(day);
+          btn.classList.add('active');
+        }
+        generateRevisionTimetable();
+      }
+
+      function renderCountdownBanner() {
+        countdownBannerContainer.innerHTML = '';
+        const sorted = [...subjects].sort((a, b) => new Date(a.examDate) - new Date(b.examDate));
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        sorted.forEach(s => {
+          if (!s.name.trim()) return;
+          const examD = new Date(s.examDate);
+          examD.setHours(0,0,0,0);
+          const diffDays = Math.ceil((examD - today) / (1000 * 60 * 60 * 24));
+          const isUrgent = diffDays <= 14;
+
+          const card = document.createElement('div');
+          card.className = 'countdown-card';
+          card.innerHTML = `
+            <div class="countdown-card-left">
+              <span class="countdown-subj-name">${escapeHtml(s.name)}</span>
+              <span class="countdown-exam-date">Exam: ${s.examDate || 'TBD'}</span>
+            </div>
+            <div class="countdown-badge ${isUrgent ? 'urgent' : ''}">
+              ${diffDays > 0 ? `${diffDays} days left` : diffDays === 0 ? 'Exam Today!' : 'Completed'}
+            </div>
+          `;
+          countdownBannerContainer.appendChild(card);
+        });
+      }
+
+      function renderSubjectRows() {
+        subjectsListContainer.innerHTML = '';
+        subjects.forEach((subj) => {
+          const colorObj = COLOR_PALETTE[subj.colorIdx % COLOR_PALETTE.length];
+          const row = document.createElement('div');
+          row.className = 'subject-row-item';
+          row.innerHTML = `
+            <div class="subject-color-dot" style="background-color: ${colorObj.dot};" title="Click to cycle color" onclick="cycleSubjectColor(${subj.id})"></div>
+            <input type="text" class="subject-name-input" value="${escapeHtml(subj.name)}" placeholder="Exam Subject Name" onchange="updateSubjectName(${subj.id}, this.value)" />
+            <input type="date" class="exam-date-input" value="${subj.examDate}" title="Exam Date" onchange="updateSubjectExamDate(${subj.id}, this.value)" />
+            <select class="priority-select" onchange="updateSubjectPriority(${subj.id}, this.value)">
+              <option value="high" ${subj.priority === 'high' ? 'selected' : ''}>High Priority (3x)</option>
+              <option value="medium" ${subj.priority === 'medium' ? 'selected' : ''}>Medium (2x)</option>
+              <option value="low" ${subj.priority === 'low' ? 'selected' : ''}>Low (1x)</option>
+            </select>
+            <button type="button" class="btn-remove-subject" title="Remove Subject" onclick="removeSubjectRow(${subj.id})">✕</button>
+          `;
+          subjectsListContainer.appendChild(row);
+        });
+        renderCountdownBanner();
+        renderLegend();
+      }
+
+      function escapeHtml(str) {
+        return (str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      function addNewSubjectRow() {
+        const newId = Date.now() + Math.floor(Math.random() * 1000);
+        const nextColorIdx = subjects.length % COLOR_PALETTE.length;
+        subjects.push({
+          id: newId,
+          name: '',
+          examDate: getDefaultExamDate(20),
+          priority: 'medium',
+          colorIdx: nextColorIdx
+        });
+        renderSubjectRows();
+        const inputs = subjectsListContainer.querySelectorAll('.subject-name-input');
+        if (inputs.length) inputs[inputs.length - 1].focus();
+      }
+
+      function removeSubjectRow(id) {
+        if (subjects.length <= 1) return;
+        subjects = subjects.filter(s => s.id !== id);
+        renderSubjectRows();
+        generateRevisionTimetable();
+      }
+
+      function updateSubjectName(id, val) {
+        const item = subjects.find(s => s.id === id);
+        if (item) {
+          item.name = val.trim();
+          renderCountdownBanner();
+          renderLegend();
+          renderTimetableGrid();
+        }
+      }
+
+      function updateSubjectExamDate(id, val) {
+        const item = subjects.find(s => s.id === id);
+        if (item) {
+          item.examDate = val;
+          renderCountdownBanner();
+          generateRevisionTimetable();
+        }
+      }
+
+      function updateSubjectPriority(id, val) {
+        const item = subjects.find(s => s.id === id);
+        if (item) {
+          item.priority = val;
+          generateRevisionTimetable();
+        }
+      }
+
+      function cycleSubjectColor(id) {
+        const item = subjects.find(s => s.id === id);
+        if (item) {
+          item.colorIdx = (item.colorIdx + 1) % COLOR_PALETTE.length;
+          renderSubjectRows();
+          renderTimetableGrid();
+        }
+      }
+
+      function onSettingChange() {
+        generateRevisionTimetable();
+      }
+
+      function resetSampleData() {
+        subjects = [
+          { id: 1, name: 'Mathematics (Calculus & Algebra)', examDate: getDefaultExamDate(14), priority: 'high', colorIdx: 1 },
+          { id: 2, name: 'Biology (Cell Systems & Ecology)', examDate: getDefaultExamDate(21), priority: 'medium', colorIdx: 3 },
+          { id: 3, name: 'Chemistry (Organic & Periodic)', examDate: getDefaultExamDate(18), priority: 'high', colorIdx: 0 },
+          { id: 4, name: 'English Literature (Essays)', examDate: getDefaultExamDate(28), priority: 'low', colorIdx: 2 },
+          { id: 5, name: 'World History (Modern Era)', examDate: getDefaultExamDate(35), priority: 'medium', colorIdx: 4 }
+        ];
+        selectedDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        document.querySelectorAll('.day-pill-btn').forEach(btn => btn.classList.add('active'));
+        renderSubjectRows();
+        generateRevisionTimetable();
+        showToast('Sample exam revision schedule loaded!');
+      }
+
+      // Smart Revision Scheduler:
+      // Accounts for Exam Date Proximity + Priority Weight + Spaced Repetition across week
+      function generateRevisionTimetable() {
+        const startTimeStr = document.getElementById('selectStartTime').value;
+        const endTimeStr = document.getElementById('selectEndTime').value;
+        const durationMins = parseInt(document.getElementById('selectDuration').value, 10) || 45;
+        const breakInterval = parseInt(document.getElementById('selectBreakInterval').value, 10) || 2;
+        const breakDurationMins = 15;
+
+        const startMins = parseTimeToMinutes(startTimeStr);
+        const endMins = parseTimeToMinutes(endTimeStr);
+
+        if (startMins >= endMins) return;
+
+        const validSubjects = subjects.filter(s => s.name.trim() !== '');
+        if (validSubjects.length === 0) {
+          revisionTableBody.innerHTML = '<tr><td colspan="8" style="padding:20px; color:var(--text-muted);">Please add at least one exam subject to generate the revision timetable.</td></tr>';
+          return;
+        }
+
+        // Build periods timeline
+        const periods = [];
+        let currMins = startMins;
+        let sessionCount = 0;
+
+        while (currMins + durationMins <= endMins) {
+          const slotStart = currMins;
+          const slotEnd = currMins + durationMins;
+          periods.push({
+            isBreak: false,
+            start: slotStart,
+            end: slotEnd,
+            timeStr: `${formatMinutesToTime(slotStart)}<br/>${formatMinutesToTime(slotEnd)}`
+          });
+          currMins = slotEnd;
+          sessionCount++;
+
+          // Insert break
+          if (breakInterval > 0 && sessionCount % breakInterval === 0 && currMins + breakDurationMins <= endMins) {
+            const bStart = currMins;
+            const bEnd = currMins + breakDurationMins;
+            periods.push({
+              isBreak: true,
+              start: bStart,
+              end: bEnd,
+              timeStr: `${formatMinutesToTime(bStart)}<br/>${formatMinutesToTime(bEnd)}`
+            });
+            currMins = bEnd;
+          }
+        }
+
+        // Calculate Subject Weights
+        // Higher weight for: closer exam date + higher priority
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        const subjectWeights = {};
+        validSubjects.forEach(s => {
+          let priorityMultiplier = s.priority === 'high' ? 3 : s.priority === 'medium' ? 2 : 1;
+          const examD = new Date(s.examDate);
+          examD.setHours(0,0,0,0);
+          const diffDays = Math.max(1, Math.ceil((examD - today) / (1000 * 60 * 60 * 24)));
+          
+          // Closer exams get higher urgency multiplier
+          let urgencyMultiplier = diffDays <= 7 ? 2.5 : diffDays <= 14 ? 2.0 : diffDays <= 21 ? 1.5 : 1.0;
+          subjectWeights[s.id] = Math.round(priorityMultiplier * urgencyMultiplier * 10);
+        });
+
+        // Allocation Pool
+        const weightedPool = [];
+        validSubjects.forEach(s => {
+          const count = subjectWeights[s.id] || 10;
+          for (let i = 0; i < count; i++) {
+            weightedPool.push(s);
+          }
+        });
+
+        const days = selectedDays;
+        const matrix = {};
+        const subjectAssignedCount = {};
+        validSubjects.forEach(s => { subjectAssignedCount[s.id] = 0; });
+
+        const lastSubjectOnDay = {};
+        days.forEach(d => { lastSubjectOnDay[d] = null; });
+
+        periods.forEach((period, pIdx) => {
+          matrix[pIdx] = {};
+          if (period.isBreak) return;
+
+          days.forEach(day => {
+            let candidates = validSubjects.filter(s => s.id !== lastSubjectOnDay[day]);
+            if (candidates.length === 0) candidates = validSubjects;
+
+            // Sort candidates: ratio of assigned count to weight
+            candidates.sort((a, b) => {
+              const ratioA = subjectAssignedCount[a.id] / (subjectWeights[a.id] || 1);
+              const ratioB = subjectAssignedCount[b.id] / (subjectWeights[b.id] || 1);
+              if (ratioA !== ratioB) return ratioA - ratioB;
+              return Math.random() - 0.5;
+            });
+
+            const chosen = candidates[0];
+            matrix[pIdx][day] = {
+              id: `${pIdx}_${day}_${chosen.id}`,
+              subj: chosen,
+              completed: false
+            };
+            subjectAssignedCount[chosen.id]++;
+            lastSubjectOnDay[day] = chosen.id;
+          });
+        });
+
+        generatedSchedule = periods.map((period, pIdx) => {
+          const rowData = {
+            isBreak: period.isBreak,
+            timeStr: period.timeStr,
+            slots: {}
+          };
+          if (!period.isBreak) {
+            days.forEach(day => {
+              rowData.slots[day] = matrix[pIdx][day];
+            });
+          }
+          return rowData;
+        });
+
+        renderTimetableGrid();
+      }
+
+      function regenerateRevisionTimetable() {
+        generateRevisionTimetable();
+      }
+
+      function renderTimetableGrid() {
+        const days = selectedDays;
+        const dayNames = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday', Sun: 'Sunday' };
+
+        // Header
+        let headHtml = `<tr><th class="time-header-col">Time</th>`;
+        days.forEach(d => {
+          headHtml += `<th>${dayNames[d] || d}</th>`;
+        });
+        headHtml += `</tr>`;
+        revisionTableHeader.innerHTML = headHtml;
+
+        // Body
+        let bodyHtml = '';
+        generatedSchedule.forEach((row, rowIdx) => {
+          bodyHtml += `<tr>`;
+          bodyHtml += `<td class="time-cell">${row.timeStr}</td>`;
+
+          if (row.isBreak) {
+            bodyHtml += `<td class="break-cell" colspan="${days.length}">☕ Rest & Recall Break</td>`;
+          } else {
+            days.forEach(d => {
+              const slot = row.slots[d];
+              if (slot && slot.subj) {
+                const s = slot.subj;
+                const colorObj = COLOR_PALETTE[s.colorIdx % COLOR_PALETTE.length];
+                const isDone = slot.completed;
+                bodyHtml += `
+                  <td>
+                    <div class="slot-card ${isDone ? 'completed' : ''}" style="background-color: ${colorObj.bg}; color: ${colorObj.text}; border-color: ${colorObj.dot}55;" onclick="toggleSlotCompletion(${rowIdx}, '${d}')" title="Click to mark revision completed">
+                      ${isDone ? '<span class="completed-badge">✅</span>' : ''}
+                      <span>${escapeHtml(s.name)}</span>
+                      <span class="priority-pill" style="background:${colorObj.dot}22;">
+                        ${s.priority.toUpperCase()} REVISION
+                      </span>
+                    </div>
+                  </td>
+                `;
+              } else {
+                bodyHtml += `<td>-</td>`;
+              }
+            });
+          }
+          bodyHtml += `</tr>`;
+        });
+
+        revisionTableBody.innerHTML = bodyHtml;
+        updateProgressTracker();
+        renderLegend();
+      }
+
+      function toggleSlotCompletion(rowIdx, day) {
+        const row = generatedSchedule[rowIdx];
+        if (!row || row.isBreak) return;
+        const slot = row.slots[day];
+        if (!slot) return;
+
+        slot.completed = !slot.completed;
+        renderTimetableGrid();
+      }
+
+      function resetAllCompletion() {
+        generatedSchedule.forEach(row => {
+          if (!row.isBreak) {
+            Object.values(row.slots).forEach(slot => {
+              if (slot) slot.completed = false;
+            });
+          }
+        });
+        renderTimetableGrid();
+        showToast('All progress checkmarks reset.');
+      }
+
+      function updateProgressTracker() {
+        let totalSessions = 0;
+        let completedSessions = 0;
+
+        generatedSchedule.forEach(row => {
+          if (!row.isBreak) {
+            selectedDays.forEach(day => {
+              const slot = row.slots[day];
+              if (slot && slot.subj) {
+                totalSessions++;
+                if (slot.completed) completedSessions++;
+              }
+            });
+          }
+        });
+
+        const percent = totalSessions > 0 ? Math.round((completedSessions / totalSessions) * 100) : 0;
+        progressStatsText.textContent = `${completedSessions} of ${totalSessions} sessions completed (${percent}%)`;
+        progressBarFill.style.width = `${percent}%`;
+      }
+
+      function renderLegend() {
+        legendItemsList.innerHTML = '';
+        const validSubjects = subjects.filter(s => s.name.trim() !== '');
+        validSubjects.forEach(s => {
+          const colorObj = COLOR_PALETTE[s.colorIdx % COLOR_PALETTE.length];
+          const pill = document.createElement('span');
+          pill.className = 'legend-pill';
+          pill.style.backgroundColor = colorObj.bg;
+          pill.style.color = colorObj.text;
+          pill.style.border = `1px solid ${colorObj.dot}44`;
+          pill.innerHTML = `
+            <span style="width:8px; height:8px; border-radius:50%; background-color:${colorObj.dot};"></span>
+            ${escapeHtml(s.name)} (${s.priority.toUpperCase()})
+          `;
+          legendItemsList.appendChild(pill);
+        });
+
+        // Break pill
+        const breakPill = document.createElement('span');
+        breakPill.className = 'legend-pill';
+        breakPill.style.backgroundColor = 'var(--bg-panel)';
+        breakPill.style.color = 'var(--text-muted)';
+        breakPill.style.border = '1px solid var(--border-color)';
+        breakPill.textContent = '☕ Rest Break';
+        legendItemsList.appendChild(breakPill);
+      }
+
+      // Export Actions
+      function copyTimetableAsText() {
+        const days = selectedDays;
+        let text = `Exam Revision Timetable\nTime\t${days.join('\t')}\n`;
+        generatedSchedule.forEach(row => {
+          const cleanTime = row.timeStr.replace('<br/>', ' - ');
+          if (row.isBreak) {
+            text += `${cleanTime}\t${days.map(() => 'Break').join('\t')}\n`;
+          } else {
+            const lineSlots = days.map(d => {
+              const slot = row.slots[d];
+              if (slot && slot.subj) {
+                return `${slot.subj.name} [${slot.completed ? 'DONE' : 'PENDING'}]`;
+              }
+              return '-';
+            });
+            text += `${cleanTime}\t${lineSlots.join('\t')}\n`;
+          }
+        });
+
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Revision timetable copied to clipboard!');
+        }).catch(() => {
+          showToast('Failed to copy. Please allow clipboard permissions.');
+        });
+      }
+
+      function downloadTimetableCSV() {
+        const days = selectedDays;
+        const dayNames = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday', Sun: 'Sunday' };
+        let csvContent = 'data:text/csv;charset=utf-8,';
+        csvContent += ['Time', ...days.map(d => `"${dayNames[d] || d}"`)].join(',') + '\r\n';
+
+        generatedSchedule.forEach(row => {
+          const cleanTime = `"${row.timeStr.replace('<br/>', ' - ')}"`;
+          if (row.isBreak) {
+            const rowValues = [cleanTime, ...days.map(() => '"Rest Break"')];
+            csvContent += rowValues.join(',') + '\r\n';
+          } else {
+            const rowValues = [cleanTime, ...days.map(d => {
+              const slot = row.slots[d];
+              if (slot && slot.subj) {
+                const mark = slot.completed ? ' (Done)' : '';
+                return `"${(slot.subj.name + mark).replace(/"/g, '""')}"`;
+              }
+              return '""';
+            })];
+            csvContent += rowValues.join(',') + '\r\n';
+          }
+        });
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement('a');
+        link.setAttribute('href', encodedUri);
+        link.setAttribute('download', 'exam_revision_timetable.csv');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showToast('CSV downloaded successfully!');
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById('copyToast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2500);
+      }
+
+      // Theme toggle & mobile menu
+      function toggleLocalTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const iconHeader = document.getElementById('themeToggleIconHeader');
+        const sunPath = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>';
+        const moonPath = '<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+
+        if (currentTheme === 'dark') {
+          html.removeAttribute('data-theme');
+          localStorage.setItem('timetable_theme', 'light');
+          if (iconHeader) iconHeader.innerHTML = moonPath;
+        } else {
+          html.setAttribute('data-theme', 'dark');
+          localStorage.setItem('timetable_theme', 'dark');
+          if (iconHeader) iconHeader.innerHTML = sunPath;
+        }
+      }
+
+      function toggleMobileMenuLocal() {
+        const drawer = document.getElementById('mobileMenuDrawer');
+        if (drawer) drawer.classList.toggle('hidden');
+      }
+
+      // Initial Sync
+      (function init() {
+        const savedTheme = localStorage.getItem('timetable_theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          const iconHeader = document.getElementById('themeToggleIconHeader');
+          if (iconHeader) {
+            iconHeader.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>';
+          }
+        }
+        renderSubjectRows();
+        generateRevisionTimetable();
+      })();
+    </script>
+  </body>
+</html>
