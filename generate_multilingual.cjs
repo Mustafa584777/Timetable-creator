@@ -74,6 +74,11 @@ const pagesToVersion = [
     canonicalBase: 'https://timetablecreator.online/study-timetable-creator/'
   },
   {
+    sourceFile: 'public/workout-timetable-creator/index.html',
+    destDir: 'public/workout-timetable-creator',
+    canonicalBase: 'https://timetablecreator.online/workout-timetable-creator/'
+  },
+  {
     sourceFile: 'public/how-to-use/index.html',
     destDir: 'public/how-to-use',
     canonicalBase: 'https://timetablecreator.online/how-to-use/'

@@ -270,6 +270,28 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "index.html"));
   });
 
+  // Workout Timetable Creator & Home Workout Schedule Planner (base and language editions)
+  anonymityApp.get([
+    "/workout-timetable-creator",
+    "/workout-timetable-creator/",
+    "/workout-timetable-creator/:lang",
+    "/workout-timetable-creator/:lang/"
+  ], (req, res) => {
+    const lang = req.params.lang;
+    const subFile = lang ? path.join(lang, "index.html") : "index.html";
+    const filePath = process.env.NODE_ENV === "production" 
+      ? path.join(process.cwd(), "dist", "workout-timetable-creator", subFile)
+      : path.join(process.cwd(), "public", "workout-timetable-creator", subFile);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    const defaultWorkoutPath = path.join(process.cwd(), "public", "workout-timetable-creator", "index.html");
+    if (fs.existsSync(defaultWorkoutPath)) {
+      return res.sendFile(defaultWorkoutPath);
+    }
+    res.sendFile(path.join(process.cwd(), "index.html"));
+  });
+
   // School Timetable Maker for Teachers (base and language editions)
   anonymityApp.get([
     "/school-timetable-maker",
