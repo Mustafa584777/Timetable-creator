@@ -365,7 +365,11 @@ function generateHeaderHtml(activePage = '') {
           <!-- Nav links (Desktop) -->
           <nav class="header-nav-desktop">
             <a href="/" class="nav-link-header ${activePage === 'workspace' || activePage === 'timetable-maker' ? 'active' : ''}">Timetable Maker</a>
-            <a href="/timetable-generator-online-for-students/" class="nav-link-header ${activePage === 'students' ? 'active' : ''}">Free Students Timetable Maker</a>
+            <a href="/timetable-generator-online-for-students/" class="nav-link-header ${activePage === 'students' ? 'active' : ''}">Student Timetable</a>
+            <a href="/study-timetable-creator/" class="nav-link-header ${activePage === 'study' ? 'active' : ''}">Study Timetable</a>
+            <a href="/workout-timetable-creator/" class="nav-link-header ${activePage === 'workout' ? 'active' : ''}">Workout Timetable</a>
+            <a href="/school-timetable-maker-for-teachers/" class="nav-link-header ${activePage === 'teachers' || activePage === 'school' ? 'active' : ''}">Teacher Timetable</a>
+            <a href="/revision-timetable-creator/" class="nav-link-header ${activePage === 'revision' ? 'active' : ''}">Revision Timetable</a>
           </nav>
         </div>
 
@@ -381,7 +385,11 @@ function generateHeaderHtml(activePage = '') {
       <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
         <nav class="mobile-nav-links">
           <a href="/" class="mobile-nav-link ${activePage === 'workspace' || activePage === 'timetable-maker' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Timetable Maker</a>
-          <a href="/timetable-generator-online-for-students/" class="mobile-nav-link ${activePage === 'students' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Free Students Timetable Maker</a>
+          <a href="/timetable-generator-online-for-students/" class="mobile-nav-link ${activePage === 'students' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Student Timetable</a>
+          <a href="/study-timetable-creator/" class="mobile-nav-link ${activePage === 'study' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Study Timetable</a>
+          <a href="/workout-timetable-creator/" class="mobile-nav-link ${activePage === 'workout' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Workout Timetable</a>
+          <a href="/school-timetable-maker-for-teachers/" class="mobile-nav-link ${activePage === 'teachers' || activePage === 'school' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Teacher Timetable</a>
+          <a href="/revision-timetable-creator/" class="mobile-nav-link ${activePage === 'revision' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Revision Timetable</a>
         </nav>
       </div>
     </header>`;
