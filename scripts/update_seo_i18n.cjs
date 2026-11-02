@@ -56,8 +56,12 @@ const coreAppFooter = `
       <!-- Column 2: All Timetable Generators -->
       <div class="footer-col">
         <h4 class="footer-title">All Timetable Generators</h4>
-        <a href="/" class="footer-link">Free Online Timetable Maker</a>
+        <a href="/" class="footer-link">Timetable Maker</a>
         <a href="/timetable-generator-online-for-students/" class="footer-link">Student Timetable Generator</a>
+        <a href="/study-timetable-creator/" class="footer-link">Study Timetable Creator</a>
+        <a href="/workout-timetable-creator/" class="footer-link">Workout Timetable Creator</a>
+        <a href="/school-timetable-maker-for-teachers/" class="footer-link">School Timetable Maker for Teachers</a>
+        <a href="/revision-timetable-creator/" class="footer-link">Revision Timetable Creator</a>
       </div>
 
       <!-- Column 3: Resources -->
@@ -365,11 +369,11 @@ function generateHeaderHtml(activePage = '') {
           <!-- Nav links (Desktop) -->
           <nav class="header-nav-desktop">
             <a href="/" class="nav-link-header ${activePage === 'workspace' || activePage === 'timetable-maker' ? 'active' : ''}">Timetable Maker</a>
-            <a href="/timetable-generator-online-for-students/" class="nav-link-header ${activePage === 'students' ? 'active' : ''}">Student Timetable</a>
-            <a href="/study-timetable-creator/" class="nav-link-header ${activePage === 'study' ? 'active' : ''}">Study Timetable</a>
-            <a href="/workout-timetable-creator/" class="nav-link-header ${activePage === 'workout' ? 'active' : ''}">Workout Timetable</a>
-            <a href="/school-timetable-maker-for-teachers/" class="nav-link-header ${activePage === 'teachers' || activePage === 'school' ? 'active' : ''}">Teacher Timetable</a>
-            <a href="/revision-timetable-creator/" class="nav-link-header ${activePage === 'revision' ? 'active' : ''}">Revision Timetable</a>
+            <a href="/timetable-generator-online-for-students/" class="nav-link-header ${activePage === 'students' ? 'active' : ''}">Student Timetable Maker</a>
+            <a href="/study-timetable-creator/" class="nav-link-header ${activePage === 'study' ? 'active' : ''}">Study Timetable Maker</a>
+            <a href="/workout-timetable-creator/" class="nav-link-header ${activePage === 'workout' ? 'active' : ''}">Workout Timetable Maker</a>
+            <a href="/school-timetable-maker-for-teachers/" class="nav-link-header ${activePage === 'teachers' || activePage === 'school' ? 'active' : ''}">School Timetable Maker</a>
+            <a href="/revision-timetable-creator/" class="nav-link-header ${activePage === 'revision' ? 'active' : ''}">Revision Timetable Maker</a>
           </nav>
         </div>
 
@@ -385,11 +389,11 @@ function generateHeaderHtml(activePage = '') {
       <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
         <nav class="mobile-nav-links">
           <a href="/" class="mobile-nav-link ${activePage === 'workspace' || activePage === 'timetable-maker' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Timetable Maker</a>
-          <a href="/timetable-generator-online-for-students/" class="mobile-nav-link ${activePage === 'students' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Student Timetable</a>
-          <a href="/study-timetable-creator/" class="mobile-nav-link ${activePage === 'study' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Study Timetable</a>
-          <a href="/workout-timetable-creator/" class="mobile-nav-link ${activePage === 'workout' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Workout Timetable</a>
-          <a href="/school-timetable-maker-for-teachers/" class="mobile-nav-link ${activePage === 'teachers' || activePage === 'school' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Teacher Timetable</a>
-          <a href="/revision-timetable-creator/" class="mobile-nav-link ${activePage === 'revision' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Revision Timetable</a>
+          <a href="/timetable-generator-online-for-students/" class="mobile-nav-link ${activePage === 'students' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Student Timetable Maker</a>
+          <a href="/study-timetable-creator/" class="mobile-nav-link ${activePage === 'study' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Study Timetable Maker</a>
+          <a href="/workout-timetable-creator/" class="mobile-nav-link ${activePage === 'workout' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Workout Timetable Maker</a>
+          <a href="/school-timetable-maker-for-teachers/" class="mobile-nav-link ${activePage === 'teachers' || activePage === 'school' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">School Timetable Maker</a>
+          <a href="/revision-timetable-creator/" class="mobile-nav-link ${activePage === 'revision' ? 'active' : ''}" onclick="toggleMobileMenuLocal()">Revision Timetable Maker</a>
         </nav>
       </div>
     </header>`;
