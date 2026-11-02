@@ -243,6 +243,18 @@ const enhancedSeoContent = `    <div class="seo-content-section">
         </div>
       </div>
 
+      <h2>Explore Our Specialized Timetable Makers & Tools</h2>
+      <p>
+        In addition to our general-purpose <a href="/" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Timetable Maker</a>, we offer specialized scheduling tools tailored for specific academic and lifestyle needs:
+      </p>
+      <ul>
+        <li><a href="/timetable-generator-online-for-students/" style="color: var(--primary-color); text-decoration: underline;">Student Timetable Maker</a>: Perfect for college and university students organizing lectures, labs, and study blocks.</li>
+        <li><a href="/study-timetable-creator/" style="color: var(--primary-color); text-decoration: underline;">Study Timetable Maker</a>: Designed for exam preparation, board exam routines, and structured homework planning.</li>
+        <li><a href="/workout-timetable-creator/" style="color: var(--primary-color); text-decoration: underline;">Workout Timetable Maker</a>: Ideal for fitness enthusiasts planning gym routines, cardio days, and muscle groups.</li>
+        <li><a href="/school-timetable-maker-for-teachers/" style="color: var(--primary-color); text-decoration: underline;">School Timetable Maker</a>: Built for teachers and educators to organize classroom periods, staff rosters, and school terms.</li>
+        <li><a href="/revision-timetable-creator/" style="color: var(--primary-color); text-decoration: underline;">Revision Timetable Maker</a>: Helps students map out intensive final revision schedules before test day.</li>
+      </ul>
+
       <p style="margin-top: 24px;">
         Join thousands of students, professionals, and organizers who trust our <strong>Online Timetable Maker</strong> to streamline their planning and boost productivity. Whether you need a simple daily schedule or a complex multi-week planner, our free tool provides everything you need to stay organized and accomplish your goals.
       </p>
