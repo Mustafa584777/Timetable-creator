@@ -14056,6 +14056,10 @@
 
           async loadJsPdf() {
             if (window.jspdf && window.jspdf.jsPDF) return window.jspdf.jsPDF;
+            for (let attempt = 0; attempt < 4; attempt++) {
+              await new Promise(r => setTimeout(r, 500));
+              if (window.jspdf && window.jspdf.jsPDF) return window.jspdf.jsPDF;
+            }
             return new Promise((resolve) => {
               const script = document.createElement('script');
               script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
@@ -14083,129 +14087,7 @@
           },
 
           async generateScheduleCanvas(targetScale = 3) {
-            // Update export header banner details
-            const titleEl = document.getElementById('tcExportTitle');
-            const subEl = document.getElementById('tcExportSubtitle');
-            const daysEl = document.getElementById('tcExportDaysCount');
-            const spanEl = document.getElementById('tcExportTimeSpan');
-            const activeDaysCount = parseInt(app.state.config.daysCount) || 7;
-            const startTime = parseInt(app.state.config.startTime) !== undefined ? parseInt(app.state.config.startTime) : 480;
-            const endTime = parseInt(app.state.config.endTime) !== undefined ? parseInt(app.state.config.endTime) : 1140;
-
-            if (titleEl) {
-              titleEl.textContent = app.state.classicTitle || 'Weekly Schedule Timetable';
-            }
-            if (subEl) {
-              subEl.textContent = app.state.classicSubtitle || 'Generated via Timetable Creator';
-            }
-            if (daysEl) {
-              daysEl.textContent = `${activeDaysCount} Days (${activeDaysCount === 5 ? 'Mon - Fri' : (activeDaysCount === 6 ? 'Mon - Sat' : 'Mon - Sun')})`;
-            }
-            if (spanEl) {
-              spanEl.textContent = `${app.formatMinute(startTime)} - ${app.formatMinute(endTime)}`;
-            }
-
-            const html2canvas = await this.loadHtml2canvas();
-            const targetCard = document.getElementById('classicGridCard') || document.querySelector('.tc-grid-card');
-            const scrollWrapper = document.getElementById('classicGridScrollWrapper');
-            const table = document.getElementById('classicTableGrid');
-
-            if (html2canvas && targetCard && table) {
-              const prevBodyZoom = document.body.style.zoom;
-              const prevHtmlZoom = document.documentElement.style.zoom;
-              const prevWrapperOverflow = scrollWrapper ? scrollWrapper.style.overflow : '';
-              const prevWrapperMaxH = scrollWrapper ? scrollWrapper.style.maxHeight : '';
-              const prevWrapperWidth = scrollWrapper ? scrollWrapper.style.width : '';
-              const prevWrapperMaxWidth = scrollWrapper ? scrollWrapper.style.maxWidth : '';
-              const prevCardOverflow = targetCard.style.overflow;
-              const prevCardWidth = targetCard.style.width;
-              const prevCardMaxWidth = targetCard.style.maxWidth;
-              const prevCardBorderRadius = targetCard.style.borderRadius;
-
-              try {
-                // Activate export mode styles
-                document.body.classList.add('is-exporting-schedule');
-
-                // Crucial fix: Override CSS zoom: 0.7 so html2canvas computes pixel-perfect crisp coordinates
-                document.body.style.setProperty('zoom', '1', 'important');
-                document.documentElement.style.setProperty('zoom', '1', 'important');
-
-                // Expand scroll wrapper and card so all columns and rows are captured without clipping
-                if (scrollWrapper) {
-                  scrollWrapper.style.setProperty('overflow', 'visible', 'important');
-                  scrollWrapper.style.setProperty('max-height', 'none', 'important');
-                  scrollWrapper.style.setProperty('width', 'max-content', 'important');
-                  scrollWrapper.style.setProperty('max-width', 'none', 'important');
-                }
-                targetCard.style.setProperty('overflow', 'visible', 'important');
-                targetCard.style.setProperty('width', 'max-content', 'important');
-                targetCard.style.setProperty('max-width', 'none', 'important');
-                targetCard.style.setProperty('border-radius', '8px', 'important');
-                targetCard.style.setProperty('background', '#ffffff', 'important');
-
-                // Force layout reflow
-                void targetCard.offsetWidth;
-
-                const fullWidth = Math.max(table.scrollWidth, table.offsetWidth, 1100);
-                const fullHeight = targetCard.scrollHeight;
-                const scale = Math.max(2.5, targetScale || 3);
-
-                const canvas = await html2canvas(targetCard, {
-                  scale: scale,
-                  useCORS: true,
-                  allowTaint: true,
-                  backgroundColor: '#ffffff',
-                  logging: false,
-                  scrollX: 0,
-                  scrollY: 0,
-                  width: fullWidth,
-                  height: fullHeight,
-                  windowWidth: fullWidth + 100,
-                  windowHeight: fullHeight + 100,
-                  onclone: (clonedDoc) => {
-                    clonedDoc.body.style.zoom = '1';
-                    clonedDoc.documentElement.style.zoom = '1';
-                    const banner = clonedDoc.getElementById('tcExportHeaderBanner');
-                    if (banner) banner.style.display = 'flex';
-                    clonedDoc.querySelectorAll('.excel-col-resizer, .excel-row-resizer, .classic-cell-add-icon, .classic-event-dots-btn, .tc-grid-footer, .classic-mobile-fab').forEach(el => {
-                      el.style.display = 'none';
-                      el.style.visibility = 'hidden';
-                    });
-                  }
-                });
-
-                if (canvas && canvas.width > 0 && canvas.height > 0) {
-                  return canvas;
-                }
-              } catch (e) {
-                console.warn('html2canvas capture error, falling back to direct high-res canvas render', e);
-              } finally {
-                // Restore all styles immediately
-                document.body.classList.remove('is-exporting-schedule');
-                if (prevBodyZoom) {
-                  document.body.style.setProperty('zoom', prevBodyZoom);
-                } else {
-                  document.body.style.removeProperty('zoom');
-                }
-                if (prevHtmlZoom) {
-                  document.documentElement.style.setProperty('zoom', prevHtmlZoom);
-                } else {
-                  document.documentElement.style.removeProperty('zoom');
-                }
-                if (scrollWrapper) {
-                  scrollWrapper.style.overflow = prevWrapperOverflow;
-                  scrollWrapper.style.maxHeight = prevWrapperMaxH;
-                  scrollWrapper.style.width = prevWrapperWidth;
-                  scrollWrapper.style.maxWidth = prevWrapperMaxWidth;
-                }
-                targetCard.style.overflow = prevCardOverflow;
-                targetCard.style.width = prevCardWidth;
-                targetCard.style.maxWidth = prevCardMaxWidth;
-                targetCard.style.borderRadius = prevCardBorderRadius;
-              }
-            }
-
-            // Direct high-resolution vector canvas generator fallback
+            // Use direct high-resolution vector canvas renderer for 100% crisp, unblurred text and high-definition export
             return this.renderDirectHighResCanvas(targetScale || 3);
           },
 
@@ -14401,7 +14283,7 @@
             try {
               const canvas = await this.generateScheduleCanvas(3);
               if (!canvas) {
-                window.print();
+                app.showToast('Error generating PDF canvas.', 'error');
                 return;
               }
 
@@ -14443,11 +14325,11 @@
                 pdf.save(`${fileTitle}_${new Date().toISOString().slice(0, 10)}.pdf`);
                 app.showToast('Standard A4 PDF Saved Successfully!', 'success');
               } else {
-                window.print();
+                app.showToast('PDF engine loading... please click Save as PDF again in 2 seconds.', 'warning');
               }
             } catch (err) {
               console.error('PDF Generation Error:', err);
-              window.print();
+              app.showToast('Error saving PDF document.', 'error');
             }
           },
 
