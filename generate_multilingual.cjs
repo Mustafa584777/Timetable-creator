@@ -134,6 +134,19 @@ for (const page of pagesToVersion) {
     const langCanonicalTag = `<link rel="canonical" href="${pageLangUrl}" />`;
     langHtml = langHtml.replace(/<link rel="canonical"[^>]*>/, langCanonicalTag);
 
+    // Strip any alternate hreflang links since non-default language URLs are noindexed & disallowed
+    langHtml = langHtml.replace(/\s*<link\s+rel=["']alternate["'][^>]*hreflang=["'][^"']*["'][^>]*>\s*/gi, '\n    ');
+
+    // Ensure non-default language pages are explicitly marked noindex, follow
+    const noindexMetaTag = '<meta name="robots" content="noindex, follow" />';
+    if (/<meta\s+name=["']robots["'][^>]*>/i.test(langHtml)) {
+      langHtml = langHtml.replace(/<meta\s+name=["']robots["'][^>]*>/i, noindexMetaTag);
+    } else if (/<link\s+rel=["']canonical["'][^>]*>/i.test(langHtml)) {
+      langHtml = langHtml.replace(/<link\s+rel=["']canonical["'][^>]*>/i, (m) => `${m}\n    ${noindexMetaTag}`);
+    } else if (langHtml.includes('</head>')) {
+      langHtml = langHtml.replace('</head>', `    ${noindexMetaTag}\n  </head>`);
+    }
+
     // Inject clean auto-translate script in head (NO #googtrans hash!)
     const autoTranslateScript = `
     <!-- Multi-language Auto-Translate for ${lang.name} (${lang.code}) -->

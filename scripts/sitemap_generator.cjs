@@ -66,30 +66,13 @@ function generateSitemapXmlString(customPages = null) {
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
   for (const page of pages) {
-    const cleanBase = page.loc.replace(/\/$/, '');
-
-    // Canonical / Main URL
+    // Canonical / Main URL (Default English Version Only)
     xml += `  <url>\n`;
     xml += `    <loc>${page.loc}</loc>\n`;
     xml += `    <lastmod>${currentDate}</lastmod>\n`;
     xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
     xml += `    <priority>${page.priority}</priority>\n`;
     xml += `  </url>\n`;
-
-    // Multi-language URLs for key tools and pages
-    if (page.loc === `${baseUrl}/` || page.loc.includes('timetable-generator-online-for-students') || page.loc.includes('how-to-use') || page.loc.includes('faqs') || page.loc.includes('html-sitemap') || page.loc === `${baseUrl}/blog/`) {
-      for (const lang of languages) {
-        const langUrl = `${cleanBase}/${lang.code}`;
-        const langPriority = (Math.max(0.5, parseFloat(page.priority) * 0.9)).toFixed(1);
-
-        xml += `  <url>\n`;
-        xml += `    <loc>${langUrl}</loc>\n`;
-        xml += `    <lastmod>${currentDate}</lastmod>\n`;
-        xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
-        xml += `    <priority>${langPriority}</priority>\n`;
-        xml += `  </url>\n`;
-      }
-    }
   }
 
   xml += `</urlset>\n`;

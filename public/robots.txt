@@ -227,27 +227,56 @@ Disallow: /how-to-use/hi
 Disallow: /keyboard-shortcuts
 Disallow: /keyboard-shortcuts/
 
-# Allowed Key Pages & Language Versions (Homepage & Student Timetable Generator only, excluding /en)
+# Allowed Key Pages (Default English Versions Only)
 Allow: /
-Allow: /en-GB
-Allow: /es
-Allow: /ja
-Allow: /fr
-Allow: /de
-Allow: /pt
-Allow: /ko
-Allow: /it
-Allow: /hi
-
 Allow: /timetable-generator-online-for-students/
-Allow: /timetable-generator-online-for-students/en-GB
-Allow: /timetable-generator-online-for-students/es
-Allow: /timetable-generator-online-for-students/ja
-Allow: /timetable-generator-online-for-students/fr
-Allow: /timetable-generator-online-for-students/de
-Allow: /timetable-generator-online-for-students/pt
-Allow: /timetable-generator-online-for-students/ko
-Allow: /timetable-generator-online-for-students/it
-Allow: /timetable-generator-online-for-students/hi
+
+# Disallow All Non-Default Language Versions for Homepage
+Disallow: /en
+Disallow: /en/
+Disallow: /en-GB
+Disallow: /en-GB/
+Disallow: /es
+Disallow: /es/
+Disallow: /ja
+Disallow: /ja/
+Disallow: /fr
+Disallow: /fr/
+Disallow: /de
+Disallow: /de/
+Disallow: /pt
+Disallow: /pt/
+Disallow: /ko
+Disallow: /ko/
+Disallow: /it
+Disallow: /it/
+Disallow: /hi
+Disallow: /hi/
+Disallow: /ms
+Disallow: /ms/
+
+# Disallow All Non-Default Language Versions for Student Timetable Generator
+Disallow: /timetable-generator-online-for-students/en
+Disallow: /timetable-generator-online-for-students/en/
+Disallow: /timetable-generator-online-for-students/en-GB
+Disallow: /timetable-generator-online-for-students/en-GB/
+Disallow: /timetable-generator-online-for-students/es
+Disallow: /timetable-generator-online-for-students/es/
+Disallow: /timetable-generator-online-for-students/ja
+Disallow: /timetable-generator-online-for-students/ja/
+Disallow: /timetable-generator-online-for-students/fr
+Disallow: /timetable-generator-online-for-students/fr/
+Disallow: /timetable-generator-online-for-students/de
+Disallow: /timetable-generator-online-for-students/de/
+Disallow: /timetable-generator-online-for-students/pt
+Disallow: /timetable-generator-online-for-students/pt/
+Disallow: /timetable-generator-online-for-students/ko
+Disallow: /timetable-generator-online-for-students/ko/
+Disallow: /timetable-generator-online-for-students/it
+Disallow: /timetable-generator-online-for-students/it/
+Disallow: /timetable-generator-online-for-students/hi
+Disallow: /timetable-generator-online-for-students/hi/
+Disallow: /timetable-generator-online-for-students/ms
+Disallow: /timetable-generator-online-for-students/ms/
 
 Sitemap: https://timetablecreator.online/sitemap.xml

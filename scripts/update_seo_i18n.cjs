@@ -15,22 +15,7 @@ const SUPPORTED_LANGS = [
 ];
 
 function generateHreflangs(baseCanonicalUrl) {
-  const urlPrefix = baseCanonicalUrl.replace(/\/+$/, '');
-  const tags = [
-    `    <link rel="canonical" href="${baseCanonicalUrl}" />`,
-    `    <link rel="alternate" hreflang="x-default" href="${baseCanonicalUrl}" />`,
-    `    <link rel="alternate" hreflang="en-GB" href="${urlPrefix}/en-GB" />`,
-    `    <link rel="alternate" hreflang="es" href="${urlPrefix}/es" />`,
-    `    <link rel="alternate" hreflang="ja" href="${urlPrefix}/ja" />`,
-    `    <link rel="alternate" hreflang="fr" href="${urlPrefix}/fr" />`,
-    `    <link rel="alternate" hreflang="de" href="${urlPrefix}/de" />`,
-    `    <link rel="alternate" hreflang="pt" href="${urlPrefix}/pt" />`,
-    `    <link rel="alternate" hreflang="ko" href="${urlPrefix}/ko" />`,
-    `    <link rel="alternate" hreflang="it" href="${urlPrefix}/it" />`,
-    `    <link rel="alternate" hreflang="hi" href="${urlPrefix}/hi" />`,
-    `    <link rel="alternate" hreflang="ms" href="${urlPrefix}/ms" />`
-  ];
-  return tags.join('\n');
+  return `    <link rel="canonical" href="${baseCanonicalUrl}" />`;
 }
 
 // 1. Universal Footer for all pages
