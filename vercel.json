@@ -53,6 +53,18 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
       ]
+    },
+    {
+      "source": "/(en|en-GB|es|ja|fr|de|pt|ko|it|hi|ms|ru|ar|zh)(/.*)?",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow" }
+      ]
+    },
+    {
+      "source": "/(.*)/(en|en-GB|es|ja|fr|de|pt|ko|it|hi|ms|ru|ar|zh)(/.*)?",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow" }
+      ]
     }
   ],
   "redirects": [
@@ -172,11 +184,11 @@
       "destination": "/blog/:slug*"
     },
     {
-      "source": "/:lang(en-GB|en|es|ja|fr|de|pt|ko|it|hi)",
+      "source": "/:lang(en-GB|en|es|ja|fr|de|pt|ko|it|hi|ms)",
       "destination": "/:lang/index.html"
     },
     {
-      "source": "/:lang(en-GB|en|es|ja|fr|de|pt|ko|it|hi)/",
+      "source": "/:lang(en-GB|en|es|ja|fr|de|pt|ko|it|hi|ms)/",
       "destination": "/:lang/index.html"
     },
     {

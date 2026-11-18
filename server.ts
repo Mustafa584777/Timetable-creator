@@ -45,7 +45,7 @@ async function startServer() {
     const reqUrl = req.url || '';
     if (reqUrl.includes('lang=') || (req.query && typeof req.query.lang !== 'undefined')) {
       const rawLang = req.query && req.query.lang ? String(req.query.lang).trim() : (reqUrl.match(/[?&]lang=([^&]+)/)?.[1] || '');
-      const supportedLangs = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi', 'en-GB', 'en'];
+      const supportedLangs = ['es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi', 'ms', 'en-GB', 'en'];
       const cleanPath = req.path.replace(/\/+$/, '');
 
       let dest = '/';
@@ -68,6 +68,12 @@ async function startServer() {
       const fullDest = otherQs ? `${dest}?${otherQs}` : dest;
 
       return res.redirect(301, fullDest);
+    }
+
+    // Ensure ALL non-default multilingual URLs across the entire site return X-Robots-Tag: noindex, follow
+    const cleanReqPath = (req.path || '').replace(/\/+$/, '');
+    if (/(?:^|\/)(?:en|en-GB|es|ja|fr|de|pt|ko|it|hi|ms|ru|ar|zh)$/.test(cleanReqPath) || /\/(?:en|en-GB|es|ja|fr|de|pt|ko|it|hi|ms|ru|ar|zh)(?:\/|$)/.test(cleanReqPath)) {
+      res.setHeader("X-Robots-Tag", "noindex, follow");
     }
 
     res.header("Access-Control-Allow-Origin", "*");
@@ -468,8 +474,8 @@ async function startServer() {
     res.redirect(301, "/faqs/");
   });
 
-  // Root language editions (e.g. /en-GB, /es, /fr, /de, /ja, /ko, /it, /pt, /hi, /en)
-  const supportedLangCodes = ['en-GB', 'en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi'];
+  // Root language editions (e.g. /en-GB, /es, /fr, /de, /ja, /ko, /it, /pt, /hi, /ms, /en)
+  const supportedLangCodes = ['en-GB', 'en', 'es', 'ja', 'fr', 'de', 'pt', 'ko', 'it', 'hi', 'ms'];
   anonymityApp.get(["/:lang", "/:lang/"], (req, res, next) => {
     const lang = req.params.lang;
     if (supportedLangCodes.includes(lang)) {

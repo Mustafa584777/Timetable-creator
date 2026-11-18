@@ -54,6 +54,7 @@ Disallow: /blog/pt
 Disallow: /blog/ko
 Disallow: /blog/it
 Disallow: /blog/hi
+Disallow: /blog/ms
 
 # Explicitly Disallow All Blog Articles & All Their Language Versions
 Disallow: /blog/study-timetable-for-class-10/
@@ -128,63 +129,132 @@ Disallow: /blog/refund-policy/ko
 Disallow: /blog/refund-policy/it
 Disallow: /blog/refund-policy/hi
 
-# Allow ONLY Legal Policy Pages (and their language versions except /en)
+# ========================================================
+# 3. ALLOW ONLY ORIGINAL ENGLISH LEGAL POLICY & INFO PAGES
+# ========================================================
 Allow: /blog/privacy-policy/
-Allow: /blog/privacy-policy/en-GB
-Allow: /blog/privacy-policy/es
-Allow: /blog/privacy-policy/ja
-Allow: /blog/privacy-policy/fr
-Allow: /blog/privacy-policy/de
-Allow: /blog/privacy-policy/pt
-Allow: /blog/privacy-policy/ko
-Allow: /blog/privacy-policy/it
-Allow: /blog/privacy-policy/hi
-
 Allow: /blog/terms-and-conditions/
-Allow: /blog/terms-and-conditions/en-GB
-Allow: /blog/terms-and-conditions/es
-Allow: /blog/terms-and-conditions/ja
-Allow: /blog/terms-and-conditions/fr
-Allow: /blog/terms-and-conditions/de
-Allow: /blog/terms-and-conditions/pt
-Allow: /blog/terms-and-conditions/ko
-Allow: /blog/terms-and-conditions/it
-Allow: /blog/terms-and-conditions/hi
-
 Allow: /blog/disclaimer/
-Allow: /blog/disclaimer/en-GB
-Allow: /blog/disclaimer/es
-Allow: /blog/disclaimer/ja
-Allow: /blog/disclaimer/fr
-Allow: /blog/disclaimer/de
-Allow: /blog/disclaimer/pt
-Allow: /blog/disclaimer/ko
-Allow: /blog/disclaimer/it
-Allow: /blog/disclaimer/hi
-
 Allow: /blog/about-us/
-Allow: /blog/about-us/en-GB
-Allow: /blog/about-us/es
-Allow: /blog/about-us/ja
-Allow: /blog/about-us/fr
-Allow: /blog/about-us/de
-Allow: /blog/about-us/pt
-Allow: /blog/about-us/ko
-Allow: /blog/about-us/it
-Allow: /blog/about-us/hi
-
 Allow: /blog/contact-us/
-Allow: /blog/contact-us/en-GB
-Allow: /blog/contact-us/es
-Allow: /blog/contact-us/ja
-Allow: /blog/contact-us/fr
-Allow: /blog/contact-us/de
-Allow: /blog/contact-us/pt
-Allow: /blog/contact-us/ko
-Allow: /blog/contact-us/it
-Allow: /blog/contact-us/hi
 
-# Disallow HTML Sitemap & All Language Versions (including /en)
+# Disallow All Multilingual Versions of Legal & Info Pages
+Disallow: /blog/privacy-policy/en
+Disallow: /blog/privacy-policy/en/
+Disallow: /blog/privacy-policy/en-GB
+Disallow: /blog/privacy-policy/en-GB/
+Disallow: /blog/privacy-policy/es
+Disallow: /blog/privacy-policy/es/
+Disallow: /blog/privacy-policy/ja
+Disallow: /blog/privacy-policy/ja/
+Disallow: /blog/privacy-policy/fr
+Disallow: /blog/privacy-policy/fr/
+Disallow: /blog/privacy-policy/de
+Disallow: /blog/privacy-policy/de/
+Disallow: /blog/privacy-policy/pt
+Disallow: /blog/privacy-policy/pt/
+Disallow: /blog/privacy-policy/ko
+Disallow: /blog/privacy-policy/ko/
+Disallow: /blog/privacy-policy/it
+Disallow: /blog/privacy-policy/it/
+Disallow: /blog/privacy-policy/hi
+Disallow: /blog/privacy-policy/hi/
+Disallow: /blog/privacy-policy/ms
+Disallow: /blog/privacy-policy/ms/
+
+Disallow: /blog/terms-and-conditions/en
+Disallow: /blog/terms-and-conditions/en/
+Disallow: /blog/terms-and-conditions/en-GB
+Disallow: /blog/terms-and-conditions/en-GB/
+Disallow: /blog/terms-and-conditions/es
+Disallow: /blog/terms-and-conditions/es/
+Disallow: /blog/terms-and-conditions/ja
+Disallow: /blog/terms-and-conditions/ja/
+Disallow: /blog/terms-and-conditions/fr
+Disallow: /blog/terms-and-conditions/fr/
+Disallow: /blog/terms-and-conditions/de
+Disallow: /blog/terms-and-conditions/de/
+Disallow: /blog/terms-and-conditions/pt
+Disallow: /blog/terms-and-conditions/pt/
+Disallow: /blog/terms-and-conditions/ko
+Disallow: /blog/terms-and-conditions/ko/
+Disallow: /blog/terms-and-conditions/it
+Disallow: /blog/terms-and-conditions/it/
+Disallow: /blog/terms-and-conditions/hi
+Disallow: /blog/terms-and-conditions/hi/
+Disallow: /blog/terms-and-conditions/ms
+Disallow: /blog/terms-and-conditions/ms/
+
+Disallow: /blog/disclaimer/en
+Disallow: /blog/disclaimer/en/
+Disallow: /blog/disclaimer/en-GB
+Disallow: /blog/disclaimer/en-GB/
+Disallow: /blog/disclaimer/es
+Disallow: /blog/disclaimer/es/
+Disallow: /blog/disclaimer/ja
+Disallow: /blog/disclaimer/ja/
+Disallow: /blog/disclaimer/fr
+Disallow: /blog/disclaimer/fr/
+Disallow: /blog/disclaimer/de
+Disallow: /blog/disclaimer/de/
+Disallow: /blog/disclaimer/pt
+Disallow: /blog/disclaimer/pt/
+Disallow: /blog/disclaimer/ko
+Disallow: /blog/disclaimer/ko/
+Disallow: /blog/disclaimer/it
+Disallow: /blog/disclaimer/it/
+Disallow: /blog/disclaimer/hi
+Disallow: /blog/disclaimer/hi/
+Disallow: /blog/disclaimer/ms
+Disallow: /blog/disclaimer/ms/
+
+Disallow: /blog/about-us/en
+Disallow: /blog/about-us/en/
+Disallow: /blog/about-us/en-GB
+Disallow: /blog/about-us/en-GB/
+Disallow: /blog/about-us/es
+Disallow: /blog/about-us/es/
+Disallow: /blog/about-us/ja
+Disallow: /blog/about-us/ja/
+Disallow: /blog/about-us/fr
+Disallow: /blog/about-us/fr/
+Disallow: /blog/about-us/de
+Disallow: /blog/about-us/de/
+Disallow: /blog/about-us/pt
+Disallow: /blog/about-us/pt/
+Disallow: /blog/about-us/ko
+Disallow: /blog/about-us/ko/
+Disallow: /blog/about-us/it
+Disallow: /blog/about-us/it/
+Disallow: /blog/about-us/hi
+Disallow: /blog/about-us/hi/
+Disallow: /blog/about-us/ms
+Disallow: /blog/about-us/ms/
+
+Disallow: /blog/contact-us/en
+Disallow: /blog/contact-us/en/
+Disallow: /blog/contact-us/en-GB
+Disallow: /blog/contact-us/en-GB/
+Disallow: /blog/contact-us/es
+Disallow: /blog/contact-us/es/
+Disallow: /blog/contact-us/ja
+Disallow: /blog/contact-us/ja/
+Disallow: /blog/contact-us/fr
+Disallow: /blog/contact-us/fr/
+Disallow: /blog/contact-us/de
+Disallow: /blog/contact-us/de/
+Disallow: /blog/contact-us/pt
+Disallow: /blog/contact-us/pt/
+Disallow: /blog/contact-us/ko
+Disallow: /blog/contact-us/ko/
+Disallow: /blog/contact-us/it
+Disallow: /blog/contact-us/it/
+Disallow: /blog/contact-us/hi
+Disallow: /blog/contact-us/hi/
+Disallow: /blog/contact-us/ms
+Disallow: /blog/contact-us/ms/
+
+# Disallow HTML Sitemap & All Language Versions (including /en and /ms)
 Disallow: /html-sitemap/
 Disallow: /html-sitemap/en
 Disallow: /html-sitemap/en-GB
@@ -196,8 +266,9 @@ Disallow: /html-sitemap/pt
 Disallow: /html-sitemap/ko
 Disallow: /html-sitemap/it
 Disallow: /html-sitemap/hi
+Disallow: /html-sitemap/ms
 
-# Disallow FAQ Page & All Language Versions (including /en)
+# Disallow FAQ Page & All Language Versions (including /en and /ms)
 Disallow: /faqs/
 Disallow: /faqs/en
 Disallow: /faqs/en-GB
@@ -209,8 +280,9 @@ Disallow: /faqs/pt
 Disallow: /faqs/ko
 Disallow: /faqs/it
 Disallow: /faqs/hi
+Disallow: /faqs/ms
 
-# Disallow How to Use & All Language Versions (including /en)
+# Disallow How to Use & All Language Versions (including /en and /ms)
 Disallow: /how-to-use/
 Disallow: /how-to-use/en
 Disallow: /how-to-use/en-GB
@@ -222,16 +294,28 @@ Disallow: /how-to-use/pt
 Disallow: /how-to-use/ko
 Disallow: /how-to-use/it
 Disallow: /how-to-use/hi
+Disallow: /how-to-use/ms
 
 # Disallow Keyboard Shortcuts Page (Internal / Noindex)
 Disallow: /keyboard-shortcuts
 Disallow: /keyboard-shortcuts/
 
-# Allowed Key Pages (Default English Versions Only)
+# ========================================================
+# 4. ALLOW ONLY ORIGINAL ENGLISH TIMETABLE TOOLS
+# ========================================================
 Allow: /
 Allow: /timetable-generator-online-for-students/
+Allow: /study-timetable-creator/
+Allow: /workout-timetable-creator/
+Allow: /school-timetable-maker-for-teachers/
+Allow: /revision-timetable-creator/
+Allow: /timetable-generator/
+Allow: /sitemap.html
 
-# Disallow All Non-Default Language Versions for Homepage
+# ========================================================
+# 5. DISALLOW ALL NON-DEFAULT LANGUAGE URLS ACROSS ENTIRE SITE
+# ========================================================
+# Root / Homepage Language URLs
 Disallow: /en
 Disallow: /en/
 Disallow: /en-GB
@@ -254,29 +338,41 @@ Disallow: /hi
 Disallow: /hi/
 Disallow: /ms
 Disallow: /ms/
+Disallow: /ru
+Disallow: /ru/
+Disallow: /ar
+Disallow: /ar/
+Disallow: /zh
+Disallow: /zh/
 
-# Disallow All Non-Default Language Versions for Student Timetable Generator
-Disallow: /timetable-generator-online-for-students/en
-Disallow: /timetable-generator-online-for-students/en/
-Disallow: /timetable-generator-online-for-students/en-GB
-Disallow: /timetable-generator-online-for-students/en-GB/
-Disallow: /timetable-generator-online-for-students/es
-Disallow: /timetable-generator-online-for-students/es/
-Disallow: /timetable-generator-online-for-students/ja
-Disallow: /timetable-generator-online-for-students/ja/
-Disallow: /timetable-generator-online-for-students/fr
-Disallow: /timetable-generator-online-for-students/fr/
-Disallow: /timetable-generator-online-for-students/de
-Disallow: /timetable-generator-online-for-students/de/
-Disallow: /timetable-generator-online-for-students/pt
-Disallow: /timetable-generator-online-for-students/pt/
-Disallow: /timetable-generator-online-for-students/ko
-Disallow: /timetable-generator-online-for-students/ko/
-Disallow: /timetable-generator-online-for-students/it
-Disallow: /timetable-generator-online-for-students/it/
-Disallow: /timetable-generator-online-for-students/hi
-Disallow: /timetable-generator-online-for-students/hi/
-Disallow: /timetable-generator-online-for-students/ms
-Disallow: /timetable-generator-online-for-students/ms/
+# Any Nested Language Subpath Across All Tools & Pages
+Disallow: /*/en$
+Disallow: /*/en/
+Disallow: /*/en-GB$
+Disallow: /*/en-GB/
+Disallow: /*/es$
+Disallow: /*/es/
+Disallow: /*/ja$
+Disallow: /*/ja/
+Disallow: /*/fr$
+Disallow: /*/fr/
+Disallow: /*/de$
+Disallow: /*/de/
+Disallow: /*/pt$
+Disallow: /*/pt/
+Disallow: /*/ko$
+Disallow: /*/ko/
+Disallow: /*/it$
+Disallow: /*/it/
+Disallow: /*/hi$
+Disallow: /*/hi/
+Disallow: /*/ms$
+Disallow: /*/ms/
+Disallow: /*/ru$
+Disallow: /*/ru/
+Disallow: /*/ar$
+Disallow: /*/ar/
+Disallow: /*/zh$
+Disallow: /*/zh/
 
 Sitemap: https://timetablecreator.online/sitemap.xml
