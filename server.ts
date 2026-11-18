@@ -203,6 +203,22 @@ async function startServer() {
     res.sendFile(file);
   });
 
+  // Explicit routes for dynamic shared header, footer, CSS, and JS
+  anonymityApp.get(["/header.html", "/footer.html", "/shared-layout.css", "/shared-layout.js"], (req, res) => {
+    const filename = path.basename(req.path);
+    const prodFile = path.join(process.cwd(), "dist", filename);
+    const pubFile = path.join(process.cwd(), "public", filename);
+    const file = process.env.NODE_ENV === "production" && fs.existsSync(prodFile) ? prodFile : pubFile;
+    if (filename.endsWith(".html")) {
+      res.type("text/html; charset=utf-8");
+    } else if (filename.endsWith(".css")) {
+      res.type("text/css; charset=utf-8");
+    } else if (filename.endsWith(".js")) {
+      res.type("application/javascript; charset=utf-8");
+    }
+    res.sendFile(file);
+  });
+
   // Universal Blog route handler for all blog posts, blog index, and language editions
   anonymityApp.get([
     "/blog",
