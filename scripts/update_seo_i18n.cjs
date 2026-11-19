@@ -455,26 +455,9 @@ function formatArticleMetaAndAuthor(content, slug) {
     content = content.replace(/<div class="flex items-center gap-3 text-xs font-semibold text-violet-600 tracking-wider uppercase">[\s\S]*?<\/div>/i, metaRowHtml);
   }
 
-  // 3. Top E-E-A-T Author Card in header
-  const topAuthorCardHtml = `<!-- E-E-A-T Author Card -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 bg-slate-50/50 border border-slate-100 rounded-2xl p-4">
-            <img src="/author.png" alt="Prof. Sarah Lin" class="w-12 h-12 rounded-full object-cover shadow-sm shrink-0 border border-violet-100" />
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="text-sm font-bold text-slate-900">Prof. Sarah Lin</span>
-                <span class="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full uppercase">Reviewed Specialist</span>
-              </div>
-              <p class="text-xs text-slate-500 leading-normal">
-                M.A. in Curriculum Design, Educational Technologist. 12+ years of expertise advising schools and families on healthy, performance-optimized timetables.
-              </p>
-            </div>
-          </div>`;
-
-  if (/<!--\s*E-E-A-T Author Card\s*-->\s*<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[\s\S]*?<\/div>\s*<\/div>/i.test(content)) {
-    content = content.replace(/<!--\s*E-E-A-T Author Card\s*-->\s*<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[\s\S]*?<\/div>\s*<\/div>/i, topAuthorCardHtml);
-  } else if (/<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[\s\S]*?<\/div>\s*<\/div>/i.test(content)) {
-    content = content.replace(/<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[\s\S]*?<\/div>\s*<\/div>/i, topAuthorCardHtml);
-  }
+  // 3. Remove top E-E-A-T Author Card if present in legacy content
+  content = content.replace(/<!--\s*E-E-A-T Author Card\s*-->\s*<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[\s\S]*?<\/div>\s*<\/div>/gi, '');
+  content = content.replace(/<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[^"]*border[^"]*rounded-2xl[^"]*p-4[\s\S]*?<\/div>\s*<\/div>/gi, '');
 
   // 4. Bottom Author Box
   const bottomAuthorBoxHtml = `

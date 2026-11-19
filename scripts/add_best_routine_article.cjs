@@ -28,18 +28,7 @@ const mainContent = `
               <p class="text-base text-slate-600 leading-relaxed">
                 A strong <strong>daily routine timetable for students</strong> is no longer about forcing 12 hours of non-stop study. It is about aligning your schedule with your brain’s natural energy cycles, protecting sleep, and building sustainable habits that actually last through board exams, college semesters, or competitive preparation.
               </p>
-              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 bg-slate-50/50 border border-slate-100 rounded-2xl p-4">
-                <img src="/author.png" alt="Prof. Sarah Lin" class="w-12 h-12 rounded-full object-cover shadow-sm shrink-0 border border-violet-100" />
-                <div>
-                  <div class="flex items-center gap-2">
-                    <span class="text-sm font-bold text-slate-900">Prof. Sarah Lin</span>
-                    <span class="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full uppercase">Reviewed Specialist</span>
-                  </div>
-                  <p class="text-xs text-slate-500 leading-normal">
-                    M.A. in Curriculum Design, Educational Technologist. 12+ years of expertise advising schools and families on healthy, performance-optimized timetables.
-                  </p>
-                </div>
-              </div>
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"></div>
             </header>
 
             <!-- Table of Contents -->
