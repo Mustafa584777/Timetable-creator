@@ -67,7 +67,7 @@
     <meta property="twitter:title" content="Free Online Timetable Maker & AI Timetable Generator" />
     <meta property="twitter:description" content="Create custom weekly schedules and class routines instantly with the free online timetable maker, AI timetable generator, and automatic timetable maker. Free PDF & PNG download." />
     <meta property="twitter:image" content="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=1200" />
-                                                                                                                            <link rel="canonical" href="https://timetablecreator.online/es" />
+                                                                                                                                                        <link rel="canonical" href="https://timetablecreator.online/es" />
     <meta name="robots" content="noindex, follow" />
     <!-- FAQPage Schema Markup for SEO -->
     <script type="application/ld+json">
@@ -269,7 +269,6 @@
       }
 
       body {
-        zoom: 0.7;
         -webkit-text-size-adjust: 100%;
         font-family: var(--font-sans);
         font-size: var(--font-size);
@@ -277,7 +276,7 @@
         color: var(--text-main);
         overflow: hidden;
         height: 100vh;
-        width: 100vw;
+        width: 100%;
         display: flex;
         flex-direction: column;
         transition: background-color 0.3s, color 0.3s;
@@ -302,7 +301,7 @@
       /* App Container */
       .app-container {
         display: flex;
-        width: 100vw;
+        width: 100%;
         flex: 1;
         height: 0;
         overflow: hidden;
@@ -1654,8 +1653,8 @@
         }
 
         .modal-panel {
-          width: 100vw !important;
-          max-width: 100vw !important;
+          width: 100% !important;
+          max-width: 100% !important;
           max-height: 92dvh !important;
           max-height: 92vh !important;
           border-radius: var(--border-radius) !important;
@@ -2893,7 +2892,6 @@
 
       /* When in Classic mode, allow body to scroll smoothly downwards */
       body.classic-mode-active {
-        zoom: 0.7;
         -webkit-text-size-adjust: 100%;
         overflow-x: hidden !important;
         overflow-y: auto !important;
@@ -6915,17 +6913,18 @@
         min-width: 140px;
       }
 
-      /* Tool Page Zoom Setting: 80% zoom across the entire page with robust responsiveness */
-      html, body {
-        zoom: 0.8 !important;
+      /* Tool Page Zoom Setting: 80% zoom on desktop, 70% on mobile via shared-layout.css */
+      html {
+        zoom: 0.8;
         -webkit-text-size-adjust: 100%;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
         overflow-x: auto !important;
       }
+      body,
       body.classic-mode-active {
-        zoom: 0.8 !important;
+        zoom: 1;
         -webkit-text-size-adjust: 100%;
         width: 100% !important;
         max-width: 100% !important;

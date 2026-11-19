@@ -111,7 +111,7 @@ const PAGE_META = {
     title: 'Blog & Timetable Guides - Online Timetable Creator',
     description: 'Read educational timetable guides, revision schedule strategies, and time management articles from Online Timetable Creator.',
     activePage: '',
-    isNoindex: true
+    isNoindex: false
   },
   'public/blog/about-us/index.html': {
     title: 'About Us - Online Timetable Creator',
@@ -178,6 +178,12 @@ const PAGE_META = {
     description: 'Comprehensive guide and frameworks for building optimal academic class routines, study plans, and personal schedules.',
     activePage: '',
     isNoindex: true
+  },
+  'public/blog/best-daily-routine-timetable-for-students/index.html': {
+    title: 'Best Daily Routine Timetable for Students: Science-Backed Schedules That Stick',
+    description: 'Discover a science-backed daily routine timetable for school, college, and competitive exam students. Learn energy mapping, ultradian rhythms, and proven schedules.',
+    activePage: '',
+    isNoindex: false
   }
 };
 
@@ -587,5 +593,6 @@ if (require.main === module) {
 module.exports = {
   SUPPORTED_LANGS,
   generateHreflangs,
-  runAllUpdates
+  runAllUpdates,
+  buildFullCleanDocument
 };

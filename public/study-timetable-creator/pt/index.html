@@ -1093,6 +1093,7 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="/shared-layout.css" />
   
     <!-- Multi-language Auto-Translate for Português (pt) -->
     <script>
@@ -1129,61 +1130,8 @@
     </script>
   </head>
   <body>
-    <!-- GLOBAL NAVIGATION HEADER -->
-    <header class="global-header">
-      <div class="header-container">
-        <!-- Brand -->
-        <div class="header-left-desktop">
-          <a href="/" class="header-brand" aria-label="Timetable Creator">
-            <div class="app-brand-wrapper">
-              <img src="/logo.png" alt="Timetable Creator Logo" class="app-brand-logo" width="32" height="32" />
-              <div class="header-title-group">
-                <div class="header-brand-line">
-                  <span class="app-brand-name">TIMETABLE</span>
-                  <span class="app-tools-tag">STUDY PLANNER</span>
-                </div>
-                <p class="header-subtitle">Online Study Schedule Generator</p>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Center / Right Nav -->
-        <div class="header-center-desktop">
-          <!-- Light/Dark Mode Toggle in Header -->
-          <button class="action-btn-header" onclick="toggleLocalTheme()" data-tooltip="Toggle theme mode" title="Toggle theme mode" aria-label="Toggle Theme">
-            <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
-              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
-          </button>
-
-          <!-- Nav links (Desktop) -->
-          <nav class="header-nav-desktop"><a href="/" class="nav-link-header">Timetable Maker</a>
-            <a href="/timetable-generator-online-for-students/" class="nav-link-header">Student Timetable</a>
-            <a href="/study-timetable-creator/" class="nav-link-header active">Study Timetable</a>
-            <a href="/workout-timetable-creator/" class="nav-link-header">Workout Timetable</a>
-            <a href="/school-timetable-maker-for-teachers/" class="nav-link-header">Teacher Timetable</a>
-            <a href="/revision-timetable-creator/" class="nav-link-header">Revision Timetable</a></nav>
-        </div>
-
-        <!-- Mobile Navigation Toggle Button -->
-        <button class="header-mobile-toggle" onclick="toggleMobileMenuLocal()" aria-label="Toggle menu">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24" height="24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Drawer Menu -->
-      <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
-        <a href="/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">Timetable Maker</a>
-        <a href="/timetable-generator-online-for-students/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">Free Students Timetable Maker</a>
-        <a href="/study-timetable-creator/" class="mobile-nav-link active" onclick="toggleMobileMenuLocal()">Study Timetable Creator</a>
-        <a href="/school-timetable-maker-for-teachers/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">School Timetable Maker</a>
-        <a href="/revision-timetable-creator/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">Revision Timetable Creator</a>
-        <a href="/how-to-use/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">How to Use</a>
-      </div>
-    </header>
+    <!-- DYNAMIC GLOBAL NAVIGATION HEADER -->
+    <div id="site-header" style="min-height: 64px;"></div>
 
     <!-- MAIN INTERACTIVE TOOL CONTAINER -->
     <main class="tool-main-container">
@@ -1521,59 +1469,8 @@
     <!-- TOAST NOTIFICATION -->
     <div id="copyToast" class="copy-toast">Study timetable copied to clipboard!</div>
 
-    <!-- GLOBAL FOOTER -->
-    <footer class="seo-footer">
-      <div class="footer-container">
-        <div class="footer-grid">
-          <!-- Col 1 -->
-          <div class="footer-col" style="max-width: 320px;">
-            <div class="app-brand-wrapper" style="margin-bottom: 12px;">
-              <img src="/logo.png" alt="Timetable Creator Logo" class="app-brand-logo" width="28" height="28" />
-              <div class="header-brand-line">
-                <span class="app-brand-name" style="font-size: 15px;">TIMETABLE</span>
-                <span class="app-tools-tag">CREATOR</span>
-              </div>
-            </div>
-            <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5; margin: 0 0 12px 0;">
-              Free web-based scheduling suite built for schools, universities, students, educators, and exam candidates worldwide.
-            </p>
-          </div>
-
-          <!-- Col 2 -->
-          <div class="footer-col">
-            <h4 class="footer-title">All Timetable Generators</h4>
-            <a href="/" class="footer-link">Free Online Timetable Maker</a>
-            <a href="/timetable-generator-online-for-students/" class="footer-link">Student Timetable Generator</a>
-            <a href="/study-timetable-creator/" class="footer-link">Study Timetable Creator</a>
-            <a href="/school-timetable-maker-for-teachers/" class="footer-link">School Timetable Maker</a>
-            <a href="/revision-timetable-creator/" class="footer-link">Revision Timetable Creator</a>
-          </div>
-
-          <!-- Col 3 -->
-          <div class="footer-col">
-            <h4 class="footer-title">Resources & Guides</h4>
-            <a href="/how-to-use/" class="footer-link">How to Use Guide</a>
-            <a href="/faqs/" class="footer-link">Frequently Asked Questions</a>
-            <a href="/keyboard-shortcuts/" class="footer-link">Keyboard Shortcuts</a>
-            <a href="/sitemap.html" class="footer-link">HTML Sitemap</a>
-          </div>
-
-          <!-- Col 4 -->
-          <div class="footer-col">
-            <h4 class="footer-title">Legal & Privacy</h4>
-            <a href="/blog/privacy-policy/" class="footer-link">Privacy Policy</a>
-            <a href="/blog/terms-and-conditions/" class="footer-link">Terms of Service</a>
-            <a href="/blog/about-us/" class="footer-link">About Us</a>
-            <a href="/blog/contact-us/" class="footer-link">Contact Support</a>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <div>&copy; 2026 Timetable Creator. All rights reserved.</div>
-          <div>Free Study Timetable Creator & Automatic Study Timetable Generator</div>
-        </div>
-      </div>
-    </footer>
+    <!-- DYNAMIC GLOBAL FOOTER -->
+    <div id="site-footer"></div>
 
     <!-- INTERACTIVE JAVASCRIPT LOGIC -->
     <script>
@@ -2081,34 +1978,12 @@
         setTimeout(() => toast.classList.remove('show'), 2400);
       }
 
-      // Theme toggle support
-      function toggleLocalTheme() {
-        const current = document.documentElement.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        if (next === 'dark') {
-          document.documentElement.setAttribute('data-theme', 'dark');
-          localStorage.setItem('timetable_theme', 'dark');
-        } else {
-          document.documentElement.removeAttribute('data-theme');
-          localStorage.setItem('timetable_theme', 'light');
-        }
-      }
-
-      // Mobile Menu Toggle
-      function toggleMobileMenuLocal() {
-        const drawer = document.getElementById('mobileMenuDrawer');
-        if (drawer) drawer.classList.toggle('hidden');
-      }
-
       // Initial Bootstrap on Load
       window.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('timetable_theme');
-        if (savedTheme === 'dark') {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
         renderSubjectRows();
         generateStudyTimetable();
       });
     </script>
+    <script src="/shared-layout.js" defer></script>
   </body>
 </html>

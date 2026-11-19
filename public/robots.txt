@@ -42,8 +42,7 @@ Disallow: /blog/disclaimer/en
 Disallow: /blog/about-us/en
 Disallow: /blog/contact-us/en
 
-# Disallow Blog Root & All Multilingual Blog Archive Versions (including /en)
-Disallow: /blog/
+# Disallow Multilingual Blog Archive Versions (including /en)
 Disallow: /blog/en
 Disallow: /blog/en-GB
 Disallow: /blog/es
