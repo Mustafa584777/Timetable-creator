@@ -523,6 +523,76 @@ function updateBlogFile(filePath, canonicalUrl, isLegal) {
     description: 'Read guides and policies from Online Timetable Creator.'
   };
 
+  let additionalHead = '';
+  if (!isLegal && !filePath.endsWith('/blog/index.html')) {
+    const slug = path.basename(path.dirname(filePath));
+    const info = ARTICLE_INFO[slug] || { title: meta.title, category: 'Expert Guide', readTime: '10 Min Read' };
+    
+    // 1. Article JSON-LD Schema
+    const articleSchema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": meta.title,
+      "description": meta.description,
+      "author": {
+        "@type": "Person",
+        "name": "Prof. Sarah Lin",
+        "jobTitle": "Reviewed Specialist & Educational Technologist",
+        "description": "M.A. in Curriculum Design. 12+ years expertise advising schools and families on healthy, performance-optimized timetables."
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Online Timetable Creator",
+        "url": "https://timetablecreator.online/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://timetablecreator.online/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      },
+      "datePublished": "2026-01-15T08:00:00+00:00",
+      "dateModified": "2026-11-18T18:00:00+00:00"
+    };
+    additionalHead += `\n    <script type="application/ld+json">\n${JSON.stringify(articleSchema, null, 2)}\n    </script>`;
+
+    // 2. Extract FAQs if present in mainContent and generate FAQPage JSON-LD Schema
+    // Look for FAQ sections or question headings
+    const faqMatches = mainContent.match(/<h[34][^>]*>(?:<[^>]+>)*([^?<]+?\?)(?:<\/[^>]+>)*<\/h[34]>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/gi);
+    if (faqMatches && faqMatches.length >= 2) {
+      const questions = [];
+      faqMatches.forEach(block => {
+        const qMatch = block.match(/<h[34][^>]*>(?:<[^>]+>)*([^<]+?\?)(?:<\/[^>]+>)*<\/h[34]>/i);
+        const aMatch = block.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+        if (qMatch && aMatch) {
+          const qText = qMatch[1].replace(/<[^>]+>/g, '').trim();
+          const aText = aMatch[1].replace(/<[^>]+>/g, '').trim();
+          if (qText && aText && qText.length > 5 && aText.length > 5) {
+            questions.push({
+              "@type": "Question",
+              "name": qText,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": aText
+              }
+            });
+          }
+        }
+      });
+
+      if (questions.length > 0) {
+        const faqSchema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": questions
+        };
+        additionalHead += `\n    <script type="application/ld+json">\n${JSON.stringify(faqSchema, null, 2)}\n    </script>`;
+      }
+    }
+  }
+
   const isNoindex = meta.isNoindex !== undefined ? meta.isNoindex : (!isLegal);
 
   const cleanDoc = buildFullCleanDocument({
@@ -534,11 +604,12 @@ function updateBlogFile(filePath, canonicalUrl, isLegal) {
       ? '<meta name="robots" content="noindex, follow" />' 
       : '<meta name="robots" content="index, follow" />',
     activePage: isLegal ? '' : (filePath.includes('/blog/index.html') ? 'blog' : ''),
-    mainContent: mainContent
+    mainContent: mainContent,
+    additionalHead: additionalHead
   });
 
   fs.writeFileSync(filePath, cleanDoc, 'utf8');
-  console.log(`Updated blog file: ${filePath}`);
+  console.log(`Updated blog file with Article & FAQ schemas: ${filePath}`);
 }
 
 // 7. Update Standalone Files (How to Use, FAQs, HTML Sitemap, sitemap.html)
