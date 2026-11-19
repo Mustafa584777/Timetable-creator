@@ -11,7 +11,7 @@ const mainContent = `
                 <span>•</span>
                 <span>12 Min Read</span>
                 <span>•</span>
-                <span>Updated 2026</span>
+                <span>Last Updated: November 18, 2026</span>
               </div>
               <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 break-words">
                 Best Daily Routine Timetable for Students: Science-Backed Schedules That Stick
@@ -23,7 +23,7 @@ const mainContent = `
                 <div class="w-10 h-10 rounded-full bg-violet-600 text-white font-bold flex items-center justify-center text-sm">TC</div>
                 <div>
                   <div class="font-bold text-slate-900 text-sm">Timetable Creator Editorial Board</div>
-                  <div class="text-xs text-slate-500">Published by Expert Scheduling Researchers • 2026 Edition</div>
+                  <div class="text-xs text-slate-500">Published by Expert Scheduling Researchers • Last Updated: November 18, 2026</div>
                 </div>
               </div>
             </header>
@@ -50,7 +50,7 @@ const mainContent = `
               <h2 class="text-2xl font-bold text-slate-900">1. Introduction: Why Generic "5 AM Wake-Up" Timetables Fail Most Students</h2>
               <p>I tested dozens of high-performing student schedules and found one common pattern: students who follow routines based on <strong>ultradian rhythms</strong> (short cycles of focus lasting 90–120 minutes) and clear 7–8–9 sleep rules outperform those on rigid hour-by-hour timetables by 30–40% in both grades and well-being.</p>
               <p>Most student timetables start with the same mistake — a 5:00 AM alarm and 14-hour study blocks. These work for a few days, then crash students into burnout or incomplete homework.</p>
-              <p>The winning approach is <strong>energy mapping</strong>: match tasks to your natural peaks instead of fighting them. This is the foundation of every successful student routine we observed in 2026.</p>
+              <p>The winning approach is <strong>energy mapping</strong>: match tasks to your natural peaks instead of fighting them. By utilizing a flexible <a href="/" class="text-violet-600 font-semibold hover:underline">online timetable maker</a>, you can easily map out your daily activities.</p>
             </section>
 
             <section id="sec-2" class="space-y-4">
@@ -70,7 +70,7 @@ const mainContent = `
 
             <section id="sec-3" class="space-y-4">
               <h2 class="text-2xl font-bold text-slate-900">3. Template 1: Best Daily Routine for School Students (Classes 6 to 12)</h2>
-              <p>This routine works for Indian school students (CBSE, state boards, or international curriculum) who attend offline or hybrid classes.</p>
+              <p>This routine works for Indian school students (CBSE, state boards, or international curriculum) who attend offline or hybrid classes. You can also build your own customized roster using our dedicated <a href="/timetable-generator-online-for-students/" class="text-violet-600 font-semibold hover:underline">student timetable generator</a> tool.</p>
               <h3 class="text-xl font-semibold text-slate-800">Morning Activation: Hydration, Light Movement, and Pre-School Quick Recall</h3>
               <ul class="list-disc pl-6 space-y-2 text-slate-700">
                 <li>6:00 AM – Wake up</li>
@@ -227,7 +227,7 @@ const mainContent = `
             <!-- Internal Link to Timetable Maker Tool -->
             <div class="bg-violet-50 border border-violet-200 rounded-2xl p-6 text-center space-y-3">
               <h3 class="text-lg font-bold text-slate-900">Ready to build your own schedule?</h3>
-              <p class="text-sm text-slate-600">Use our free online timetable maker to organize your daily routine instantly.</p>
+              <p class="text-sm text-slate-600">Use our free <a href="/" class="text-violet-600 font-semibold hover:underline">online timetable maker</a> or the <a href="/timetable-generator-online-for-students/" class="text-violet-600 font-semibold hover:underline">student timetable generator</a> to organize your daily routine instantly.</p>
               <a href="/" class="inline-block bg-violet-600 hover:bg-violet-700 text-white font-semibold text-sm px-6 py-3 rounded-xl transition-all shadow-sm">
                 Create Your Timetable Now
               </a>
@@ -249,4 +249,4 @@ const doc = buildFullCleanDocument({
 const dir = path.join(__dirname, '../public/blog/best-daily-routine-timetable-for-students');
 fs.mkdirSync(dir, { recursive: true });
 fs.writeFileSync(path.join(dir, 'index.html'), doc, 'utf8');
-console.log('Successfully generated best-daily-routine-timetable-for-students/index.html');
+console.log('Successfully generated best-daily-routine-timetable-for-students/index.html with homepage and student tool links');

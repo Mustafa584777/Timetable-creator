@@ -319,6 +319,14 @@ function makeArticleContentResponsive(content) {
     '</table>\n          </div>'
   );
 
+  // 7. Ensure Last Updated date in article header if not present
+  if (!content.includes('Last Updated')) {
+    content = content.replace(
+      /(<div class="flex items-center gap-2 mb-4">[\s\S]*?<\/span>)/g,
+      '$1\n            <span class="text-xs text-slate-400 font-medium">• Last Updated: November 18, 2026</span>'
+    );
+  }
+
   return content;
 }
 
