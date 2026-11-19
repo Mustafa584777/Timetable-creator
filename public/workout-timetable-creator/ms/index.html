@@ -302,6 +302,7 @@
       .faq-answer { padding: 0 18px 14px 18px; font-size: 13px; color: var(--text-muted); line-height: 1.6; display: none; }
       .faq-item.open .faq-answer { display: block; }
     </style>
+    <link rel="stylesheet" href="/shared-layout.css" />
   
     <!-- Multi-language Auto-Translate for Bahasa Melayu (ms) -->
     <script>
@@ -339,52 +340,8 @@
   </head>
   <body>
 
-    <!-- GLOBAL HEADER -->
-    <header class="global-header">
-      <div class="header-container">
-        <div class="header-left-desktop">
-          <a href="/" class="header-brand" aria-label="Timetable Creator">
-            <div class="app-brand-wrapper">
-              <img src="/logo.png" alt="Timetable Creator Logo" class="app-brand-logo" width="32" height="32" />
-              <div class="header-title-group">
-                <div class="header-brand-line">
-                  <span class="app-brand-name">TIMETABLE</span>
-                  <span class="app-tools-tag">WORKOUT PLANNER</span>
-                </div>
-                <p class="header-subtitle">Workout Timetable Creator Free</p>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="header-center-desktop">
-          <button class="action-btn-header" onclick="toggleLocalTheme()" title="Toggle theme mode" aria-label="Toggle Theme">
-            <svg id="themeToggleIconHeader" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20">
-              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
-          </button>
-          <nav class="header-nav-desktop"><a href="/" class="nav-link-header">Timetable Maker</a>
-            <a href="/timetable-generator-online-for-students/" class="nav-link-header">Student Timetable</a>
-            <a href="/study-timetable-creator/" class="nav-link-header">Study Timetable</a>
-            <a href="/workout-timetable-creator/" class="nav-link-header active">Workout Timetable</a>
-            <a href="/school-timetable-maker-for-teachers/" class="nav-link-header">Teacher Timetable</a>
-            <a href="/revision-timetable-creator/" class="nav-link-header">Revision Timetable</a></nav>
-        </div>
-
-        <button class="header-mobile-toggle" onclick="toggleMobileMenuLocal()" aria-label="Toggle menu">
-          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24" height="24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-
-      <div id="mobileMenuDrawer" class="mobile-menu-drawer hidden">
-        <a href="/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">Timetable Maker</a>
-        <a href="/timetable-generator-online-for-students/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">Student Timetable</a>
-        <a href="/study-timetable-creator/" class="mobile-nav-link" onclick="toggleMobileMenuLocal()">Study Timetable</a>
-        <a href="/workout-timetable-creator/" class="mobile-nav-link active" onclick="toggleMobileMenuLocal()">Workout Timetable Creator</a>
-      </div>
-    </header>
+    <!-- DYNAMIC GLOBAL HEADER -->
+    <div id="site-header" style="min-height: 64px;"></div>
 
     <!-- MAIN TOOL CONTAINER -->
     <main class="tool-main-container">
@@ -580,6 +537,9 @@
         </div>
       </article>
     </main>
+
+    <!-- DYNAMIC GLOBAL FOOTER -->
+    <div id="site-footer"></div>
 
     <script>
       const COLOR_PALETTE = [
@@ -857,30 +817,11 @@
         updateWorkoutProgress();
       }
 
-      function toggleLocalTheme() {
-        const current = document.documentElement.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        if (next === 'dark') {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-          document.documentElement.removeAttribute('data-theme');
-        }
-        localStorage.setItem('tt_theme', next);
-      }
-
-      function toggleMobileMenuLocal() {
-        const drawer = document.getElementById('mobileMenuDrawer');
-        drawer.classList.toggle('hidden');
-      }
-
       window.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('tt_theme');
-        if (savedTheme === 'dark') {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        }
         renderExerciseRows();
         generateWorkoutTimetable();
       });
     </script>
+    <script src="/shared-layout.js" defer></script>
   </body>
 </html>

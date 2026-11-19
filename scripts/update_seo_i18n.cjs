@@ -386,6 +386,128 @@ function updateCoreAppFile(filePath, canonicalUrl) {
   console.log(`Updated core app file: ${filePath}`);
 }
 
+const ARTICLE_INFO = {
+  'best-daily-routine-timetable-for-students': {
+    title: 'Best Daily Routine Timetable for Students',
+    category: 'Student Guide',
+    readTime: '12 Min Read'
+  },
+  'study-timetable-for-class-10': {
+    title: 'Study Timetable for Class 10',
+    category: 'Expert Guide',
+    readTime: '10 Min Read'
+  },
+  'how-to-make-a-perfect-school-timetable-in-2026-step-by-step-guide-for-students-parents-teachers': {
+    title: 'Perfect School Timetable Guide',
+    category: 'Strategic Blueprint',
+    readTime: '12 Min Read'
+  },
+  'daily-routine-for-class-10-student-at-home': {
+    title: 'Class 10 At-Home Daily Routine',
+    category: 'Exam Prep',
+    readTime: '10 Min Read'
+  },
+  'how-does-an-automatic-timetable-creator-work': {
+    title: 'How Automatic Creators Work',
+    category: 'EdTech Science',
+    readTime: '11 Min Read'
+  },
+  'timetable-guides': {
+    title: 'Timetable Guides',
+    category: 'Strategic Blueprint',
+    readTime: '15 Min Read'
+  }
+};
+
+function formatArticleMetaAndAuthor(content, slug) {
+  const info = ARTICLE_INFO[slug] || {
+    title: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+    category: 'Expert Guide',
+    readTime: '10 Min Read'
+  };
+
+  // 1. Breadcrumb navigation
+  const breadcrumbHtml = `<!-- Breadcrumb navigation -->
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-slate-500 font-medium mb-4">
+          <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+          <span>/</span>
+          <a href="/blog/" class="hover:text-violet-600 transition-colors">Blog</a>
+          <span>/</span>
+          <span class="text-slate-700 font-semibold truncate max-w-[240px] sm:max-w-md">${info.title}</span>
+        </nav>`;
+
+  content = content.replace(/(?:\s*<!--\s*Breadcrumb navigation\s*-->\s*)*<nav[^>]*>[\s\S]*?<\/nav>/i, `\n        ${breadcrumbHtml}`);
+  if (!content.includes('aria-label="Breadcrumb"')) {
+    content = content.replace(/(<article[^>]*>)/i, `$1\n        ${breadcrumbHtml}`);
+  }
+
+  // 2. Author with byline BEFORE date in header metadata row
+  const metaRowHtml = `<div class="flex flex-wrap items-center gap-2 mb-4 text-xs font-semibold uppercase tracking-wider">
+            <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-full uppercase tracking-wider">${info.category}</span>
+            <span class="text-slate-500 font-medium normal-case">• By <strong class="text-slate-700 font-semibold">Prof. Sarah Lin</strong></span>
+            <span class="text-slate-400 font-medium normal-case">• Last Updated: November 18, 2026</span>
+            <span class="text-slate-400 font-medium normal-case">• ${info.readTime}</span>
+          </div>`;
+
+  if (/<div class="flex[^"]*items-center[^"]*mb-4[^"]*">[\s\S]*?<\/div>/i.test(content)) {
+    content = content.replace(/<div class="flex[^"]*items-center[^"]*mb-4[^"]*">[\s\S]*?<\/div>/i, metaRowHtml);
+  } else if (/<div class="flex items-center gap-3 text-xs font-semibold text-violet-600 tracking-wider uppercase">[\s\S]*?<\/div>/i.test(content)) {
+    content = content.replace(/<div class="flex items-center gap-3 text-xs font-semibold text-violet-600 tracking-wider uppercase">[\s\S]*?<\/div>/i, metaRowHtml);
+  }
+
+  // 3. Top E-E-A-T Author Card in header
+  const topAuthorCardHtml = `<!-- E-E-A-T Author Card -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 bg-slate-50/50 border border-slate-100 rounded-2xl p-4">
+            <img src="/author.png" alt="Prof. Sarah Lin" class="w-12 h-12 rounded-full object-cover shadow-sm shrink-0 border border-violet-100" />
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-bold text-slate-900">Prof. Sarah Lin</span>
+                <span class="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full uppercase">Reviewed Specialist</span>
+              </div>
+              <p class="text-xs text-slate-500 leading-normal">
+                M.A. in Curriculum Design, Educational Technologist. 12+ years of expertise advising schools and families on healthy, performance-optimized timetables.
+              </p>
+            </div>
+          </div>`;
+
+  if (/<!--\s*E-E-A-T Author Card\s*-->\s*<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[\s\S]*?<\/div>\s*<\/div>/i.test(content)) {
+    content = content.replace(/<!--\s*E-E-A-T Author Card\s*-->\s*<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[\s\S]*?<\/div>\s*<\/div>/i, topAuthorCardHtml);
+  } else if (/<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[\s\S]*?<\/div>\s*<\/div>/i.test(content)) {
+    content = content.replace(/<div class="flex flex-col sm:flex-row[^"]*bg-slate-50\/50[\s\S]*?<\/div>\s*<\/div>/i, topAuthorCardHtml);
+  }
+
+  // 4. Bottom Author Box
+  const bottomAuthorBoxHtml = `
+        <!-- Author Box -->
+        <div class="mt-10 pt-8 border-t border-slate-200">
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
+            <img src="/author.png" alt="Prof. Sarah Lin" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-sm shrink-0 border-2 border-violet-100" />
+            <div class="space-y-2 text-center sm:text-left flex-1">
+              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                <span class="text-base sm:text-lg font-bold text-slate-900">Prof. Sarah Lin</span>
+                <span class="text-[11px] bg-green-100 text-green-700 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Reviewed Specialist</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                M.A. in Curriculum Design, Educational Technologist. 12+ years of expertise advising schools and families on healthy, performance-optimized timetables.
+              </p>
+            </div>
+          </div>
+        </div>
+`;
+
+  if (/<!--\s*Author Box\s*-->[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/i.test(content)) {
+    content = content.replace(/<!--\s*Author Box\s*-->[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/i, bottomAuthorBoxHtml.trim());
+  } else {
+    content = content.replace(/<\/article>/i, `${bottomAuthorBoxHtml}      </article>`);
+  }
+
+  // 5. Clean any other author names
+  content = content.replace(/Dr\. Anand Verma/g, 'Prof. Sarah Lin');
+  content = content.replace(/Timetable Creator Editorial Board/g, 'Prof. Sarah Lin');
+
+  return content;
+}
+
 // 6. Update Blog files (Articles and Legal Pages)
 function updateBlogFile(filePath, canonicalUrl, isLegal) {
   if (!fs.existsSync(filePath)) return;
@@ -406,6 +528,12 @@ function updateBlogFile(filePath, canonicalUrl, isLegal) {
   // Clean any auth links from mainContent if present
   mainContent = mainContent.replace(/<a\s+href="[^"]*auth=signin"[^>]*>[\s\S]*?<\/a>/gi, '');
   mainContent = mainContent.replace(/<a\s+href="[^"]*auth=signup"[^>]*>[\s\S]*?<\/a>/gi, '');
+
+  // If this is an article (not legal, not blog index), format metadata, breadcrumbs, and author box
+  if (!isLegal && !filePath.endsWith('/blog/index.html')) {
+    const slug = path.basename(path.dirname(filePath));
+    mainContent = formatArticleMetaAndAuthor(mainContent, slug);
+  }
 
   const meta = PAGE_META[filePath] || {
     title: isLegal ? 'Legal Notice - Online Timetable Creator' : 'Study Guide - Online Timetable Creator',
@@ -568,7 +696,7 @@ function runAllUpdates() {
   // All Base Blog Posts & Pages
   const blogDir = 'public/blog';
   const langCodes = SUPPORTED_LANGS.map(l => l.code).concat(['en', 'ru', 'ar', 'zh']);
-  const legalPages = ['privacy-policy', 'terms-and-conditions', 'disclaimer', 'about-us', 'contact-us'];
+  const legalPages = ['privacy-policy', 'terms-and-conditions', 'disclaimer', 'about-us', 'contact-us', 'refund-policy'];
 
   if (fs.existsSync(blogDir)) {
     // 1. Blog archive index.html

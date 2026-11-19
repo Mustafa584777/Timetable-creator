@@ -5,13 +5,22 @@ const { buildFullCleanDocument } = require('./update_seo_i18n.cjs');
 const mainContent = `
         <main class="w-full max-w-4xl mx-auto px-3 sm:px-6 py-6 sm:py-10 flex-grow" style="max-width: min(56rem, 100%); width: 100%;">
           <article class="bg-white border border-[#e5e7eb] rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 shadow-sm space-y-6 sm:space-y-8 w-full overflow-hidden" style="max-width: 100%;">
-            <header class="space-y-4">
-              <div class="flex items-center gap-3 text-xs font-semibold text-violet-600 tracking-wider uppercase">
-                <span>Student Guide</span>
-                <span>•</span>
-                <span>12 Min Read</span>
-                <span>•</span>
-                <span>Last Updated: November 18, 2026</span>
+            
+            <!-- Breadcrumb navigation -->
+            <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-slate-500 font-medium mb-4">
+              <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+              <span>/</span>
+              <a href="/blog/" class="hover:text-violet-600 transition-colors">Blog</a>
+              <span>/</span>
+              <span class="text-slate-700 font-semibold truncate max-w-[240px] sm:max-w-md">Best Daily Routine Timetable for Students</span>
+            </nav>
+
+            <header class="space-y-4 border-b border-[#e5e7eb] pb-8">
+              <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wider">
+                <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-full uppercase tracking-wider">Student Guide</span>
+                <span class="text-slate-500 font-medium normal-case">• By <strong class="text-slate-700 font-semibold">Prof. Sarah Lin</strong></span>
+                <span class="text-slate-400 font-medium normal-case">• Last Updated: November 18, 2026</span>
+                <span class="text-slate-400 font-medium normal-case">• 12 Min Read</span>
               </div>
               <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 break-words">
                 Best Daily Routine Timetable for Students: Science-Backed Schedules That Stick
@@ -20,10 +29,15 @@ const mainContent = `
                 A strong <strong>daily routine timetable for students</strong> is no longer about forcing 12 hours of non-stop study. It is about aligning your schedule with your brain’s natural energy cycles, protecting sleep, and building sustainable habits that actually last through board exams, college semesters, or competitive preparation.
               </p>
               <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 bg-slate-50/50 border border-slate-100 rounded-2xl p-4">
-                <div class="w-10 h-10 rounded-full bg-violet-600 text-white font-bold flex items-center justify-center text-sm">TC</div>
+                <img src="/author.png" alt="Prof. Sarah Lin" class="w-12 h-12 rounded-full object-cover shadow-sm shrink-0 border border-violet-100" />
                 <div>
-                  <div class="font-bold text-slate-900 text-sm">Timetable Creator Editorial Board</div>
-                  <div class="text-xs text-slate-500">Published by Expert Scheduling Researchers • Last Updated: November 18, 2026</div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm font-bold text-slate-900">Prof. Sarah Lin</span>
+                    <span class="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full uppercase">Reviewed Specialist</span>
+                  </div>
+                  <p class="text-xs text-slate-500 leading-normal">
+                    M.A. in Curriculum Design, Educational Technologist. 12+ years of expertise advising schools and families on healthy, performance-optimized timetables.
+                  </p>
                 </div>
               </div>
             </header>
@@ -231,6 +245,22 @@ const mainContent = `
               <a href="/" class="inline-block bg-violet-600 hover:bg-violet-700 text-white font-semibold text-sm px-6 py-3 rounded-xl transition-all shadow-sm">
                 Create Your Timetable Now
               </a>
+            </div>
+
+            <!-- Author Box -->
+            <div class="mt-10 pt-8 border-t border-slate-200">
+              <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
+                <img src="/author.png" alt="Prof. Sarah Lin" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-sm shrink-0 border-2 border-violet-100" />
+                <div class="space-y-2 text-center sm:text-left flex-1">
+                  <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <span class="text-base sm:text-lg font-bold text-slate-900">Prof. Sarah Lin</span>
+                    <span class="text-[11px] bg-green-100 text-green-700 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Reviewed Specialist</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    M.A. in Curriculum Design, Educational Technologist. 12+ years of expertise advising schools and families on healthy, performance-optimized timetables.
+                  </p>
+                </div>
+              </div>
             </div>
           </article>
         </main>

@@ -154,6 +154,14 @@ async function startServer() {
     res.sendFile(file);
   });
 
+  anonymityApp.get("/author.png", (req, res) => {
+    const file = process.env.NODE_ENV === "production" && fs.existsSync(path.join(process.cwd(), "dist", "author.png"))
+      ? path.join(process.cwd(), "dist", "author.png")
+      : path.join(process.cwd(), "public", "author.png");
+    res.type("image/png");
+    res.sendFile(file);
+  });
+
   anonymityApp.get(["/favicon.ico", "/favicon"], (req, res) => {
     const file = process.env.NODE_ENV === "production" && fs.existsSync(path.join(process.cwd(), "dist", "favicon.ico"))
       ? path.join(process.cwd(), "dist", "favicon.ico")
