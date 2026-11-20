@@ -184,6 +184,12 @@ const PAGE_META = {
     description: 'Discover a science-backed daily routine timetable for school, college, and competitive exam students. Learn energy mapping, ultradian rhythms, and proven schedules.',
     activePage: '',
     isNoindex: false
+  },
+  'public/blog/how-to-time-block-your-day/index.html': {
+    title: 'How to Time Block Your Day: Step-by-Step Guide & Weekly Template',
+    description: 'Learn how to time block your day with a step-by-step system, task batching, the 70/30 buffer rule, and ready-to-use weekly time blocking templates.',
+    activePage: '',
+    isNoindex: false
   }
 };
 
@@ -387,6 +393,11 @@ function updateCoreAppFile(filePath, canonicalUrl) {
 }
 
 const ARTICLE_INFO = {
+  'how-to-time-block-your-day': {
+    title: 'How to Time Block Your Day',
+    category: 'Productivity Guide',
+    readTime: '11 Min Read'
+  },
   'best-daily-routine-timetable-for-students': {
     title: 'Best Daily Routine Timetable for Students',
     category: 'Student Guide',
