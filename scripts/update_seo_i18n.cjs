@@ -190,6 +190,12 @@ const PAGE_META = {
     description: 'Learn how to time block your day with a step-by-step system, task batching, the 70/30 buffer rule, and ready-to-use weekly time blocking templates.',
     activePage: '',
     isNoindex: false
+  },
+  'public/blog/free-college-class-schedule-template-and-how-to-organize-your-lectures/index.html': {
+    title: 'Free College Class Schedule Template & How to Organize Your Lectures',
+    description: 'Download free college class schedule templates (PDF, Sheets, Notion, wallpaper) and learn step-by-step how to organize lectures and master campus gap hours.',
+    activePage: '',
+    isNoindex: false
   }
 };
 
@@ -427,6 +433,11 @@ const ARTICLE_INFO = {
     title: 'Timetable Guides',
     category: 'Strategic Blueprint',
     readTime: '15 Min Read'
+  },
+  'free-college-class-schedule-template-and-how-to-organize-your-lectures': {
+    title: 'Free College Class Schedule Template',
+    category: 'College Guide',
+    readTime: '12 Min Read'
   }
 };
 
