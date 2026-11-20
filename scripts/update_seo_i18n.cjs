@@ -577,6 +577,33 @@ function updateBlogFile(filePath, canonicalUrl, isLegal) {
     };
     additionalHead += `\n    <script type="application/ld+json">\n${JSON.stringify(articleSchema, null, 2)}\n    </script>`;
 
+    // 1.5 BreadcrumbList JSON-LD Schema
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://timetablecreator.online/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://timetablecreator.online/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": info.title,
+          "item": canonicalUrl
+        }
+      ]
+    };
+    additionalHead += `\n    <script type="application/ld+json">\n${JSON.stringify(breadcrumbSchema, null, 2)}\n    </script>`;
+
     // 2. Extract FAQs if present in mainContent and generate FAQPage JSON-LD Schema
     // Look for FAQ sections or question headings
     const faqMatches = mainContent.match(/<h[34][^>]*>(?:<[^>]+>)*([^?<]+?\?)(?:<\/[^>]+>)*<\/h[34]>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/gi);
