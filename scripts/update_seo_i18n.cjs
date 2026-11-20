@@ -248,16 +248,16 @@ ${staticCss}
           extend: {
             colors: {
               violet: {
-                50: '#f5f3ff',
-                100: '#ede9fe',
-                200: '#ddd6fe',
-                300: '#c4b5fd',
+                50: '#f6f3ff',
+                100: '#ebe8fa',
+                200: '#dcd4fc',
+                300: '#c3b2fa',
                 400: '#a78bfa',
-                500: '#8b5cf6',
-                600: '#7c3aed',
-                700: '#6d28d9',
-                800: '#5b21b6',
-                900: '#4c1d95',
+                500: '#8c52ff',
+                600: '#673de6',
+                700: '#5830d1',
+                800: '#4924b3',
+                900: '#3a1c8f',
               }
             }
           }
@@ -267,12 +267,12 @@ ${staticCss}
     ${additionalHead}
     ${SHARED_CSS_TAG}
   </head>
-  <body class="bg-[#f8f9fa] text-slate-800 antialiased min-h-screen flex flex-col selection:bg-violet-500 selection:text-white">
+  <body class="bg-[#f8f9fa] dark:bg-[#0e0d1e] text-[#1d1e2c] dark:text-[#f5f4fc] antialiased min-h-screen flex flex-col selection:bg-[#673de6] selection:text-white">
     ${SITE_HEADER_PLACEHOLDER}
     ${mainContent}
     ${SITE_FOOTER_PLACEHOLDER}
     ${SHARED_JS_TAG}
-    ${pageScript ? `<script>\n${pageScript.trim()}\n</script>` : ''}
+    ${pageScript ? `<script data-page-script="true">\n${pageScript.trim()}\n</script>` : ''}
   </body>
 </html>`;
 }
@@ -428,12 +428,12 @@ function formatArticleMetaAndAuthor(content, slug) {
 
   // 1. Breadcrumb navigation
   const breadcrumbHtml = `<!-- Breadcrumb navigation -->
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-slate-500 font-medium mb-4">
-          <a href="/" class="hover:text-violet-600 transition-colors">Home</a>
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-[#6e6d7a] dark:text-[#a3a0c2] font-medium mb-4">
+          <a href="/" class="hover:text-[#673de6] dark:hover:text-[#8c68fc] transition-colors">Home</a>
           <span>/</span>
-          <a href="/blog/" class="hover:text-violet-600 transition-colors">Blog</a>
+          <a href="/blog/" class="hover:text-[#673de6] dark:hover:text-[#8c68fc] transition-colors">Blog</a>
           <span>/</span>
-          <span class="text-slate-700 font-semibold truncate max-w-[240px] sm:max-w-md">${info.title}</span>
+          <span class="text-[#1d1e2c] dark:text-[#f5f4fc] font-semibold truncate max-w-[240px] sm:max-w-md">${info.title}</span>
         </nav>`;
 
   content = content.replace(/(?:\s*<!--\s*Breadcrumb navigation\s*-->\s*)*<nav[^>]*>[\s\S]*?<\/nav>/i, `\n        ${breadcrumbHtml}`);
@@ -443,10 +443,10 @@ function formatArticleMetaAndAuthor(content, slug) {
 
   // 2. Author with byline BEFORE date in header metadata row
   const metaRowHtml = `<div class="flex flex-wrap items-center gap-2 mb-4 text-xs font-semibold uppercase tracking-wider">
-            <span class="bg-violet-100 text-violet-700 px-3 py-1 rounded-full uppercase tracking-wider">${info.category}</span>
-            <span class="text-slate-500 font-medium normal-case">• By <strong class="text-slate-700 font-semibold">Prof. Sarah Lin</strong></span>
-            <span class="text-slate-400 font-medium normal-case">• Last Updated: November 18, 2026</span>
-            <span class="text-slate-400 font-medium normal-case">• ${info.readTime}</span>
+            <span class="bg-[#ebe8fa] dark:bg-[#232140] text-[#673de6] dark:text-[#a78bfa] px-3 py-1 rounded-full uppercase tracking-wider">${info.category}</span>
+            <span class="text-[#6e6d7a] dark:text-[#a3a0c2] font-medium normal-case">• By <strong class="text-[#1d1e2c] dark:text-[#f5f4fc] font-semibold">Prof. Sarah Lin</strong></span>
+            <span class="text-[#6e6d7a] dark:text-[#a3a0c2] font-medium normal-case">• Last Updated: November 18, 2026</span>
+            <span class="text-[#6e6d7a] dark:text-[#a3a0c2] font-medium normal-case">• ${info.readTime}</span>
           </div>`;
 
   if (/<div class="flex[^"]*items-center[^"]*mb-4[^"]*">[\s\S]*?<\/div>/i.test(content)) {
@@ -462,15 +462,15 @@ function formatArticleMetaAndAuthor(content, slug) {
   // 4. Bottom Author Box
   const bottomAuthorBoxHtml = `
         <!-- Author Box -->
-        <div class="mt-10 pt-8 border-t border-slate-200">
-          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
-            <img src="/author.png" alt="Prof. Sarah Lin" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-sm shrink-0 border-2 border-violet-100" />
+        <div class="mt-10 pt-8 border-t border-[#ebe8fa] dark:border-[#2f2b54]">
+          <div class="tc-surface-panel bg-[#f7f5fe] dark:bg-[#232140] border border-[#ebe8fa] dark:border-[#2f2b54] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
+            <img src="/author.png" alt="Prof. Sarah Lin" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-sm shrink-0 border-2 border-[#dcd4fc] dark:border-[#8c68fc]" />
             <div class="space-y-2 text-center sm:text-left flex-1">
               <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                <span class="text-base sm:text-lg font-bold text-slate-900">Prof. Sarah Lin</span>
-                <span class="text-[11px] bg-green-100 text-green-700 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Reviewed Specialist</span>
+                <span class="tc-text-primary text-base sm:text-lg font-bold text-[#1d1e2c] dark:text-[#f5f4fc]">Prof. Sarah Lin</span>
+                <span class="text-[11px] bg-[#00b090]/15 text-[#008f75] dark:text-[#34d399] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Reviewed Specialist</span>
               </div>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p class="tc-text-secondary text-xs sm:text-sm text-[#6e6d7a] dark:text-[#a3a0c2] leading-relaxed">
                 M.A. in Curriculum Design, Educational Technologist. 12+ years of expertise advising schools and families on healthy, performance-optimized timetables.
               </p>
             </div>
@@ -496,6 +496,13 @@ function updateBlogFile(filePath, canonicalUrl, isLegal) {
   if (!fs.existsSync(filePath)) return;
   let content = fs.readFileSync(filePath, 'utf8');
 
+  // Preserve any explicit page-specific interactive script block
+  let pageScript = '';
+  const pageScriptMatch = content.match(/<script\s+data-page-script=["']true["'][^>]*>([\s\S]*?)<\/script>/i);
+  if (pageScriptMatch) {
+    pageScript = pageScriptMatch[1].trim();
+  }
+
   // Extract <main>...</main>
   const mainStart = content.indexOf('<main');
   const mainEnd = content.indexOf('</main>', mainStart);
@@ -504,6 +511,7 @@ function updateBlogFile(filePath, canonicalUrl, isLegal) {
     return;
   }
   let mainContent = content.substring(mainStart, mainEnd + 7);
+  mainContent = mainContent.replace(/<script\s+data-page-script=["']true["'][^>]*>[\s\S]*?<\/script>/gi, '');
 
   // Make Article & Content Responsive (100vw, responsive tables, responsive padding)
   mainContent = makeArticleContentResponsive(mainContent);
@@ -569,7 +577,7 @@ function updateBlogFile(filePath, canonicalUrl, isLegal) {
         if (qMatch && aMatch) {
           const qText = qMatch[1].replace(/<[^>]+>/g, '').trim();
           const aText = aMatch[1].replace(/<[^>]+>/g, '').trim();
-          if (qText && aText && qText.length > 5 && aText.length > 5) {
+          if (qText && aText && qText.length > 5 && aText.length > 5 && !/^ready to build/i.test(qText)) {
             questions.push({
               "@type": "Question",
               "name": qText,
@@ -605,7 +613,8 @@ function updateBlogFile(filePath, canonicalUrl, isLegal) {
       : '<meta name="robots" content="index, follow" />',
     activePage: isLegal ? '' : (filePath.includes('/blog/index.html') ? 'blog' : ''),
     mainContent: mainContent,
-    additionalHead: additionalHead
+    additionalHead: additionalHead,
+    pageScript: pageScript
   });
 
   fs.writeFileSync(filePath, cleanDoc, 'utf8');

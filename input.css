@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .dark, .dark *));
+
 @source "./public/**/*.html";
 @source "./*.html";
 @source "./scripts/**/*.cjs";
 
 @theme {
-  --color-violet-50: #f5f3ff;
-  --color-violet-100: #ede9fe;
-  --color-violet-200: #ddd6fe;
-  --color-violet-300: #c4b5fd;
+  --color-violet-50: #f6f3ff;
+  --color-violet-100: #ebe8fa;
+  --color-violet-200: #dcd4fc;
+  --color-violet-300: #c3b2fa;
   --color-violet-400: #a78bfa;
-  --color-violet-500: #8b5cf6;
-  --color-violet-600: #7c3aed;
-  --color-violet-700: #6d28d9;
-  --color-violet-800: #5b21b6;
-  --color-violet-900: #4c1d95;
+  --color-violet-500: #8c52ff;
+  --color-violet-600: #673de6;
+  --color-violet-700: #5830d1;
+  --color-violet-800: #4924b3;
+  --color-violet-900: #3a1c8f;
 }
 
 /* Timetable Activity Popup Modal - Mobile & Tablet Responsive */
