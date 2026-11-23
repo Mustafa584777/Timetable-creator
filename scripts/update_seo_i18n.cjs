@@ -196,6 +196,12 @@ const PAGE_META = {
     description: 'Download free college class schedule templates (PDF, Sheets, Notion, wallpaper) and learn step-by-step how to organize lectures and master campus gap hours.',
     activePage: '',
     isNoindex: false
+  },
+  'public/blog/university-study-schedule-for-working-students/index.html': {
+    title: 'University Study Schedule for Working Students: Realistic Templates & Systems',
+    description: 'Build a realistic university study schedule for working students using energy management, micro-study pockets, and proven weekly templates for full-time, part-time, and shift workers.',
+    activePage: '',
+    isNoindex: false
   }
 };
 
@@ -437,7 +443,16 @@ const ARTICLE_INFO = {
   'free-college-class-schedule-template-and-how-to-organize-your-lectures': {
     title: 'Free College Class Schedule Template',
     category: 'College Guide',
-    readTime: '12 Min Read'
+    readTime: '12 Min Read',
+    updatedDate: 'November 19, 2026',
+    isoDate: '2026-11-19T18:00:00+00:00'
+  },
+  'university-study-schedule-for-working-students': {
+    title: 'University Study Schedule for Working Students',
+    category: 'University Guide',
+    readTime: '12 Min Read',
+    updatedDate: 'November 23, 2026',
+    isoDate: '2026-11-23T18:00:00+00:00'
   }
 };
 
@@ -464,10 +479,11 @@ function formatArticleMetaAndAuthor(content, slug) {
   }
 
   // 2. Author with byline BEFORE date in header metadata row
+  const updatedLabel = info.updatedDate || 'November 18, 2026';
   const metaRowHtml = `<div class="flex flex-wrap items-center gap-2 mb-4 text-xs font-semibold uppercase tracking-wider">
             <span class="bg-[#ebe8fa] dark:bg-[#232140] text-[#673de6] dark:text-[#a78bfa] px-3 py-1 rounded-full uppercase tracking-wider">${info.category}</span>
             <span class="text-[#6e6d7a] dark:text-[#a3a0c2] font-medium normal-case">• By <strong class="text-[#1d1e2c] dark:text-[#f5f4fc] font-semibold">Prof. Sarah Lin</strong></span>
-            <span class="text-[#6e6d7a] dark:text-[#a3a0c2] font-medium normal-case">• Last Updated: November 18, 2026</span>
+            <span class="text-[#6e6d7a] dark:text-[#a3a0c2] font-medium normal-case">• Last Updated: ${updatedLabel}</span>
             <span class="text-[#6e6d7a] dark:text-[#a3a0c2] font-medium normal-case">• ${info.readTime}</span>
           </div>`;
 
@@ -486,7 +502,7 @@ function formatArticleMetaAndAuthor(content, slug) {
         <!-- Author Box -->
         <div class="mt-10 pt-8 border-t border-[#ebe8fa] dark:border-[#2f2b54]">
           <div class="tc-surface-panel bg-[#f7f5fe] dark:bg-[#232140] border border-[#ebe8fa] dark:border-[#2f2b54] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
-            <img src="/author.png" alt="Prof. Sarah Lin" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-sm shrink-0 border-2 border-[#dcd4fc] dark:border-[#8c68fc]" />
+            <img src="/author.png" alt="Prof. Sarah Lin" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-sm shrink-0 border-2 border-[#dcd4fc] dark:border-[#8c68fc]" referrerpolicy="no-referrer" />
             <div class="space-y-2 text-center sm:text-left flex-1">
               <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                 <span class="tc-text-primary text-base sm:text-lg font-bold text-[#1d1e2c] dark:text-[#f5f4fc]">Prof. Sarah Lin</span>
@@ -584,7 +600,7 @@ function updateBlogFile(filePath, canonicalUrl, isLegal) {
         "@id": canonicalUrl
       },
       "datePublished": "2026-01-15T08:00:00+00:00",
-      "dateModified": "2026-11-18T18:00:00+00:00"
+      "dateModified": info.isoDate || "2026-11-18T18:00:00+00:00"
     };
     additionalHead += `\n    <script type="application/ld+json">\n${JSON.stringify(articleSchema, null, 2)}\n    </script>`;
 
