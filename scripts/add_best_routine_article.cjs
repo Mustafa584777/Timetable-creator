@@ -32,7 +32,7 @@ const mainContent = `
               </p>
 
               <p class="text-base text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">
-                A strong <strong>daily routine timetable for students</strong> is no longer about forcing 12 hours of non-stop study. It is about aligning your schedule with your brain’s natural energy cycles, protecting sleep, and building sustainable habits that actually last through board exams, college semesters, or competitive preparation.
+                A strong <strong>daily routine timetable for students</strong> built with a flexible <a href="/" class="text-[#673de6] dark:text-[#a78bfa] font-semibold underline decoration-[#673de6]/50 hover:decoration-[#673de6]">timetable maker</a> is no longer about forcing 12 hours of non-stop study. It is about aligning your schedule with your brain’s natural energy cycles, protecting sleep, and building sustainable habits that actually last through board exams, college semesters, or competitive preparation.
               </p>
               <p class="text-base text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">
                 I tested dozens of high-performing student schedules and found one common pattern: students who follow routines based on <strong>ultradian rhythms</strong> (short cycles of focus lasting 90–120 minutes) and clear 7–8–9 sleep rules outperform those on rigid hour-by-hour timetables by 30–40% in both grades and well-being.
@@ -64,7 +64,7 @@ const mainContent = `
             <section id="sec-1" class="space-y-4">
               <h2 class="text-2xl font-bold text-[#1d1e2c] dark:text-[#f5f4fc]">1. Introduction: Why Generic "5 AM Wake-Up" Timetables Fail Most Students</h2>
               <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">Most student timetables start with the same mistake — a 5:00 AM alarm and 14-hour study blocks. These work for a few days, then crash students into burnout or incomplete homework.</p>
-              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">The winning approach is <strong>energy mapping</strong>: match tasks to your natural peaks instead of fighting them. This is the foundation of every successful student routine we observed in 2026. By utilizing a flexible <a href="/" class="text-[#673de6] dark:text-[#a78bfa] font-semibold hover:underline">online timetable maker</a>, you can easily map out your daily activities.</p>
+              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">The winning approach is <strong>energy mapping</strong>: match tasks to your natural peaks instead of fighting them. This is the foundation of every successful student routine we observed in 2026.</p>
 
               <!-- Infographic 1: High-Performance Daily Routine -->
               <figure class="tc-surface-card my-8 rounded-2xl overflow-hidden border border-[#ebe8fa] dark:border-[#2f2b54] shadow-sm bg-white dark:bg-[#19172f]">
@@ -81,7 +81,7 @@ const mainContent = `
               
               <div class="space-y-3">
                 <h3 class="text-xl font-semibold text-[#1d1e2c] dark:text-[#f5f4fc]">Energy Mapping Over Time Blocking: Aligning Tasks with Ultradian Rhythms</h3>
-                <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">Your brain runs on 90–120 minute cycles (ultradian rhythms). After every 90–120 minutes of deep work, you get a natural dip. Good schedules build 5–10 minute breaks and switch activities every cycle instead of using fixed hour blocks.</p>
+                <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">Your brain runs on 90–120 minute cycles (ultradian rhythms). After every 90–120 minutes of deep work, you get a natural dip. Good schedules build 5–10 minute breaks and switch activities every cycle instead of using fixed hour blocks—and if you want structured blocks, learn <a href="/blog/how-to-time-block-your-day/" class="text-[#673de6] dark:text-[#a78bfa] font-semibold underline decoration-[#673de6]/50 hover:decoration-[#673de6]">how to time block your day</a> around these natural energy cycles.</p>
               </div>
 
               <!-- Infographic 2: The 90-Minute Ultradian Study Cycle -->
@@ -345,7 +345,7 @@ const mainContent = `
             <!-- SECTION 3 -->
             <section id="sec-3" class="space-y-4">
               <h2 class="text-2xl font-bold text-[#1d1e2c] dark:text-[#f5f4fc]">3. Template 1: Best Daily Routine for School Students (Classes 6 to 12)</h2>
-              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">This routine works for Indian school students (CBSE, state boards, or international curriculum) who attend offline or hybrid classes. You can also build your own customized roster using our dedicated <a href="/timetable-generator-online-for-students/" class="text-[#673de6] dark:text-[#a78bfa] font-semibold hover:underline">student timetable generator</a> tool.</p>
+              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">This routine works for Indian school students (CBSE, state boards, or international curriculum) who attend offline or hybrid classes.</p>
               
               <h3 class="text-xl font-semibold text-[#1d1e2c] dark:text-[#f5f4fc]">Morning Activation: Hydration, Light Movement, and Pre-School Quick Recall</h3>
               <ul class="list-disc pl-6 space-y-2 text-[#3c3d4e] dark:text-[#c7c5df]">
@@ -710,11 +710,11 @@ const mainContent = `
               <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">Thousands of students who follow energy-based routines report higher scores, less stress, and better health. The difference between average and exceptional students in 2026 is rarely intelligence — it is consistent, science-backed scheduling.</p>
             </section>
 
-            <!-- Call to Action Box: Text without internal links & Button linked to Student Timetable Generator -->
+            <!-- Call to Action Box: Button linked to Homepage -->
             <div class="tc-surface-panel bg-[#f7f5fe] dark:bg-[#232140] border border-[#dcd4fc] dark:border-[#2f2b54] rounded-2xl p-6 text-center space-y-3">
               <h3 class="text-lg font-bold text-[#1d1e2c] dark:text-[#f5f4fc]">Ready to build your own schedule?</h3>
               <p class="text-sm text-[#6e6d7a] dark:text-[#a3a0c2]">Use our free online timetable maker or the student timetable generator to organize your daily routine instantly.</p>
-              <a href="/timetable-generator-online-for-students/" class="inline-flex items-center gap-2 bg-[#673de6] hover:bg-[#5830d1] text-white font-semibold text-sm px-6 py-3 rounded-xl transition-all shadow-sm">
+              <a href="/" class="inline-flex items-center gap-2 bg-[#673de6] hover:bg-[#5830d1] text-white font-semibold text-sm px-6 py-3 rounded-xl transition-all shadow-sm">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 <span>Create Your Timetable Now</span>
               </a>

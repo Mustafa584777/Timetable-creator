@@ -32,7 +32,7 @@ const mainContent = `
               </figure>
 
               <p class="text-base text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">
-                A <strong>Free College Class Schedule Template &amp; How to Organize Your Lectures</strong> is the single most powerful tool every college student needs. Instead of struggling with confusing timetables or scattered notes, a well-designed schedule turns your entire semester into a smooth, stress-free academic system.
+                A <strong>Free College Class Schedule Template &amp; How to Organize Your Lectures</strong> built with an online <a href="/" class="text-[#148888] dark:text-[#34d399] font-semibold underline decoration-[#18A8A8]/50 hover:decoration-[#18A8A8]">timetable maker</a> is the single most powerful tool every college student needs. Instead of struggling with confusing timetables or scattered notes, a well-designed schedule turns your entire semester into a smooth, stress-free academic system.
               </p>
             </header>
 
@@ -59,7 +59,7 @@ const mainContent = `
             <!-- SECTION: Why High School Timetables Don't Work -->
             <section id="sec-why" class="space-y-4">
               <h2 class="text-2xl font-bold text-[#1d1e2c] dark:text-[#f5f4fc]">Why High School Timetables Don’t Work in College</h2>
-              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">High school schedules are rigid — you have the same classes every day at the same time. College is completely different. You face new courses, professors, campus life, part-time jobs, and unpredictable hybrid lectures. Generic high school templates fail here because they don’t account for credit hours, gap hours, or the reality of independent study.</p>
+              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">High school schedules are rigid — you have the same classes every day at the same time. College is completely different. You face new courses, professors, campus life, part-time jobs, and unpredictable hybrid lectures. Generic high school templates fail here because they don’t account for credit hours, gap hours, or the reality of independent study. If you are balancing classes alongside employment, follow a dedicated <a href="/blog/university-study-schedule-for-working-students/" class="text-[#148888] dark:text-[#34d399] font-semibold underline decoration-[#18A8A8]/50 hover:decoration-[#18A8A8]">university study schedule for working students</a>.</p>
               <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">The good news? Free, professional college class schedule templates exist that make organizing your lectures easy, balanced, and stress-free.</p>
             </section>
 

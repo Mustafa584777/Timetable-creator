@@ -32,7 +32,7 @@ const mainContent = `
               </figure>
 
               <p class="text-base text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">
-                A <strong>University Study Schedule for Working Students</strong> is the only way to balance a full-time or part-time job, university classes, and a real life without burnout or falling behind. Standard college timetables designed for students who live on campus simply don’t work when you have shifts, commutes, and family responsibilities.
+                A <strong>University Study Schedule for Working Students</strong> created with a free <a href="/" class="text-[#0f7676] dark:text-[#4fd1d1] font-semibold underline decoration-[#18A8A8]/50 hover:decoration-[#18A8A8]">timetable maker</a> is the only way to balance a full-time or part-time job, university classes, and a real life without burnout or falling behind. Standard college timetables designed for students who live on campus simply don’t work when you have shifts, commutes, and family responsibilities.
               </p>
               <p class="text-base text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">
                 The winning approach is <strong>energy management</strong> — not hour counting. By protecting your peak mental hours and using short, efficient “micro-pockets” of time, working students achieve higher grades and better well-being than those who try to study after a long day.
@@ -63,7 +63,7 @@ const mainContent = `
             <section id="sec-1" class="space-y-4">
               <h2 class="text-2xl font-bold text-[#1d1e2c] dark:text-[#f5f4fc]">1. Introduction: Why Standard College Study Timetables Fail Working Students</h2>
               <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">Most university timetables assume you have unlimited energy after work. They don’t. After a 9-to-5 shift or night shift, willpower is gone and the brain is too tired for deep learning. That’s why students who follow rigid “study at 10 PM” schedules drop out or fail courses.</p>
-              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">The solution is a <a href="/timetable-generator-online-for-students/" class="text-[#0f7676] dark:text-[#4fd1d1] font-semibold underline decoration-[#18A8A8]/50 hover:decoration-[#18A8A8]"><strong>University Study Schedule for Working Students</strong></a> built around your real life — shifts, sleep, and energy levels — not just clock time.</p>
+              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">The solution is a <strong>University Study Schedule for Working Students</strong> built around your real life — shifts, sleep, and energy levels — not just clock time. You can pair your work shifts with a <a href="/blog/free-college-class-schedule-template-and-how-to-organize-your-lectures/" class="text-[#0f7676] dark:text-[#4fd1d1] font-semibold underline decoration-[#18A8A8]/50 hover:decoration-[#18A8A8]">free college class schedule template to organize your lectures</a> alongside your weekly hours.</p>
             </section>
 
             <!-- SECTION 2 -->

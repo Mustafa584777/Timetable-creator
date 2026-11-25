@@ -26,7 +26,7 @@ const mainContent = `
                 How to Time Block Your Day: Step-by-Step Guide &amp; Free Weekly Template
               </h1>
               <p class="text-base text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">
-                <strong>How to Time Block Your Day</strong> is one of the most powerful productivity systems that actually works. Instead of endless to-do lists that get ignored, time blocking turns your day into fixed, protected blocks of deep work, communication, and rest. This method has helped thousands of professionals and students increase focus, reduce burnout, and deliver better results with far less stress.
+                <strong>How to Time Block Your Day</strong> is one of the most powerful productivity systems that actually works. Instead of endless to-do lists that get ignored, time blocking with a smart <a href="/" class="text-[#008f75] dark:text-[#34d399] font-semibold underline decoration-[#00b090]/50 hover:decoration-[#00b090]">timetable maker</a> turns your day into fixed, protected blocks of deep work, communication, and rest. This method has helped thousands of professionals and students increase focus, reduce burnout, and deliver better results with far less stress.
               </p>
             </header>
 
@@ -268,6 +268,7 @@ const mainContent = `
               <!-- Template 3 -->
               <div class="space-y-2">
                 <h3 class="text-xl font-semibold text-[#1d1e2c] dark:text-[#f5f4fc]">Template 3: The Student &amp; Exam Prep Weekly Time Block Grid</h3>
+                <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">For school and exam learners, pairing this grid with a science-backed <a href="/blog/best-daily-routine-timetable-for-students/" class="text-[#008f75] dark:text-[#34d399] font-semibold underline decoration-[#00b090]/50 hover:decoration-[#00b090]">daily routine timetable for students</a> aligns focus blocks with natural sleep and energy cycles.</p>
                 <div class="article-table-wrap border border-[#00b090]/25 dark:border-[#2f2b54] rounded-xl sm:rounded-2xl overflow-x-auto mt-2 w-full">
                   <table class="w-full min-w-[540px] text-left border-collapse text-xs sm:text-sm">
                     <thead>
