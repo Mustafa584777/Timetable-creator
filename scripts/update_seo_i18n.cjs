@@ -208,6 +208,12 @@ const PAGE_META = {
     description: 'Score 95+ in CBSE, ICSE, and state board exams with flexible 6-hour school day and 10-hour study leave timetables, stream splits, and protected 7.5-hour sleep.',
     activePage: '',
     isNoindex: false
+  },
+  'public/blog/how-to-build-a-50-10-and-25-5-pomodoro-study-schedule/index.html': {
+    title: 'How to Build a 50/10 & 25/5 Pomodoro Study Schedule That Actually Works',
+    description: 'Build a hybrid 50/10 and 25/5 Pomodoro study schedule that prevents burnout, matches subjects to interval length, and includes ready-to-use student templates.',
+    activePage: '',
+    isNoindex: false
   }
 };
 
@@ -466,6 +472,13 @@ const ARTICLE_INFO = {
     readTime: '12 Min Read',
     updatedDate: 'November 25, 2026',
     isoDate: '2026-11-25T18:00:00+00:00'
+  },
+  'how-to-build-a-50-10-and-25-5-pomodoro-study-schedule': {
+    title: '50/10 & 25/5 Pomodoro Study Schedule',
+    category: 'Study Focus Guide',
+    readTime: '12 Min Read',
+    updatedDate: 'November 25, 2026',
+    isoDate: '2026-11-25T20:00:00+00:00'
   }
 };
 

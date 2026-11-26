@@ -285,7 +285,7 @@ const mainContent = `
               <h2 class="text-2xl font-bold text-[#1d1e2c] dark:text-[#f5f4fc]">7. Behavioral Gap: Rules to Survive a 10-Hour Study Routine Without Burnout</h2>
 
               <h3 class="text-xl font-semibold text-[#1d1e2c] dark:text-[#f5f4fc]">The 50/10 Pomodoro Cycle vs. 90-Minute Ultradian Focus Blocks</h3>
-              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">Use 90-minute focus blocks with 10-minute breaks. Avoid 50-minute Pomodoros during long revision sessions.</p>
+              <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">Use 90-minute focus blocks with 10-minute breaks. Avoid 50-minute Pomodoros during long revision sessions, or follow a hybrid <a href="/blog/how-to-build-a-50-10-and-25-5-pomodoro-study-schedule/" class="text-[#0f7676] dark:text-[#4fd1d1] font-semibold underline decoration-[#18A8A8]/50 hover:decoration-[#18A8A8]">50/10 &amp; 25/5 Pomodoro study schedule</a> when switching between heavy numericals and quick revision.</p>
 
               <h3 class="text-xl font-semibold text-[#1d1e2c] dark:text-[#f5f4fc]">Designing a Distraction-Proof Study Desk and Strict Phone Boundaries</h3>
               <p class="text-[#3c3d4e] dark:text-[#c7c5df] leading-relaxed">Keep your desk completely clean. Use phone apps like Forest or Freedom to block social media during study hours.</p>
