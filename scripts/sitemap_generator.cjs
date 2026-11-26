@@ -46,7 +46,7 @@ function getAllSitePages(baseDir = 'public') {
             if (!isNoindex) {
               pages.push({
                 loc: `${baseUrl}/blog/${entry.name}/`,
-                priority: (entry.name === 'best-daily-routine-timetable-for-students' || entry.name === 'how-to-time-block-your-day' || entry.name === 'free-college-class-schedule-template-and-how-to-organize-your-lectures' || entry.name === 'university-study-schedule-for-working-students') ? '0.8' : '0.6',
+                priority: (entry.name === 'best-daily-routine-timetable-for-students' || entry.name === 'how-to-time-block-your-day' || entry.name === 'free-college-class-schedule-template-and-how-to-organize-your-lectures' || entry.name === 'university-study-schedule-for-working-students' || entry.name === 'best-study-timetable-for-board-exam-students') ? '0.8' : '0.6',
                 changefreq: 'weekly'
               });
             }

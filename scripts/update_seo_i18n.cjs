@@ -202,6 +202,12 @@ const PAGE_META = {
     description: 'Build a realistic university study schedule for working students using energy management, micro-study pockets, and proven weekly templates for full-time, part-time, and shift workers.',
     activePage: '',
     isNoindex: false
+  },
+  'public/blog/best-study-timetable-for-board-exam-students/index.html': {
+    title: 'Best Study Timetable for Board Exam Students (6-Hour & 10-Hour Plans)',
+    description: 'Score 95+ in CBSE, ICSE, and state board exams with flexible 6-hour school day and 10-hour study leave timetables, stream splits, and protected 7.5-hour sleep.',
+    activePage: '',
+    isNoindex: false
   }
 };
 
@@ -453,6 +459,13 @@ const ARTICLE_INFO = {
     readTime: '12 Min Read',
     updatedDate: 'November 23, 2026',
     isoDate: '2026-11-23T18:00:00+00:00'
+  },
+  'best-study-timetable-for-board-exam-students': {
+    title: 'Best Study Timetable for Board Exam Students',
+    category: 'Board Exam Guide',
+    readTime: '12 Min Read',
+    updatedDate: 'November 25, 2026',
+    isoDate: '2026-11-25T18:00:00+00:00'
   }
 };
 
