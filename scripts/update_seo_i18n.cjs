@@ -214,6 +214,18 @@ const PAGE_META = {
     description: 'Build a hybrid 50/10 and 25/5 Pomodoro study schedule that prevents burnout, matches subjects to interval length, and includes ready-to-use student templates.',
     activePage: '',
     isNoindex: false
+  },
+  'public/blog/7-day-weekly-gym-workout-plan-for-beginners/index.html': {
+    title: '7-Day Weekly Gym Workout Plan for Beginners',
+    description: 'Follow a science-backed 7-day weekly gym workout plan for beginners using the 4-2-1 formula, full-body strength sessions, recovery days, and double progression.',
+    activePage: '',
+    isNoindex: false
+  },
+  'public/blog/6-day-push-pull-legs-workout-timetable/index.html': {
+    title: '6-Day Push Pull Legs Workout Timetable & Complete Rest Day Guide',
+    description: 'Build muscle and strength with a 6-day Push Pull Legs (PPL) workout timetable, fixed and rolling schedules, 48-72h recovery science, deloads, and rest day rules.',
+    activePage: '',
+    isNoindex: false
   }
 };
 
@@ -479,6 +491,20 @@ const ARTICLE_INFO = {
     readTime: '12 Min Read',
     updatedDate: 'November 25, 2026',
     isoDate: '2026-11-25T20:00:00+00:00'
+  },
+  '7-day-weekly-gym-workout-plan-for-beginners': {
+    title: '7-Day Weekly Gym Workout Plan for Beginners',
+    category: 'Fitness & Workout Guide',
+    readTime: '10 Min Read',
+    updatedDate: 'November 27, 2026',
+    isoDate: '2026-11-27T18:00:00+00:00'
+  },
+  '6-day-push-pull-legs-workout-timetable': {
+    title: '6-Day Push Pull Legs Workout Timetable',
+    category: 'Fitness & Workout Guide',
+    readTime: '10 Min Read',
+    updatedDate: 'November 27, 2026',
+    isoDate: '2026-11-27T20:00:00+00:00'
   }
 };
 
